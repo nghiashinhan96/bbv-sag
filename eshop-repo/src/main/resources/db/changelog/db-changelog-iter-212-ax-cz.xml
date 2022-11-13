@@ -1,0 +1,144 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_212_GENERATE_MULTILANGUAGE_JSON_FUNCTION_AX_CZ">
+    <sql>
+		CREATE FUNCTION dbo.generateMultiLanguageJson(@en varchar(MAX), @cs varchar(MAX), @de varchar(MAX))
+		RETURNS varchar(MAX)
+		AS
+		BEGIN
+			DECLARE @singleLanguageTemplate varchar(MAX)= N'{"langIso":"{{langIso}}","content":"{{content}}"}'
+			DECLARE @multipleLanguageTemplate varchar(MAX)= N'[]'
+			DECLARE @en_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+						'$.langIso', 'en'), 
+						'$.content', @en)
+			DECLARE @cs_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+						'$.langIso', 'cs'), 
+						'$.content', @cs)
+			DECLARE @de_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+						'$.langIso', 'de'), 
+						'$.content', @de)
+			DECLARE @result_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(@multipleLanguageTemplate, 
+						'append $', JSON_QUERY(@en_json)),
+						'append $', JSON_QUERY(@cs_json)),
+						'append $', JSON_QUERY(@de_json))
+		RETURN @result_json
+		END
+	</sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_212_GENERATE_SINGLE_AVAIL_TYPE_JSON_FUNCTION_AX_CZ">
+    <sql>
+		CREATE FUNCTION dbo.generateSingleAvailTypeJson(
+			@availState varchar(MAX),
+			@detailAvailText varchar(MAX),
+			@listAvailText varchar(MAX),
+			@title varchar(MAX),
+			@description varchar(MAX),
+			@color varchar(MAX),
+			@confirmColor varchar(MAX),
+			@displayOption varchar(MAX))
+		RETURNS varchar(MAX)
+		AS
+		BEGIN
+			DECLARE @availTypeTemplate varchar(MAX)= N'{"availState":"{{avail_state}}","detailAvailText":[],"listAvailText":[],"title":"{{title}}}","description":"{{description}}","color":"{{color}}","confirmColor":"{{confirmColor}}","displayOption":"{{option}}"}'
+			DECLARE @resultJson varchar(MAX) = JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(@availTypeTemplate,
+						'$.availState', @availState),
+						'$.detailAvailText', JSON_QUERY(@detailAvailText)),
+						'$.listAvailText', JSON_QUERY(@listAvailText)),
+						'$.title', @title),
+						'$.description', @description),
+						'$.color', @color),
+						'$.confirmColor', @confirmColor),
+						'$.displayOption', @displayOption)
+		RETURN @resultJson
+		END
+	</sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_212_ADD_DEFAULT_SETTING_FOR_AVAIL_DISPLAY_AX_CZ">
+    <sql>
+		
+		DECLARE @arrayJsonTemplate nvarchar(MAX) = N'[]'
+		DECLARE @sameDay varchar(MAX) = 'SAME_DAY'
+		DECLARE @nextDay varchar(MAX) = 'NEXT_DAY'
+		DECLARE @partial varchar(MAX) = 'PARTIALLY_AVAILABLE'
+		DECLARE @notAvailable varchar(MAX) = 'NOT_AVAILABLE'
+		
+		DECLARE @panelTitleSameDay varchar(MAX) = 'Available same day'
+		DECLARE @panelTitleNextDay varchar(MAX) = 'Available next day'
+		DECLARE @panelTitlePartialAvailability varchar(MAX) = 'Partially available'
+		DECLARE @panelTitleNotAvailability varchar(MAX) = 'Not available'
+		
+		DECLARE @descriptionSameDay varchar(MAX) = 'If delivery type pickup, and an article is immediately available at the local branch, then the term "Immediate" is displayed, regardless of whether a display text has been entered or not.'
+		
+		DECLARE @colorSameDay varchar(MAX) = '#02ad02'
+		DECLARE @colorNextDay varchar(MAX) = '#ffb74c'
+		DECLARE @colorPartial varchar(MAX) = '#00b4f0'
+		DECLARE @colorNotAvailable varchar(MAX) = '#ff161f'
+	    DECLARE @confirmColor varchar(MAX) = '#333'
+
+		DECLARE @listAvailText_sameday_en varchar(MAX) = 'Today'
+		DECLARE @listAvailText_sameday_de varchar(MAX) = 'Heute'
+		DECLARE @listAvailText_sameday_cs varchar(MAX) = 'Dnes'
+		
+		DECLARE @listAvailText_nextday_en varchar(MAX) = 'Next working day'
+		DECLARE @listAvailText_nextday_de varchar(MAX) = 'Nächster Arbeitstag'
+		DECLARE @listAvailText_nextday_cs varchar(MAX) = 'Následující pracovní den'
+		
+		DECLARE @listAvailText_partial_en varchar(MAX) = 'Partial quantity available'
+		DECLARE @listAvailText_partial_de varchar(MAX) = 'Teilmenge verfügbar'
+		DECLARE @listAvailText_partial_cs varchar(MAX) = 'Částečné množství k dispozici'
+		
+		DECLARE @listAvailText_notavail_en varchar(MAX) = 'Not available'
+		DECLARE @listAvailText_notavail_de varchar(MAX) = 'Nicht verfügbar'
+		DECLARE @listAvailText_notavail_cs varchar(MAX) = 'Nedostupné'
+		
+		DECLARE @detailAvailText_notavail_en varchar(MAX) = 'If the item is not available within 24 hours, you will be informed.'
+		DECLARE @detailAvailText_notavail_de varchar(MAX) = 'Sollte der Artikel nicht innerhalb von 24 Std lieferbar sein, werden Sie informiert.'
+		DECLARE @detailAvailText_notavail_cs varchar(MAX) = 'Pokud článek nebude k dispozici do 24 hodin, budete o tom informováni.'
+		
+		DECLARE @defaultDisplayOption varchar(MAX) = 'NONE'
+		DECLARE @notAvailDisplayOption varchar(MAX) = 'DOT'
+		
+		DECLARE @collectionIdTable TABLE(id int)
+		INSERT INTO @collectionIdTable 
+			SELECT ID FROM ORGANISATION_COLLECTION oc WHERE oc.SHORTNAME &lt;&gt; 'sag'
+		
+		DECLARE @collectionId int
+		DECLARE CollectionCursor CURSOR FOR SELECT ID from @collectionIdTable
+		OPEN collectionCursor
+		FETCH NEXT FROM CollectionCursor INTO @collectionId
+		WHILE @@FETCH_STATUS = 0 
+			BEGIN
+				
+				DECLARE @listAvailText_sameday_json varchar(MAX) = dbo.generateMultiLanguageJson(@listAvailText_sameday_en, @listAvailText_sameday_cs, @listAvailText_sameday_de)
+				DECLARE @listAvailText_nextday_json varchar(MAX) = dbo.generateMultiLanguageJson(@listAvailText_sameday_en, @listAvailText_sameday_cs, @listAvailText_sameday_de)
+				DECLARE @listAvailText_partial_json varchar(MAX) = dbo.generateMultiLanguageJson(@listAvailText_sameday_en, @listAvailText_sameday_cs, @listAvailText_sameday_de)
+				DECLARE @listAvailText_notavailable_json varchar(MAX) = dbo.generateMultiLanguageJson(@listAvailText_notavail_en, @listAvailText_notavail_cs, @listAvailText_notavail_de)
+				
+				DECLARE @detailAvailText_notavailable_json varchar(MAX) = dbo.generateMultiLanguageJson(@detailAvailText_notavail_en, @detailAvailText_notavail_cs, @detailAvailText_notavail_de)
+				
+				DECLARE @samedayJson varchar(MAX) = dbo.generateSingleAvailTypeJson(@sameDay, NULL, @listAvailText_sameday_json, @panelTitleSameDay, @descriptionSameDay, @colorSameDay, NULL, @defaultDisplayOption)
+				DECLARE @nextdayJson varchar(MAX) = dbo.generateSingleAvailTypeJson(@nextDay, NULL, @listAvailText_nextday_json, @panelTitleNextDay, NULL, @colorNextDay, NULL, @defaultDisplayOption)
+				DECLARE @partiallyJson varchar(MAX) = dbo.generateSingleAvailTypeJson(@partial, NULL, @listAvailText_partial_json, @panelTitlePartialAvailability, NULL, @colorPartial, NULL, @defaultDisplayOption)
+				DECLARE @notAvailableJson varchar(MAX) = dbo.generateSingleAvailTypeJson(@notAvailable, @detailAvailText_notavailable_json, @listAvailText_notavailable_json, @panelTitleNotAvailability, NULL, @colorNotAvailable, @confirmColor , @notAvailDisplayOption)
+													
+				DECLARE @resultJson nvarchar(MAX) = JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(@arrayJsonTemplate,
+									'append $', JSON_QUERY(@samedayJson)),
+									'append $', JSON_QUERY(@nextdayJson)),
+									'append $', JSON_QUERY(@partiallyJson)),
+									'append $', JSON_QUERY(@notAvailableJson))
+				DELETE dbo.ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @collectionId AND SETTING_KEY = 'availability_display'
+				INSERT INTO dbo.ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@collectionId, N'availability_display', @resultJson)
+				FETCH NEXT FROM CollectionCursor INTO @collectionId
+			END
+		CLOSE CollectionCursor
+		DEALLOCATE CollectionCursor
+		
+		DROP FUNCTION dbo.generateSingleAvailTypeJson
+		DROP FUNCTION dbo.generateMultiLanguageJson
+	</sql>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,37 @@
+# ************************************************************************
+# This is the CZ configuration of DVSE(SOAP) application for Production mode.
+# 
+# Required Common configuration:
+# - Elasticsearch -
+# - ERP -
+# - MDM for DVSE service - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Caching - 
+# - Incentive - 
+# - SOAP - 
+# - Country Code - 
+# -  No Proxy For Serbia and CZ. We are in Azure -
+# - Java Melody Monitoring - 
+#
+# ************************************************************************
+spring.profiles.include:
+  elasticsearch-customization-prod,
+  mail-wt-prod,
+  wint-prod,
+  mdm-prod,
+  db-prod,
+  executor-pool-prod-sb,
+  no-liquibase,
+  logging-sb-prod,
+  actuator,
+  cache-prod,
+  incentive-prod,
+  soap,
+  country-sb,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_sb.txt

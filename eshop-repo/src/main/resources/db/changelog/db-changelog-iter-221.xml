@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_221_ADD_ARTICLE_DESCRPTION_FIELD">
+    <sql>
+    	IF NOT EXISTS (SELECT 1 FROM sys.columns
+			WHERE Name =
+			N'ARTICLE_DESCRIPTION'
+			AND Object_ID = Object_ID(N'INVOICE_HISTORY_POSITION'))
+            BEGIN
+            ALTER TABLE [dbo].[INVOICE_HISTORY_POSITION] ADD ARTICLE_DESCRIPTION varchar(45) null
+            END
+	</sql>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,68 @@
+.labour-haynespro {
+    border: 1px solid $thin-grey;
+    border-top: 0;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: $gray-200;
+    display: inline-block;
+    width: 100%;
+    .col {
+        display: inline-block;
+    }
+    .col-product {
+        box-sizing: border-box;
+        width: 420px;
+    }
+    .col-quantity {
+        box-sizing: border-box;
+        width: 155px;
+        padding: 0 8px;
+    }
+    .col-gross-price {
+        width: 200px;
+        padding: 0 8px;
+    }
+    .col-article-price {
+        width: 55px;
+    }
+    .col-delete {
+        width: 65px;
+        .fa {
+            color: $gray-600;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    }
+}
+
+.offer-body {
+    .labour-haynespro {
+        padding-left: 0px;
+        @include flex-row;
+        .col-product {
+            padding-left: 8px;
+            width: 328px;
+        }
+        .col-quantity {
+            input {
+                width: 62px;
+            }
+            width: 163px;
+        }
+        .col-gross-price {
+            input {
+                width: 149px;
+            }
+            width: 157px;
+        }
+        .col-article-price {
+            width: 236px;
+            text-align: right;
+        }
+        .col-delete {
+            width: 58px;
+            text-align: right;
+        }
+    }
+}

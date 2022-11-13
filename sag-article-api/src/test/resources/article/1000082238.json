@@ -1,0 +1,355 @@
+{
+				"freetextDisplayDesc": "Ölfilter MAHLE OC 47",
+				"oeNumbers": {
+					"AUDI": [
+						"SE021030288A",
+						"E5120700509",
+						"BAT115561A",
+						"89201808900",
+						"89201808201",
+						"6A115561BDSF",
+						"59115661A",
+						"57115561",
+						"56999651G",
+						"56115561G",
+						"56115561B",
+						"5120700509",
+						"37115561B",
+						"37115561A",
+						"35115561G",
+						"35115561",
+						"28115351",
+						"261155613",
+						"06A115561BDSF",
+						"059115661A",
+						"057115561",
+						"056999651G",
+						"056115561G",
+						"056115561B",
+						"056115561A",
+						"037115561B",
+						"037115561A",
+						"035115561G",
+						"035115561",
+						"0261155613",
+						"0028115351"
+					],
+					"CHRYSLER": [
+						"J3250334",
+						"8127168",
+						"3232126"
+					],
+					"CITROËN": [
+						"5417584"
+					],
+					"FORD": [
+						"EFL48",
+						"A800X6714KA",
+						"A800X6714FA",
+						"A780X6714GA",
+						"A770X6714HA",
+						"A720X6714LA",
+						"A700X6714KA",
+						"A700X6714CA",
+						"5007365",
+						"5007124",
+						"5004928",
+						"5003460",
+						"5000184",
+						"1498016"
+					],
+					"ISUZU": [
+						"8944637151",
+						"700032431"
+					],
+					"PORSCHE": [
+						"93110770100"
+					],
+					"SEAT": [
+						"SE021030288A",
+						"E5120700509",
+						"BAT115561A",
+						"89201808900",
+						"89201808201",
+						"5120700509",
+						"06A115561BDSF",
+						"059115661A",
+						"057115561",
+						"056999651G",
+						"056115561G",
+						"056115561B",
+						"056115561A",
+						"037115561B",
+						"037115561A",
+						"035115561G",
+						"035115561",
+						"0261155613",
+						"0028115351"
+					],
+					"SKODA": [
+						"SE021030288A",
+						"E5120700509",
+						"BAT115561A",
+						"89201808900",
+						"89201808201",
+						"5120700509",
+						"06A115561BDSF",
+						"059115661A",
+						"057115561",
+						"056999651G",
+						"056115561G",
+						"056115561B",
+						"056115561A",
+						"037115561B",
+						"037115561A",
+						"035115561G",
+						"035115561",
+						"0261155613",
+						"0028115351"
+					],
+					"VW": [
+						"SE021030288A",
+						"E5120700509",
+						"BAT115561A",
+						"89201808900",
+						"89201808201",
+						"5120700509",
+						"06A115561BDSF",
+						"059115661A",
+						"057115561",
+						"056999651G",
+						"056115561G",
+						"056115561B",
+						"056115561A",
+						"037115561B",
+						"037115561A",
+						"035115561G",
+						"035115561",
+						"0261155613",
+						"0028115351"
+					]
+				},
+				"iamNumbers": {
+					"ASPÖCK": [
+						"GFE229"
+					],
+					"DOLEZYCH": [
+						"AP1022",
+						"AP1922",
+						"AP3478A",
+						"AP63005A",
+						"LK1022"
+					],
+					"DRESSELHAUS": [
+						"2313001"
+					],
+					"HEIZMANN": [
+						"LF3490",
+						"LF3566",
+						"LF3568",
+						"LF3624",
+						"LF785",
+						"WF2022"
+					],
+					"KNOTT ACHSEN": [
+						"FT4862",
+						"FT5089",
+						"FT5259"
+					],
+					"MAHLE": [
+						"oc47"
+					]
+				},
+				"pnrnEANs": [
+					"4009026026953"
+				],
+				"pnrnPccs": [
+					"77642077"
+				],
+				"availRequested": true,
+				"totalAxStock": 41.0,
+				"allowedAddToShoppingCart": false,
+				"oilArticle": false,
+				"favorite": false,
+				"100pr": false,
+				"glassOrBody": false,
+				"id_source": "tecdoc",
+				"artnr": "oc47",
+				"is_100pr": false,
+				"gaID": "7",
+				"id_pim": "1000082238",
+				"id_dlnr": "287",
+				"supplier": "MAHLE",
+				"supplierId": 0,
+				"artid": "1000082238",
+				"artnr_display": "OC 47",
+				"partDesc": "",
+				"amountNumber": 1,
+				"salesQuantity": 1,
+				"product_brand": "MAHLE",
+				"id_product_brand": "287",
+				"name": "Ölfilter",
+				"product_addon": "",
+				"sag_product_group": "6",
+				"sag_product_group_2": "6-1",
+				"sag_product_group_3": "6-11",
+				"sag_product_group_4": "6-110006",
+				"genArtTxts": [
+					{
+						"gaid": "7",
+						"gatxtdech": "Ölfilter"
+					}
+				],
+				"genArtTxtEng": {
+					"gaid": null,
+					"gatxtdech": null
+				},
+				"criteria": [
+					{
+						"cvp": "76",
+						"cid": "200",
+						"cn": "Durchmesser [mm]",
+						"csort": 0
+					},
+					{
+						"cvp": "119.50",
+						"cid": "209",
+						"cn": "Höhe [mm]",
+						"csort": 0
+					},
+					{
+						"cvp": "1",
+						"cid": "227",
+						"cn": "benötigte Stückzahl",
+						"csort": 0
+					},
+					{
+						"cvp": "3/4\"-16UNF-2B",
+						"cid": "405",
+						"cn": "Anschlussgewinde",
+						"csort": 0
+					},
+					{
+						"cvp": "20",
+						"cid": "524",
+						"cn": "Anzugsdrehmoment [Nm]",
+						"csort": 0
+					},
+					{
+						"cvp": "Anschraubfilter",
+						"cid": "826",
+						"cn": "Filterausführung",
+						"csort": 0
+					},
+					{
+						"cvp": "72",
+						"cid": "979",
+						"cn": "Außendurchmesser 2 [mm]",
+						"csort": 0
+					},
+					{
+						"cvp": "62",
+						"cid": "996",
+						"cn": "Innendurchmesser 2 [mm]",
+						"csort": 0
+					},
+					{
+						"cvp": "OCS 1",
+						"cid": "1361",
+						"cn": "Artikelnummer des empfohlenen Spezialwerkzeuges",
+						"csort": 0
+					}
+				],
+				"images": [
+					{
+						"id_img": 1,
+						"ref": "https://s3.exellio.de/dvse/0287/6d6588b58f36ac883dc1a6f8faf6aba1.jpg",
+						"sort": 1,
+						"img_typ": "image"
+					},
+					{
+						"id_img": 2,
+						"ref": "https://s3.exellio.de/dvse/0287/300/6d6588b58f36ac883dc1a6f8faf6aba1.jpg",
+						"sort": 1,
+						"img_typ": "image_300"
+					},
+					{
+						"id_img": 3,
+						"ref": "https://s3.exellio.de/dvse/0287/110/6d6588b58f36ac883dc1a6f8faf6aba1.jpg",
+						"sort": 1,
+						"img_typ": "image_110"
+					},
+					{
+						"id_img": 4,
+						"ref": "https://s3.exellio.de/sag/atxt/8a/50/30/8a5030b95074a1732f3982d4425a84f7.jpg",
+						"sort": 2,
+						"img_typ": "image"
+					},
+					{
+						"id_img": 5,
+						"ref": "https://s3.exellio.de/sag/atxt/8a/50/30/300/8a5030b95074a1732f3982d4425a84f7.jpg",
+						"sort": 2,
+						"img_typ": "image_300"
+					},
+					{
+						"id_img": 6,
+						"ref": "https://s3.exellio.de/sag/atxt/8a/50/30/110/8a5030b95074a1732f3982d4425a84f7.jpg",
+						"sort": 2,
+						"img_typ": "image_110"
+					}
+				],
+				"info": [],
+				"price": {
+					"articleId": "1000082238",
+					"umarId": null,
+					"price": {
+						"grossPrice": 9.79,
+						"netPrice": 3.26007,
+						"discountPrice": 6.52993,
+						"discountInPercent": 66.7,
+						"totalGrossPrice": 9.79,
+						"totalNetPrice": 3.26007,
+						"totalDiscountPrice": 6.52993,
+						"uvpePrice": 9.79,
+						"standardGrossPrice": 9.79,
+						"type": "UVPE"
+					}
+				},
+				"availabilities": [
+					{
+						"articleId": "1000082238",
+						"quantity": 1,
+						"backOrder": false,
+						"immediateDelivery": false,
+						"arrivalTime": "2021-09-16T10:05:00Z",
+						"tourName": "2413_034_1205",
+						"stockWarehouse": "",
+						"deliveryWarehouse": "2413",
+						"sendMethodCode": "TOUR",
+						"tourTimeTable": [],
+						"availState": 2,
+						"availStateColor": "TOUR_PLUS_ONE",
+						"sofort": false,
+						"externalSource": false,
+						"venExternalSource": false,
+						"conExternalSource": false,
+						"formattedCETArrivalTime": "12:05",
+						"formattedCETArrivalDate": "16.09.2021"
+					}
+				],
+				"stock": {
+					"articleId": "1000082238",
+					"branchId": "2413"
+				},
+				"tyre_article": false,
+				"qty_standard_ch": 1,
+				"qty_lowest_ch": 1,
+				"qty_multiple_ch": 1,
+				"qty_standard_at": 1,
+				"qty_lowest_at": 1,
+				"qty_multiple_at": 1,
+				"qty_standard_be": 1,
+				"qty_lowest_be": 1,
+				"qty_multiple_be": 1,
+				"qtyMultiple": 1
+			}

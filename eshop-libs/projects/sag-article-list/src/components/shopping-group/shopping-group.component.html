@@ -1,0 +1,111 @@
+<ng-container *ngFor="let g of data; trackBy:trackByGroupKey; let i = index">
+    <div [id]="g.vehicleId" class="cate-root">
+        <div class="nav cate-root-header">
+            <div class="basket-item-title text-ellipsis" (click)="g.hidden = !g.hidden">
+                <i class="fa" [ngClass]="{'fa-caret-up': !g.hidden, 'fa-caret-down': g.hidden}"></i>
+                {{(g.key || ('SHOPPING_BASKET.EMPTY_VEHICLE_TITLE' |translate))}}
+            </div>
+            <sag-custom-pricing-header-actions
+                [editable]="g.vehicleId"
+                [toggleable]="false"
+                (customPriceChange)="onCustomPriceChange($event, g.vehicleId)">
+            </sag-custom-pricing-header-actions>
+            <div class="basket-item-additional-btns" *ngIf="hasHaynesProFeatures && g.key !==''">
+                <span>{{'DMS.LABOUR.WORKING_HOURS_TITLE' |translate}}</span>
+                <a class="haynes-link" (click)="onLoginHaynesPro(linkLoginHaynesPro[i].vehicleId, i)" target="_blank"
+                    *ngIf="linkLoginHaynesPro[i] && linkLoginHaynesPro[i].url_search"
+                    [attr.href]="linkLoginHaynesPro[i].url_search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
+                <a class="haynes-link" target="_blank" *ngIf="linkLoginHaynesPro[i] && linkLoginHaynesPro[i].url_add"
+                    [attr.href]="linkLoginHaynesPro[i].url_add"
+                    (click)="openModalToRetrieveDataAndRegenerateLink(linkLoginHaynesPro[i].vehicleId, i)">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="cate-root-content" [class.hidden]="g.hidden">
+            <div class="cate-group">
+                <ng-container *ngFor="let cartItems of g.value; trackBy:trackByGenArtDesc">
+                    <div *ngIf="cartItems[0].curGenArtDescription" class="cate-group-header">{{cartItems[0].curGenArtDescription}}</div>
+                    <ng-container *ngFor="let cartItem of cartItems; trackBy:trackByCartKey; index as i">
+                        <div class="card-group-content">
+                            <sag-article-detail
+                                [index]="i"
+                                [article]="cartItem.articleItem"
+                                [articleMode]="articleMode"
+                                [userSetting]="userSetting"
+                                [isShownMoreInfo]="cartItem?.articleItem?.info?.length"
+                                [removable]="true"
+                                [selectable]="true"
+                                [enableShoppingCart]="false"
+                                (removeArticleEmitter)="removeArticle($event, cartItem)"
+                                (checkArticleEmitter)="markAsDeleted($event, cartItem)"
+                                [vehicle]="cartItem.vehicle"
+                                [cartKey]="cartItem.cartKey"
+                                [vinType]="cartItem.itemDesc"
+                                [quantity]="cartItem.quantity"
+                                [productText]="cartItem.productTextWithoutArt"
+                                [currentStateVatConfirm]="currentStateVatConfirm"
+                                [parent]="PARENT.SHOPPING_BASKET"
+                                [specialInfoTemplateRef]="specialInfoTemplateRef"
+                                [memosTemplateRef]="memosTemplateRef"
+                                [customAvailTemplateRef]="customAvailTemplateRef"
+                                [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                                [priceTemplateRef]="priceTemplateRef"
+                                [isSBMode]="true"
+                                [totalPriceTemplateRef]="totalPriceTemplateRef"
+                                [totalPriceTemplateRef]="totalPriceTemplateRef"
+                                [isSubBasket]="isSubBasket"
+                                [rootModalName]="rootModalName"
+                                (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                                (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                                (onShowPartsListEmitter)="onShowPartsList($event)"
+                                (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                                (popoversChanged)="popoversChanged.emit($event)">
+                            </sag-article-detail>
+                            <ng-container *ngIf="cartItem.attachedCartItems">
+                                <sag-article-detail *ngFor="let additionalCartItem of cartItem.attachedCartItems;trackBy:trackByCartKey"
+                                    [article]="additionalCartItem.articleItem"
+                                    [vinType]="cartItem.itemDesc"
+                                    [articleMode]="articleMode"
+                                    [userSetting]="userSetting"
+                                    [isShownMoreInfo]="cartItem?.articleItem?.info?.length"
+                                    [removable]="true"
+                                    [selectable]="true"
+                                    [disabled]="true"
+                                    [enableShoppingCart]="false"
+                                    [enableDetail]="false"
+                                    [enableAvail]="false"
+                                    [productText]="additionalCartItem.productTextWithoutArt"
+                                    [currentStateVatConfirm]="currentStateVatConfirm"
+                                    [quantity]="cartItem.quantity"
+                                    [parent]="PARENT.SHOPPING_BASKET"
+                                    [memosTemplateRef]="memosTemplateRef"
+                                    [customAvailTemplateRef]="customAvailTemplateRef"
+                                    [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                                    [priceTemplateRef]="priceTemplateRef"
+                                    [isSBMode]="true"
+                                    [totalPriceTemplateRef]="totalPriceTemplateRef"
+                                    [rootModalName]="rootModalName"
+                                    (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                                    (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                                    (onShowPartsListEmitter)="onShowPartsList($event)"
+                                    (onShowCrossReferenceEmitter)="onShowCrossReference($event)">
+                                </sag-article-detail>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <ng-container *ngFor="let labourTime of labourTimes">
+                <sag-haynespro-labour-time *ngIf="labourTime && labourTime.vehicleId === g.vehicleId"
+                    [labourModel]="labourTime"
+                    (deleteLabourTime)="updateSelectedLabourTime($event)"
+                    [currentStateVatConfirm]="userSetting ? userSetting.currentStateVatConfirm : false">
+                </sag-haynespro-labour-time>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>

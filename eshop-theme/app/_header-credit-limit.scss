@@ -1,0 +1,18 @@
+.header-credit-limit {
+    &-icon {
+        font-size: 34px;
+    }
+
+    &-container {
+        color: var(--gray);
+        .positive {
+            color: var(--blue);
+            text-decoration: underline;
+        }
+    
+        .negative {
+            color: var(--red);
+            text-decoration: underline;
+        }
+    }
+}

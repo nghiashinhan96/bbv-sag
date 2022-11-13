@@ -1,0 +1,94 @@
+<section class="connect-shopping-order-condition">
+    <div class="col-xs-12 order-info-content" *ngIf="basketContext">
+        <div class="order-info-block shipping-payment">
+            <p class="box-title">
+                {{ (userDetail?.isFinalUserRole ? 'CONDITION.FC_DELIVERY_PROFILE': 'CONDITION.SHIPPING_PAYMENT') | translate }}
+            </p>
+            <ul class="shipping-payment-type-list">
+                <li id="li-tab1" *ngIf="basketContext.invoiceType?.descCode && !userDetail?.isFinalUserRole">
+                    <i id="icon-tab1" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    {{'CONDITION.INVOICE_TYPE.' + basketContext.invoiceType?.descCode| translate}}
+                </li>
+                <li id="li-tab2" *ngIf="basketContext.paymentMethod?.descCode && !userDetail?.isFinalUserRole">
+                    <i id="icon-tab2" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    {{'CONDITION.PAYMENT_METHOD.' + basketContext.paymentMethod?.descCode| translate}}
+                </li>
+                <li id="li-tab3" *ngIf="basketContext.deliveryType?.descCode">
+                    <i id="icon-tab3" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    {{'CONDITION.DELIVERY_TYPE.' + basketContext.deliveryType?.descCode| translate}}
+                </li>
+                <li id="li-tab4" *ngIf="basketContext.collectionDelivery?.descCode">
+                    <i id="icon-tab4" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                    {{'CONDITION.COLLECTIVE_DELIVERY.' + collectiveType | translate}}
+                </li>
+            </ul>
+        </div>
+        <div class="order-info-block is-boxes billing-address">
+            <p class="box-title">{{'CONDITION.BILLING_ADDRESS' | translate}}</p>
+            <div class="text" *ngIf="userDetail?.isFinalUserRole, else normalBillAddress">{{finalCustomerAddress}}</div>
+            <ng-template #normalBillAddress>
+                {{basketContext?.billingAddress?.getFullAddress()}}
+            </ng-template>
+        </div>
+        <div class="order-info-block is-boxes dilivery-address">
+            <p class="box-title">{{'CONDITION.DELIVERY_ADDRESS' | translate}}</p>
+            <div class="text" *ngIf="userDetail?.isFinalUserRole, else normalDeliveryAddress">{{finalCustomerAddress}}</div>
+            <ng-template #normalDeliveryAddress>
+                {{basketContext?.deliveryAddress?.getFullAddress()}}
+            </ng-template>
+        </div>
+        <div class="order-info-block is-boxes part-collective">
+            <p class="box-title">{{'CONDITION.DELIVERY_TYPE.TITLE' | translate}}</p>
+
+            <ng-container *ngIf="conditionHeader?.isPickupMode && !deliverySummary?.isVinOnly">
+                <div class="nav">
+                    <span>{{'CONDITION.DELIVERY_TYPE_PICKUP' | translate}}</span>
+                </div>
+                <div class="nav" *ngIf="basketContext?.pickupBranch && !userDetail?.isFinalUserRole">
+                    <span>{{'AX_CONNECTION.BRANCH_NAME' | translate}}:
+                        {{basketContext?.pickupBranch?.branchName }}</span>
+                </div>
+                <div class="nav" *ngIf="basketContext?.pickupBranch && userDetail?.isFinalUserRole">
+                    <span>{{'AX_CONNECTION.BRANCH_NAME' | translate}}:
+                        {{userDetail.settings.wssDeliveryProfile.branchCode }}</span>
+                </div>
+                <div class="nav" *ngIf="!basketContext?.pickupBranch">
+                    <span>{{'AX_CONNECTION.BRANCH_NAME' | translate}}: </span>
+                    <span class="no-branch-message">{{'CONDITION.PLEASE_SELECT_VALID_BRANCH' | translate}}</span>
+                </div>
+                <div class="nav">
+                    <span [innerHTML]="'pickupTime' | deliverySummary: conditionHeader : deliverySummary | markedHtml"></span>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="conditionHeader?.isTourMode && !deliverySummary?.isVinOnly">
+                <div class="nav">
+                    <span>{{'CONDITION.DELIVERY_TYPE_TOUR' | translate}}</span>
+                </div>
+                <div class="nav"
+                    *ngIf="(deliverySummary && deliverySummary.lastestAvail && deliverySummary.lastestAvail.tourName) as tourName">
+                    {{'CONDITION.WITH_TOUR' | translate}}
+                    {{ tourName }}
+                </div>
+                <div class="nav">
+                    <span [innerHTML]="'tourTime' | deliverySummary: conditionHeader : deliverySummary | markedHtml"></span>
+                </div>
+            </ng-container>
+
+        </div>
+        <ng-container *ngIf="userDetail?.hasWholesalerPermission && !userDetail?.isSalesOnBeHalf">
+            <div class="order-info-block is-boxes block-goods-receiver">
+                <ng-container *ngIf="finalOrder?.orgId; else goodReceiver">
+                    <div class="header d-flex mb-3 good-receiver-title">
+                        <strong>{{ 'ORDER_DASHBOARD.GOODS_RECEIVER' | translate}}</strong>
+                    </div>
+                    <connect-final-customer-address [orgId]="finalOrder?.orgId"></connect-final-customer-address>
+                </ng-container>
+
+                <ng-template #goodReceiver>
+                    <connect-good-receiver></connect-good-receiver>
+                </ng-template>
+            </div>
+        </ng-container>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+spring:
+  profiles: autonet-erp-prod
+
+external:
+  webservice:
+    autonet-erp:
+      wsdl: https://wss.autonet-group.com/tmconnecterp/TMConnectContract.svc?wsdl
+      context-path: com.sagag.services.autonet.erp.wsdl.object_factory:com.sagag.services.autonet.erp.wsdl.tmconnect:com.sagag.services.autonet.erp.wsdl.user
+      soap-action-get-erp-information: http://topmotive.eu/TMConnect/ITMConnectContract/GetErpInformation
+      

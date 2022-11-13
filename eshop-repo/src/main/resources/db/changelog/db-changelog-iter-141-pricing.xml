@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_141_EXPORT_OEP_UVPE_GROSS_USER_LIST">
+    <sql>
+     	--PLEASE DO NOT RUN IT JUST FOR HISTORICAL TRACKING PURPOSE
+    	DECLARE @OEP_UVPE_GROSS_ID VARCHAR(50) = (SELECT ID FROM PRICE_DISPLAY_TYPE WHERE TYPE='OEP_UVPE_GROSS')	
+      	SELECT 
+          O.ORG_CODE AS CUSTOMER_NR,
+	      U.EMAIL,
+          U.LAST_NAME,
+          U.FIRST_NAME
+     	FROM
+          ESHOP_USER U
+          JOIN GROUP_USER GU ON U.ID = GU.USER_ID
+          JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+          JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID
+          JOIN ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+       	  JOIN CUSTOMER_SETTINGS ST ON O.ORDER_SETTINGS_ID = ST.ID
+      	WHERE ST.PRICE_DISPLAY_ID = @OEP_UVPE_GROSS_ID	
+    </sql>
+  </changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_141_SET_UVPE_OEP_GROSS_TO_ALL_CUSTOMERS">
+    <sql>
+     	--PLEASE DO NOT RUN IT JUST FOR HISTORICAL TRACKING PURPOSE
+    	--DECLARE @UVPE_OEP_GROSS_ID VARCHAR(50) = (SELECT ID FROM PRICE_DISPLAY_TYPE WHERE TYPE='UVPE_OEP_GROSS')	
+      	--UPDATE CUSTOMER_SETTINGS SET PRICE_DISPLAY_ID = @UVPE_OEP_GROSS_ID
+    </sql>
+  </changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_141_SET_UVPE_OEP_GROSS_TO_ALL_CUSTOMERS">
+    <sql>
+    -- It should temporarily allow null first, delete later
+    ALTER TABLE CUSTOMER_SETTINGS ALTER COLUMN SHOW_DISCOUNT [bit] NULL;
+    ALTER TABLE USER_SETTINGS ALTER COLUMN SHOW_DISCOUNT [bit] NULL;
+    -- It should run manually for unexpected reason
+	--	IF EXISTS (SELECT 1
+    --        FROM   INFORMATION_SCHEMA.COLUMNS
+    --        WHERE  TABLE_NAME = 'CUSTOMER_SETTINGS' AND COLUMN_NAME = 'SHOW_DISCOUNT')
+	--		  BEGIN
+	--		      ALTER TABLE CUSTOMER_SETTINGS DROP COLUMN SHOW_DISCOUNT
+	--		  END;
+	--	IF EXISTS (SELECT 1
+    --        FROM   INFORMATION_SCHEMA.COLUMNS
+    --        WHERE  TABLE_NAME = 'USER_SETTINGS' AND COLUMN_NAME = 'SHOW_DISCOUNT')
+	--		  BEGIN
+	--		      ALTER TABLE USER_SETTINGS DROP COLUMN SHOW_DISCOUNT
+	--		  END;
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

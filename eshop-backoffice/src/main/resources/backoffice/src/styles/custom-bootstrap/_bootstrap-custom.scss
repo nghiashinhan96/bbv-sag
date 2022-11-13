@@ -1,0 +1,336 @@
+.text-primary {
+    color: $primary-color;
+}
+
+.text-success {
+    color: $success-color;
+}
+
+.text-info {
+    color: $info-color;
+}
+
+.text-warning {
+    color: $warning-color;
+}
+
+.text-danger {
+    color: $info-color;
+}
+
+// Forms
+.form-control {
+    box-shadow: none;
+    border-radius: 3px;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.input-group {
+    margin-top: 10px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    .input-group-addon,
+    .form-control {
+        border-radius: 0;
+    }
+
+    .input-group-addon {
+        background: #f6f6f6;
+        font-size: 16px;
+        color: #777;
+    }
+
+    .form-control {
+        box-shadow: none;
+    }
+}
+
+.radio label,
+.checkbox label {
+    line-height: 1.65;
+}
+
+.control-label,
+label {
+    font-weight: 500;
+}
+
+// Buttons
+.btn {
+    min-width: 100px;
+    border-radius: 3px;
+    font-size: $font-size-base;
+    font-weight: bold;
+    border: 1px solid transparent;
+
+    &:active:focus,
+    &:focus {
+        outline: none;
+    }
+
+    .fa {
+        &.left {
+            margin-right: 5px;
+        }
+
+        &.right {
+            margin-left: 5px;
+        }
+    }
+}
+
+.btn-primary {
+    background-color: $brand-color;
+    border-color: darken($brand-color, 8%);
+
+    &:hover {
+        background-color: lighten($brand-color, 8%);
+        border-color: $brand-color;
+    }
+
+    &:disabled {
+        background-color: $brand-color;
+    }
+
+    &:focus,
+    &:active {
+        &:focus {
+            background-color: #286090 !important;
+            border-color: #122b40 !important;
+            box-shadow: none !important;
+        }
+    }
+}
+
+.btn-success {
+    background-color: $success-color;
+    border-color: darken($success-color, 8%);
+
+    &:hover {
+        background-color: lighten($success-color, 8%);
+        border-color: $success-color;
+    }
+}
+
+.btn-info {
+    background-color: $info-color;
+    border-color: darken($info-color, 8%);
+
+    &:hover {
+        background-color: lighten($info-color, 8%);
+        border-color: $info-color;
+    }
+}
+
+.btn-warning {
+    background-color: $warning-color;
+    border-color: darken($warning-color, 8%);
+
+    &:hover {
+        background-color: lighten($warning-color, 8%);
+        border-color: $warning-color;
+    }
+}
+
+.btn-danger {
+    background-color: $danger-color;
+    border-color: darken($danger-color, 8%);
+
+    &:hover {
+        background-color: lighten($danger-color, 8%);
+        border-color: $danger-color;
+    }
+}
+
+.btn-default {
+    color: #333;
+    background-color: $white;
+    border-color: #ccc;
+
+    &:hover {
+        background-color: #e6e5e5;
+        border-color: $default-color;
+    }
+}
+
+// Panel
+.panel,
+.panel-body,
+.panel-heading {
+    border-radius: 0;
+}
+
+.panel-heading {
+    position: relative;
+}
+
+.panel-primary {
+    .card-header,
+    .panel-heading {
+        background-color: $brand-color;
+        border-color: $brand-color;
+        padding: 10px 15px;
+
+        a {
+            color: $white;
+        }
+
+        i {
+            color: $white;
+        }
+
+        .panel-title {
+            color: $white;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+    }
+
+    .btn-collapse:hover {
+        color: $white;
+    }
+
+    .panel-body {
+        padding: 15px;
+    }
+
+    .panel-footer {
+        padding: 10px 15px;
+        background-color: $light-pink;
+        border-top: 1px solid $border-color;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+}
+
+.panel-default {
+    .card-header,
+    .panel-heading {
+        background-color: $light-pink;
+        border-color: $light-pink;
+        padding: 10px 15px;
+
+        a {
+            color: $black-lighter;
+        }
+
+        i {
+            color: $black-lighter;
+        }
+
+        .panel-title {
+            color: $black-lighter;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+    }
+
+    .btn-collapse:hover {
+        color: $white;
+    }
+
+    .panel-body {
+        padding: 15px;
+    }
+
+    .panel-footer {
+        padding: 10px 15px;
+        background-color: $light-pink;
+        border-top: 1px solid $border-color;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+}
+
+.table {
+    table-layout: fixed;
+
+    input:not([type]),
+    input[type='text'] {
+        width: 100% !important;
+    }
+
+    th {
+        color: $white;
+    }
+
+    thead,
+    tbody {
+        tr {
+            td,
+            th {
+                vertical-align: middle;
+                border-top: 0px;
+            }
+
+            .word-break {
+                word-wrap: break-word;
+                word-break: break-word;
+            }
+        }
+    }
+}
+
+.table-primary {
+    th {
+        background: $primary-color;
+    }
+}
+
+.table-default {
+    th {
+        background: $default-color;
+    }
+}
+
+// Close
+.close {
+    font-size: 28px;
+    opacity: 0.5;
+    width: 28px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+// Modal
+.modal-content {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+}
+
+// Alert
+.alert {
+    font-size: 15px;
+}
+
+.bootstrap-10 {
+    .row {
+        margin-left: -10px !important;
+        margin-right: -10px !important;
+        box-sizing: border-box;
+    }
+
+    [class*='col-'] {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        box-sizing: border-box;
+    }
+}
+
+// .col {
+//   float: left;
+// }

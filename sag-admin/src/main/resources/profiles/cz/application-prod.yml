@@ -1,0 +1,52 @@
+# ************************************************************************
+# This is the CZ configuration of Admin application for production mode.
+# 
+# Required Common configuration:
+# - Application common configuration -
+# - Country Code - 
+# - Database -
+# - Elasticsearch - 
+# - ERP - 
+# - Caching - 
+# - Mail service - 
+# - Thread Executor Pool - 
+# - Authorization -
+# - MDM for creating DVSE user -
+# - Media Server -
+# - No Proxy For Serbia and CZ we are in Azure -
+# - Logging - 
+# - Java Melody Monitoring - 
+# - Actuator Healthcheck - 
+# - Liquibase - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagadmin,
+  stakis-erp-prod,
+  mdm-prod,
+  mail-prod,
+  elasticsearch-prod,
+  db-prod,
+  executor-pool-prod,
+  no-liquibase,
+  logging-cz-prod,
+  actuator,
+  cache-prod,
+  country-cz,
+  no-proxy,
+  media-server,
+  javamelody,
+  recommend-art-cz-prod
+
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      #host: http://localhost:9002
+      #host: https://connect.sag.services/auth-server-st
+      host: http://localhost:8080/auth-server-st
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+

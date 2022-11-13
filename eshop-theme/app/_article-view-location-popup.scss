@@ -1,0 +1,29 @@
+.view-all-location-popover,
+sag-article-warning-avail-popup {
+    .nav {
+        justify-content: space-between;
+
+        .flex-2 {
+            flex: 2;
+        }
+
+        .flex-4 {
+            flex: 4;
+        }
+
+        .flex-6 {
+            flex: 6;
+        }
+    }
+
+    .locations-content {
+        .fa {
+            color: green;
+        }
+    }
+
+    .location-items {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+}

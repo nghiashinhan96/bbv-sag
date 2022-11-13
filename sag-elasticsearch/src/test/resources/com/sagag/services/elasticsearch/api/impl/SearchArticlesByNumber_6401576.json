@@ -1,0 +1,71 @@
+{
+  "id": "c1aaa47fcb6112552a40a19ab71cc748",
+  
+  "criteria": [
+    {
+      "cvp": "links",
+      "cid": "100"
+    },
+    {
+      "cvp": "CERTIFIED QUALITY",
+      "cid": "120"
+    },
+    {
+      "cvp": "19,2",
+      "cid": "204"
+    },
+    {
+      "cvp": "12,2",
+      "cid": "207"
+    },
+    {
+      "cvp": "4,3",
+      "cid": "210"
+    },
+    {
+      "cvp": "OEM",
+      "cid": "427"
+    },
+    {
+      "cvp": "fÃ¼r Linkslenker",
+      "cid": "564"
+    },
+    {
+      "cvp": "konvex",
+      "cid": "735"
+    }
+  ],
+  "refs": [
+    {
+      "id_source": "tecdoc",
+      "artnr": "6401576",
+      "id_pim": "1000000020683590063",
+      "id_dlnr": "362",
+      "id_autonet": "6401576",
+      "artid": "c1aaa47fcb6112552a40a19ab71cc748",
+      "artnr_display": "6401576",
+      "gaID": "1914",
+      "available": false
+    }
+  ],
+  "parts": [
+    {
+      "brandid": "4208",
+      "pnrn": "27126802",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "183",
+      "pnrn": "87611E010",
+      "ptype": "OEM"
+    },
+    {
+      "brandid": "4208",
+      "pnrn": "31121211",
+      "ptype": "IAM"
+    }
+  ],
+  "info": [
+    
+  ]
+}

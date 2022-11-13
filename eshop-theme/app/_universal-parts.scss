@@ -1,0 +1,148 @@
+connect-wsp {
+    .universal-parts {
+        min-height: 650px;
+        overflow: hidden;
+    }
+    
+    .filtering {
+        width: $filterWidth;
+        padding: 0 15px;
+
+        &.blank-block {
+            border-bottom: 1px solid $thin-grey;
+        }
+    }
+
+    .result {
+        width: calc(100% - #{$filterWidth});
+        position: relative;
+
+        &.first {
+            width: 100%;
+        }
+
+        &.article-list {
+            padding-right: 15px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-grow: 1;
+            position: relative;
+
+            .nav-item {
+                max-width: 25%;
+
+                .nav-link {
+                    font-weight: 500;
+                    text-align: center;
+                    border-right: 1px solid $thin-grey;
+                }
+
+                &:not(:first-child) {
+                    > a.nav-link {
+                        &.active {
+                            border-left-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    sag-article-list-category-tree-search {
+        ng-select {
+            width: 100%;
+        }
+    }
+
+    sag-article-list-category-tree {
+        .card-header {
+            justify-content: left;
+            padding-left: 0.5rem;
+        }
+    }
+
+    .unitree {
+        overflow-x: auto;
+        width: 100%;
+        position: relative;
+        overflow-y: hidden;
+
+        .uni-tree {
+            display: inherit;
+            overflow: hidden;
+            width: 100%;
+            border-bottom: 0;
+
+            .nav-item {
+                margin-bottom: 0.25rem;
+
+                .tile-img {
+                    width: 25px;
+                }
+
+                .nav-link {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .card-tile-item {
+        height: 100%;
+
+        .full-img {
+            height: 80px;
+            object-fit: contain;
+            background-size: contain !important;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .text-nowrap {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+
+        a {
+            color: #333333;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        .link {
+            color: $primary;
+        }
+    }
+
+    .wsp-breadcrumb {
+        &.active {
+            color: $primary;
+
+            i {
+                color: #333333;
+            }
+        }
+
+        &-wrapper {
+            div:last-child {
+                flex: 1;
+            }
+        }
+        &.highlight {
+            font-weight: 700;
+        }
+    }
+}

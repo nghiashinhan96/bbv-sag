@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3>{{article?.hasReplacement}} - {{'ARTICLE.REPLACES' | translate}}: {{article?.artnrDisplay}}</h3>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body modal-xl">
+    <sag-article-list
+        [data]="data"
+        [(articleMode)]="storage.articleMode"
+        [userSetting]="storage.libUserSetting"
+        [articleListType]="articleListType"
+        [notFoundTempRef]="notFoundTemplate"
+        (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+        (onShowAccessoriesEmitter)="onShowAccessories($event)"
+        (onShowPartsListEmitter)="onShowPartsList($event)"
+        (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+    >
+    </sag-article-list>
+</div>
+
+<ng-template #notFoundTemplate>
+    <section class="alert alert-danger">
+        {{ 'SEARCH.ERROR_MESSAGE.ARTICLE_NOT_FOUND' | translate }}
+    </section>
+</ng-template>

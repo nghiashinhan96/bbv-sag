@@ -1,0 +1,8 @@
+spring.profiles.include: autonet-erp-pre, executor-pool-test, no-liquibase, country-autonet, logging-default
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %X{User} %X{requestID} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG

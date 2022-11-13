@@ -1,0 +1,53 @@
+.opening-day-table-container {
+    // margin-top: 15px;
+    padding-right: 0;
+}
+
+.col-date-title {
+    width: 70px;
+}
+
+.exception-col {
+    border-bottom: 1px solid #d3d3d3;
+    width: 300px;
+}
+
+.header-text {
+    border-top: none;
+}
+
+.filter-input {
+    color: black;
+    .filter-col {
+        background: none;
+    }
+}
+
+.sag-table-header {
+    margin-bottom: 0px;
+}
+
+:host ::ng-deep .sag-table-content {
+    width: 10px;
+    .table {
+        thead {
+            .header {
+                display: none;
+            }
+        }
+    }
+}
+
+.branch-edit {
+    font-size: 18px;
+    color: #777;
+
+    .fa {
+        margin: 0 5px;
+        cursor: pointer;
+
+        &:hover {
+            color: black;
+        }
+    }
+}

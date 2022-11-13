@@ -1,0 +1,19 @@
+spring.profiles: executor-pool-test
+sag:
+  rest:
+    erp:
+      timeout: # no need timeout on prod by set high number or consider the removal
+        connection-request-timeout: 200000 # should exclude the placeorder
+        connect-timeout: 200000
+        read-timeout: 200000
+    maxConnPerRoute: 150
+    maxConnTotal: 150
+    connection-request-timeout: 10000
+    connect-timeout: 10000
+    read-timeout: 10000
+  executor:
+    corePoolSize: 250
+    maximumPoolSize: 5000
+    scheduledPoolSize: 5
+    threadTimeout: 20000
+    keepAliveTime: 5000

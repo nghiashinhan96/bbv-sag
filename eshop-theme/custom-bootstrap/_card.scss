@@ -1,0 +1,29 @@
+h2.card-title {
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    border-radius: 0;
+}
+
+.card.sag-card {
+    border: none;
+    .card-header {
+        background-color: transparent;
+        padding: 0 0 10px 0;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $primary;
+
+        h2 {
+            margin-bottom: 0;
+            line-height: 20px;
+            font-size: 26px;
+            font-weight: 700;
+        }
+    }
+
+    .card-body {
+        border: 1px solid $thin-grey;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,15 @@
+spring.profiles: source-ebl
+
+ebl.enabled: true
+
+spring:
+  source:
+    datasource:
+      jdbcUrl: jdbc:oracle:thin:@//10.1.162.10:1529/P10.World
+      username: ext_phuong
+      password: bb5offT
+      driverClassName: oracle.jdbc.OracleDriver
+      testWhileIdle: true
+      minimum-idle: 1
+      maximum-pool-size: 20
+      continue-on-error: true

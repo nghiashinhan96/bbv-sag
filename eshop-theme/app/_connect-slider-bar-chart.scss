@@ -1,0 +1,64 @@
+.slider-bar-chart-container {
+    .range-input-wrapper {
+      display: flex;
+      justify-content: space-between;
+      .range-input {
+        flex-basis: 47.5%;
+        .ng-select {
+          .ng-value {
+            width: 100%;
+          }
+          .ng-input {
+            padding-left: 30px;
+          }
+        }
+        .reset-link{
+          z-index: 1;
+          .reset-link-icon {
+            font-size: medium;
+            color: $secondary;
+          }
+        }
+        .range-input-value-container {
+          display: flex;
+          width: 100%;
+        }
+        .range-input-value {
+          margin-right: 25%;
+          margin-left: auto;
+        }
+      }
+    }
+
+    // custom css for slider lib
+    .custom-slider .ngx-slider {
+        margin-top: -7px;
+        .ngx-slider-bar-wrapper {
+          margin-top: 0;
+          padding-top: 0;
+          height: 10px;
+        }
+      }
+      .custom-slider .ngx-slider .ngx-slider-bar {
+        height: 2px;
+      }
+    
+      .custom-slider .ngx-slider .ngx-slider-selection {
+        background: $primary;
+      }
+    
+      .custom-slider .ngx-slider .ngx-slider-pointer {
+        width: 16px;
+        height: 16px;
+        top: -8px;
+        background-color: #fff;
+        border: 1px solid $primary;
+      }
+      .custom-slider .ngx-slider .ngx-slider-pointer:after {
+        display: none;
+      }
+    
+      .custom-slider .ngx-slider .ngx-slider-bubble {
+        display: none;
+      }
+  }

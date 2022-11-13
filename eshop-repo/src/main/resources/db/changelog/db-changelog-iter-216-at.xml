@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <!-- IMPORTANT: This is for DEV and PRE PROD only -->
+  <!-- Script for PROD is commented -->
+  <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS_AT">
+    <sql>
+		DECLARE @ddat_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'derendinger-at')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ddat_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@ddat_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-P54TTR7", "gtm_env": "env-27", "gtm_auth": "e4vpNjfs3KWA6HgsiYvHkA" }, { "name": "Rapidbox", "gtm_container_id": "GTM-MPFFWSPm", "gtm_env": "env-3", "gtm_auth": "wcWB_yd2WCtxlytEM5f_qA" } ] }')
+		  END
+		  
+		DECLARE @mtat_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'matik-at')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @mtat_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@mtat_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-PCTH6S3", "gtm_env": "env-27", "gtm_auth": "ib4TmLzH0cmry0NohiKi" }, { "name": "Rapidbox", "gtm_container_id": "GTM-WCX3H6K", "gtm_env": "env-3", "gtm_auth": "Ln-QZGqFAPPzEX55LPQ1dw" } ] }')
+		  END
+	</sql>
+  </changeSet>
+  <!-- <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS">
+    <sql>
+		DECLARE @ddat_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'derendinger-at')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ddat_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@ddat_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-P54TTR7", "gtm_env": "env-2", "gtm_auth": "uKfC6naL-36JhKWvi-2NwQ" }, { "name": "Rapidbox", "gtm_container_id": "GTM-MPFFWSP", "gtm_env": "env-1", "gtm_auth": "Vzn4wbhlbgoDoFwE-1CBSw" } ] }')
+		  END
+		  
+		DECLARE @mtat_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'matik-at')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @mtat_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@mtat_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-PCTH6S3", "gtm_env": "env-2", "gtm_auth": "PqzjQkKmfPnAvvUxc2RfmA" }, { "name": "Rapidbox", "gtm_container_id": "GTM-WCX3H6K", "gtm_env": "env-1", "gtm_auth": "iB6bBQsJ3do0ciIWn6OiOw" } ] }')
+		  END
+	</sql> -->
+</databaseChangeLog>

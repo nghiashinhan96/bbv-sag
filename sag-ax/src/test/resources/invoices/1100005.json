@@ -1,0 +1,57 @@
+[ {
+  "invoiceNr" : "3000373271",
+  "invoiceDate" : 1543492800000,
+  "name" : "Aigner R. GesmbH",
+  "customerNr" : "1100005",
+  "zipcode" : "4400",
+  "city" : "Steyr",
+  "country" : "Österreich",
+  "termOfPayment" : "30T",
+  "amount" : 88.43,
+  "paymentType" : "CREDIT",
+  "positions" : [ {
+    "invoiceNr" : "3000373271",
+    "articleId" : "1001105243",
+    "articleNr" : null,
+    "articleTitle" : null,
+    "amount" : 73.69,
+    "vehicleInfo" : null,
+    "quantity" : 1,
+    "orderNr" : "AU3011087461",
+    "deliveryNoteNr" : "LS3010758030"
+  } ],
+  "simpleMode" : true
+}, {
+  "invoiceNr" : "3000358720",
+  "invoiceDate" : 1542628800000,
+  "name" : "Aigner R. GesmbH",
+  "customerNr" : "1100005",
+  "zipcode" : "4400",
+  "city" : "Steyr",
+  "country" : "Österreich",
+  "termOfPayment" : "30T",
+  "amount" : 61.15,
+  "paymentType" : "CREDIT",
+  "positions" : [ {
+    "invoiceNr" : "3000358720",
+    "articleId" : "1000046722",
+    "articleNr" : null,
+    "articleTitle" : null,
+    "amount" : 12.74,
+    "vehicleInfo" : null,
+    "quantity" : 1,
+    "orderNr" : "AU3011046786",
+    "deliveryNoteNr" : "LS3010726258"
+  }, {
+    "invoiceNr" : "3000358720",
+    "articleId" : "1000046722",
+    "articleNr" : null,
+    "articleTitle" : null,
+    "amount" : 38.22,
+    "vehicleInfo" : null,
+    "quantity" : 3,
+    "orderNr" : "AU3011047289",
+    "deliveryNoteNr" : "LS3010727380"
+  } ],
+  "simpleMode" : true
+} ]

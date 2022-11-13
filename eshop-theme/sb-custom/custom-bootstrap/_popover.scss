@@ -1,0 +1,8 @@
+.wt-sb {
+    .popover {
+        &.header-search-result {
+            width: 100%;
+            transform: translate3d(0px, 40px, 0px) !important;
+        }
+    }
+}

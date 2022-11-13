@@ -1,0 +1,59 @@
+# ************************************************************************
+# This is the CZ configuration of RESTful application for Development mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - HaynesPro Endpoint - 
+# - HaynesPro Callback - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - OATS(replace Olyslager) - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - Proxy - 
+# - Media Server - 
+# - Price File Location - 
+# - Java Melody Monitoring - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  ax-pre-cloud,
+  incentive-dev,
+  hp-dev,
+  gtmotive-cz-dev,
+  mdm-dev-ax-cz,
+  oates-pre-cz,
+  mail-dev,
+  elasticsearch-dev,
+  db-dev,
+  executor-pool,
+  logging-ax-cz-dev,
+  actuator,
+  cache-dev,
+  country-ax-cz,
+  analytics-pre-cloud,
+  liquibase-ax-cz-dev,
+  no-proxy,
+  media-server,
+  price-file-cz,
+  javamelody,
+  thule-dev,
+  auth-endpoint-ax-cz-dev
+
+license:
+  vin:
+    minimumOrder: 600
+    
+spring.banner.location: classpath:banner/banner_axcz.txt

@@ -1,0 +1,235 @@
+<div class="row">
+    <div class="col-sm-6 mb-4">
+        <h5 class="divider-border primary color-primary">{{'AX_CONNECTION.CUSTOMER_OVERVIEW' | translate}}</h5>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.ADDRESS' | translate}}</div>
+                <div class="text">{{customerInfo.defaultCustomerFullAddress}}</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.EMAIL' | translate}} - {{ 'COMMON_LABEL.LIST' | translate }}</div>
+                <div class="text coppy-selector">
+                    <div class="text-right coppy-label" [class.coppied]="isCoppiedEmail">
+                        {{ 'ARTICLE.COPIED_TEXT' | translate }}</div>
+                    <ng-select
+                        class="auto-grow"
+                        [items]="customerInfo.emailContacts"
+                        [clearable]="false"
+                        [searchable]="customerInfo?.emailContacts?.length > 10"
+                        bindValue="value"
+                        (open)="coppied($event, false)"
+                        (change)="coppied($event, false)"
+                        [(ngModel)]="emailContact">
+                        <ng-template ng-label-tmp let-item="item">
+                            <strong>{{ item.description}} - {{ item.value}}</strong>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                            <strong>{{ item.description}} - {{ item.value}}</strong>
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-4">
+        <h5 class="divider-border primary text-ellipsis color-primary">
+            {{'AX_CONNECTION.RECEIVER' | translate}}
+            <span class="info text-ellipsis">{{customerInfo.deliveryCustomerDescription}}</span>
+        </h5>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.ADDRESS' | translate}}</div>
+                <div class="text">{{customerInfo.deliveryCustomerFullAddress}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 mb-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.PHONE' | translate}} - {{ 'COMMON_LABEL.LIST' | translate }}</div>
+                <div class="text coppy-selector">
+                    <div class="text-right coppy-label" [class.coppied]="isCoppied">
+                        {{ 'ARTICLE.COPIED_TEXT' | translate }}</div>
+                    <ng-select
+                        [items]="customerInfo.phoneContacts"
+                        [clearable]="false"
+                        [searchable]="customerInfo?.phoneContacts?.length > 10"
+                        bindValue="value"
+                        (open)="coppied($event)"
+                        (change)="coppied($event)"
+                        [(ngModel)]="phoneContact">
+                        <ng-template ng-label-tmp let-item="item">
+                            <strong>{{ item.description}} - {{ item.value}}</strong>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                            <strong>{{ item.description}} - {{ item.value}}</strong>
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 mb-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.BRANCH_NAME' | translate}},
+                    {{'AX_CONNECTION.COMPANY' | translate}}
+                </div>
+                <div class="text">{{customerInfo.affiliateName}}</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.PAYMENT_TYPE' | translate}}</div>
+                <div *ngIf="!isSb; else sbPaymentsRef" class="text">{{ customerInfo.customerPaymentTypeDesc | translate}}</div>
+                <ng-template #sbPaymentsRef>
+                    <ng-select
+                        class="mb-2"
+                        [items]="customerInfo?.orderLocations"
+                        [clearable]="false"
+                        [searchable]="customerInfo?.orderLocations?.length > 10"
+                        [(ngModel)]="orderLocation">
+                        <ng-template ng-label-tmp let-item="item">
+                            <strong>{{item?.branch?.branchName}}</strong>
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                            <strong>{{item?.branch?.branchName}}</strong>
+                        </ng-template>
+                    </ng-select>
+                    <div *ngFor="let method of orderLocation?.paymentMethods">
+                        {{'CONDITION.PAYMENT_METHOD.' + method.descCode | translate}}
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.SHIPPING_TYPE' | translate}}</div>
+                <div class="text">{{customerInfo.shippingCustomerSendMethodDesc | translate}}</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.DELIVERY_TYPE' | translate}}</div>
+                <div class="text">{{customerInfo.deliveryCustomerSendMethodDesc | translate}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isShownMore">
+    <div class="row">
+        <div class="col-sm-6 mb-4">
+            <div class="divider-border"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.INVOICE_TYPE' | translate}}</div>
+                    <div class="text">{{customerInfo.axInvoiceType | translate}}</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.CREDIT_LIMIT_TOTAL' | translate}}</div>
+                    <div class="text">{{customerInfo.creditLimitAvailable | sagCurrency: {isAllowNegative : true} }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+            <div class="divider-border"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.CREDIT_LIMIT_REST' | translate}}</div>
+                    <div class="text">{{customerInfo.alreadyUsedCredit | sagCurrency: {isAllowNegative : true} }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 mb-4">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.DUNNING_LEVEL' | translate}}</div>
+                    <div class="text">{{customerInfo.invoiceCustomerDunningLevel}}</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.PAYMENT_OBJECTIVE' | translate}}</div>
+                    <div class="text">{{customerInfo.termOfPayment}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{ 'AX_CONNECTION.CASH_DISCOUNT' | translate}}</div>
+                    <div class="text">{{customerInfo.cashDiscount}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-4">
+            <div class="divider-border"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.DELIVERY_SERVICE' | translate}}</div>
+                    <div class="text">{{customerInfo.workPhoneSeller}}</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.DELIVERY_SERVICE' | translate}}
+                        {{'AX_CONNECTION.PHONE' | translate}}
+                        - {{ 'COMMON_LABEL.LIST' | translate }}</div>
+                    <div class="text">
+                        N/A
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+            <div class="divider-border"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.DELIVERY_SERVICE' | translate}}
+                        {{'AX_CONNECTION.EMAIL' | translate}}</div>
+                    <div class="text">{{customerInfo.personalSellerEmail}}</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{ 'AX_CONNECTION.SALES_GROUP' | translate }}</div>
+                    <div class="text">{{customerInfo.salesGroup}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-4">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.CUSTOMER_CATEGORY' | translate}}</div>
+                    <div class="text">{{customerInfo.customerCategory}}</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'SETTINGS.SETTING.BILLS'|translate}}</div>
+                    <div class="text">{{customerInfo.viewBilling | translate}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'AX_CONNECTION.DISPLAY_NET_PRICE' | translate}}</div>
+                    <div class="text">{{customerInfo.netPriceConfirm | translate}}</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="h6 mb-1 color-primary">{{'SETTINGS.SETTING.EMAIL_CONFIRMATION' | translate}}</div>
+                    <div class="text">{{customerInfo.sendNotiMailDesc | translate}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<!-- End the second info section -->
+<div class="nav justify-content-center">
+    <a class="p-3 toggle-arrow" href="javascript:void(0)" (click)="isShownMore = !isShownMore">
+        <i class="fa fa-2x fa-angle-down" [class.fa-rotate-180]="isShownMore"></i>
+    </a>
+</div>

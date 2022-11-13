@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://eshop.sag.ch/types/value" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/value">
+
+<xs:complexType name="value">
+<xs:sequence/>
+<xs:attribute name="value" type="xs:string" use="required"/>
+<xs:attribute name="type" type="tns:valuetype" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="valuetype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="STRING"/>
+<xs:enumeration value="NUMBER"/>
+<xs:enumeration value="DOUBLE"/>
+<xs:enumeration value="DATE"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

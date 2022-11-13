@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.sagag.services</groupId>
+    <artifactId>sag-parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../sag-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>sag-autonet-erp</artifactId>
+  <version>${project.version}</version>
+  <name>SAG Autonet ERP API Services</name>
+
+  <dependencies>
+    <!-- Project dependencies -->
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-domain</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-article-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- Spring dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Other dependencies -->
+    <dependency>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>

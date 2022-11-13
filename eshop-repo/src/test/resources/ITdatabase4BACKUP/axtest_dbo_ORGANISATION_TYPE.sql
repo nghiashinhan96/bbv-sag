@@ -1,0 +1,3 @@
+INSERT INTO axtest.dbo.ORGANISATION_TYPE (NAME, LEVEL, DESCRIPTION) VALUES ('SYSTEM', 1, 'This is SAG System organisation');
+INSERT INTO axtest.dbo.ORGANISATION_TYPE (NAME, LEVEL, DESCRIPTION) VALUES ('AFFILIATE', 2, 'This is Affiliate organisation');
+INSERT INTO axtest.dbo.ORGANISATION_TYPE (NAME, LEVEL, DESCRIPTION) VALUES ('CUSTOMER', 3, 'This is Customer organisation');

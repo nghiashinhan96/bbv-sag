@@ -1,0 +1,88 @@
+.brand-filter {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &-header {
+        height: 40px;
+        font-size: 16px;
+        font-weight: 500;
+        color: white;
+        line-height: 40px;
+        background-color: var(--primary);
+        padding: 0 $spacer;
+
+        &--sub {
+            font-size: 80%;
+            font-weight: normal;
+        }
+
+        &--close {
+            color: white !important;
+
+            &:hover,
+            &:focus,
+            &:active,
+            &:visited {
+                color: white;
+            }
+        }
+    }
+
+
+    &-content {
+        padding: 0 $spacer;
+        font-size: 13px;
+        width: 300px;
+
+        &--item {
+            height: 80px;
+            align-items: center;
+            position: relative;
+        }
+
+        .card-header {
+            .nav {
+                max-height: 200px;
+                overflow-y: auto;
+            }
+
+            .title {
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+
+        .card-body {
+            .overflow-content-wrapper {
+                max-height: 250px;
+                overflow: auto;
+
+                li.nav-item {
+                    label.checkbox {
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        @supports (-moz-appearance:none) {
+            .card-body {
+                label.checkbox {
+                    input {
+                        margin-top: 3px;
+                    }
+                    span {
+                        margin-left: 0.25rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.filters-wrapper {
+    max-height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

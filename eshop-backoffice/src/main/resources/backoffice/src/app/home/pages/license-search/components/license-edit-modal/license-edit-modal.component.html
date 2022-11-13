@@ -1,0 +1,71 @@
+<div class="modal-user-form" tabindex="-1" role="dialog" id="userDetail">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'CUSTOMER.LICENSE.EDIT_LICENSE_TITLE' | translate}}</h4>
+        <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"
+            aria-hidden="true">
+        </i>
+    </div>
+    <div class="modal-body">
+        <div class="form-horizontal">
+            <form *ngIf="licenseForm" novalidate [formGroup]="licenseForm">
+                <div class="form-group row">
+                    <label for="license-name-create"
+                        class="col-3 control-label">{{'HOME.LABEL.LICENSE_SEARCH.LICENSE_NAME' |
+                        translate}}</label>
+                    <div class="col-6">
+                        <ng-select class="sag-select" [items]="licensePackage" *ngIf="licensePackage"
+                            (change)="updateQuantity($event)"
+                            notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" formControlName="packName"
+                            [clearable]="false">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="date-from" class="col-3 control-label">{{'CUSTOMER.LICENSE.FROM' | translate}}</label>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control" angular-mydatepicker name="dateFrom"
+                                [options]="datePickerFromSetting" #dpFrom="angular-mydatepicker" [locale]="locale"
+                                formControlName="beginDate" (dateChanged)="onBeginDateChanged($event)"
+                                (click)="dpFrom.toggleCalendar()" autocomplete="off" />
+                            <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="date-to" class="col-3 control-label">{{'CUSTOMER.LICENSE.TO' | translate}}</label>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control" angular-mydatepicker name="dateTo"
+                                [options]="datePickerToSetting" #dpTo="angular-mydatepicker" formControlName="endDate"
+                                [locale]="locale" (dateChanged)="onEndDateChanged($event)"
+                                (click)="dpTo.toggleCalendar()" autocomplete="off" />
+                            <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="quantity" class="col-3 control-label">{{'CUSTOMER.LICENSE.QUANTITY' |
+                        translate}}</label>
+                    <div class="col-6">
+                        <input name="quantity" type="number" class="form-control" formControlName="quantity">
+                        <div *ngIf="!licenseForm.controls.quantity.valid" class="alert alert-danger">
+                            {{ 'CUSTOMER.LICENSE.QUANTITY_ERROR_MESSAGE' | translate}}</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <notification [notifier]="notifier"></notification>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal"
+            (click)="closeModal()">{{'COMMON.BUTTON.BACK' | translate}}</button>
+        <button type="button" class="btn btn-primary" (click)="saveLicense()"><i class="fa fa-save"></i>
+            {{'COMMON.BUTTON.SAVE' | translate}}</button>
+    </div>
+</div>

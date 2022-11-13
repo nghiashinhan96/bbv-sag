@@ -1,0 +1,16 @@
+spring.profiles: sagadmin
+
+app.name: sagadmin
+endpoints.jmx.domain: admin
+server.port: 9004
+
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB

@@ -1,0 +1,5 @@
+spring.profiles.include: stakis-erp-pre, executor-pool-test, no-liquibase, country-cz, db-at-test, logging-default
+
+logging:
+  level:
+    com.sagag: DEBUG

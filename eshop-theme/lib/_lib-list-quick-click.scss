@@ -1,0 +1,30 @@
+sag-article-list-quick-click {
+    .quick-click-container {
+        color: $grey;
+
+        .checkbox {
+            span {
+                font-size: 0.9rem;
+                color: $text-disable-color;
+            }
+        }
+
+        .has-foldable {
+            .sub-section {
+                > label {
+                    margin-left: 9px;
+                }
+            }
+
+            .sub-title {
+                a {
+                    color: $grey;
+
+                    .fa {
+                        width: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

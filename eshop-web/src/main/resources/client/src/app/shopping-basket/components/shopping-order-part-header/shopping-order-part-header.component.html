@@ -1,0 +1,40 @@
+<div class="nav article-list-header connect-shopping-order-part-header">
+    <div class="header-col header-description">
+        {{'SEARCH.ARTICLE_DESC' | translate}}
+    </div>
+    <ng-container *sagCommonShowHideByAff="[sb];show:true">
+        <div class="header-col header-amount-per-location text-center">
+            {{'ARTICLE.AMOUNT_PER_LOCATION' | translate}}
+        </div>
+        <div class="header-col header-location text-center">{{'ARTICLE.LOCATION' | translate}}</div>
+    </ng-container>
+
+    <div class="header-col header-delivery" *sagCommonShowHideByAff="[sb];show:false">
+        <span *ngIf="userSetting.hasAvailabilityPermission">
+            {{'ARTICLE.DELIVERY_TYPE' | translate}}
+        </span>
+    </div>
+    <div class="header-col header-quality text-right" *sagCommonShowHideByAff="[sb];show:false">
+        {{'ARTICLE.NUMBER' | translate}}
+    </div>
+    <div class="header-col header-gross-price text-right">
+        {{ affiliateCode | grossPriceKey | translate}}
+        <i class="fa fa-caret-down"></i>
+    </div>
+    <div class="header-col header-net-price text-right" [ngClass]="{'shown': isShowNetPrice}">
+        <ng-container *ngIf="canViewNetPrice">
+            <span class="btn-sort cursor-text">
+                {{'ARTICLE.NET' | translate}}
+            </span>
+            <i class="fa fa-eye" *sagCommonShowHideByAff="[sb];show:false"
+                [ngClass]="{'theme-darker' : !isShowNetPrice}" (click)="onOffNetPrice()">
+            </i>
+        </ng-container>
+    </div>
+    <div class="header-col header-total text-right">
+        {{'SHOPPING_BASKET.TOTAL' | translate}}
+    </div>
+    <div class="header-col header-reference" *sagCommonShowHideByAff="[cz,ehcz,ehaxcz,sb];show:false">
+        {{'ORDER_CONFIRMATION.REFERENCE' | translate}}
+    </div>
+</div>

@@ -1,0 +1,27 @@
+spring.profiles: country-en
+
+country:
+  code: us
+  supported_iso3_countries:
+    - ENG
+  hashtype: BCRYPT
+  languages:
+    - EN
+  exclude_countries:
+  config:
+    erp-type: NONE
+    user-loader-mode: ESHOP
+    enable-shopping-cart-map-store: true
+    es-external-article-service: default
+    category-converter: default
+    oauth2-external-authenticator:
+    currency:
+    default-language: en
+    register-customer-user-setting:
+      customer-setting:
+        session-timeout-seconds: 3600
+        net-price-view: false
+        net-price-confirm: false
+      user-setting:
+        language: en
+    sortingOilVehicleInDesc: true

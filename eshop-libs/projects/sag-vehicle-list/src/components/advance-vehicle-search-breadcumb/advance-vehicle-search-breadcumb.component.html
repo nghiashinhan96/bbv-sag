@@ -1,0 +1,22 @@
+<div class="row m-0 avs-breadcrumb-wrapper">
+    <div *ngIf="!isHideRoot" class="d-flex align-items-end">
+        <a href="javascript:void(0)" class="avs-breadcrumb active" (click)="onRootBreadcrumb()"
+            [class.active]="breadcrumbs?.length === 0">
+            <span><i class="fa fa-home" aria-hidden="true"></i></span>
+        </a>
+        <i *ngIf="breadcrumbs?.length > 0" class="fa fa-angle-right"></i>
+    </div>
+    <ng-container *ngIf="breadcrumbs?.length > 0">
+        <ng-container *ngFor="let breadcrumb of breadcrumbs; let i = index">
+            <div class="d-flex align-items-center">
+                <a href="javascript:void(0)" class="avs-breadcrumb"
+                    (click)="onClickBreadcrumd(breadcrumb)">
+                    <span>{{breadcrumb.text | translate}}</span>
+                </a>
+                <ng-container *ngIf="i !== (breadcrumbs?.length - 1)">
+                    <i class="fa fa-angle-right"></i>
+                </ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

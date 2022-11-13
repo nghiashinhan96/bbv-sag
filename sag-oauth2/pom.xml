@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.sagag.services</groupId>
+    <artifactId>sag-parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../sag-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>sag-oauth2</artifactId>
+  <version>${project.version}</version>
+  <packaging>war</packaging>
+  <name>SAG OAuth2 Security Services</name>
+
+  <dependencies>
+    <!-- Project dependencies -->
+    <dependency>
+      <groupId>com.sagag.eshop</groupId>
+      <artifactId>eshop-service</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-hazelcast</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-ax</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-stakis-erp</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-autonet-erp</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- Spring dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+          <exclusion>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+      </exclusions>      
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security.oauth</groupId>
+      <artifactId>spring-security-oauth2</artifactId>
+      <version>${spring-security-oauth2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-jwt</artifactId>
+      <version>${spring-security-jwt.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.bouncycastle</groupId>
+          <artifactId>bcprov-jdk15on</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- exclude tomcat jdbc connection pool, use HikariCP -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.tomcat</groupId>
+          <artifactId>tomcat-jdbc</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- Connection pool -->
+    <!-- exclude tomcat-jdbc, Spring Boot will use HikariCP automatically -->
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+    </dependency>
+    <!-- App monitoring -->
+    <dependency>
+      <groupId>net.bull.javamelody</groupId>
+      <artifactId>javamelody-spring-boot-starter</artifactId>
+      <version>${javamelody-spring-boot-starter.version}</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-application-yml</id>
+            <phase>test</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target name="copyApplicationYml">
+                <echo message="Auth profile ${build.profile.id} configuration file..." />
+                <delete file="${config.app.out}" />
+                <echo message="Copy from file ${config.app.profile-src}..." />
+                <copy file="${config.app.profile-src}" tofile="${config.app.out}" />
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

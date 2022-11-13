@@ -1,0 +1,4 @@
+spring.profiles: logging-autonet-prod-cloud
+
+logging:
+  config: classpath:log4j2-autonet-prod-cloud.xml

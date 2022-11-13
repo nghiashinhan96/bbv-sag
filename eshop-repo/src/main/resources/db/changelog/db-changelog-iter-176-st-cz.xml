@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_176_REMOVE_PARTIAL_COLLECTIVE_DELIVERY">
+    <sql>
+      UPDATE dbo.USER_SETTINGS SET COLLECTIVE_DELIVERY_ID= ( select cd.ID from dbo.COLLECTIVE_DELIVERY cd WHERE cd.DESC_CODE ='COLLECTIVE_DELIVERY2');
+      UPDATE dbo.CUSTOMER_SETTINGS SET COLLECTIVE_DELIVERY_ID= ( select cd.ID from dbo.COLLECTIVE_DELIVERY cd WHERE cd.DESC_CODE ='COLLECTIVE_DELIVERY2');
+      DELETE FROM dbo.COLLECTIVE_DELIVERY WHERE DESC_CODE ='COLLECTIVE_DELIVERY1';
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_176_ADD_SINGLE_SELECT_MODE_USER_SETTING">
+    <sql>
+      ALTER TABLE dbo.USER_SETTINGS ADD SINGLE_SELECT_MODE bit NOT NULL DEFAULT 0;
+    </sql>
+  </changeSet>
+ 
+</databaseChangeLog>

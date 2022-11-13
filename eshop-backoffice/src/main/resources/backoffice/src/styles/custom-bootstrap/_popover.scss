@@ -1,0 +1,128 @@
+.popover {
+    font-size: inherit !important;
+    box-shadow: 0 12px 6px -6px rgba(0, 0, 0, 0.2),
+        0 12px 12px 3px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    font-family: inherit !important;
+
+    &.vin-popup {
+        .popover-body {
+            padding: 0 !important;
+        }
+    }
+
+    &.header-search-result {
+        margin-top: 0px;
+        width: calc(100% - 2rem);
+        max-width: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: 0;
+        transform: none !important;
+
+        .popover-arrow {
+            display: none;
+        }
+
+        .popover-body {
+            padding: 0;
+
+            .tab-container {
+                .nav-tabs {
+                    width: 99px;
+                    background-color: $light-grey;
+
+                    > li.nav-item {
+                        > a.nav-link {
+                            padding: 0.6rem;
+                            border-left: 0;
+                            border-bottom-left-radius: 0;
+                            border-top-left-radius: 0;
+                            margin-bottom: -1px;
+                        }
+
+                        &:first-child {
+                            > a.nav-link {
+                                border-top: 0;
+                            }
+                        }
+                    }
+                }
+
+                .tab-content {
+                    padding: 0.6rem;
+                }
+            }
+
+            .no-record {
+                padding: 0.6rem;
+                color: $primary;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &.header-sub-basket,
+    &.header-settings {
+        min-width: 220px;
+        z-index: 99;
+
+        .popover-body {
+            padding: $half-spacer;
+        }
+    }
+
+    &.sale-customer-search-form {
+        margin-top: 0px;
+        width: 100%;
+        max-width: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: 0;
+
+        .popover-arrow {
+            display: none;
+        }
+
+        .popover-body {
+            padding: 0;
+
+            .list-group {
+                max-height: 250px;
+                overflow: auto;
+            }
+        }
+    }
+
+    &.mini-basket-popover {
+        width: 400px;
+        max-width: none;
+        margin-top: 1.2rem !important;
+        z-index: 1040;
+
+        .arrow {
+            &:after,
+            &:before {
+                top: -5px !important;
+                border-width: 0 1rem 1rem 1rem !important;
+                border-bottom-color: $primary !important;
+            }
+        }
+
+        .popover-body {
+            padding: 0;
+        }
+    }
+
+    &.order-dashboard-ref-container {
+        width: auto !important;
+        max-width: 550px !important;
+        padding: 6px !important;
+        font-size: 12px !important;
+        min-width: 200px !important;
+
+        .popover-body {
+            margin: 0 !important;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.wt-sb {
+    connect-tyre {
+        .nav-tabs {
+            >li.nav-item {
+                >a.nav-link {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

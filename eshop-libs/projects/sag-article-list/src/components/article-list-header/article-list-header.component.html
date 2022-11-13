@@ -1,0 +1,102 @@
+<div class="nav article-list-header">
+    <ng-container *ngIf="isSimpleMode; else detailModeRef">
+        <div class="header-col header-description">
+            {{'SEARCH.ARTICLE_DESC' | translate}}
+        </div>
+    </ng-container>
+    <ng-template #detailModeRef>
+        <div class="header-col header-brand">
+            <div *ngIf="isTyreMode; else notTyreModeRef" class="tyre-sort" (click)="sortBySupplier()">
+                {{'ARTICLE.MANUFACTURER' | translate}}
+                <i class="fa" *ngIf="sort.ascessdingSupplier != undefined"
+                    [ngClass]="sort.ascessdingSupplier ? 'fa-caret-up' : 'fa-caret-down'" aria-hidden="true"></i>
+            </div>
+            <ng-template #notTyreModeRef>
+                {{'ARTICLE.MANUFACTURER' | translate}}
+            </ng-template>
+        </div>
+        <div class="header-col header-img">{{'ARTICLE.IMAGE' | translate}}</div>
+        <div class="header-col header-pos">{{'ARTICLE.POSITION' | translate}}</div>
+    </ng-template>
+    
+    <ng-container *ngIf="isSb && isShoppingCartMode; else defaultCol">
+        <div class="header-col header-amount-per-location">{{'ARTICLE.AMOUNT_PER_LOCATION' | translate}}</div>
+        <div class="header-col header-location">{{'ARTICLE.LOCATION' | translate}}</div>
+    </ng-container>
+    
+    <ng-template #defaultCol>
+        <div class="header-col header-de-amount">{{'ARTICLE.AMOUNT' | translate}}</div>
+        <div class="header-col header-avail" [class.text-center]="showFilterNoAvail && articleListType !== LIST_TYPE.SHOPPING_BASKET && hasAvailabilityPermission">
+            <span *ngIf="userSetting?.hasAvailabilityPermission">{{'ARTICLE.DELIVERY_TYPE' | translate}}</span>
+            <ng-container *ngIf="showFilterNoAvail && articleListType !== LIST_TYPE.SHOPPING_BASKET && hasAvailabilityPermission">
+                <div class="d-flex align-items-center justify-content-center mt-2 text-nowrap">
+                    <input class="mr-2" [(ngModel)]="hideNonAvailArticle" (ngModelChange)="applyFilterHideArticleNoAvail($event)"
+                        type="checkbox" data-automation="filter-no-avail" id="filter-no-avail">
+                    <label class="form-check-label filter-no-avail" for="filter-no-avail"
+                        [title]="(hideNonAvailArticle ? 'ARTICLE.SHOW_ONLY_ARTICLE_STOCK' : 'ARTICLE.HIDE_ONLY_ARTICLE_STOCK') | translate">
+                        {{'ARTICLE.HIDE_NO_ARTICLE_AVAIL' | translate}}
+                    </label>
+                </div>
+            </ng-container>
+        </div>
+    </ng-template>
+    <ng-container *ngIf="projectId === PROJECT_ID.CONNECT; else otherPrice">
+        <div class="header-col header-gross">
+            <div *ngIf="isTyreMode || enableCzSort" class="tyre-sort" (click)="sortByGrossPrice()">
+                <span *ngIf="userSetting.showTyresGrossPriceHeader">
+                    {{'ARTICLE.TYRE_GROSS' | translate}}
+                </span>
+                <span *ngIf="!userSetting.showTyresGrossPriceHeader">
+                    {{grossPriceTranslationKey | translate}}
+                </span>
+                <i class="fa" *ngIf="sort.ascessdingGrossPrice != undefined"
+                    [ngClass]="sort.ascessdingGrossPrice ? 'fa-caret-up' : 'fa-caret-down'" aria-hidden="true"></i>
+            </div>
+            <span class="label" *ngIf="!isTyreMode && !enableCzSort">
+                {{grossPriceTranslationKey | translate}}
+            </span>
+            <sag-custom-pricing-header-actions
+                [editable]="articleListType === LIST_TYPE.IN_CONTEXT"
+                (customPriceChange)="onCustomPriceChange($event)">
+            </sag-custom-pricing-header-actions>
+        </div>
+        <div class="header-col header-net" [ngClass]="{'shown': isShowNetPrice}">
+            <ng-container *ngIf="canViewNetPrice">
+                <div *ngIf="isTyreMode || enableCzSort" class="tyre-sort" (click)="sortByNetPrice()">
+                    <span>{{'ARTICLE.NET'|translate}}</span>
+                    <i class="fa" *ngIf="sort.ascessdingNetPrice != undefined"
+                        [ngClass]="sort.ascessdingNetPrice ? 'fa-caret-up' : 'fa-caret-down'" aria-hidden="true"></i>
+                </div>
+                <span class="label" *ngIf="!isTyreMode && !enableCzSort">
+                    {{'ARTICLE.NET' | translate}}
+                </span>
+                <i *sagCommonShowHideByAff="[sb];show:false" class="fa fa-eye" [ngClass]="{'theme-darker' : !isShowNetPrice}"
+                    aria-hidden="true" (click)="onOffNetPrice()" data-automation="netto-price-toggle"></i>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-template #otherPrice>
+        <div class="header-col header-net">
+            <span>{{'ARTICLE.NET'|translate}}</span>
+        </div>
+    </ng-template>
+    <div class="header-col header-quality" *ngIf="projectId === PROJECT_ID.CONNECT">
+        {{'ARTICLE.NUMBER' | translate}}
+    </div>
+    <div class="header-controler pointer">
+        <i class="fa fa-bars mr-1 displayed-mode" (click)="switchArticleDisplayedMode(simpleMode)"
+            [ngClass]="{'active': isSimpleMode}"></i>
+        <i class="fa fa-list displayed-mode" (click)="switchArticleDisplayedMode(detailMode)"
+            [ngClass]="{'active': !isSimpleMode}"></i>
+        <i class="fa fa-times-circle return-btn ml-2" *ngIf="returnUrl" (click)="goToReturnUrl()"></i>
+
+        <div class="header-remove" *ngIf="removable">
+            <button class="btn btn-remove" (click)="removeSelected()" *ngIf="removable">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="header-check" *ngIf="selectable">
+            <input type="checkbox" name="isAllChecked" [ngModel]="isAllChecked.status" (ngModelChange)="checkBoxChecked($event)">
+        </div>
+    </div>
+</div>

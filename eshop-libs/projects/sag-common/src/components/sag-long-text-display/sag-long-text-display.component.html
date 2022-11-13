@@ -1,0 +1,6 @@
+<p class="long-text-display">{{displayContent}}<span *ngIf="!isShowAll && !isShowMore" id="dots">...</span>
+    <span [ngClass]="{'hidden':!isShowMore}">{{hiddenContent}}</span>
+    <span (click)="toggleShow()" *ngIf="!isShowAll" class="color-primary font-weight-bold pointer">
+        {{ ( isShowMore ? 'QUICK_CLICK.FOLD' : 'QUICK_CLICK.UNFOLD' ) | translate }}
+    </span>
+</p>

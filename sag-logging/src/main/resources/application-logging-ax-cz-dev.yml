@@ -1,0 +1,4 @@
+spring.profiles: logging-ax-cz-dev
+
+logging:
+  config: classpath:log4j2-ax-cz-dev.xml

@@ -1,0 +1,9 @@
+<ng-select bindValue="search" [items]="data$ | async" [hideSelected]="true" [loading]="isLoading"
+    [virtualScroll]="false" placeholder="{{'CATEGORY.SEARCH.TEXT_HOLDER' | translate}}" (change)="searchArticle($event)"
+    [typeahead]="dataInput$" [clearable]="!!searchingTerm" [clearSearchOnAdd]="false" [closeOnSelect]="true" [(ngModel)]="selectedData"
+    notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}" class="category-search-result">
+    <ng-template ng-option-tmp let-item="item">
+        <a href="javascript:void(0)" style="white-space: normal;" [class.disabled]="!item.activeLink">{{item.label}}</a>
+    </ng-template>
+</ng-select>
+

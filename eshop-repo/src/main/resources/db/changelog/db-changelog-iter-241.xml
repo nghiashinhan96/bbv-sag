@@ -1,0 +1,126 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_241_ADD_TOTAL_PRICE_WITH_VAT_COLUMNS_FOR_FINAL_CUSTOMER_ORDER">
+      <sql>
+          ALTER TABLE FINAL_CUSTOMER_ORDER ADD TOTAL_FINAL_CUSTOMER_NET_PRICE_WITH_VAT DECIMAL(18, 10)
+          ALTER TABLE FINAL_CUSTOMER_ORDER ADD TOTAL_GROSS_PRICE_WITH_VAT DECIMAL(18, 10)
+      </sql>
+  </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_241_ALTER_VIEW_V_FINAL_CUSTOMER_ORDER_ADD_TOTAL_PRICE_WITH_VAT_COLUMNS">
+        <sql>
+            ALTER VIEW [dbo].[V_FINAL_CUSTOMER_ORDER] AS
+            SELECT DISTINCT
+                FO.DATE,
+                FO.ID AS ID,
+                O.NAME AS COMPANY_NAME,
+                (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='ADDRESS_1') AS ADDRESS,
+                (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='POSTCODE') AS POSTCODE,
+                (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='CUSTOMER_NUMBER') AS CUSTOMER_NUMBER,
+                (SELECT
+                     STUFF((SELECT ';' + t2.VEHICLE_DESC
+                            FROM FINAL_CUSTOMER_ORDER_ITEM t2
+                            WHERE t1.ID = t2.FINAL_CUSTOMER_ORDER_ID
+                              AND t2.VEHICLE_DESC IS NOT NULL AND t2.VEHICLE_DESC &lt;&gt; ''
+                         FOR XML PATH('')), 1, 1, '')
+                 FROM FINAL_CUSTOMER_ORDER t1
+                 WHERE ID = FO.ID
+                 GROUP BY ID) AS VEHICLE_DESCS,
+                (SELECT TOP(1) ARTICLE_DESC FROM FINAL_CUSTOMER_ORDER_ITEM WHERE FINAL_CUSTOMER_ORDER_ID = FO.ID) AS ARTICLE_DESC,
+                (SELECT USERNAME FROM ESHOP_USER WHERE ID = FO.USER_ID) AS USERNAME,
+                FO.STATUS,
+                FO.ORG_ID,
+                FO.TOTAL_GROSS_PRICE,
+                FO.REFERENCE,
+                FO.BRANCH_REMARK,
+                (SELECT
+                     STUFF((SELECT ';' + t2.ARTICLE_DESC + ' ' + t2.REFERENCE
+                            FROM FINAL_CUSTOMER_ORDER_ITEM t2
+                            WHERE t1.ID = t2.FINAL_CUSTOMER_ORDER_ID
+                              AND t2.REFERENCE IS NOT NULL AND t2.REFERENCE &lt;&gt; ''
+                         FOR XML PATH('')), 1, 1, '')
+                 FROM FINAL_CUSTOMER_ORDER t1
+                 WHERE ID = FO.ID
+                 GROUP BY ID) AS POSITION_REFERENCES,
+                FO.TOTAL_FINAL_CUSTOMER_NET_PRICE,
+                FO.TOTAL_FINAL_CUSTOMER_NET_PRICE_WITH_VAT,
+                FO.TOTAL_GROSS_PRICE_WITH_VAT
+            FROM
+                FINAL_CUSTOMER_ORDER FO
+                    LEFT JOIN FINAL_CUSTOMER_PROPERTY FP
+                              ON FP.ORG_ID = FO.ORG_ID
+                                  AND (FP.SETTING_KEY = 'ADDRESS_1' OR FP.SETTING_KEY = 'POSTCODE' OR FP.SETTING_KEY = 'CUSTOMER_NUMBER')
+                    LEFT JOIN ORGANISATION O ON O.ID=FO.ORG_ID
+            WHERE FO.STATUS &lt;&gt; 'DELETED'
+        </sql>
+    </changeSet>
+
+<!--    To be run manually-->
+    <!--<changeSet author="CONNECT_APP" id="ITER_241_ALTER_VIEW_V_FINAL_CUSTOMER_ORDER_ADD_TOTAL_PRICE_WITH_VAT_COLUMNS">
+        <sql>
+            ALTER VIEW [dbo].[V_FINAL_CUSTOMER_ORDER] AS
+            SELECT DISTINCT
+                FO.DATE,
+                FO.ID AS ID,
+                O.NAME AS COMPANY_NAME,
+                (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='ADDRESS_1') AS ADDRESS,
+                (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='POSTCODE') AS POSTCODE,
+                (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='CUSTOMER_NUMBER') AS CUSTOMER_NUMBER,
+                (SELECT
+                     STUFF((SELECT ';' + t2.VEHICLE_DESC
+                            FROM FINAL_CUSTOMER_ORDER_ITEM t2
+                            WHERE t1.ID = t2.FINAL_CUSTOMER_ORDER_ID
+                              AND t2.VEHICLE_DESC IS NOT NULL AND t2.VEHICLE_DESC <> ''
+                         FOR XML PATH('')), 1, 1, '')
+                 FROM FINAL_CUSTOMER_ORDER t1
+                 WHERE ID = FO.ID
+                 GROUP BY ID) AS VEHICLE_DESCS,
+                (SELECT TOP(1) ARTICLE_DESC FROM FINAL_CUSTOMER_ORDER_ITEM WHERE FINAL_CUSTOMER_ORDER_ID = FO.ID) AS ARTICLE_DESC,
+                (SELECT USERNAME FROM ESHOP_USER WHERE ID = FO.USER_ID) AS USERNAME,
+                FO.STATUS,
+                FO.ORG_ID,
+                FO.TOTAL_GROSS_PRICE,
+                FO.REFERENCE,
+                FO.BRANCH_REMARK,
+                (SELECT
+                     STUFF((SELECT ';' + t2.ARTICLE_DESC + ' ' + t2.REFERENCE
+                            FROM FINAL_CUSTOMER_ORDER_ITEM t2
+                            WHERE t1.ID = t2.FINAL_CUSTOMER_ORDER_ID
+                              AND t2.REFERENCE IS NOT NULL AND t2.REFERENCE <> ''
+                         FOR XML PATH('')), 1, 1, '')
+                 FROM FINAL_CUSTOMER_ORDER t1
+                 WHERE ID = FO.ID
+                 GROUP BY ID) AS POSITION_REFERENCES,
+                FO.TOTAL_FINAL_CUSTOMER_NET_PRICE,
+                FO.TOTAL_FINAL_CUSTOMER_NET_PRICE_WITH_VAT,
+                FO.TOTAL_GROSS_PRICE_WITH_VAT
+            FROM
+                FINAL_CUSTOMER_ORDER FO
+                    LEFT JOIN FINAL_CUSTOMER_PROPERTY FP
+                              ON FP.ORG_ID = FO.ORG_ID
+                                  AND (FP.SETTING_KEY = 'ADDRESS_1' OR FP.SETTING_KEY = 'POSTCODE' OR FP.SETTING_KEY = 'CUSTOMER_NUMBER')
+                    LEFT JOIN ORGANISATION O ON O.ID=FO.ORG_ID
+            WHERE FO.STATUS <> 'DELETED'
+        </sql>
+    </changeSet>-->
+
+    <changeSet author="CONNECT_APP" id="ITER_241_DISABLE_HAYNES_PRO_PERM_ON_FINAL_CUSTOMER">
+        <sql>
+            UPDATE dbo.GROUP_PERMISSION
+            SET ALLOWED=0
+            WHERE PERM_ID=(SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION = 'HAYNESPRO')
+              AND GROUP_ID IN (SELECT ID FROM ESHOP_GROUP WHERE NAME LIKE 'FINAL_CUSTOMER%');
+        </sql>
+    </changeSet>
+    
+    <changeSet author="CONNECT_APP" id="ITER_241_ADD_PRICES_WITH_VAT_FOR_FINAL_CUSTOMER_ORDER_ITEM">
+        <sql>
+            ALTER TABLE FINAL_CUSTOMER_ORDER_ITEM ADD FINAL_CUSTOMER_NET_PRICE_WITH_VAT DECIMAL(18, 10)
+            ALTER TABLE FINAL_CUSTOMER_ORDER_ITEM ADD GROSS_PRICE_WITH_VAT DECIMAL(18, 10)
+        </sql>
+    </changeSet>
+</databaseChangeLog>

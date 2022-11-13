@@ -1,0 +1,64 @@
+<ng-container *ngIf="isPDP; else defaultRef">
+    <div [class.is--greater-equal]="netPriceGreaterThanOrEqualNet1Price"
+        [class.is--less]="netPriceLessThanNet1Price">
+        <ng-container *ngIf="netPriceGreaterThanOrEqualNet1Price; else lessThanRef">
+            <ng-container *ngIf="isShowVat; else defaultRef">
+                <div class="total-price-2 netto2 text-right">
+                    {{ totalPrice | sagCurrency}}
+                </div>
+                <div class="total-price-2 netto2 include-vat text-right" *ngIf="totalPriceVat">
+                    ({{ totalPriceVat | sagCurrency}})
+                </div>
+            </ng-container>
+        </ng-container>
+
+        <ng-template #lessThanRef>
+            <ng-container *ngIf="netPriceLessThanNet1Price; else defaultRef">
+                <ng-container *ngIf="userSetting?.currentStateNetPriceView">
+                    <ng-container *ngIf="isShowVat; else notShowTotalNet1PriceVatRef">
+                        <div class="total-price-1 netto1 text-right" *ngIf="cartItem?.getTotalNet1Price()">
+                            {{ cartItem?.getTotalNet1Price() | sagCurrency }}
+                        </div>
+                        <div class="total-price-1 netto1 include-vat text-right" *ngIf="cartItem?.getTotalNet1Price(true)">
+                            ({{ cartItem?.getTotalNet1Price(true) | sagCurrency}})
+                        </div>
+                    </ng-container>
+                    <ng-template #notShowTotalNet1PriceVatRef>
+                        <div class="total-price-1 netto1 text-right">
+                            {{ cartItem?.getTotalNet1Price(currentStateVatConfirm) | sagCurrency}}
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+                <ng-container *ngIf="isShowVat; else defaultRef">
+                    <div class="total-price-2 text-right" [class.is--red]="userSetting?.currentStateNetPriceView">
+                        {{ totalPrice | sagCurrency}}
+                    </div>
+                    <div class="total-price-2 include-vat text-right" [class.is--red]="userSetting?.currentStateNetPriceView" *ngIf="totalPriceVat">
+                        ({{ totalPriceVat | sagCurrency}})
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-template>
+    </div>
+</ng-container>
+
+<ng-template #defaultRef>
+    <ng-container *ngIf="isFinalCustomer; else otherRef">
+        <ng-container *ngIf="isShowVat; else otherRef">
+            <div class="total-price-2 text-right">
+                {{ totalPrice | sagCurrency}}
+            </div>
+            <div class="total-price-2 include-vat text-right" *ngIf="totalPriceVat">
+                ({{ totalPriceVat | sagCurrency}})
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #otherRef>
+    <div class="text-right" [class.is--red]="isPDP && netPriceLessThanNet1Price && userSetting?.currentStateNetPriceView">
+        {{ articlePrice | sagCurrency}}
+    </div>
+</ng-template>
+

@@ -1,0 +1,20 @@
+<h3 class="section-title">{{ "CUSTOMER.TITLE" | translate }}</h3>
+<div class="form-horizontal">
+    <notification [notifier]="notifier"></notification>
+    <backoffice-customer-detail-info [customerInfo]="customerInfo" [affiliate]="selectedCustomer.affiliate">
+    </backoffice-customer-detail-info>
+    <backoffice-customer-detail-setting #setting [customerSetting]="customerSetting" [customerInfo]="customerInfo">
+    </backoffice-customer-detail-setting>
+</div>
+
+<backoffice-customer-detail-licence [customerNr]="selectedCustomer.customerNr"></backoffice-customer-detail-licence>
+<backoffice-customer-detail-users [userQuery]="customerDetailUsers.userQuery"></backoffice-customer-detail-users>
+
+<div class="block-moving">
+    <button id="abortChangeBtn" class="btn btn-default pull-left" (click)="abortCustomerDetail()">
+        <i class="fa fa-arrow-left left"></i>{{ "COMMON.BUTTON.BACK" | translate }}
+    </button>
+    <button id="saveSettingBtn" class="btn btn-primary pull-right" (click)="saveCustomerSetting(setting.getSetting())">
+        <i class="fa fa-save"></i> {{ "COMMON.BUTTON.SAVE" | translate }}
+    </button>
+</div>

@@ -1,0 +1,16 @@
+<div class="home-search-page">
+    <backoffice-affiliate-search-form [affiliateData]="affiliates" (submit)="searchAffiliate($event)">
+    </backoffice-affiliate-search-form>
+
+    <backoffice-customer-group-search-form [affiliateData]="affiliates" (submit)="searchCustomerGroup($event)">
+    </backoffice-customer-group-search-form>
+
+    <backoffice-customer-search-form [affiliateData]="affiliates" (submit)="searchCustomer($event)">
+    </backoffice-customer-search-form>
+
+    <backoffice-user-search-form [affiliateData]="affiliates" (submit)="getUserResultSearch($event)">
+    </backoffice-user-search-form>
+
+    <backoffice-license-search-form [affiliateData]="affiliates" [licensesData]="licensesData" (submit)="searchLicenses($event)">
+    </backoffice-license-search-form>
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_114_ALTER_ESHOP_CART_ITEM_ADD_COLUMN_ATTACHED_ARTICLES_JSON">
+    <sql>
+      ALTER TABLE [dbo].[ESHOP_CART_ITEM] ADD [ATTACHED_ARTICLES_JSON] [varchar](max) NULL
+      <!-- Should drop colum CHILD_JSON when the app is deployed for all env -->
+      <!-- ALTER TABLE [dbo].[ESHOP_CART_ITEM] DROP COLUMN [CHILD_JSON] -->
+    </sql>
+  </changeSet>
+	<changeSet author="CONNECT_APP" id="ITER_114_RENAME_COLUMN_BRANCH_ID_IN_EXTERNAL_VENDOR_TABLE">
+	    <sql>
+			EXEC sp_rename 'EXTERNAL_VENDOR.BRANCH_ID', 'BRAND_ID', 'COLUMN';
+	    </sql>
+	</changeSet>
+</databaseChangeLog>

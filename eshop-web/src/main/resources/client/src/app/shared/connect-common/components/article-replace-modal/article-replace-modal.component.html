@@ -1,0 +1,71 @@
+<div class="modal-header">
+    <h4>{{article?.hasReplacement}} - {{'ARTICLE.REPLACES' | translate}}: {{article?.artnrDisplay}}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body modal-lg">
+    <sag-article-list
+        [data]="data"
+        [(articleMode)]="appStorage.articleMode"
+        [userSetting]="userService.userPrice"
+        (currentNetPriceChange)="toggleNetPriceSetting()"
+        [articleListType]="articleListType"
+        [specialInfoTemplateRef]="specialInfoTemplateRef"
+        [memosTemplateRef]="memosTemplateRef"
+        [customAvailTemplateRef]="availTemplateRef"
+        [customAvailPopoverContentTemplateRef]="popoverContentTemplateRef"
+        [priceTemplateRef]="priceTemplateRef"
+        [totalPriceTemplateRef]="totalPriceTemplateRef"
+        [isSubBasket]="isSubBasket"
+        [notFoundTempRef]="notFoundTemplate"
+        (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+        (onShowAccessoriesEmitter)="onShowAccessories($event)"
+        (onShowPartsListEmitter)="onShowPartsList($event)"
+        (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+        (sendArticlesGaData)="onSendArticlesGaData($event)"
+        [rootModalName]="rootModalName"
+        [disableSort]="true">
+    </sag-article-list>
+</div>
+
+<ng-template #notFoundTemplate>
+    <section class="alert alert-danger">
+        {{ 'SEARCH.ERROR_MESSAGE.ARTICLE_NOT_FOUND' | translate }}
+    </section>
+</ng-template>
+
+<ng-template #specialInfoRef let-article="article">
+    <connect-cz-article-detail-special-info [article]="article" [memos]="article?.memos"></connect-cz-article-detail-special-info>
+</ng-template>
+
+<ng-container *ngIf="isCz || isAffiliateApplyFgasAndDeposit">
+    <ng-template #memosRef let-article="article">
+        <connect-cz-article-detail-memos [memos]="article?.memos" [article]="article"></connect-cz-article-detail-memos>
+    </ng-template>
+</ng-container>
+
+<ng-container *ngIf="isCz">
+    <ng-template #availRef let-availabilities="availabilities" let-popover="popover">
+        <div class="avail-state avail-state-{{availabilities[0]?.availState}}">
+            {{'ARTICLE.AVAILABILITY.' + czAvailState[availabilities[0]?.availState] | translate}}
+        </div>
+    </ng-template>
+
+    <ng-template #popoverContentRef let-article="article" let-currency="currency">
+        <connect-cz-avail-popover-content [article]="article" [currency]="currency"></connect-cz-avail-popover-content>
+    </ng-template>
+
+    <ng-template #priceRef let-article="article" let-currentStateVatConfirm="currentStateVatConfirm">
+        <div class="part-col part-gross">
+            <connect-cz-article-detail-price [article]="article" [type]="czPriceType.LIST_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-price>
+        </div>
+        <div class="part-col part-net">
+            <connect-cz-article-detail-price [article]="article" [type]="czPriceType.CUSTOMER_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-price>
+        </div>
+    </ng-template>
+
+    <ng-template #totalPriceRef let-article="article" let-currentStateVatConfirm="currentStateVatConfirm">
+        <connect-cz-article-detail-total-price [article]="article" [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-total-price>
+    </ng-template>
+</ng-container>

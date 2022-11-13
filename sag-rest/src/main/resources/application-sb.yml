@@ -1,0 +1,42 @@
+# ************************************************************************
+# This is the AT configuration of RESTful application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Caching - 
+# - Country Code - 
+# - Liquibase - 
+# - HaynesPro Endpoint - 
+# - HaynesPro Callback - 
+# - Media Server - 
+# - GTMotive - 
+# - Price File Location - 
+# - OATS(replace Olyslager) - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include:
+  #ax-pre-https,
+  wint-dev,
+  db-sb,
+  elasticsearch-dev2,
+  cache-dev,
+  country-sb,
+  liquibase-sb-dev,
+  hp-dev,
+  media-server,
+  gtmotive-sb-pre,
+  price-file-sb,
+  oates-pre-sb,
+  thule-dev,
+  auth-endpoint-sb-dev,
+  mdm-prod
+
+# https://devops.datenkollektiv.de/banner.txt/index.html Banner Font: doom
+spring.banner.location: classpath:banner/banner_sb.txt
+
+license:
+  vin:
+    minimumOrder: 0

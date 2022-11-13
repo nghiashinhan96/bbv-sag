@@ -1,0 +1,6 @@
+<a href="javascript:void(0)" class="btn-link {{customClass}}" (click)="onClicked()" [class.disabled]="forceDisable || loading || disabled"
+    [attr.data-automation]="name">
+    <i class="fa fa-spinner fa-spin fa-lg btn--search" *ngIf="loading"></i>
+    <i class="fa {{icon}}" aria-hidden="true" *ngIf="!loading"></i>
+    <span>{{text| translate}}</span>
+</a>

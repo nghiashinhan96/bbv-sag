@@ -1,0 +1,37 @@
+<div *ngFor="let category of categories | classicCategoryItems: step; let i = index" [attr.data-automation]="'classic-category-group-' + i">
+    <ng-container *ngIf="category.type === 'children'; else tree">
+        <div class="item-inner" *ngIf="!category.content.link; else linkRef">
+            <label class="checkbox">
+                <input type="checkbox" [checked]="category.content.isChecked"
+                    (change)="selectSingle($event, category.content)" />
+                <span>{{ category?.content.description }}</span>
+            </label>
+        </div>
+    </ng-container>
+    <ng-template #tree>
+        <div class="parent" >
+            <a href="javascript:void(0)" (click)="handleToggle(category.content)" class="text-body" data-automation="classic-category-group-header">
+                <i class="fa mr-3"
+                    [ngClass]="{'fa-caret-down' : category.content.show, 'fa-caret-right' : !category.content.show}"></i>
+                <strong>{{category.content.description}}</strong>
+            </a>
+        </div>
+        <div class="content collapse" [class.show]="category.content.show">
+            <a href="javascript:void(0)" *ngIf="category.content.children.length > 1" data-automation="classic-category-group-check-all"
+                class="btn-checkall text-body d-flex align-items-center" (click)="selectAll(category.content)">
+                <i class="icon-checkall mr-3"></i>
+                <span class="label">
+                    {{ "COMMON_LABEL.SELECT_ALL" | translate }}
+                </span>
+            </a>
+            <div class="items">
+                <sag-article-list-classic-category-items [categories]="category.content.children" [step]="step"
+                    (selectItem)="selectItem.emit($event)" (oilCheck)="oilCheck.emit($event)">
+                </sag-article-list-classic-category-items>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #linkRef>
+        <a [href]="category.content.link" id="cat-{{category.content.id}}" class="category-link text-primary-color" [innerHTML]="category?.content?.description"></a>
+    </ng-template>
+</div>

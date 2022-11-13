@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP" id="ADD_COL_EXTERNAL_USER_LOCK_VIRTUAL_USER">
+	    <addColumn
+	            tableName="EXTERNAL_USER">
+	        <column name="LOCK_VIRTUAL_USER" type="varchar(20)"/>
+	    </addColumn>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP" id="ADD_COL_CUSTOMER_SETTINGS_SHOW_OCI_VAT">
+	    <addColumn
+	            tableName="CUSTOMER_SETTINGS">
+	        <column name="SHOW_OCI_VAT" type="bit"
+	        defaultValue="0"/>
+	    </addColumn>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP" id="ADD_COL_CUSTOMER_SETTINGS_HOME_BRANCH">
+	    <addColumn
+	            tableName="CUSTOMER_SETTINGS">
+	        <column name="HOME_BRANCH" type="varchar(50)"/>
+	    </addColumn>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ADD_COL_ESHOP_USER_ORIGINAL_USER_ID">
+	    <addColumn
+	            tableName="ESHOP_USER">
+	        <column name="ORIGINAL_USER_ID" type="bigint"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_NOT_NULL_CONSTRAINT_CUSTOMER_SETTINGS_SHOW_OCI_VAT">
+    	<addNotNullConstraint 
+            columnDataType="bit"
+            columnName="SHOW_OCI_VAT"
+            defaultNullValue="0"
+            tableName="CUSTOMER_SETTINGS"/>
+	</changeSet>
+</databaseChangeLog>
+

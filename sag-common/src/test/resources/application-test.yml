@@ -1,0 +1,8 @@
+spring.profiles.include: executor-pool-test, country-at, media-server, price-file-ch
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %X{User} %X{requestID} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG

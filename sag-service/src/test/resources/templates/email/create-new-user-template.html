@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create new user</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+  <div>
+    <p th:text="#{mail.create.user.greeting}">Dear user of the e-shop,</p>
+    <p>
+        <span th:text="#{mail.create.user.username}"> Username</span>&nbsp;
+        <span style="font-weight: bold" th:text="${username}">Username is here</span>
+	</p>
+    <p th:text="#{mail.create.user.body}">Please use the following link to get your password for the first login !</p>
+	<p>
+        <a th:href="${redirectUrl}" style="color: #0073be;" th:text="#{mail.create.user.link}"></a>
+    </p>
+    <p th:text="#{mail.create.user.closing}"> With kind regards</p>
+    <p th:text="#{mail.create.user.signature}"> Your e-shop team</p>
+    <p th:if="${isFinalUser == true}" th:text="#{mail.create.user.noreply}" style="font-style: italic;"> Note: Please DO NOT respond to this automatic message</p>
+
+  </div>
+</body>
+</html>

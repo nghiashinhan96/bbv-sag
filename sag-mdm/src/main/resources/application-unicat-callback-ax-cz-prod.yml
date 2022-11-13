@@ -1,0 +1,4 @@
+spring.profiles: unicat-callback-ax-cz-prod
+
+unicat:
+  callback_url: https://connect-int.sag.services/dvse-cz-ax/ws

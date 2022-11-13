@@ -1,0 +1,17 @@
+spring:
+  profiles: wint-dev
+
+## Supported value for mode: true | false
+backOrder.tourTimeTable: false
+
+# The Wint configuration
+external:
+  webservice:
+    ax:
+      url: http://192.168.1.101:50352/apps/prod-webshop-service-app
+      tokenPath:
+      clientId: dad18054-7838-4236-937a-ebf9b0cc309e
+      # only for token refresh
+      clientSecret: lPAi1rFYtzeIv9r1g97vVTRVuyrWXYAqLdFvmZjPBsA=
+      userName:
+      password:

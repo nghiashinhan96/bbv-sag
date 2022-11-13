@@ -1,0 +1,6 @@
+<div class="control-section margin-art-group-tree">
+    <db-angular-tree-grid #angularGrid
+        [data]="articleGroups | paginate: { id: 'margin-art-grp-table',totalItems: page?.totalItems, itemsPerPage: page?.itemsPerPage, currentPage: page?.currentPage}"
+        [configs]="configs" class="w-100" (expand)="onExpand($event)">
+    </db-angular-tree-grid>
+</div>

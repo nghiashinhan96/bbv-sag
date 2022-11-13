@@ -1,0 +1,200 @@
+<div class="row connect-shopping-condition-header">
+    <div class="col">
+        <ng-container *ngIf="conditionHeader?.isPickupMode">
+            <div class="nav mb-3">
+                <span>{{'CONDITION.DELIVERY_TYPE_PICKUP' | translate}}</span>
+            </div>
+            <div class="nav mb-3" *ngIf="basketContext?.pickupBranch">
+                <span>{{'AX_CONNECTION.BRANCH_NAME' | translate}}: {{basketContext?.pickupBranch?.branchName }}</span>
+            </div>
+            <div class="nav mb-3" *ngIf="!basketContext?.pickupBranch">
+                <span>{{'AX_CONNECTION.BRANCH_NAME' | translate}}: </span>
+                <span class="no-branch-message">{{'CONDITION.PLEASE_SELECT_VALID_BRANCH' | translate}}</span>
+            </div>
+            <div class="nav" *ngIf="!deliverySummary?.isVinOnly">
+                <span [innerHTML]="'pickupTime' | deliverySummary: conditionHeader : deliverySummary | markedHtml"></span>
+            </div>
+        </ng-container>
+    </div>
+    <div class="col">
+        <ng-container *ngIf="conditionHeader?.isTourMode">
+            <div class="nav mb-3">
+                <span>{{'CONDITION.DELIVERY_TYPE_TOUR' | translate}}</span>
+            </div>
+            <div class="nav mb-3"
+                *ngIf="(deliverySummary && deliverySummary.lastestAvail && deliverySummary.lastestAvail.tourName) as tourName">
+                {{'CONDITION.WITH_TOUR' | translate}}
+                {{ tourName }}
+            </div>
+            <div class="nav" *ngIf="!deliverySummary?.isVinOnly">
+                <span [innerHTML]="'tourTime' | deliverySummary: conditionHeader : deliverySummary | markedHtml"></span>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<ng-container *ngIf="!!settings">
+    <div class="mb-3" *ngIf="!userDetail.isSalesOnBeHalf && userDetail.hasWholesalerPermission">
+        <ng-container *ngIf="finalOrder?.orgId; else goodReceiver">
+            <div class="header d-flex mb-3">
+                <strong>{{ 'ORDER_DASHBOARD.GOODS_RECEIVER' | translate}}</strong>
+            </div>
+            <connect-final-customer-address [orgId]="finalOrder?.orgId"></connect-final-customer-address>
+        </ng-container>
+
+        <ng-template #goodReceiver>
+            <connect-good-receiver></connect-good-receiver>
+        </ng-template>
+    </div>
+    <form [formGroup]="settingForm">
+        <div class="row mb-3">
+            <div class="col-12 mb-2">
+                <strong>{{ 'CONDITION.INVOICE_TYPE.TITLE' | translate }}</strong>
+            </div>
+            <div class="col">
+                <div class="form-check form-group mb-2">
+                    <input class="form-check-input" type="radio" name="invoiceId" id="singleInvoiceOption"
+                        value="EINZELFAKT" formControlName="invoiceId">
+                    <label class="form-check-label" for="singleInvoiceOption">
+                        {{ 'CONDITION.DEFAULT_INVOICE_TYPE.SINGLE_INVOICE' | translate }}
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check form-group mb-2">
+                    <input class="form-check-input" type="radio" name="invoiceId" id="agreementInvoiceOption"
+                        value="WOCHENFAKT" formControlName="invoiceId">
+                    <label class="form-check-label" for="agreementInvoiceOption">
+                        {{ 'CONDITION.DEFAULT_INVOICE_TYPE.AGREEMENT_INVOICE' | translate }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 mb-2">
+                <strong>{{ 'CONDITION.PAYMENT_METHOD.TITLE' | translate }}</strong>
+            </div>
+            <div class="col-6" *ngFor="let method of settings.paymentMethods">
+                <div class="form-check form-group mb-2">
+                    <input class="form-check-input" type="radio" name="paymentId" [id]="method.descCode"
+                        [value]="method.id" formControlName="paymentId" [attr.disabled]="!method.allowChoose || null">
+                    <label class="form-check-label" for="{{method.descCode}}">
+                        {{ 'CONDITION.PAYMENT_METHOD.' + method.descCode | translate }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 mb-2">
+                <strong>{{ 'CONDITION.DELIVERY_TYPE.TITLE' | translate }}</strong>
+            </div>
+            <div class="col-6" *ngFor="let method of settings.deliveryTypes">
+                <div class="form-check form-group mb-2">
+                    <input class="form-check-input" type="radio" name="deliveryId" [id]="method.descCode"
+                        [value]="method.id" formControlName="deliveryId" [attr.disabled]="!method.allowChoose || null">
+                    <label class="form-check-label" for="{{method.descCode}}">
+                        {{ 'CONDITION.DELIVERY_TYPE.' + method.descCode | translate }}
+                    </label>
+                    <ng-container *ngIf="method?.descCode === DELIVERY_TYPE.TOUR">
+                        <connect-tour-plan-info [isHideTourPlan]="false"></connect-tour-plan-info>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="col-12 mt-2 text-primary" *ngIf="isShownDeliveryForceMessage">
+                {{'SHOPPING_BASKET.ORDER_CONDITION.AUTO_CHANGE_TO_PICKUP_MESG' | translate}}
+            </div>
+        </div>
+
+        <div class="row mb-3" *sagCommonShowHideByAff="[cz];show:false">
+            <div class="col-12 mb-2">
+                <strong>{{ 'CONDITION.COLLECTIVE_DELIVERY.TITLE' |translate }}</strong>
+            </div>
+            <div class="col-6" *ngFor="let method of settings.collectiveTypes">
+                <div class="form-check form-group mb-2">
+                    <input class="form-check-input" type="radio" name="collectiveDeliveryId" [id]="method.descCode"
+                        [value]="method.id" formControlName="collectiveDeliveryId"
+                        [attr.disabled]="!method.allowChoose || null">
+                    <label class="form-check-label" for="{{method.descCode}}">
+                        {{ 'CONDITION.COLLECTIVE_DELIVERY.' + method.descCode | translate }}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3"
+            *ngIf="conditionHeader?.isPickupMode && branchesForPickup && branchesForPickup.length > 0">
+            <div class="col-12 mb-2">
+                <strong>{{'CONDITION.BRANCH_PICKUP' | translate}}</strong>
+            </div>
+            <div class="col-6">
+                <ng-select
+                    [searchable]="branchesForPickup?.length > 10"
+                    formControlName="branchId"
+                    [items]="branchesForPickup"
+                    [clearable]="false"
+                    [searchFn]="searchBrand"
+                    bindValue="branchId">
+                    <ng-template ng-label-tmp let-item="item">
+                        <ng-container *ngIf="item.branchId">
+                            {{ item.branchId}} - {{ item.branchName}}
+                        </ng-container>
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item">
+                        {{ item.branchId}} - {{ item.branchName}}
+                    </ng-template>
+                </ng-select>
+            </div>
+        </div>
+
+        <div class="row mb-3" *ngIf="deliveryAddress && deliveryAddress.length > 0">
+            <div class="col-12 mb-2">
+                <strong>{{'CONDITION.DELIVERY_ADDRESS' | translate}}</strong>
+            </div>
+            <div class="col-6" *ngIf="deliveryAddress.length === 1;else addressSelection">
+                <span>{{deliveryAddress[0].getFullAddress()}}</span>
+            </div>
+            <ng-template #addressSelection>
+                <div class="col-6" *ngIf="deliveryAddress.length > 0">
+                    <ng-select
+                        [searchable]="deliveryAddress?.length > 10"
+                        formControlName="deliveryAddressId"
+                        [items]="deliveryAddress"
+                        [clearable]="false"
+                        bindValue="id">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.getFullAddress()}}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                            {{ item.getFullAddress() }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </ng-template>
+        </div>
+
+        <div class="row mb-3" *ngIf="billingAddress && billingAddress.length > 0">
+            <div class="col-12 mb-2">
+                <strong>{{'CONDITION.BILLING_ADDRESS' | translate}}</strong>
+            </div>
+            <div class="col-6" *ngIf="billingAddress.length === 1;else billingAddressSelection">
+                <span>{{billingAddress[0].getFullAddress()}}</span>
+            </div>
+            <ng-template #billingAddressSelection>
+                <div class="col-6">
+                    <ng-select
+                        [searchable]="billingAddress?.length > 10"
+                        formControlName="billingAddressId"
+                        [items]="billingAddress"
+                        [clearable]="false"
+                        bindValue="id">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.getFullAddress()}}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item">
+                            {{ item.getFullAddress() }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </ng-template>
+        </div>
+    </form>
+</ng-container>

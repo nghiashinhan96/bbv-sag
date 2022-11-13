@@ -1,0 +1,48 @@
+.custom-pricing-popover {
+    padding: 0 !important;
+    width: auto !important;
+    border-radius: 0 !important;
+
+    .popover-content {
+        margin: 0 !important;
+        padding: 6px;
+
+        .custom-pricing-container {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                padding: 4px 8px;
+                text-decoration: none;
+                color: black;
+                display: flex;
+
+                span {
+                    line-height: 12px;
+                    font-size: 12px;
+                }
+
+                span.price {
+                    width: 55px;
+                    text-align: right;
+                    margin-left: auto;
+                }
+
+                span.brand {
+                    width: 40px;
+                }
+
+                &:hover {
+                    background-color: #0073be;
+                    color: white;
+                }
+            }
+
+            .empty-container {
+                width: 100px;
+                height: 25px;
+                position: relative;
+            }
+        }
+    }
+}

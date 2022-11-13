@@ -1,0 +1,18 @@
+spring.profiles.include: 
+  ax-pre,
+  mail-dev,
+  elasticsearch-umbpre,
+  db-at-test,
+  executor-pool,
+  no-liquibase,
+  country-at
+
+server:
+  port: 9002
+  sessionTimeout: 30
+logging:
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG
+    org.elasticsearch.bootstrap: ERROR
+

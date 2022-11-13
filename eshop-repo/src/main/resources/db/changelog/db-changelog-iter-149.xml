@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_149_UPDATE_ESHOP_GROUP_DROP_UNUSED_COLUMN">
+        <sql>
+			-- ALTER TABLE ESHOP_GROUP DROP CONSTRAINT DF_ESHOP_GROUP_ORG_CODE
+
+			IF EXISTS (SELECT 1
+               FROM   INFORMATION_SCHEMA.COLUMNS
+               WHERE  TABLE_NAME = 'ESHOP_GROUP' AND COLUMN_NAME = 'ORG_CODE')
+				  BEGIN
+				      ALTER TABLE ESHOP_GROUP DROP COLUMN ORG_CODE
+				  END;
+
+			-- ALTER TABLE ESHOP_GROUP DROP CONSTRAINT DF_ESHOP_GROUP_ROLE_ID
+
+			IF EXISTS (SELECT 1
+               FROM   INFORMATION_SCHEMA.COLUMNS
+               WHERE  TABLE_NAME = 'ESHOP_GROUP' AND COLUMN_NAME = 'ROLE_ID')
+				  BEGIN
+				      ALTER TABLE ESHOP_GROUP DROP COLUMN ROLE_ID
+				  END;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

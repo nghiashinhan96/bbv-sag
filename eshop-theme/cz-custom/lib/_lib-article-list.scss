@@ -1,0 +1,14 @@
+.st-cz, .eh-cz, .ax-cz, .eh-ax-cz {
+    connect-dvse-list,
+    sag-article-list,
+    connect-shopping-order-part-group,
+    sag-article-list-non-group {
+        .cate-group {
+            .cate-group-header {
+                &--name {
+                    padding-right: 0.9rem;
+                }
+            }
+        }
+    }
+}

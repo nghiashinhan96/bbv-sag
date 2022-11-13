@@ -1,0 +1,12 @@
+sag-in-context-vehicle-info-dialog {
+    .list-group {
+        .list-group-item {
+            span,
+            div,
+            strong {
+                flex: 1;
+                font-size: 1.25rem;
+            }
+        }
+    }
+}

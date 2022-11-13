@@ -1,0 +1,36 @@
+<ng-container *ngFor="let g of data">
+    <div class="cate-root">
+        <div class="nav cate-root-header" (click)="g.hidden = !g.hidden">
+            <i class="fa" [ngClass]="{'fa-caret-up': !g.hidden, 'fa-caret-down': g.hidden}"></i>
+            {{(g.key || ('SHOPPING_BASKET.EMPTY_VEHICLE_TITLE' |translate))}}
+        </div>
+        <div class="cate-root-content" [class.hidden]="g.hidden">
+            <div class="dvse-row" *ngFor="let cartItem of g.value;">
+                <a href="javascript:void(0)" (click)="goToArticleSearch(cartItem.articleItem)" class="dvse-article-name">
+                    <div class="dvse-col">
+                        <div>{{cartItem.productTextWithArt | translate}}</div>
+                        <div>{{cartItem.articleItem?.supplier}}</div>
+                        <ng-container *ngIf="cartItem.articleItem?.productAddon">
+                            <div [innerHTML]="cartItem.articleItem?.productAddon"></div>
+                        </ng-container>
+                        <div>{{cartItem.articleItem.artnrDisplay}}</div>
+                    </div>
+                </a>
+                <div class="dvse-col">                    
+                    {{cartItem.quantity}}
+                </div>
+                <div class="dvse-col dvse-col-avail">
+                    <i class="fa fa-circle"></i>
+                </div>
+                <div class="dvse-col">
+                    {{'SHOPPING_BASKET.DVSE.CONTACT_BRANCH' |translate}}
+                </div>
+                <div class="dvse-col dvse-col-delete">
+                    <a href="javascript:void(0)" class="btn-icon" (click)="removeFromCart(cartItem.cartKey)">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

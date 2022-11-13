@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h5 class="modal-title"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        {{ 'SETTINGS.DELETE' | translate }}</h5>
+</div>
+<div class="modal-body">
+    <div [innerHTML]="'SETTINGS.DELETE_CONFIRM_MESSAGE' | translate: ({value: userInfo.firstName +  userInfo.lastName} | safe: 'text')">
+    </div>
+</div>
+<div class="mx-4" *ngIf="responseMessage" connectResponseMessage [responseMessage]="responseMessage">
+    {{ responseMessage.key | translate }}</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="confirmDelete()">{{ 'SETTINGS.DELETE' | translate }}</button>
+    <button type="button" class="btn btn-secondary" aria-label="Close" data-dismiss="modal"
+        (click)="modelRef.hide()">{{ 'SETTINGS.CANCEL' | translate }}</button>
+</div>

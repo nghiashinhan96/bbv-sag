@@ -1,0 +1,182 @@
+.login-state {
+    background: url('/assets/images/unauthorized-bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+nav.navbar {
+    padding-left: 0;
+    padding-right: 0;
+
+    &.footer {
+        background-color: $footer-backgroud-color;
+        height: $footer-height;
+        color: $footer-color;
+    }
+
+    &.header {
+        background-color: $background-color;
+
+        .navbar-brand {
+            width: 200px !important;
+            height: 60px !important;
+            background: $logo no-repeat center center;
+            background-size: contain !important;
+        }
+
+        height: $header-height;
+        position: sticky;
+        top: 0;
+    }
+}
+
+autonet-header {
+    .bars {
+        position: fixed;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 15px;
+        width: 36px;
+        height: 36px;
+        z-index: 9999;
+
+        i.fa-bars {
+            font-size: $font-icon;
+            margin-top: 0.3rem;
+        }
+
+        .dropdown-menu {
+            &:before {
+                content: "";
+                display: inline-block;
+                width: 0;
+                height: 0;
+                vertical-align: middle;
+                position: absolute;
+                top: -10px;
+                left: 6px;
+                z-index: -1;
+                border-bottom: 12px solid #fff;
+                border-right: 12px solid transparent;
+                border-left: 12px solid transparent;
+            }
+
+            .nav-link {
+                white-space: nowrap;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $primary;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .bars {
+            display: flex;
+        }
+    }
+
+    section {
+        background-color: $grey;
+        border-bottom: 1px solid $primary;
+        border-width: 0.5rem;
+        overflow: hidden;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+    }
+
+    .nav-tabs {
+        border: none;
+        flex-wrap: nowrap;
+
+        .nav-item {
+            background-color: transparent !important;
+            min-height: $panel-height;
+            margin-bottom: -0.5rem;
+
+            a.nav-link {
+                padding: 0 1.25rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                padding-bottom: 0.5rem;
+                border: none !important;
+                cursor: pointer;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+
+                &.active {
+                    // border-color: $thin-grey $thin-grey transparent;
+                    background-color: $primary;
+                    color: $white;
+                    box-shadow: 0px 6px 6px 2px rgba(0, 0, 0, 0.2);
+                }
+
+                &:hover:not(.active) {
+                    background-color: white;
+                    height: calc(100% - 0.5rem);
+                    padding-bottom: 0;
+                    box-shadow: 0px 6px 6px 2px rgba(0, 0, 0, 0.2);
+                    // border-color: $thin-grey $thin-grey transparent;
+                }
+            }
+        }
+
+        &.controls {
+            @media screen and (max-width: 900px) {
+                margin-left: 36px;
+
+                .nav-link:not(.active) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+.advertise {
+    width: 228px;
+    padding: 0 15px;
+    overflow: hidden;
+    position: fixed;
+    height: calc(100vh - 66px);
+    left: 0;
+    top: 51px;
+
+    sag-search-vehicle-history {
+        .list-group {
+            font-size: 10px;
+            margin-top: 1rem;
+        }
+    }
+}
+
+.exclued-advertise {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: calc(228px + 15px);
+
+    .filtering {
+        width: 290px;
+        padding: 0 15px;
+    }
+
+    .result {
+        width: calc(100% - 290px);
+        padding-right: 15px;
+        position: relative;
+    }
+
+    &.search-main-page{
+        padding-left: 15px;
+    }
+}

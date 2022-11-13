@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_210_UPDATE_DEFINITION_VIEW_ACTIVE_USER">
+    <sql>
+		ALTER VIEW V_ACTIVE_USER AS
+	    SELECT
+        U.ID,
+        U.USERNAME,
+        U.EMAIL,
+        CONCAT(U.FIRST_NAME, ' ', U.LAST_NAME) AS FULL_NAME,
+        U.PHONE,
+        L.IS_USER_ACTIVE,
+        R.NAME AS ROLE_NAME,
+        G.NAME AS GROUP_NAME,
+        OG.ORGANISATION_ID AS ORG_ID,
+        O.PARENT_ID AS ORG_PARENT_ID,
+        O.ORG_CODE AS ORG_CODE,
+        OP.SHORTNAME AS AFFILIATE,
+        O.NAME AS ORG_NAME
+        FROM
+        ESHOP_USER U
+        JOIN GROUP_USER GU ON U.ID = GU.USER_ID
+        JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+        JOIN GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+        JOIN ESHOP_ROLE R  ON GR.ROLE_ID = R.ID
+        JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID
+        JOIN ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+        JOIN LOGIN L ON L.USER_ID = U.ID
+        JOIN ORGANISATION OP ON O.PARENT_ID = OP.ID
+        WHERE
+        (U.TYPE IS NULL OR (U.TYPE &lt;&gt; 'VIRTUAL_DMS' AND U.TYPE &lt;&gt; 'VIRTUAL_OCI')) AND NULLIF(O.ORG_CODE, '') IS NOT NULL
+	</sql>
+  </changeSet>
+</databaseChangeLog>

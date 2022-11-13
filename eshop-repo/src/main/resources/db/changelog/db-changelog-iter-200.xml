@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_200_RENAME_TABLE_UNIPARTS_FAVORITE_TO_ESHOP_FAVORITE">
+		<sql>
+			sp_rename 'dbo.UNIPARTS_FAVORITE', 'ESHOP_FAVORITE'
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_200_CREATE_INDEX_ESHOP_FAVORITE">
+		<sql>
+			CREATE INDEX IDX_ESHOP_FAVORITE_TITLE ON [dbo].ESHOP_FAVORITE
+			(TITLE)
+			CREATE INDEX IDX_ESHOP_FAVORITE_COMMENT ON [dbo].ESHOP_FAVORITE
+			(COMMENT)
+		</sql>
+	</changeSet>
+</databaseChangeLog>

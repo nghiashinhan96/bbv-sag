@@ -1,0 +1,18 @@
+<section class="card card-body lib-vehicle-info h-100" *ngIf="vehicle">
+    <a href="javascript:void(0)" (click)="showInfo()"><i class="fa fa-info-circle fa-2x"></i></a>
+    <div class="info">
+        <span data-automation="vehicle-info">{{vehicle.vehicleInfo}}</span><br>
+        <sag-advance-vehicle-search-breadcumb *ngIf="breadcrumbs.length > 0" [breadcrumbs]="breadcrumbs" [isHideRoot]="true">
+        </sag-advance-vehicle-search-breadcumb>
+        <strong *ngIf="breadcrumbs.length === 0" class="keywords">{{keywords}}</strong>
+    </div>
+    <sag-article-favorite-icon
+        customClass="mr-2"
+        [isFavorited]="vehicle?.favorite"
+        [favoriteComment]="vehicle?.favoriteComment"
+        [(vehicle)]="vehicle"
+        [action]="actionFavorite"
+    >
+    </sag-article-favorite-icon>
+    <a href="javascript:void(0)" (click)="refresh()" data-automation="vehicle-info-refresh"><i class="fa fa-refresh"></i></a>
+</section>

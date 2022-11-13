@@ -1,0 +1,4 @@
+spring.profiles: logging-sb-prod
+
+logging:
+  config: classpath:log4j2-sb-prod.xml

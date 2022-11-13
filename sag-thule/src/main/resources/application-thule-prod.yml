@@ -1,0 +1,21 @@
+external:
+  webservice:
+    thule:
+      endpoint: https://www.thule.com/{language}-{country}/buyers-guide?dealerId={dealerId}
+      dealer-id-map:
+        derendinger-at-c4s: 72A9B90A-3493-4C65-8943-CD6359856D5C
+        matik-at-c4s: E50393F7-CE9C-44B2-9FD0-7BBEC1F0FCC4
+        derendinger-ch-c4s: 78E1E4DA-1473-471B-B917-6818D50B3F04
+        technomag-c4s: FDA56AD9-2C8B-4C17-A9C3-EAE4B8159847
+        matik-ch-c4s: 1AF336E2-2053-4F35-B9D9-F54B6B02521C
+        wbb-c4s: 13F529DD-25A9-4F8D-9C4E-C29D039B032F
+        rbe-c4s: 
+        eh-ch: C4D8FCC9-CC19-4792-8E15-4527050FB152
+        eh-at: 
+        derendinger-at: EC942539-D59A-4A6D-BFF9-59A48E84F53C
+        matik-at: 3790D154-D67C-4F2B-B298-341412C219F9
+        derendinger-ch: AE071FD5-00D6-4B04-9AD6-CDD1BE1932CA
+        technomag: 55E261E7-C595-4E47-9BCA-D7E4437E7D82
+        matik-ch: D9DAC20F-91DA-4C03-AD39-26B8926119CA
+        wbb: AFD769F8-EE51-4226-9C6C-AA8EDC59BFFE
+        rbe: 

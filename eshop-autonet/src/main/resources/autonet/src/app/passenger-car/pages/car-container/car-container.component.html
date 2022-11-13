@@ -1,0 +1,6 @@
+<div class="container-fluid {{pageName}}">
+    <autonet-sidebar *ngIf="!isSearchMainPage" [enableFreetextSearch]="autonetCommonService.freetextSearchObs | async"></autonet-sidebar>
+    <div class="exclued-advertise" [class.search-main-page]="isSearchMainPage">
+        <router-outlet></router-outlet>
+    </div>
+</div>

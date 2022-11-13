@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h4 *ngIf="userId">
+        {{('SETTINGS.USER_MANAGEMENT.PROFILE_NAME' | translate) + ' ' + user?.firstName + ' '+ user?.surName }}
+    </h4>
+    <h4 *ngIf="!userId">{{('SETTINGS.USER_MANAGEMENT.CREATE_PROFILE' | translate)}}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+
+<div class="modal-body">
+    <tabset>
+        <tab class="border-left border-right border-bottom p-4" heading="{{ 'SETTINGS.PROFILE_TAB' | translate }}">
+            <ng-container *ngIf="user">
+                <connect-normal-admin-user-password-form [user]="user" (save)="onSubmitPassword($event)">
+                </connect-normal-admin-user-password-form>
+                <connect-normal-admin-user-profile-form [user]="user" [userDetail]="userDetail"
+                    (save)="onSubmitProfile($event)">
+                </connect-normal-admin-user-profile-form>
+            </ng-container>
+        </tab>
+        <tab *ngIf="userId" class="border-left border-right border-bottom p-4"
+            heading="{{ 'SETTINGS.CONFIG' | translate }}">
+            <connect-normal-admin-user-settings-form [userId]="userId" [selectedUsername]="user?.userName">
+            </connect-normal-admin-user-settings-form>
+        </tab>
+    </tabset>
+</div>

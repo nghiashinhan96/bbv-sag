@@ -1,0 +1,30 @@
+<div class="table-container">
+    <table class="table table-hover table-striped article-group-default" *ngIf="!!articleGroupDefault">
+        <tbody>
+            <tr>
+                <td class="margin-value-20">
+                    <div class="text-break">{{articleGroupDefault.sagArticleGroup}}</div>
+                </td>
+                <td class="margin-value-15">
+                    <div class="text-break">{{articleGroupDefault.getSagArticleGroupDesc(currentLangCode)}}</div>
+                </td>
+                <td class="margin-value-10">
+                    <div class="text-break">{{articleGroupDefault.customArticleGroup}}</div>
+                </td>
+                <td class="margin-value-15">
+                    <div class="text-break">{{articleGroupDefault.customArticleGroupDesc}}</div>
+                </td>
+                <ng-container *ngFor="let item of margins">
+                    <td class="text-center margin-value margin-value-5">
+                        <div class="text-break">{{articleGroupDefault['margin' + item]}}</div>
+                    </td>
+                </ng-container>
+                <td class="text-center align-items-start margin-value-5 margin-action">
+                    <div class="margin-icon d-flex">
+                        <i class="fa fa-edit pointer" (click)="editItem()"></i>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

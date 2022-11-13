@@ -1,0 +1,1 @@
+java -jar sag-tools-1.0-SNAPSHOT.jar --spring.profiles.active=ch-umbprod --spring.batch.job.names=tourTimeMigration --csv.tour_time=tour_time.csv

@@ -1,0 +1,235 @@
+{
+  "ARTICLE": {
+    "AMOUNT": "Cantitatea",
+    "ARTICLE_LIST": "Lista de articole",
+    "BRIEF_INFORMATION": "Informație scurtă",
+    "CLEAR_ALL_FILTER": "Ștergeți toate",
+    "DELIVERY_TYPE": "Livrare",
+    "FEATURES": "Detalii",
+    "GENERAL_INFORMATION": "Informații generale",
+    "IAM_NUMBER": "Numere IAM",
+    "IMAGE": "Imagine",
+    "INSTALLATION_INFORMATION": "Infomații de montare",
+    "MANUFACTURER": "Producător",
+    "MORE_INFO": "Mai multe informații",
+    "NET": "Preț",
+    "OE_NUMBER": "Numere OE",
+    "POSITION": "Poziţie",
+    "PRICE": {
+      "ARTICLE_WITHOUT_PRICE": "La cerere",
+      "AVAILIBILITY": "Disponibilitate",
+      "PRICE_INFORMATION_AVAILIBILITY": "Informații preț/disponibilitate"
+    },
+    "PRODUCT_COMMERCIAL_CODE": "Număr comerciant",
+    "PCC_ARTICLE_DETAIL": "Număr comerciant",
+    "QUICK_CLICK": "Clic rapid",
+    "REFERENCE": "Referințe",
+    "REPLACED_BY": "Înlocuit de",
+    "REPLACES": "Înlocuiri",
+    "TECHNICAL_INFORMATION": "Informații tehnice",
+    "USE": "Folosit în",
+    "HIDE_NO_ARTICLE_AVAIL": "Numai în stoc",
+    "SHOW_ONLY_ARTICLE_STOCK": "Afișare elemente indisponibile",
+    "HIDE_ONLY_ARTICLE_STOCK": "Ascundere elemente indisponibile",
+    "GROUPS": {
+      "DIRECT_MATCH": "Rezultate EXACTE",
+      "REFERENCE_MATCH": "Echivalente",
+      "ORIGINAL_PART": "Piese originale",
+      "POSSIBLE_MATCH": "Rezultate posibile"
+    }
+  },
+  "ARTICLE_FILTER": {
+    "ARTICLE_SEARCH": "Căutare articole",
+    "ATTRIBUTES": "Atribute",
+    "BRAND_FILTER": {
+      "BRANDS": "Mărci"
+    },
+    "CATEGORY_MERKMALE": "Categorii și atributuri",
+    "FILTER": "Filtru",
+    "GEN_ARTS": "Categorii",
+    "MATCHING_PRODUCTS": "Element(ele) potrivite",
+    "RESET": "Resetează filtrul",
+    "SUPPLIERS": "Producător"
+  },
+  "ARTICLE_TITLE": "Căutare piese",
+  "AUTONET": {
+    "AVAIL_STATE": {
+      "BLACK": "Nedefinit",
+      "BLUE": "Disponibil in stocul furnizorului. Detalii in coș.",
+      "GREEN": "In stocul depozitului de bază",
+      "RED": "Indisponibil",
+      "YELLOW": "Disponibil din alt depozit. Detalii in coș.",
+      "YELLOW_GREEN": "Deservire azi, în funcție de ora comenzii. Detalii in coș."
+    }
+  },
+  "CATEGORY": {
+    "BUTTON": {
+      "RESET_FILTER": "Resetează filtrul"
+    },
+    "SEARCH": {
+      "TEXT_HOLDER": "Categorii"
+    },
+    "TAB": {
+      "ALL_PARTS": "Toate articolele"
+    }
+  },
+  "COMMON_LABEL": {
+    "ACCESSORIES": "Accesorii",
+    "ACCESSORIES_LIST": "Lista de accesorii",
+    "ACCESSORIES_GROUPS_HINT": "A fost găsit un număr mare de accesorii pentru diferite vehicule. Pentru a restrânge rezultatele, vă rugăm să selectați un vehicul în fila \"Folosit în\" din secțiunea \"Detalii\".",
+    "ARTICLE_NUMBER_LABEL": "Nr. Articol",
+    "CLOSE": "Închide",
+    "DETAILS": "Detalii",
+    "EXPAND": "Extinde",
+    "NO_RESULTS_FOUND": "Nici un rezultat găsit",
+    "REDUCE": "Ascunde",
+    "REQUEST_OFFER": "Cer oferta",
+    "SAVE": "Salvează",
+    "DATE_FROM": "Data de la",
+    "DATE_TO": "Data până la",
+    "ALL": "Toate",
+    "TODAY": "Astăzi",
+    "TWO_DAYS": "Ultimele 2 de zile",
+    "SEVEN_DAYS": "Ultimele 7 de zile",
+    "THIRTYONE_DAYS": "Ultimele 31 de zile",
+    "OWN_HISTORY": "Ultimele mele căutări",
+    "COLUMNS": {
+      "SEARCH_METHOD": "Tipul de căutare",
+      "KEYWORD": "Cuvânt cheie",
+      "DATE": "Data",
+      "USERNAME": "Nume utilizator",
+      "VEHICLE": "Vehicul"
+    },
+    "CROSS_REFERENCE": "Articole alternative",
+    "PARTS_LIST": "Lista de piese",
+    "PARTS_LIST_HINT": "Piese individuale vezi lista de piese"
+  },
+  "ERROR_500": "Eroare internă a serverului!",
+  "FEEDBACK": {
+    "TECHNICAL_DATA": {
+      "VEHICLE_SEARCH": "Căutare vehicul"
+    }
+  },
+  "MENU": {
+    "ADMINISTRATION": "Administrare",
+    "CARS": "Autoturism",
+    "CATELOGUES": "Cataloage",
+    "HOME": "Acasă",
+    "PRICE-OFFERS": "Oferte preț",
+    "SHOPPING-BASKET": "Coș"
+  },
+  "OLYSLAGER": {
+    "DESCRIPTION": "Selectați modelul de vehicul dorit:",
+    "ERROR_MESSAGE": "No oil information for this vehicle",
+    "TITLE": "Vehiculele"
+  },
+  "QUICK_CLICK": {
+    "ARTICLES_DISPLAY": "Afișați piesele"
+  },
+  "SEARCH": {
+    "ARTICLE_DESC": "Descrierea obiectului",
+    "ARTICLE_DESC_AUT": "Cod articol, text sau serie șasiu.",
+    "ARTICLE_HISTORY_TITLE": "Căutat recent",
+    "ARTICLE_TIPS": "Numărul articolului / text de referință OE",
+    "COLUMN_BODY": "Caroserie",
+    "COLUMN_CYLINDER": "Cilindru",
+    "COLUMN_DRIVE_TYPE": "Transmisie",
+    "COLUMN_ENGINE": "Capacitate",
+    "COLUMN_FUEL": "Combustibil",
+    "COLUMN_MOTOR": "Motor",
+    "COLUMN_NAME": "Tip/Model",
+    "COLUMN_POWER": "Putere",
+    "COLUM_PERIOD": "An",
+    "ERROR_MESSAGE": {
+      "ARTICLE_NOT_FOUND": "Articolul nu poate fi găsit.",
+      "NOT_FOUND": "Nu se găsesc piese. Verificați criteriile de căutare.",
+      "REQUIRED_FIELD": "Vă rugăm să completați",
+      "VEHICLE_NOT_FOUND": "Nu a fost găsit niciun vehicul cu această referință!",
+      "VEHICLE_NOT_MATCHED": "Nu au fost găsite autovehicule"
+    },
+    "FILTER_NAME_TITLE": "Căutați cu wildcard: (*) corespunde unuia sau mai multor caractere. ex: „Sport *” găsește „Sportback”",
+    "HOVER_TITLES": {
+      "VEHICLES": "Căutare: Typenschein-Nummer (CH), Plăcuța de înmatriculare (CH), Cod național (AT)",
+      "VEHICLES_DESC": "Căutați: Marcă, Model, Tip, Tip caroserie, Tip combustibil, CC, Cod motor, Putere KW sau CP, Tip de acționare sau orice combinație",
+      "VEHICLES_DESC_HELP": "Wildcard (*) corespunde unuia sau mai multor caractere, de exemplu „Sport *” găsește „Sportback”",
+      "YEAR": "Scrieți anul: AAAA, LL-AAAA sau LL/AAAA"
+    },
+    "KW_PS": "KW / CP",
+    "LOADING": "Se încarcă...",
+    "MAKE_MODEL_HINT": "Căutați un vehicul folosind câmpurile de mai jos",
+    "NO_RESULTS_FOUND": "Nici un rezultat gasit",
+    "REMOVE": "Sterge filtrele",
+    "SEARCH_BUTTON": "Căutare",
+    "VEHICLES": "Typenschein-Nummer (CH), Plăcuța de înmatriculare (CH), Cod național (AT)",
+    "VEHICLES_DESC": "Descrierea vehiculului, Cod motor",
+    "VEHICLE_HINT": "Căutarea unui vehicul se face folosind unul dintre aceste câmpuri.",
+    "VEHICLE_HISTORY_TITLE": "Vehicule recent căutate",
+    "VEHICLE_SEARCH": {
+      "MAKE_MODEL_TITLE": "Marcă/Model",
+      "VEHICLE_TITLE": "Căutare autovehicul"
+    },
+    "VEHICLE_SEARCH_TITLE": "Căutare vehicul",
+    "YEAR": "An fabricație",
+    "YEAR_ERROR_HINT": "AAAA, LL-AAAA, LL/AAAA",
+    "NO_ARTICLE_SEARCH_FOUND": "Nu s-au găsit intrări",
+    "NO_VEHICLE_SEARCH_FOUND": "Nu s-au găsit vehicule",
+    "OR": "oder"
+  },
+  "SEARCH_RESULT": {
+    "LOAD_MORE": "Afișați mai multe"
+  },
+  "TYRE": {
+    "ALL": "Toate"
+  },
+  "VEHICLE_FILTER": {
+    "APPROVAL": "Tip de aprobare",
+    "BODY": "Tip caroserie",
+    "BODY_TYPE": "Tip caroserie",
+    "BRAND": "Marca",
+    "BUILD_YEAR": "An",
+    "CAPACITY_ENGINE": "CC",
+    "CATALYST_CONVERTER_TYPE": "Catalizator",
+    "CYLINDER": "Cilindri",
+    "DOORS": "Uși",
+    "DRIVE_TYPE": "Tracțiune",
+    "ENGINE_CODE": "Motor",
+    "FUEL": "Combustibil",
+    "FUEL_SUPPLY": "Alimentarea cu combustibil",
+    "FUEL_TYPE": "Combustibil",
+    "MB": "Motocicletă",
+    "MODEL": "Model",
+    "PC": "Autoturism / Autoutilitară",
+    "POWER": "Putere",
+    "POWER_HP": "Cai putere",
+    "POWER_KW": "KW",
+    "TITLE": "Marca/Model",
+    "TYPE": "Tip",
+    "VALVES": "Supape"
+  },
+  "FAVORITE": {
+    "FAVORITES": "Favorite",
+    "REMOVE": "Elimina",
+    "COMMENT": "Comentariu (opțional)",
+    "ADD_FAVORITE": "Adaugă favorit",
+    "EDIT_FAVORITE": "Editare favorit"
+  },
+  "PAGINATION": {
+    "NEXT": "Următorul ",
+    "PREVIOUS": "Anterior "
+  },
+  "ADVANCE_VEHICLE_SEARCH": {
+    "HEADER": "Căutare avansată a vehiculelor",
+    "TOP_MAKES_HEADER": "Mărci populare",
+    "ALL_MAKES_HEADER": "Toate Mărci",
+    "MAKES": "Mărci",
+    "MODELS": "Modele",
+    "MODEL_SERIES": "Seria de modele",
+    "MODEL_YEAR": "Anul",
+    "FILTER_BY_YEAR": "Filtrați după an",
+    "QUICK_SELECTION": "Selecție rapidă a modelelor",
+    "SEARCH": {
+      "COLUMN_TYPE": "Tipul",
+      "COLUMN_YEAR": "Anul"
+    }
+  }
+}

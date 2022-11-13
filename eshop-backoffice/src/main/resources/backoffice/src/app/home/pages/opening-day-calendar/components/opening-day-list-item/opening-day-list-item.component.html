@@ -1,0 +1,13 @@
+<td>{{ openingDay.date | date:'dd.MM.yyyy' }}</td>
+<td colspan="2">{{ 'OPENING_DAY.' + openingDay.workingDayCode | translate }}</td>
+<td class="country-col-row" colspan="2">{{ openingDay.countryName }}</td>
+<td colspan="2">{{ openingDay.expAffiliate }}</td>
+<td colspan="2">{{ branchCodes }}</td>
+<td colspan="2">{{ expWorkingCode | translate }}</td>
+<td colspan="3">{{ expAddressIds }}</td>
+<td class="text-center align-middle">
+    <div class="branch-edit">
+        <i class="fa fa-edit" [routerLink]="['./edit', openingDay.id]"></i>
+        <i class="fa fa-trash" (click)="onDelete()"></i>
+    </div>
+</td>

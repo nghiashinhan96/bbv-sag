@@ -1,0 +1,22 @@
+# ************************************************************************
+# This is the AT configuration of DVSE(SOAP) application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch
+# - Liquibase - 
+# - Caching -
+# - Country Code - 
+# - MDM for DVSE service - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  stakis-erp-pre, 
+  db-cz,
+  elasticsearch-dev2,
+  no-liquibase, 
+  cache-dev,
+  country-cz,
+  unicat-callback-dev,
+  mdm-prod

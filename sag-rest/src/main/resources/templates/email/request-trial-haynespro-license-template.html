@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Request trial Haynes Pro license</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="#{mail.request.hp.trial_license.greeting}"></p>
+    <p th:text="#{mail.request.hp.trial_license.body}"></p>
+    <table style="padding-left: 20px;">
+        <tbody>
+            <tr>
+                <td th:text="#{mail.request.hp.trial_license.customerNr}"></td>
+                <td style="font-weight: bold" th:text="${customerNr}">Customer number is here</td>
+            </tr>
+            <tr>
+                <td th:text="#{mail.request.hp.trial_license.username}"></td>
+                <td style="font-weight: bold" th:text="${username}">Username is here</td>
+            </tr>
+            <tr>
+                <td th:text="#{mail.request.hp.trial_license.email}"></td>
+                <td style="font-weight: bold" th:text="${email}">Email is here</td>
+            </tr>
+        </tbody>
+    </table>
+    <p th:text="#{mail.request.hp.trial_license.closing}"></p>
+    <br></br>
+    <p th:text="#{mail.request.hp.trial_license.thanks}"></p>
+    <p th:text="#{mail.request.hp.trial_license.signature}"></p>
+</body>
+</html>

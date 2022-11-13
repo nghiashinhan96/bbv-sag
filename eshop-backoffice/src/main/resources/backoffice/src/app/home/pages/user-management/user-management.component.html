@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-12 col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="section-title">{{'USER_MANAGEMENT.USER_LIST.TITLE' | translate}}</h3>
+
+            <div class="section-export d-flex">
+                <button class="btn btn-primary d-flex align-items-center" (click)="export()">
+                    <i class="fa fa-share-square-o" *ngIf="isCh"></i>
+                    <i class="fa fa-file-excel-o" *ngIf="!isCh && canExport"></i>
+                    <span class="ml-1">{{'USER_MANAGEMENT.EXPORT.OVERVIEW'| translate}}</span>
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="isCh && errorMessage" class="alert alert-danger" role="alert"
+            [innerHTML]="errorMessage | translate"></div>
+
+        <sag-table mode="online" [columns]="columns" [page]="page" (searchData)="searchTableData($event)"
+            notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}">
+        </sag-table>
+
+    </div>
+
+</div>
+
+<ng-template #colActions let-row="row">
+    <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-icon" (click)="viewUserDetail(row)">
+            <i class="fa fa-edit"></i>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template let-row="row" #colRole>
+    <span>{{'COMMON.LABEL.ROLE.'+ row.roleName | translate}}</span>
+</ng-template>
+
+<ng-template let-row="row" #colStatus>
+    <span>{{ ( row.isUserActive ? 'COMMON.LABEL.ACTIVE' : 'COMMON.LABEL.INACTIVE' ) | translate}}</span>
+</ng-template>
+
+<ng-template #exportModal>
+    <div class="modal-export-confirm" tabindex="-1" role="dialog">
+        <div class="modal-body">
+            <p class="messages">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {{'USER_MANAGEMENT.EXPORT.CONFIRM_MESG' | translate}}
+            </p>
+            <p class="modal-btn">
+                <button type="button" class="btn btn-primary pull-right wide"
+                    (click)="closeModalAndExport()">{{'COMMON.BUTTON.YES' | translate}}</button>
+                <button type="button" class="btn btn-default pull-left wide" (click)="closeModal()"
+                    aria-label="Close">{{'COMMON.BUTTON.NO' | translate}}</button>
+            </p>
+        </div>
+    </div>
+</ng-template>

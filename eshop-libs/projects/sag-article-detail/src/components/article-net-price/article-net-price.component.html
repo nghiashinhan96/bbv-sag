@@ -1,0 +1,101 @@
+<div class="part-col part-net" data-automation="netto-price">
+    <ng-container *ngIf="userSetting?.currentStateNetPriceView">
+        <ng-container *ngIf="article.priceRequested; else loadingRef">
+            <div [popover]="popoverRef" #pop="bs-popover" [outsideClick]="true" container="body"
+                triggers="mouseenter:mouseleave" containerClass="article-avail-popover" [delay]="popoverDelay" placement="right">
+                <ng-container *ngIf="!isPDP; else pdpRef">
+                    <!-- Final customer -->
+                    <ng-container *ngIf="isFinalCustomer; else otherCustomerRef">
+                        <!-- FC can view net price when: -->
+                        <!-- WSS level permission: ON -> FC level permission: ON -> FC GUI display: ON -->
+                        <ng-container *ngIf="fcCanViewNetPrice">
+                            <ng-container *ngIf="isShowVat; else notShowVatFCPriceRef">
+                                <div class="netto text-right" *ngIf="article?.getFinalCustomerNetPrice(userSetting); else artWithoutPrice">
+                                    {{ article?.getFinalCustomerNetPrice(userSetting) | sagCurrency }}
+                                </div>
+                                <div class="netto include-vat text-right" *ngIf="article?.getFinalCustomerNetPrice(userSetting, true)">
+                                    ({{ article?.getFinalCustomerNetPrice(userSetting, true) | sagCurrency }})
+                                </div>
+                                <div class="discount text-right" *ngIf="isShownDiscount">
+                                    ({{ article?.discountInPercent | sagNumeric }}%)
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
+
+<ng-template #pdpRef>
+    <div [class.is--greater-equal]="netPriceGreaterThanOrEqualNet1Price" [class.is--less]="netPriceLessThanNet1Price">
+        <div class="discount-1 text-right" *ngIf="isShownDiscount">
+            {{ article?.getDiscount() | sagNumeric }}%
+        </div>
+        <ng-container *ngIf="netPriceLessThanNet1Price">
+            <ng-container *ngIf="isShowVat; else notShowVatNet1PriceRef">
+                <div class="netto1 text-right" *ngIf="article?.getNet1Price()">
+                    {{ article?.getNet1Price() | sagCurrency }}
+                </div>
+                <div class="netto1 include-vat text-right" *ngIf="article?.getNet1Price(true)">
+                    ({{ article?.getNet1Price(true) | sagCurrency }})
+                </div>
+            </ng-container>
+            <ng-template #notShowVatNet1PriceRef>
+                <div class="netto1 text-right" *ngIf="article?.getNet1Price(currentStateVatConfirm)">
+                    {{ article?.getNet1Price(currentStateVatConfirm) | sagCurrency }}
+                </div>
+            </ng-template>
+
+        </ng-container>
+
+        <div class="discount-2 text-right pt-2" *ngIf="isShowPromotionDiscount">
+            {{ article?.getPromotionDiscount() | sagNumeric }}%
+        </div>
+
+        <div class="netto2 text-right" *ngIf="netPrice; else artWithoutPrice">
+            {{ netPrice | sagCurrency }}
+        </div>
+        <div class="netto2 include-vat text-right" *ngIf="isShowVat && article?.getNetPrice(true)">
+            ({{ article?.getNetPrice(true) | sagCurrency }})
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #artWithoutPrice>
+    <span class="col-art-without-price text-right" id="col-artWithoutPrice-{{article?.artnr}}">
+        {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}</span>
+</ng-template>
+
+<ng-template #popoverRef>
+    <sag-article-detail-avail-popup [article]="article" [popupRef]="pop" [availabilities]="article?.availabilities"
+        [userSetting]="userSetting" [availTemplateRef]="customAvailPopoverContentTemplateRef"
+        [currentStateVatConfirm]="currentStateVatConfirm"
+        >
+    </sag-article-detail-avail-popup>
+</ng-template>
+
+<ng-template #loadingRef>
+    <i class="fa fa-spinner fa-spin fa-fw text-success"></i>
+</ng-template>
+
+<ng-template #otherCustomerRef>
+    <ng-container *ngIf="article?.netPrice; else artWithoutPrice">
+        <div class="netto text-right">
+            {{ article?.netPrice | sagCurrency }}
+        </div>
+        <div class="discount text-right" *ngIf="isShownDiscount">
+            ({{ article?.discountInPercent | sagNumeric }}%)
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #notShowVatFCPriceRef>
+    <div class="netto text-right" *ngIf="article?.displayFCNetPrice">
+        {{ article?.displayFCNetPrice | sagCurrency }}
+    </div>
+    <div class="discount text-right" *ngIf="isShownDiscount">
+        ({{ article?.discountInPercent | sagNumeric }}%)
+    </div>
+</ng-template>

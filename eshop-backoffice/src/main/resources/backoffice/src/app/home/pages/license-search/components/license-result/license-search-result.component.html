@@ -1,0 +1,71 @@
+<div class="error" *ngIf="!hasParams">
+    <notification [notifier]="error"></notification>
+</div>
+<div class="license-result-wrapper" *ngIf="hasParams">
+    <div class="header">
+        <h3 class="section-title">{{ "HOME.LABEL.LICENSE_SEARCH.LICENSE_LIST" | translate }}</h3>
+        <button class="btn btn-primary export-license pull-right"
+            (click)="isExpandExportOptions=!isExpandExportOptions">
+            <i class="export-license_icon fa fa-share-square-o fa-2x fa-flip-horizontal"></i>
+            <span class="export-license_label">{{ "HOME.LABEL.LICENSE_SEARCH.EXPORT_TO_FILE" | translate }}</span>
+            <i class="export-license_icon-down fa fa-sort-desc" aria-hidden="true"></i>
+            <span class="export-license_options" *ngIf="isExpandExportOptions">
+                <span class="csv" (click)="openPopupConfirmExport(EXPORT_LICENSE_MODE.CSV)">
+                    <i class="fa fa-2x fa fa-file-o" aria-hidden="true"></i>
+                    <span>CSV</span>
+                </span>
+                <span class="excel" (click)="openPopupConfirmExport(EXPORT_LICENSE_MODE.EXCEL)">
+                    <i class="fa fa-2x fa-file-excel-o" aria-hidden="true"></i>
+                    <span>Excel</span>
+                </span>
+            </span>
+        </button>
+    </div>
+    <div class="notifier">
+        <notification [notifier]="notifier"></notification>
+    </div>
+    <div class="license-table">
+        <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+            notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}">
+        </sag-table>
+    </div>
+</div>
+
+<ng-template #colActions let-row="row">
+    <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-icon" (click)="editLicense(row)">
+            <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn-icon" (click)="deleteLicense(row)">
+            <i class="fa fa-trash-o"></i>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #exportModal>
+    <div class="modal-export-confirm" tabindex="-1" role="dialog">
+        <div class="modal-body">
+            <p class="messages">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {{'USER_MANAGEMENT.EXPORT.CONFIRM_MESG' | translate}}
+            </p>
+            <p class="modal-btn">
+                <button type="button" class="btn btn-primary pull-right wide"
+                    (click)="closeModalAndExport()">{{'COMMON.BUTTON.YES' | translate}}</button>
+                <button type="button" class="btn btn-default pull-left wide" (click)="closeExportModal()"
+                    aria-label="Close">{{'COMMON.BUTTON.NO' | translate}}</button>
+            </p>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #editLicenseModal>
+    <backoffice-license-edit-modal [license]="editLicenseData" [licensePackage]="licensePackage"
+        (saveEventEmitter)="saveLicense()" (closeModalEventEmitter)="closeEditModal()">
+    </backoffice-license-edit-modal>
+</ng-template>
+
+<ng-template #deleteLicenseModal>
+    <backoffice-license-delete-modal [license]="deleteLicenseData" (deleteEventEmitter)="removeLicense()"
+        (closeModalEventEmitter)="closeDeleteModal()"></backoffice-license-delete-modal>
+</ng-template>

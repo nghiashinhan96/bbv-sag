@@ -1,0 +1,1 @@
+spring.profiles.include: thule-dev, executor-pool-test, no-liquibase, country-ch

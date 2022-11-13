@@ -1,0 +1,209 @@
+sag-search-vehicle {
+    p {
+        font-size: 12px;
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    section > .form-group {
+        margin-bottom: 20px;
+    }
+
+    .col-left-60 {
+        flex: 0 0 calc(60% - 2px);
+        padding-right: 10px;
+    }
+
+    .col-right-40 {
+        flex: 0 0 calc(40% + 2px);
+        padding-left: 10px;
+
+        >.input-group::after {
+            content: '';
+            width: 1px;
+            height: 60%;
+            border-left: 1px solid #ccc;
+            position: absolute;
+            top: 46%;
+            transform: translateY(-50%);
+            left: -10px;
+        }
+    }
+
+    .form-control[formcontrolname=vehicleVin] {
+        &.is-valid {
+            color: #390;
+            background: none;
+            border-width: 2px;
+
+            &::placeholder {
+                color: #390;
+            }
+        
+            &:-ms-input-placeholder {
+                color: #390;
+            }
+        
+            &::-ms-input-placeholder {
+                color: #390;
+            }
+        }
+    }
+
+    .vin-license-amount {
+        font-size: 11px;
+        font-weight: 700;
+        color: #390;
+        
+        .text-body {
+            margin-bottom: 20px;
+            margin-top: -10px;
+        }
+
+        >.col-md-12 {
+            display: flex;
+            align-items: center;
+
+            .fa-caret-right {
+                font-size: 15px;
+            }
+
+            span {
+                margin-top: 1px;
+            }
+
+            span.vin-license {
+                margin-left: 10px;
+                margin-right: 3px;
+            }
+        }
+    }
+
+    .vin-top-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 13px;
+
+        .license-amount {
+            font-size: 11px;
+            color: #666666;
+        }
+
+        .buy-vin {
+            margin-left: 20px;
+            
+            span {
+                font-size: 11px;
+                font-weight: 500;
+            }
+
+            &.success {
+                span {
+                    color: #390;
+                }
+            }
+        }
+    }
+
+    hr {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .btn.btn-primary.ml-auto {
+        min-width: 150px !important;
+    }
+
+    .btn.btn-buy-vin.btn-success {
+        background-color: #390;
+    }
+
+    .popup-vin-title {
+        padding: 1rem 0 0.5rem 0;
+        margin: 0 1rem 1rem 1rem;
+        border-bottom: 1px solid $primary;
+
+        .fa-times-circle {
+            color: #333;
+            font-size: 20px;
+        }
+    }
+
+    .popup-vin-info {
+        height: 200px;
+        overflow-y: auto;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 3px 0;
+            cursor: default;
+            overflow: hidden;
+            padding: 0.25rem 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            .vin-avail {
+                width: 20px;
+                text-align: center;
+            }
+        }
+    }
+
+    .hand-pointer {
+        cursor: pointer;
+    }
+
+    .dms-seprator {
+        span {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                width: 45%;
+                height: 13px;
+                top: -0.45rem;
+                border-bottom: 1px solid black;
+            }
+
+            &:before {
+                right: 52%;
+                margin-right: 15px;
+            }
+
+            &:after {
+                left: 52%;
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .vehicle-search-ch {
+        & > div {
+            &:nth-child(1) {
+                order: 2;
+            }
+
+            &:nth-child(2) {
+                order: 1;
+            }
+
+            &:nth-child(3) {
+                order: 0;
+            }
+        }
+    }
+}

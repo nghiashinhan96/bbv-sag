@@ -1,0 +1,60 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_225_ADD_VEHICLE_CLASS_TO_VEHICLE_HISTORY">
+		<sql>
+			ALTER TABLE dbo.VEHICLE_HISTORY ADD VEH_CLASS varchar(255)
+		</sql>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP" id="ITER_225_DROP_V_USER_VEHICLE_HISTORY">
+		<sql>
+			DROP VIEW IF EXISTS V_USER_VEHICLE_HISTORY
+		</sql>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP" id="ITER_225_ADD_VEHICLE_CLASS_TO_V_USER_VEHICLE_HISTORY">
+		<sql>
+			CREATE VIEW dbo.V_USER_VEHICLE_HISTORY with schemabinding AS
+			        SELECT 
+			          UVH.ID AS ID,
+			          U.ID AS USER_ID,
+			          U.USERNAME AS USER_NAME,
+			          U.FIRST_NAME AS FIRST_NAME,
+			          U.LAST_NAME AS LAST_NAME,
+			          CONCAT(U.LAST_NAME, ' ', U.FIRST_NAME) AS FULL_NAME,
+			          OG.ORGANISATION_ID AS ORG_ID,
+			          O.ORG_CODE AS ORG_CODE,
+			          VH.VEH_ID AS VEHICLE_ID,
+			          VH.VEH_NAME AS VEHICLE_NAME,
+			          VH.VEH_CLASS AS VEHICLE_CLASS,
+			          UVH.SEARCH_TERM AS SEARCH_TERM,
+			          UVH.SEARCH_MODE AS SEARCH_MODE,
+			          UVH.FROM_SOURCE AS FROM_SOURCE,
+			          UVH.SELECT_DATE AS SELECT_DATE
+			          from
+			          dbo.VEHICLE_HISTORY VH
+			          JOIN dbo.USER_VEHICLE_HISTORY UVH ON VH.ID = UVH.VEH_HISTORY_ID
+			          JOIN dbo.ESHOP_USER U ON UVH.USER_ID = U.ID
+			          JOIN dbo.GROUP_USER GU ON
+			          U.ID = GU.USER_ID
+			          JOIN dbo.ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+			          JOIN
+			          dbo.GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+			          JOIN dbo.ESHOP_ROLE R ON
+			          GR.ROLE_ID = R.ID
+			          JOIN dbo.ORGANISATION_GROUP OG ON G.ID =
+			          OG.GROUP_ID
+			          JOIN dbo.ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+			          JOIN dbo.LOGIN L ON L.USER_ID = U.ID
+			          JOIN dbo.USER_SETTINGS US ON
+			          US.ID = U.SETTING
+			          JOIN dbo.SALUTATION SL ON SL.ID = U.SALUTATION
+			          WHERE L.IS_USER_ACTIVE = 1;
+		</sql>
+	</changeSet>
+	
+</databaseChangeLog>

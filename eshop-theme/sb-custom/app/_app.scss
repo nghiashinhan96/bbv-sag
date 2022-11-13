@@ -1,0 +1,9 @@
+@import "./layout";
+@import './shopping-order-article-detail';
+@import './shopping-order-part-header';
+@import './shopping-basket';
+
+html.wt-sb {
+    background-size: cover !important;
+    background-position: 50% !important;
+}

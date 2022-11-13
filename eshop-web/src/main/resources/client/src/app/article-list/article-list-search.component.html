@@ -1,0 +1,65 @@
+<section class="article-list-search" [class.mt-5]="!isSubBasket">
+    <ng-container *ngIf="!isSb && creditLimitService.creditCardInfo$ | async as creditCardInfo">
+        <div class="card mb-2 card-body credit-limit-panel" *ngIf="!creditCardInfo.creditValid">
+            <strong class="message-title w-100 mb-2">
+                {{'SHOPPING_BASKET.CREDIT_LIMIT' | translate}}
+            </strong>
+            <div class="message-content"
+                [innerHTML]="creditCardInfo.creditMessageListPart?.message | translate: creditCardInfo.creditMessageListPart?.messageParams">
+            </div>
+            <div class="message-content sub-message"
+                [innerHTML]="creditCardInfo.creditMessageListPart?.subMessage | translate">
+            </div>
+        </div>
+    </ng-container>
+    <section class="row">
+        <section class="col filter">
+            <div class="d-flex align-items-center">
+                <h4 *ngIf="!isSubBasket" class="m-0 header-title">{{'ARTICLE_SEARCH_LIST.TITLE' | translate}}</h4>
+            </div>
+            <sag-custom-favorite-list
+                [includeLeafNode]="false"
+                (onSelectItemEmit)="onSelectFavoriteItem($event)">
+            </sag-custom-favorite-list>
+        </section>
+        <section class="col">
+            <sag-article-list-header *ngIf="searchHistories && searchHistories.length > 0"
+                [articleListType]="articleListType"
+                [userSetting]="userService.userPrice"
+                (currentNetPriceChange)="toggleNetPriceSetting()"
+                [(articleMode)]="appStorage.articleMode"
+                [(isAllChecked)]="isSelectedAll"
+                [sortArticle]="sortArticle">
+            </sag-article-list-header>
+        </section>
+    </section>
+    <connect-article-list-item *ngFor="let item of searchHistories; let i = index" [searchData]="item" [index]="i"
+        [isSubBasket]="isSubBasket" (dataChange)="onDataChange($event)" [sortArticle]="sortArticle">
+    </connect-article-list-item>
+    <section class="row">
+        <section class="col filter">
+            <form [formGroup]="form">
+                <div class="input-group mb-3">
+                    <input autofocus type="text" class="form-control" #searchTerm formControlName="searchTerm"
+                        (keydown.Tab)="handleInputTab($event)" (keyup.enter)="onSearch()">
+                    <div class="input-group-append">
+                        <button tabindex="-1" class="btn btn-primary rounded-0 py-0" type="button"
+                            [disabled]="!searchTermControl.value" (click)="onSearch()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="text-right mb-3" *ngIf="searchHistories?.length">
+                <button tabindex="-1" class="btn btn-primary" (click)="clearSearchedList()">
+                    {{'COMMON_LABEL.DELETE_ALL_ENTRIES' | translate}}
+                </button>
+            </div>
+            <div *ngIf="!isSubBasket" class="text-right">
+                <a tabindex="-1" class="font-weight-bold" href="javascript:void(0)" (click)="processImport()">
+                    {{'ARTICLE_SEARCH_LIST.IMPORT_ARTICLE_LIST' | translate}}
+                </a>
+            </div>
+        </section>
+    </section>
+</section>

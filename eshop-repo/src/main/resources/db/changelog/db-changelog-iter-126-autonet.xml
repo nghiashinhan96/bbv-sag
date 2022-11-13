@@ -1,0 +1,92 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_126_INSERT_DATA_ESHOP_CLIENT_PASSWORD">
+        <sql>
+            -- autonet-romania-eqKEx27l
+            insert into	ESHOP_CLIENT (CLIENT_NAME,	CLIENT_SECRET,	RESOURCE_ID,	ACTIVE) VALUES
+            ('autonet-romania',	'Fduo3lwjIlWwQFdWdFnBJvz0qYFddEnlN1IGi96',	1,	1)
+            -- autonet-slovakia-5wjcT0pF
+            insert into	ESHOP_CLIENT (CLIENT_NAME,	CLIENT_SECRET,	RESOURCE_ID,	ACTIVE) VALUES
+            ('autonet-slovakia',	'Fduo3lwjIlWwQFdwT08nhQkQ1UFdGKFPG4qb73YFduXSrApCNA2I',	1,	1)
+            -- autonet-slovenia-7hFJy7tw
+            insert into	ESHOP_CLIENT (CLIENT_NAME,	CLIENT_SECRET,	RESOURCE_ID,	ACTIVE) VALUES
+            ('autonet-slovenia',	'Fduo3lwjIlWwQFdfZU/i8xXdEIFdOSZq1UqlJ/2FdpVi.4Hs0nLw',	1,	1)
+        </sql>
+    </changeSet>
+<!--
+    <changeSet author="CONNECT_APP" id="ITER_126_INSERT_DATA_ESHOP_CLIENT_PASSWORD">
+        <sql>
+            autonet-hungary-yztAh1151
+            insert into	ESHOP_CLIENT (CLIENT_NAME,	CLIENT_SECRET,	RESOURCE_ID,	ACTIVE) VALUES
+            ('autonet-hungary',	'Fduo3lwjIlWwQFdDEQDLJsHSngFdV/IeKOt7hZwFdf6GA5wuEwfA',	1,	1)
+
+			autonet-rest-yztAhGpFW
+			insert into	ESHOP_CLIENT (CLIENT_NAME,	CLIENT_SECRET,	RESOURCE_ID,	ACTIVE) VALUES
+            ('autonet-rest',	'Fduo3lwjIlWwQFdyZdJNGPjc32FdYmUU3RYsGdk',	1,	1)
+        </sql>
+    </changeSet>
+ -->
+    <changeSet author="CONNECT_APP" id="ITER_126_INSERT_LANGUAGE_ADD_TEC_DOC_DATA">
+        <sql>
+            -- Create missing LANGUAGE
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'DE')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_DE', 'DE' , 'German', 1)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'FR')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_FR', 'FR' , 'French', NULL)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'IT')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_IT', 'IT' , 'Italian', NULL)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'RO')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_RO', 'RO' , 'Romany', 21)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'HU')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_HU', 'HU' , 'Hungary', 14)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'SK')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_SK', 'SK' , 'Slovakia', 17)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'EN')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_EN', 'EN' , 'English', 4)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'SL')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_SL', 'SL' , 'Slovenia', 36)
+            END;
+
+            IF NOT EXISTS (SELECT 1 FROM LANGUAGES WHERE [LANGISO] = 'BG')
+            BEGIN
+            INSERT INTO LANGUAGES (LANGCODE, LANGISO, DESCRIPTION, TEC_DOC) VALUES ('LANG_BG', 'BG' , 'Bulgari', 32)
+            END;
+
+            -- update if missing tec_doc
+            UPDATE dbo.LANGUAGES SET TEC_DOC=1 WHERE LANGISO='DE' AND TEC_DOC is NULL;
+            UPDATE dbo.LANGUAGES SET TEC_DOC=21 WHERE LANGISO='RO' AND TEC_DOC is NULL;
+            UPDATE dbo.LANGUAGES SET TEC_DOC=14 WHERE LANGISO='HU' AND TEC_DOC is NULL;
+            UPDATE dbo.LANGUAGES SET TEC_DOC=17 WHERE LANGISO='SK' AND TEC_DOC is NULL;
+            UPDATE dbo.LANGUAGES SET TEC_DOC=4 WHERE LANGISO='EN' AND TEC_DOC is NULL;
+            UPDATE dbo.LANGUAGES SET TEC_DOC=36 WHERE LANGISO='SL' AND TEC_DOC is NULL;
+            UPDATE dbo.LANGUAGES SET TEC_DOC=32 WHERE LANGISO='BG' AND TEC_DOC is NULL;
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

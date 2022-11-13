@@ -1,0 +1,6 @@
+external:
+  webservice:
+    oates:
+      endpoint: https://sag-ws-austria.phoenix.earlweb.net
+      token: wv9Xc8D9Mw33
+      

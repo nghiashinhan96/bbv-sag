@@ -1,0 +1,23 @@
+<div class="brand-management">
+    <connect-margin-brand-default (editEmit)="edit($event)"></connect-margin-brand-default>
+
+    <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+        notFoundText="{{ 'SEARCH.NO_RESULTS_FOUND' | translate }}" class="sag-table-content w-100">
+    </sag-table>
+
+    <div class="w-100 create-btn-container d-flex justify-content-end">
+        <button class="btn btn-primary mr-2" (click)="openImportModal()">
+            {{ 'WSS.IMPORT_EXPORT' | translate }}
+        </button>
+        <button class="btn btn-primary" (click)="create()">
+            <i class="fa fa-plus mr-1"></i> {{ 'MARGIN_MANAGE.NEW_BRAND' | translate }}
+        </button>
+    </div>
+
+    <ng-template #colActions let-row="row">
+        <div class="margin-icon d-flex">
+            <i class="fa fa-edit mr-3 pointer" (click)="edit(row)"></i>
+            <i class="fa fa-trash pointer" (click)="deleteBrand(row)"></i>
+        </div>
+    </ng-template>
+</div>

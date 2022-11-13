@@ -1,0 +1,133 @@
+<form [formGroup]="marginArtGroupForm" novalidate>
+    <div class="margin-art-group-dialog">
+        <div class="modal-header">
+            <h4>{{ title | translate }}</h4>
+            <a href="javascript:void(0)" (click)="close()"><i class="fa fa-times-circle close"></i></a>
+        </div>
+        <div class="modal-body">
+            <sag-common-message *ngIf="msg" [data]="msg"></sag-common-message>
+
+            <div class="card art-grp-block">
+                <div class="card-header">
+                    <connect-expanded title="{{'MARGIN_MANAGE.SUPPLIER_ARTICLE_GROUP' | translate}}"
+                        [(expand)]="isArtGrpExpand">
+                    </connect-expanded>
+                </div>
+                <div class="card-body" [hidden]="!isArtGrpExpand">
+                    <sag-common-message *ngIf="artGrpErrorMsg" [message]="artGrpErrorMsg" type="ERROR">
+                    </sag-common-message>
+
+                    <div class="form-group row d-flex align-items-center justify-content-start">
+                        <label class="col-3 control-label">
+                            {{'MARGIN_MANAGE.ARTICLE_GROUP' | translate}}*
+                        </label>
+                        <div class="col-9 pl-0">
+                            <input class="form-control fill" (keyup.enter)="searchArtGrps()"
+                                formControlName="articleGroup" [attr.disabled]="editMode" #searchInput>
+                        </div>
+                    </div>
+                    <div
+                        class="form-group row d-flex align-items-center justify-content-start art-grp-search-container">
+                        <label class="col-3 control-label">
+                            {{'MARGIN_MANAGE.ARTICLE_GROUP_DES' | translate}}*
+                        </label>
+                        <div class="col-9 pl-0">
+                            <input class="form-control" formControlName="articleGroupDesc"
+                                (keyup.enter)="searchArtGrps()" [attr.disabled]="editMode">
+
+                            <div class="w-100" [popover]="resultRef" #pop="bs-popover" triggers="manualy"
+                                containerClass="art-grp-search-container" placement="bottom" [outsideClick]="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row d-flex align-items-center justify-content-start" *ngIf="!editMode">
+                        <label class="col-3 control-label"></label>
+                        <div class="col-3 pl-0">
+                            <sag-common-save-button text="SEARCH.SEARCH_BUTTON" btnType="submit"
+                                (save)="searchArtGrps($event)" css="btn-primary btn-search-art-grp"
+                                [hideTextOnLoading]="true" [(loading)]="isSearchArtGrpText">
+                            </sag-common-save-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card brand-block mt-4">
+                <div class="card-header">
+                    <connect-expanded title="{{'MARGIN_MANAGE.GH_ARTICLE_GROUP' | translate}}"
+                        [(expand)]="isGHArtGrpExpand">
+                    </connect-expanded>
+                </div>
+                <div class="card-body" [hidden]="!isGHArtGrpExpand">
+                    <div class="form-group row d-flex align-items-center justify-content-start">
+                        <label class="col-3 control-label">
+                            {{'MARGIN_MANAGE.GH_ARTICLE_GROUP_COL' | translate}}*
+                        </label>
+                        <div class="col-9 pl-0">
+                            <input class="form-control fill" formControlName="customArticleGroup">
+                        </div>
+                    </div>
+                    <div class="form-group row d-flex align-items-center justify-content-start">
+                        <label class="col-3 control-label">
+                            {{'MARGIN_MANAGE.GH_ARTICLE_GROUP_DES_COL' | translate}}*
+                        </label>
+                        <div class="col-9 pl-0">
+                            <input class="form-control" formControlName="customArticleGroupDesc">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card margin-block mt-4">
+                <div class="card-header">
+                    <connect-expanded title="{{'MARGIN_MANAGE.MARGINS' | translate}}" [(expand)]="isMarginExpand">
+                    </connect-expanded>
+                </div>
+                <div class="card-body" *ngIf="isMarginExpand">
+                    <ng-container *ngFor="let item of margins">
+                        <div class="form-group row d-flex align-items-center justify-content-start">
+                            <label class="col-3 control-label">
+                                {{'SETTINGS.GROUP' | translate}} {{item}}* (%)
+                            </label>
+                            <div class="col-7 pl-0">
+                                <div class="text-left">
+                                    <connect-margin-input [form]="marginArtGroupForm" [controlName]="'margin' + item"
+                                        [className]="'w-100'">
+                                    </connect-margin-input>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-center mt-3" (click)="onSave()" type="button"
+                [disabled]="marginArtGroupForm.invalid">{{'COMMON_LABEL.SAVE' | translate }}
+            </button>
+        </div>
+    </div>
+</form>
+
+<ng-template #resultRef>
+    <ul class="list-group" (scroll)="onScroll($event)">
+        <ng-container *ngFor="let artGrp of artGrps; let i=index">
+            <li class="list-group-item">
+                <a href="javascript:void(0)" class="inversed" (click)="onSelectArtGrpFromSearch(artGrp)">
+                    <i class="fa fa-chevron-right"></i>
+                    <span [innerHTML]="artGrp.displayName(currentLangCode) | safe: 'html'"></span>
+                </a>
+            </li>
+            <ng-container *ngIf="i === (artGrps.length - 1)">
+                <li class="list-group-item justify-content-center p-2">
+                    {{artGrps.length}}
+                    {{'AX_CONNECTION.OF' | translate}}
+                    {{total}}
+                    {{'MARGIN_MANAGE.ARTICLE_GROUPS' | translate}}
+                    <span class="loading-text ml-2" *ngIf="isLoading">
+                        {{'COMMON_LABEL.LOADING_MORE' | translate}}
+                    </span>
+                </li>
+            </ng-container>
+        </ng-container>
+    </ul>
+</ng-template>

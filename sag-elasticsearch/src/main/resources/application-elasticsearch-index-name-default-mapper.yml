@@ -1,0 +1,78 @@
+spring.profiles: elasticsearch-index-name-default-mapper
+
+elasticsearch:
+  custom:
+    alias-mapper:
+    ## Indexes including/related to ERP ids
+      articles:
+        alias: articles
+        alias-pattern: (erp)_(cc)_articles_(lc)
+        default-alias: articles
+      article_vehicle:
+        alias: article_vehicle
+        alias-pattern: (erp)_(cc)_article_vehicle_(lc)
+        default-alias: article_vehicle
+      vehicle_genart_art:
+        alias: vehicle_genart_art
+        alias-pattern: (erp)_(cc)_vehicle_genart_art_(lc)
+        default-alias: (erp)_vehicle_genart_art_(lc)
+      customers:
+        alias: customers
+        alias-pattern: (erp)_(cc)_customers
+        default-alias: (erp)_(cc)_customers
+      unitree:
+        alias: unitree
+        alias-pattern: (erp)_(cc)_unitree_(lc)
+        default-alias: (erp)_(cc)_unitree_(lc)
+    ## Indexes - country and language dependent
+      categories:
+        alias: categories
+        alias-pattern: (cc)_categories_(lc)
+        default-alias: categories
+      format_ga:
+        alias: format_ga
+        alias-pattern: (cc)_format_ga_(lc)
+        default-alias: format_ga_(lc)
+    ## Indexes - language dependent
+      criteria:
+        alias: criteria
+        alias-pattern: criteria_(lc)
+        default-alias: criteria
+      genart:
+        alias: genart
+        alias-pattern: genart_(lc)
+        default-alias: genart
+      models:
+        alias: models
+        alias-pattern: models_(lc)
+        default-alias: models
+      vehicles:
+        alias: vehicles
+        alias-pattern: vehicles_(lc)
+        default-alias: vehicles
+    ## Indexes - country dependent
+      wss_artgrp:
+        alias: wss_artgrp
+        alias-pattern: wss_artgrp_(cc)
+        default-alias: wss_artgrp_(cc)
+      vehicle_genart:
+        alias: vehicle_genart
+        alias-pattern: (cc)_vehicle_genart
+        default-alias: vehicle_genart
+      ext_parts:
+        alias: ext_parts
+        alias-pattern: (cc)_ext_parts
+        default-alias: ext_parts
+    ## Indexes - no dependency
+      license_plate:
+        alias: license_plate
+        alias-pattern:
+        default-alias: astra
+      brand_priority:
+        alias: brand_priority
+        alias-pattern:
+        default-alias: brand_priority
+      prod_alldata:
+        alias: prod_alldata
+        alias-pattern:
+        default-alias: prod_alldata

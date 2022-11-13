@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "sag-auth",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "sag-auth",
+      "kebab-case"
+    ]
+  }
+}

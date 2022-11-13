@@ -1,0 +1,130 @@
+connect-header-settings {
+    .header-settings {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        height: 100%;
+
+        .user-info {
+            width: 85px;
+            .select-item-text {
+                color: #666;
+                top: 1px;
+                position: relative;
+            }
+
+            a {
+                font-weight: bold;
+                display: block;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 100%;
+                text-transform: capitalize;
+                padding-top: 6px;
+            }
+        }
+
+        .drop-down-icon {
+            height: 40px;
+            line-height: 39px;
+            font-size: 18px;
+            font-weight: 700;
+            padding-right: 13px;
+            border-right: 1px solid #ccc;
+        }
+    }
+
+}
+
+
+.miles,
+.happy-bonus {
+    padding: 6px 9px;
+    background-color: $primary;
+    margin: -#{$half-spacer} -#{$half-spacer} $half-spacer -#{$half-spacer};
+
+    .point {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .label {
+            padding-top: 2px;
+            font-weight: 700;
+            font-size: 13px;
+            color: $text-color-inversed;
+        }
+    }
+
+    .text {
+        margin-left: 10px;
+        color: $text-color-inversed;
+        display: flex;
+        align-items: flex-start;
+
+        font-size: 13px;
+        font-weight: 400;
+        white-space: normal;
+        line-height: 18px !important;
+        top: 0px;
+        position: relative;
+    }
+}
+
+.miles {
+    .text {
+        flex:1;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.big-points {
+    align-items: center;
+    padding: 0.75rem;
+    background-color: $primary;
+    margin: -#{$half-spacer} -#{$half-spacer} $half-spacer -#{$half-spacer};
+    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    position: relative;
+    justify-content: center;
+    overflow: hidden;
+
+    a {
+        color: $text-color-inversed;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 3;
+    }
+
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        content: " ";
+        width: 0px;
+        height: 0px;
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+        border-left: 60px solid darken($primary-mtk, 20);
+    }
+
+    &:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        content: " ";
+        width: 0px;
+        height: 0px;
+        border-top: 60px solid transparent;
+        border-bottom: 70px solid transparent;
+        border-left: 100px solid darken($primary-mtk, 10);
+    }
+}

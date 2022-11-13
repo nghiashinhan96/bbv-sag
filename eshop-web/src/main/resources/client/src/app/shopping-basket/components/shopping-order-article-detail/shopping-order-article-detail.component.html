@@ -1,0 +1,160 @@
+<div class="connect-shopping-order-article-detail" [class.has-updated]="cartItem.isUpdatedAvail">
+    <div class="connect-shopping-order-article-detail__header">
+        <div class="table-col col-produkt">
+            <span id="span-productText">{{cartItem.productTextWithArt | translate}}</span>
+            <span id="span-supplier" class="ml-2">{{cartItem.articleItem.supplier}}</span>
+            <span id="span-productAddon" *ngIf="cartItem.articleItem?.productAddon?.length > 0">
+                <br />
+                <span id="span-productAddonContent" [innerHTML]="cartItem.articleItem?.productAddon"></span>
+            </span>
+            <br />
+            <span id="span-artnr">{{cartItem.articleItem.artnrDisplay}}</span>
+        </div>
+        <ng-container *sagCommonShowHideByAff="[sb];show:true">
+            <div class="table-col col-amount-per-location text-center" data-automation="article-avail">
+                <ng-container *ngIf="cartItem?.articleItem?.availabilities?.length > 0">
+                    <div class="font-weight-bold py-2" *ngFor="let item of cartItem?.articleItem?.availabilities[0]?.location?.items; let i = index">
+                        {{item.quantity}}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="table-col col-locations text-center" data-automation="article-avail">
+                <ng-container *ngIf="cartItem?.articleItem?.availabilities?.length > 0">
+                    <div class="text-truncate font-weight-bold py-2" *ngFor="let item of cartItem?.articleItem?.availabilities[0]?.location?.items; let i = index"
+                        title="{{item.locationName + (!!item.locationPhoneNr ? ' - ' + item.locationPhoneNr : '')}}">
+                        <ng-container *ngIf="i <= 2">
+                            <span>{{item.locationName}}</span>
+                            <span *ngIf="!!item.locationPhoneNr">&nbsp; -
+                                {{item.locationPhoneNr}}</span>
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+        <div class="table-col col-tour" [class.non-deliverable-article]="hasAdditionClass" *sagCommonShowHideByAff="[sb];show:false"
+            [ngStyle]="{'background-color': hasAdditionClass && getAvailColor(cartItem.articleItem?.availabilities[0], availDisplayStates.NOT_AVAILABLE)}">
+            <ng-template [ngIf]="!hasAvailabilityPermission" [ngIfElse]="showAvailability"></ng-template>
+        </div>
+        <div class="table-col col-quantity" *sagCommonShowHideByAff="[sb];show:false">
+            <div>{{cartItem.quantity}}</div>
+        </div>
+        <div class="table-col col-gross-price">
+            <connect-shopping-order-article-gross-price
+                [editable]="false"
+                [priceType]="priceType"
+                [grossPrice]="grossPrice"
+                [currentStateVatConfirm]="storage?.currentStateVatConfirm"
+                [userSetting]="userService?.userPrice"
+                [article]="cartItem.articleItem">
+            </connect-shopping-order-article-gross-price>
+        </div>
+        <div class="table-col col-netto part-net">
+            <ng-container  *ngIf="isShowNetPrice">
+                <sag-article-cart-net-price
+                    [cartItem]="cartItem"
+                    [affiliateCode]="affiliateCode"
+                    [currentStateVatConfirm]="storage?.currentStateVatConfirm"
+                    [userSetting]="userService?.userPrice">
+                </sag-article-cart-net-price>
+            </ng-container>
+        </div>
+        <div class="table-col col-total">
+            <connect-shopping-order-article-total-price
+                [userSetting]="userService?.userPrice"
+                [cartItem]="cartItem"
+                [currentStateVatConfirm]="storage?.currentStateVatConfirm"
+                [articlePrice]="articlePrice">
+            </connect-shopping-order-article-total-price>
+        </div>
+        <div class="table-col col-reference text-left" [ngClass]="{'avoid-clicks': cartItem.attachedCartItem}" *sagCommonShowHideByAff="[cz,ehcz,ehaxcz,sb];show:false">
+            <ng-container *ngIf="!! cartItem?.refText">
+                <label>{{'ORDER_DASHBOARD.ORDER_REF.CUSTOMER_POSITION_REF' | translate}}</label>
+                <div class="ref-text">{{ cartItem?.refText}}</div>
+            </ng-container>
+            <input type="text" maxlength="20"
+                name="ref-message"
+                autocomplete="off"
+                [(ngModel)]="cartItem.additionalTextDoc"
+                class="txt-ref-message">
+        </div>
+    </div>
+</div>
+
+<ng-template #artWithoutPrice>
+    <span class="text-small" id="col-artWithoutPrice-{{cartItem.articleItem.artnr}}">
+        {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}</span>
+</ng-template>
+
+<ng-template #showAvailability>
+    <ng-container *ngIf="isCz; else defaultAvail">
+        <div *ngIf="!cartItem.attachedCartItem" class="avail-state avail-state-{{cartItem.articleItem?.availabilities[0]?.availState}}">
+            {{'ARTICLE.AVAILABILITY.' + czAvailState[cartItem.articleItem?.availabilities[0]?.availState] | translate}}
+        </div>
+    </ng-container>
+
+    <ng-template #defaultAvail>
+        <ng-container *ngIf="artAvailabilities?.length > 1; else singleAvail">
+            <div [popover]="popoverRef" #pop="bs-popover" [outsideClick]="true" container="body" class="d-flex flex-column w-100"
+            triggers="mouseenter:mouseleave" containerClass="article-avail-popover" [delay]="popoverDelay">
+                <ng-container *ngIf="hasInvalidAvail; else singleAvail">
+                    <div [ngStyle]="{'color': getAvailColor(artAvailabilities, availDisplayStates.PARTIALLY_AVAILABLE)}">
+                        <span class="label small-label nowrap">
+                            {{'COMMON_LABEL.AVAILABLE' | translate}}
+                            {{availableQuantity}}
+                            {{'ARTICLE.PARTIAL_DELIVERY_SURFIX' | translate}}
+                        </span>
+                        <span class="time">
+                            <ng-container *ngIf="artAvailabilities[latestAvailIndex].sofort; else timeRef">
+                                <span [innerHtml]="getAvailDisplayTextCaseSofort()"></span>
+                            </ng-container>
+                            <ng-template #timeRef>
+                                <span [innerHtml]="getAvailDisplayText(artAvailabilities[latestAvailIndex])"></span>
+                                <ng-container *ngIf="getSpecialNotes(artAvailabilities[latestAvailIndex])">
+                                    <div class="avail-note-text text-body">
+                                        {{ getSpecialNotes(artAvailabilities[latestAvailIndex]) | translate }}
+                                    </div>
+                                </ng-container>
+                            </ng-template>
+                        </span>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </ng-template>
+
+    <ng-template #singleAvail>
+        <ng-template [ngIf]="cartItem.articleItem?.availabilities && !cartItem.vin">
+            <ng-template [ngIf]="isArticle24h">
+                <span class="label arrival-time"
+                    [ngStyle]="{'color': getAvailConfirmTextColor()}">
+                    {{'ARTICLE.24_HOURS_SHORT' | translate}}
+                </span>
+            </ng-template>
+            <ng-template [ngIf]="!isArticle24h">
+                <ng-template [ngIf]="!cartItem.articleItem?.availabilities[0]?.sofort" [ngIfElse]="showSofort">
+                    <span class="info-tour arrival-time"
+                        [ngStyle]="{'color': getAvailColor(cartItem.articleItem?.availabilities[0])}">
+                        <span [innerHtml]="getAvailDisplayText(cartItem.articleItem?.availabilities[0])"></span>
+                    </span>
+                    <ng-container *ngIf="getSpecialNotes(cartItem.articleItem?.availabilities[0])">
+                        <div class="avail-note-text">
+                            {{ getSpecialNotes(cartItem.articleItem?.availabilities[0]) | translate }}
+                        </div>
+                    </ng-container>
+                </ng-template>
+                <ng-template #showSofort>
+                    <span class="label info-tour" [ngStyle]="{'color': getAvailColor(cartItem.articleItem?.availabilities[0], availDisplayStates.SAME_DAY)}">
+                        {{'ARTICLE.DELIVERY_IMMEDIATE' | translate}}
+                    </span>
+                </ng-template>
+            </ng-template>
+        </ng-template>
+    </ng-template>
+</ng-template>
+
+<ng-template #popoverRef>
+    <sag-article-detail-avail-popup [article]="cartItem.articleItem" [popupRef]="pop" [availabilities]="artAvailabilities"
+        [userSetting]="this.userService.userPrice" [hidePrice]="true">
+    </sag-article-detail-avail-popup>
+</ng-template>

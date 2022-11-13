@@ -1,0 +1,14 @@
+.margin-art-group-dialog {
+    ::ng-deep {
+        .btn-search-art-grp {
+            min-width: max-content;
+        }
+    }
+
+    .list-group {
+        min-height: 20px;
+        max-height: 250px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

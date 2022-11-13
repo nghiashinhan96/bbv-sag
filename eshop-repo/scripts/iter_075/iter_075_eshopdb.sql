@@ -1,0 +1,32 @@
+
+--- Add SHORT_CODE column into COUNTRY table
+ALTER TABLE [dbo].[COUNTRY] ADD [SHORT_CODE] [varchar](5);
+UPDATE [dbo].[COUNTRY] SET [SHORT_CODE]='at' WHERE [CODE]='AUT';
+
+--- CREATE BRANCH TABLE
+CREATE TABLE [dbo].[BRANCH](
+    [ID] [int] IDENTITY(1,1) NOT NULL,
+    [BRANCH_NUMBER] [int] NOT NULL,
+    [BRANCH_CODE] [varchar](10) NOT NULL,
+    [ORG_ID] [int] NULL,
+    [ZIP] [varchar](10) NULL,
+    [ADDRESS_STREET] [varchar](255) NULL,
+    [ADDRESS_CITY] [varchar](255) NULL,
+    [ADDRESS_DESC] [varchar](255) NULL,
+    [ADDRESS_COUNTRY] [varchar](255) NULL,
+    [COUNTRY_ID] [int] NULL,
+    [REGION_ID] [varchar](10) NULL,
+    [PRIMARY_FAX] [varchar](255) NULL,
+    [PRIMARY_EMAIL] [varchar](255) NULL,
+    [PRIMARY_PHONE] [varchar](20) NULL,
+    [PRIMARY_URL] [varchar](255) NULL,
+    [ID_KSL] [bit] NULL,
+    [OPENING_TIME] [time] (0) NOT NULL,
+    [CLOSING_TIME] [time] (0) NOT NULL,
+    [LUNCH_START_TIME] [time] (0) NULL,
+    [LUNCH_END_TIME] [time] (0) NULL
+ CONSTRAINT [PK_BRANCH] PRIMARY KEY CLUSTERED
+(
+    [ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]

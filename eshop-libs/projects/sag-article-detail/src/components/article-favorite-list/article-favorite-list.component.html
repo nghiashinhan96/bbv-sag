@@ -1,0 +1,30 @@
+<ng-container *ngIf="template; else defaultTemplate">
+    <ng-container *ngTemplateOutlet="template; context: {popover: favoriteRef, onShown: onShown}"></ng-container>
+</ng-container>
+
+<ng-template #defaultTemplate>
+    <div class="card mb-3">
+        <div class="card-header" [popover]="favoriteRef" #pop="bs-popover" [outsideClick]="false" placement="bottom"
+            containerClass="favorites-popover {{containerClass}}" (onShown)="onShown()">
+            <div>{{'FAVORITE.FAVORITES' | translate}}</div>
+            <div class="fav-star selected">
+                <span class="fa fa-star-o"></span>
+                <span class="fa fa-star"></span>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #favoriteRef>
+    <sag-article-favorite-list-content
+        [search]="search"
+        [items]="items"
+        (itemClick)="onItemClick($event)"
+        (removeFavorite)="removeFavorite($event)"
+        (editFavorite)="editFavorite($event)"
+        (doSearch)="doSearch()"
+        (clearValue)="clearValue($event)"
+        (scrollEnd)="onScrollEnd()"
+        (outsideClick)="onOutsideClick()"
+    ></sag-article-favorite-list-content>
+</ng-template>

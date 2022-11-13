@@ -1,0 +1,89 @@
+<div class="connect-shopping-checkout">
+    <ng-container *ngIf="counterPage === 'COUNTER'; else defaultPage">
+        <connect-customer-info [isShownMemo]="true"></connect-customer-info>
+        <div class="confirm-info">
+            <div class="row no-offset text-1">
+                <div>
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    <span>{{'ORDER_CONFIRMATION.COUNTER.HEADER' | translate}}</span>
+                </div>
+            </div>
+            <div class="row no-offset text-3">
+                <p>{{'ORDER_CONFIRMATION.COUNTER.ORDER_NR' | translate}}: <span
+                        data-automation="shopping-basket-order-number">{{orderNumber}}</span></p>
+            </div>
+            <ng-container *ngIf="workIds && workIds.length!==0">
+                <div class="row no-offset text-2">
+                    <p>{{'ORDER_CONFIRMATION.COUNTER.BARCODE_ITEMS' | translate}}:</p>
+                </div>
+                <div class="barcode-content">
+                    <div *ngFor="let workId of workIds">
+                        <div class="barcode-item">
+                            <div class="body-section">
+                                <div class="part-col part-bar-code">
+                                    <img id="{{PREFIX_BARCODE_ID}}{{workId}}" [connectBarcode]="workId">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+
+
+    <ng-template #defaultPage>
+        <div class="no-offset text-1">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            <span class="ml-2">{{'SHOPPING_ORDER.TXT_ORDER_SUCCESS' | translate}}</span>
+        </div>
+        <div class="no-offset text-2">
+            <p>{{'SHOPPING_ORDER.CONFIRMATION.TXT_ORDER_MESSAGE' | translate}}</p>
+        </div>
+        <ng-container *ngIf="!userService?.userDetail?.isFinalUserRole">
+            <ng-container *ngIf="isOrderRequest">
+                <div class="no-offset text-3">
+                    <p class="order-confirm-info">
+                        {{'SHOPPING_ORDER.CONFIRMATION.TXT_ORDER_NUMBER' | translate}}:
+                        <span data-automation="shopping-basket-order-number">{{orderNumber}}</span>
+                    </p>
+                </div>
+            </ng-container>
+
+            <div class="no-offset text-4 mb-3" *ngFor="let msg of additionalMesgs">
+                <p>{{msg | translate}}</p>
+            </div>
+        </ng-container>
+    </ng-template>
+
+    <ng-container *sagCommonShowHideByAff="[sb];show:false">
+        <div class="mb-4" *ngIf="error">
+            <sag-common-message [data]="error"></sag-common-message>
+        </div>
+    </ng-container>
+
+    <div class="mb-4" *ngIf="errorTimeout">
+        <div class="alert alert-warning">
+            <div class="message-container">
+                <div class="message">
+                    {{'ORDER.WARNING.TRANSFER_PARTIALLY_TIMEOUT_FAILED' | translate}}
+                    <div class="m-4">{{articleName}}</div>
+                    {{'ORDER.WARNING.TRANSFER_PARTIALLY_TIMEOUT_FAILED_SUFFIX' | translate}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4" *ngFor="let msg of warnings">
+        <sag-common-message [data]="msg"></sag-common-message>
+    </div>
+
+    <div class="no-offset">
+        <input class="btn btn-primary btn-lg btn-center" name="btnOrderConfirm" type="button" data-automation="shopping-basket-go-home"
+            (click)="backToHomePage()" value="{{'SHOPPING_BASKET.BTN_CONTINUE' | translate}}">
+    </div>
+
+    <div class="mt-4" *sagCommonShowHideByAff="[sb];show:true">
+        <connect-shopping-chekout-sb></connect-shopping-chekout-sb>
+    </div>
+</div>

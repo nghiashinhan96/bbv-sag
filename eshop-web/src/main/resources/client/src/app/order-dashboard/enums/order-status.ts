@@ -1,0 +1,5 @@
+export enum ORDER_STATUS {
+    NEWS_ORDERS = 'NEW',
+    MY_CUSTOMER_ORDERS = 'OPEN',
+    ORDERED = 'ORDERED'
+}

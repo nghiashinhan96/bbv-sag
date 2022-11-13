@@ -1,0 +1,31 @@
+<div class="connect-shopping-order-article-detail">
+    <div class="connect-shopping-order-article-detail__header">
+        <div class="table-col col-produkt">
+            <span id="span-productText">{{orderItem.productTextWithArt | translate}}</span>
+            <span *ngIf="orderItem.productTextWithArt">&nbsp;</span>
+            <span id="span-supplier">{{orderItem?.article.supplier}}</span>
+            <span id="span-productAddon" *ngIf="orderItem?.article?.productAddon?.length > 0">
+                <br />
+                <span id="span-productAddonContent" [innerHTML]="orderItem?.article?.productAddon"></span>
+            </span>
+            <br />
+            <span id="span-artnr">{{orderItem?.article.artnrDisplay}}</span>
+        </div>
+
+        <div class="table-col col-tour">
+            <ng-template [ngIf]="orderItem?.article?.availabilities && !orderItem.vin">
+                <span class="info-tour arrival-time">
+                    {{orderItem?.availabilityResponse?.deliveryTime | date: dateTimeFormat}}
+                </span>
+            </ng-template>
+        </div>
+
+        <div class="table-col col-quantity">
+            {{orderItem?.availabilityResponse?.quantity}}
+        </div>
+
+        <div class="table-col col-delivery-warehouse text-center">
+            {{orderItem?.availabilityResponse?.deliveryWarehouse}}
+        </div>
+    </div>
+</div>

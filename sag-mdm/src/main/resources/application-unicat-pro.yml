@@ -1,0 +1,10 @@
+spring.profiles: unicat-pro
+
+external:
+  webservice:
+    unicat:
+      catalog_uri: https://kunden.stahlgruber.de/WebKat/index.php
+      company_password: 4c453198-61dd-11eb-ae93-0242ac130002
+      salt: awetuzq!!+sdfjhsgfh:~a99g
+      katnr: 666
+      

@@ -1,0 +1,60 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP" id="ITER_186_ADD_WSS_BRANCH_OPENING_TIME_SCHEMA">
+		<sql>
+			DROP TABLE IF EXISTS WSS_BRANCH_OPENING_TIME;
+		
+			CREATE TABLE WSS_BRANCH_OPENING_TIME (
+			ID int IDENTITY(1, 1) NOT NULL,
+			WSS_BRANCH_ID int NOT NULL,
+			WEEK_DAY varchar(100),
+			OPENING_TIME time NOT NULL,
+			CLOSING_TIME time NOT NULL,
+			LUNCH_START_TIME time NULL,
+			LUNCH_END_TIME time NULL,
+			CONSTRAINT PK_WSS_BRANCH_OPENING_TIME PRIMARY KEY (ID));		
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ITER_186_ALTER_WSS_BRANCH_SCHEMA">
+		<sql>
+	
+			ALTER TABLE WSS_BRANCH ALTER COLUMN OPENING_TIME time NULL;
+			ALTER TABLE WSS_BRANCH ALTER COLUMN CLOSING_TIME time NULL;
+	
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ITER_186_MIGRATE_WSS_BRANCH_SETTINGS">
+		<sql>
+			DECLARE @WeekDayList TABLE (Value NVARCHAR(50))
+			INSERT INTO @WeekDayList VALUES ('MONDAY')
+			INSERT INTO @WeekDayList VALUES ('TUESDAY')
+			INSERT INTO @WeekDayList VALUES ('WEDNESDAY')
+			INSERT INTO @WeekDayList VALUES ('THURSDAY')
+			INSERT INTO @WeekDayList VALUES ('FRIDAY')
+			
+			DECLARE @weekDay VARCHAR(50)
+			
+			DECLARE db_cursor CURSOR FOR  
+			SELECT Value FROM @WeekDayList
+			OPEN db_cursor   
+			FETCH NEXT FROM db_cursor INTO @weekDay
+			WHILE @@FETCH_STATUS = 0   
+			BEGIN   
+			       INSERT INTO dbo.WSS_BRANCH_OPENING_TIME (WEEK_DAY, WSS_BRANCH_ID, OPENING_TIME, CLOSING_TIME, LUNCH_START_TIME, LUNCH_END_TIME)
+					select @weekDay, ID, OPENING_TIME, CLOSING_TIME, LUNCH_START_TIME, LUNCH_END_TIME from dbo.WSS_BRANCH where OPENING_TIME is not NULL
+			
+			       FETCH NEXT FROM db_cursor INTO @weekDay
+			END   
+			
+			CLOSE db_cursor   
+			DEALLOCATE db_cursor;
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_244_AT_CZ_INSERT_CUSTOM_OPTIONAL_PARAMETERS">
+      <sql>
+      		UPDATE dbo.LICENSE_SETTINGS SET OPTIONAL_PARAMS='userType=ultimate' WHERE PACK_NAME LIKE '%ULTIMATE%'
+      </sql>
+  </changeSet>
+
+</databaseChangeLog>

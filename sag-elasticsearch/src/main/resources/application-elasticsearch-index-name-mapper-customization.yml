@@ -1,0 +1,2 @@
+spring.profiles: elasticsearch-index-name-mapper-customization
+spring.profiles.include: elasticsearch-index-name-default-mapper, elasticsearch-index-name-additional-mapper2

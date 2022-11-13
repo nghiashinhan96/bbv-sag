@@ -1,0 +1,31 @@
+# ************************************************************************
+# This is the default configuration of RESTful application for local mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - Incentive - 
+# - Mail service - 
+# - Thread Executor Pool - 
+# - Analytics - 
+# - Actuator Healthcheck - 
+# - Proxy - 
+# - Java Melody Monitoring - 
+#
+# ************************************************************************
+spring.profiles.include:
+  sagrest,
+  incentive-dev,
+  mail-dev,
+  executor-pool,
+  analytics-pre-cloud,
+  actuator,
+  no-proxy,
+  javamelody,
+  logging-default
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %X{User} %X{requestID} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG

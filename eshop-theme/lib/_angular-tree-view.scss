@@ -1,0 +1,9 @@
+tree-root {
+    tree-viewport {
+        min-height: 75px;
+
+        >div {
+            height: auto !important;
+        }
+    }
+}

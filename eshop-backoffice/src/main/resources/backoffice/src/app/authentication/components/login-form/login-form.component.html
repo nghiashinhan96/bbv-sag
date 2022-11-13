@@ -1,0 +1,24 @@
+<form id="login-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+    <backoffice-messenger *ngIf="errorMsg" [data]="errorMsg"></backoffice-messenger>
+    <fieldset>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+            </div>
+            <input type="text" id="txtUsername" class="form-control" placeholder="{{'LOGIN.LABEL.USER_NAME'|translate}}"
+                formControlName="username">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="{{'LOGIN.LABEL.PASSWORD'|translate}}"
+                formControlName="password" autocomplete="off">
+        </div>
+        <div class="input-group submit">
+            <button type="submit" id="login-submit" class="btn btn-primary btn-block bg-brand" [disabled]="!form.valid">
+                <strong>{{'LOGIN.BUTTON.LOGIN' | translate}}</strong>
+            </button>
+        </div>
+    </fieldset>
+</form>

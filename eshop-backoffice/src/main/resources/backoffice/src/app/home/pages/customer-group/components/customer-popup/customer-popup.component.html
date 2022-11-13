@@ -1,0 +1,22 @@
+<div class="modal-customer-nr">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">
+            {{ 'CUSTOMER_GROUP.TABLE_RESULT.CUSTOMER_NR' | translate}}
+        </h4>
+        <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"
+            aria-hidden="true">
+        </i>
+    </div>
+    <div class="modal-body">
+        <div class="customer-nr-list row">
+            <div class="customer col col-2" *ngFor="let customerNr of customerNrs">
+                {{customerNr}}
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" *ngIf="customerNrs?.length < totalElements">
+        <button id="takeCustomer" class="btn btn-primary btn-center" (click)="showMore()" data-dismiss="modal">
+            {{ 'BUTTON.LOAD_MORE' | translate }}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-3">
+            <label class="label font-weight-bold">{{ 'SETTINGS.MY_ORDER.FILTER.DATE_FROM' | translate }}</label>
+            <div class="input-group">
+                <i class="fa fa-caret-left pointer" (click)="moveBackOneMonth()"></i>
+                <input class="form-control disabled opacity-100"
+                    placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_FROM' | translate}}" 
+                    [locale]="locale"
+                    angular-mydatepicker formControlName="dateFrom" [options]="dateFromOption"
+                    #dpFrom="angular-mydatepicker" (dateChanged)="onDateFromChanged($event)"
+                    [class.today-disabled]="dateFromDisableToday"/>
+                <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+                <i class="fa fa-caret-right pointer" (click)="moveForwardOneMonth()"></i>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label class="label font-weight-bold">{{ 'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate }}</label>
+            <div class="input-group">
+                <input class="form-control disabled opacity-100"
+                    placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate}}"
+                    [locale]="locale"
+                    angular-mydatepicker formControlName="dateTo" [options]="dateToOption"
+                    #dpTo="angular-mydatepicker" (dateChanged)="onDateToChanged($event)"
+                    [class.today-disabled]="dateToDisableToday"/>
+                <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label class="label font-weight-bold">{{'SETTINGS.MY_ORDER.FILTER.ORDER_STATUS' | translate}}</label>
+            <ng-select
+                bindValue="id"
+                bindLabel="name"
+                [items]="statusOptions"
+                [clearable]="false"
+                formControlName="status"
+                placeholder="{{ 'SETTINGS.MY_ORDER.FILTER.ORDER_STATUS' | translate }}">
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.name === 'ALL' ? ('COMMON_LABEL.' + item.name | translate) : item.name | translate}}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    {{ item.name === 'ALL' ? ('COMMON_LABEL.' + item.name | translate) : item.name | translate}}
+                </ng-template>
+            </ng-select>
+        </div>
+
+        <div class="col-3 d-flex align-items-end">
+            <sag-common-save-button text="SEARCH.SEARCH_BUTTON" (save)="onSubmit($event)"
+                css="btn-primary btn-center" [hideTextOnLoading]="true">
+            </sag-common-save-button>
+        </div>
+    </div>
+</form>

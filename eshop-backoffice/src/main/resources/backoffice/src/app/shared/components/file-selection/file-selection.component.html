@@ -1,0 +1,17 @@
+<p innerHTML="{{label | translate}}"></p>
+<div class="row">
+    <div class="col-12">
+        <div class="input-group">
+            <input type="text" class="form-control" [ngModel]="selectedFile?.name" readonly>
+            <input type="file" [accept]="accepts" class="form-control" #file style="display: none"
+                (change)="selectedFile = file?.files[0]; upload(file?.files[0])">
+            <div class="input-group-btn">
+                <button class="btn btn-primary browser" type="button" (click)="file.click()">
+                    <i class="fa fa-folder-open"></i> Browser</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-10" *ngIf="notifier">
+        <notification [notifier]="notifier"></notification>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="card panel panel-primary mb-4 shopping-basket-condition">
+    <div class="card-header">
+        <connect-expanded [title]="'HOME.LABEL.USER_SEARCH.USER_SEARCH'" [(expand)]="isFormExpanded">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isFormExpanded">
+        <form class="form-horizontal" [formGroup]="form">
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{ "HOME.LABEL.USER_SEARCH.AFFILIATE" | translate }}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="affiliateData"
+                        notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" formControlName="affiliate"
+                        [clearable]="false"></ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-search-1-customer-number"
+                    class="col-3 control-label">{{ "HOME.LABEL.CUSTOMER_SEARCH.CUSTOMER_NUMBER" | translate }}</label>
+                <div class="col-4">
+                    <input name="customer-number" type="text" class="form-control"
+                        id="customer-search-1-customer-number" formControlName="customerNumber" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-search-1-company-name"
+                    class="col-3 control-label">{{ "HOME.LABEL.USER_SEARCH.USER_NAME" | translate }}</label>
+                <div class="col-4">
+                    <input name="customer-name" type="text" class="form-control" id="customer-search-1-company-name"
+                        formControlName="userName" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-search-1-company-name"
+                    class="col-3 control-label">{{ "HOME.LABEL.USER_SEARCH.EMAIL" | translate }}</label>
+                <div class="col-4">
+                    <input name="customer-name" type="text" class="form-control" id="customer-search-1-company-name"
+                        formControlName="email" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-search-1-company-name"
+                    class="col-3 control-label">{{ "HOME.LABEL.USER_SEARCH.TELEPHONE" | translate }}</label>
+                <div class="col-4">
+                    <input name="customer-name" type="text" class="form-control" id="customer-search-1-company-name"
+                        formControlName="telephone" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-search-1-company-name"
+                    class="col-3 control-label">{{ "HOME.LABEL.USER_SEARCH.NAME" | translate }}</label>
+                <div class="col-4">
+                    <input name="customer-name" type="text" class="form-control" id="customer-search-1-company-name"
+                        formControlName="name" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-3 col-4">
+                    <button type="button" id="customer-search-1-submit" class="btn btn-primary" (click)="onSubmit()">
+                        {{ "HOME.LABEL.CUSTOMER_SEARCH.SEARCH" | translate }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="sub-basket-container">
+    <a href="javascript:void(0)" [popover]="subBasketRef" #pop="bs-popover" containerClass="header-sub-basket"
+        placement="bottom" [outsideClick]="true" container="body">
+        <span class="moon-icon sub-basket-icon"></span>
+        <ng-container *ngIf="isLoaded; else loadingRef">
+            <span class="badge">
+                {{totalNewOrders <= 9 ? totalNewOrders : '9+'}}
+            </span>
+        </ng-container>
+    </a>
+    <a href="javascript:void(0)" (click)="refreshTotalNumber($event)" class="refresh-icon">
+        <i class="fa fa-refresh" aria-hidden="true" title="refresh"></i>
+    </a>
+</div>
+<ng-template #loadingRef>
+    <div class="spinner sm">
+        <div>
+            <div class="loader"></div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #subBasketRef>
+    <ul class="list-group list-group-header">
+        <li class="list-group-item border-0">
+            <a [routerLink]="['/order-dashboard', 'new-orders']">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <span class="title">{{ 'ORDER_DASHBOARD.NEW_ORDERS' | translate}}</span>
+                <span class="badge">
+                    {{totalNewOrders<= 9 ? totalNewOrders : '9+'}}</span>
+            </a>
+        </li>
+        <li class="list-group-item border-0">
+            <a [routerLink]="['/order-dashboard', 'my-customer-orders']">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <span class="title">{{ 'ORDER_DASHBOARD.MY_CUSTOMERS_ORDERS' | translate}}</span>
+                <span class="badge">
+                    {{totalMyCustomerOrders<= 9 ? totalMyCustomerOrders : '9+'}}</span>
+            </a>
+        </li>
+        <li class="list-group-item border-0">
+            <a [routerLink]="['/order-dashboard', 'ordered']">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <span class="title">{{ 'ORDER_DASHBOARD.ORDERED' | translate}}</span>
+            </a>
+        </li>
+    </ul>
+</ng-template>

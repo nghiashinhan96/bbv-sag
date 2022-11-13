@@ -1,0 +1,192 @@
+<form [formGroup]="vehicleSearchForm">
+    <ng-container *ngIf="errorMsg">
+        <div class="alert alert-danger">{{ errorMsg | translate }}</div>
+    </ng-container>
+    <ng-container *ngIf="!isAT && !isCH">
+        <p *sagCommonShowHideByAff="[cz,ehcz,axCz,ehaxcz,sb];show:false">{{ 'SEARCH.VEHICLE_HINT' | translate }}</p>
+    </ng-container>
+    <ng-container *ngIf="isShownMakeModelTypeSearch">
+        <sag-search-make-model-type *sagCommonShowHideByAff="[cz,ehcz,axCz,ehaxcz,sb];show:true" #makeModelType
+            [customerNumber]="custNr" (searchEmitter)="searchMakeModel($event)"
+            (focusEmitter)="resetUnfocusInput(VEHICLE_MAKE_MODEL_TYPE_SEARCH, isDmsVersion3)">
+        </sag-search-make-model-type>
+    </ng-container>
+    <ng-container *ngIf="isShownSearchTerm">
+        <section class="row" [class.vehicle-search-ch]="isCH">
+            <div class="col-md-12 form-group" #topGroup>
+                <div class="row">
+                    <div class="col col-left-60">
+                        <div class="input-group">
+                            <input formControlName="vehicleName" class="form-control"
+                                data-automation="vehicle-search-name"
+                                placeholder="{{ 'SEARCH.VEHICLES_DESC' | translate }}"
+                                tabindex="{{tabIndexes.vehicleName}}"
+                                [ngClass]="{ 'is-invalid': inValidField === 'vehicleName' }"
+                                title="{{'SEARCH.HOVER_TITLES.VEHICLES_DESC' | translate}} {{'SEARCH.HOVER_TITLES.VEHICLES_DESC_HELP' | translate}}"
+                                type="text" (keyup.enter)="onSubmit()"
+                                (focusin)="resetUnfocusInput(VEHICLE_DESCRIPTION_SEARCH, isDmsVersion3)">
+                            <i class="inner-tooltip fa fa-question-circle" [popover]="descriptionPopupTemplate"
+                                container="body" triggers="mouseenter:mouseleave"></i>
+                        </div>
+                    </div>
+                    <div class="col col-right-40">
+                        <div class="input-group input-border-left">
+                            <input formControlName="vehicleYear" class="form-control" maxlength="7"
+                                tabindex="{{tabIndexes.vehicleYear}}" data-automation="vehicle-search-year"
+                                title="{{ 'SEARCH.HOVER_TITLES.YEAR' | translate }}" type="text"
+                                (keyup.enter)="onSubmit()"
+                                (focusin)="resetUnfocusInput(VEHICLE_DESCRIPTION_SEARCH, isDmsVersion3)"
+                                placeholder="{{ 'SEARCH.YEAR' | translate }}"
+                                [ngClass]="{ 'is-invalid': inValidField === 'vehicleYear' }">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container *sagCommonShowHideByAff="[cz,ehcz,axCz,ehaxcz,sb];show:false">
+                <div class="or-line d-flex align-items-center flex-grow-1" *ngIf="!isAutonet">
+                    <div class="border-bottom flex-grow-1"></div>
+                    <div class="text">{{ 'SEARCH.OR' | translate }}</div>
+                    <div class="border-bottom flex-grow-1"></div>
+                </div>
+
+                <div class="col-md-12 form-group" *ngIf="isShownVehicleSearch">
+                    <div class="input-group">
+                        <input libAlphanumericSpace formControlName="vehicleCode" class="form-control" maxlength="50"
+                            placeholder="{{ 'SEARCH.VEHICLES' | translate }}" tabindex="{{tabIndexes.vehicleCode}}"
+                            title="{{ 'SEARCH.HOVER_TITLES.VEHICLES' | translate }}" type="text"
+                            (keyup.enter)="onSubmit()" (focusin)="resetUnfocusInput(VEHICLE_CODE_SEARCH, isDmsVersion3)"
+                            data-automation="vehicle-search-code">
+                        <i class="inner-tooltip fa fa-question-circle" [popover]="vehicleCodePopupTemplate"
+                            container="body" triggers="mouseenter:mouseleave"></i>
+                    </div>
+                </div>
+            </ng-container>
+        </section>
+
+        <ng-container *ngIf="isDmsVersion3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex">
+                        <button type="button" (click)="searchNonVin()" class="btn btn-primary ml-auto">
+                            <span *ngIf="!searchingOther">{{ 'SEARCH.SEARCH_BUTTON' | translate }}</span>
+                            <span *ngIf="searchingOther" class="spinner-border spinner-border-sm" role="status"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2 mt-2">
+                <div class="col-md-12">
+                    <div class="dms-seprator text-center"><span>{{ 'SEARCH.OR' | translate }}</span></div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *sagCommonShowHideByAff="[sb];show:false">
+            <div class="or-line d-flex align-items-center flex-grow-1" *ngIf="!isAutonet">
+                <div class="border-bottom flex-grow-1"></div>
+                <div class="text">{{ 'SEARCH.OR' | translate }}</div>
+                <div class="border-bottom flex-grow-1"></div>
+            </div>
+            
+            <ng-container *ngIf="enableVin">
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <div class="vin-top-wrapper">
+                            <div class="license-amount">
+                                <span class="vin-license" data-automation="vehicle-search-vin-license">
+                                    <ng-container *ngIf="vinLicenseAmount !== null; else vinSpinnerRef">
+                                        {{ vinLicenseAmount }}
+                                    </ng-container>
+                                </span>
+                                <ng-template #vinSpinnerRef>
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </ng-template>
+                                <span>{{ 'SEARCH.VIN_CALLS' | translate }}</span>
+                            </div>
+                            <ng-container *ngIf="hasVinSearchPermission && !isFinalUserRole && !isSb && isShownSearchTerm">
+                                <a href="javascript:void(0)" class="buy-vin" [class.secondary]="vinLicenseAmount > 0" [class.success]="vinLicenseAmount === 0"
+                                    (click)="onBuyVin()" data-automation="vehicle-search-buy-vin">
+                                    <i class="fa fa-angle-right font-weight-bold text-body"></i>
+                                    <span>{{ 'SEARCH.BUYVIN' | translate}}</span>
+                                </a>
+                            </ng-container>
+                        </div>
+                        <div class="input-group">
+                            <input libAlphanumericSpace libVinLength formControlName="vehicleVin" class="form-control"
+                                autocomplete="on" [class.is-valid]="hasVinSearchPermission && vinLicenseAmount > 0"
+                                placeholder="{{ 'SEARCH.VIN_20' | translate }}" tabindex="{{tabIndexes.vehicleVin}}"
+                                title="{{ 'SEARCH.HOVER_TITLES.VIN_20' | translate }}" type="text"
+                                (keyup.enter)="onSubmit()" data-automation="vehicle-search-vin"
+                                (focusin)="resetUnfocusInput(VEHICLE_VIN_SEARCH, isDmsVersion3)">
+                            <i class="inner-tooltip fa fa-question-circle"
+                                [popover]="vehicleSearchForm.get('vehicleVin').enabled? makesTemplate: null"
+                                containerClass="vin-popup" [isOpen]="isOpen" triggers="" (click)="isOpen = !isOpen"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row vin-license-amount">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-end flex-grow-1 text-body"
+                            *sagCommonShowHideByAff="[cz,ehcz,axCz,ehaxcz];show:true">
+                            <label class="checkbox mb-0 mr-5">
+                                <input [value]="vinMode.PREMIUM" formControlName="vinMode" type="radio" name="vinMode"
+                                    [attr.disabled]="vinLicenseAmount == 0 || null">
+                                <span>{{'SEARCH.VIN_MODE.PREMIUM' | translate}}</span>
+                            </label>
+                            <label class="checkbox mb-0">
+                                <input [value]="vinMode.STANDARD" formControlName="vinMode" type="radio" name="vinMode">
+                                <span>{{'SEARCH.VIN_MODE.STANDARD' | translate}}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+        </ng-container>
+    </ng-container>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex">
+                <button (click)="onSubmit(VEHICLE_VIN_SEARCH)" *ngIf="isDmsVersion3 && !isSb"
+                    class="btn btn-primary ml-auto" type="button" id="btn-search-vin"
+                    tabindex="{{tabIndexes.searchVin}}">
+                    <span *ngIf="!searchingVin">{{ 'SEARCH.SEARCH_BUTTON' | translate }}</span>
+                    <span *ngIf="searchingVin" class="spinner-border spinner-border-sm" role="status"></span>
+                </button>
+                <button (click)="onSubmit()" *ngIf="!isDmsVersion3" class="btn btn-primary ml-auto" type="button"
+                    tabindex="{{tabIndexes.searchVin}}" data-automation="vehicle-search-submit">
+                    <span *ngIf="!searchingOther && !searchingVin">{{ 'SEARCH.SEARCH_BUTTON' | translate }}</span>
+                    <span *ngIf="searchingOther || searchingVin" class="spinner-border spinner-border-sm"
+                        role="status"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<ng-template #makesTemplate>
+    <h5 class="popup-vin-title d-flex justify-content-between align-items-start">
+        {{ 'SEARCH.SEARCH_VIN.VIN_POPUP_TITLE' | translate }}
+        <a href="javascript:void(0)" (click)="isOpen = false"><i class="fa fa-times-circle"></i></a>
+    </h5>
+    <ul class="popup-vin-info">
+        <li *ngFor="let make of vehicleMakes">
+            <div>{{make.make}}</div>
+            <div class="vin-avail">
+                <i [ngClass]="make.gtVin ? 'fa fa-check' : 'fa fa-close'"
+                    [ngStyle]="{'color': make.gtVin ? 'green' : 'red'}" aria-hidden="true"></i>
+            </div>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #descriptionPopupTemplate>
+    <div>
+        {{'SEARCH.HOVER_TITLES.VEHICLES_DESC' | translate}} {{'SEARCH.HOVER_TITLES.VEHICLES_DESC_HELP' | translate}}
+    </div>
+</ng-template>
+
+<ng-template #vehicleCodePopupTemplate>
+    <div>{{ 'SEARCH.HOVER_TITLES.VEHICLES' | translate }}</div>
+</ng-template>

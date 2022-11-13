@@ -1,0 +1,41 @@
+# ************************************************************************
+# This is the AT configuration of Admin application for development mode.
+# 
+# Required Common configuration:
+# - Application common configuration - sagadmin
+# - Country Code - country-at
+# - Database - db-at
+# - Elasticsearch - elasticsearch-dev
+# - ERP - ax-pre-https
+# - Caching - cache-at
+# - Mail service - mail-dev
+# - Thread Executor Pool - executor-pool
+# - Authorization - auth-endpoint-at-dev
+# - MDM for creating DVSE user - mdm-prod
+# - Media Server - media-server
+# - Proxy - no-proxy
+# - Logging - logging-at-dev
+# - Java Melody Monitoring - javamelody
+# - Actuator Healthcheck - actuator
+# - Liquibase - no-liquibase
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagadmin,
+  ax-pre-cloud,
+  mdm-prod,
+  mail-dev,
+  elasticsearch-dev,
+  db-dev,
+  executor-pool,
+  no-liquibase,
+  logging-at-dev,
+  actuator,
+  cache-dev,
+  country-at,
+  no-proxy,
+  media-server,
+  javamelody,
+  auth-endpoint-at-dev
+
+spring.banner.location: classpath:banner/banner_at.txt

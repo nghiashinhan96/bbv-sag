@@ -1,0 +1,143 @@
+<div class="connect-shopping-order">
+    <ng-container *ngIf="userDetail?.isSalesOnBeHalf">
+        <connect-customer-info [isShownMemo]="true"></connect-customer-info>
+    </ng-container>
+    <div class="mb-4" *ngIf="errorData && errorData.length">
+        <sag-common-message *ngFor="let error of errorData" [data]="error"></sag-common-message>
+    </div>
+
+
+    <div class="mb-4" [class.card]="!isSB">
+        <ng-container *ngIf="userDetail?.isFinalUserRole && !userDetail.hasAvailabilityPermission; else normalUserRole">
+            <div [class.card]="isSB" [class.mb-4]="isSB">
+                <div class="card-header">
+                    <connect-expanded [title]="'AX_CONNECTION.ADDRESS'" [(expand)]="addressExpanded">
+                    </connect-expanded>
+                </div>
+                <div class="card-body shopping-order-condition fc-address" *ngIf="addressExpanded">
+                    <connect-final-customer-address [orgId]="subOrderBasket?.finalOrder?.orgId">
+                    </connect-final-customer-address>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-template #normalUserRole>
+            <ng-template [ngIf]="basketContext && shoppingBasketInfo">
+                <ng-container *ngIf="isSB; else otherAffiliate">
+                    <connect-shopping-order-condition-sb [basketContext]="basketContext"
+                        [finalOrder]="subOrderBasket.finalOrder" [userDetail]="userDetail"
+                        [isVinOnly]="shoppingBasketInfo.isVinOnly"
+                        (updateShoppingBasketContext)="updateShoppingBasketContext($event)">
+                    </connect-shopping-order-condition-sb>
+                </ng-container>
+                <ng-template #otherAffiliate>
+                    <div class="card-header">
+                        <connect-expanded
+                            [title]="userDetail?.isFinalUserRole ? 'CONDITION.FC_DELIVERY_PROFILE': 'CONDITION.SHIPPING_PAYMENT'"
+                            [(expand)]="conditionExpanded">
+                        </connect-expanded>
+                    </div>
+                    <div class="card-body shopping-order-condition" *ngIf="conditionExpanded">
+                        <connect-shopping-order-condition [basketContext]="basketContext"
+                            [deliverySummary]="shoppingBasketInfo" [finalOrder]="subOrderBasket.finalOrder"
+                            [userDetail]="userDetail">
+                        </connect-shopping-order-condition>
+                    </div>
+                </ng-template>
+            </ng-template>
+        </ng-template>
+    </div>
+
+    <div class="card mb-4" *ngIf="!isSB">
+        <div class="card-header">
+            <connect-expanded [title]="'SHOPPING_BASKET.REFERENCE'" [(expand)]="referenceExpanded">
+            </connect-expanded>
+        </div>
+        <div class="card-body" *ngIf="referenceExpanded">
+            <div class="mb-4 basket-ref" *ngIf="!!subBasketCustomerRef">
+                <label>{{'ORDER_DASHBOARD.ORDER_REF.CUSTOMER_MESSAGE' | translate}}</label>
+                <div class="ref-text">{{subBasketCustomerRef}}</div>
+            </div>
+            <connect-customer-ref-text [keyStore]="refTextKeyStore"></connect-customer-ref-text>
+        </div>
+    </div>
+
+    <ng-container *ngIf="(shoppingBaketData$ | async) as shoppingBasket">
+        <ng-container *ngIf="shoppingBasket.data.length > 0;else emtyMessage">
+            <div class="shopping-order-part-list">
+                <connect-shopping-order-part-list [userSetting]="userService.userPrice" [affiliateCode]="affiliateCode"
+                    (currentNetPriceChange)="onCurrentNetPriceChange()" [data]="shoppingBasket.data">
+                </connect-shopping-order-part-list>
+
+                <div class="price-preview mb-4">
+                    <ng-container *sagCommonShowHideByAff="[sb];show:false">
+                        <div class="nav justify-content-between sub-total">
+                            <strong>{{'SHOPPING_BASKET.SUB_TOTAL' | translate}}</strong>
+                            <connect-shopping-order-article-subtotal [userSetting]="userService.userPrice"
+                                [isCartStepMode]="false" [basketPriceSummary]="basketPriceSummary">
+                            </connect-shopping-order-article-subtotal>
+                        </div>
+                        <div class="nav justify-content-between total-excluded-vat">
+                            <strong>{{'SHOPPING_BASKET.TOTAL_EXCLUDE_VAT' | translate}}</strong>
+                            <strong class="price-value">{{basketPriceSummary.totalExclVat | sagCurrency}}</strong>
+                        </div>
+                        <div class="nav justify-content-between mwst">
+                            <strong>{{'SHOPPING_BASKET.MWST' | translate}}</strong>
+                            <strong class="price-value">{{basketPriceSummary.vatTotal | sagCurrency}}</strong>
+                        </div>
+                        <div class="nav justify-content-between include-vat">
+                            <strong class="price-label">{{'SHOPPING_BASKET.TOTAL_INCLUDE_VAT' | translate}}</strong>
+                            <strong class="price-value">{{basketPriceSummary.total | sagCurrency}}</strong>
+                        </div>
+                    </ng-container>
+                    <ng-container *sagCommonShowHideByAff="[sb];show:true">
+                        <div class="nav justify-content-between include-vat">
+                            <strong class="price-label">{{'SHOPPING_BASKET.TOTAL' | translate}}</strong>
+                            <strong class="price-value no-border-top">{{basketPriceSummary.total |
+                                sagCurrency}}</strong>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="card mb-4" *sagCommonShowHideByAff="[cz,ehcz,ehaxcz,sb];show:false">
+                    <div class="card-header">
+                        <connect-expanded [title]="'SHOPPING_BASKET.DELIVERY_MESSAGE'" [(expand)]="deliveryExpanded">
+                        </connect-expanded>
+                    </div>
+                    <div class="card-body" *ngIf="deliveryExpanded">
+                        <div class="mb-4 basket-ref" *ngIf="!!subBasketCustomerMesage">
+                            <label>{{'ORDER_DASHBOARD.ORDER_REF.CUSTOMER_MESSAGE' | translate}}</label>
+                            <div class="ref-text">{{subBasketCustomerMesage}}</div>
+                        </div>
+
+                        <connect-customer-ref-text [(refText)]="customerMessage" [maxLength]="200">
+                        </connect-customer-ref-text>
+                    </div>
+                </div>
+                <div class="nav mb-4">
+                    <ng-container *ngTemplateOutlet="actionRef"></ng-container>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #emtyMessage>
+            <sag-common-message message="SHOPPING_BASKET.EMPTY" type="WARNING"
+                *ngIf="shoppingBasket.data.length === 0 && shoppingBasket.dvse.length === 0">
+            </sag-common-message>
+        </ng-template>
+    </ng-container>
+
+    <ng-template #actionRef>
+        <connect-action icon="fa-chevron-left" text="SEARCH_RESULT.BACK" (isClicked)="backToViewShoppinBasket()">
+        </connect-action>
+
+        <div class="ml-auto">
+            <connect-action *ngIf="allowDmsOffer" customClass="ml-3" icon="fa-chevron-right" text="DMS.EXPORT.TAKE"
+                (isClicked)="processDmsOffer($event)">
+            </connect-action>
+
+            <connect-action [disabled]="currentBasket?.items?.length === 0 || !basketContext?.billingAddress || userDetail?.settings?.demoCustomer || hasItemNotAllowToAddToShoppingCart"
+                customClass="ml-3 sp-place-order btn btn-primary highlight" icon="hide" text="SEARCH_RESULT.ORDER_NEXT" [(loading)]="isCheckingout" [(forceDisable)]="isDisabledCheckout"
+                (isClicked)="handleOrderBehaviour($event)" name="shopping-basket-checkout">
+            </connect-action>
+        </div>
+    </ng-template>
+</div>

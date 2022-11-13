@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:ns12="http://eshop.sag.ch/types/feature" xmlns:ns11="http://eshop.sag.ch/types/entity" xmlns:ns10="http://eshop.sag.ch/types/description" xmlns:ns9="http://eshop.sag.ch/types/value" xmlns:ns8="http://eshop.sag.ch/types/uid" xmlns:ns7="http://eshop.sag.ch/types/organisation" xmlns:ns6="http://eshop.sag.ch/types/authority" xmlns:ns5="http://eshop.sag.ch/types/session" xmlns:ns4="http://eshop.sag.ch/types/mission" xmlns:ns3="http://eshop.sag.ch/types/transaction" xmlns:ns2="http://eshop.sag.ch/types/model" xmlns:ns1="http://eshop.sag.ch/types/specificservices" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/elements">
+
+<xs:import namespace="http://eshop.sag.ch/types/specificservices" schemaLocation="xsd11.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/model" schemaLocation="xsd14.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/transaction" schemaLocation="xsd10.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/mission" schemaLocation="xsd15.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/session" schemaLocation="xsd12.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/authority" schemaLocation="xsd6.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/organisation" schemaLocation="xsd13.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/uid" schemaLocation="xsd9.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/value" schemaLocation="xsd8.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/description" schemaLocation="xsd4.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/entity" schemaLocation="xsd3.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/feature" schemaLocation="xsd2.xsd"/>
+
+<xs:element name="articleId" type="ns1:articleid"/>
+
+<xs:element name="articleInfo" type="ns1:articleinfo"/>
+
+<xs:element name="articlePrice" type="ns1:articleprice"/>
+
+<xs:element name="authority" type="ns6:authority"/>
+
+<xs:element name="availability" type="ns1:availability"/>
+
+<xs:element name="availabilityDetail" type="ns1:availabilitydetail"/>
+
+<xs:element name="customer" type="ns1:customer"/>
+
+<xs:element name="description" type="ns10:description"/>
+
+<xs:element name="entity" type="ns11:entity"/>
+
+<xs:element name="feature" type="ns12:feature"/>
+
+<xs:element name="mission" type="ns4:mission"/>
+
+<xs:element name="missionResult" type="ns4:missionresult"/>
+
+<xs:element name="organisation" type="ns7:organisation"/>
+
+<xs:element name="recognition" type="ns1:recognition"/>
+
+<xs:element name="resultFeature" type="ns12:resultfeature"/>
+
+<xs:element name="session" type="ns5:session"/>
+
+<xs:element name="shopFacadeModel" type="ns2:query"/>
+
+<xs:element name="transaction" type="ns3:transaction"/>
+
+<xs:element name="uid" type="ns8:uid"/>
+
+<xs:element name="user" type="ns1:user"/>
+
+<xs:element name="validatedRecognition" type="ns1:validatedrecognition"/>
+
+<xs:element name="value" type="ns9:value"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</xs:schema>

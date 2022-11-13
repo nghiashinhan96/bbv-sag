@@ -1,0 +1,8 @@
+<div class="text-center price">
+    <div class="total-price-2 text-right">
+        {{totalPrice | sagCurrency}}
+    </div>
+    <div class="total-price-2 include-vat text-right" *ngIf="isShowVat && totalPriceWithVat">
+        ({{totalPriceWithVat | sagCurrency}})
+    </div>
+</div>

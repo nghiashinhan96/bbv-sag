@@ -1,0 +1,26 @@
+sag-article-list-non-merkmale-filter {
+    sag-article-list-non-merkmale-filter-item {
+        .list-group {
+            max-height: 300px;
+            overflow: auto;
+
+            &.collapsed {
+                display: none;
+            }
+        }
+    }
+}
+
+.attribute-list {
+    display: list-item;
+    padding: 12px 12px 12px 0px;
+    list-style: none;
+    margin-left: 25px;
+
+    .list-group-item {
+        display: inherit;
+        padding: 0px;
+        margin-top: 8px;
+        list-style: disc;
+    }
+}

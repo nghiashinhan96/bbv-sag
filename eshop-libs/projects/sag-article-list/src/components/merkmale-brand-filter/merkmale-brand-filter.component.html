@@ -1,0 +1,21 @@
+<ng-container *ngIf="filterTitle && filterItems">
+    <div class="merkmale-brand-filter-container">
+        <div class="filter-title text-truncate brand-filter-title" (click)="isCollapsed = !isCollapsed">
+            <strong class="text-truncate">{{ 'ARTICLE_FILTER.' + filterTitle | uppercase | translate }}</strong>
+            <span>
+                <i class="fa" [ngClass]="{'fa-caret-up' : !isCollapsed,'fa-caret-down' : isCollapsed}"></i>
+            </span>
+        </div>
+        <ul class="list-group" [hidden]="isCollapsed">
+            <div class="list-content">
+                <li class="list-group-item" *ngFor="let data of filterItems">
+                    <label class="checkbox">
+                        <input type="checkbox" [checked]="data.isChecked" class="mr-1"
+                            (change)="changeFilterValue($event, data)">
+                        <span>{{ data.name }}</span>
+                    </label>
+                </li>
+            </div>
+        </ul>
+    </div>
+</ng-container>

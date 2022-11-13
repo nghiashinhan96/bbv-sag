@@ -1,0 +1,37 @@
+.wt-sb {
+    connect-shopping-cart {
+        .article-list-header {
+            .header-pos {
+                width: $basket-part-pos-width-sb;
+            }
+
+            .header-amount-per-location {
+                width: $basket-part-amount-per-location-width-sb;
+            }
+
+            .header-location {
+                width: $basket-part-location-width-sb;
+            }
+        }
+    }
+
+    sag-article-list {
+        .shopping-basket {
+            .part-detail-item {
+                .footer-section {
+                    .spec-info {
+                        flex: 0 0 $part-brand-width + $part-img-width + $basket-part-pos-width-sb + $basket-part-amount-per-location-width-sb + $basket-part-location-width-sb + $basket-part-gross-width + $basket-part-net-width;
+                    }
+                }
+
+                &.simple-mode {
+                    .footer-section {
+                        .spec-info {
+                            flex: 0 0 $basket-description-width + $basket-part-amount-per-location-width-sb + $basket-part-location-width-sb + $basket-part-gross-width + $basket-part-net-width;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

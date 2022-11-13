@@ -1,0 +1,15 @@
+.container-lg {
+    width: 1125px;
+    padding: 0 70px !important;
+	@media (min-width: 992px){
+		    max-width: 1140px !important;
+	}
+}
+
+.dvse-openned, .unicat-openned, .stginfo-openned{
+	.container-lg {
+		@media (min-width: 992px){
+				max-width: 1122px !important;
+		}
+	}
+}

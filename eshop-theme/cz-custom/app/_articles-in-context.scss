@@ -1,0 +1,19 @@
+.st-cz, .eh-cz, .ax-cz, .eh-ax-cz {
+    sag-in-context-articles-result-list {
+        .result {
+            .nav-tabs {
+                .nav-item {
+                    &:nth-child(2) {
+                        width: fit-content;
+                        flex: none;
+
+                        .nav-link {
+                            width: fit-content;
+                            cursor: default;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

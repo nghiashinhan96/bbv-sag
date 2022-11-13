@@ -1,0 +1,120 @@
+<section class="card">
+    <div class="card-header">
+        <connect-expanded size="sm" title="{{isSb ? 'COMMON_LABEL.ADDRESS' : 'CONDITION.SHIPPING_PAYMENT' | translate}}" [(expand)]="isOrderConditionOpened">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="paymentSettings && isOrderConditionOpened">
+        <form [formGroup]="parentForm">
+            <ng-container *sagCommonShowHideByAff="[sb];show:false">
+                <div class="container">
+                    <h6 class="row">{{ 'CONDITION.INVOICE_TYPE.TITLE' | translate }}</h6>
+                    <div class="row">
+                        <div class="form-group form-check col-md-6">
+                            <input class="form-check-input" type="radio" name="invoiceId" id="singleInvoiceOption" value="1"
+                                formControlName="invoiceId" [checked]="invoiceId === 1">
+                            <label class="form-check-label" for="singleInvoiceOption">
+                                {{ 'CONDITION.DEFAULT_INVOICE_TYPE.SINGLE_INVOICE' | translate }}
+                            </label>
+                        </div>
+                        <div class="form-group form-check col-md-6">
+                            <input class="form-check-input" type="radio" name="invoiceId" id="agreementInvoiceOption"
+                                value="0" formControlName="invoiceId" [checked]="invoiceId === 0">
+                            <label class="form-check-label" for="agreementInvoiceOption">
+                                {{ 'CONDITION.DEFAULT_INVOICE_TYPE.AGREEMENT_INVOICE' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-3 mb-3">
+                    <h6 class="row">{{ 'CONDITION.PAYMENT_METHOD.TITLE' | translate }}</h6>
+                    <div class="row">
+                        <div class="form-group form-check col-md-6" *ngFor="let method of paymentSettings.paymentMethods">
+                            <input class="form-check-input" type="radio" name="paymentId" id="{{method.description}}"
+                                value="{{method.id}}" formControlName="paymentId" (click)="updatePaymentMethod(method)"
+                                [checked]="userSetting.paymentId === method.id">
+                            <label class="form-check-label" for="{{method.description}}">
+                                {{ 'CONDITION.PAYMENT_METHOD.' + method.descCode | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <h6 class="row">{{ 'CONDITION.DELIVERY_TYPE.TITLE' | translate }}</h6>
+                    <div class="row">
+                        <div class="form-group form-check col-md-6" *ngFor="let method of paymentSettings.deliveryTypes">
+                            <input class="form-check-input" type="radio" name="deliveryId" id="{{method.description}}"
+                                value="{{method.id}}" formControlName="deliveryId"
+                                [checked]="userSetting.deliveryId === method.id">
+                            <label class="form-check-label" for="{{method.description}}">
+                                {{ 'CONDITION.DELIVERY_TYPE.' + method.descCode | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-3 mb-3" *sagCommonShowHideByAff="[cz];show:false">
+                    <h6 class="row">{{ 'CONDITION.COLLECTIVE_DELIVERY.TITLE' |translate }}</h6>
+                    <div class="row">
+                        <div class="form-group form-check col-md-6" *ngFor="let method of paymentSettings.collectiveTypes">
+                            <input class="form-check-input" type="radio" name="collectiveDelivery"
+                                id="{{method.description}}" value="{{method.id}}" formControlName="collectiveDelivery"
+                                [checked]="userSetting.collectiveDelivery === method.id">
+                            <label class="form-check-label" for="{{method.description}}">
+                                {{ 'CONDITION.COLLECTIVE_DELIVERY.' + method.descCode | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <h6>{{ 'CONDITION.DELIVERY_ADDRESS' | translate }}</h6>
+            <ng-container *ngIf="deliveryAddress.length === 1; else addressSelection">
+                <p>{{ deliveryAddress[0]?.getFullAddress() }}</p>
+            </ng-container>
+            <ng-template #addressSelection>
+                <div class="row" *ngIf="deliveryAddress.length > 0">
+                    <div class="col-6">
+                        <ng-select
+                            [searchable]="deliveryAddress?.length > 10"
+                            formControlName="deliveryAddressId"
+                            [items]="deliveryAddress"
+                            [clearable]="false"
+                            bindValue="id">
+                            <ng-template ng-label-tmp let-item="item">
+                                {{ item?.getFullAddress()}}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                                {{ item?.getFullAddress() }}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
+            </ng-template>
+            <h6 class="mt-3">{{ 'CONDITION.BILLING_ADDRESS' | translate }}</h6>
+            <ng-container *ngIf="billingAddress?.length === 1; else billingAddressSelection">
+                <p>{{billingAddress[0]?.getFullAddress()}}</p>
+            </ng-container>
+            <ng-template #billingAddressSelection>
+                <div class="row">
+                    <div class="col-6">
+                        <ng-select
+                            [searchable]="billingAddress?.length > 10"
+                            formControlName="billingAddressId"
+                            [items]="billingAddress"
+                            [clearable]="false"
+                            bindValue="id">
+                            <ng-template ng-label-tmp let-item="item">
+                                {{ item?.getFullAddress()}}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                                {{ item?.getFullAddress() }}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
+            </ng-template>
+        </form>
+    </div>
+</section>

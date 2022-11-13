@@ -1,0 +1,33 @@
+<ng-container *ngIf="isCollapsible; else notCollapsibleRef">
+    <a class="d-flex sag-title" href="javascript:void(0)" (click)="isShownContent = !isShownContent">
+        <h4>{{title | translate}}</h4>
+        <i class="ml-auto fa fa-arrow-circle-o-down" [ngClass]="{'fa-rotate-180': isShownContent}"></i>
+    </a>
+</ng-container>
+<ng-template #notCollapsibleRef>
+    <h4>{{title | translate}}</h4>
+</ng-template>
+<ng-container *ngIf="isShownContent">
+    <div class="row flex-column" [ngClass]="style">
+        <ng-container *ngIf="availTemplateRef && !isEhCz; else defaultTemplateRef">
+            <ng-container *ngTemplateOutlet="availTemplateRef; context: {article: article, currency: currency}">
+            </ng-container>
+        </ng-container>
+        <ng-template #defaultTemplateRef>
+            <ng-container>
+                <div *ngIf="projectId === PROJECT_ID.CONNECT && !hidePrice" class="col flex-basis-auto">
+                    <sag-article-avail-popup-price [isPDP]="isPDP" [currency]="currency" [userSetting]="userSetting"
+                        [article]="article" [affiliateCode]="affiliateCode" [basketType]="basketType"
+                        [currentStateVatConfirm]="currentStateVatConfirm"
+                        >
+                    </sag-article-avail-popup-price>
+                </div>
+                <ng-container *ngIf="article?.itemType !== 'VIN'">
+                    <sag-article-avail-popup-availability [availabilities]="availabilities" [userSetting]="userSetting"
+                        [affiliateCode]="affiliateCode" [user]="user" [article]="article">
+                    </sag-article-avail-popup-availability>
+                </ng-container>
+            </ng-container>
+        </ng-template>
+    </div>
+</ng-container>

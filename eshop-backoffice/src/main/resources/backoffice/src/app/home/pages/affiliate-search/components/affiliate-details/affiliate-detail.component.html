@@ -1,0 +1,17 @@
+<notification [notifier]="notifier"></notification>
+<ng-container *ngIf="affiliate">
+    <backoffice-affiliate-info #affiliateInfo [affiliateSetting]="affiliate" [languages]="languages"></backoffice-affiliate-info>
+
+    <div class="block-moving">
+        <button id='abortAffSettingBtn' class="btn btn-default pull-left" (click)="abortAffiliateSetting()">
+            <i class="fa fa-arrow-left left"></i>{{'COMMON.BUTTON.BACK' | translate}}
+        </button>
+        <button id="saveaffSettingBtn" class="btn btn-primary pull-right"
+            (click)="saveAffiliateSetting(affiliateInfo.getSetting())">
+            <i class="fa fa-save"></i> {{'COMMON.BUTTON.SAVE' | translate}}
+        </button>
+    </div>
+    <button (click)="showRegistrationFrom()" class="btn btn-primary add-customer">
+        <i class="fa fa-plus left"></i>{{'BUTTON.REGISTER' | translate}}
+    </button>
+</ng-container>

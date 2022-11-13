@@ -1,0 +1,75 @@
+.ngx-pagination {
+    justify-content: center;
+    text-align: center;
+
+    li {
+        a {
+            border-radius: 0 !important;
+            padding: 0.75rem;
+            text-align: center;
+            color: $brand-color !important;
+            min-width: 3rem;
+            margin: 0px -1px;
+            border-width: 1px 0px 1px 1px;
+            border-style: solid;
+            border-color: #ddd;
+        }
+    }
+
+    .current {
+        padding: 0px !important;
+        div {
+            border-radius: 0 !important;
+            padding: 0.75rem;
+            text-align: center;
+            color: white;
+            border: 1px solid #ddd !important;
+            min-width: 3rem;
+            margin: 0px -1px;
+            background-color: $brand-color;
+
+            .show-for-sr {
+                display: none;
+            }
+        }
+    }
+
+    .pagination-previous {
+        padding: 0px !important;
+        a,
+        span {
+            border-radius: 0 !important;
+            padding: 0.75rem !important;
+            text-align: center;
+            color: $brand-color !important;
+            width: auto !important;
+            margin: 0px -1px;
+            border-width: 1px 0px 1px 1px;
+            border-style: solid;
+            border-color: #ddd;
+            display: block;
+            &::before {
+                content: '<<' !important;
+                margin-right: 5px !important;
+            }
+        }
+    }
+
+    .pagination-next {
+        padding: 0px !important;
+        a,
+        span {
+            border-radius: 0 !important;
+            padding: 0.75rem !important;
+            text-align: center;
+            color: $brand-color !important;
+            border: 1px solid #ddd !important;
+            width: auto !important;
+            margin: 0px -1px;
+            &::after {
+                content: '>>' !important;
+                margin-right: 5px !important;
+            }
+        }
+    }
+}

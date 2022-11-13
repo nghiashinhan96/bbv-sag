@@ -1,0 +1,12 @@
+<div class="unicat-section" #unicatSection>
+    <button class="scalability-btn" [class.is-maximum]="isMaxSize" (click)="toggleIframeSize()">
+        <i class="fa" [ngClass]="isMaxSize ? 'fa-window-restore' : 'fa-arrows-alt'"></i>
+    </button>
+
+    <button class="btn-text btn-hide-footer" (click)="toogleFooter()">
+        <i class="fa" [ngClass]="footerIsShowed ? 'fa-angle-down' : 'fa-angle-up'"></i>
+    </button>
+    <div class="unicat-inner">
+        <iframe #unicatIframe></iframe>
+    </div>
+</div>

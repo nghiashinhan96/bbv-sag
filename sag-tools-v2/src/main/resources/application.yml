@@ -1,0 +1,29 @@
+spring.application.name: SAG Tools Version 2 for AX
+
+spring.batch.job.names: splitTourTimeFile
+
+spring.profiles:
+  active: target-ch-umbpre
+  include: source-ebl, source-no-sagsys, source-mdm, source-ax-pre, source-es-dev
+spring.batch.initialize-schema: +always
+
+sag:
+  change:
+    customer-settings:
+      affiliate: wbb
+      setting-column: SHOW_DISCOUNT
+      setting-value: true
+
+---
+## Common configuration
+logging:
+  level:
+    org.hibernate: INFO
+    com.sagag.services.tools: DEBUG
+    org.springframework.batch: DEBUG
+    com.opencsv: DEBUG
+
+---
+## Job variable
+sag.tour-time.table-swp: TOUR_TIME_SWP
+sag.tour-time.file: C:/Users/thinguyen/Downloads/2020-07-DD 12_00_CustomerInfo_CH/TOUR_TIME_CH.csv

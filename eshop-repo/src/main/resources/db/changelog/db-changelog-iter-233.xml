@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_233_CREATE_V_LEGAL_TERM">
+        <sql>
+            CREATE VIEW [dbo].[V_LEGAL_TERM] AS
+            SELECT
+                ld.DOCUMENT_NAME AS NAME,
+                ld.SUMMARY AS SUMMARY,
+                ld.DOCUMENT AS CONTENT,
+                ld.PDF_URL AS PDF_URL,
+                CAST(ldt.ID as varchar) AS TERM_ID,
+                CAST(ldcal.USER_ID as varchar) AS USER_ID,
+                CONVERT(varchar(30),
+                        ldcal.TIME_ACCEPTED,
+                        126) AS TIME_ACCEPTED,
+                CONVERT(varchar(30),
+                        ldaal.DATE_VALID_FROM,
+                        126) AS DATE_VALID_FROM,
+                CAST(ldaal.ACCEPTANCE_PERIOD_DAYS as varchar) AS ACCEPTANCE_PERIOD_DAYS,
+                CAST(ldaal.SORT as varchar) AS SORT ,
+                ldcal.CUSTOMER_ID,
+                ld.LANGUAGE,
+                ldaal.STATUS
+            FROM
+                LEGAL_DOCUMENT ld
+                    INNER JOIN LEGAL_DOCTYPE ldt ON
+                    ld.LEGAL_DOCTYPE_ID = ldt.ID
+                    INNER JOIN LEGAL_DOCTYPE_CUSTOMER_ACCEPTED_LOG ldcal ON
+                    ldcal.LEGAL_DOCTYPE_ID = ldt.ID
+                    INNER JOIN LEGAL_DOCTYPE_AFFILIATE_ASSIGNED_LOG ldaal ON
+                            ldaal.AFFILIATE_ID = ldcal.AFFILIATE_ID
+                        AND ldaal.LEGAL_DOCTYPE_ID = ldcal.LEGAL_DOCTYPE_ID
+        </sql>
+    </changeSet>
+</databaseChangeLog>

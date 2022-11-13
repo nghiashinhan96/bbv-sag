@@ -1,0 +1,88 @@
+<div class="connect-ordered-detail">
+    <div class="connect-ordered-detail__title font-weight-bold">
+        <h5>{{ 'SETTINGS.MY_ORDER.DETAIL.ORDER_DETAILS' | translate}}</h5>
+    </div>
+    <div class="connect-ordered-detail__info">
+        <div class="text-left">
+            <span class="d-flex font-weight-bold">
+                <h6>{{ 'SETTINGS.MY_ORDER.DETAIL.ORDER_NUMBER' | translate}}: &nbsp;</h6>
+                {{finalOrder?.id}}
+            </span>
+            <span class="d-flex font-weight-bold">
+                <h6>{{ 'SETTINGS.MY_ORDER.DETAIL.ORDER_DATE' | translate}}: &nbsp;</h6>
+                {{finalOrder?.orderDate | date: defaultDateTimeFormat }}
+            </span>
+        </div>
+        <div class="text-right btn-back">
+            <a class="btn-back" href="javascript:void(0)" (click)="backToOrderedList()">
+                <i class="fa fa-chevron-left"></i>
+                <span class="font-weight-bold">{{'SEARCH_RESULT.BACK' | translate}}</span>
+            </a>
+        </div>
+    </div>
+    <div class="connect-ordered-detail__table">
+        <sag-table [mode]="mode" [columns]="columns" [rows]="data" [firstlySearch]="mode === 'online'">
+        </sag-table>
+
+        <ng-template #articleNr let-item='row'>
+            <div class="article-nr"
+                title="{{item?.genArtDescription + ',' + item?.supplier + ',' + item?.productAddon}}">
+                <span>{{item?.genArtDescription}}</span>
+                <ng-container *ngIf="item.supplier">
+                    <span>{{item?.supplier}}</span>
+                </ng-container>
+
+                <ng-container *ngIf="item.productAddon">
+                    <span>{{item?.productAddon}}</span>
+                </ng-container>
+            </div>
+
+            <ng-container *ngIf="item.articleDesc">
+                <span class="article-des">{{item?.articleDesc}}</span>
+            </ng-container>
+        </ng-template>
+        <ng-template #supplier let-item="row">
+            <span class="img"
+                [ngStyle]="{'background-image': 'url(https://s3.exellio.de/connect_media/common/images/brands/' + item.brand + '.jpg)'}">
+            </span>
+        </ng-template>
+        <ng-template #image let-item="row">
+            <span *ngIf="item.type === 'VIN'; else imagesRef" class="img"
+                [ngClass]="isAffiliateAT ? 'vin-10': 'vin-20'"></span>
+
+            <ng-template #imagesRef>
+                <span *ngIf="item.images.length === 0; else  imagesSourceRef" class="img no-image"></span>
+            </ng-template>
+
+            <ng-template #imagesSourceRef>
+                <span class="img img-zoomlens" (click)=showImagesInfo(item) [ngStyle]="item.thumbnail"></span>
+            </ng-template>
+        </ng-template>
+    </div>
+
+    <ng-container *ngIf="finalOrder?.reference || finalOrder?.branchRemark">
+        <div class="connect-ordered-detail__footer">
+            <div class="info-item mb-10">{{ finalOrder?.reference }}</div>
+            <div class="info-item">{{ finalOrder?.branchRemark }}</div>
+        </div>
+    </ng-container>
+
+    <div class="text-right btn-back mt-3">
+        <a class="btn-back" href="javascript:void(0)" (click)="backToOrderedList()">
+            <i class="fa fa-chevron-left"></i>
+            <span class="font-weight-bold">{{'SEARCH_RESULT.BACK' | translate}}</span>
+        </a>
+    </div>
+</div>
+
+
+<ng-template #grossPriceRef let-row="row">
+    <div>{{ row.grossPrice | sagCurrency }}</div>
+    <div *ngIf="isShowVat && row.grossPriceWithVat">({{ row.grossPriceWithVat | sagCurrency }})</div>
+</ng-template>
+
+<ng-template #FCNetPriceRef let-row="row">
+    <div>{{row.finalCustomerNetPrice ? (row.finalCustomerNetPrice | sagCurrency) : '-'}}</div>
+    <div *ngIf="isShowVat && row.finalCustomerNetPriceWithVat">
+        ({{row.finalCustomerNetPriceWithVat ? (row.finalCustomerNetPriceWithVat | sagCurrency) : '-'}})</div>
+</ng-template>

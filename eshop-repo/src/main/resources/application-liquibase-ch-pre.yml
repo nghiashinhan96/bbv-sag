@@ -1,0 +1,6 @@
+spring.profiles: liquibase-ch-pre
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/pre/ch/db.changelog-master.xml
+    drop-first: false

@@ -1,0 +1,73 @@
+<div class="nav d-flex justify-content-between align-items-start mb-4">
+    <div [class.w-50-p]="isShowVat"
+        [class.flex-6]="!isShowVat">
+        <strong id="span-sagCurrencyTitle" class="text-nowrap">
+            {{ 'PDP.PRICE_INFO_PER_PIECE' | translate}}
+        </strong>
+    </div>
+
+    <ng-container *ngIf="isShowVat">
+        <div class="flex-4 text-right w-25-p">
+            <strong id="span-sagCurrencyValue">
+                {{'CURRENCY.' + currency | translate:{defaultOnMissingKey:currency} }}
+                <br>
+                {{ 'PDP.INCLUDE_VAT' | translate}}
+            </strong>
+        </div>
+    </ng-container>
+
+    <div class="text-right" [class.w-25-p]="isShowVat"
+        [class.flex-6]="!isShowVat">
+        <strong id="span-sagCurrencyValue">
+            {{'CURRENCY.' + currency | translate:{defaultOnMissingKey:currency} }}
+            <br>
+            {{(isIncludeVAT ? 'PDP.INCLUDE_VAT' : 'PDP.EXCLUDE_VAT')| translate}}
+        </strong>
+    </div>
+</div>
+
+<div class="mb-4">
+    <ng-container *ngIf="article?.getGrossPrice()">
+        <div class="nav d-flex justify-content-between align-items-start">
+            <div [class.w-50-p]="isShowVat"
+                [class.flex-6]="!isShowVat" class="text-nowrap">
+                {{'ARTICLE.GROSS_VALUE' | translate}}
+            </div>
+
+            <ng-container *ngIf="isShowVat">
+                <div class="flex-4 text-right w-25-p">
+                    {{ article?.getGrossPriceWithVat() | sagCurrency }}
+                </div>
+            </ng-container>
+
+            <div class="text-right" [class.w-25-p]="isShowVat"
+                [class.flex-6]="!isShowVat">
+                {{(isIncludeVAT ? article?.getGrossPriceWithVat() : article?.getGrossPrice()) | sagCurrency }}
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="finalCustomerNetPrice && isShowNetPrice">
+        <div class="nav d-flex justify-content-between align-items-start">
+            <div [class.w-50-p]="isShowVat"
+                [class.flex-6]="!isShowVat" class="text-nowrap">
+                {{'ARTICLE.PRICE.NET_PRICE' | translate}}
+            </div>
+
+            <ng-container *ngIf="isShowVat">
+                <div class="flex-4 text-right w-25-p">
+                    {{ finalCustomerNetPriceVat | sagCurrency }}
+                </div>
+            </ng-container>
+
+            <div class="text-right"
+                [class.flex-6]="!isShowVat" [class.w-25-p]="isShowVat">
+                {{(isIncludeVAT ? finalCustomerNetPriceVat : finalCustomerNetPrice) | sagCurrency}}
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<ng-container *ngIf="isAffiliateApplyFgasAndDeposit">
+    <sag-article-avail-popup-deposit-article [article]="article" [userSetting]="userSetting" [showInclVatCol]="true" [includeVAT]="isIncludeVAT">
+    </sag-article-avail-popup-deposit-article>
+</ng-container>

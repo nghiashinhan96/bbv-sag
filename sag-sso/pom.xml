@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+    <groupId>com.sagag.services</groupId>
+    <artifactId>sag-parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../sag-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>sag-sso</artifactId>
+  <version>${project.version}</version>
+  <name>SAG Single Sign On API services</name>
+
+  <dependencies>
+    <!-- Project dependencies -->
+    <dependency>
+     <groupId>com.sagag.services</groupId>
+     <artifactId>sag-common</artifactId>
+     <version>${project.version}</version>
+   </dependency>
+    <!-- Authentication dependencies -->
+   <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>adal4j</artifactId>
+      <version>${version.adal4j}</version>
+      <exclusions>
+      	<exclusion>
+      		<groupId>net.minidev</groupId>
+      		<artifactId>json-smart</artifactId>
+      	</exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>${version.java-jwt}</version>
+    </dependency>
+
+    <!-- Other dependencies -->
+    <dependency>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+    </dependency>
+  </dependencies>
+</project>

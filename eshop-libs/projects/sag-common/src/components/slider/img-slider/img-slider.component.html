@@ -1,0 +1,22 @@
+<div class="swiper-container gallery-top">
+    <div class="swiper-wrapper">
+        <div *ngFor="let slide of images; let index=index" class="swiper-slide">
+            <figure class="zoom" [ngStyle]="{'background-image':'url(' + slide.ref + ')'}" (mousemove)="zoom($event)">
+                <img [src]="slide.ref" alt="" style="display: block; width: 100%;" (click)="select(slide)">
+            </figure>
+        </div>
+    </div>
+</div>
+<div class="swiper-section">
+    <div class="swiper-button-prev swiper-button-white">
+    </div>
+    <div class="swiper-container gallery-thumbs">
+        <div class="swiper-wrapper">
+            <div *ngFor="let slide of images; let index=index" class="swiper-slide">
+                <img [src]="slide.ref" alt="" style="display: block; width: 90%;" (click)="select(slide)">
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next swiper-button-white">
+    </div>
+</div>

@@ -1,0 +1,213 @@
+sag-article-list-category-tree {
+    .nav-item_first {
+        width: 100%;
+        >sag-article-list-category-tree-item {
+            >.category-tree-item_header {
+                background-color: $light-grey;
+                border-top: 1px solid $thin-grey;
+            }
+        }
+
+        &:first-child {
+            >sag-article-list-category-tree-item {
+                >.category-tree-item_header {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        &.border-0 {
+            .category-tree-item_header {
+                border-top: 0px;
+                margin-left: -1rem;
+                padding-left: 1.5rem;
+            }
+        }
+    }
+
+    sag-article-list-category-tree-item {
+        .category-tree-item {
+            &_header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: $half-spacer;
+                cursor: pointer;
+                color: $text-disable-color;
+                font-size: 0.9rem;
+
+                &.focused {
+                    padding: 0px;
+                    padding-right: 0.5rem;
+                }
+
+                .category-name {
+                    display: inline-block;
+                    overflow-wrap: break-word;
+                    max-width: 205px;
+                }
+            }
+
+            &_body {
+                padding-left: 1rem;
+            }
+        }
+
+        label {
+            padding-right: 28px;
+
+            input[type="checkbox"] {
+                margin-left: 5px;
+            }
+
+            .checbox {
+                margin-left: -1rem;
+                padding: $half-spacer;
+                margin-bottom: 0;
+            }
+
+            span {
+                font-size: 0.9rem;
+                line-height: 18px;
+                font-weight: 400;
+                overflow-wrap: break-word;
+                color: $text-disable-color;
+            }
+
+            &.single-cate {
+                width: 100%;
+                padding: 4px 0px;
+
+                &.selected {
+                    padding: 0;
+                }
+
+                span {
+                    color: $primary;
+                }
+
+                a.selected {
+                    background-color: #f1eff0;
+                    padding: 0.3rem 0.5rem;
+                    margin-left: -0.5rem;
+                    display: inline-block;
+
+                    span {
+                        display: inline-block;
+                        max-width: 212px;
+                    }
+                }
+            }
+        }
+
+        .category-name {
+            &.selected {
+                padding: 3px;
+                background-color: #d0c9c9;
+                margin-left: -3px;
+            }
+
+            &.focused {
+                background: #DEDEDE;
+                height: 25px;
+                margin-top: 2px;
+                margin-bottom: 2px;
+                padding-top: 5px;
+                padding-left: 0.3rem;
+                padding-right: 1rem;
+                transform: translateX(-0.2rem);
+            }
+        }
+    }
+
+    .card-header {
+        background-color: $primary !important;
+        color: $white;
+        height: $panel-height;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+    }
+
+    .card-body {
+        padding: 0;
+        min-height: 180px;
+    }
+
+    .nav-reset {
+        padding: $half-spacer;
+        height: $panel-height;
+        display: flex;
+        align-items: center;
+        font-style: italic;
+
+        a {
+            color: $text-disable-color;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+.lib-vehicle-info,
+.lib-article-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+        &:first-child {
+            i {
+                font-size: 1.5rem;
+            }
+        }
+
+        i {
+            font-size: 1.15rem;
+            color: $grey;
+
+            &:hover {
+                color: $primary-font;
+            }
+        }
+    }
+
+    .info {
+        flex: 1;
+        padding-left: $half-spacer;
+        font-size: 0.9rem;
+        color: $grey;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.category-tree-item_body {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    visibility: visible;
+    position: static;
+    &.hidden {
+        opacity: 0;
+        display: flex;
+        visibility: hidden;
+        position: absolute;
+        transition: opacity 0s;
+        z-index: -1;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+}

@@ -1,0 +1,13 @@
+spring.profiles: source-es-umbpre
+spring:
+  data:
+    elasticsearch:
+      host: sag-ppd-ela-020.sag.services
+      port: 9300
+      cluster-nodes: sag-ppd-ela-020.sag.services:9300
+      cluster-name: elasticsearch
+      properties:
+        http.enabled: true
+      repositories:
+        enabled: true
+        

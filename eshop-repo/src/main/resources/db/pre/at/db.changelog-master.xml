@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <include file="db/changelog/db-changelog-iter-094.xml" />
+  <include file="db/changelog/db-changelog-iter-095.xml" />
+  <include file="db/changelog/db-changelog-iter-096.xml" />
+  <include file="db/changelog/db-changelog-iter-097.xml" />
+  <include file="db/changelog/db-changelog-iter-098.xml" />
+  <include file="db/changelog/db-changelog-iter-098-at.xml" />
+  <include file="db/changelog/db-changelog-iter-099.xml" />
+  <include file="db/changelog/db-changelog-iter-099-at.xml" />
+  <include file="db/changelog/db-changelog-iter-100.xml" />
+  <include file="db/changelog/db-changelog-iter-105.xml"/>
+  <include file="db/changelog/db-changelog-iter-115.xml" />
+  <include file="db/changelog/db-changelog-iter-116.xml" />
+  <include file="db/changelog/db-changelog-iter-116-at.xml" />
+  <include file="db/changelog/db-changelog-iter-120.xml" />
+  <include file="db/changelog/db-changelog-iter-123.xml" />
+  
+  <include file="db/changelog/db-changelog-iter-128.xml" />
+  <include file="db/changelog/db-changelog-iter-134.xml" />
+  <include file="db/changelog/db-changelog-iter-139.xml" />
+  <include file="db/changelog/db-changelog-iter-144.xml" />
+</databaseChangeLog>

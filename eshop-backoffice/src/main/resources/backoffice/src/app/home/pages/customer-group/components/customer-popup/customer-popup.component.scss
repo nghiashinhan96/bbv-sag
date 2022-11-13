@@ -1,0 +1,13 @@
+.modal-customer-nr {
+    .customer-nr-list {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    .customer {
+        width: calc(100% / 5);
+        font-size: 16px;
+        padding: 5px 0px;
+        text-align: center;
+    }
+}

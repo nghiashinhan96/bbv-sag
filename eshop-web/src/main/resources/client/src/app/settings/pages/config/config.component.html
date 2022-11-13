@@ -1,0 +1,31 @@
+<div class="current-user-role mb-3 mt-4">
+    {{'SETTINGS.USER_MANAGEMENT.GARAGE_NAME'| translate}}:
+    <span class="role text-primary">{{userDetail?.username}}</span>
+</div>
+<div class="card" [ngClass]="isOciFlow ? 'disabled':''">
+    <div class="card-header">
+        <connect-expanded title="{{'SETTINGS.SETTING.USER_SETTINGS' | translate}}" [(expand)]="isUserOpened">
+        </connect-expanded>
+    </div>
+    <section class="card-body" *ngIf="isUserOpened">
+        <connect-user-config *ngIf="userSetting && paymentSetting" [userDetail]="userDetail" [userSetting]="userSetting"
+            [userPaymentSettings]="paymentSetting" (updateUserConfigEmitter)="updateUserSettings($event)">
+        </connect-user-config>
+    </section>
+</div>
+
+<div *ngIf="userDetail?.userAdminRole" class="card mt-3 admin-setting" [ngClass]="isOciFlow ? 'disabled':''">
+    <div class="card">
+        <div class="card-header">
+            <connect-expanded title="{{'SETTINGS.SETTING.DEFAULT_SETTINGS' | translate}}" [(expand)]="isAdminOpened">
+            </connect-expanded>
+        </div>
+        <div class="card-body" *ngIf="isAdminOpened">
+            <connect-admin-config
+                [custSettings]="customerSettings"
+                (updateAdminSettingEmitter)="updateAdminSettings($event)"
+                [userDetail]="userDetail">
+            </connect-admin-config>
+        </div>
+    </div>
+</div>

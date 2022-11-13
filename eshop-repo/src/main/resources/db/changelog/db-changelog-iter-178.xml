@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_178_ADD_SINGLE_SELECT_MODE_USER_SETTING">
+    <sql>
+       IF NOT EXISTS
+		(
+			SELECT COLUMN_NAME
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = 'USER_SETTINGS'
+				AND COLUMN_NAME = 'SINGLE_SELECT_MODE'
+		)
+		ALTER TABLE USER_SETTINGS ADD SINGLE_SELECT_MODE BIT NOT NULL DEFAULT 0
+    </sql>
+  </changeSet>
+  
+   <changeSet author="CONNECT_APP" id="ITER_176_ADD_HIDE_FROM_UI_BRANCH">
+    <sql>
+      ALTER TABLE dbo.BRANCH ADD HIDE_FROM_CUSTOMERS bit NOT NULL DEFAULT 0;
+      ALTER TABLE dbo.BRANCH ADD HIDE_FROM_SALES bit NOT NULL DEFAULT 0;
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

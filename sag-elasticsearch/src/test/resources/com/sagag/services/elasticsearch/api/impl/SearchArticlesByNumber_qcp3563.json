@@ -1,0 +1,204 @@
+{
+  "id": "c05d97d5b68cd377d7dab6d7a16e3006",
+
+  "criteria": [
+    
+  ],
+  "refs": [
+    {
+      "id_source": "tecdoc",
+      "artnr": "QCP3563",
+      "id_pim": "1000000006725722830",
+      "id_dlnr": "57",
+      "id_autonet": "",
+      "artid": "c05d97d5b68cd377d7dab6d7a16e3006",
+      "artnr_display": "QCP3563",
+      "gaID": "1260",
+      "available": false
+    }
+  ],
+  "parts": [
+    {
+      "brandid": "1407",
+      "pnrn": "891022",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "74",
+      "pnrn": "646 200 03 01",
+      "ptype": "OEM"
+    },
+    {
+      "brandid": "502",
+      "pnrn": "8MP 376 801-381",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "502",
+      "pnrn": "8MP 376 801-384",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "521",
+      "pnrn": "506831",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "550",
+      "pnrn": "VKPC 88855",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "603",
+      "pnrn": "350982082000",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "603",
+      "pnrn": "82082",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "624",
+      "pnrn": "GWP1204",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "782",
+      "pnrn": "85-7575",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "789",
+      "pnrn": "M214",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "791",
+      "pnrn": "13090",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "792",
+      "pnrn": "PA909",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "793",
+      "pnrn": "980 404",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "794",
+      "pnrn": "10909",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "795",
+      "pnrn": "PA1264",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "797",
+      "pnrn": "24205",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1241",
+      "pnrn": "10 92 4205",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1700",
+      "pnrn": "PA10023",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1847",
+      "pnrn": "BWP2053",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1941",
+      "pnrn": "24-0909",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2147",
+      "pnrn": "1825",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2377",
+      "pnrn": "P1531",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2378",
+      "pnrn": "980404",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2678",
+      "pnrn": "WP6367",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2679",
+      "pnrn": "1314102309",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2745",
+      "pnrn": "980404",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2819",
+      "pnrn": "PA1293",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2840",
+      "pnrn": "130366",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3147",
+      "pnrn": "PA12472",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3173",
+      "pnrn": "85-7575",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3223",
+      "pnrn": "FWP2053",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3268",
+      "pnrn": "VWP850",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3409",
+      "pnrn": "CP7126T",
+      "ptype": "IAM"
+    }
+  ],
+  "info": [
+    {
+      "id_info": "QTBEmp",
+      "info_type": "1",
+      "info_txt_de": "Bei einem Wasserpumpenwechsel empfiehlt Quinton Hazell auch den Austausch des Zahnriemens oder des Keilrippenriemens."
+    },
+    {
+      "id_info": "HAZ002",
+      "info_type": "3",
+      "info_txt_de": "Die folgenden Montagehinweise dienen zum korrekten Einbau Ihrer neuen Wasserpumpe, damit StÃ¶rungen bzw. ein vorzeitiger Ausfall der Wasserpumpe vermieden wird. Der Wasserpumpenwechsel darf nur durch autorisierte Personen durchgefÃ¼rt werden, die Ã¼ber das notwendige Fachwissen verfÃ¼gen. Spezielle Aus- / Einbauvorschriften fÃ¼r Ihr Fahrzeug entnehmen Sie bitte aus dem entsprechenden Werkstatthandbuch. 1.) Vor dem Ausbau der Wasserpumpe KÃ¼hlflÃ¼ssigkeit ablassen und auffangen. Achtung: Abgelassene KÃ¼hlflÃ¼ssigkeit darf nicht wiederverwendet werden. KÃ¼hlflÃ¼ssigkeit ist giftig und darf nicht einfach weggeschÃ¼ttet oder dem HausmÃ¼ll beigefÃ¼gt werden. Gemeinde- und Stadtverwaltungen informieren darÃ¼ber, wo sich die nÃ¤chste SondermÃ¼llsammelstelle befindet. 2.) Bauen Sie die alte Wasserpumpe aus. 3.) SÃ¤ubern Sie das GehÃ¤use, in das die neue Wasserpumpe eingebaut wird. Wird im KÃ¼hlsystem Rost, Kesselstein und/oder Schlamm festgestellt, muÃ dieses von innen gereinigt werden. Alle Bauteile und Aggregate des KÃ¼hlsystems sind zu ÃberprÃ¼fen. 4.) Alten Dichtungsring bzw. Reste der Papierdichtung von der DichtflÃ¤che / GehÃ¤use entfernen. DichtflÃ¤chen auf BeschÃ¤digungen Ã¼berprÃ¼fen. 5.) Wasserpumpe mit neuem Dichtring bzw. Papierdichtung ansetzen und anschrauben. Die Befestigungsschrauben sind mit dem vom Fahrzeughersteller vorgeschriebenen Drehmoment Ã¼ber Kreuz festzuziehen. Befestigungsschrauben auf keinen Fall zu stark anziehen. Der Freilauf der Pumpenwelle ist zu Ã¼berprÃ¼fen. Achtung: Wurde ein Dichtungsring aus Silikon verwendet, so ist die vorgeschriebene Vulkanisationszeit einzuhalten, bevor das KÃ¼hlsystem mit KÃ¼hlflÃ¼ssigkeit aufgefÃ¼llt wird. 6.) Der LÃ¼fter ist auf BeschÃ¤digungen zu ÃberprÃ¼fen und falls erforderlich zu ersetzen. 7.) Bei Fahrzeugen mit Visko-LÃ¼fterkupplung ist diese auf BeschÃ¤digungen (Dichtheit und festen Sitz) zu ÃberprÃ¼fen und falls erforderlich zu ersetzen. Achtung: eine schadhafte Visko-LÃ¼fterkupplung fÃ¼hrt zum vorzeitigen Ausfall der neuen Wasserpumpe. Durch die entstehenden starken Vibrationen wird die Lebensdauer des Wasserpumpenlagers herabgesetzt. 8.) ÃberprÃ¼fen Sie den/die Antriebsriemen auf VerschleiÃ, Verformung und VerhÃ¤rtung und ersetzen Sie diese falls erforderlich. 9.) Es wird empfohlen, einen neuen Antriebsriemen einzubauen, wenn die Wasserpumpe erneuert wird. Dabei ist auf die vom Fahrzeughersteller vorgeschriebene Riemenspannung zu achten, da es sonst zu LagerschÃ¤den bei den angetriebenen Aggregaten kommt. 10.) Stellen Sie sicher, daÃ alle KÃ¼hlmittelschlÃ¤uche sowie Schlauchschellen in Ordnung sind. 11.) Neue KÃ¼hlflÃ¼ssigkeit auffÃ¼llen. Die Mischung (Wasser mit Frostschutzmittel) hat vor der BefÃ¼llung des KÃ¼hlsystemes zu erfolgen. Das KÃ¼hlsystem darf nicht mit reinem Wasser betrieben werden. Achtung: Wird der Glykolanteil um 55 Vol. % Ã¼berschritten, steigt der Gefrierpunkt wieder an. Mit zunehmendem Glykolanteil steigt auch die Siedetemperatur der KÃ¼hlflÃ¼ssigkeit, was zur Folge hat, daÃ der zulÃ¤ssige Ãberdruck im KÃ¼hlsystem Ãberschritten wird und es somit zu Undichtigkeiten der Wasserpumpe kommt. 12.) Das KÃ¼hlsystem ist gemÃ¤Ã den Angaben der Fahrzeughersteller zu entlÃ¼ften. Achtung: Nach der ersten Inbetriebnahme der Wasserpumpe kann etwas Wasser aus der EntlÃ¼ftungsbohrung heraustreten, da die neuen Dichtelemente der Wasserpumpe erst nach ca. 1 - 3 Betriebsstunden eingelaufen sind und ihre volle Dichtleistung erreichen. Sollte der Wasseraustritt sich nach o.g. Zeit nicht einstellen, ist die Wasserpumpe zu demontieren. 13.) Nach der ersten Probefahrt: gesamtes KÃ¼hlsystem auf Dichtheit ÃberprÃ¼fen. Wenn der Motor abgekÃ¼hlt ist, nochmals den KÃ¼hlwasserstand kontrollieren."
+    }
+  ]
+}

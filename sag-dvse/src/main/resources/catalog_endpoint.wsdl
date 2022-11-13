@@ -1,0 +1,1085 @@
+<wsdl:definitions xmlns:tns="DVSE"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  name="DVSEWebServiceV23" targetNamespace="DVSE">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   elementFormDefault="qualified" targetNamespace="DVSE">
+            <xs:element name="GetArticleInformation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                        <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                    type="tns:ArrayOfItem"/>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="responseLimit"
+                                    type="tns:ResponseLimit"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="User">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="CustomerId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Password"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Username"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SessionId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SalesAgentId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="LanguageId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="ExternalSessionId" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfItem">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Item"
+                                nillable="true" type="tns:Item"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Item">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:ItemBase">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="Warehouses"
+                                        type="tns:ArrayOfWarehouse"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="Prices" type="tns:ArrayOfPrice"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="Quantities"
+                                        type="tns:ArrayOfQuantity"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="AlternativeItems"
+                                        type="tns:ArrayOfItem"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="ReplacementItems"
+                                        type="tns:ArrayOfItem"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="AccessoryItems"
+                                        type="tns:ArrayOfItem"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="SuggestionItems"
+                                        type="tns:ArrayOfItem"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="LinkedItems"
+                                        type="tns:ArrayOfItem"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="ObligatedItems"
+                                        type="tns:ArrayOfItem"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="InstalledItemInfo"
+                                        type="tns:InstalledItemInfo"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="AvailState"
+                                        type="tns:AvailableState"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="AdditionalArticleInformation"
+                                        type="tns:ArrayOfItemInfo"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="ItemOrder" type="tns:ItemOrder"/>
+                            <xs:element minOccurs="1" maxOccurs="1"
+                                        name="HasActionPrice"
+                                        type="xs:boolean"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="ShipmentModes"
+                                        type="tns:ArrayOfShipmentMode"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="ArticleActions"
+                                        type="tns:ArrayOfArticleAction"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="ItemBase">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="WholesalerArticleNumber"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="SupplierName"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="SupplierId"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="SupplierArticleNumber" type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="RequestedQuantity" type="tns:Quantity"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="TecDocTypes"
+                                type="tns:ArrayOfTecDocType"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="GenericArticles"
+                                type="tns:ArrayOfGenericArticle"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="EAN"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="FlagPackedForSelfService"
+                                type="xs:unsignedByte"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="FlagMaterialLabelingObligation"
+                                type="xs:unsignedByte"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="FlagExchangePart" type="xs:unsignedByte"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="FlagAccessory"
+                                type="xs:unsignedByte"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ArticleStatus"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="ExtendedDescription" type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="ReferenceNumbers"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="UtilityNumbers" type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Criteria"
+                                type="tns:ArrayOfCriterion"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Quantity">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Id"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Value"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="QuantityUnit"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PackingUnit"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="MinQuantity"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="MaxQuantity"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="ExpectedDeliveryTime" type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="AvailState"
+                                type="tns:AvailableState"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="LotSize1"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="LotSize2"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Division"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="QuantityPackingUnit" type="xs:decimal"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Tour"
+                                type="tns:Tour"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="AvailableState">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="AvailState"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="AvailDescription" type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="AvailIconUrl"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfString">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="string" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Tour">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Id"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Default"
+                                type="xs:boolean"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="SortId"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Arrival"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfTecDocType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="TecDocType" nillable="true"
+                                type="tns:TecDocType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TecDocType">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="TecDocTypeId"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="TecDocModelId"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="TecDocManufacturerId" type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="VehicleType"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="VIN"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="FullDescription" type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="DateFrom"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="DateTo"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="KwFrom"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="KwTo"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="HpFrom"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="HpTo"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="CcmTax"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="CcmTech"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Liter"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="CylinderNumber" type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ABS"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="VehicleMode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="EngineMode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="DriveType"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ASR"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="BreakSystem"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="FuelType"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="CatalystType"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="TransmissionType" type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="BodyType"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="KeyNumbers"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="EngineCodes"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PlateNumber"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfGenericArticle">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="GenericArticle" nillable="true"
+                                type="tns:GenericArticle"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="GenericArticle">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="GenericArticleId" type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfCriterion">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="Criterion" nillable="true"
+                                type="tns:Criterion"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Criterion">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="CriterionId"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Value"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Reference"
+                                type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfWarehouse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="Warehouse" nillable="true"
+                                type="tns:Warehouse"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Warehouse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Id"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Quantities"
+                                type="tns:ArrayOfQuantity"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Default"
+                                type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfQuantity">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="Quantity" nillable="true"
+                                type="tns:Quantity"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfPrice">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Price"
+                                nillable="true" type="tns:Price"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Price">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Id"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Value"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="VAT"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="TaxIncluded"
+                                type="xs:boolean"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Rebate"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="BatchSize"
+                                type="tns:Quantity"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="PriceCode"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="PriceUnit"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="DateFrom"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="DateTo"
+                                type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="InstalledItemInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="IsAlreadyBuiltIn" type="xs:boolean"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Mileage"
+                                nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="DateBuiltIn"
+                                type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfItemInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="ItemInfo" nillable="true"
+                                type="tns:ItemInfo"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ItemInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="InfoID"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Value"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Color"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Font"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="FontType"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="FontSize"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Html"
+                                type="xs:boolean"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Url"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ItemOrder">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="OrderAllowed"
+                                type="xs:boolean"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="OrderId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Status"
+                                type="tns:Status"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="OrderStatus"
+                                type="xs:short"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Status">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Id"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfShipmentMode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="ShipmentMode" nillable="true"
+                                type="tns:ShipmentMode"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ShipmentMode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Id"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Cost"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Default"
+                                type="xs:boolean"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="SortId"
+                                type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="DefaultDeliveryCosts" nillable="true"
+                                type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="CarriageFree"
+                                nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ExpressCosts"
+                                nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="IsExpressDelivery" type="xs:boolean"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="DeliveryConditions" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfArticleAction">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="ArticleAction" nillable="true"
+                                type="tns:ArticleAction"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ArticleAction">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PicUrl"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="LinkUrl"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="ArticleActions"
+                                type="tns:ArrayOfArticleAction"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResponseLimit">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="IsResponseBounded" type="xs:boolean"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ResponseMax"
+                                nillable="true" type="xs:int"/>
+                    <xs:element minOccurs="1" maxOccurs="1"
+                                name="NumberOfRequestedItems" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetArticleInformationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="GetArticleInformationResult"
+                                    type="tns:GetBackItems"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackItems">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                        type="tns:ArrayOfItem"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="ResponseLimit"
+                                        type="tns:ResponseLimit"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="BaseGetBack">
+                <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode"
+                                type="xs:int"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="SendOrder">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                        <xs:element minOccurs="0" maxOccurs="1" name="Order"
+                                    type="tns:Order"/>
+                        <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                    type="tns:ArrayOfItem"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="Order">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="OrderId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="OwnOrderId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="DeliveryAddress" type="tns:Address"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ShipmentMode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PaymentMode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="BillingMode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Warehouse"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="TourId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="ExpectedDelivery" type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1"
+                                name="WantedDelivery" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Address">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="AddressId"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="FirstName"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="LastName"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="CompanyName"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Contact"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Street"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ZipCode"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="City"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Country"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Phone"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Fax"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="EMail"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="CustomerId"
+                                type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="SendOrderResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="SendOrderResult"
+                                    type="tns:GetBackOrder"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackOrder">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Item"
+                                        type="tns:Order"/>
+                            <xs:element minOccurs="0" maxOccurs="1"
+                                        name="OrderedItems"
+                                        type="tns:ArrayOfItem"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="GetBillingModes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetBillingModesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="GetBillingModesResult"
+                                    type="tns:GetBackBillingModes"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackBillingModes">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                        type="tns:ArrayOfBillingMode"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfBillingMode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="BillingMode" nillable="true"
+                                type="tns:BillingMode"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BillingMode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Id"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Default"
+                                type="xs:boolean"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="SortId"
+                                type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetWarehouses">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetWarehousesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="GetWarehousesResult"
+                                    type="tns:GetBackWarehouses"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackWarehouses">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                        type="tns:ArrayOfWarehouse"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="GetPaymentModes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetPaymentModesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="GetPaymentModesResult"
+                                    type="tns:GetBackPaymentModes"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackPaymentModes">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                        type="tns:ArrayOfPaymentMode"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfPaymentMode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="PaymentMode" nillable="true"
+                                type="tns:PaymentMode"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PaymentMode">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Id"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Description"
+                                type="xs:string"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Memo"
+                                type="tns:ArrayOfString"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Default"
+                                type="xs:boolean"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="SortId"
+                                type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetShipmentModes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetShipmentModesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="GetShipmentModesResult"
+                                    type="tns:GetBackShipmentModes"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackShipmentModes">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                        type="tns:ArrayOfShipmentMode"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:element name="GetTours">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetToursResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="GetToursResult"
+                                    type="tns:GetBackTours"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackTours">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                        type="tns:ArrayOfTour"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfTour">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Tour"
+                                nillable="true" type="tns:Tour"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetDeliveryAddresses">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="User"
+                                    type="tns:User"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDeliveryAddressesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="GetDeliveryAddressesResult"
+                                    type="tns:GetBackDeliveryAddresses"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="GetBackDeliveryAddresses">
+                <xs:complexContent mixed="false">
+                    <xs:extension base="tns:BaseGetBack">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Items"
+                                        type="tns:ArrayOfAddress"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="ArrayOfAddress">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded"
+                                name="Address" nillable="true"
+                                type="tns:Address"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="SendOrderDocument">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="user"
+                                    type="tns:User"/>
+                        <xs:element minOccurs="0" maxOccurs="1" name="order"
+                                    type="tns:Order"/>
+                        <xs:element minOccurs="1" maxOccurs="1" name="DocType"
+                                    type="xs:int"/>
+                        <xs:element minOccurs="0" maxOccurs="1" name="Document"
+                                    type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SendOrderDocumentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1"
+                                    name="SendOrderDocumentResult"
+                                    type="tns:GetBackOrder"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="IServiceV23_GetArticleInformation_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetArticleInformation"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetArticleInformation_OutputMessage">
+        <wsdl:part name="parameters"
+                   element="tns:GetArticleInformationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_SendOrder_InputMessage">
+        <wsdl:part name="parameters" element="tns:SendOrder"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_SendOrder_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SendOrderResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetBillingModes_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetBillingModes"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetBillingModes_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetBillingModesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetWarehouses_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetWarehouses"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetWarehouses_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetWarehousesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetPaymentModes_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetPaymentModes"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetPaymentModes_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetPaymentModesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetShipmentModes_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetShipmentModes"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetShipmentModes_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetShipmentModesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetTours_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetTours"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetTours_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetToursResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetDeliveryAddresses_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDeliveryAddresses"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_GetDeliveryAddresses_OutputMessage">
+        <wsdl:part name="parameters"
+                   element="tns:GetDeliveryAddressesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_SendOrderDocument_InputMessage">
+        <wsdl:part name="parameters" element="tns:SendOrderDocument"/>
+    </wsdl:message>
+    <wsdl:message name="IServiceV23_SendOrderDocument_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SendOrderDocumentResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IServiceV23">
+        <wsdl:operation name="GetArticleInformation">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/GetArticleInformation"
+                        message="tns:IServiceV23_GetArticleInformation_InputMessage"/>
+            <wsdl:output
+                    wsaw:Action="DVSE/IServiceV23/GetArticleInformationResponse"
+                    message="tns:IServiceV23_GetArticleInformation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendOrder">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/SendOrder"
+                        message="tns:IServiceV23_SendOrder_InputMessage"/>
+            <wsdl:output wsaw:Action="DVSE/IServiceV23/SendOrderResponse"
+                         message="tns:IServiceV23_SendOrder_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBillingModes">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/GetBillingModes"
+                        message="tns:IServiceV23_GetBillingModes_InputMessage"/>
+            <wsdl:output wsaw:Action="DVSE/IServiceV23/GetBillingModesResponse"
+                         message="tns:IServiceV23_GetBillingModes_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetWarehouses">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/GetWarehouses"
+                        message="tns:IServiceV23_GetWarehouses_InputMessage"/>
+            <wsdl:output wsaw:Action="DVSE/IServiceV23/GetWarehousesResponse"
+                         message="tns:IServiceV23_GetWarehouses_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetPaymentModes">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/GetPaymentModes"
+                        message="tns:IServiceV23_GetPaymentModes_InputMessage"/>
+            <wsdl:output wsaw:Action="DVSE/IServiceV23/GetPaymentModesResponse"
+                         message="tns:IServiceV23_GetPaymentModes_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetShipmentModes">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/GetShipmentModes"
+                        message="tns:IServiceV23_GetShipmentModes_InputMessage"/>
+            <wsdl:output wsaw:Action="DVSE/IServiceV23/GetShipmentModesResponse"
+                         message="tns:IServiceV23_GetShipmentModes_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTours">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/GetTours"
+                        message="tns:IServiceV23_GetTours_InputMessage"/>
+            <wsdl:output wsaw:Action="DVSE/IServiceV23/GetToursResponse"
+                         message="tns:IServiceV23_GetTours_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeliveryAddresses">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/GetDeliveryAddresses"
+                        message="tns:IServiceV23_GetDeliveryAddresses_InputMessage"/>
+            <wsdl:output
+                    wsaw:Action="DVSE/IServiceV23/GetDeliveryAddressesResponse"
+                    message="tns:IServiceV23_GetDeliveryAddresses_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendOrderDocument">
+            <wsdl:input wsaw:Action="DVSE/IServiceV23/SendOrderDocument"
+                        message="tns:IServiceV23_SendOrderDocument_InputMessage"/>
+            <wsdl:output
+                    wsaw:Action="DVSE/IServiceV23/SendOrderDocumentResponse"
+                    message="tns:IServiceV23_SendOrderDocument_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_IServiceV23" type="tns:IServiceV23">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetArticleInformation">
+            <soap:operation soapAction="DVSE/IServiceV23/GetArticleInformation"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendOrder">
+            <soap:operation soapAction="DVSE/IServiceV23/SendOrder"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBillingModes">
+            <soap:operation soapAction="DVSE/IServiceV23/GetBillingModes"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetWarehouses">
+            <soap:operation soapAction="DVSE/IServiceV23/GetWarehouses"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPaymentModes">
+            <soap:operation soapAction="DVSE/IServiceV23/GetPaymentModes"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetShipmentModes">
+            <soap:operation soapAction="DVSE/IServiceV23/GetShipmentModes"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTours">
+            <soap:operation soapAction="DVSE/IServiceV23/GetTours"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeliveryAddresses">
+            <soap:operation soapAction="DVSE/IServiceV23/GetDeliveryAddresses"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendOrderDocument">
+            <soap:operation soapAction="DVSE/IServiceV23/SendOrderDocument"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DVSEWebServiceV23">
+        <wsdl:port name="BasicHttpBinding_IServiceV23"
+                   binding="tns:BasicHttpBinding_IServiceV23">
+            <soap:address location="http://d-store.sib-services.ch:8266/sag-dvse/ws/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

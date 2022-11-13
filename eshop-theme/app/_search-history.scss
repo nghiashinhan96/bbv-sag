@@ -1,0 +1,89 @@
+connect-search-history-modal {
+    .search-history-filter {
+        .fa-caret-left,
+        .fa-caret-right {
+            height: 20px;
+            font-size: 30px;
+        }
+
+        .fa-caret-left {
+            padding-right: 5px;
+        }
+
+        .fa-caret-right {
+            padding-left: 5px;
+        }
+
+        .date-range-option {
+            min-width: 190px;
+        }
+
+        .label {
+            display: block;
+        }
+        .date-picker {
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 33px;
+
+            input {
+                height: 100%;
+            }
+        }
+        .ng-select-container {
+            height: 2.5rem !important;
+            min-height: 2.5rem !important;
+        }
+    }
+
+    .ngx-pagination {
+        .current div {
+            padding: 0.75rem 0.25rem !important;
+        }
+
+        li a {
+            padding: 0.75rem 0.25rem !important;
+        }
+    }
+
+    .show-moto-only-check-box {
+        white-space: nowrap;
+    }
+}
+
+.list-group-full .list-group-item {
+    align-items: flex-start;
+}
+
+.history-wrapper {
+    min-width: 0;
+    flex: 1 0 0px;
+
+    .history-title {
+        display: table !important;
+    }
+}
+
+.history-sub-description {
+    font-size: 11px;
+    display: block !important;
+    font-weight: 400;
+
+    &:last-child {
+        flex-shrink: 0;
+    }
+}
+
+connect-article-history,
+.dashboard-article-history {
+    .list-group-item {
+        * {
+            line-height: 1.25rem;
+        }
+
+        a {
+            display: block !important;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+# ************************************************************************
+# This is the SB configuration of RESTful application for Development mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - HaynesPro Endpoint - 
+# - HaynesPro Callback - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - OATS(replace Olyslager) - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - Proxy - 
+# - Media Server - 
+# - Price File Location - 
+# - Java Melody Monitoring - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  wint-dev,
+  incentive-dev,
+  hp-dev,
+  gtmotive-sb-pre,
+  mdm-prod,
+  oates-pre-sb,
+  mail-dev,
+  elasticsearch-dev,
+  db-dev,
+  executor-pool,
+  logging-sb-dev,
+  actuator,
+  cache-dev,
+  country-sb,
+  analytics-pre-cloud,
+  liquibase-sb-dev,
+  no-proxy,
+  media-server,
+  price-file-sb,
+  javamelody,
+  thule-dev,
+  auth-endpoint-sb-dev
+
+spring.banner.location: classpath:banner/banner_sb.txt
+
+
+license:
+  vin:
+    minimumOrder: 0

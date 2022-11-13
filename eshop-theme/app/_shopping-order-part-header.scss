@@ -1,0 +1,66 @@
+.connect-shopping-order-part-header {
+    .header-description {
+        width: $order-description-width;
+    }
+
+    .header-delivery {
+        width: $order-tour-width;
+        margin-left: 60px;
+    }
+
+    .header-quality {
+        width: $order-quantity-width;
+    }
+
+    .header-gross-price {
+        width: $order-gross-price-width;
+    }
+
+    .header-net-price {
+        width: $order-net-price-width;
+
+        .label,
+        .btn-sort {
+            visibility: hidden;
+            margin-right: 3px;
+        }
+
+        &.shown {
+            position: relative;
+
+            .label,
+            .btn-sort {
+                visibility: visible;
+            }
+        }
+
+        .fa-eye {
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 0.25rem;
+
+            &.theme-darker {
+                opacity: 0.25;
+            }
+        }
+    }
+
+    .header-total {
+        width: $order-total-price-width;
+    }
+
+    .header-reference {
+        flex: 1;
+        display: block;
+    }
+
+    .header-gross-price {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .fa {
+            display: block;
+            position: relative;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_175_ADD_ARTICLE_COLUMN_FOR_FINAL_CUSTOMER_ORDER_ITEM">
+    <sql>
+     	ALTER TABLE FINAL_CUSTOMER_ORDER_ITEM ADD ARTICLE varchar(MAX) NULL
+    </sql>
+  </changeSet>
+  
+   <changeSet author="CONNECT_APP" id="ITER_175_DROP_ARTICLE_COLUMN_FOR_FINAL_CUSTOMER_ORDER_ITEM">
+    <sql>
+     	ALTER TABLE FINAL_CUSTOMER_ORDER_ITEM DROP COLUMN ARTICLE
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_175_ADD_AVAILABILITIES_COLUMN_FOR_FINAL_CUSTOMER_ORDER_ITEM">
+    <sql>
+     	ALTER TABLE FINAL_CUSTOMER_ORDER_ITEM ADD AVAILABILITIES varchar(MAX) NULL
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_175_ADD_SETTING_VALUE_COLUMN_FOR_ESHOP_GLOBAL_SETTING">
+    <sql>
+     	ALTER TABLE ESHOP_GLOBAL_SETTING ADD SETTING_VALUE INT NULL
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_175_INSERT_WSS_MAX_AVAIL_DAY_RANGE_SETTING_INTO_ESHOP_GLOBAL_SETTING">
+    <sql>
+     	INSERT INTO ESHOP_GLOBAL_SETTING (CODE, DESCRIPTION, ENABLED, SETTING_TYPE, SETTING_VALUE) VALUES('wss_max_availability_day_range', '', 1, 'WSS', 30);
+    </sql>
+  </changeSet>
+</databaseChangeLog>

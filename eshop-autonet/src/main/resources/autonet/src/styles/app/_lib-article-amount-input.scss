@@ -1,0 +1,80 @@
+sag-currency-amount-input {
+    .amount {
+        display: flex;
+
+        input {
+            float: left;
+            width: 38px;
+            height: 30px;
+            border: 1px solid $thin-grey;
+            text-align: center;
+            font-weight: normal;
+            margin-right: 2px;
+        }
+
+        .btns {
+            float: left;
+            line-height: 20px;
+            width: 20px;
+            a {
+                display: inline-block;
+                width: 100%;
+                height: auto;
+                background-color: $grey;
+                color: white;
+                border-bottom: 1px solid $thin-grey;
+                text-decoration: none;
+                padding: 0px 3px;
+                text-align: center;
+
+                &.btnPlus {
+                    margin-bottom: 2px;
+                }
+
+                &:hover {
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+
+    .horizontal-incremental-input-container {
+        display: flex;
+
+        input {
+            border-left: 0;
+            border-right: 0;
+            padding: 0.25rem;
+            text-align: center;
+            float: left;
+            width: calc(100% - 36px);
+            border-radius: 0;
+            font-size: inherit;
+            height: 30px;
+        }
+        .btn-minus{
+            border-top-left-radius: 0.25rem;
+            border-bottom-left-radius: 0.25rem;
+        }
+        .btn-plus{
+            border-top-right-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+        }
+        .btn-plus,
+        .btn-minus {
+            width: 18px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $grey;
+            color: $white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 300ms;
+            &:hover {
+                background-color: $primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+# ************************************************************************
+# This is the CH configuration of RESTful application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Caching - 
+# - Country Code - 
+# - Liquibase - 
+# - HaynesPro Endpoint - 
+# - HaynesPro Callback - 
+# - Media Server - 
+# - GTMotive - 
+# - Price File Location - 
+# - OATS(replace Olyslager) - TBD
+# - Thule - 
+# - MDM for DVSE service - 
+#
+# ************************************************************************
+spring.profiles.include:
+  ax-pre-cloud,
+  db-ax-cz,
+  elasticsearch-dev2,
+  cache-dev,
+  country-ax-cz,
+  liquibase-ax-cz-dev,
+  hp-dev,
+  media-server,
+  gtmotive-cz-pre,
+  price-file-cz,
+  thule-dev,
+  auth-endpoint-ax-cz-dev,
+  mdm-pre-ax-cz
+
+license:
+  vin:
+    minimumOrder: 600
+    
+spring.banner.location: classpath:banner/banner_axcz.txt

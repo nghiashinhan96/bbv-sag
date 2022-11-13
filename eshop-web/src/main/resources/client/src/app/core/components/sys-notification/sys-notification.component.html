@@ -1,0 +1,9 @@
+<div class="modal-confirm">
+    <div class="modal-header d-flex d-flex-center">
+        <i class="fa fa-cogs"></i>
+    </div>
+    <div class="modal-body text-center" [innerHtml]="message | translate | safe: 'html'"></div>
+    <div class="modal-footer">
+        <a class="login-btn" href="javascript:void(0)" (click)="confirm()">{{'LOGIN.BUTTON.LOGIN' | translate}}</a>
+    </div>
+</div>

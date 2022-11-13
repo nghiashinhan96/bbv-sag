@@ -1,0 +1,17 @@
+<ng-container *ngIf="showMessage">
+    <div class="system-message" [ngClass]="affiliate" [id]="id" (click)="executeAdvert()" [class.pointer]="!!ssoInfo">
+        <div *ngIf="message.type === 'BANNER'; else panel" class="banner bg-{{message.style | lowercase}}">
+            <div class="container-lg">
+                <div class="markdown-format" [innerHTML]="message.content | marked | safe: 'html'"></div>
+                <a class="close-btn" href="javascript:void(0)" (click)="closeMessage()" *ngIf="!ssoInfo"><i class="fa fa-close"></i></a>
+            </div>
+        </div>
+        <ng-template #panel>
+            <div class="alert alert-{{message.style | lowercase}}">
+                <div class="markdown-format" [innerHTML]="message.content | marked | safe: 'html'"></div>
+                <a class="close-btn" href="javascript:void(0)" (click)="closeMessage()"><i class="fa fa-close"></i></a>
+            </div>
+        </ng-template>
+    </div>
+</ng-container>
+<div style="display:none" #dataForm></div>

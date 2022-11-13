@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP" id="ITER_237_INSERT_BACKGROUND_IMAGE_LANGUAGES_DDCH">
+		<sql>
+			DECLARE @ch_default_collection_id_ddch int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'derendinger-ch')
+			IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ch_default_collection_id_ddch AND SETTING_KEY = 'background_image_de')
+						BEGIN
+						INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@ch_default_collection_id_ddch, 'background_image_de', 'https://s3.exellio.de/connect_media/collections/bg-der-de.jpg')
+						END
+
+			IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ch_default_collection_id_ddch AND SETTING_KEY = 'background_image_fr')
+						BEGIN
+						INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@ch_default_collection_id_ddch, 'background_image_fr', 'https://s3.exellio.de/connect_media/collections/bg-der-fr.jpg')
+						END
+
+			IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ch_default_collection_id_ddch AND SETTING_KEY = 'background_image_it')
+						BEGIN
+						INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@ch_default_collection_id_ddch, 'background_image_it', 'https://s3.exellio.de/connect_media/collections/bg-der-it.jpg')
+						END
+		</sql>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ITER_237_INSERT_BACKGROUND_IMAGE_LANGUAGES_TM">
+		<sql>
+			DECLARE @ch_default_collection_id_tm int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'technomag')
+			IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ch_default_collection_id_tm AND SETTING_KEY = 'background_image_de')
+						BEGIN
+						INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@ch_default_collection_id_tm, 'background_image_de', 'https://s3.exellio.de/connect_media/collections/bg-der-de.jpg')
+						END
+
+			IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ch_default_collection_id_tm AND SETTING_KEY = 'background_image_fr')
+						BEGIN
+						INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@ch_default_collection_id_tm, 'background_image_fr', 'https://s3.exellio.de/connect_media/collections/bg-der-fr.jpg')
+						END
+
+			IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ch_default_collection_id_tm AND SETTING_KEY = 'background_image_it')
+						BEGIN
+						INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@ch_default_collection_id_tm, 'background_image_it', 'https://s3.exellio.de/connect_media/collections/bg-der-it.jpg')
+						END
+
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

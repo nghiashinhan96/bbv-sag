@@ -1,0 +1,5 @@
+spring.profiles.include: gtmotive-at-dev, country-at, no-proxy
+
+logging:
+  level:
+    com.sagag.services.gtmotive: DEBUG

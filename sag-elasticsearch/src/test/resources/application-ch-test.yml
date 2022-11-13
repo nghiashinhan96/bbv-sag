@@ -1,0 +1,8 @@
+spring.profiles.include: elasticsearch-pre, country-ch, executor-pool
+
+#Log
+logging:
+  level:
+    org.elasticsearch.index.search.slowlog.query: INFO
+    org.elasticsearch.bootstrap: ERROR
+    com.sagag.services.elasticsearch: DEBUG

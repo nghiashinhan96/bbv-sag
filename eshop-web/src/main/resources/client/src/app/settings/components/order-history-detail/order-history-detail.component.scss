@@ -1,0 +1,17 @@
+.article-thumb {
+  width: 70px;
+  height: 70px;
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-sizing: border-box;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+.card-text {
+  margin-bottom: 5px;
+}

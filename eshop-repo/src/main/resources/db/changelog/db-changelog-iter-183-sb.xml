@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_183_REMOVE_LANGUAGE_DE">
+      <sql>
+        DECLARE @lang_de_id int
+        DECLARE @lang_sr_id int
+        set @lang_de_id = (select Id from LANGUAGES where LANGISO = 'DE')
+        set @lang_sr_id = (select Id from LANGUAGES where LANGISO = 'SR')
+
+        UPDATE LANGUAGES SET LANGCODE = 'LANG_SR', LANGISO='SR', DESCRIPTION = 'Latin Serbian' where id = @lang_de_id
+        UPDATE ESHOP_USER SET LANGUAGE = @lang_de_id where LANGUAGE = @lang_sr_id
+        DELETE FROM LANGUAGES WHERE ID = @lang_sr_id
+      </sql>
+    </changeSet>
+
+</databaseChangeLog>

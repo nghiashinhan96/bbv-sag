@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. -->
+<xs:schema xmlns:tns="http://eshop.sag.ch/types/feature" xmlns:ns6="http://eshop.sag.ch/types/description"
+           xmlns:ns5="http://eshop.sag.ch/types/uid" xmlns:ns4="http://eshop.sag.ch/types/value"
+           xmlns:ns3="http://eshop.sag.ch/types/organisation" xmlns:ns2="http://eshop.sag.ch/types/authority"
+           xmlns:ns1="http://eshop.sag.ch/elements" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+           targetNamespace="http://eshop.sag.ch/types/feature">
+
+    <xs:import namespace="http://eshop.sag.ch/elements"
+               schemaLocation="xsd7.xsd"/>
+
+    <xs:import namespace="http://eshop.sag.ch/types/authority"
+               schemaLocation="xsd6.xsd"/>
+
+    <xs:import namespace="http://eshop.sag.ch/types/organisation"
+               schemaLocation="xsd13.xsd"/>
+
+    <xs:import namespace="http://eshop.sag.ch/types/value"
+               schemaLocation="xsd8.xsd"/>
+
+    <xs:import namespace="http://eshop.sag.ch/types/uid"
+               schemaLocation="xsd9.xsd"/>
+
+    <xs:import namespace="http://eshop.sag.ch/types/description"
+               schemaLocation="xsd4.xsd"/>
+
+    <xs:complexType name="feature">
+        <xs:sequence>
+            <xs:element ref="ns1:uid"/>
+            <xs:element ref="ns1:value"/>
+            <xs:element name="descriptions" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:description" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="resultfeature">
+        <xs:sequence>
+            <xs:element ref="ns1:value"/>
+            <xs:element ref="ns1:value"/>
+            <xs:element ref="ns1:value"/>
+            <xs:element name="decorations" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:description" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="tns:resultfeaturetype" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="resultfeaturetype">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PRICE"/>
+            <xs:enumeration value="PRICECURRENCYISO"/>
+            <xs:enumeration value="PRICEUOMISO"/>
+            <xs:enumeration value="PRICEVATPERCENTAGE"/>
+            <xs:enumeration value="PRICEQUANTITY"/>
+            <xs:enumeration value="PRICEQUANTITY"/>
+            <xs:enumeration value="PRICELONGPRICE"/>
+            <xs:enumeration value="PRICENETPRICE"/>
+            <xs:enumeration value="PRICEDISCOUNT"/>
+            <xs:enumeration value="PRICEUNITSRPPRICE"/>
+            <xs:enumeration value="PRICEUNITLONGPRICE"/>
+            <xs:enumeration value="PRICEUNITNETPRICE"/>
+            <xs:enumeration value="PRICEUNITDISCOUNT"/>
+            <xs:enumeration value="PRICEUNITDISCOUNTRATE"/>
+            <xs:enumeration value="DELIVERY"/>
+            <xs:enumeration value="DELIVERYDATE"/>
+            <xs:enumeration value="DELIVERYQUANTITY"/>
+            <xs:enumeration value="DELIVERYLOCATION"/>
+            <xs:enumeration value="STOCKLOCATION"/>
+            <xs:enumeration value="DELIVERYTOURNAME"/>
+            <xs:enumeration value="DELIVERYTYPE"/>
+            <xs:enumeration value="DELIVERYMODALITY"/>
+            <xs:enumeration value="DELIVERYISIMEDIATE"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

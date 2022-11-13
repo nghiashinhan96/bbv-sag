@@ -1,0 +1,25 @@
+package com.sagag.services.copydb.steps;
+
+import com.sagag.services.copydb.config.CopyDbProfile;
+import com.sagag.services.copydb.domain.src.OrgCollectionSettings;
+import com.sagag.services.copydb.domain.dest.DestOrgCollectionSettings;
+
+import org.dozer.DozerBeanMapper;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
+@CopyDbProfile
+public class OrgCollectionSettingsProcessor implements ItemProcessor<OrgCollectionSettings, DestOrgCollectionSettings> {
+
+  @Autowired
+  @Qualifier(value = "dozerBeanMapper")
+  private DozerBeanMapper dozerBeanMapper;
+
+  @Override
+  public DestOrgCollectionSettings process(OrgCollectionSettings item) throws Exception {
+    return dozerBeanMapper.map(item, DestOrgCollectionSettings.class);
+  }
+}

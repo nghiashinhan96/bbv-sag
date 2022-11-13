@@ -1,0 +1,33 @@
+<div class="card sag-card">
+    <div class="card-header">
+        <div class="d-flex align-items-baseline vehicle-search-title" [class.search-title-matik-ch]="isMatikCh">
+            <h2 class="color-primary">{{ 'SEARCH.VEHICLE_SEARCH_TITLE' | translate }}</h2>
+            <ng-container *ngIf="isAffiliateApplyMotorbikeShop">
+                &nbsp;
+                <span class="flex-grow-1 color-primary font-weight-bold" title="({{'SEARCH.VEHICLE_SEARCH_TITLE_MORE_INFO' | translate}})">({{'SEARCH.VEHICLE_SEARCH_TITLE_MORE_INFO' | translate}})</span>
+                <a class="moto-link" href="javascript:void(0)" data-automation="navigate-to-motorbike-link" [connectEnabled]="MOTORBIKE_PERMISSION_CODE.MOTO" (click)="navigateToMotorbikeShop()">
+                    <i class="fa fa-angle-right font-weight-bold text-body"></i>
+                    <span class="text-primary font-weight-bold">{{'VEHICLE_FILTER.MOTORBIKE_SHOP_LINK' | translate}}</span>
+                </a>
+            </ng-container>
+        </div>
+        <i  class="fa fa-angle-down collapsed-icon"
+            [class.fa-rotate-180]="!isSearchboxCollapsed"
+            (click)="isSearchboxCollapsed = !isSearchboxCollapsed"
+            *ngIf="isMatikCh"></i>
+    </div>
+    <div *ngIf="!isSearchboxCollapsed">
+        <sag-vehicle-search-wrapper
+            [customerNumber]="customerNumber"
+            [hasVinSearchPermission]="hasVinSearchPermission"
+            [isSalesOnBeHalf]="isSalesOnBeHalf"
+            [isFinalUserRole]="isFinalUserRole"
+            [language]="language"
+            [autoFilledVinValue]="autoFilledVinValue"
+            (vinPackagePurchaseEmitter)="buyVin($event)"
+            (vehicleSearchEmitter)="searchVehicle($event)"
+            (navigateToModelPageEventEmitter)="navigateToModelsPage($event)"
+            [dmsSearchQuery]="dmsSearchQuery">
+        </sag-vehicle-search-wrapper>
+    </div>
+</div>

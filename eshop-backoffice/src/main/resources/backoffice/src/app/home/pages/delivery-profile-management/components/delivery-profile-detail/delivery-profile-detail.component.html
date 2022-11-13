@@ -1,0 +1,121 @@
+<div class="panel panel-primary card mb-4">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{'DELIVERY_PROFILE.DELIVERY_PROFILE' | translate}}
+        </h3>
+    </div>
+
+    <form [formGroup]="profileForm" class="panel-body form-horizontal" *ngIf="profile">
+
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.COUNTRY' | translate}}
+            </label>
+            <div class="col-5">
+                <ng-select class="sag-select" [items]="countryOptions"
+                    notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="country"
+                    [clearable]="false"></ng-select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.DELIVERY_PROFILE_ID' | translate}}
+            </label>
+            <div class="col-5">
+                <input class="form-control" formControlName="deliveryProfileId" type="number" maxlength="10">
+                <i class="fa fa-spin fa-spinner loading" *ngIf="profileForm.get('deliveryProfileId').disabled"></i>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.DELIVERY_PROFILE_NAME' | translate}}
+            </label>
+            <div class="col-5">
+                <input class="form-control" formControlName="deliveryProfileName" type="text" maxlength="100">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.DISTRIBUTION' | translate}}
+            </label>
+            <div class="col-5">
+                <ng-select class="sag-select" [items]="distributionOptions"
+                    notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="distributionBranchId"
+                    [clearable]="false"></ng-select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.DELIVERY_BRANCH' | translate}}
+            </label>
+            <div class="col-5">
+                <ng-select class="sag-select" [items]="deliveryBranchOptions"
+                    notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="deliveryBranchId"
+                    [clearable]="false"></ng-select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.CUT_OFF_TIME' | translate}}
+            </label>
+            <div class="col-3">
+                <backoffice-time-picker [parentForm]="profileForm" [controlName]="'vendorCutOffTime'"></backoffice-time-picker>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.LAST_DELIVERY' | translate}}
+            </label>
+            <div class="col-3">
+                <backoffice-time-picker [parentForm]="profileForm" [controlName]="'lastDelivery'"></backoffice-time-picker>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.LATEST_TIME' | translate}}
+            </label>
+            <div class="col-3">
+                <backoffice-time-picker [parentForm]="profileForm" [controlName]="'latestTime'"></backoffice-time-picker>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-3 control-label mandatory">
+                {{'DELIVERY_PROFILE.DELIVERY_DURATION' | translate}}
+            </label>
+            <div class="col-3">
+                <backoffice-duration-selection [parentForm]="profileForm" [controlName]="'deliveryDuration'">
+                </backoffice-duration-selection>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 control-label">
+                {{'DELIVERY_PROFILE.NEXT_DAY' | translate}}
+            </label>
+            <div class="col-3">
+                <input class="form-control" formControlName="nextDay" type="number">
+            </div>
+        </div>
+        <div class="row mt-10" *ngIf="notifier">
+            <div class="col-12">
+                <notification [notifier]="notifier"></notification>
+            </div>
+        </div>
+    </form>
+
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-default pull-left" type="button" (click)="backToList()">
+                    <i class="fa fa-arrow-left left"></i>
+                    {{'COMMON.BUTTON.BACK' | translate}}
+                </button>
+                <button class="btn btn-primary pull-right" type="button" (click)="saveProfile()"
+                    [disabled]="profileForm.invalid">
+                    <i class="fa fa-save"></i>
+                    {{'COMMON.BUTTON.SAVE' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

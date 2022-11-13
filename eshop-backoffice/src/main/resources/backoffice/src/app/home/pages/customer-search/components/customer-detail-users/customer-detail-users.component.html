@@ -1,0 +1,32 @@
+<div class="panel panel-primary card mb-4">
+    <div class="card-header">
+        <connect-expanded [title]="'USER_MANAGEMENT.USER_LIST.USER_LIST_HEADER'" [(expand)]="isFormExpanded">
+        </connect-expanded>
+    </div>
+    <div class="card-body" [hidden]="!isFormExpanded">
+        <div>
+            <backoffice-user-list #userList [query]="userQuery"></backoffice-user-list>
+        </div>
+        <button class="btn btn-primary add-user pull-right" (click)="onOpenUserFormModal()">
+            <i class="fa fa-plus left"></i>{{ "CUSTOMER.BTN_ADD_USER" | translate }}
+        </button>
+    </div>
+</div>
+
+<ng-template #userFormModal>
+    <div class="modal-user-form" tabindex="-1" role="dialog" id="userDetail">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">
+                {{ "USER_MANAGEMENT.CREATE_PROFILE" | translate }}
+            </h4>
+            <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="closeUserFormModal()"
+                aria-hidden="true">
+            </i>
+        </div>
+        <div class="modal-body">
+            <ng-container *ngIf="userForm.isShowing">
+                <backoffice-user-form [model]="userForm" (onSaved)="onAddNewUserDone()"></backoffice-user-form>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>

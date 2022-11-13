@@ -1,0 +1,74 @@
+.st-cz, .eh-cz, .eh-ax-cz, .ax-cz {
+    sag-article-detail-single {
+        sag-article-detail {
+            .part-detail-item {
+                border-top: 1px solid $thin-grey;
+            }
+            .btn-shopping {
+                border-radius: 0;
+                font-size: 18px;
+                padding: 0;
+                height: 30px;
+                width: auto;
+                margin-left: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-width: 0;
+            }
+    
+            .btn-shopping {
+                color: $white !important;
+                height: 30px;
+                width: 30px;
+                outline: none !important;
+                box-shadow: none !important;
+    
+                &:hover {
+                    color: $white !important;
+                    opacity: .6;
+                }
+            }
+        }
+
+        sag-article-detail-avail-popup {
+            width: 100%;
+
+            .col {
+                &.price-info, &.avail-info {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+            }
+
+            .nav {
+                justify-content: space-between;
+        
+                .flex-2 {
+                    flex: 2;
+                }
+        
+                .flex-4 {
+                    flex: 4;
+                }
+        
+                .flex-6 {
+                    flex: 6;
+                }
+            }
+
+            .sag-title {
+                align-items: center;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        sag-article-detail-refrences-content {
+            .sag-title {
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<div>
+    <h3 class="section-title">{{'SALES_MANAGEMENT.TITLE' | translate}}</h3>
+
+    <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+        notFoundText="{{ 'SALES_MANAGEMENT.MESSAGE.NOT_FOUND' | translate }}">
+    </sag-table>
+    <div class="btn-section">
+        <button class="btn btn-primary add-item-btn pull-right" (click)="create()">
+            <i class="fa fa-plus"></i> {{'SALES_MANAGEMENT.CREATE_SALE_ACCOUNT' | translate}}</button>
+    </div>
+</div>
+
+<ng-template let-row="row" #colGender>
+    <span>{{getGenderText(row.gender) | translate}}</span>
+</ng-template>
+
+<ng-template #colEdit let-row="row">
+    <button class="btn-icon" (click)="edit(row)">
+        <i class="fa fa-edit"></i>
+    </button>
+</ng-template>

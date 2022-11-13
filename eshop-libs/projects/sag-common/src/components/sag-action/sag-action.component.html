@@ -1,0 +1,5 @@
+<a class="btn-link {{customClass}}" (click)="onClicked($event)" [class.disabled]="forceDisable || loading || disabled">
+    <i class="fa fa-spinner fa-spin fa-lg btn--search" *ngIf="loading"></i>
+    <i class="fa {{icon}}" aria-hidden="true" *ngIf="!loading"></i>
+    <span>{{text| translate}}</span>
+</a>

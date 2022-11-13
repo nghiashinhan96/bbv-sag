@@ -1,0 +1,235 @@
+{
+  "ARTICLE": {
+    "AMOUNT": "Összeg",
+    "ARTICLE_LIST": "Alkatrész lista",
+    "BRIEF_INFORMATION": "Rövid információk",
+    "CLEAR_ALL_FILTER": "Az összes törlése",
+    "DELIVERY_TYPE": "Kézbetítés",
+    "FEATURES": "Részletek",
+    "GENERAL_INFORMATION": "Általános Információ",
+    "IAM_NUMBER": "IAM számok",
+    "IMAGE": "Kép",
+    "INSTALLATION_INFORMATION": "Szerelési informáciű",
+    "MANUFACTURER": "Gyártó",
+    "MORE_INFO": "Több információ",
+    "NET": "Ár",
+    "OE_NUMBER": "OE számok",
+    "POSITION": "Pozíció",
+    "PRICE": {
+      "ARTICLE_WITHOUT_PRICE": "Kérésre",
+      "AVAILIBILITY": "Elérhetőség",
+      "PRICE_INFORMATION_AVAILIBILITY": "Árinformáció"
+    },
+    "PRODUCT_COMMERCIAL_CODE": "Felhasználási szám",
+    "PCC_ARTICLE_DETAIL": "Kereskedelmi szám",
+    "QUICK_CLICK": "Gyors kattintás",
+    "REFERENCE": "Referencia",
+    "REPLACED_BY": "Helyettesitve",
+    "REPLACES": "replaces",
+    "TECHNICAL_INFORMATION": "Technikai informáciű",
+    "USE": "Használt",
+    "HIDE_NO_ARTICLE_AVAIL": "Csak raktáron",
+    "SHOW_ONLY_ARTICLE_STOCK": "Nem elérhető elemek megjelenítése",
+    "HIDE_ONLY_ARTICLE_STOCK": "Nem elérhető elemek elrejtése",
+    "GROUPS": {
+      "DIRECT_MATCH": "Pontos egyezés",
+      "REFERENCE_MATCH": "Lehetséges referenciák",
+      "ORIGINAL_PART": "Eredeti alkatrészek",
+      "POSSIBLE_MATCH": "Lehetséges eredmények"
+    }
+  },
+  "ARTICLE_FILTER": {
+    "ARTICLE_SEARCH": "Tételek keresése",
+    "ATTRIBUTES": "Attribútumok",
+    "BRAND_FILTER": {
+      "BRANDS": "Márkák"
+    },
+    "CATEGORY_MERKMALE": "Csoportosítás és tulajdonságok",
+    "FILTER": "Szűrő",
+    "GEN_ARTS": "Kategória",
+    "MATCHING_PRODUCTS": "Megfelelő elem (ek)",
+    "RESET": "Törölje a szűrőt",
+    "SUPPLIERS": "Gyártó"
+  },
+  "ARTICLE_TITLE": "Alkatrész keresés",
+  "AUTONET": {
+    "AVAIL_STATE": {
+      "BLACK": "Ismeretlen",
+      "BLUE": "Szállitható a beszállitó raktárából. Részletek a kosárban.",
+      "GREEN": "Készleten az alapraktárban",
+      "RED": "Nem elerhető",
+      "YELLOW": "Szállitható más raktárból. Részletek a kosárban.",
+      "YELLOW_GREEN": "Mai kiszállítás a rendelés idejétől fuggően. Részletek a kosárban."
+    }
+  },
+  "CATEGORY": {
+    "BUTTON": {
+      "RESET_FILTER": "Állítsa vissza a szűrőt"
+    },
+    "SEARCH": {
+      "TEXT_HOLDER": "Kategóriák"
+    },
+    "TAB": {
+      "ALL_PARTS": "Összes alkatrész"
+    }
+  },
+  "COMMON_LABEL": {
+    "ACCESSORIES": "Kiegészítők",
+    "ACCESSORIES_LIST": "Kiegészítők listája",
+    "ACCESSORIES_GROUPS_HINT": "Számos tartozékot találtak a különböző járművekhez. Az eredmények szűkítéséhez válassza ki a járművet a \"Használt\" fülön a \"Részletek\" részben.",
+    "ARTICLE_NUMBER_LABEL": "Cikkszám.",
+    "CLOSE": "Bezárás",
+    "DETAILS": "Részletek",
+    "EXPAND": "Kiterjed",
+    "NO_RESULTS_FOUND": "Nincs találat",
+    "REDUCE": "Elrejt",
+    "REQUEST_OFFER": "Árajánlat kérése",
+    "SAVE": "Mentés",
+    "DATE_FROM": "Dátumtól",
+    "DATE_TO": "Dátumáig",
+    "ALL": "Minden",
+    "TODAY": "Ma",
+    "TWO_DAYS": "Az elmúlt 2 napban",
+    "SEVEN_DAYS": "Az elmúlt 7 napban",
+    "THIRTYONE_DAYS": "Az elmúlt 31 napban",
+    "OWN_HISTORY": "Legutóbbi kereséseim",
+    "COLUMNS": {
+      "SEARCH_METHOD": "A keresés típusa",
+      "KEYWORD": "Kulcsszó",
+      "DATE": "Dátum",
+      "USERNAME": "Felhasználónév",
+      "VEHICLE": "Jármű"
+    },
+    "CROSS_REFERENCE": "Alternatív cikkek",
+    "PARTS_LIST": "Alkatrész lista",
+    "PARTS_LIST_HINT": "Egyedi alkatrészek lásd az alkatrészlistát"
+  },
+  "ERROR_500": "Belső szerverhiba",
+  "FEEDBACK": {
+    "TECHNICAL_DATA": {
+      "VEHICLE_SEARCH": "jármű keresés"
+    }
+  },
+  "MENU": {
+    "ADMINISTRATION": "Adminisztráció",
+    "CARS": "SZGK",
+    "CATELOGUES": "Katalógusok",
+    "HOME": "Kezdőoldal",
+    "PRICE-OFFERS": "Árajánlatok",
+    "SHOPPING-BASKET": "Kosár"
+  },
+  "OLYSLAGER": {
+    "DESCRIPTION": "Válassza ki a kívánt járműtípust",
+    "ERROR_MESSAGE": "No oil information for this vehicle",
+    "TITLE": "Járművek"
+  },
+  "QUICK_CLICK": {
+    "ARTICLES_DISPLAY": "Mutassa az alkatrészeket"
+  },
+  "SEARCH": {
+    "ARTICLE_DESC": "Elem leírás",
+    "ARTICLE_DESC_AUT": "cikkszám, szöveg vagy alvázszám",
+    "ARTICLE_HISTORY_TITLE": "Legutóbb keresett",
+    "ARTICLE_TIPS": "Cikkszám / OE referenciaszöveg",
+    "COLUMN_BODY": "Karosszéria",
+    "COLUMN_CYLINDER": "Henger",
+    "COLUMN_DRIVE_TYPE": "Hajtás",
+    "COLUMN_ENGINE": "Kapacitás",
+    "COLUMN_FUEL": "Üzemanyag",
+    "COLUMN_MOTOR": "Motor",
+    "COLUMN_NAME": "Típus",
+    "COLUMN_POWER": "Erő",
+    "COLUM_PERIOD": "Év",
+    "ERROR_MESSAGE": {
+      "ARTICLE_NOT_FOUND": "A cikk nem található.",
+      "NOT_FOUND": "Nem található alkatrész. Kérjük ellenőrizze a neveit.",
+      "REQUIRED_FIELD": "Kérjük töltse ki.",
+      "VEHICLE_NOT_FOUND": "Nem található jármű ezzel a referenciával.",
+      "VEHICLE_NOT_MATCHED": "Nincs találat"
+    },
+    "FILTER_NAME_TITLE": "Keresés helyettesítő karakterekkel: (*) egy vagy több karakternek felel meg. pl. a \"Sport *\" megtalálja a \"Sportback\" -t",
+    "HOVER_TITLES": {
+      "VEHICLES": "Keresés: Typenschein-Nummer (CH), Plate (CH), Nemzetkód (AT)",
+      "VEHICLES_DESC": "Keresse meg: Márka, modell, típus, karosszéria típus, üzemanyag típus, CC, motorkód, teljesítmény KW vagy HP, hajtás típusa vagy bármilyen kombinációja",
+      "VEHICLES_DESC_HELP": "A helyettesítő karakter (*) egy vagy több karakternek felel meg, pl. \"Sport *\" megtalálja a \"Sportback\"",
+      "YEAR": "Irja be az évet: ÉÉÉ, HH-ÉÉÉÉ vagy HH/ÉÉÉÉ"
+    },
+    "KW_PS": "KW / LE",
+    "LOADING": "Betöltés...",
+    "MAKE_MODEL_HINT": "Járműkeresés az alábbi mezők segítségével",
+    "NO_RESULTS_FOUND": "Nincs találat",
+    "REMOVE": "Sterge filtrele",
+    "SEARCH_BUTTON": "Keresés",
+    "VEHICLES": "Typenschein (CH), lemez (CH), Nemzetkód (AT)",
+    "VEHICLES_DESC": "Jármű leírása, motorkód",
+    "VEHICLE_HINT": "A jármű keresése a fenti mezők egyikével történik.",
+    "VEHICLE_HISTORY_TITLE": "Legutóbb keresett járművek",
+    "VEHICLE_SEARCH": {
+      "MAKE_MODEL_TITLE": "Gyártó/Típus",
+      "VEHICLE_TITLE": "Járműkereső"
+    },
+    "VEHICLE_SEARCH_TITLE": "jármű keresés",
+    "YEAR": "Gyártási év",
+    "YEAR_ERROR_HINT": "ÉÉÉ, HH-ÉÉÉÉ, HH/ÉÉÉÉ",
+    "NO_ARTICLE_SEARCH_FOUND": "Nem találtunk bejegyzést",
+    "NO_VEHICLE_SEARCH_FOUND": "Nem találtak járműveket",
+    "OR": "oder"
+  },
+  "SEARCH_RESULT": {
+    "LOAD_MORE": "Mutass többet"
+  },
+  "TYRE": {
+    "ALL": "Minden"
+  },
+  "VEHICLE_FILTER": {
+    "APPROVAL": "Típus jóváhagyás",
+    "BODY": "Jármű formája",
+    "BODY_TYPE": "Testtípus",
+    "BRAND": "Márka",
+    "BUILD_YEAR": "Év",
+    "CAPACITY_ENGINE": "CC",
+    "CATALYST_CONVERTER_TYPE": "Katalizátor",
+    "CYLINDER": "hengerek",
+    "DOORS": "ajtók",
+    "DRIVE_TYPE": "Meghajtó típusa",
+    "ENGINE_CODE": "Motor",
+    "FUEL": "Üzemanyag",
+    "FUEL_SUPPLY": "Üzemanyag-ellátás",
+    "FUEL_TYPE": "Üzemanyag",
+    "MB": "Motorkerékpár",
+    "MODEL": "Modell",
+    "PC": "Autó / nagy tehergépjármű",
+    "POWER": "Erő",
+    "POWER_HP": "PS",
+    "POWER_KW": "KW",
+    "TITLE": "Gyártó / modell",
+    "TYPE": "típus",
+    "VALVES": "szelepek"
+  },
+  "FAVORITE": {
+    "FAVORITES": "Kedvencek",
+    "REMOVE": "Eltávolítás",
+    "COMMENT": "Megjegyzés (nem kötelező)",
+    "ADD_FAVORITE": "Kedvenc hozzáadása",
+    "EDIT_FAVORITE": "Kedvenc szerkesztése"
+  },
+  "PAGINATION": {
+    "NEXT": "Következő ",
+    "PREVIOUS": "Előző "
+  },
+  "ADVANCE_VEHICLE_SEARCH": {
+    "HEADER": "Részletes járműkeresés",
+    "TOP_MAKES_HEADER": "Népszerű márkák",
+    "ALL_MAKES_HEADER": "Minden Márkák",
+    "MAKES": "Márkák",
+    "MODELS": "Modellek",
+    "MODEL_SERIES": "Modell sorozat",
+    "MODEL_YEAR": "Év",
+    "FILTER_BY_YEAR": "Szűrés év szerint",
+    "QUICK_SELECTION": "Gyors modellválasztás",
+    "SEARCH": {
+      "COLUMN_TYPE": "Típus",
+      "COLUMN_YEAR": "Év"
+    }
+  }
+}

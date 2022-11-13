@@ -1,0 +1,73 @@
+{
+  "id": 7,
+  "age": 32,
+  "defaultSetting": true,
+  "email": "admin@technomag.ch",
+  "emailConfirmation": true,
+  "firstName": "Nguyen",
+  "hourlyRate": 105.5,
+  "language": {"id":1,"langcode":"LANG_DE","langiso":"DE","description":"German"},
+  "lastName": "Long",
+  "netPriceConfirm": false,
+  "netPriceView": true,
+  "newsletter": false,
+  "phone": "0978383815",
+  "salutation": {"id":1,"code":"SALUTATION_MR","description":"Mr."},
+  "setting": 1,
+  "type": "user",
+  "userSetting": null,
+  "vatConfirm": false,
+  "username": "technomag",
+  "vinLoggings": null,
+  "groupUsers": [
+    {
+      "id": 0,
+      "eshopGroup": {
+        "id": 0,
+        "description": "It is system admin",
+        "name": "SYSTEM_ADMIN",
+        "groupRoles": [
+          {
+            "id": 0,
+            "eshopRole": {
+              "id": 0,
+              "description": "System admin role",
+              "name": "SYSTEM_ADMIN",
+              "roleType": null,
+              "rolePermissions": null
+            }
+          }
+        ],
+        "organisationGroups": [
+          {
+            "id": 0,
+            "organisation": {
+              "id": 0,
+              "description": "It is SAG System Administrator",
+              "name": "SAG",
+              "orgCode": null,
+              "organisationType": {
+                "id": 0,
+                "description": "This is SAG org type",
+                "level": 2,
+                "name": "SYSTEM"
+              },
+              "parentId": 0,
+              "organisationAddresses": null,
+              "organisationSettings": null,
+              "shortname": null,
+              "orderSettingsId": null
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "login": {
+    "id": 0,
+    "password": "i_am_secret_hash",
+    "userActive": true
+  },
+  "customer": null,
+  "affiliate":null
+}

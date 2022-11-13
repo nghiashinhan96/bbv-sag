@@ -1,0 +1,82 @@
+<ng-container *ngIf="vehicle$ | async as vehicleData">
+    <div class="row mb-3">
+        <div class="col-12 d-flex">
+            <div class="ads-box">
+                <ng-container *ngIf="isLoadedVehicleDetail">
+                    <sag-common-adserver
+                        [zid]="adsZoneId" [sitearea]="adsSiteArea"
+                        [custom1]="adsTargetName"
+                        (adsClickedEmitter)="sendAdsEvent()"
+                    >
+                    </sag-common-adserver>
+                </ng-container>
+            </div>
+            <div class="flex-grow-1">
+                <sag-in-context-vehicle-info [vehicle]="vehicle" [keywords]="keywords" (refresEmiter)="goBack()"></sag-in-context-vehicle-info>
+            </div>
+            <ng-container *ngIf="hasHaynesproPermission && !isSb">
+                <div class="d-flex align-items-center ml-5" *ngIf="vehicle">
+                    <sag-haynespro [user]="user" [vehicle]="vehicle" (haynesProSearch)="onHaynesProSearch($event)"></sag-haynespro>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="row">
+        <div class="filtering" [class.d-none]="classicLinkActive.isActive">
+            <sag-custom-favorite-list (onSelectItemEmit)="onSelectFavoriteItem($event)"></sag-custom-favorite-list>
+            <sag-article-list-category-tree [vehicleData]="vehicleData"></sag-article-list-category-tree>
+        </div>
+        <div class="result" [class.full]="classicLinkActive.isActive">
+            <div class="d-flex">
+                <sag-article-list-category-tree-search class="mr-3" *ngIf="classicLinkActive.isActive && vehicle" [vehicleId]="vehicle.id">
+                </sag-article-list-category-tree-search>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item" [class.d-none]="isCz || isSb">
+                        <a class="nav-link" routerLinkActive="active" [routerLink]="['classic']"
+                            #classicLinkActive="routerLinkActive">
+                            <i class="fa fa-list-alt"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item" *sagCommonShowHideByAff="[cz,ehcz,axcz,ehaxcz];show:true">
+                        <a class="nav-link active">
+                            <input type="checkbox" [checked]="currentStateSingleSelectMode" (change)="toggleSingleSelectMode()">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="active" [routerLink]="['articles']"
+                            #articlesLinkActive="routerLinkActive" (click)="switchToArticleList()">
+                            {{'ARTICLE.ARTICLE_LIST' | translate}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLinkActive="active" [routerLink]="['quick-click']" data-automation="article-in-context-quick-click">
+                            {{'ARTICLE.QUICK_CLICK' | translate}}
+                        </a>
+                    </li>
+                    <li class="nav-item" [class.disabled]="!vehicle" [class.invisible]="hideGtmotive" [class.d-none]="isSb">
+                        <a class="nav-link" href="javascript:void(0)"
+                            (click)="openGtmotiveModal(GT_TYPE.VEHICLE)">{{'ARTICLE.GRAPHIC_SEARCH' | translate}}</a>
+                    </li>
+                    <li class="nav-item" [class.disabled]="!vehicle" [class.invisible]="hideGtmotive" [class.d-none]="isSb">
+                        <a class="nav-link" href="javascript:void(0)"
+                            (click)="openGtmotiveModal(GT_TYPE.SERVICE_SCHEDULE)">{{'ARTICLE.MAINTENANCE_INTERVALS' | translate}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content mt-3">
+                <ng-container *ngIf="articlesLinkActive.isActive && gtNonMatchedOperations && gtNonMatchedOperations.length > 0">
+                    <sag-gtmotive-more-info
+                        [gtNonMatchedOperations]="gtNonMatchedOperations"
+                        [normauto]="normauto"
+                        [mailContent]="mailContent">
+                    </sag-gtmotive-more-info>
+                </ng-container>
+                <router-outlet></router-outlet>
+                <div class="alert alert-danger" *ngIf="errorMessage">
+                    {{ errorMessage | translate }}
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

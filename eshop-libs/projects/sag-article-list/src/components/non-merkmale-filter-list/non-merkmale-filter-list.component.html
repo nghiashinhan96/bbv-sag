@@ -1,0 +1,4 @@
+<section *ngFor="let item of filterData | keyvalue">
+    <sag-article-list-non-merkmale-filter-item [filterTitle]="item.key" [filterData]="item.value"
+        (additionalFilterEmitter)="handleAdditionalFilter($event)"></sag-article-list-non-merkmale-filter-item>
+</section>

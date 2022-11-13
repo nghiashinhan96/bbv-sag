@@ -1,0 +1,18 @@
+<div [class.spinner-wrapper]="loading">
+    <connect-slider-bar-chart
+        [primaryColor]="primaryColor"
+        [keyObj]="keyObj"
+        [lowerValueInput]="lowerValueInput"
+        [highValueInput]="highValueInput"
+        [fullArrayDataUsedForRenderTemplate]="fullArrayDataUsedForRenderTemplate"
+        [arrayDataUsedForChart]="arrayDataUsedForChart"
+        (sliderValueChange)="onSliderValueChange($event)"
+    >
+    </connect-slider-bar-chart>
+    <div *ngIf="loading" class="spinner overlay-loading absolute">
+        <div>
+            <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+            <span class="loader-text">Loading...</span>
+        </div>
+    </div>
+</div>

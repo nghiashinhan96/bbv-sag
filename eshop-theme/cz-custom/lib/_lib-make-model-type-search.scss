@@ -1,0 +1,39 @@
+.st-cz, .eh-cz, .eh-ax-cz {
+    sag-lib-make-model-type-search {
+        .ng-select {
+            .ng-select-container {
+                .ng-value-container,
+                .ng-dropdown-panel {
+                    font-weight: 700;
+    
+                    .ng-input {
+                        padding-right: 20px;
+    
+                        >input {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+
+            .ng-dropdown-panel {
+                .ng-option {
+                    height: 26px;
+                    padding: 6px 10px;
+                }
+            }
+
+            &.ng-touched.ng-dirty.ng-invalid {
+                .ng-select-container {
+                    border-color: $danger;
+                }
+            }
+        }
+    }
+    
+    form {
+        .error-required {
+            border: 1px solid $danger;
+        }
+    }
+}

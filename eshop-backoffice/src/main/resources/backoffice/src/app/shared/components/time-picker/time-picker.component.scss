@@ -1,0 +1,16 @@
+.form-control[readonly] {
+  background-color: initial !important;
+}
+
+.input-group .input-group-addon {
+  background: #555555;
+  font-size: 14px;
+  color: #fff;
+  padding: 6px;
+}
+
+.small {
+  input {
+    padding: 6px;
+  }
+}

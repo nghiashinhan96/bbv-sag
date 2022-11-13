@@ -1,0 +1,501 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "sag-libs": {
+      "projectType": "library",
+      "root": "projects/sag-libs",
+      "sourceRoot": "projects/sag-libs/src",
+      "prefix": "sag-lib-lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-libs/tsconfig.lib.json",
+            "project": "projects/sag-libs/ng-package.json",
+            "scripts": [
+              "node_modules/marked/marked.min.js"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-libs/src/test.ts",
+            "tsConfig": "projects/sag-libs/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-libs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-libs/tsconfig.lib.json",
+              "projects/sag-libs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-auth": {
+      "projectType": "library",
+      "root": "projects/sag-auth",
+      "sourceRoot": "projects/sag-auth/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-auth/tsconfig.lib.json",
+            "project": "projects/sag-auth/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-auth/src/test.ts",
+            "tsConfig": "projects/sag-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-auth/tsconfig.lib.json",
+              "projects/sag-auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-common": {
+      "projectType": "library",
+      "root": "projects/sag-common",
+      "sourceRoot": "projects/sag-common/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-common/tsconfig.lib.json",
+            "project": "projects/sag-common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-common/src/test.ts",
+            "tsConfig": "projects/sag-common/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-common/tsconfig.lib.json",
+              "projects/sag-common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-currency": {
+      "projectType": "library",
+      "root": "projects/sag-currency",
+      "sourceRoot": "projects/sag-currency/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-currency/tsconfig.lib.json",
+            "project": "projects/sag-currency/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-currency/src/test.ts",
+            "tsConfig": "projects/sag-currency/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-currency/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-currency/tsconfig.lib.json",
+              "projects/sag-currency/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-article-detail": {
+      "projectType": "library",
+      "root": "projects/sag-article-detail",
+      "sourceRoot": "projects/sag-article-detail/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-article-detail/tsconfig.lib.json",
+            "project": "projects/sag-article-detail/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-article-detail/src/test.ts",
+            "tsConfig": "projects/sag-article-detail/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-article-detail/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-article-detail/tsconfig.lib.json",
+              "projects/sag-article-detail/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-article-list": {
+      "projectType": "library",
+      "root": "projects/sag-article-list",
+      "sourceRoot": "projects/sag-article-list/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-article-list/tsconfig.lib.json",
+            "project": "projects/sag-article-list/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-article-list/src/test.ts",
+            "tsConfig": "projects/sag-article-list/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-article-list/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-article-list/tsconfig.lib.json",
+              "projects/sag-article-list/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-haynespro": {
+      "projectType": "library",
+      "root": "projects/sag-haynespro",
+      "sourceRoot": "projects/sag-haynespro/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-haynespro/tsconfig.lib.json",
+            "project": "projects/sag-haynespro/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-haynespro/src/test.ts",
+            "tsConfig": "projects/sag-haynespro/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-haynespro/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-haynespro/tsconfig.lib.json",
+              "projects/sag-haynespro/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-in-context": {
+      "projectType": "library",
+      "root": "projects/sag-in-context",
+      "sourceRoot": "projects/sag-in-context/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-in-context/tsconfig.lib.json",
+            "project": "projects/sag-in-context/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-in-context/src/test.ts",
+            "tsConfig": "projects/sag-in-context/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-in-context/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-in-context/tsconfig.lib.json",
+              "projects/sag-in-context/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-gtmotive": {
+      "projectType": "library",
+      "root": "projects/sag-gtmotive",
+      "sourceRoot": "projects/sag-gtmotive/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-gtmotive/tsconfig.lib.json",
+            "project": "projects/sag-gtmotive/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-gtmotive/src/test.ts",
+            "tsConfig": "projects/sag-gtmotive/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-gtmotive/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-gtmotive/tsconfig.lib.json",
+              "projects/sag-gtmotive/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-custom-pricing": {
+      "projectType": "library",
+      "root": "projects/sag-custom-pricing",
+      "sourceRoot": "projects/sag-custom-pricing/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-custom-pricing/tsconfig.lib.json",
+            "project": "projects/sag-custom-pricing/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-custom-pricing/src/test.ts",
+            "tsConfig": "projects/sag-custom-pricing/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-custom-pricing/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-custom-pricing/tsconfig.lib.json",
+              "projects/sag-custom-pricing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-article-search": {
+      "projectType": "library",
+      "root": "projects/sag-article-search",
+      "sourceRoot": "projects/sag-article-search/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-article-search/tsconfig.lib.json",
+            "project": "projects/sag-article-search/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-article-search/src/test.ts",
+            "tsConfig": "projects/sag-article-search/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-article-search/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-article-search/tsconfig.lib.json",
+              "projects/sag-article-search/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-vehicle-list": {
+      "projectType": "library",
+      "root": "projects/sag-vehicle-list",
+      "sourceRoot": "projects/sag-vehicle-list/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-vehicle-list/tsconfig.lib.json",
+            "project": "projects/sag-vehicle-list/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-vehicle-list/src/test.ts",
+            "tsConfig": "projects/sag-vehicle-list/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-vehicle-list/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-vehicle-list/tsconfig.lib.json",
+              "projects/sag-vehicle-list/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-table": {
+      "projectType": "library",
+      "root": "projects/sag-table",
+      "sourceRoot": "projects/sag-table/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-table/tsconfig.lib.json",
+            "project": "projects/sag-table/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-table/src/test.ts",
+            "tsConfig": "projects/sag-table/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-table/tsconfig.lib.json",
+              "projects/sag-table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sag-thule": {
+      "projectType": "library",
+      "root": "projects/sag-thule",
+      "sourceRoot": "projects/sag-thule/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sag-thule/tsconfig.lib.json",
+            "project": "projects/sag-thule/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sag-thule/src/test.ts",
+            "tsConfig": "projects/sag-thule/tsconfig.spec.json",
+            "karmaConfig": "projects/sag-thule/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sag-thule/tsconfig.lib.json",
+              "projects/sag-thule/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "sag-libs"
+}

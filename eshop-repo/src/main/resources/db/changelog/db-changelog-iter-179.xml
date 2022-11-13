@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_179_UPDATE_ESHOP_USER_WITH_REMOVED_SALUTATION">
+    <sql>
+       UPDATE ESHOP_USER
+       SET SALUTATION = (SELECT	ID
+       		FROM SALUTATION
+       		WHERE CODE = 'SALUTATION_OTHER')
+       WHERE SALUTATION IN (SELECT ID
+       		FROM SALUTATION
+       		WHERE CODE IN ('SALUTATION_I', 'SALUTATION_II', 'SALUTATION_III', 'SALUTATION_JR', 'SALUTATION_SR'));
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_179_REMOVE_UNSED_SALUTATION">
+    <sql>
+       DELETE FROM SALUTATION 
+       WHERE CODE in ('SALUTATION_I',
+			'SALUTATION_II',
+			'SALUTATION_III',
+			'SALUTATION_JR',
+			'SALUTATION_SR');
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

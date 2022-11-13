@@ -1,0 +1,13 @@
+.article-detail-merkmale {
+    .col-label {
+        min-width: 150px;
+    }
+
+    .merkmale {
+        max-width: 450px;
+
+        span {
+            word-break: break-all;
+        }
+    }
+}

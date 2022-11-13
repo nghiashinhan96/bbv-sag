@@ -1,0 +1,36 @@
+$brand-color: #005eaa;
+$sag-bg: $brand-color;
+
+$grey: #666666;
+$white: #ffffff;
+$dark-grey: rgba(0, 0, 0, 0.65);
+$light-grey: rgba(0, 0, 0, 0.03); // background color
+$thin-grey: rgba(0, 0, 0, 0.125); // border-color
+$message-color-danger: #a94442;
+
+$text-color: #212529;
+$text-color-inversed: white;
+$logo: var(--logo);
+$background: var(--background);
+$background-color: white;
+$preload: var(--pre-loader);
+$shopping-basket: #f6a60c;
+// $body-bg: red;
+$font-back-link: 1.25rem;
+$font-small: 0.875rem;
+$font-extra-small: 0.75rem;
+$font-icon: 1.5rem;
+$font-icon-small: 1rem; // size of secondary icon
+$font-weight: 500;
+
+$spacer: 1rem;
+$half-spacer: $spacer * 0.5;
+$quarter-spacer: $half-spacer * 0.5;
+$double-spacer: $spacer * 2;
+$panel-height: 2.5rem;
+/** Layout **/
+$footer-color: var(--footer-color);
+$footer-backgroud-color: var(--footer-backgroud-color);
+$footer-height: 70px;
+$header-height: 90px;
+/** End Layout **/

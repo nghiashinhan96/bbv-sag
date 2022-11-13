@@ -1,0 +1,6 @@
+projectKey=sag-angular-ax
+serverUrl=http://sonar.sag-ag.ch
+serverVersion=6.7.0.33306
+dashboardUrl=http://sonar.sag-ag.ch/dashboard/index/sag-angular-ax
+ceTaskId=AXqe-umCteVxAypqbCpo
+ceTaskUrl=http://sonar.sag-ag.ch/api/ce/task?id=AXqe-umCteVxAypqbCpo

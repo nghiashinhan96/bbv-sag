@@ -1,0 +1,37 @@
+# ************************************************************************
+# This is the CH configuration of DVSE(SOAP) application for testing mode.
+# 
+# Required Common configuration:
+# - Elasticsearch -
+# - ERP -
+# - MDM for DVSE service - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Caching - 
+# - Incentive - 
+# - SOAP - 
+# - Country Code - 
+# -  Proxy - 
+# - Java Melody Monitoring - 
+#
+# ************************************************************************
+spring.profiles.include:
+  elasticsearch-pre,
+  mail-dev,
+  ax-pre-cloud,
+  mdm-prod,
+  db-pre,
+  executor-pool-pre,
+  no-liquibase,
+  logging-ch-umbpre,
+  actuator,
+  cache-pre,
+  incentive-dev,
+  soap,
+  country-ch,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_ch.txt

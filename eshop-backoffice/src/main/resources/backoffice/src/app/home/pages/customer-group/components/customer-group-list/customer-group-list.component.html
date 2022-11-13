@@ -1,0 +1,37 @@
+<div class="customer-group-list">
+    <h3 class="section-title">{{ "CUSTOMER_GROUP.TABLE_RESULT.CUSTOMER_GROUP_LIST" | translate }}</h3>
+    <div class="customer-group-table">
+        <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+            notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}">
+        </sag-table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary pull-right" type="button" (click)="createNewGroup()">
+            <i class="fa fa-plus"></i>
+            {{ "CUSTOMER_GROUP.CREATE_LABEL" | translate }}
+        </button>
+    </div>
+</div>
+
+<ng-template #colCustomerNr let-row="row">
+    <div class="d-flex align-items-center justify-content-center">
+        <span *ngIf="!row.showIconInfo">
+            {{ row.customerNr }}
+        </span>
+        <span *ngIf="row.showIconInfo">
+            <button class="btn-icon" (click)="showModalCustomerNr(row.collectionShortName)">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </button>
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #colActions let-row="row">
+    <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-icon" (click)="goToDetailPage(row.collectionShortName)">
+            <i class="fa fa-eye"></i>
+        </button>
+    </div>
+</ng-template>

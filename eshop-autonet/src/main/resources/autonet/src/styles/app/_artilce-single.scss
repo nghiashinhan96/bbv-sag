@@ -1,0 +1,62 @@
+autonet-single-article-modal {
+    sag-article-detail-single {
+        sag-article-detail {
+            .header-section {
+                margin-bottom: $half-spacer !important;
+            }
+    
+            .footer-section {
+                margin-top: $half-spacer !important;
+            }
+    
+            .part-de-amount,
+            .part-avail,
+            .part-net {
+                display: none !important;
+            }
+
+            .part-detail-item {
+                border: 0;
+                padding: 0;
+            }
+    
+            .part-detail-description-art {
+                cursor: default;
+                pointer-events: none;
+                color: $primary !important;
+            }
+        }
+
+        sag-article-detail-avail-popup h4,
+        sag-article-detail-refrences-content h4 {
+            border: none;
+        }
+
+        sag-article-detail-avail-popup {
+            .price-info {
+                .nav {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        a.sag-title {
+            display: flex;
+            align-items: center;
+            margin-top: 2 * $spacer;
+            margin-bottom: $spacer;
+            border-bottom: 1px solid;
+            padding-bottom: $quarter-spacer;
+            text-decoration: none !important;
+
+            h4 {
+                margin-bottom: 0;
+            }
+
+            i {
+                font-size: $font-icon;
+            }
+        }
+    }
+}

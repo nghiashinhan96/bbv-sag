@@ -1,0 +1,29 @@
+@keyframes showHide {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+.coppy-selector{
+    position: relative;
+}
+
+::ng-deep {
+    .ng-select.auto-grow {
+        .ng-dropdown-panel {
+            min-width: 100%;
+            width: auto;
+        }
+    }
+}

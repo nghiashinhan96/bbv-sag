@@ -1,0 +1,62 @@
+.avail-setting-container {
+    %border-top {
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    %border-bottom {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    .ms-content {
+        width: 100%;
+    }
+    .text-nowrap {
+        margin-bottom: 0px;
+    }
+    .editor-setting {
+        padding: 16px 0px;
+        &.avail-state {
+            @extend %border-top;
+        }
+        &.not-avail-state {
+            @extend %border-top;
+            @extend %border-bottom;
+        }
+    
+        ::ng-deep {
+            .ace-editor {
+                min-height: 100px !important;
+            }
+        }
+    }
+    .avail-option {
+        padding-left: 30px !important;
+        input[type=radio] {
+            margin-top: 0.3rem;
+        }
+        .ms-content {
+            padding: 0px 15px;
+        }
+        .drop-shipment-text-preview {
+            margin-left: 0.5rem;
+            margin-top: 0.3rem;
+        }
+        .dot {
+            font-size: large;
+        }
+    }
+    .order-confirmation-container {
+        @extend %border-top;
+        padding-top: 16px;
+    }
+    .order-confirmation-color-picker {
+        display: inline-block;
+        padding-bottom: 16px;
+        @extend %border-bottom;
+    }
+    .order-confirmation-text-preview-container {
+        margin-top: 16px;
+    }
+    .order-confirmation-text-preview-box {
+        padding: 5px 15px;
+        display: inline-block;
+    }
+}

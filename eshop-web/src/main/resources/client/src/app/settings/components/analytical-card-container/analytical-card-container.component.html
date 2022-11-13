@@ -1,0 +1,15 @@
+<div class="d-flex amount-summary">
+    <div class="mr-3 mb-1">
+        <h6>{{ 'SETTINGS.ANALYTICAL_CARD.IN_PROCESS_AMOUNT' | translate}}</h6>
+        <h6>{{ 'SETTINGS.ANALYTICAL_CARD.POSTED_BALANCE' | translate}}</h6>
+    </div>
+    <div>
+        <p>: {{ inProcessAmount | sagCurrency }}</p>
+        <p>: {{ postedBalance | sagCurrency }}</p>
+    </div>
+</div>
+<div class="mb-3">
+    <connect-analytical-card-filter [paymentMethod]="paymentMethod" (filterEmitter)="onFilterChange($event)"></connect-analytical-card-filter>
+</div>
+<connect-analytical-card-list [filterEvent]="filterEvent" (onCompleted)="searchCompleted()">
+</connect-analytical-card-list>

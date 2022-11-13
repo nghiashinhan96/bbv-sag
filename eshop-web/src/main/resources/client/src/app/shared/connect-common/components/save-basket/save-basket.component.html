@@ -1,0 +1,23 @@
+<div class="save-basket-container">
+    <div class="row form-group">
+        <div class="col-md-7" [(inputState)]="state">
+            <input type="text" maxlength="200" [disabled]="disabled || isSaving" class="form-control"
+            [(ngModel)]="basketHistoryName" placeholder="{{'BASKET_HISTORY.DESCRIPTION'| translate}}">
+        </div>
+        <div class="col-md-5">
+            <button id="save-basket-list-btn" [disabled]="disabled || isSaving" (click)="saveBasket($event)"
+                class="btn btn-primary w-100">
+                {{'COMMON_LABEL.SAVE'| translate}}
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+        </div>
+        <div class="col-md-5">
+            <button id="save-close-list-btn" [disabled]="disabled || isSaving" (click)="saveBasket($event, true)" class="btn btn-primary w-100">
+                <div class="text-nowrap">{{'COMMON_LABEL.SAVE_AND_CLOSE'| translate}}</div>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+spring:
+  target:
+    datasource:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://sag-ppd-cdb-021.sag.services;databaseName=econnectAxPCH_tmp;applicationName=ConnectRestServer
+      username: umblocal
+      password: bbv20022017bbv%
+      minimum-idle: 1
+      maximum-pool-size: 125
+      pool-name: restatax_pool
+      connection-timeout: 10000
+      max-lifetime: 30000
+      jpa:
+      show-sql: false
+      properties:
+        hibernate:
+          format_sql: false
+          dialect: org.hibernate.dialect.SQLServer2012Dialect
+          physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+          implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+      hibernate:
+        jdbc.batch_size: 100
+        order_inserts: true
+  data:
+    elasticsearch:
+      host: sag-ppd-ela-020.sag.services
+      port: 9300
+      cluster-nodes: sag-ppd-ela-020.sag.services:9300
+      cluster-name: elasticsearch
+      properties:
+        http.enabled: true
+      repositories:
+        enabled: true
+
+proxy:
+  host: proxy2.sag-ag.ch
+  port: 8080
+  schema: http
+
+## This is the default value config to make persistent data for dev environment
+default:
+  ## user name: admin
+  userId: 1
+  ## customer nr: 469743
+  organisationId: 6
+  
+csv.branch_opening_hours: /csv/Branches_opening_hour_CH.csv
+es.index.branch: branches_ch

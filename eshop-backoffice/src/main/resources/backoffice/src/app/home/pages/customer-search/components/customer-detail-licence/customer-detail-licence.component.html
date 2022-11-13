@@ -1,0 +1,51 @@
+<div class="panel panel-primary card mb-4">
+    <div class="card-header">
+        <connect-expanded [title]="'CUSTOMER.LICENSE.TITLE'" [(expand)]="isFormExpanded">
+        </connect-expanded>
+    </div>
+    <div class="card-body" [hidden]="!isFormExpanded">
+        <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+            notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" [page]="page">
+
+        </sag-table>
+        <button class="btn btn-primary pull-right" (click)="initCreateLicensePopup()">
+            {{ "COMMON.BUTTON.ADD" | translate }}
+        </button>
+    </div>
+</div>
+
+<ng-template #colEdit let-row="row">
+    <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-icon" (click)="initEditLicensePopup(row)">
+            <i class="fa fa-edit"></i>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #colRemove let-row="row">
+    <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-icon" (click)="deleteLicence(row)">
+            <i class="fa fa-trash-o"></i>
+        </button>
+    </div>
+</ng-template>
+
+
+
+<ng-template #creatingLicenceModal>
+    <licence [isNewModeInput]="true" [licenceModelInput]="creatingLicence" (saveEvent)="saveLicence()"
+        (closeModal)="closeModal(creatingLicenceModalId)">
+    </licence>
+</ng-template>
+
+<ng-template #editingLicenceModal>
+    <licence #editingLicenceModal [isNewModeInput]="false" [licenceModelInput]="editingLicence"
+        (saveEvent)="saveLicence()" (closeModal)="closeModal(editingLicenceModalId)">
+    </licence>
+</ng-template>
+
+<ng-template #deletingLicenceModal>
+    <licence-delete-dialog [licence]="deletingLicence" (deleteSuccessEvent)="handleDeleteSuccessEvent()"
+        (closeModal)="closeDeleteModal()">
+    </licence-delete-dialog>
+</ng-template>

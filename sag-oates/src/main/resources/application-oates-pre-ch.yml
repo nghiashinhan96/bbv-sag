@@ -1,0 +1,6 @@
+external:
+  webservice:
+    oates:
+      endpoint: https://sag-ws-switzerland.phoenix.earlweb.net
+      token: eZmdafyF51oK
+      

@@ -1,0 +1,21 @@
+hr {
+    margin-bottom: 20px;
+}
+
+.interface-title {
+    margin-top: 30px;
+}
+
+.ms-content .nav-tabs li:not(.active) a{
+    color: #005eaa;
+}
+
+.affiliate-checkbox {
+    margin-top: 5px;
+
+    input[type="checkbox"] {
+        vertical-align: middle;
+        position: relative;
+        bottom: 3px;
+    }
+}

@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        {{'EXTERNAL_VENDOR.IMPORT_EXTERNAL_VENDOR_MODAL_TITLE'| translate}}
+    </h4>
+    <i class="fa fa-times-circle close" (click)="onClose()"></i>
+</div>
+<div class="modal-body import-body">
+    <backoffice-file-selection (fileSelectedHandler)="selectedFile = $event" [label]="'Accepted files: csv'"
+        [accepts]="acceptedFileTypes">
+    </backoffice-file-selection>
+    <div class="mt-3" *ngIf="notifier">
+        <notification [notifier]="notifier"></notification>
+    </div>
+
+</div>
+<div class="modal-footer justify-content-between">
+    <button class="btn btn-default pull-left" (click)="onClose()">
+        {{'COMMON.BUTTON.CANCEL' | translate}}
+    </button>
+    <button class="btn btn-primary pull-right" type="button" (click)="upload()" [disabled]="!selectedFile">
+        <i class="fa fa-save"></i> {{'COMMON.BUTTON.SAVE' | translate}}
+    </button>
+</div>

@@ -1,0 +1,177 @@
+<ng-container *ngIf="type === TYPE.FULL">
+    <div class="d-flex justify-content-between align-items-start">
+        <div class="part-detail-description" [class.is--pdp]="isPDP && article?.showPromotionBanner()" #descHeader>
+            <div class="part-detail-description-title" #descriptionTitle sagCommonTextEllipsis>
+                <ng-container *ngIf="!enableDetail; else merkmaleFullRef">
+                    <div>
+                        <span class="part-name">
+                            {{genArtDescription}}
+                        </span>
+                        <span>{{article.supplier}}</span>
+                        <span *ngIf="article?.productAddon" id="span-productAddOnInner"
+                            [innerHTML]="', ' + article?.productAddon"></span>
+                    </div>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="article.artnr">
+                <div class="part-detail-artnr-wrapper">
+                    <a class="text-primary part-detail-description-art" href="javascript:void(0)" (click)="showRef()"
+                        #numberRef>
+                        <span sagCommonTextEllipsis #numberTextRef>
+                            {{'COMMON_LABEL.ARTICLE_NUMBER_LABEL' | translate}} {{article.artnrDisplay}}
+                        </span>
+                    </a>
+                </div>
+            </ng-container>
+            <span *ngIf="searchArticleNr && article.artnr !== searchArticleNr" class="part-detail-description-art">
+                ({{searchArticleNr}})
+            </span>
+        </div>
+        <ng-container *ngIf="isPDP && article?.showPromotionBanner()">
+            <div class="promotion-banner p-1">{{ 'PDP.PROMOTION' | translate}}</div>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="type === TYPE.HEADER">
+    <div class="d-flex justify-content-between align-items-start">
+        <div class="part-detail-description" [class.is--pdp]="isPDP && article?.showPromotionBanner()" #descHeader>
+            <div class="part-detail-description-title" #descriptionTitle sagCommonTextEllipsis>
+                <ng-container *ngIf="!enableDetail; else merkmaleHeaderRef">
+                    <div>
+                        <span class="part-name">{{genArtDescription}}</span>
+                    </div>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="article.artnr">
+                <div class="part-detail-artnr-wrapper">
+                    <a class="text-primary part-detail-description-art" href="javascript:void(0)" (click)="showRef()"
+                        #numberRef>
+                        <span sagCommonTextEllipsis #numberTextRef>
+                            {{'COMMON_LABEL.ARTICLE_NUMBER_LABEL' | translate}} {{article.artnrDisplay}}
+                        </span>
+                    </a>
+                </div>
+            </ng-container>
+            <span id="span-artnr-{{article.artnr}}" *ngIf="searchArticleNr && article.artnr !== searchArticleNr"
+                class="part-detail-description-art">
+                ({{searchArticleNr}})
+            </span>
+        </div>
+        <ng-container *ngIf="isPDP && article?.showPromotionBanner()">
+            <div class="promotion-banner p-1">{{ 'PDP.PROMOTION' | translate}}</div>
+        </ng-container>
+    </div>
+</ng-container>
+<ng-container *ngIf="type === TYPE.CONTENT">
+    <div class="brand-info" sagCommonTextEllipsis>
+        {{article.supplier}}
+    </div>
+    <div class="postion-info">
+        <i>{{article.position}}</i>
+    </div>
+</ng-container>
+<ng-container *ngIf="type === TYPE.INFO">
+    <ng-container *ngIf="!enableDetail; else docInfoMerkmaleRef">
+        <ng-container *ngFor="let item of info">
+            <div *ngIf="isSimpleMode" sagCommonTextEllipsis class="doc-info text-small">
+                <span class="font-italic" *ngIf="item.label">{{item.label}}: </span> {{ item.txt }}
+            </div>
+            <div *ngIf="!isSimpleMode" [attr.title]="item.txt" class="doc-info text-small">
+                <span class="font-italic" *ngIf="item.label">{{item.label}}: </span> {{ item.truncatedTxt }}
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>
+<ng-container *ngIf="type === TYPE.REPLACEMENT">
+    <div class="brand-info">
+        <ng-container *ngIf="article?.hasReplacement">
+            <div class="replacement">
+                <a class="replace-name mr-3" href="javascript:void(0)" (click)="openReplacedByArticle()">
+                    <span class="part-name">{{ 'ARTICLE.REPLACED_BY' | translate }}: </span>
+                    <span [attr.title]="article.hasReplacement">{{ article.hasReplacement }}</span>
+                </a>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="article?.isReplacementFor">
+            <div class="d-flex mt-1">
+                <div class="part-name">{{ 'ARTICLE.REPLACES' | translate }}: </div>
+                <div class="replacement ml-1" [popover]="replacementRef" #replacementPop="bs-popover" container="body" triggers="click" containerClass="replacement-popover" [outsideClick]="true">{{ article.isReplacementFor }}</div>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="type === TYPE.ORDER_HISTORY">
+    <div class="d-flex justify-content-between align-items-start" data-type="order-history-type">
+        <div class="part-detail-description flex-column align-items-start" #descHeader>
+            <div class="part-detail-description-title order-history-type" #descriptionTitle>
+                <div [popover]="popoverMerkmaleRef" #pop="bs-popover" [outsideClick]="true" container="body"
+                    triggers="mouseenter:mouseleave" containerClass="merkmale-popover" [delay]="popoverDelay">
+                    <span class="part-name">
+                        {{genArtDescription}}
+                    </span>
+                </div>
+            </div>
+            <ng-container *ngIf="article.artnr">
+                <div class="part-detail-artnr-wrapper order-history-type">
+                    <a class="text-primary part-detail-description-art text-ellipsis" href="javascript:void(0)" (click)="showRef()"
+                        #numberRef>
+                        <span sagCommonTextEllipsis #numberTextRef>
+                            {{article.artnrDisplay}}
+                        </span>
+                    </a>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #merkmaleFullRef>
+    <div [popover]="popoverMerkmaleRef" #pop="bs-popover" [outsideClick]="true" container="body"
+        triggers="mouseenter:mouseleave" containerClass="merkmale-popover" [delay]="popoverDelay">
+        <span class="part-name">
+            {{genArtDescription}}
+        </span>
+        <span>{{article.supplier}}</span>
+        <span *ngIf="article?.productAddon" id="span-productAddOnInner"
+            [innerHTML]="', ' + article?.productAddon"></span>
+    </div>
+</ng-template>
+
+<ng-template #merkmaleHeaderRef>
+    <div [popover]="popoverMerkmaleRef" #pop="bs-popover" [outsideClick]="true" container="body"
+        triggers="mouseenter:mouseleave" containerClass="merkmale-popover"
+        [delay]="popoverDelay" #descriptionTitle sagCommonTextEllipsis>
+        <span class="part-name">
+            {{genArtDescription}}
+        </span>
+        <span *ngIf="article?.productAddon" id="span-productAddOnInner"
+            [innerHTML]="', ' + article?.productAddon">
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #docInfoMerkmaleRef>
+    <div [popover]="popoverMerkmaleRef" #pop="bs-popover" [outsideClick]="true" container="body"
+        triggers="mouseenter:mouseleave" containerClass="merkmale-popover" [delay]="popoverDelay">
+        <ng-container *ngFor="let item of info">
+            <div *ngIf="isSimpleMode" sagCommonTextEllipsis class="doc-info text-small">
+                <span class="font-italic" *ngIf="item.label">{{item.label}}: </span> {{ item.txt }}
+            </div>
+            <div *ngIf="!isSimpleMode" class="doc-info text-small">
+                <span class="font-italic" *ngIf="item.label">{{item.label}}: </span> {{ item.truncatedTxt }}
+            </div>
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #popoverMerkmaleRef>
+    <sag-article-detail-merkmale [article]="article" [info]="info" [showLabel]="true" [shouldShowArticleNumberSection]="true"></sag-article-detail-merkmale>
+</ng-template>
+
+<ng-template #replacementRef>
+    <div class="d-flex flex-wrap replacement-popover-content">
+        <div class="px-2 py-1 pcc-item">{{article.isReplacementFor}}</div>
+    </div>
+</ng-template>

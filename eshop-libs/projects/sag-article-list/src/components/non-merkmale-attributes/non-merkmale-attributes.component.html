@@ -1,0 +1,17 @@
+<ng-container *ngIf="attributes as queryParam">
+    <div class="filter-title" (click)="isCollapsed = !isCollapsed">
+        <strong>{{ 'ARTICLE_FILTER.ATTRIBUTES' | translate }}</strong>
+        <span>
+            <i class="fa" [ngClass]="{'fa-caret-up' : !isCollapsed,'fa-caret-down' : isCollapsed}"></i>
+        </span>
+    </div>
+    <ul class="list-group attribute-list" *ngIf="!isCollapsed">
+        <ng-container *ngFor="let attribute of queryParam.attributes">
+            <li class="list-group-item">
+                <strong>
+                    {{ attribute.key | translate }} : {{ attribute.value | translate }}
+                </strong>
+            </li>
+        </ng-container>
+    </ul>
+</ng-container>

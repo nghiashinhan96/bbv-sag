@@ -1,0 +1,235 @@
+{
+  "ARTICLE": {
+    "AMOUNT": "Amount",
+    "ARTICLE_LIST": "Parts list",
+    "BRIEF_INFORMATION": "Brief information",
+    "CLEAR_ALL_FILTER": "Clear all",
+    "DELIVERY_TYPE": "Delivery",
+    "FEATURES": "Details",
+    "GENERAL_INFORMATION": "General information",
+    "IAM_NUMBER": "IAM numbers",
+    "IMAGE": "Image",
+    "INSTALLATION_INFORMATION": "Mounting information",
+    "MANUFACTURER": "Manufacturer",
+    "MORE_INFO": "More info",
+    "NET": "Price",
+    "OE_NUMBER": "OE numbers",
+    "POSITION": "Position",
+    "PRICE": {
+      "ARTICLE_WITHOUT_PRICE": "On request",
+      "AVAILIBILITY": "Availability",
+      "PRICE_INFORMATION_AVAILIBILITY": "Price information. Availability"
+    },
+    "PRODUCT_COMMERCIAL_CODE": "Trade number",
+    "PCC_ARTICLE_DETAIL": "Trade no.",
+    "QUICK_CLICK": "Quick Click",
+    "REFERENCE": "References",
+    "REPLACED_BY": "Replaced by",
+    "REPLACES": "replaces",
+    "TECHNICAL_INFORMATION": "Technical information",
+    "USE": "Used in",
+    "HIDE_NO_ARTICLE_AVAIL": "Only in stock",
+    "SHOW_ONLY_ARTICLE_STOCK": "Show unavailable items",
+    "HIDE_ONLY_ARTICLE_STOCK": "Hide unavailable items",
+    "GROUPS": {
+      "DIRECT_MATCH": "Direct matches",
+      "REFERENCE_MATCH": "Reference matches",
+      "ORIGINAL_PART": "Original parts",
+      "POSSIBLE_MATCH": "Possible matches"
+    }
+  },
+  "ARTICLE_FILTER": {
+    "ARTICLE_SEARCH": "Items Search",
+    "ATTRIBUTES": "Attributes",
+    "BRAND_FILTER": {
+      "BRANDS": "Brands"
+    },
+    "CATEGORY_MERKMALE": "Categories & Attributes",
+    "FILTER": "Filter",
+    "GEN_ARTS": "Category",
+    "MATCHING_PRODUCTS": "Matching item(s)",
+    "RESET": "Reset filter",
+    "SUPPLIERS": "Manufacturer"
+  },
+  "ARTICLE_TITLE": "Parts search",
+  "AUTONET": {
+    "AVAIL_STATE": {
+      "BLACK": "Unknown",
+      "BLUE": "Available at supplier. Details in cart.",
+      "GREEN": "Available in linked warehouse",
+      "RED": "Not available",
+      "YELLOW": "Available at other warehouse's stock. Details in cart.",
+      "YELLOW_GREEN": "Deliverable today, depending on order's time. Details in cart."
+    }
+  },
+  "CATEGORY": {
+    "BUTTON": {
+      "RESET_FILTER": "Reset filter"
+    },
+    "SEARCH": {
+      "TEXT_HOLDER": "Categories"
+    },
+    "TAB": {
+      "ALL_PARTS": "All parts"
+    }
+  },
+  "COMMON_LABEL": {
+    "ACCESSORIES": "Accessories",
+    "ACCESSORIES_LIST": "Accessory list",
+    "ACCESSORIES_GROUPS_HINT": "A large number of accessories for different vehicles were found. To narrow down the results, please select a vehicle in the \"Used in\" tab in the \"Details\" section.",
+    "ARTICLE_NUMBER_LABEL": "Item Nr.",
+    "CLOSE": "Close",
+    "DETAILS": "Details",
+    "EXPAND": "Expand",
+    "NO_RESULTS_FOUND": "No results found",
+    "REDUCE": "Hide",
+    "REQUEST_OFFER": "Request offer",
+    "SAVE": "Save",
+    "DATE_FROM": "Date from",
+    "DATE_TO": "Date to",
+    "ALL": "All",
+    "TODAY": "Today",
+    "TWO_DAYS": "Last 2 days",
+    "SEVEN_DAYS": "Last 7 days",
+    "THIRTYONE_DAYS": "Last 31 days",
+    "OWN_HISTORY": "My last searches",
+    "COLUMNS": {
+      "SEARCH_METHOD": "Type of search",
+      "KEYWORD": "Keyword",
+      "DATE": "Date",
+      "USERNAME": "Username",
+      "VEHICLE": "Vehicle"
+    },
+    "CROSS_REFERENCE": "Alternative articles",
+    "PARTS_LIST": "Parts list",
+    "PARTS_LIST_HINT": "Individual parts see parts list"
+  },
+  "ERROR_500": "Internal server error",
+  "FEEDBACK": {
+    "TECHNICAL_DATA": {
+      "VEHICLE_SEARCH": "Vehicle search"
+    }
+  },
+  "MENU": {
+    "ADMINISTRATION": "Administration",
+    "CARS": "Cars",
+    "CATELOGUES": "Catalogues",
+    "HOME": "Home",
+    "PRICE-OFFERS": "Price offers",
+    "SHOPPING-BASKET": "Cart"
+  },
+  "OLYSLAGER": {
+    "DESCRIPTION": "Select the desired vehicle model:",
+    "ERROR_MESSAGE": "No oil information for this vehicle",
+    "TITLE": "Vehicles"
+  },
+  "QUICK_CLICK": {
+    "ARTICLES_DISPLAY": "Show parts"
+  },
+  "SEARCH": {
+    "ARTICLE_DESC": "Item Description",
+    "ARTICLE_DESC_AUT": "Item nr., text or VIN",
+    "ARTICLE_HISTORY_TITLE": "Recently searched",
+    "ARTICLE_TIPS": "Item No./ OE reference text",
+    "COLUMN_BODY": "Body",
+    "COLUMN_CYLINDER": "Cylinder",
+    "COLUMN_DRIVE_TYPE": "Drive",
+    "COLUMN_ENGINE": "Capacity",
+    "COLUMN_FUEL": "Fuel",
+    "COLUMN_MOTOR": "Engine",
+    "COLUMN_NAME": "Type",
+    "COLUMN_POWER": "Power",
+    "COLUM_PERIOD": "Year",
+    "ERROR_MESSAGE": {
+      "ARTICLE_NOT_FOUND": "The article cannot be found.",
+      "NOT_FOUND": "No parts can be found. Please check your entries.",
+      "REQUIRED_FIELD": "Please fill in",
+      "VEHICLE_NOT_FOUND": "No vehicle found with this reference!",
+      "VEHICLE_NOT_MATCHED": "No matching vehicle found."
+    },
+    "FILTER_NAME_TITLE": "Search with wildcard: (*) corresponds to one or more characters.  eg \"Sport*\" finds \"Sportback\"",
+    "HOVER_TITLES": {
+      "VEHICLES": "Search for:  Typenschein-Nummer (CH), Plate (CH), Nationaler Code (AT)",
+      "VEHICLES_DESC": "Look for: Make, Model, Type, Body Style, Fuel Type, CC, Engine Code, Power KW or HP, Drive Type or any combination",
+      "VEHICLES_DESC_HELP": "Wildcard (*) corresponds to one or more characters eg \"Sport*\" finds \"Sportback\"",
+      "YEAR": "Look for year: YYYY"
+    },
+    "KW_PS": "KW / HP",
+    "LOADING": "Loading...",
+    "MAKE_MODEL_HINT": "Search for a vehicle using fields below",
+    "NO_RESULTS_FOUND": "No results found",
+    "REMOVE": "Remove",
+    "SEARCH_BUTTON": "Search",
+    "VEHICLES": "Typenschein (CH), Plate (CH), Nationaler Code (AT)",
+    "VEHICLES_DESC": "Vehicle description, Engine Code",
+    "VEHICLE_HINT": "The search for a vehicle is done by using one of these fields.",
+    "VEHICLE_HISTORY_TITLE": "Recently searched vehicles",
+    "VEHICLE_SEARCH": {
+      "MAKE_MODEL_TITLE": "Make/Model",
+      "VEHICLE_TITLE": "Vehicle"
+    },
+    "VEHICLE_SEARCH_TITLE": "Vehicle search",
+    "YEAR": "Year",
+    "YEAR_ERROR_HINT": "YYYY, MM/YYYY, MM-YYYY",
+    "NO_ARTICLE_SEARCH_FOUND": "No entries found",
+    "NO_VEHICLE_SEARCH_FOUND": "No vehicles found",
+    "OR": "or "
+  },
+  "SEARCH_RESULT": {
+    "LOAD_MORE": "Show more"
+  },
+  "TYRE": {
+    "ALL": "All"
+  },
+  "VEHICLE_FILTER": {
+    "APPROVAL": "Type Approval",
+    "BODY": "Body style",
+    "BODY_TYPE": "Body type",
+    "BRAND": "Brand",
+    "BUILD_YEAR": "Year",
+    "CAPACITY_ENGINE": "CC",
+    "CATALYST_CONVERTER_TYPE": "Catalyst",
+    "CYLINDER": "Cylinders",
+    "DOORS": "Doors",
+    "DRIVE_TYPE": "Drive type",
+    "ENGINE_CODE": "Engine",
+    "FUEL": "Fuel",
+    "FUEL_SUPPLY": "Fuel supply",
+    "FUEL_TYPE": "Fuel",
+    "MB": "Motorobikes",
+    "MODEL": "Model",
+    "PC": "Cars/LCV",
+    "POWER": "Power",
+    "POWER_HP": "PS",
+    "POWER_KW": "KW",
+    "TITLE": "Make / Model",
+    "TYPE": "Type",
+    "VALVES": "Valves"
+  },
+  "FAVORITE": {
+    "FAVORITES": "Favorites",
+    "REMOVE": "Remove",
+    "COMMENT": "Comment (optional)",
+    "ADD_FAVORITE": "Add favorite",
+    "EDIT_FAVORITE": "Edit favorite"
+  },
+  "PAGINATION": {
+    "NEXT": "Next ",
+    "PREVIOUS": "Previous "
+  },
+  "ADVANCE_VEHICLE_SEARCH": {
+    "HEADER": "Advanced vehicle search",
+    "TOP_MAKES_HEADER": "Popular Makes",
+    "ALL_MAKES_HEADER": "All brands",
+    "MAKES": "Makes",
+    "MODELS": "Models",
+    "MODEL_SERIES": "Model series",
+    "MODEL_YEAR": "Year",
+    "FILTER_BY_YEAR": "Filter by year",
+    "QUICK_SELECTION": "Quick selection models",
+    "SEARCH": {
+      "COLUMN_TYPE": "Type",
+      "COLUMN_YEAR": "Year"
+    }
+  }
+}

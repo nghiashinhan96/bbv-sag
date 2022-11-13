@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP"
+    id="ITER_134_CREATE_TABLE_SUPPORTED_BRAND_PROMOTION">
+    <sql>
+      <!-- #3083: SupportedArticlePromotion -->
+      CREATE TABLE [dbo].[SUPPORTED_BRAND_PROMOTION](
+      [ID] [int] IDENTITY(1,1) NOT NULL,
+      [ARTICLE_SHOP_TYPE] [varchar] (20) NOT NULL,
+      [SUPPORTED_AFFILIATE_ID] [int] NOT NULL,
+      [BRAND] [varchar] (255) NOT NULL,
+      [ACTIVE] [bit] NOT NULL,
+      [START_DATE] [date] NOT NULL,
+      [END_DATE] [date] NOT NULL,
+      [CREATED_DATE] [datetime] NOT NULL DEFAULT getdate(),
+      [CREATED_USER_ID] [bigint] NOT NULL,
+      [MODIFIED_DATE] [datetime] NULL,
+      [MODIFIED_USER_ID] [bigint] NULL,
+      CONSTRAINT [PK_SUPPORTED_BRAND_PROMOTION] PRIMARY KEY CLUSTERED
+      (
+      [ID] ASC
+      )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY =
+      OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+      ) ON [PRIMARY];
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP"
+    id="ITER_134_INSERT_DATA_SUPPORTED_BRAND_PROMOTION">
+    <sql>
+      INSERT INTO dbo.SUPPORTED_BRAND_PROMOTION (ARTICLE_SHOP_TYPE,
+      SUPPORTED_AFFILIATE_ID, BRAND, START_DATE, END_DATE, CREATED_DATE,
+      CREATED_USER_ID, MODIFIED_DATE, MODIFIED_USER_ID, ACTIVE)
+      VALUES('TYRES', 1, 'SEMPERIT', '2018-08-01', '2018-11-01',
+      (getdate()), 1, NULL, NULL, 1);
+      INSERT INTO dbo.SUPPORTED_BRAND_PROMOTION (ARTICLE_SHOP_TYPE,
+      SUPPORTED_AFFILIATE_ID, BRAND, START_DATE, END_DATE, CREATED_DATE,
+      CREATED_USER_ID, MODIFIED_DATE, MODIFIED_USER_ID, ACTIVE)
+      VALUES('TYRES', 3, 'BRIDGESTONE', '2018-08-01', '2018-11-01',
+      (getdate()), 1, NULL, NULL, 1);
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

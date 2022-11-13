@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+ <parent>
+    <groupId>com.sagag.services</groupId>
+    <artifactId>sag-parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../sag-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>sag-service</artifactId>
+  <version>${project.version}</version>
+  <name>SAG Business Implementation Services</name>
+
+  <properties>
+    <jasperreports.version>6.19.1</jasperreports.version>
+  </properties>
+
+  <dependencies>
+    <!-- Project dependencies -->
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-domain</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-elasticsearch</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-article-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <!-- ERP dependencies -->
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-ax</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-autonet-erp</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-stakis-erp</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- End ERP dependencies -->
+    
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-gtmotive</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-ivds</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-mdm</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-haynespro</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-incentive</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Spring dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+
+    <!-- Other dependencies -->
+    <dependency>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+    </dependency>
+
+    <!-- JasperReports dependency -->
+    <dependency>
+      <groupId>net.sf.jasperreports</groupId>
+      <artifactId>jasperreports</artifactId>
+      <version>${jasperreports.version}</version>
+      <exclusions>
+            <exclusion>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-analyzers-common</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-queryparser</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.lowagie</groupId>
+                <artifactId>itext</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <!-- Override the compatible version with SAG Maven server -->
+    <dependency>
+      <groupId>org.olap4j</groupId>
+      <artifactId>olap4j</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lowagie</groupId>
+      <artifactId>itext</artifactId>
+      <version>2.1.7</version>
+    </dependency>
+    <dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports-fonts</artifactId>
+        <version>${jasperreports.version}</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>sag-repo</id>
+      <name>SAG Nexus Repository</name>
+      <url>http://repository.sag-ag.ch/nexus/content/groups/public/</url>
+    </repository>
+  </repositories>
+</project>

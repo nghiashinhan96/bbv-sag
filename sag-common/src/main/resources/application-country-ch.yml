@@ -1,0 +1,40 @@
+spring.profiles: country-ch
+
+country:
+  code: ch
+  supported_iso3_countries:
+    - AUT
+    - CHE
+  hashtype: BLCK_VAR
+  languages:
+    - DE
+    - FR
+    - IT
+    - EN
+  exclude_countries:
+    - ch
+  attached_article:
+    depot: true
+    recycle: false
+    vrg: true
+    voc: true
+  config:
+    erp-type: DYNAMIC_AX
+    user-loader-mode: ESHOP
+    enable-shopping-cart-map-store: true
+    enable-local-stock-availability-preferring: true
+    enable-price-discount-promotion: true
+    es-external-article-service: default
+    category-converter: default
+    oauth2-external-authenticator: cloud-dms
+    article-id-mapper: id_pim
+    currency: CHF
+    default-language: de
+    register-customer-user-setting:
+      customer-setting: 
+        session-timeout-seconds: 3600
+        net-price-view: false
+        net-price-confirm: false
+      user-setting: 
+        language: de
+    sortingOilVehicleInDesc: true

@@ -1,0 +1,24 @@
+sag-lib-article-avail-popup {
+    h4 {
+        color: $primary;
+        border-bottom: 1px solid $thin-grey;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .nav {
+        justify-content: space-between;
+
+        .flex-2 {
+            flex: 2;
+        }
+
+        .flex-4 {
+            flex: 4;
+        }
+
+        .flex-6 {
+            flex: 6;
+        }
+    }
+}

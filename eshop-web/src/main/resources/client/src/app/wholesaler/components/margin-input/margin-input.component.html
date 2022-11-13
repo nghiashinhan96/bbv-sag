@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+    <input name="{{controlName}}" id="{{controlName}}" type="text" formControlName="{{controlName}}"
+        class="form-control margin-input {{className}}" autocomplete="off" [libNumeric] [ignoreShowRoundedPlaceholder]="true" (blur)="validateInput($event)"
+        (keydown.enter)="validateInput($event)" [ngClass]="{
+            'is-invalid': (form.controls[controlName].hasError('required') || form.controls[controlName].hasError('invalidRange'))
+            && (form.controls[controlName].dirty || form.controls[controlName].touched)
+        }">
+
+    <span class="invalid-feedback" *ngIf="form.controls[controlName].hasError('required')">
+        {{ 'COMMON_MESSAGE.REQUIRED_FIELD' | translate }}
+    </span>
+
+    <span class="invalid-feedback" *ngIf="form.controls[controlName].hasError('invalidRange')">
+        {{ 'MARGIN_MANAGE.ERROR_MSG.MARGIN_VALUE_RANGE' | translate }}
+    </span>
+</div>

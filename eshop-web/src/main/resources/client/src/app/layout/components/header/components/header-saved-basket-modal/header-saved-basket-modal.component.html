@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h4>{{'BASKET_HISTORY.SAVED_BASKETS'|translate}}</h4>
+    <a href="javascript:void(0)"><i class="fa fa-times-circle close" (click)="bsModalRef.hide()"></i></a>
+</div>
+<div class="modal-body">
+    <div class="d-flex align-items-center form-group">
+        <h4 class="mb-0">{{'BASKET_HISTORY.LABEL' | translate}}</h4>
+        <ng-select
+            bindLabel="label"
+            bindValue="value"
+            [items]="filterOptions"
+            [searchable]="filterOptions?.length > 10"
+            [clearable]="false"
+            class="ml-auto"
+            placeholder="{{'SEARCH.CHOOSE' | translate}}"
+            notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}"
+            [(ngModel)]="basketFilterMode"
+            (change)="onFilter()" style="width: 200px;">
+            <ng-template ng-label-tmp let-item="item">
+                {{item.label | translate}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+                {{item.label | translate}}
+            </ng-template>
+        </ng-select>
+    </div>
+    <sag-table [mode]="'online'" [columns]="columns" (searchData)="searchTableData($event)" [sort]="sort"
+        notFoundText="{{'BASKET_HISTORY.NO_BASKET_HISTORIES_FOUND' | translate}}" [rows]="rows" [selectable]="true"
+        (selectRow)="onSelectBasketItem($event)" [searchModel]="searchModel" [page]="page"></sag-table>
+
+    <ng-container *ngIf="basketHistoryArticles$ | async as basketHistoryArticles">
+        <connect-header-saved-basket-detail [data]="basketHistoryArticles"></connect-header-saved-basket-detail>
+    </ng-container>
+    <sag-common-message [data]="messenger" *ngIf="messenger && rows.length>0"></sag-common-message>
+    <div class="d-flex mt-5">
+        <a class="btn-link" href="javascript:void(0)" (click)="checkUserAndAddToCart()"
+            [class.disabled]="!selectedBasketHistoryItem">
+            <i class="fa fa-chevron-right"></i>
+            <span>{{'BASKET_HISTORY.TAKE'| translate}}</span>
+        </a>
+        <a class="btn-link ml-auto" href="javascript:void(0)" (click)="bsModalRef.hide()">
+            <i class="fa fa-chevron-right"></i>
+            <span>{{'COMMON_LABEL.CLOSE'| translate}}</span>
+        </a>
+    </div>
+</div>
+<ng-template #dateRef let-val="value" let-col="col">
+    {{val | date: dateTimeFormat}}
+</ng-template>
+<ng-template #deleteRef let-row="row">
+    <a href="javascript:void(0)" class="btn-icon" (click)="deleteBasketItem($event, row)" *ngIf="row.isDeleteAbled">
+        <i class="fa fa-trash"></i>
+    </a>
+</ng-template>

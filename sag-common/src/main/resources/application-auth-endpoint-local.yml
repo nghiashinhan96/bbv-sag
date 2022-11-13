@@ -1,0 +1,12 @@
+spring.profiles: auth-endpoint-local
+
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      host: http://localhost:9002
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+

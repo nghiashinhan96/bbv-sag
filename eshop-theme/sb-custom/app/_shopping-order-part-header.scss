@@ -1,0 +1,45 @@
+.wt-sb {
+    connect-shopping-order-part-header {
+        .header-amount-per-location {
+            width: $order-amount-per-location-width;
+        }
+
+        .header-location {
+            width: $order-location-width;
+        }
+
+        .header-gross-price {
+            width: $order-gross-price-width-sb;
+        }
+
+        .header-net-price {
+            width: $order-net-price-width-sb;
+        }
+
+        .header-total {
+            width: $order-total-price-width-sb;
+        }
+
+        .header-description {
+            width: $part-order-description-width-sb !important;
+        }
+    }
+
+    connect-shopping-order-part-header-sb {
+        .header-description {
+            width: $part-order-description-width-sb;
+        }
+
+        .header-delivery {
+            width: $part-order-delivery-width-sb;
+        }
+
+        .header-quality {
+            width: $part-order-quantity-width-sb;
+        }
+
+        .header-deliver-warehouse {
+            width: $part-order-delivery-warehouse-width-sb;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+spring.profiles: liquibase-test
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/test/db.changelog-master.xml
+    drop-first: false

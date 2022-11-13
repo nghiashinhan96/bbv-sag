@@ -1,0 +1,25 @@
+<div class="custom-priciable" [class.visible]="customPriciable && isCustomPriceShown && isAllowedPriceSelection"
+    [class.noHeight]="!(customPriciable && isCustomPriceShown && isAllowedPriceSelection)">
+    <ng-container *ngIf="editable; else readonlyRef">
+        <a
+            class="btn-icon"
+            href="javascript:void(0)"
+            [popover]="customPriceRef"
+            [placement]="'bottom'"
+            #customPricingPop="bs-popover" container="body" triggers="click"
+            containerClass="custom-pricing-popover">
+            <span title="{{priceType || ''}}">{{priceType}}</span>
+            <i class="fa fa-edit"></i>
+        </a>
+        <ng-template #customPriceRef>
+            <sag-custom-pricing-popover [article]="article" [popupRef]="customPricingPop"
+                (selected)="onCustomPriceChange($event)" [brand]="customPriceBrand">
+            </sag-custom-pricing-popover>
+        </ng-template>
+    </ng-container>
+    <ng-template #readonlyRef>
+        <div class="price-type">
+            <span>{{priceType}}</span>
+        </div>
+    </ng-template>
+</div>

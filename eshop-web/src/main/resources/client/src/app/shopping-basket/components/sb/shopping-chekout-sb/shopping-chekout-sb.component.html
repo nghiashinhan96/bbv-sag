@@ -1,0 +1,36 @@
+<section class="connect-shopping-chekout-location-detail">
+    <ng-container *ngFor="let order of orders; let i = index;">
+        <div class="card mb-4">
+            <div class="card-header">
+                <connect-expanded
+                    title="{{order?.location?.branchName}}
+                         {{ order.orderNr ? '-' + ('COMMON_LABEL.ORDER_NUMBER' | translate) + ':' : ''}} {{order.orderNr}}"
+                    [(expand)]="order.expanded" size="sm">
+                </connect-expanded>
+            </div>
+            <div class="card-body shopping-order-condition" *ngIf="order.expanded">
+                <ng-container
+                    *ngIf="order?.orderAvailabilities?.length > 0 && order?.orderAvailabilities; else showOrderWarning">
+                    <connect-shopping-order-part-header-sb>
+                    </connect-shopping-order-part-header-sb>
+
+
+                    <ng-container *ngFor="let orderItem of order.orderAvailabilities; trackBy:trackByIndex">
+                        <connect-shopping-order-article-detail-sb [orderItem]="orderItem">
+                        </connect-shopping-order-article-detail-sb>
+
+                        <ng-container *ngIf="orderItem.attachArticles">
+                            <connect-shopping-order-article-detail-sb
+                                *ngFor="let additionalCartItem of orderItem.attachArticles;trackBy:trackByIndex"
+                                [orderItem]="additionalCartItem">
+                            </connect-shopping-order-article-detail-sb>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+                <ng-template #showOrderWarning>
+                    <sag-common-message [data]="msg"></sag-common-message>
+                </ng-template>
+            </div>
+        </div>
+    </ng-container>
+</section>

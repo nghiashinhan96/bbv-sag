@@ -1,0 +1,44 @@
+<sag-auth-header [supportedLangCodes]="supportedLangCodes"></sag-auth-header>
+<div class="container-lg container-main">
+    <div class="login-page">
+        <tabset>
+            <tab heading="{{'LOGIN.LABEL.LOGIN' | translate}}" id="login-tab" (selectTab)="selectedTab('loginTab')"
+                [active]="!selectedTabName || selectedTabName === 'loginTab'">
+                <div class="row">
+                    <div class="col-6">
+                        <connect-system-message [subArea]="'LOGIN_PAGE_1'"></connect-system-message>
+                        <sag-auth-login-form
+                            [loginData]="loginData"
+                            (loginInputEmitter)="login($event)"
+                            [error]="errorMessage"
+                            (forgotPasswordEmitter)="forgorPassword()"
+                            [affiliate]="affiliate"
+                            [ssoWhitelist]="ssoWhitelist"
+                            (ssoLoginEmitter)="ssoLogin()"
+                            (registationEmitter)="selectedTab('regTab')">
+                        </sag-auth-login-form>
+                    </div>
+                    <div class="col-6 text-right ads-wrapper">
+                        <sag-common-adserver [zid]="3" [sitearea]="'MAIN_LOGIN_AREA'" [custom1]="'LOGIN'">
+                        </sag-common-adserver>
+                    </div>
+                </div>
+            </tab>
+            <tab *ngIf="isRegistrationShowed"
+                 heading="{{'LOGIN.LABEL.REGISTRATION' | translate}}"
+                 class="registration-tab"
+                 (selectTab)="selectedTab('regTab')"
+                 [active]="selectedTabName === 'regTab'">
+                 <div class="registration-container" [ngClass]="{'additional-shown': isShownAddtionalPage}">
+                    <ng-container *ngIf="!isShownAddtionalPage; else potential">
+                        <sag-auth-customer-registration [ssoWhitelist]="ssoWhitelist" (addtionalPageHandler)="isShownAddtionalPage = true" (onRegister)="handleRegister($event)"></sag-auth-customer-registration>
+                    </ng-container>
+                    <ng-template #potential>
+                        <sag-auth-potential-customer-registration [(isShown)]="isShownAddtionalPage" (onRegister)="handleRegister($event)" ></sag-auth-potential-customer-registration>
+                    </ng-template>
+                 </div>
+            </tab>
+        </tabset>
+    </div>
+</div>
+<connect-footer></connect-footer>

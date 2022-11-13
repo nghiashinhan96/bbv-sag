@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_129_INIT_SUPPORTED_AFFILIATE">
+        <sql>
+			INSERT INTO SUPPORTED_AFFILIATE(SHORT_NAME, COMPANY_NAME, DESCRIPTION, COUNTRY_ID, UPDATED_DATE, ES_SHORT_NAME, SALES_ORIGIN_ID, SHOW_PFAND_ARTICLE, LOGO_LINK, NO_REPLY_EMAIL, START_WORKING_TIME, END_WORKING_TIME)
+			VALUES ('autonet-hungary', 'Autonet-Hungary', NULL, 42, getdate(), 'ahu', '' , 0, '','', '05:00', '17:00')
+			 
+			INSERT INTO SUPPORTED_AFFILIATE(SHORT_NAME, COMPANY_NAME, DESCRIPTION, COUNTRY_ID, UPDATED_DATE, ES_SHORT_NAME, SALES_ORIGIN_ID, SHOW_PFAND_ARTICLE, LOGO_LINK, NO_REPLY_EMAIL, START_WORKING_TIME, END_WORKING_TIME)
+			VALUES ('autonet-romania', 'Autonet-Romania', NULL, 42, getdate(), 'aro', '' , 0, '','', '05:00', '17:00')
+			 
+			INSERT INTO SUPPORTED_AFFILIATE(SHORT_NAME, COMPANY_NAME, DESCRIPTION, COUNTRY_ID, UPDATED_DATE, ES_SHORT_NAME, SALES_ORIGIN_ID, SHOW_PFAND_ARTICLE, LOGO_LINK, NO_REPLY_EMAIL, START_WORKING_TIME, END_WORKING_TIME)
+			VALUES ('autonet-slovenia', 'Autonet-Slovenia', NULL, 42, getdate(), 'aso', '' , 0, '','', '05:00', '17:00')
+			 
+			INSERT INTO SUPPORTED_AFFILIATE(SHORT_NAME, COMPANY_NAME, DESCRIPTION, COUNTRY_ID, UPDATED_DATE, ES_SHORT_NAME, SALES_ORIGIN_ID, SHOW_PFAND_ARTICLE, LOGO_LINK, NO_REPLY_EMAIL, START_WORKING_TIME, END_WORKING_TIME)
+			VALUES ('autonet-slovakia', 'Autonet-Slovakia', NULL, 42, getdate(), '', '' , 0, '','', '05:00', '17:00')
+
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

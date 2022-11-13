@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="basket" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="630b968b-5b65-4355-8406-c1e5ffc87c86">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="receiverInfo" class="java.lang.String"/>
+	<parameter name="senderInfo" class="java.lang.String"/>
+	<parameter name="currentDate" class="java.lang.String"/>
+	<parameter name="customerNumber" class="java.lang.String"/>
+	<parameter name="userNameRef" class="java.lang.String"/>
+	<parameter name="currency" class="java.lang.String"/>
+	<parameter name="vat" class="java.lang.String"/>
+	<parameter name="deliveryType" class="java.lang.String"/>
+	<parameter name="paymentType" class="java.lang.String"/>
+	<parameter name="netPricePerUnitLabel" class="java.lang.String"/>
+	<parameter name="totalPriceLabel" class="java.lang.String"/>
+	<parameter name="totalExclVAT" class="java.lang.String"/>
+	<parameter name="totalVAT" class="java.lang.String"/>
+	<parameter name="totalInclVAT" class="java.lang.String"/>
+	<parameter name="uvpe" class="java.lang.String"/>
+	<parameter name="oep" class="java.lang.String"/>
+	<parameter name="basketItemReport" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="priceItemReport" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="isCurrentStateNetPriceView" class="java.lang.Boolean"/>
+	<parameter name="isCh" class="java.lang.Boolean"/>
+	<parameter name="isCzAx" class="java.lang.Boolean"/>
+	<field name="title" class="java.lang.String"/>
+	<field name="reportBasketItems" class="java.util.List"/>
+	<group name="basketContentHeader" isReprintHeaderOnEachPage="true">
+		<groupHeader>
+			<band height="96">
+				<frame>
+					<reportElement x="31" y="10" width="490" height="70" uuid="d14c35e7-272c-4e36-a6a5-3ec6d0a14b3c"/>
+					<line>
+						<reportElement x="9" y="21" width="469" height="1" uuid="604187d1-e1b6-4a81-9345-131d18b6912e"/>
+					</line>
+					<textField>
+						<reportElement x="10" y="6" width="232" height="15" uuid="eeb90a97-e3df-490c-83c2-0a89275fcb8d"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{currentDate}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="251" y="6" width="170" height="15" uuid="1e234dfc-1d7a-45d4-9aba-091c451f479e"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{userNameRef}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="425" y="6" width="25" height="15" uuid="dba88c4f-2f56-4f74-a891-e02c8821aa26"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="false"/>
+						</textElement>
+						<text><![CDATA[Seite ]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="10" y="34" width="110" height="14" uuid="57819550-0b07-424f-aecb-b9f2c4eb4716"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.delivery_type}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="10" y="49" width="110" height="14" uuid="a2c110fe-ed94-4be0-994d-80a1c8293317"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.payment_type}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="120" y="34" width="100" height="15" uuid="c89ee3bb-dfaa-49c8-88fe-b959a8e101ea"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{deliveryType}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="120" y="48" width="100" height="15" uuid="399227d6-21d7-477e-b552-2798347acb7d"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{paymentType}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="450" y="5" width="18" height="15" uuid="81d67a04-c81d-46e6-884e-47cbf52e4c57"/>
+						<textElement textAlignment="Right">
+							<font size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{PAGE_NUMBER} + " / "]]></textFieldExpression>
+					</textField>
+					<textField evaluationTime="Report">
+						<reportElement x="470" y="5" width="20" height="15" uuid="1b6691b9-3fac-437b-9188-00c488d5ccb6"/>
+						<textElement>
+							<font size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+			<band height="42">
+				<frame>
+					<reportElement x="31" y="2" width="490" height="32" uuid="ef9a92f1-b365-4877-abc0-cc3582bbc7cc"/>
+					<textField>
+						<reportElement x="10" y="7" width="70" height="15" uuid="b3e8f200-33cf-44af-a7aa-f5f9e67f8235"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.article_num}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="87" y="7" width="162" height="15" uuid="e0fd025c-1760-49d9-85f3-f996cb45ce78"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.product_description}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="309" y="7" width="46" height="15" uuid="05c60984-6c3c-4dbe-89f5-a7a7044f6c38"/>
+						<textElement textAlignment="Right">
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.amount}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="433" y="7" width="44" height="23" uuid="8392249f-d144-4872-a676-85c5cecf7dd6"/>
+						<textElement textAlignment="Right" markup="html">
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{totalPriceLabel}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="361" y="7" width="72" height="23" uuid="eb124fe3-6a74-4f5e-9bbe-23a78d559073">
+							<printWhenExpression><![CDATA[$P{isCurrentStateNetPriceView}]]></printWhenExpression>
+						</reportElement>
+						<textElement textAlignment="Right" markup="html">
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{netPricePerUnitLabel}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<line>
+					<reportElement x="40" y="40" width="469" height="1" uuid="a69ee5b2-4031-479f-bc59-211c57ab50da"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="200">
+				<frame>
+					<reportElement x="231" y="29" width="290" height="56" uuid="b3ec6150-8f4c-4098-abef-46971404e738"/>
+					<textField>
+						<reportElement x="15" y="0" width="100" height="14" uuid="0b47a90f-39ce-4ab1-b26f-e6fcb658f9eb"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.total_excl_vat}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="172" y="1" width="40" height="13" uuid="c42cfc44-558e-48dc-956e-5724feb7ce35"/>
+						<textElement textAlignment="Right">
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{currency}]]></textFieldExpression>
+					</textField>
+					<textField pattern="0.00" isBlankWhenNull="true">
+						<reportElement x="214" y="1" width="60" height="13" uuid="d85d3d72-0332-429e-ad3f-97c98c416c9d"/>
+						<textElement textAlignment="Right">
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{totalExclVAT}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="172" y="15" width="40" height="13" uuid="0194a8d7-e56f-4e27-aa35-7cfcbbc1eed6"/>
+						<textElement textAlignment="Right">
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{currency}]]></textFieldExpression>
+					</textField>
+					<textField pattern="0.00" isBlankWhenNull="true">
+						<reportElement x="214" y="15" width="60" height="13" uuid="7f39ad42-6da5-4baf-b20c-900f9ae469bd"/>
+						<textElement textAlignment="Right">
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{totalVAT}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="15" y="14" width="90" height="14" uuid="4ca9feb4-88f5-4741-894e-f519742cbe2f"/>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{vat}]]></textFieldExpression>
+					</textField>
+					<line>
+						<reportElement x="13" y="32" width="265" height="1" uuid="70abbad3-fe59-4757-9999-27d6354632d4"/>
+					</line>
+					<textField>
+						<reportElement x="15" y="38" width="124" height="14" uuid="3c12b1fd-4c68-460b-9344-022019f0c9c9"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.total_incl_vat}]]></textFieldExpression>
+					</textField>
+					<textField pattern="0.00" isBlankWhenNull="true">
+						<reportElement x="215" y="40" width="60" height="13" uuid="d8a0f3a5-4d76-4982-ae6c-6600439eeb04"/>
+						<textElement textAlignment="Right">
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{totalInclVAT}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="174" y="40" width="40" height="13" uuid="db8623c6-0e45-4041-9209-329c557d0791"/>
+						<textElement textAlignment="Right">
+							<font fontName="DejaVu Sans" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{currency}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField>
+					<reportElement x="41" y="92" width="462" height="58" uuid="abb4dce2-54f3-427f-88b3-8665a7ad6959"/>
+					<textElement textAlignment="Center" markup="html">
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{isCzAx} ? "" : $R{report.basket.label.remark}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="96" splitType="Stretch">
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="147" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.intValue() == 1 ? Boolean.TRUE: Boolean.FALSE]]></printWhenExpression>
+			<frame>
+				<reportElement isPrintRepeatedValues="false" x="32" y="10" width="488" height="132" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="4df73a0b-4d13-4bb0-b1f8-6205ac000cc6">
+					<property name="ShowOutOfBoundContent" value="false"/>
+					<property name="com.jaspersoft.layout.grid.weight.fixed" value="false"/>
+				</reportElement>
+				<textField>
+					<reportElement x="9" y="7" width="136" height="15" uuid="5e4e4a2f-49d1-4cb8-83e0-138b9788c606"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{customerNumber}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="9" y="56" width="230" height="58" uuid="057f3b06-a0bd-4157-b6f7-70efa83720a6"/>
+					<textElement textAlignment="Left" markup="html">
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{receiverInfo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="5" width="468" height="15" uuid="4c108d5b-b93b-4664-a5c1-9cdfb294a742"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="40" y="21" width="468" height="12" uuid="a0daae50-ba7d-4363-a51b-b7ea31815298"/>
+				<subreportParameter name="isCurrentStateNetPriceView">
+					<subreportParameterExpression><![CDATA[$P{isCurrentStateNetPriceView}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="priceItemReport">
+					<subreportParameterExpression><![CDATA[$P{priceItemReport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="currency">
+					<subreportParameterExpression><![CDATA[$P{currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="uvpe">
+					<subreportParameterExpression><![CDATA[$P{uvpe}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="oep">
+					<subreportParameterExpression><![CDATA[$P{oep}]]></subreportParameterExpression>
+				</subreportParameter>
+
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{reportBasketItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{basketItemReport}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="100" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="18" width="500" height="80" uuid="d41433bb-4d4d-4279-a177-38a99b30c4bf"/>
+				<textElement textAlignment="Center" markup="html">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression>
+					<![CDATA[$P{isCzAx} ? "" : $P{isCh} ? $R{report.basket.label.remark.bottom} + $R{report.basket.label.footerNote.bottom} :
+				$R{report.basket.label.remark.bottom} + $R{report.basket.label.footerNoteAt} ]]>
+				</textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,8 @@
+export enum ErrorCodeEnum {
+    UNAUTHORIZED = 401,
+    NOT_FOUND = 404,
+    SERVER_ERROR = 500,
+    UNKNOWN_ERROR = 0,
+    FORBIDDEN = 403,
+    INVALID_VERSION_ERROR_CODE = 'INVALID_VERSION'
+}

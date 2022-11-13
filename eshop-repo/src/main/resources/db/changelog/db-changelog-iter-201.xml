@@ -1,0 +1,86 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_201_ADD_RAW_SEARCH_TERM_USER_ARTICLE_HISTORY">
+		<sql>
+			ALTER TABLE USER_ARTICLE_HISTORY ADD RAW_SEARCH_TERM nvarchar(255) DEFAULT NULL
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_201_ALTER_V_USER_ARTICLE_HISTORY">
+		<sql>
+			DROP VIEW IF EXISTS V_USER_ARTICLE_HISTORY;
+
+			CREATE VIEW dbo.V_USER_ARTICLE_HISTORY with schemabinding AS
+	        SELECT
+	          UAH.ID AS ID,
+	          U.ID AS USER_ID,
+	          U.USERNAME AS USER_NAME,
+	          U.FIRST_NAME AS FIRST_NAME,
+	          U.LAST_NAME AS LAST_NAME,
+	          CONCAT(U.LAST_NAME, ' ', U.FIRST_NAME) AS FULL_NAME,
+	          OG.ORGANISATION_ID AS ORG_ID,
+	          O.ORG_CODE AS ORG_CODE,
+	          AH.ART_ID AS ARTICLE_ID,
+	          AH.ART_NUMBER AS ARTNR_DISPLAY,
+	          UAH.SEARCH_TERM AS SEARCH_TERM,
+	          UAH.RAW_SEARCH_TERM as RAW_SEARCH_TERM,
+	          UAH.SEARCH_MODE AS SEARCH_MODE,
+	          UAH.FROM_SOURCE AS FROM_SOURCE,
+	          UAH.SELECT_DATE AS SELECT_DATE,
+	          CONCAT(UAH.SEARCH_TERM, COALESCE(' => ' + NULLIF(AH.ART_NUMBER, ''), '')) AS SEARCH_TERM_WITH_ART_NR
+	          from
+	          dbo.ARTICLE_HISTORY AH
+	          JOIN dbo.USER_ARTICLE_HISTORY UAH ON AH.ID = UAH.ART_HISTORY_ID
+	          JOIN dbo.ESHOP_USER U ON UAH.USER_ID = U.ID
+	          JOIN dbo.GROUP_USER GU ON
+	          U.ID = GU.USER_ID
+	          JOIN dbo.ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+	          JOIN
+	          dbo.GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+	          JOIN dbo.ESHOP_ROLE R ON
+	          GR.ROLE_ID = R.ID
+	          JOIN dbo.ORGANISATION_GROUP OG ON G.ID =
+	          OG.GROUP_ID
+	          JOIN dbo.ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+	          JOIN dbo.LOGIN L ON L.USER_ID = U.ID
+	          JOIN dbo.USER_SETTINGS US ON
+	          US.ID = U.SETTING
+	          JOIN dbo.SALUTATION SL ON SL.ID = U.SALUTATION
+	          WHERE L.IS_USER_ACTIVE = 1
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_201_ADD_CODE_REPAIR_OF_RETURN_ORDER_REASON">
+		<sql>
+			IF NOT EXISTS (SELECT 1 FROM [dbo].[RETURN_ORDER_REASON] WHERE
+			[CODE] =
+			'REPAIR')
+			BEGIN
+			INSERT INTO [dbo].[RETURN_ORDER_REASON] (CODE,
+			NAME, AX_CODE, IS_DEFAULT)
+			VALUES ('REPAIR', 'Repair', '10', 0)
+			END
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_201_ADD_COLLUMN_LAST_UPDATE_FOR_ESHOP_FAVORITE">
+		<sql>
+			IF NOT EXISTS (SELECT 1 FROM sys.columns
+			WHERE Name =
+			N'LAST_UPDATE'
+			AND Object_ID = Object_ID(N'ESHOP_FAVORITE'))
+			BEGIN
+			ALTER TABLE [dbo].[ESHOP_FAVORITE] ADD LAST_UPDATE datetime DEFAULT
+			getdate() NULL
+			END
+		</sql>
+	</changeSet>
+</databaseChangeLog>

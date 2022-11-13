@@ -1,0 +1,47 @@
+<sag-common-message *ngIf="error" [data]="error"></sag-common-message>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="row form-group">
+        <div class="col-12">
+            <input type="text" name="userName" class="form-control" data-automation="user-name"
+                placeholder="{{'LOGIN.LABEL.USER_NAME' | translate}}*" formControlName="userName">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-12">
+            <div class="input-group">
+                <input [type]="passwordType" class="form-control" formControlName="password" data-automation="password"
+                    placeholder="{{'LOGIN.LABEL.PASSWORD' | translate}}*">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <input type="checkbox" formControlName="isShownPassword">
+                        <span class="ml-2">{{ 'LOGIN.LABEL.SHOW' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between">
+                <button type="submit" class="btn btn-primary btn-login" data-automation="login-submit">
+                    <span>{{'LOGIN.BUTTON.LOGIN' | translate}}</span>
+                </button>
+                <a class="sso-link" href="javascript:void(0)" (click)="ssoLoginEmitter.emit()" *ngIf="showSsoLogin">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <span>{{'LOGIN.LABEL.SSO' | translate}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex align-items-center justify-content-between">
+        <a href="javascript:void(0)" (click)="registationEmitter.emit()" *ngIf="isRegistrationShown">
+            <i id="icon-registration" class="fa fa-angle-right" aria-hidden="true"></i>
+            <span>{{'LOGIN.LABEL.REGISTRATION' | translate}}</span>
+        </a>
+        <a href="javascript:void(0)" class="ml-auto" (click)="forgotPasswordEmitter.emit()">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            <span>{{'LOGIN.LABEL.FORGOT_PASSWORD' | translate}}</span>
+        </a>
+    </div>
+</form>

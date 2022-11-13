@@ -1,0 +1,56 @@
+.order-info-content {
+    display: flex;
+
+    .order-info-block {
+        margin-left: 20px;
+        width: calc(100%/4);
+
+        .box-title {
+            font-weight: $font-weight;
+            color: #333;
+            line-height: 13px;
+            white-space: nowrap;
+        }
+
+        .shipping-payment-type-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                position: relative;
+                padding-left: 22px;
+                box-sizing: border-box;
+                line-height: 16px;
+                margin-bottom: 6px;
+
+                .fa {
+                    color: $primary;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        &.is-boxes {
+            padding: 15px;
+            background: #fff;
+            border-color: #e6e6e6;
+            overflow-y: auto;
+            line-height: 23px;
+        }
+
+        .text {
+            line-height: 23px;
+            margin-top: -5px;
+        }
+    }
+}
+
+.good-receiver-title {
+    strong {
+        font-weight: $font-weight;
+    }
+}

@@ -1,0 +1,56 @@
+<div class="card-tile-item card">
+    <ng-container *ngIf="tile?.tileType === 'leaf'; else nodeViewRef">
+        <a href="javascript:void(0);" >
+            <div class="card-header"(click)="selectLeaf(TARGET.TILE_HEADER)">
+                {{tile?.tileName}}
+            </div>
+            <div class="card-body" (click)="selectLeaf(TARGET.TILE_IMAGE)">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex flex-column pointer w-100">
+                        <div [ngStyle]="{'background-image':  'url('+tile?.tileImage+')'}" class="full-img"
+                            *ngIf="tile?.tileImage"></div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </ng-container>
+
+    <ng-template #nodeViewRef>
+        <div class="card-header">
+            <a href="javascript:void(0);" (click)="selectLeaf(TARGET.TILE_HEADER)">{{tile?.tileName}}</a>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start" [class.mb-3]="tile?.linkHightLighted?.length > 0">
+                <ng-container *ngIf="tile?.linkNotHightLighted?.length > 0">
+                    <div class="d-flex flex-column" [class.w-75]="tile?.tileImage" [class.w-100]="!tile?.tileImage">
+                        <ng-container *ngFor="let node of tile?.linkNotHightLighted; let i = index">
+                            <p *ngIf="!node.activeLink; else linkHref">
+                                {{node?.tileLinkText}}
+                            </p>
+                            <ng-template #linkHref>
+                                <a href="javascript:void(0);" [title]="node?.tileLinkText"
+                                    class="text-nowrap link"
+                                    (click)="selectLink(node)"
+                                    [class.mb-1]="i < tile?.linkNotHightLighted?.length - 1">
+                                    {{node?.tileLinkText}}
+                                </a>
+                            </ng-template>
+                        </ng-container>
+                    </div>
+                </ng-container>
+                <div class="d-flex flex-column pointer" *ngIf="tile?.tileImage"
+                    [class.full-img]="tile?.linkHightLighted?.length > 0 && tile?.linkNotHightLighted?.length === 0">
+                    <img [src]="tile?.tileImage" (click)="selectLeaf(TARGET.TILE_IMAGE)">
+                </div>
+            </div>
+            <ng-container *ngIf="tile?.linkHightLighted?.length > 0">
+                <ng-container *ngFor="let item of tile?.linkHightLighted; let pos = index">
+                    <div class="d-flex mb-1"
+                        [class.mb-1]="pos < tile?.linkHightLighted?.length - 1">
+                        <a href="javascript:void(0);" (click)="selectLink(item)" class="text-nowrap link">>> {{item.tileLinkText}}</a>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-template>
+</div>

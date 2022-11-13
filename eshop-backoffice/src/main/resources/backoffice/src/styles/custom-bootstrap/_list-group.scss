@@ -1,0 +1,109 @@
+.list-group {
+    padding: $half-spacer;
+
+    h6 {
+        margin-top: $half-spacer;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .list-group-item {
+        padding: $quarter-spacer $half-spacer;
+        border: none;
+        display: flex;
+
+        a {
+            display: flex;
+
+            .fa.fa-angle-right {
+                margin-top: 0.25rem;
+            }
+        }
+
+        &.article-info {
+            justify-content: center;
+        }
+
+        &.merkmale {
+            &:nth-child(even) {
+                background-color: $light-grey;
+            }
+        }
+
+        label.checkbox {
+            margin-bottom: 0;
+        }
+    }
+
+    .btn {
+        margin: $half-spacer auto;
+    }
+
+    &-full {
+        padding: 0;
+
+        .list-group-item {
+            padding: $quarter-spacer 0;
+            border-bottom: 1px solid $thin-grey;
+            align-items: center;
+
+            .fa.fa-angle-right {
+                margin-right: $quarter-spacer;
+                opacity: 0.65;
+            }
+        }
+    }
+
+    &-link {
+        .list-group-item {
+            padding: $half-spacer 0;
+            border-bottom: 0;
+            font-weight: 500;
+
+            .fa.fa-angle-right {
+                margin-right: $quarter-spacer;
+                opacity: 0.75;
+            }
+        }
+    }
+
+    &-information {
+        margin-left: -#{$spacer};
+        margin-right: -#{$spacer};
+        padding: $half-spacer $spacer;
+        margin: -#{$half-spacer} -#{$spacer};
+
+        &:nth-child(odd) {
+            background-color: $light-grey;
+        }
+
+        .list-group-item {
+            padding: $half-spacer 0;
+            border-bottom: 0;
+            background-color: transparent;
+        }
+    }
+
+    &-header {
+        padding: 0;
+        .list-group-item {
+            padding: $quarter-spacer $half-spacer;
+
+            .fa.fa-chevron-right {
+                margin-top: 0.25rem;
+                margin-right: $half-spacer;
+                opacity: 0.65;
+            }
+
+            &:hover {
+                background-color: $primary;
+                border-radius: 0.35rem;
+
+                a {
+                    color: $text-color-inversed;
+                    font-weight: $font-weight;
+                }
+            }
+        }
+    }
+}

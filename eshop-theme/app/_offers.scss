@@ -1,0 +1,61 @@
+.table-header {
+    background-color: $primary;
+    padding: 0.8rem;
+}
+
+connect-offers {
+    .fa-file-pdf-o {
+        color: #666;
+    }
+
+    .offer-detail {
+        .text-gray {
+            color: #333 !important;
+        }
+
+        .btn-icon {
+            font-size: 22px;
+            margin-left: 15px !important;
+            margin-right: 0px !important;
+
+            &.ico-file-rtf {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+
+    connect-offer-header {
+        h4 {
+            max-width:35%;
+        }
+    }
+
+    connect-offer-list {
+        .offers-table {
+            thead td ng-select {
+                .ng-select-container {
+                    height: 30px !important;
+                }
+            }
+        }
+    }
+
+    .nav-tabs {
+        &.offer-tab {
+            position: relative;
+
+            >li.nav-item {
+                >a.nav-link {
+                    border-right: 1px solid #e0e0e0;
+                    &:first-child {
+                        border-left: 1px solid #e0e0e0;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+}

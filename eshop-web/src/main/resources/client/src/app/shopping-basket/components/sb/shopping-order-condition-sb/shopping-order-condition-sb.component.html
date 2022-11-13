@@ -1,0 +1,117 @@
+<section class="connect-shopping-order-condition">
+    <ng-container *ngFor="let item of basketContext?.eshopBasketContextByLocation; let i = index;">
+        <div class="card mb-4">
+            <div class="card-header">
+                <connect-expanded
+                    title="{{item?.location?.branchName}}"
+                    [(expand)]="item.expanded" size="sm">
+                </connect-expanded>
+            </div>
+            <div class="card-body shopping-order-condition"
+                [class.is-wss-mode]="userDetail?.hasWholesalerPermission && !userDetail?.isSalesOnBeHalf"
+                *ngIf="item.expanded">
+                <div class="col-xs-12 order-info-content mb-4">
+                    <div class="order-info-block shipping-payment">
+                        <p class="box-title">{{'CONDITION.SHIPPING_PAYMENT' | translate}}</p>
+                        <ul class="shipping-payment-type-list">
+                            <li id="li-tab1" *ngIf="item?.paymentMethod.descCode">
+                                <i id="icon-tab1" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                {{'CONDITION.PAYMENT_METHOD.' + item?.paymentMethod.descCode| translate}}
+                            </li>
+
+                            <li id="li-tab3" *ngIf="item?.deliveryType?.descCode">
+                                <i id="icon-tab3" class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                {{'CONDITION.DELIVERY_TYPE.' + item?.deliveryType?.descCode| translate}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-info-block is-boxes delivery-address">
+                        <p class="box-title">{{'CONDITION.DELIVERY_ADDRESS' | translate}}</p>
+                        <div class="text">{{item?.deliveryAddress?.getFullAddress()}}</div>
+                    </div>
+                    <div class="order-info-block is-boxes part-collective">
+                        <p class="box-title">{{'CONDITION.DELIVERY_TYPE.TITLE' | translate}}</p>
+
+                        <ng-container *ngIf="!isVinOnly">
+                            <ng-container [ngSwitch]="item?.deliveryType?.descCode">
+                                <ng-container *ngSwitchCase="PICKUP">
+                                    <div class="nav">
+                                        <span>{{'CONDITION.DELIVERY_TYPE_PICKUP' | translate}}</span>
+                                    </div>
+                                    <ng-container
+                                        *ngIf="item?.location?.locationType !== PRIMARY_LOCATION; else defaultPrimaryBranch">
+                                        <div class="nav" *ngIf="item?.pickupLocation?.branchName">
+                                            <span>{{'AX_CONNECTION.BRANCH_NAME' | translate}}:
+                                                {{item?.pickupLocation?.branchName}}
+                                            </span>
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-template #defaultPrimaryBranch>
+                                        <div class="nav" *ngIf="item?.location?.branchName">
+                                            <span>{{'AX_CONNECTION.BRANCH_NAME' | translate}}:
+                                                {{item?.location?.branchName}}
+                                            </span>
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+
+                                <ng-container *ngSwitchCase="COURIER">
+                                    <div class="nav">
+                                        <span>{{'CONDITION.DELIVERY_TYPE.TITLE' | translate}}: {{
+                                            item?.courierService?.description}}</span>
+                                    </div>
+                                </ng-container>
+
+                                <ng-container *ngSwitchDefault>
+                                    <div class="nav">
+                                        <span>{{'CONDITION.DELIVERY_TYPE.TITLE' | translate}}:
+                                            {{'CONDITION.DELIVERY_TYPE.' + item.deliveryType?.descCode|
+                                            translate}}</span>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                    <ng-container *ngIf="userDetail?.hasWholesalerPermission && !userDetail?.isSalesOnBeHalf">
+                        <div class="order-info-block is-boxes block-goods-receiver">
+                            <ng-container *ngIf="finalOrder?.orgId; else goodReceiver">
+                                <div class="header d-flex mb-3 good-receiver-title">
+                                    <strong>{{ 'ORDER_DASHBOARD.GOODS_RECEIVER' | translate}}</strong>
+                                </div>
+                                <connect-final-customer-address [orgId]="finalOrder?.orgId">
+                                </connect-final-customer-address>
+                            </ng-container>
+
+                            <ng-template #goodReceiver>
+                                <connect-good-receiver></connect-good-receiver>
+                            </ng-template>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <div class="col-xs-12 order-info-content mb-4">
+                    <div class="order-info-block col-12 pl-0">
+                        <p class="box-title">{{'SHOPPING_BASKET.REFERENCE' | translate}}</p>
+                        <textarea [(ngModel)]="item.referenceTextByLocation" rows="2" class="form-control"
+                            (blur)="updateReferenceTextByLocation($event, i)"
+                            (keyup.enter)="updateReferenceTextByLocation($event, i)"
+                            placeholder="{{ 'SHOPPING_BASKET.REFERENCE_MAX_20_LENGTH' |  translate}}" maxlength="20">
+                        </textarea>
+                    </div>
+                </div>
+
+                <!-- <div class="col-xs-12 order-info-content">
+                    <div class="order-info-block col-12 pl-0">
+                        <p class="box-title">{{'SHOPPING_BASKET.DELIVERY_MESSAGE' | translate}}</p>
+                        <textarea [(ngModel)]="item.messageToBranch" rows="2" class="form-control"
+                            (blur)="updateMsgBranch($event, i)"
+                            (keyup.enter)="updateMsgBranch($event, i)"
+                            placeholder="{{ 'SHOPPING_BASKET.REFERENCE_MAX_20_LENGTH' |  translate}}" maxlength="20">
+                        </textarea>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </ng-container>
+</section>

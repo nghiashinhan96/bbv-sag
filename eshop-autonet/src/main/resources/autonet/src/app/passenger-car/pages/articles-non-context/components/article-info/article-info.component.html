@@ -1,0 +1,8 @@
+<section class="card card-body lib-article-info justify-content-between">
+    <div class="info">
+        <div><strong *ngIf="keywords">{{keywords}}</strong></div>
+        <span>{{'ARTICLE_FILTER.ARTICLE_SEARCH' | translate}} {{numberOfSearchedArticles}}
+            {{'ARTICLE_FILTER.MATCHING_PRODUCTS' | translate}}</span>
+    </div>
+    <a href="javascript:void(0)" (click)="refresh()"><i class="fa fa-refresh"></i></a>
+</section>

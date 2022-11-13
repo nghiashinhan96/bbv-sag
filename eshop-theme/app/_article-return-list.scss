@@ -1,0 +1,34 @@
+connect-article-return-list {
+    .col-reason {
+        .ng-select {
+            .ng-select-container {
+                height: 30px !important;
+            }
+            .ng-arrow-wrapper {
+                width: 18px !important;
+    
+                .ng-arrow::after {
+                    width: 18px !important;
+                }
+            }
+    
+            .ng-dropdown-panel {
+                width: auto;
+            }
+        }
+
+        .invalid {
+            .ng-placeholder {
+                color: var(--red) !important;
+            }
+        }
+    }
+    
+    .col-amount, .col-reason {
+        padding-right: 0 !important;
+    }
+
+    .col-amount-warning, .col-reason-warning {
+        padding: 0 !important;
+    }
+}

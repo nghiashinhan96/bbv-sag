@@ -1,0 +1,235 @@
+{
+  "ARTICLE": {
+    "AMOUNT": "Menge",
+    "ARTICLE_LIST": "Artikel-Liste",
+    "BRIEF_INFORMATION": "Kurzinformation",
+    "CLEAR_ALL_FILTER": "Alle löschen",
+    "DELIVERY_TYPE": "Lieferung",
+    "FEATURES": "Merkmale",
+    "GENERAL_INFORMATION": "Allgemeine Information",
+    "IAM_NUMBER": "IAM Nummern",
+    "IMAGE": "Bild",
+    "INSTALLATION_INFORMATION": "Montage-Information",
+    "MANUFACTURER": "Hersteller",
+    "MORE_INFO": "Mehr Infos",
+    "NET": "Preis",
+    "OE_NUMBER": "OE-Nummern",
+    "POSITION": "Position",
+    "PRICE": {
+      "ARTICLE_WITHOUT_PRICE": "auf Anfrage",
+      "AVAILIBILITY": "Verfügbarkeit",
+      "PRICE_INFORMATION_AVAILIBILITY": "Preisinformation - Verfügbarkeit"
+    },
+    "PRODUCT_COMMERCIAL_CODE": "Gebrauchs-Nr.",
+    "PCC_ARTICLE_DETAIL": "Gbr. Nr.",
+    "QUICK_CLICK": "Quick Click",
+    "REFERENCE": "Referenzen",
+    "REPLACED_BY": "Ersetzt durch",
+    "REPLACES": "Ersetzt",
+    "TECHNICAL_INFORMATION": "Technische Information",
+    "USE": "Verwendung",
+    "HIDE_NO_ARTICLE_AVAIL": "nur am Lager",
+    "SHOW_ONLY_ARTICLE_STOCK": "Einblenden nicht verfügbare Artikel",
+    "HIDE_ONLY_ARTICLE_STOCK": "Ausblenden nicht verfügbare Artikel",
+    "GROUPS": {
+      "DIRECT_MATCH": "Direkte Treffer",
+      "REFERENCE_MATCH": "Referenz Treffer",
+      "ORIGINAL_PART": "Originalteile",
+      "POSSIBLE_MATCH": "Mögliche Treffer"
+    }
+  },
+  "ARTICLE_FILTER": {
+    "ARTICLE_SEARCH": "Artikelsuche",
+    "ATTRIBUTES": "Attribute",
+    "BRAND_FILTER": {
+      "BRANDS": "Marken"
+    },
+    "CATEGORY_MERKMALE": "Kategorien & Merkmale",
+    "FILTER": "Filter",
+    "GEN_ARTS": "Kategorien",
+    "MATCHING_PRODUCTS": "passende(s) Produkt(e)",
+    "RESET": "Filter zurücksetzen",
+    "SUPPLIERS": "Hersteller"
+  },
+  "ARTICLE_TITLE": "Teilesuche",
+  "AUTONET": {
+    "AVAIL_STATE": {
+      "BLACK": "Unbekannt.",
+      "BLUE": "Verfuegbar beim Lieferant. Details in Warenkorb.",
+      "GREEN": "Verfuegbar in Ihr Hauptlager.",
+      "RED": "Nicht verfuegbar.",
+      "YELLOW": "Verfuegbar im anderen Lager. Details in Warenkorb.",
+      "YELLOW_GREEN": "Heutige Lieferung Bestellzeit abhaengig. Details in Warenkorb."
+    }
+  },
+  "CATEGORY": {
+    "BUTTON": {
+      "RESET_FILTER": "Filter zurücksetzen"
+    },
+    "SEARCH": {
+      "TEXT_HOLDER": "Kategorien"
+    },
+    "TAB": {
+      "ALL_PARTS": "Alle Artikel"
+    }
+  },
+  "COMMON_LABEL": {
+    "ACCESSORIES": "Zubehör",
+    "ACCESSORIES_LIST": "Zubehörliste",
+    "ACCESSORIES_GROUPS_HINT": "Es wurde eine grosse Anzahl von Zubehörteilen für verschiedene Fahrzeuge gefunden. Um die Ergebnisse einzugrenzen, wählen Sie bitte ein Fahrzeug im Reiter \"Verwendung\" im Bereich \"Details\" aus.",
+    "ARTICLE_NUMBER_LABEL": "Art. Nr.",
+    "CLOSE": "Schliessen",
+    "DETAILS": "Details",
+    "EXPAND": "Erweitern",
+    "NO_RESULTS_FOUND": "Keine Übereinstimmungen gefunden!",
+    "REDUCE": "Verkleinern",
+    "REQUEST_OFFER": "Angebot anfordern",
+    "SAVE": "Speichern",
+    "DATE_FROM": "Datum von",
+    "DATE_TO": "Datum bis",
+    "ALL": "Alle",
+    "TODAY": "Heute",
+    "TWO_DAYS": "letzte 2 Tage",
+    "SEVEN_DAYS": "letzte 7 Tage",
+    "THIRTYONE_DAYS": "letzte 31 Tage",
+    "OWN_HISTORY": "Meine letzten Suchanfragen",
+    "COLUMNS": {
+      "SEARCH_METHOD": "Art der Suche",
+      "KEYWORD": "Suchbegriff",
+      "DATE": "Datum",
+      "USERNAME": "Benutzername",
+      "VEHICLE": "Fahrzeug"
+    },
+    "CROSS_REFERENCE": "Alternativ-Artikel",
+    "PARTS_LIST": "Stückliste",
+    "PARTS_LIST_HINT": "Einzelteile siehe Stückliste"
+  },
+  "ERROR_500": "Interner Server Error",
+  "FEEDBACK": {
+    "TECHNICAL_DATA": {
+      "VEHICLE_SEARCH": "Vehicle search"
+    }
+  },
+  "MENU": {
+    "ADMINISTRATION": "Administration",
+    "CARS": "PKW",
+    "CATELOGUES": "Kataloge",
+    "HOME": "Home",
+    "PRICE-OFFERS": "Preisangebote",
+    "SHOPPING-BASKET": "Warenkorb"
+  },
+  "OLYSLAGER": {
+    "DESCRIPTION": "Wählen Sie das gewünschte Fahrzeug-Modell:",
+    "ERROR_MESSAGE": "Keine Ölinformationen für dieses Fahrzeug",
+    "TITLE": "Fahrzeugliste"
+  },
+  "QUICK_CLICK": {
+    "ARTICLES_DISPLAY": "Artikel anzeigen"
+  },
+  "SEARCH": {
+    "ARTICLE_DESC": "Artikelbeschreibung",
+    "ARTICLE_DESC_AUT": "Artikel Nr., Text oder VIN",
+    "ARTICLE_HISTORY_TITLE": "Zuletzt gesucht",
+    "ARTICLE_TIPS": "Artikel-Nr./ OE-Referenz-Text",
+    "COLUMN_BODY": "Karosserie",
+    "COLUMN_CYLINDER": "Zylinder",
+    "COLUMN_DRIVE_TYPE": "Antrieb",
+    "COLUMN_ENGINE": "Hubraum",
+    "COLUMN_FUEL": "Treibstoff",
+    "COLUMN_MOTOR": "Motor",
+    "COLUMN_NAME": "Name",
+    "COLUMN_POWER": "Leistung",
+    "COLUM_PERIOD": "Jahrgang",
+    "ERROR_MESSAGE": {
+      "ARTICLE_NOT_FOUND": "Der Artikel kann nicht gefunden werden.",
+      "NOT_FOUND": "Es können keine Teile gefunden werden! Bitte prüfen Sie Ihre Eingaben.",
+      "REQUIRED_FIELD": "Bitte ausfüllen",
+      "VEHICLE_NOT_FOUND": "Kein Fahrzeug mit dieser Referenz gefunden!",
+      "VEHICLE_NOT_MATCHED": "Kein passendes Fahrzeug gefunden."
+    },
+    "FILTER_NAME_TITLE": "Suche mit Platzhalter: (*) entspricht einem oder mehreren Zeichen, z.B. \"Fahr*\" findet \"Fahrzeug\"",
+    "HOVER_TITLES": {
+      "VEHICLES": "Suchen Sie nach: Typenschein-Nummer (CH), Kennzeichen (CH), Nationaler Code (AT), KBA(DE), TypeMine(FR)",
+      "VEHICLES_DESC": "Suchen Sie nach: Marke, Modell, Typ, Karosserieart, Treibstoff, Hubraum, Motorcode, KW, PS, Antrieb oder nach einer beliebigen Kombination dieser Daten",
+      "VEHICLES_DESC_HELP": "Platzhalter (*) entspricht einem oder mehreren Zeichen, z.B. \"Fahr*\" findet \"Fahrzeug\"",
+      "YEAR": "Suchen Sie nach Jahrgang: JJJJ, MM-JJJJ oder MM/JJJJ"
+    },
+    "KW_PS": "KW/PS",
+    "LOADING": "Loading...",
+    "MAKE_MODEL_HINT": "Search for a vehicle using fields below",
+    "NO_RESULTS_FOUND": "Keine Übereinstimmungen gefunden!",
+    "REMOVE": "Löschen",
+    "SEARCH_BUTTON": "Suchen",
+    "VEHICLES": "Typenschein (CH), Kennzeichen (CH), Nationaler Code (AT), etc...",
+    "VEHICLES_DESC": "Fahrzeugbeschreibung, Motorcode",
+    "VEHICLE_HINT": "Die Suche nach einem Fahrzeug erfolgt durch die Verwendung eines dieser Felder.",
+    "VEHICLE_HISTORY_TITLE": "Zuletzt gesuchte Fahrzeuge",
+    "VEHICLE_SEARCH": {
+      "MAKE_MODEL_TITLE": "Make/Model",
+      "VEHICLE_TITLE": "Vehicle"
+    },
+    "VEHICLE_SEARCH_TITLE": "Fahrzeugsuche",
+    "YEAR": "Jahrgang",
+    "YEAR_ERROR_HINT": "JJJJ, MM/JJJJ, MM-JJJJ",
+    "NO_ARTICLE_SEARCH_FOUND": "Keine Einträge gefunden",
+    "NO_VEHICLE_SEARCH_FOUND": "Keine Fahrzeuge gefunden",
+    "OR": "oder"
+  },
+  "SEARCH_RESULT": {
+    "LOAD_MORE": "Mehr anzeigen"
+  },
+  "TYRE": {
+    "ALL": "Alle"
+  },
+  "VEHICLE_FILTER": {
+    "APPROVAL": "Typengenehmigung",
+    "BODY": "Karosserie",
+    "BODY_TYPE": "Karosserieart",
+    "BRAND": "Marke",
+    "BUILD_YEAR": "Jahrgang",
+    "CAPACITY_ENGINE": "Hubraum",
+    "CATALYST_CONVERTER_TYPE": "Katalysator Art",
+    "CYLINDER": "Zylinder",
+    "DOORS": "Türen",
+    "DRIVE_TYPE": "Antriebsart",
+    "ENGINE_CODE": "Motor",
+    "FUEL": "Treibstoff",
+    "FUEL_SUPPLY": "Kraftstoffaufbereitung",
+    "FUEL_TYPE": "Treibstoffart",
+    "MB": "Motorrad",
+    "MODEL": "Modell",
+    "PC": "PKW/LNFZ",
+    "POWER": "Leistung",
+    "POWER_HP": "PS",
+    "POWER_KW": "KW",
+    "TITLE": "Marke/Modell",
+    "TYPE": "Typ",
+    "VALVES": "Ventile"
+  },
+  "FAVORITE": {
+    "FAVORITES": "Favoriten",
+    "ADD_FAVORITE": "Favorit hinzufügen",
+    "EDIT_FAVORITE": "Favorit bearbeiten",
+    "COMMENT": "Kommentar (optional)",
+    "REMOVE": "Entfernen"
+  },
+  "PAGINATION": {
+    "NEXT": "Nächster",
+    "PREVIOUS": "Bisherige"
+  },
+  "ADVANCE_VEHICLE_SEARCH": {
+    "HEADER": "Erweiterte Fahrzeugsuche",
+    "TOP_MAKES_HEADER": "Beliebte Marken",
+    "ALL_MAKES_HEADER": "Alle Marken",
+    "MAKES": "Marken",
+    "MODELS": "Modelle",
+    "MODEL_SERIES": "Modellreihe",
+    "MODEL_YEAR": "Baujahr",
+    "FILTER_BY_YEAR": "Filtern nach Baujahr",
+    "QUICK_SELECTION": "Schnellauswahl Modelle",
+    "SEARCH": {
+      "COLUMN_TYPE": "Typ",
+      "COLUMN_YEAR": "Baujahr"
+    }
+  }
+}

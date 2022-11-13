@@ -1,0 +1,142 @@
+<section class="article-result-container row">
+    <section class="col-12 d-flex mb-3">
+        <div class="ads-box">
+            <sag-common-adserver *ngIf="adsTargetName"
+                              [zid]="4"
+                              [sitearea]="'MAIN_LIST_PARTS_AREA'"
+                              [custom1]="adsTargetName"
+                              (adsClickedEmitter)="sendAdsEvent()">
+            </sag-common-adserver>
+        </div>
+        <div class="flex-grow-1">
+            <section class="card card-body lib-vehicle-info h-100">
+                <div class="info">
+                    <ng-container *ngIf="keywords">
+                        <strong>{{keywords}}</strong>
+                        <br>
+                    </ng-container>
+                    <span>
+                        {{'ARTICLE_FILTER.ARTICLE_SEARCH' | translate}} {{numberOfSearchedArticles}}
+                        {{'ARTICLE_FILTER.MATCHING_PRODUCTS' | translate}}
+                    </span>
+                </div>
+
+                <a href="javascript:void(0)" [routerLink]="['/home']"><i class="fa fa-refresh"></i></a>
+            </section>
+        </div>
+    </section>
+
+    <section class="filtering">
+        <sag-custom-favorite-list (onSelectItemEmit)="onSelectFavoriteItem($event)"></sag-custom-favorite-list>
+
+        <sag-article-list-merkmale-filter *ngIf="useMerkmaleFilter"
+                                 [showContent]="typeMode !== searchMode.ID_SAGSYS"
+                                 [filterData]="filterData"
+                                 [brandFilterData]="merkmaleBrandFilterData"
+                                 [deselectMermaleValue]="uncheckMerkmale"
+                                 [selectedCateFilter]="subSelectedCategory"
+                                 [resetAllFilters]="resetAllFilters"
+                                 (changeRootCategoryEmitter)="selectRootCategory($event)"
+                                 (changeFilter)="selectCriteriaValue($event)"
+                                 (onFilterBrandChangeEmitter)="onMerkmaleBrandFilterChange($event)"
+                                 (resetFilterEmitter)="resetFilter()">
+        </sag-article-list-merkmale-filter>
+        <sag-article-list-non-merkmale-filter *ngIf="!useMerkmaleFilter"
+                                     [filterData]="nonMerkmaleFilterData"
+                                     [attributes]="attributes"
+                                     (additionalFilterEmitter)="handleAdditionalFilter($event)"
+                                     (resetEmitter)="resetFilter()">
+        </sag-article-list-non-merkmale-filter>
+    </section>
+    <section class="result article-list-section" data-automation="article-non-context-result-list">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active">
+                    <span>{{'ARTICLE.ARTICLE_LIST' | translate}}</span>
+                </a>
+            </li>
+        </ul>
+        <ng-container *ngIf="!isSb && creditLimitService.creditCardInfo$ | async as creditCardInfo">
+            <div class="card mb-2 card-body credit-limit-panel" *ngIf="!creditCardInfo.creditValid">
+                <strong class="message-title w-100 mb-2">
+                    {{'SHOPPING_BASKET.CREDIT_LIMIT' | translate}}
+                </strong>
+                <div class="message-content"
+                    [innerHTML]="creditCardInfo.creditMessageListPart?.message | translate: creditCardInfo.creditMessageListPart?.messageParams">
+                </div>
+                <div class="message-content sub-message"
+                    [innerHTML]="creditCardInfo.creditMessageListPart?.subMessage | translate">
+                </div>
+            </div>
+        </ng-container>
+        <sag-article-list
+            [groupByRelevance]="groupByRelevance"
+            [data]="data"
+            [(articleMode)]="appStorage.articleMode"
+            [userSetting]="userService.userPrice"
+            (currentNetPriceChange)="toggleNetPriceSetting()"
+            [moreData]="moreData"
+            [hasMoreData]="hasMoreData"
+            [articleListType]="articleListType"
+            [filterDataOnBadge]="filterDataOnBadge"
+            (deselectMerkmaleEmitter)="deselectMerkmale($event)"
+            (showMoreArticlesEmitter)="showMoreArticles($event)"
+            [specialInfoTemplateRef]="specialInfoTemplateRef"
+            [memosTemplateRef]="memosTemplateRef"
+            [customAvailTemplateRef]="availTemplateRef"
+            [customAvailPopoverContentTemplateRef]="popoverContentTemplateRef"
+            [priceTemplateRef]="priceTemplateRef"
+            [totalPriceTemplateRef]="totalPriceTemplateRef"
+            (sendArticleResultData)="sendArticleResultData($event)"
+            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+            (onShowPartsListEmitter)="onShowPartsList($event)"
+            (sendArticlesGaData)="onSendArticlesGaData($event)"
+            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+            >
+        </sag-article-list>
+        <section class="d-flex justify-content-between mt-5">
+            <connect-action icon="fa-chevron-left" text="SEARCH_RESULT.BACK" (isClicked)="backToDestinationPage()" name="article-non-context-go-back">
+            </connect-action>
+            <connect-action icon="fa-chevron-right" text="SHOPPING_BASKET.SHOPPING" [disabled]="!cartItemQuantity" (isClicked)="checkout()" name="article-non-context-checkout">
+            </connect-action>
+        </section>
+    </section>
+</section>
+
+<ng-template #specialInfoRef let-article="article">
+    <connect-cz-article-detail-special-info [article]="article" [memos]="article?.memos"></connect-cz-article-detail-special-info>
+</ng-template>
+
+<ng-container *ngIf="isCz || isAffiliateApplyFgasAndDeposit">
+    <ng-template #memosRef let-article="article">
+        <connect-cz-article-detail-memos [memos]="article?.memos" [article]="article"></connect-cz-article-detail-memos>
+    </ng-template>
+</ng-container>
+
+<ng-container *ngIf="isCz">
+    <ng-template #availRef let-availabilities="availabilities" let-popover="popover">
+        <div class="avail-state avail-state-{{availabilities[0]?.availState}}">
+            {{'ARTICLE.AVAILABILITY.' + czAvailState[availabilities[0]?.availState] | translate}}
+        </div>
+    </ng-template>
+
+    <ng-template #popoverContentRef let-article="article" let-currency="currency">
+        <connect-cz-avail-popover-content [article]="article" [currency]="currency"></connect-cz-avail-popover-content>
+    </ng-template>
+
+    <ng-template #priceRef let-article="article" let-popoversChanged="popoversChanged" let-currentStateVatConfirm="currentStateVatConfirm">
+        <div class="part-col part-gross">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.LIST_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-price>
+        </div>
+        <div class="part-col part-net">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.CUSTOMER_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-price>
+        </div>
+    </ng-template>
+
+    <ng-template #totalPriceRef let-article="article" let-currentStateVatConfirm="currentStateVatConfirm">
+        <connect-cz-article-detail-total-price [article]="article" [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-total-price>
+    </ng-template>
+</ng-container>

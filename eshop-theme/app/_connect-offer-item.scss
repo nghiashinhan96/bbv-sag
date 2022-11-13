@@ -1,0 +1,42 @@
+
+.amount-block {
+    height: 3.25rem;
+
+    .txt-amount {
+        width: 3.25rem;
+    }
+}
+
+.btn-plus,
+.btn-minus {
+    &.small {
+        padding: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #666;
+        color: white;
+    }
+
+    &.medium {
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2.5rem;
+
+        background-color: $background-color;
+
+        &:hover:not([disabled]) {
+            background-color: $light-grey;
+        }
+    }
+}
+
+.labour-time {
+    background-color: $light-grey;
+}
+
+connect-offer-item {
+    .table-header {
+        background-color: $grey;
+        padding: 0px;
+    }
+}

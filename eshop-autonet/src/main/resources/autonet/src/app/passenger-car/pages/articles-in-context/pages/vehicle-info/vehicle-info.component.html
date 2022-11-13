@@ -1,0 +1,10 @@
+<section class="card card-body lib-vehicle-info" *ngIf="vehicle">
+    <a [routerLink]="['/cars']" class="btn-home mr-3"><img src="assets/icons/home.svg"></a>
+    <a href="javascript:void(0)" (click)="showInfo()"><i class="fa fa-info-circle fa-2x"></i></a>
+    <span class="info">{{vehicle.vehicleInfo}}</span>
+    <a class="btn-price-offer ml-3 d-flex align-items-center" href="javascript:void(0)" (click)="onOpenRequestPriceOffer()">
+        {{ 'COMMON_LABEL.REQUEST_OFFER' | translate }}
+        <img class="ml-2" src="assets/icons/price-offers.svg">
+    </a>
+    <a class="btn-refresh" href="javascript:void(0)" (click)="refresh()"><i class="fa fa-refresh"></i></a>
+</section>

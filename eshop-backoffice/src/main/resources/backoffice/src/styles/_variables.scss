@@ -1,0 +1,43 @@
+// Fonts
+$font-base: Roboto, sans-serif;
+$font-size-base: 13px;
+
+// Brand colors & Base colors
+$brand-color: #005eaa;
+$sag-bg: $brand-color;
+
+$black: #000;
+$black-lighter: #333;
+$white: #fff;
+$darker: #333;
+$gray-lighter: #eee;
+$light-pink: #f5f5f5;
+$light-blue: #d9edf7;
+
+$default-color: #999;
+$primary-color: $brand-color;
+$success-color: #2b9671;
+$info-color: lighten($brand-color, 10%);
+$warning-color: #f57f17;
+$danger-color: #d32f2f;
+
+//Dimensions
+$base-spacing: 20px;
+$base-width: 1170px;
+$header-height: 90px;
+$menu-height: 50px;
+$footer-height: 70px;
+
+// Line styles
+$border-color: #ddd;
+
+// Layout
+$border-radius-base: 3px;
+$button-height-base: 30px;
+
+// Primeng viewports
+$viewport-sm: 576px;
+$viewport-md: 768px;
+$viewport-lg: 992px;
+$viewport-xl: 1200px;
+$viewport-xxl: 1900px;

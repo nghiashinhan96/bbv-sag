@@ -1,0 +1,48 @@
+<td colspan="42">
+    <table class="table">
+        <thead class="w-100">
+            <tr class="header text-white">
+                <th class="thead name">{{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.DAY'
+                    | translate}}</th>
+                <th class="thead year">{{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.SUPPLIER_DEPARTURE_TIME'
+                    | translate}}</th>
+                <th class="thead body center">{{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.OVERNIGHT'
+                    | translate}}</th>
+                <th class="thead body center">{{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.WSS_DEPARTURE_TIME'
+                    | translate}}</th>
+                <th class="thead body center">{{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.DURATION'
+                    | translate}}</th>
+                <th class="thead body add-tour" (click)="creatNewTour()">+ {{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.TOUR_ASSIGNMENT'
+                    | translate}}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <ng-container *ngFor="let tour of sortedTourAssigns; let i = index">
+                <tr class="tour-row">
+                    <td class="tcol col-name name">
+                        {{ (tour.supplierTourDay !=='ALL' ? 'DAY_IN_WEEK.'+tour.supplierTourDay.substr(0,3) : 'COMMON_LABEL.ALL') | translate}}
+                    </td>
+                    <td class="tcol col-month desc">
+                        {{tour.supplierTourTime}}
+                    </td>
+                    <td class="tcol center code">
+                        {{(tour.isOverNight? 'COMMON_LABEL.YES' : 'COMMON_LABEL.NO' ) | translate}}
+                    </td>
+                    <td class="tcol center code">
+                        {{tour.tourDepartureTime}} {{tour.tourName}}
+                    </td>
+                    <td class="tcol center code">
+                        {{tour.durationDisplayText}}
+                    </td>
+                    <td class="tcol center action">
+                        <div class="tour-edit">
+                            <i class="fa fa-edit" (click)="onEditTour(tour)"></i>
+                            <i class="fa fa-trash" (click)="onDeleteTour(tour)" [ngClass]="{'disabled': sortedTourAssigns.length <= 1}"></i>
+                        </div>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</td>

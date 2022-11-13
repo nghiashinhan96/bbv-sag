@@ -1,0 +1,1 @@
+export const CUSTOM_PRICE_SHOWN = 'app.custom.price.shown';

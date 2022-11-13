@@ -1,0 +1,72 @@
+<div class="w-100">
+    <table class="table">
+        <thead>
+            <tr class="header text-white">
+                <th class="thead name" [sagCommonSortable]="'orderDescByProfileName'" [(sort)]="sort" [style.width]="20+'%'"
+                    (sortChange)="sortData($event)">{{'DELIVERY_PROFILE.PROFILE_NAME'
+                | translate}}</th>
+                <th class="thead year" [sagCommonSortable]="'orderDescByProfileDescription'" [(sort)]="sort" [style.width]="40+'%'"
+                    (sortChange)="sortData($event)">{{'DELIVERY_PROFILE.PROFILE_DESC'
+                | translate}}</th>
+                <th class="thead body center" [sagCommonSortable]="'orderDescByBranchCode'" [(sort)]="sort" [style.width]="25+'%'"
+                    (sortChange)="sortData($event)">{{'DELIVERY_PROFILE.BRANCH_CODE'
+                | translate}}</th>
+                <th class="thead body center"></th>
+            </tr>
+        </thead>
+
+        <ng-container *ngIf="deliveryProfileData?.length > 0, else noDataError">
+            <tbody>
+                <ng-container
+                    *ngFor="let profile of deliveryProfileData | paginate: { id: 'delivery-table',totalItems: page.totalItems, itemsPerPage: page.itemsPerPage, currentPage: page.currentPage}">
+                    <tr class="delivery-row">
+                        <td class="tcol col-name name">
+                            {{profile.name}}
+                        </td>
+                        <td class="tcol col-month desc">
+                            {{profile.description}}
+                        </td>
+                        <td class="tcol center code">
+                            {{profile.branchCode}}
+                        </td>
+                        <td class="tcol center action">
+                            <div class="profile-edit">
+                                <i [ngClass]="(profile.id==expandingProfileId)?'fa fa-caret-up':'fa fa-caret-down'"
+                                    (click)="expandProfile(profile)"></i>
+                                <i class="fa fa-edit" (click)="onEditProfile(profile)"></i>
+                                <i class="fa fa-trash" (click)="onDeleteProfile(profile)"></i>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="w-100 connect-assign-tour-list" connect-assign-tour-list
+                        *ngIf="profile.id == expandingProfileId" [tourAssignData]="tourAssignData" [profileId]="profile.id" (reloadTourList)="reloadTourList()">
+                    </tr>
+                </ng-container>
+            </tbody>
+        </ng-container>
+        <ng-template #noDataError>
+            <tbody *ngIf="deliveryProfileData?.length === 0">
+                <td [attr.colSpan]='4'>
+                    <div class="alert alert-warning">
+                        {{'SEARCH.NO_RESULTS_FOUND' | translate}}
+                    </div>
+                </td>
+            </tbody>
+        </ng-template>
+    </table>
+</div>
+
+<div class="row" *ngIf="page.totalItems > page.itemsPerPage">
+    <div class="col-12">
+        <pagination-controls [id]="'delivery-table'" nextLabel="{{'PAGINATION.NEXT' | translate}}"
+            previousLabel="{{'PAGINATION.PREVIOUS' | translate}}" (pageChange)="pageChanged($event)"
+            (pageBoundsCorrection)="pageChanged($event)" autoHide="false">
+        </pagination-controls>
+    </div>
+</div>
+
+<div class="w-100 create-btn-container d-flex justify-content-end">
+    <button class="btn btn-primary" (click)="openCreateProfile()">
+        <i class="fa fa-plus mr-1"></i> {{ 'DELIVERY_PROFILE.NEW_PROFILE' | translate }}
+    </button>
+</div>

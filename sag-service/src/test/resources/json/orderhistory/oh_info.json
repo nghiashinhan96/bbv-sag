@@ -1,0 +1,243 @@
+{
+  "invoiceTypeCode": "WEEKLY_INVOICE",
+  "reference": "",
+  "branchRemark": "",
+  "items": [
+    {
+      "article": {
+        "freetextDisplayDesc": "Zündkerze BOSCH 0 242 235 665",
+        "isReplacementFor": "0 242 235 762",
+        "availRequested": false,
+        "totalAxStock": 158,
+        "allowedAddToShoppingCart": false,
+        "glassOrBody": false,
+        "oilArticle": false,
+        "favorite": false,
+        "100pr": false,
+        "id": "1000303733",
+        "artnr": "0242235665",
+        "is_100pr": false,
+        "gaID": "686",
+        "id_pim": "1000303733",
+        "id_dlnr": "30",
+        "supplier": "BOSCH",
+        "supplierId": 0,
+        "artid": "1000303733",
+        "artnr_display": "0 242 235 665",
+        "partDesc": "<strong>Baujahr bis</strong>: 07.1982",
+        "amountNumber": 4,
+        "salesQuantity": 4,
+        "product_brand": "BOSCH",
+        "id_product_brand": "30",
+        "name": "Zündkerze",
+        "product_addon": "Zündkerze Bosch - Nickel",
+        "sag_product_group": "6",
+        "sag_product_group_2": "6-1",
+        "sag_product_group_3": "6-15",
+        "sag_product_group_4": "6-150003",
+        "genArtTxts": [
+          {
+            "gaid": "686",
+            "gatxtdech": "Zündkerze"
+          }
+        ],
+        "images": [
+          {
+            "id_img": 1,
+            "ref": "https://s3.exellio.de/dvse/0030/193099399d13ba0223b96a690297f917.jpg",
+            "sort": 1,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 2,
+            "ref": "https://s3.exellio.de/dvse/0030/300/193099399d13ba0223b96a690297f917.jpg",
+            "sort": 1,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 3,
+            "ref": "https://s3.exellio.de/dvse/0030/110/193099399d13ba0223b96a690297f917.jpg",
+            "sort": 1,
+            "img_typ": "image_110"
+          },
+          {
+            "id_img": 4,
+            "ref": "https://s3.exellio.de/dvse/0030/1e868ee290f9af94e3317558ec8728b3.jpg",
+            "sort": 2,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 5,
+            "ref": "https://s3.exellio.de/dvse/0030/300/1e868ee290f9af94e3317558ec8728b3.jpg",
+            "sort": 2,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 6,
+            "ref": "https://s3.exellio.de/dvse/0030/110/1e868ee290f9af94e3317558ec8728b3.jpg",
+            "sort": 2,
+            "img_typ": "image_110"
+          },
+          {
+            "id_img": 7,
+            "ref": "https://s3.exellio.de/dvse/0030/5161015c3cc62ea339b74f86e44a497d.jpg",
+            "sort": 3,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 8,
+            "ref": "https://s3.exellio.de/dvse/0030/300/5161015c3cc62ea339b74f86e44a497d.jpg",
+            "sort": 3,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 9,
+            "ref": "https://s3.exellio.de/dvse/0030/110/5161015c3cc62ea339b74f86e44a497d.jpg",
+            "sort": 3,
+            "img_typ": "image_110"
+          },
+          {
+            "id_img": 10,
+            "ref": "https://s3.exellio.de/dvse/0030/60964437ce10a6ef41ace3861fdcd9f4.jpg",
+            "sort": 4,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 11,
+            "ref": "https://s3.exellio.de/dvse/0030/300/60964437ce10a6ef41ace3861fdcd9f4.jpg",
+            "sort": 4,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 12,
+            "ref": "https://s3.exellio.de/dvse/0030/110/60964437ce10a6ef41ace3861fdcd9f4.jpg",
+            "sort": 4,
+            "img_typ": "image_110"
+          },
+          {
+            "id_img": 13,
+            "ref": "https://s3.exellio.de/dvse/0030/7bf02119855324801ea0c069e3e3e173.jpg",
+            "sort": 5,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 14,
+            "ref": "https://s3.exellio.de/dvse/0030/300/7bf02119855324801ea0c069e3e3e173.jpg",
+            "sort": 5,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 15,
+            "ref": "https://s3.exellio.de/dvse/0030/110/7bf02119855324801ea0c069e3e3e173.jpg",
+            "sort": 5,
+            "img_typ": "image_110"
+          },
+          {
+            "id_img": 16,
+            "ref": "https://s3.exellio.de/dvse/0030/b4647e37dc2df20bec3fd5f416b3f4e6.jpg",
+            "sort": 6,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 17,
+            "ref": "https://s3.exellio.de/dvse/0030/300/b4647e37dc2df20bec3fd5f416b3f4e6.jpg",
+            "sort": 6,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 18,
+            "ref": "https://s3.exellio.de/dvse/0030/110/b4647e37dc2df20bec3fd5f416b3f4e6.jpg",
+            "sort": 6,
+            "img_typ": "image_110"
+          },
+          {
+            "id_img": 19,
+            "ref": "https://s3.exellio.de/dvse/0030/efa3c09098b12d15a375fa954cece81a.jpg",
+            "sort": 7,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 20,
+            "ref": "https://s3.exellio.de/dvse/0030/300/efa3c09098b12d15a375fa954cece81a.jpg",
+            "sort": 7,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 21,
+            "ref": "https://s3.exellio.de/dvse/0030/110/efa3c09098b12d15a375fa954cece81a.jpg",
+            "sort": 7,
+            "img_typ": "image_110"
+          },
+          {
+            "id_img": 22,
+            "ref": "https://s3.exellio.de/dvse/0030/532d91b6fffd1a384f7ebb1b82eb4814.pdf",
+            "sort": 1,
+            "img_typ": "document"
+          }
+        ],
+        "info": [],
+        "price": {
+          "articleId": "1000303733",
+          "umarId": null,
+          "price": {
+            "grossPrice": 5.1,
+            "netPrice": 3.224,
+            "discountPrice": 1.976,
+            "discountInPercent": 38,
+            "totalGrossPrice": 20.4,
+            "totalNetPrice": 12.896,
+            "totalDiscountPrice": 7.904,
+            "uvpePrice": 5.1,
+            "standardGrossPrice": 5.2,
+            "type": "UVPE"
+          }
+        },
+        "availabilities": [
+          {
+            "articleId": "1000303733",
+            "quantity": 4,
+            "backOrder": false,
+            "immediateDelivery": false,
+            "arrivalTime": "2021-09-09T06:10:00Z",
+            "tourName": "2113_121_0810",
+            "stockWarehouse": "",
+            "deliveryWarehouse": "2113",
+            "sendMethodCode": "TOUR",
+            "tourTimeTable": [],
+            "availState": 2,
+            "availStateColor": "TOUR_PLUS_ONE",
+            "sofort": false,
+            "externalSource": false,
+            "venExternalSource": false,
+            "conExternalSource": false,
+            "formattedCETArrivalTime": "08:10",
+            "formattedCETArrivalDate": "09.09.2021"
+          }
+        ],
+        "tyre_article": false,
+        "qtyMultiple": 1,
+        "origin": "FROM_OTHER"
+      },
+      "vehicle": {
+        "id": "V28024M2578",
+        "vehid": "V28024M2578",
+        "id_make": 84,
+        "id_model": 5443,
+        "id_motor": 2578,
+        "vehicle_name": "1.0",
+        "vehicle_brand": "OPEL",
+        "vehicle_model": "KADETT D (32_,37_,39, _42)",
+        "vehicle_engine_code": "10 S",
+        "vehicle_power_kw": "33",
+        "vehicleInfo": "OPEL KADETT D (32_,37_,39, _42) 1.0 33 kW 10 S",
+        "vinSearch": false,
+        "vehTypeDesc": "1.0 33 kW 10 S"
+      },
+      "recycle": false,
+      "depot": false,
+      "vin": false
+    }
+  ],
+  "totalPrice": 13.89,
+  "showPriceType": true
+}

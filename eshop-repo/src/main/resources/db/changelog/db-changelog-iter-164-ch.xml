@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_164_DEFAULT_SETTING_BRAND_PRIORITY_AVAIL_CH">
+    <sql>
+		DECLARE @colectionIdNotYetConfigForC4SC4C TABLE(collectionId int)
+		DECLARE @c4s VARCHAR(100) = 'c4s_brand_priority_avail_filter'
+		DECLARE @c4c VARCHAR(100) = 'customer_brand_priority_avail_filter'
+				
+		INSERT INTO @colectionIdNotYetConfigForC4SC4C SELECT ID from ORGANISATION_COLLECTION WHERE ID NOT IN (SELECT DISTINCT COLLECTION_ID FROM ORG_COLLECTION_SETTINGS where SETTING_KEY =@c4s OR SETTING_KEY = @c4c)
+				
+		INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY,SETTING_VALUE) SELECT collectionId,@c4s,'000' from @colectionIdNotYetConfigForC4SC4C
+				
+		INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY,SETTING_VALUE) SELECT collectionId, @c4c,'011' from @colectionIdNotYetConfigForC4SC4C;
+	</sql>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,29 @@
+<div class="wholesale-container">
+    <div class="final-customer-list">
+        <div class="mt-3">
+            <sag-table mode="online" [columns]="columns" [searchModel]="searchModel"
+                [firstlySearch]="false" (searchData)="searchTableData($event)" [notFoundText]="notFoundText">
+            </sag-table>
+            <div class="border-top pt-3 d-flex align-items-center justify-content-between">
+                <a class="btn-link" (click)="backToCustomers($event)">
+                    <i class="fa fa-chevron-left"></i>{{ 'COMMON_LABEL.BACK' | translate }}
+                </a>
+                <button class="btn btn-primary text-center" (click)="openCreateUserModal()">
+                    <i class="fa fa-plus mr-2"></i>
+                    {{ 'FINAL_CUSTOMER.CREATE_FINAL_USER' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #colType let-row="row">
+    {{ 'SETTINGS.PROFILE.TYPE.' + row.type | translate }}
+</ng-template>
+
+<ng-template #colActions let-row="row">
+    <div class="d-flex align-items-center">
+        <a class="btn-icon" href="javascript:void(0)" (click)="openEditUserModal(row)"><i
+                class="fa fa-edit mr-3"></i></a>
+        <a class="btn-icon" href="javascript:void(0)" (click)="openDeleteUserModal(row)"><i class="fa fa-trash"></i></a>
+    </div>
+</ng-template>

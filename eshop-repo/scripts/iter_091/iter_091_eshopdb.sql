@@ -1,0 +1,2 @@
+-- #4089
+ALTER TABLE [dbo].[OFFER_POSITION] ADD [AW_NUMBER] [varchar](40) NULL;

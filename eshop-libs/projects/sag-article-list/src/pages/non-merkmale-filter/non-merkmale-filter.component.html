@@ -1,0 +1,13 @@
+<section class="sag-article-filter">
+    <div class="title">{{'ARTICLE_FILTER.FILTER' | translate }}</div>
+    <a class="reset" href="javascript:void(0)" (click)="resetFilter()">{{'ARTICLE_FILTER.RESET' | translate }}</a>
+    <sag-article-list-non-merkmale-filter-attribute [attributes]="attributes"></sag-article-list-non-merkmale-filter-attribute>
+    <ng-container *ngFor="let item of filterData">
+        <sag-article-list-non-merkmale-filter-item
+            [filterTitle]="item.key"
+            [filterData]="item.value"
+            (additionalFilterEmitter)="filterArticle($event)"
+            [isCollapsed]="item.key === TYRE_SEGMENT">
+        </sag-article-list-non-merkmale-filter-item>
+    </ng-container>
+</section>

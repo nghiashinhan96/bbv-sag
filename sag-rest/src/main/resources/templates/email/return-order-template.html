@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:remove="all">Return Order</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:if="${isError == false}" >
+  <b><a style="font-weight: bold" th:text="#{mail.return-order.message}"></a></b>
+  <br/><br/>
+  <a th:text="#{mail.return-order.order-number}"></a>&nbsp;<b><a th:text="${orderNumbers}"></a></b>
+</div>
+<div th:if="${isError == true}">
+  <a style="font-weight: bold" th:text="${errorMessage}"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<section class="card search-card">
+    <div class="card-header">
+        <strong class="mb-0">
+            <a class="card-header__title">{{'COMMON_LABEL.ARTICLE_NUMBER_LABEL' | translate}} / {{'SEARCH.ARTICLE_DESC' | translate}}</a>
+        </strong>
+    </div>
+    <div class="card-body">
+        <sag-search-article (articleSearchEmitter)="searchArticle($event)" [isArticleNumberSearch]="false"
+            [customTemplate]="searchForm" [enableValidation]="false" [keywords]="keywords">
+        </sag-search-article>
+    </div>
+</section>
+<ng-template #searchForm let-searchForm="form" let-search="searchFn" let-bindingFn="focus" let-spinner="spinner">
+    <div class="input-group" [formGroup]="searchForm">
+        <input formControlName="articleDescription" class="form-control" type="text" maxlength="50"
+            placeholder="{{'COMMON_LABEL.ARTICLE_NUMBER_LABEL' | translate}}"
+            (focus)="bindingFn('articleNumber', articleDescSearchType)">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">
+                <i *ngIf="!spinner.loading" class="fa fa-search"></i>
+                <i *ngIf="spinner.loading" class="spinner-border spinner-border-sm"></i>
+            </button>
+        </div>
+    </div>
+</ng-template>

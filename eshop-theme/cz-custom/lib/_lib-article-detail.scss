@@ -1,0 +1,107 @@
+.st-cz, .eh-cz, .ax-cz, .eh-ax-cz {
+    sag-article-detail {
+        .part-detail-item {
+            .footer-section {
+                .spec-info {
+                    flex: 0 0 $part-brand-width-cz + $part-img-width + $part-pos-width + $part-de-amount-width + $part-avail-width + $part-gross-width-cz + $part-net-width-cz;
+                }
+
+                .additional-info {
+                    .additional-info-element {
+                        margin-right: 0.5rem;
+                        flex-wrap: wrap;
+
+                        img {
+                            margin: 2px;
+                            margin-top: 0;
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+
+                .spec-detail {
+                    display: flex;
+                }
+            }
+
+            &.simple-mode {
+                .footer-section {
+                    align-items: flex-start;
+
+                    .spec-info {
+                        width: $part-description-width + $part-de-amount-width + $part-avail-width + $part-gross-width-cz + $part-net-width-cz;
+                    }
+
+                    .additional-info {
+                        align-items: flex-start;
+                    }
+                }
+            }
+
+            .part-brand {
+                width: $part-brand-width-cz;
+            }
+
+            .part-avail {
+                .avail-state {
+                    text-decoration: underline;
+                    font-size: 11px;
+                }
+            }
+
+            .part-gross {
+                width: $part-gross-width-cz;
+            }
+
+            .part-net {
+                width: $part-net-width-cz;
+                .has-discount {
+                    color: red;
+                }
+
+                .regular-price {
+                    color: $text-color;
+                }
+            }
+
+            .part-total-and-cart {
+                .price {
+                    white-space: nowrap;
+                }
+            }
+
+            .deposit-item, 
+            .fgas-item {
+                color: red;
+                padding: 0 5px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+sag-article-detail {
+    #additional-info-element-memos {
+        margin-right: 0.5rem !important;
+        flex-wrap: wrap;
+
+        img {
+            margin: 2px;
+            margin-top: 0;
+            width: 16px;
+            height: 16px;
+        }
+    }
+    .deposit-item, 
+    .fgas-item,
+    .non-returnable-item {
+        color: red;
+        padding: 1px 5px;
+        font-weight: 500;
+    }
+
+
+}
+
+

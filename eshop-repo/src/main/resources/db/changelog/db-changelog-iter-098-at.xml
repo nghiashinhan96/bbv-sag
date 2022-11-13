@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_98_ADD_ABS_CUSTOMER_SETTING-AT">
+        <sql>
+            DECLARE @DAT_ID INT = (select ID from ORGANISATION where shortname='derendinger-at')
+            INSERT INTO organisation_settings(NAME, ORGANISATION_ID, SETTING_KEY, SETTING_VALUE)
+            VALUES('Derendinger-Austria', @DAT_ID, 'is_customer_abs_enabled', 'false')
+
+            DECLARE @MAT_ID INT = (select ID from ORGANISATION where shortname='matik-at')
+            INSERT INTO organisation_settings(NAME, ORGANISATION_ID, SETTING_KEY, SETTING_VALUE)
+            VALUES('Matik-Austria', @MAT_ID, 'is_customer_abs_enabled', 'false')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

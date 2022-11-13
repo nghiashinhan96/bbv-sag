@@ -1,0 +1,161 @@
+<form [formGroup]="search" class="input-group header-search" [popover]="resultRef" #pop="bs-popover" triggers="manualy"
+    containerClass="header-search-result" placement="bottom" [outsideClick]="true" [class.active]="isShownResult"
+    (submit)="doSearch($event)" #searchForm>
+    <div class="input-group-prepend" style="width: 110px;">
+        <ng-select
+            class="header-search-selection"
+            [items]="items"
+            [searchable]="items?.length > 10"
+            [clearable]="false"
+            (change)="changeSearchOption($event)"
+            formControlName="type" bindValue="value">
+            <ng-template ng-label-tmp let-item="item">
+                <strong>{{ item.label | translate}}</strong>
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+                <strong class="header-search-option">{{ item.label | translate}}</strong>
+            </ng-template>
+        </ng-select>
+    </div>
+    <input type="text" class="form-control"
+        placeholder="{{'SEARCH_TYPE.SEARCH_LABLE'|translate}}"
+        formControlName="term" data-automation="header-search-free-text"
+        #searchControl (keydown.tab)="doSearch()" (click)="showDashboard()"
+        [popover]="dashboardRef" #dashboard="bs-popover" triggers="manualy" containerClass="header-search-dashboard" placement="bottom">
+    <a href="javascript:void(0)" class="btn-icon close" *ngIf="!!searchControl.value" [class.disabled]="isSearching"
+        tabindex="-1" (click)="clearValue()" data-automation="header-search-free-text-clear">
+        <i class="fa fa-times-circle"></i>
+    </a>
+    <div class="input-group-append">
+        <button href="javascript:void(0)" class="btn btn-search" type="submit"
+            [disabled]="isSearching" tabindex="1" data-automation="header-search-free-text-submit">
+            <i class="ico-search" *ngIf="!isSearching"></i>
+            <i class="fa fa-spinner fa-spin btn--search" *ngIf="isSearching"></i>
+        </button>
+    </div>
+</form>
+
+<ng-template #resultRef>
+    <ng-container *ngIf="!!error">
+        <ng-container [ngSwitch]="error.type">
+            <ng-container *ngSwitchCase="searchEnum.RETURN">
+                <div class="no-record alert-danger text-danger return-error" *ngIf="error.subType === 'ERROR'">
+                    {{'SEARCH_TYPE.NO_RETURN_ARTICLE_FOUND'| translate }}
+                </div>
+                <div class="no-record" *ngIf="error.subType === 'WARNING'">
+                    {{'SEARCH_TYPE.RETURN_QUANTITY_IS_ZERO'| translate }}
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="searchEnum.BARCODE">
+                <div class="no-record alert-danger text-danger">
+                    {{'SEARCH_TYPE.BARCODE_NOT_FOUND_MS'| translate:{barcode: error.text} }}
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!error">
+        <ng-container *ngIf="returnArticles && returnArticles.length > 0; else otherSearchResultRef">
+            <table class="return-item-table">
+                <ng-container *ngFor="let article of returnArticles">
+                    <tr class="return-item-search-result-row" [class.disabled]="enhancedUsedPartsReturnProcEnabled && article?.isDepotReturnArticle" (click)="onViewReturnArticleList(article)">
+                        <td>{{article.articleId}}</td>
+                        <td class="return-article-name">{{ article.articleName }}</td>
+                        <td>{{article.orderNr}}</td>
+                        <td class="text-align-right">{{article.quantity}}</td>
+                        <td class="text-align-right">{{article.returnQuantity}}</td>
+                        <td>{{article.branchId}}</td>
+                    </tr>
+                    <ng-container *ngFor="let attached of article.attachedTransactionReferences">
+                        <tr class="return-item-search-result-row" [class.disabled]="!attached?.editable || (enhancedUsedPartsReturnProcEnabled && attached?.isDepotReturnArticle)"
+                            *ngIf="attached.returnQuantity" (click)="onViewReturnArticleList(article, attached)">
+                            <td>{{attached.articleId}}</td>
+                            <td class="return-article-name">{{ attached.articleName }}</td>
+                            <td>{{attached.orderNr}}</td>
+                            <td class="text-align-right">{{attached.quantity}}</td>
+                            <td class="text-align-right">{{attached.returnQuantity}}</td>
+                            <td>{{attached.branchId}}</td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+            </table>
+        </ng-container>
+        <ng-template #otherSearchResultRef>
+            <ng-container *ngIf="result && result.length > 0; else noRecordRef">
+                <tabset [vertical]="true" class="vertical">
+                    <ng-container *ngFor="let tab of result">
+                            <tab heading="{{tab.label | translate}}">
+                                <ul class="list-group list-group-full">
+
+                                    <!-- Add product category into article tab -->
+                                    <ng-container *ngIf="tab.type === searchEnum.ARTICLES">
+                                        <ng-container *ngIf="wspItems && wspItems.length > 0">
+                                            <li class="list-group-item search-type-result">{{'SEARCH_TYPE.PRODUCT_CATEGORY' | translate}}</li>
+
+                                            <ng-container *ngFor="let item of wspItems; let pos = index">
+                                                <ng-container *ngIf="pos <= 4 || (pos > 4 && showMoreProductCategory)">
+                                                    <li class="list-group-item border-0">
+	                                                   <a (click)="item.activeLink ? goToDetail($event, item, searchEnum.PRODUCT_CATEGORY, pos) : '' " [class.disabled]="!item.activeLink"
+	                                                   class="bold inversed">
+	                                                   <i class="fa fa-angle-right"></i>
+	                                                   <span>{{item.displayedText}}</span>
+	                                                   </a>
+                                                    </li>
+                                                </ng-container>
+                                            </ng-container>
+
+                                            <li class="list-group-item border-0" *ngIf="wspItems.length > 5" [hidden]="showMoreProductCategory">
+                                                <a (click)="showMore()" class="bold" href="javascript:void(0)">
+                                                    <span class="pl-3">
+                                                        {{'SEARCH_RESULT.LOAD_MORE'|translate}}
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            <li class="list-group-item search-type-result" *ngIf="tab.content.length > 0">
+                                                {{'SEARCH_TYPE.ARTICLES' | translate}}
+                                            </li>
+                                        </ng-container>
+                                    </ng-container>
+
+                                    <ng-container *ngFor="let g of tab.content">
+                                        <li *ngIf="g.key" class="list-group-item search-type-result">
+                                            {{'ARTICLE.GROUPS.' + g.key | translate}}
+                                        </li>
+                                        <li class="list-group-item border-0" *ngFor="let item of g.values | slice:0:10; let pos = index">
+                                            <a (click)="goToDetail($event, item, tab.type, pos, tab.search)"
+                                                class="bold inversed">
+                                                <i class="fa fa-angle-right"></i>
+                                                <span>
+                                                    {{item.displayedText}}
+                                                    <small *ngIf="item.productAddon">{{item.productAddon}}</small>
+                                                </span>
+                                                
+                                            </a>
+                                        </li>
+                                    </ng-container>
+
+                                    <li class="list-group-item border-0" *ngIf="tab.content.length > 0">
+                                        <a (click)="goToDetail($event, null, tab.type, 0, tab.search)" class="bold" href="javascript:void(0)"
+                                            data-automation="header-search-show-more">
+                                            <i class="fa fa-angle-right"></i>
+                                            <span>
+                                                {{'SEARCH_TYPE.MSG_DISPLAY'|translate}} {{tab.total}}
+                                                {{'SEARCH_TYPE.MSG_RECORDS_FOUND'|translate}}
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </tab>
+                    </ng-container>
+                </tabset>
+            </ng-container>
+            <ng-template #noRecordRef>
+                <div class="no-record" data-automation="header-search-no-record">{{'SEARCH_TYPE.MSG_NO_RECORDS'| translate}}</div>
+            </ng-template>
+        </ng-template>
+    </ng-container>
+</ng-template>
+
+<ng-template #dashboardRef>
+    <connect-header-search-dashboard [container]="searchForm" (outsideClick)="dashboard.hide()"></connect-header-search-dashboard>
+</ng-template>

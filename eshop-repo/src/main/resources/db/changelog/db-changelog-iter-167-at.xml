@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_167_ADD_DEFAULT_NO_AVAIL_TEXT_AT">
+    <sql>
+      DELETE FROM ORG_COLLECTION_SETTINGS where setting_key in ('detail_avail_text_de', 'detail_avail_text_fr', 'detail_avail_text_it')
+
+      DECLARE @mat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'matik-at')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@mat_collection_id,'detail_avail_text_de', 'Sollte der Artikel nicht innerhalb von 24 Std lieferbar sein, werden Sie informiert.')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@mat_collection_id,'detail_avail_text_fr', 'Si l''article n''est pas disponible en 24 heures, vous en serez informé.')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@mat_collection_id,'detail_avail_text_it', 'Se l''articolo non è disponibile entro 24 ore, sarete informati.')
+
+      DECLARE @dat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'derendinger-at')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@dat_collection_id,'detail_avail_text_de', 'Sollte der Artikel nicht innerhalb von 24 Std lieferbar sein, werden Sie informiert.')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@dat_collection_id,'detail_avail_text_fr', 'Si l''article n''est pas disponible en 24 heures, vous en serez informé.')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES (@dat_collection_id,'detail_avail_text_it', 'Se l''articolo non è disponibile entro 24 ore, sarete informati.')
+	</sql>
+  </changeSet>
+
+  
+  <changeSet author="CONNECT_APP" id="ITER_167_ADD_DEFAULT_LIST_AVAIL_TEXT_AT">
+    <sql>
+      DECLARE @mat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'matik-at')
+      DECLARE @dat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'derendinger-at')
+      
+      DELETE FROM ORG_COLLECTION_SETTINGS where setting_key in ('list_avail_text_de', 'list_avail_text_fr', 'list_avail_text_it')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@mat_collection_id, 'list_avail_text_de', 'Nächster Arbeitstag, zweite Tour')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@mat_collection_id, 'list_avail_text_fr', 'Prochain jour ouvrable, deuxième tournée')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@mat_collection_id, 'list_avail_text_it', 'Prossimo giorno lavorativo, secondo tour')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@dat_collection_id, 'list_avail_text_de', 'Nächster Arbeitstag, zweite Tour')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@dat_collection_id, 'list_avail_text_fr', 'Prochain jour ouvrable, deuxième tournée')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@dat_collection_id, 'list_avail_text_it', 'Prossimo giorno lavorativo, secondo tour')
+	</sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_167_ADD_DEFAULT_AVAIL_OPTION_AT">
+    <sql>
+      DECLARE @mat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'matik-at')
+      DECLARE @dat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'derendinger-at')
+      
+      DELETE FROM ORG_COLLECTION_SETTINGS where setting_key in ('availability_icon', 'drop_shipment_availability')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@mat_collection_id, 'availability_icon', 'true')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@mat_collection_id, 'drop_shipment_availability', 'false')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@dat_collection_id, 'availability_icon', 'true')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID,	SETTING_KEY,	SETTING_VALUE) VALUES(@dat_collection_id, 'drop_shipment_availability', 'false')
+
+	</sql>
+  </changeSet>
+</databaseChangeLog>

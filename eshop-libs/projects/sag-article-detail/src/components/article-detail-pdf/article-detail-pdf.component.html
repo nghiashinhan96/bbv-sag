@@ -1,0 +1,27 @@
+<div class="additional-info-element" *ngIf="totalItems > 0">
+    <div class="pdf-container" id="pdf-{{viewId}}">
+        <div class="pdf" (click)="showPanel()">
+            <i class="fa fa-file-pdf-o"></i>
+            <div class="text">{{pdfs.length}}</div>
+        </div>
+        <div class="pdf-slider" #pdfSlider *ngIf="shown"
+            [style.width.px]="leftHand?.offsetWidth + rightHand?.offsetWidth + contentWidth + 2">
+            <div class="control left" *ngIf="slides.length > 1" #leftHand>
+                <i class="fa fa-angle-left " (click)="prevSlide()"
+                    [style.display]="slides[position].prev? 'flex': 'none'"></i>
+            </div>
+            <div class="pdf-slider-content">
+                <div class="pdf-silder-scroll" [style.left]="left + 'px'">
+                    <a *ngFor="let pdf of pdfs; let i = index" class="pdf" [href]="pdf.ref" target="_blank">
+                        <i class="fa fa-file-pdf-o"></i>
+                        <div class="text">{{i+1}}</div>
+                    </a>
+                </div>
+            </div>
+            <div class="control right" *ngIf="slides.length > 1" #rightHand>
+                <i class="fa fa-angle-right " (click)="nextSlide()"
+                    [style.display]="slides[position].next? 'flex': 'none'"></i>
+            </div>
+        </div>
+    </div>
+</div>

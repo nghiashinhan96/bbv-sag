@@ -1,0 +1,6 @@
+external:
+  webservice:
+    oates:
+      endpoint: https://sag-ws-serbia.phoenix.earlweb.net
+      token: E37V9nYf5M7h
+      

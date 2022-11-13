@@ -1,0 +1,23 @@
+<div class="input-group {{size}}" [formGroup]="parentForm">
+    <input type="text" class="form-control time-dispayed" [value]="displayed" [popover]="popTemplate" placement="bottom"
+        [outsideClick]="true" #timerInput containerClass="duration-popup {{size}}" readonly="readonly">
+    <div class="input-group-addon" (click)="timerInput.click()">
+        <i class="fa fa-clock-o"></i>
+    </div>
+</div>
+<ng-template #popTemplate>
+    <div class="duration" [formGroup]="durationForm">
+        <div class="duration-hours">
+            <input class="form-control" placeholder="HH" maxlength="2" formControlName="hours"
+                (focusout)="updateDuration()">
+        </div>
+        <span class="separator">:</span>
+        <div class="duration-minutes">
+            <input class="form-control" placeholder="MM" maxlength="2" formControlName="minutes"
+                (focusout)="updateDuration()">
+        </div>
+    </div>
+    <div class="lead text-center mt-10" *ngIf="!!displayed">
+        <a href="javascript:void(0)" (click)="onReset()">reset</a>
+    </div>
+</ng-template>

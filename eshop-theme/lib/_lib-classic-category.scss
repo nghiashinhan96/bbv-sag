@@ -1,0 +1,31 @@
+sag-article-list-classic-category {
+    .classic-category {
+        background-color: $light-grey;
+        margin-top: 15px;
+        padding: 0 15px;
+        padding-bottom: 20px;
+    }
+
+    sag-article-list-classic-category-items {
+        .parent {
+            padding: 5px 0px;
+        }
+
+        .content {
+            .btn-checkall {
+                margin: 0 0 8px 7px;
+            }
+
+            .items {
+                background: $white;
+                padding: 4px 7px;
+            }
+        }
+
+        label.checkbox {
+            >span {
+                word-break: break-word;
+            }
+        }
+    }
+}

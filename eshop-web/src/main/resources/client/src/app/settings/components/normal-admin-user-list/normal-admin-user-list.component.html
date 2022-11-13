@@ -1,0 +1,25 @@
+<div *ngIf="userList | async as users">
+    <sag-table [columns]="columns" [rows]="users" [firstlySearch]="false"
+    notFoundText="{{ 'MESSAGE_SEARCH_NOT_FOUND.USER_MANAGEMENT' | translate }}"></sag-table>
+</div>
+
+<ng-template let-value="value" #salutation>
+    {{ 'SETTINGS.PROFILE.SALUTATION.' + value | translate }}
+</ng-template>
+
+<ng-template let-value="value" #role>
+    {{ 'SETTINGS.USER_MANAGEMENT.ROLE.' + value | translate }}
+</ng-template>
+
+<ng-template let-row="row" #actions>
+    <ng-container *ngIf="row.userName !== currentUser?.username">
+        <div class="d-flex justify-content-around">
+            <a href="javascript:void(0)" class="btn-icon" (click)="editUser(row)">
+                <i class="fa fa-edit"></i>
+            </a>
+            <a class="ml-3" href="javascript:void(0)" class="btn-icon" (click)="deleteUser(row)">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+    </ng-container>
+</ng-template>

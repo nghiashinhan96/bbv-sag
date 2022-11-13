@@ -1,0 +1,23 @@
+<a href="javascript:void(0)" class="btn-icon btn-shopping-basket-info" [popover]="data.enabled ? vehiclePopTemplate : null"
+    containerClass="order-dashboard-ref-container" #pop="bs-popover" triggers="" container="body"
+    [ngClass]="{'disabled': !data.enabled}" (mouseenter)="onMouseenter()" (mouseleave)="onMouseout()">
+    <i class="fa fa-info-circle"></i>
+</a>
+
+
+<ng-template #vehiclePopTemplate>
+    <div *ngIf="data.reference">
+        <strong class="w-100">{{'ORDER_DASHBOARD.ORDER_REF.CUSTOMER_REF' | translate}}</strong>
+        <div class="pl-2">{{data.reference}}</div>
+    </div>
+    <div class="mt-3" *ngIf="data.positionReferences">
+        <strong class="w-100">{{'ORDER_DASHBOARD.ORDER_REF.CUSTOMER_POSITION_REF' | translate}}</strong>
+        <div class="pl-2" *ngFor="let posRef of data.positionReferences">
+            {{posRef}}
+        </div>
+    </div>
+    <div class="mt-3" *ngIf="data.branchRemark">
+        <strong class="w-100">{{'ORDER_DASHBOARD.ORDER_REF.CUSTOMER_MESSAGE' | translate}}</strong>
+        <div class="pl-2">{{data.branchRemark}}</div>
+    </div>
+</ng-template>

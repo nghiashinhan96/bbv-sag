@@ -1,0 +1,19 @@
+$search-space: 485px;
+
+.col-left {
+    width: $search-space;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-right {
+    width: calc(100% - #{$search-space});
+    padding-right: 15px;
+    min-height: calc(100vh - 66px);
+}
+
+#main-search-page-top-ads {
+    height: 230px;
+    overflow: hidden;
+    position: relative;
+}

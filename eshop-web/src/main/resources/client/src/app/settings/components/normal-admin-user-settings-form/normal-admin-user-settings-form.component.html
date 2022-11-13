@@ -1,0 +1,14 @@
+<div class="card-title mt-3">
+    <label>{{'SETTINGS.USER_MANAGEMENT.GARAGE_NAME'|translate}}:</label>
+    <span class="text-primary ml-2">{{selectedUsername}}</span>
+</div>
+<div class="card user-settings-form">
+    <div class="card-header">
+        <connect-expanded title="SETTINGS.SETTING.USER_SETTINGS" [(expand)]="isUserOpened"></connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isUserOpened">
+        <connect-user-config *ngIf="userSetting && paymentSetting" [userDetail]="userDetail" [userSetting]="userSetting"
+            [userPaymentSettings]="paymentSetting" (updateUserConfigEmitter)="updateUserSettings($event)">
+        </connect-user-config>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+.swiper-container {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-top {
+    height: 80%;
+    width: 100%;
+
+    .swiper-wrapper,
+    .swiper-wrapper .swiper-slide {
+        align-items: center;
+        display: flex;
+    }
+
+    .swiper-slide {
+        justify-content: center;
+    }
+}
+
+.gallery-thumbs {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.gallery-thumbs .swiper-slide {
+    width: 20%;
+    height: 100%;
+    opacity: 1;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 1px solid grey;
+    overflow: hidden;
+    outline: none;
+    width: 92px;
+    height: 92px;
+    padding: 3px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.65;
+        border: 1px solid $primary;
+    }
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 0.65;
+    border: 1px solid $primary;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-family: swiper-icons;
+    text-transform: none !important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+    line-height: 1;
+}
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+    left: 10px;
+    right: auto;
+}
+
+.swiper-button-next:after,
+.swiper-container-rtl .swiper-button-next:after {
+    content: '\f054';
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 24px;
+    line-height: 1;
+    color: $primary;
+}
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+    right: 10px;
+    left: auto;
+}
+
+.swiper-button-prev:after,
+.swiper-container-rtl .swiper-button-prev:after {
+    content: '\f053';
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 24px;
+    line-height: 1;
+    color: $primary;
+}
+.swiper-button-next.swiper-button-white,
+.swiper-button-prev.swiper-button-white {
+    --swiper-navigation-color: #000000;
+}
+.swiper-button-next.swiper-button-black,
+.swiper-button-prev.swiper-button-black {
+    --swiper-navigation-color: #000000;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    top: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 10px;
+    cursor: pointer;
+    outline: none !important;
+    opacity: 0.75;
+    margin-top: 20px;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.swiper-section {
+    display: flex;
+}
+
+figure.zoom {
+    & img:hover {
+        opacity: 0;
+    }
+    img {
+        transition: opacity 0.5s;
+        display: block;
+        width: 100%;
+        object-fit: initial;
+    }
+    background-position: 50% 50%;
+    background: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-button-lock {
+    display: none;
+}

@@ -1,0 +1,54 @@
+# ************************************************************************
+# This is the Autonet configuration of Admin application for pre-prod mode.
+# 
+# Required Common configuration:
+# - Application common configuration -
+# - Country Code - 
+# - Database -
+# - Elasticsearch - 
+# - ERP - 
+# - Caching - 
+# - Mail service - 
+# - Thread Executor Pool - 
+# - Authorization -
+# - MDM for creating DVSE user -
+# - Media Server -
+# - Proxy -
+# - Logging - 
+# - Java Melody Monitoring - 
+# - Actuator Healthcheck - 
+# - Liquibase - 
+#
+# ************************************************************************
+spring.profiles.include:
+  sagadmin,
+  autonet-erp-prod,
+  mdm-prod,
+  mail-prod,
+  elasticsearch-customization-prod,
+  db-prod,
+  executor-pool-prod,
+  no-liquibase,
+  logging-autonet-prod-cloud,
+  actuator,
+  cache-prod,
+  country-autonet,
+  no-proxy,
+  media-server,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_autonet.txt
+
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      #host: http://localhost:9002
+      #host: https://connect.sag.services/auth-server-ch-ax
+      host: http://localhost:8080/auth-server-autonet
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-autonet
+      clientSecret: eshop-autonet-yztAhGpFW
+

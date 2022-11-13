@@ -1,0 +1,52 @@
+input[formControlName="term"] {
+    cursor: text;
+}
+
+.close {
+    position: absolute;
+    right: 40px;
+    font-size: 1.5rem;
+    top: 6px;
+    z-index: 50;
+}
+
+.return-error {
+    color: red !important;
+    background-color: #f2dede !important;
+    border-color: #ebccd1 !important;
+}
+
+.return-item-table {
+    font-size: 13px;
+    width: 600px;
+    background-color: white;
+    border: 1px solid;
+    margin-left: 109px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 6px -12px rgba(0, 0, 0, 0.2), 0 12px 12px -6px rgba(0, 0, 0, 0.1);
+    margin-top: -1px;
+
+    .return-item-search-result-row {
+        td {
+            padding: 10px 4px;
+        }
+
+        .return-article-name {
+            max-width: 480px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+    }
+
+    .return-item-search-result-row:hover {
+        cursor: pointer;
+        background-color: #d0d0d0;
+    }
+}
+
+.search-type-result {
+    font-weight: bold;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.12);
+}

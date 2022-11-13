@@ -1,0 +1,14 @@
+.st-cz, .eh-cz, .eh-ax-cz {
+    sag-auth-login-form {
+        .sso-link {
+            position: relative;
+            padding-left: 8px;
+            margin-left: 1rem;
+
+            > i {
+                position: absolute;
+                left: 0;
+            }
+        }
+    }
+}

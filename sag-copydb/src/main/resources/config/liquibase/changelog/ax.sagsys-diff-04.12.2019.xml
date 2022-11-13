@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:appdba="http://www.datical.net/xml/ns/appdba" xmlns:datical="http://www.datical.net/xml/ns/datical" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+	<changeSet author="CONNECT_APP" id="1575443521081-160">
+        <createView fullDefinition="false" viewName="V_CUSTOMER_ORDER_HISTORY">SELECT
+    o.ID,
+    o.ORDER_NUMBER,
+    o.TRANS_NUMBER,
+    o.CREATED_DATE,
+    o.ERP_ORDER_DETAIL_URL,
+    o.USER_ID,
+    u.USERNAME,
+    o.CUSTOMER_NUMBER,
+    o.ORDER_STATE,
+    o.FINAL_CUSTOMER_ORDER_ID,
+    o.GOODS_RECEIVER_ID
+  FROM ORDER_HISTORY o 
+  JOIN ESHOP_USER u ON u.id = o.USER_ID
+  WHERE o.ORDER_NUMBER IS NOT NULL</createView>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1575443521081-197">
+        <createIndex indexName="IDX_FINAL_CUSTOMER_ORDER_ORG_ID" tableName="FINAL_CUSTOMER_ORDER">
+            <column name="ORG_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1575443521081-198">
+        <createIndex indexName="IDX_FINAL_CUSTOMER_ORDER_USER_ID" tableName="FINAL_CUSTOMER_ORDER">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-136">
+        <addPrimaryKey clustered="false" columnNames="ID" constraintName="PK_FINAL_CUSTOMER_ORDER_ITEM_ID" tableName="FINAL_CUSTOMER_ORDER_ITEM"/>
+    </changeSet>
+</databaseChangeLog>

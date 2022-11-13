@@ -1,0 +1,35 @@
+spring:
+   profiles.active: copydb,pre
+   datasource:
+      source:
+         type: com.zaxxer.hikari.HikariDataSource
+         jdbcUrl: jdbc:sqlserver://sag-ppd-cdb-021.sag.services;databaseName=econnectCHT
+         username: umblocal
+         password: ENC@[5nx4H5QbhSEkg6TaB6G3bDaE54fSdpBc]
+         hikari:
+            poolName: Hikari
+            auto-commit: false
+            data-source-properties:
+               cachePrepStmts: true
+               prepStmtCacheSize: 250
+               prepStmtCacheSqlLimit: 2048
+               useServerPrepStmts: true
+      target:
+         type: com.zaxxer.hikari.HikariDataSource
+         jdbcUrl: jdbc:sqlserver://sag-ppd-cdb-021.sag.services;databaseName=econnectAxPCH_tmp
+         username: umblocal
+         password: ENC@[5nx4H5QbhSEkg6TaB6G3bDaE54fSdpBc]
+         hikari:
+            poolName: Hikari
+            auto-commit: false
+            data-source-properties:
+               cachePrepStmts: true
+               prepStmtCacheSize: 250
+               prepStmtCacheSqlLimit: 2048
+               useServerPrepStmts: true
+copy:
+   fromSchema: econnectCHT.dbo
+   toSchema: econnectAxPCH_tmp.dbo
+logging:
+   level:
+      root: INFO

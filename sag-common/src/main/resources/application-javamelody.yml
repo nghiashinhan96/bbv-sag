@@ -1,0 +1,13 @@
+spring.profiles: javamelody
+
+javamelody:
+  enabled: true
+  spring-monitoring-enabled: true
+  init-parameters:
+    log: false
+    # to add basic authentication
+    authorized-users: admin:Ms8=j[Uz
+    # to change the default "/monitoring" path
+    monitoring-path: /perf
+  advisor-auto-proxy-creator-enabled: false
+  scheduled-monitoring-enabled: true

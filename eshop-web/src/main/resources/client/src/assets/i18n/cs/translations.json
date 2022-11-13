@@ -1,0 +1,2339 @@
+{
+  "APP_VERSION": "Verze",
+  "ARTICLE": {
+    "24_HOURS": "Položka není aktuálně dostupná. Bližší informace o termínu dodání Vám sdělí obchodní zástupce nebo pobočka SAG.  ",
+    "24_HOURS_SHORT": "Bude potvrzeno",
+    "AMOUNT": "Množství",
+    "ARTICLE_LIST": "Seznam dílů",
+    "ARTICLE_COUNT": "Počet položek",
+    "BRIEF_INFORMATION": "Stručné informace",
+    "CLEAR_ALL_FILTER": "Vymazat vše",
+    "COPIED_TEXT": "Zkopírováno",
+    "DELIVERY": "Doručení",
+    "DELIVERY_IMMEDIATE": "Ihned",
+    "DELIVERY_TYPE": "Dostupnost",
+    "DEPOSIT": "Záloha na starý díl",
+    "FAVORITES": "Oblíbené",
+    "FC_NET": "Nákupní cena koncového zákazníka",
+    "FEATURES": "Podrobnosti",
+    "FINISH_TIME": "Předpokládaný termín dodání",
+    "GENERAL_INFORMATION": "Obecné informace",
+    "GRAPHIC_SEARCH": "Grafické vyhledávání",
+    "GROSS": "Hrubý",
+    "GROSS_VALUE": "Maloobchodní cena",
+    "GROUPS": {
+      "DIRECT_MATCH": "Přímé výsledky",
+      "REFERENCE_MATCH": "Referenční výsledky",
+      "ORIGINAL_PART": "Originální díly",
+      "POSSIBLE_MATCH": "Možné výsledky"
+    },
+    "IAM_NUMBER": "IAM čísla",
+    "IMAGE": "Obrázek",
+    "INFORMATION": "Více informací",
+    "INSTALLATION_INFORMATION": "Montážní informace",
+    "LABOUR": "Pracovní čas",
+    "MAINTENANCE_INTERVALS": "Intervaly údržby",
+    "MANUFACTURER": "Výrobce",
+    "MEASUREMENT_FUNCTIONS": "Měřící funkce",
+    "MEMO": {
+      "DEPOSITITEM": "K tomuto zboží se váže: {{depositItemType}}",
+      "NONRETURNABLEITEM": "POZOR - zboží nelze vrátit",
+      "NEWITEM": "Novinka",
+      "SELLOFF": "Do vyprodání zásob!",
+      "FGAS": "F-Gas - prodej pouze s certifikátem!",
+      "NONRETURNABLEITEM_LONG_TEXT": "Pozor! - Zboží nelze vrátit"
+    },
+    "MORE_INFO": "Více informací",
+    "NET": "Nákupní cena",
+    "NOT_FOUND_IN_AX": "Položka nebyla nalezena",
+    "NOT_INSTOCK_MESSAGE": "Kontaktujte prosím svou pobočku.",
+    "NUMBER": "Počet kusů",
+    "OE_NUMBER": "OE čísla",
+    "OLYSLAGER": "Kapacita / využití / interval",
+    "OPTIONAL_ACCESSORIES": "Speciální příslušenství",
+    "PARTIAL_DELIVERY": "Částečné doručení",
+    "PARTIAL_DELIVERY_SURFIX": "Ks",
+    "PDF": "PDF",
+    "PICKUP": "Osobní odběr",
+    "POSITION": "Pozice",
+    "PRICE": {
+      "ARTICLE_WITHOUT_PRICE": "Na dotaz",
+      "AVAILIBILITY": "Dostupnost",
+      "CALCULATION_PRICE": "Doporučená prodejní cena",
+      "DISCOUNT": "Sleva",
+      "GROSS_PRICE": "Maloobchodní cena bez DPH",
+      "KB_PRICE": "Kalkulační základ (KB)",
+      "NET_PRICE": "Nákupní cena bez DPH",
+      "OEP_PRICE": "Doporučená cena výrobce bez DPH",
+      "PRICE_INFORMATION_AVAILIBILITY": "Informace o ceně a dostupnosti",
+      "PRICE_INFORMATION": "Informace o ceně",
+      "INFORMATION_AVAILIBILITY": "Dostupnosti",
+      "PRICE_INFORMATION_UNIT": "Informace o ceně (za kus)",
+      "PROMOTION_PRICE": "Akční cena",
+      "UVPE_PRICE": "Doporučená prodejní cena",
+      "UVP_PRICE": "Doporučená cena včetně DPH",
+      "FC_NET_PRICE": "Nákupní cena koncového zákazníka",
+      "DPC_PRICE": "Maloobchodni cena"
+    },
+    "PRODUCT": "Položka",
+    "PRODUCT_DESCRIPTION": "Popis položky",
+    "QUICK_CLICK": "Rychlé kliknutí",
+    "REAR": "Zadní",
+    "REFERENCE": "Reference",
+    "REPLACED_BY": "Nahrazen",
+    "REPLACES": "Nahrazuje",
+    "SAFETY_INFORMATION": "Bezpečnostní informace",
+    "SAFETY_NOTE": "Bezpečnostní poznámka",
+    "SNP_INFO": "Speciální nákupní ceny",
+    "TECHNICAL_INFORMATION": "Technické informace",
+    "TOUR": "Trasa",
+    "TYRE_GROSS": "Maloobchodní cena",
+    "USE": "Použito v",
+    "USING_TAB": {
+      "ALL_SEARCH": "Ukázat vše",
+      "LABLE": "Použito v"
+    },
+    "UVPE": "DMOC",
+    "UVPE_VALUE": "Maloobchodní cena",
+    "AVAILABILITY": {
+      "TITLE": "Dostupnost",
+      "IN_STOCK_BRANCH": "Skladem na pobočce",
+      "PARTLY_AVAILABLE": "Částečně dostupné",
+      "UNAVAILABLE": "Nedostupné",
+      "IN_STOCK_CENTRAL_WAREHOUSE": "Dostupné na centrálním skladě",
+      "NON_ORDERALE": "Nelze objednat",
+      "MULTI_SHOP": "Multi-shop",
+      "FULLY_EXTERNAL": "Eksterni magacin",
+      "PARTLY_EXTERNAL": "Tražena količina je dilimično dostupna u eksternom magacinu",
+      "PARTLY_LOCAL": "Tražena količina je delimično dostupna",
+      "NONE": "",
+      "NOT_AVAILABLE": "Artikal nije dostupan"
+    },
+    "PRODUCT_COMMERCIAL_CODE": "Další označení",
+    "AMOUNT_PER_LOCATION": "Amount per location",
+    "LOCATION": "Locations",
+    "VIEW_ALL_LOCATIONS": "View all locations",
+    "DELIVERY_WAREHOURSE": "Delivery warehouse",
+    "ORDER_DELIVERY": "Delivery",
+    "PCC_ARTICLE_DETAIL": "Další označení",
+    "HIDE_NO_ARTICLE_AVAIL": "Pouze skladem",
+    "SHOW_ONLY_ARTICLE_STOCK": "Zobrazit nedostupné položky",
+    "HIDE_ONLY_ARTICLE_STOCK": "Skrytí nedostupných položek",
+    "CUSTOMER_DOESNT_HAVE_CERTIFICATE": "Tuto položku lze prodávat pouze zákazníkům s příslušným povolením",
+    "ERROR_MESSAGE": {
+      "INVALID_OR_MISSING_DATA": "Z důvodu neplatných nebo chybějících údajů nemůžeme pro danou kategorii zobrazit žádné články."
+    }
+  },
+  "ARTICLE_FILTER": {
+    "AMPERE_HOURS": "Ampérhodina",
+    "ARTICLE_SEARCH": "Vyhledávání položek",
+    "ATTRIBUTES": "Atributy",
+    "BOTTLE_SIZES": "Objem balení",
+    "BRAND_FILTER": {
+      "BRANDS": "Značka"
+    },
+    "CATEGORY_MERKMALE": "Kategorie a funkce",
+    "CODES": "Kódy",
+    "DESC": "Použít filtr",
+    "FILTER": "Filtr",
+    "GEN_ART": "Kategorie",
+    "GEN_ARTS": "Kategorie",
+    "LOAD_INDEX": "Index zatížení",
+    "MATCHING_PRODUCTS": "Odpovídající položky",
+    "RESET": "Zrušit filtr",
+    "SPEED_INDEX": "Index rychlosti",
+    "SUPPLIERS": "Výrobce",
+    "TYRE_SEGMENT": "Segment pneumatik",
+    "VISCOSITIES": "Viskozita",
+    "VOLTAGES": "Napětí",
+    "WATTS": "Watty"
+  },
+  "ARTICLE_SEARCH_LIST": {
+    "CLEAR_CART_COMFIRM_MESSAGE": "Před importem seznamu položek bude stávající seznam odstraněn. Nákupní košík zůstává nezměněn. <br> Chcete spustit import?",
+    "CONTINUE": "Pokračovat",
+    "IMPORTED_ITEM_ALREADY_IN_CART": "Tato položka je již v nákupním košíku - požadované množství: <{{amount}}>.",
+    "IMPORTED_MULTIPLE_RESULT": "Nalezeno několik položek - požadované množství: <{{amount}}>.",
+    "IMPORTED_NO_RESULTS": "Žádné položky nenalezeny! - požadované množství: <{{amount}}>.",
+    "IMPORT_ARTICLE_LIST": "Importujte nákupní seznam",
+    "IMPORT_HINT": "Platné typy souborů: csv, txt, xls, xlsx",
+    "INVALID_IMPORTED_FILE": "Soubor nelze načíst! Zkontrolujte prosím formát souboru.",
+    "NO_INFO": "Žádné podrobnosti",
+    "NO_ARTILCE_IN_SECTION": "V současnosti nenabízíme v této kategoii žádné další položky.",
+    "TITLE": "Import"
+  },
+  "ARTICLE_TITLE": "Vyhledávání dílů",
+  "AX_CONNECTION": {
+    "ACCOUNT_BALANCE": "Zůstatek na účtu (saldo)",
+    "ACTIVATION_OF_DISCOUNT": "Poskytnutá sleva",
+    "ACTIVATION_OF_NETPRICE": "Tisk nákupní ceny",
+    "ACTIVATION_OF_SOW": "SOW 4+",
+    "ADDRESS": "Adresa",
+    "BLOCKED_CUSTOMER": "Uživatel {{ customerNr }} byl zablokován",
+    "BRANCH_NAME": "Pobočka",
+    "CASH_DISCOUNT": "Sleva za platbu hotově",
+    "COMPANY": "Společnost",
+    "CREATOR": "Podle",
+    "CREDIT_LIMIT_REST": "Otevřené pozice",
+    "CREDIT_LIMIT_TOTAL": "Zůstatek kreditu",
+    "CURRENCY_SHORTCUT": "Měna",
+    "CUSTOMER": "Zákazník",
+    "CUSTOMERS": "Zákazníci",
+    "CUSTOMER_CATEGORY": "Kategorie zákazníka",
+    "CUSTOMER_FREE_TEXT_NOT_FOUND": "Zákazník nebyl nalezen. Zkontrolujte prosím Vaše zadání.",
+    "CUSTOMER_INFORMATION": "Informace o zákazníkovi",
+    "CUSTOMER_INPUT_REQUIRED": "Zkontrolujte prosím Vaše vyhledávací údaje",
+    "CUSTOMER_NOT_FOUND": "Zákazník nebyl nalezen!",
+    "CUSTOMER_OVERVIEW": "Přehled zákazníků",
+    "CUSTOMER_SEARCH": "Vyhledání zákazníka",
+    "CUSTOMER_TELEPHONE_NOT_FOUND": "Pro toto telefonní číslo nebyl nalezen žádný zákazník. Zkontrolujte prosím Vaše zadání",
+    "CUSTOMER_USER_NAME": "Číslo zákazníka",
+    "DELIVERY_SERVICE": "Obchodní zástupce",
+    "DELIVERY_TYPE": "Způsob doručení",
+    "DISPLAY_NET_PRICE": "Tisk nákupní ceny",
+    "DUNNING_LEVEL": "Úroveň upomínky",
+    "EMAIL": "E-mail",
+    "ERROR": {
+      "CUSTOMER_LIMIT": "Je možné mít otevřeno pouze {{size}} zákaznickách karet současně. <br> Před otevřením další je potřeba jednu ze stávajících karet zavřít."
+    },
+    "FAX": "Fax",
+    "INVOICE_TYPE": "Fakturační údaje",
+    "LANGUAGE_SHORTCUT": "Jazyk",
+    "LAST_DUNNING_DATE": "Poslední upomínka",
+    "LOCATION": "Poloha",
+    "NAME_OR_COMPANY": "Jméno / společnost",
+    "OF": "z",
+    "ORDER_POSITION": "Otevřené položky",
+    "ORDER_REGULATORY": "Regulátory objednávek",
+    "OTHER": "Další",
+    "OVERVIEW": "Přehled",
+    "PAYMENT_OBJECTIVE": "Platební podmínky",
+    "PAYMENT_TYPE": "Způsob platby",
+    "PHONE": "Telefon",
+    "PLACE_HOLDER_CUSTOMER_FREE_TEXT": "Hledaný výraz, PSČ, město, jméno",
+    "PLACE_HOLDER_CUSTOMER_NUMBER": "Zák. č.",
+    "PLACE_HOLDER_CUSTOMER_TELEPHONE": "Telefon",
+    "RECEIVER": "Příjemce",
+    "RECENT_CUSTOMER_ORDERS": "Poslední objednávky",
+    "SALES_ADMIN_NOT_FOUND": "Tento zákazník není v eshopu registrován, proto jej nelze načíst.",
+    "SALES_EMPLOYEE_NUMBER_INVALID": "Neplatné číslo zaměstnance",
+    "SALES_GROUP": "Skupina prodeje",
+    "SHIPPING_TYPE": "Způsob doručení"
+  },
+  "BASKET_HISTORY": {
+    "ABORT": "Zavřít",
+    "ADDING_FAILED": "Aktualizace selhala!",
+    "ADDING_SUCCESSFULLY": "Vaše položky byly přidány do košíku.",
+    "BACK_BASKET_HISTORY": "Zpět na uložené nákupní košíky",
+    "CART_STATUS": "Aktuální košík je prázdný!",
+    "CLEAR": "Odstranit",
+    "CLEAR_CART_FAILED": "Nákupní košík nelze vyprázdnit!",
+    "CLEAR_CART_SUCCESSFULLY": "Nákupní košík byl úspěšně vyprázdněn.",
+    "COLUMNS": {
+      "BASKET_NAME": "Nákupní košík",
+      "MANUFACTURER": "Výrobce"
+    },
+    "CURRENT_CUSTOMER": "Aktuální zákazník",
+    "DELETE": "Chcete smazat tento uložený nákupní košík?",
+    "DESCRIPTION": "Popis (Nepovinný)",
+    "LABEL": "Nákupní košíky",
+    "MY_SAVED_BASKETS": "Moje nákupní košíky",
+    "NEW_SHOPPING": "Nový nákupní košík",
+    "NOTICE_MESSAGE": {
+      "DELETE_FAILURE": "Uložení se nezdařilo!",
+      "DELETE_SUCCESS": "Úspěšně smazáno"
+    },
+    "NO_BASKET_HISTORIES_FOUND": "Nebyly nalezeny žádné uložené nákupní košíky!",
+    "PLACE_HOLDERS": {
+      "BASKET_NAME": "Nákupní košík",
+      "MANUFACTURER": "Výrobce"
+    },
+    "SAVED_BASKETS": "Uložené nákupní košíky",
+    "SAVING_MESSAGE": "Chcete uložit aktuální nákupní košík?",
+    "TAKE": "Převzít",
+    "OPEN_SHOPPING_BASKET": "Otevřít nákupní košík",
+    "SAVE_SHOPPING_BASKET": "Uložit nákupní košík",
+    "EXPORT_SHOPPING_BASKET": "Exportovat nákupní košík"
+  },
+  "BATTERIES": {
+    "AMPERES": "Ampérhodina",
+    "BATTERIES": "Baterie",
+    "CIRCUIT": "Schéma zapojení",
+    "DIAGRAMS": "Schémata zapojení",
+    "FLOOR_FIXINGS": "Způsob upevnění",
+    "REMARKS": "Poznámky",
+    "TYPES_OF_POLE": "Typ pólu",
+    "TYPES_OF_POLES": "Typy pólů",
+    "VOLTAGES": "Napětí",
+    "WARNINGS_AND_SAFETY_PRECAUTIONS": "Varování a bezpečnostní opatření",
+    "WITHOUT_START_STOP": "Bez start-stop",
+    "WITH_START_STOP": "Se start-stop",
+    "EXIDE": ""
+  },
+  "BRANCHES": {
+    "BRANCH_DETAIL_FORM": {
+      "ADDITIONAL_ADDRESS_LABEL": "Přidání adresy",
+      "ADDRESS_LABEL": "Adresa",
+      "BRANCH_CODE_LABEL": "Kód pobočky",
+      "BRANCH_NUMBER_LABEL": "Pobočka č.",
+      "CLOSING_HOUR_LABEL": "Otevřeno do",
+      "CREATE_COMMON_ERROR_MESSAGE": "Uložení se nezdařilo!",
+      "CREATE_DUPLICATION_ERROR_MESSAGE": "Název a kód pobočky musí být jedinečné.",
+      "CREATE_SUCCESS_MESSAGE": "Úspěšně přidáno!",
+      "EMAIL_LABEL": "E-mail",
+      "FAX_LABEL": "Fax",
+      "KSL_LABEL": "KSL",
+      "LAND_CODE_LABEL": "Kód země",
+      "LAND_LABEL": "Země",
+      "NOON_CLOSING_HOUR_LABEL": "Přestávka na oběd do",
+      "NOON_OPENING_HOUR_LABEL": "Přestávka na oběd od",
+      "OPENING_HOUR_LABEL": "Otevřeno od",
+      "ORG_ID_LABEL": "IČ",
+      "PLACE_LABEL": "Město",
+      "PLZ_LABEL": "PSČ",
+      "REGION_ID_LABEL": "ID regionu",
+      "TELEPHONE_LABEL": "Telefon",
+      "TITLE": "Pobočka, úprava otevírací doby",
+      "UPDATE_SUCCESS_MESSAGE": "Úspěšně uloženo.",
+      "URL_LABEL": "URL",
+      "MISSING_OPENING_TIME": "Alespoň pro jeden den v týdnu musí být uvedena platná otevírací doba."
+    },
+    "BRANCH_LIST_COLUMNS": {
+      "CLOSING": "Otevřeno do",
+      "CODE": "Kód pobočky",
+      "ID": "Pobočka č.",
+      "NOON_CLOSING": "Přestávka na oběd do",
+      "NOON_OPENING": "Přestávka na oběd od",
+      "OPENING": "Otevřeno od"
+    },
+    "BRANCH_LIST_MENU_TITLE": "Pobočky, otevírací doba",
+    "CREATE_BRANCH": "Nová pobočka",
+    "DELETE_BRANCH": "Delete branch",
+    "DELETE_CONFIRM": "Opravdu chcete tuto pobočku smazat: ",
+    "DELETE_FAIL": "Delete fail",
+    "UNABLE_DELETE_ASSIGNED_BRANCH": "Pobočka se používá a nelze ji smazat.",
+    "DELETE_SUCCESSFUL": "Pobočka byla úspěšně odstraněna.",
+    "EMPTY_BRANCH_LIST": "Nebyly nalezeny žádné výsledky",
+    "ERRORS": {
+      "INVALID_BRANCH_NUMBER": "Pobočka není platná",
+      "INVALID_ORG_ID": "IČ není platné",
+      "INVALID_TIME_VALUE": "Čas byl zadán chybně!",
+      "INVALID_URL": "Adresa URL není platná",
+      "REQUIRED_ERROR_MESSAGE": "Zadejte požadované údaje."
+    }
+  },
+  "BULBS": {
+    "ADDITIONAL_LINK_1": "Jaká žárovka?",
+    "BULBS": "Žárovky",
+    "CODE": "Kód a obrázek ECE",
+    "SUPPLIER": "Výrobce",
+    "VOLTAGE": "Volty",
+    "WATT": "Watt"
+  },
+  "CAR_INFORMATION": {
+    "CHANGE_VEHICLES": "Změňte vozidlo"
+  },
+  "CATEGORY": {
+    "BUTTON": {
+      "RESET_FILTER": "Zrušit filtr"
+    },
+    "SEARCH": {
+      "TEXT_HOLDER": "Kategorie"
+    },
+    "TAB": {
+      "ALL_PARTS": "Všechny položky",
+      "SERVICE": "Servisní díly"
+    }
+  },
+  "CLASSIC_CATEGORIES": {
+    "STEP_1_TITLE": "Krok 1: Vyberte kategorie",
+    "STEP_2_TITLE": "Krok 2: Váš výběr"
+  },
+  "COMMON_LABEL": {
+    "ABORT": "Zrušit",
+    "ABORT_STOP": "Zrušit",
+    "ACCEPT": "Potvrdit",
+    "ACCESSORIES": "Příslušenství",
+    "ACCESSORIES_LIST": "Seznam příslušenství",
+    "ACCESSORIES_GROUPS_HINT": "Bylo nalezeno velké množství příslušenství pro různá vozidla. Pro zúžení výsledků vyberte vozidlo na kartě \"Použito v\" v sekci \"Podrobnosti\".",
+    "ACTIVE": "Aktivní",
+    "ADDITIONAL_ADDRESS": "Adresa další",
+    "ADDRESS": "Adresa",
+    "ALL": "Všechno",
+    "AMOUNT": "Množství",
+    "ARTICLE_NUMBER_LABEL": "Číslo položky",
+    "ARTICLE_OF_ORDER": "Položka faktury",
+    "AVAILABLE": "K dispozici",
+    "A_MONTH_EARLIER": "Před měsícem",
+    "A_MONTH_LATER": "O měsíc později",
+    "BACK": "Zpět",
+    "BRAKES": "Brzdy",
+    "BUTTON": {
+      "ABORT": "Zrušit",
+      "CONTINUE": "Pokračovat",
+      "SEND": "Poslat",
+      "TAKE": "Převzít"
+    },
+    "CHOOSE": "Poslední prodejní objednávky",
+    "CHOOSE_FILE": "Vyberte soubor",
+    "CITY": "Město",
+    "CLOSE": "Zavřít",
+    "COLUMNS": {
+      "SEARCH_METHOD": "Typ vyhledávání",
+      "ARTICLE_NR": "Položka č.",
+      "ARTICLE_NUMBER": "Číslo položky",
+      "CUSTOMER_NAME": "Zákazník",
+      "CUSTOMER_NR": "Zák. č.",
+      "INFO": "Popis",
+      "NUMBER": "Celkem",
+      "QUANTITY": "Množství",
+      "REFERENCE": "Odkaz",
+      "SALE_NAME": "Prodávající",
+      "SAVING_DATE": "Datum uložení",
+      "TOTAL": "Celkem vč. DPH",
+      "TOTAL_EXCL_VAT": "Celkem bez DPH",
+      "VEHICLE": "Vozidlo"
+    },
+    "COLUMN_ENGINE": "Objem motoru",
+    "COMMENT": "Poznámky",
+    "COMPANY": "Společnost",
+    "COMPANY_NAME": "Jméno společnosti",
+    "CONFIRMATION": "Potvrzení",
+    "CONFIRM_BTN": "Potvrdit",
+    "CONTACT_INFO": "Kontakt",
+    "CROSS_REFERENCE": "Alternativní položky",
+    "CUSTOMER": "Zákazník",
+    "CUSTOMER_NAME": "Zákazník",
+    "CUSTOMER_NUMBER": "Zákazník č.",
+    "DATE": "Datum",
+    "DEAL_OFWEEK": "Nabídka týdne",
+    "DELETE_ALL_ENTRIES": "Vymazat všechny záznamy",
+    "DELIVERY_NOTE_NUMBER": "Dodací list č.",
+    "DELIVERY_NUMBER": "Dodací list č.",
+    "DESCRIPTION": "Popis",
+    "DETAILS": "Podrobnosti",
+    "EMAIL": "E-mail",
+    "EXPAND": "Rozšířit",
+    "FAX": "Fax",
+    "FILTER": "Filtr",
+    "FIRST_NAME": "Křestní jméno",
+    "FROM_DATE": "z",
+    "GLOBAL_ERROR_CONTENT": "Obraťte se na svého obchodního zástupce nebo na technickou podporu.",
+    "GLOBAL_ERROR_TITLE": "Technická chyba!",
+    "HEIGHT": "Výška",
+    "IMPORT": "Import",
+    "INACTIVE": "Neaktivní",
+    "INVOICE": "Faktura",
+    "INVOICE_ARCHIVE": "Archiv faktur",
+    "INVOICE_NUMBER": "Číslo faktury",
+    "INVOICE_OVERVIEW": "Přehled faktur",
+    "LANDING_GEAR": "Podvozek",
+    "LAST_NAME": "Příjmení",
+    "LAST_WEEK": "Minulý týden",
+    "LENGTH": "Délka",
+    "LIST": "Seznam",
+    "LOADING_MORE": "Více…",
+    "MARK": "SPZ",
+    "MODEL": "Model",
+    "NAME": "Název",
+    "NO": "Ne",
+    "NO_FILE_CHOSEN": "Nebyl vybrán žádný soubor",
+    "NO_RESULTS_FOUND": "Nebyly nalezeny žádné výsledky",
+    "NUMBER": "Číslo",
+    "OK": "OK",
+    "ORDER_NUMBER": "Číslo objednávky",
+    "OVERRIDE": "Přepsat",
+    "PARTS_LIST": "Seznam dílů",
+    "PARTS_LIST_HINT": "Jednotlivé díly viz seznam dílů",
+    "PAYMENT_TYPE": "Způsob platby",
+    "PERCENT": "Procent",
+    "PHONE": "Telefon",
+    "PLACE": "Místo",
+    "PLACE_HOLDERS": {
+      "ARTICLE_NR": "Položka č.",
+      "CUSTOMER_NAME": "Zákazník",
+      "CUSTOMER_NR": "Zákazník č.",
+      "INFO": "Popis",
+      "NUMBER": "Doporučené množství",
+      "QUANTITY": "Počet kusů",
+      "REFERENCE": "Odkaz",
+      "SALE_NAME": "Obchodní zástupce",
+      "SAVING_DATE": "Uložené",
+      "TOTAL": "Celková částka vč. DPH",
+      "TOTAL_EXCL_VAT": "Celkem bez DPH",
+      "VEHICLE": "Vozidlo"
+    },
+    "PLEASE_SELECT": "Vyberte prosím",
+    "POSTAL_CODE": "PSČ",
+    "POSTCODE": "PSČ",
+    "PO_BOX": "Poštovní schránka",
+    "PRICE": {
+      "GROSS_PRICE_AT": "Maloobchodní cena",
+      "GROSS_PRICE_CH": "Maloobchodní cena",
+      "GROSS_PRICE_OTHER": "Maloobchodní cena"
+    },
+    "QUICK_ORDER": "Přímá objednávka",
+    "REASON": "Důvod",
+    "REDUCE": "Skrýt",
+    "REMARK": "Poznámky",
+    "REMARKS": "Poznámky",
+    "REMOVE_ALL": "Odebrat vše",
+    "RETRY": "Opakujte akci",
+    "SALUTATION": "Oslovení",
+    "SAVE": "Uložit",
+    "SAVE_AND_CLOSE": "Uložit a zavřít",
+    "SEARCH_OIL": {
+      "ADDITIONAL_INFORMATION": "Doplňující informace",
+      "LUBRICANT_CATALOG": "Katalog maziv",
+      "MOBILE_PRODUCT_DATA_SHEETS": "Datové listy produktů MOBIL",
+      "MOBILE_SAFETY_DATA_SHEETS": "Bezpečnostní listy produktů MOBIL",
+      "WHICH_ENGINE_OIL": "Jaký motorový olej?"
+    },
+    "SELECT": "Vybrat",
+    "SELECT_ALL": "Vybrat vše",
+    "SEVEN_DAYS": "Posledních 7 dní",
+    "STATUS": "Status",
+    "STREET": "Ulice",
+    "SURNAME": "Příjmení",
+    "TAKE": "Akceptovat",
+    "THIRTYONE_DAYS": "Posledních 31 dní",
+    "TODAY": "Dnes",
+    "TOTAL_INCLUDE_VAT": "Celkem vč. DPH",
+    "TWO_DAYS": "Poslední 2 dny",
+    "TYPE": "Typ",
+    "USER": "Uživatel",
+    "VEHICLES": "Vozidla",
+    "VIN": "VIN (číslo podvozku)",
+    "WEBSITE": "webová stránka",
+    "WIDTH": "Šířka",
+    "YES": "Ano",
+    "LOCATIONS": {
+      "PRIMARY": "Primary Location",
+      "SECONDARY": "Secondary Location",
+      "THIRD": "Third Location",
+      "NON_PRIORITY": " Other Location"
+    },
+    "YOU_ARE_OFFLINE": "Jejda! Jsi offline"
+  },
+  "COMMON_MESSAGE": {
+    "CHANGED_QUANTITY": "Množství změněno!",
+    "SAVE_UNSUCCESSFULLY": "Uložení selhalo!",
+    "SAVE_SUCCESSFULLY": "Úspěšně uloženo",
+    "REQUIRED_FIELD": "Vyplňte prosím"
+  },
+  "CONDITION": {
+    "AT_THE": "",
+    "AT_THE_SUFFIX": " hod",
+    "BILLING_ADDRESS": "Fakturační adresa",
+    "BILLING_ADDRESS1": "Demo verze e-shop zákazníka Tm",
+    "BRANCH": "Pobočka",
+    "BRANCH_PICKUP": "K vyzvednutí na pobočce",
+    "COLLECTIVE_DELIVERY": {
+      "COLLECTIVE_DELIVERY1": "Doručit ihned, urgentní - položky objednávky budou doručeny jednotlivě, jakmile budou k dispozici.",
+      "COLLECTIVE_DELIVERY2": "Doručit kompletní, není naléhavé - Objednávka bude doručena až budou k dispozici všechny položky.",
+      "PICKUP": "Doručit ihned (podle dostupnosti)",
+      "TITLE": "Částečná, kompletní dodávka",
+      "TOUR": "Doručit kompletní"
+    },
+    "COLLECTIVE_DELIVERY_TITLE": "Doručit kompletní",
+    "DEFAULT_INVOICE_TYPE": {
+      "AGREEMENT_INVOICE": "Fakturace podle dohody",
+      "SINGLE_INVOICE": "Jednorázová fakturace",
+      "TITLE": "Fakturace"
+    },
+    "DELIVERY_ADDRESS": "Doručovací adresa",
+    "DELIVERY_ADDRESS1": "Demo verze e-shop zákazníka Tm",
+    "DELIVERY_TYPE": {
+      "COUNTER": "PRODEJ NA POBOČCE (KSL)",
+      "PICKUP": "OSOBNÍ ODBĚR NA POBOČCE",
+      "TITLE": "Doručení",
+      "COURIER": "Courier",
+      "TOUR": "ROZVOZ SAG"
+    },
+    "DELIVERY_TYPE_PICKUP": "Dodání: Osobní odběr",
+    "DELIVERY_TYPE_TOUR": "Dodání: Rozvozem",
+    "EXPAND": "Rozšířit",
+    "INVOICE_TYPE": {
+      "ACCUMULATIVE_INVOICE": "Souhrnná fakturace",
+      "ALL": "Záložní profil",
+      "DAILY_INVOICE": "Denní fakturace",
+      "DAILY_INVOICE_WITH_CREDIT_SEPARATION": "Denní fakturace se splatností",
+      "DEFAULT": "!! Neodstraňujte !! Náhrada s přiřazením všem",
+      "MONTHLY_INVOICE": "Měsíční fakturace",
+      "MONTHLY_INVOICE_DAILY_CREDIT": "Měsíční faktura s denním kreditem",
+      "MONTHLY_INVOICE_WEEKLY_CREDIT_SEPARATION": "Měsíční faktura s týdenním kreditem",
+      "MONTHLY_INVOICE_WITH_CREDIT_SEPARATION": "Měsíční fakturace se splatností",
+      "SINGLE_INVOICE": "Jednorázová fakturace",
+      "SINGLE_INVOICE_WITH_CREDIT_SEPARATION": "Jednorázová fakturace se splatností",
+      "TITLE": "Fakturace",
+      "TWO_WEEKLY_INVOICE": "14-ti denní fakturace",
+      "TWO_WEEKLY_INVOICE_DAILY_CREDIT": "14-ti denní faktura s denním kreditem",
+      "TWO_WEEKLY_INVOICE_WITH_CREDIT_SEPARATION": "14-ti denní faktura se splatností",
+      "WEEKLY_INVOICE": "Fakturace podle dohody",
+      "WEEKLY_INVOICE_DAILY_CREDIT": "Týdenní faktura s denním kreditem",
+      "WEEKLY_INVOICE_SINGLE_CREDIT": "Týdenní faktura s jednorázovým kreditem",
+      "WEEKLY_INVOICE_WITH_CREDIT_SEPARATION": "Týdenní fakturace se splatností"
+    },
+    "PARTIAL_DELIVERY_TITLE": "Částečné doručení",
+    "PAYMENT_METHOD": {
+      "BANK_TRANSFER": "Bankovním převodem",
+      "CARD": "Platební kartou",
+      "CASH": "V hotovosti",
+      "CREDIT": "Faktura se splatností",
+      "DIRECT_INVOICE": "Okamžitá fakturace",
+      "TITLE": "Platby",
+      "WHOLESALE": "Invoice"
+    },
+    "PICKUP_TIME": "Všechny položky budou připraveny k vyzvednutí v",
+    "FC_PICKUP_TIME": "Vše je připraveno k vyzvednutí",
+    "PLEASE_SELECT_VALID_BRANCH": "Vyberte prosím správnou pobočku!",
+    "REDUCE": "Skrýt",
+    "SHIPPING_PAYMENT": "Dodací a platební podmínky",
+    "TOUR_TIME": "Doručení",
+    "FC_TOUR_TIME": "Doručení",
+    "WITH_TOUR": "Rozvozem",
+    "FC_DELIVERY_PROFILE": "Dodací a platební podmínky",
+    "DELIVERY_TEXT_TOUR_WITH_TIME": "Všechny položky budou připraveny k odeslání dne {{arrivalDate}} v {{arrivalTime}} hod",
+    "DELIVERY_TEXT_PICKUP_WITH_TIME": "Všechny položky budou připraveny k vyzvednutí dne {{arrivalDate}} v {{arrivalTime}} hod",
+    "DELIVERY_TEXT_TOUR_WITHOUT_TIME": "Všechny položky budou připraveny k odeslání dne: {{arrivalValue}}",
+    "DELIVERY_TEXT_PICKUP_WITHOUT_TIME": "Všechny položky budou připraveny k vyzvednutí dne: {{arrivalValue}}"
+  },
+  "COUPON": {
+    "ERROR": {
+      "COUPON_LIMIT": "Byla dosažen maximální hodnota objednávky {{MAX_ORDER_AMOUNT}}",
+      "EXPIRED": "Platnost tohoto kupónu bohužel vypršela",
+      "FULLY_USED": "Tento kód kupónu byl již uplatněn",
+      "INVALID_FOR_AFFI": "Kód kupónu nelze použít ve spojení s těmito položkami",
+      "INVALID_FOR_SHOP": "Neplatný kód kupónu",
+      "LIMIT_USED": "Tento kupón lze uplatnit pouze jednou",
+      "NOT_FOUND": "Kód kupónu je neplatný. Zkontrolujte prosím své zadání a zadejte kód znovu.",
+      "TOTAL_MINIMUM": "Kód kupónu lze uplatnit pouze u objednávky s částkou vyšší než {{MIN_ORDER_AMOUNT}}."
+    },
+    "SUCCESS": "Kupón je platný",
+    "TITLE": "Kupón"
+  },
+  "CUSTOMER_INFO": {
+    "MESSAGES": {
+      "CUSTOMER_INACTIVE": "Tento zákazník nemůže být zaregistrován. Obraťte se prosím na svou pobočku.",
+      "CUSTOMER_NOT_BELONG_TO_AFFILIATE": "Neznámý zákazník",
+      "INTERAL_SERVER_ERROR": "Interní chyba serveru!",
+      "INVALID_AFFILIATE": "Společnost není platná!",
+      "INVALID_CUSTOMER": "Zákaznické číslo není platné!",
+      "INVALID_POST_CODE": "PSČ není platné!",
+      "INVALID_USERNAME_IN_CUSTOMER": "Tento zákazník již je v katalogu registrován!",
+      "OTHERS": "Tomuto zákazníkovi chybí povinná data v ERP systemu, dokud nebudou doplněna, nemůže používat internetový obchod!",
+      "TECHNICAL": "Technická chyba:"
+    }
+  },
+  "DAY_IN_WEEK": {
+    "FRI": "Pátek",
+    "MON": "Pondělí",
+    "SAT": "Sobota",
+    "SUN": "Neděle",
+    "THU": "Čtvrtek",
+    "TUE": "Úterý",
+    "WED": "Středa",
+    "ALL": "Alle"
+  },
+  "DELIVERY_PROFILE": {
+    "NEW_PROFILE": "Nový profil",
+    "DELETE_PROFILE_TITLE": "CZ_Delete profile",
+    "DELETE_PROFILE_CONFIRM": "Opravdu chcete smazat tento doručovací profil <strong>{{name}}</strong> ?",
+    "UNABLE_DELETE_ASSIGNED_PROFILE": "Tento profil doručování je používán a nelze jej odstranit.",
+    "DELIVERY_PROFILE": "Profily doručování",
+    "SUPPLIER_TOUR": "Dodavatel: Trasa",
+    "FC_DELIVERY_PICKUP": "Zákazník: Dodání / Osobní odběr",
+    "TOURS": "Trasy",
+    "TOUR": "Trasa",
+    "PROFILE_NAME": "Název profilu",
+    "PROFILE_DESC": "Popis profilu",
+    "BRANCH_CODE": "Pobočka",
+    "EDIT_PROFILE": "Upravit profil doručení",
+    "EDIT_TOUR": "Upravit profil doručení / přiřazení trasy",
+    "NEW_PROFILE_TOUR": "Nový profil doručení a přiřazení trasy",
+    "TOUR_ASSIGN_COLUMN": {
+      "DAY": "Den",
+      "SUPPLIER_DEPARTURE_TIME": "Čas odjezdu zásobovací trasy",
+      "OVERNIGHT": "Přes noc",
+      "WSS_DEPARTURE_TIME": "Čas odjezdu trasy",
+      "DURATION": "Doba na přípravu zboží k vyzvednutí",
+      "TOUR_ASSIGNMENT": "Přiřazení trasy"
+    },
+    "FORM_MESSAGE": {
+      "INVALID_WSS_TOUR": "Profil doručení musí obsahovat alespoň jednu z následujících položek v části \"Zákazník: Dodání / Vyzvednutí\": \"Trasa\" nebo \"Doba na přípravu zboží k vyzvednutí\".",
+      "INVALID_WSS_TOUR_TIME": "Doba na přípravu zboží k vyzvednutí\" musí být buď prázdná nebo větší než 00:00.\""
+    },
+    "DELETE_TOUR_TITLE": "DE_Delete tour",
+    "DELETE_TOUR_CONFIRM": "Opravdu chcete smazat přiřazení ztrasy <strong>{{time}}</strong> ?",
+    "DUPLICATE_DELIVERY_PROFILE_NAME": "Název profilu doručení musí být jedinečný.",
+    "DUPLICATE_ASSIGNMENT_TOUR": "Kombinace dne zásobování a času odjezdu trasy musí být jedinečná."
+  },
+  "DMS": {
+    "ERROR": {
+      "FAILED_TO_ADD_OFFER": "Nepodařilo se přidat nabídku U7 = {{param}}",
+      "NOT_FOUND_ARTICLE_NUMBERS": "Bohužel nebyly nalezeny žádné odpovídající položky. Vaše pobočka vám ráda pomůže.",
+      "EXPORT_FAILED": "",
+      "OFFER_FAILED": "",
+      "SUBMIT_FAILED": ""
+    },
+    "EXPORT": {
+      "TAKE": "Akceptovat"
+    },
+    "LABOUR": {
+      "WORKING_HOURS_TITLE": "Pracovní časy"
+    },
+    "OFFER_NOT_SUPPORTED": "Modul nabídky není aktivní. Obraťte se prosím na svou pobočku.",
+    "TYPE": {
+      "OFFER": "Nabídka",
+      "ORDER": "Objednat"
+    },
+    "MESSAGE": {
+      "RETRY": ""
+    }
+  },
+  "ERROR_500": "Interní chyba serveru",
+  "ERROR_MESSAGE": {
+    "SYSTEM_ERROR": "Omlouváme se za komplikace, zkuste to prosím za chvíli."
+  },
+  "FAVORITE": {
+    "FAVORITES": "Oblíbené",
+    "REMOVE": "Odstranit",
+    "COMMENT": "Komentář (volitelný)",
+    "ADD_FAVORITE": "Přidat oblíbenou",
+    "EDIT_FAVORITE": "Upravit oblíbené"
+  },
+  "FEEDBACK": {
+    "ATTACHMENT": "Přílohy",
+    "CUSTOMER_CONTACT": "Kontaktní údaje zákazníka",
+    "CUSTOMER_FEEDBACK": "Zpětná vazba",
+    "FEEDBACK_THEME": "Zvolte téma zpětné vazby",
+    "IS_EXCEED_LIMITED_FILES_SIZE": "Přílohy musí být menší než 5 MB!",
+    "MENU_TITLE": "Zpětná vazba, problém, chyba",
+    "REQUIRED_FIELD": "Vyplňte prosím",
+    "SALES_DATA": "Informace o obchodním zástupci",
+    "SALES_FEEDBACK": "Zpětná vazba pro prodejce",
+    "SCREEN_SHOT_PASTE_HINT": "Snímek obrazovky lze vložit přímo ze schránky do textu zpětné vazby.",
+    "SOURCE": {
+      "SALES_NOT_ON_BEHALF": "Prodej přes eshop",
+      "SALES_ON_BEHALF": "Zákazník internetového obchodu",
+      "TITLE": "Zdroj chyby"
+    },
+    "SUCCESSFUL_MESSAGE": "Děkujeme vám za zpětnou vazbu.",
+    "SUCCESSFUL_MESSAGE_WITH_EMAIL": "Děkujeme vám za zpětnou vazbu. Na {{userEmail}} jsme Vám zaslali potvrzení.",
+    "TECHNICAL_DATA": {
+      "ARTICLE_RESULTS": "Aktuální seznam položek",
+      "ARTICLE_SEARCH": "Vyhledávání položek",
+      "FREE_TEXT_SEARCH": "Fulltextové vyhledávání",
+      "OFFER_NUMBER": "Nabídka číslo",
+      "SHOPPING_CART": "Nákupní košík",
+      "USER_SETTING": "Uživatelské nastavení",
+      "VEHICLE": "Aktuální vozidlo",
+      "VEHICLE_SEARCH": "Vyhledávání vozidel",
+      "WEBSITE": "Webová stránka"
+    },
+    "TECHNICAL_DATA_TITLE": "Technické specifikace",
+    "THEME": "Téma zpětné vazby",
+    "TOPICS": {
+      "BONUS_MILES_PROGRAM": "Věrnostní program",
+      "EASE_OF_USE": "Uživatelská přívětivost",
+      "LICENSING": "Licence (HaynesPro, VIN atd.)",
+      "MISSING_WRONG_DATA": "Chybějící / nesprávné údaje (vozidlo, položky, kategorie atd.)",
+      "ORDERS_AVAILABILITY": "Objednávky, dostupnost",
+      "OTHER": "Další",
+      "PRICING": "Ceny",
+      "PROFILE_SETTINGS": "Profil, uživatelské nastavení",
+      "SYSTEM_BROWSER_INTERFACES": "Systém, prohlížeč, rozhraní",
+      "PRICING_CARPARTS": "",
+      "PRICING_IS": "",
+      "PRICING_MATIK": "",
+      "PRICING_WHEELS": "",
+      "PRICING_WSP": ""
+    },
+    "USER_DATA": {
+      "BRANCH": "Pobočka",
+      "CUSTOMER": "Zákazník",
+      "EMAIL": "E-mail",
+      "PHONE": "Telefon",
+      "SALES": "Obchodní zástupce"
+    },
+    "YOUR_DATA": "Údaje o zákazníkovi",
+    "YOUR_FEEDBACK": "Zpětná vazba"
+  },
+  "FINAL_CUSTOMER": {
+    "ADD_NEW_CUSTOMER": "Přidat nového zákazníka",
+    "CREATE_CUSTOMER": "Zaregistrovat nového zákazníka",
+    "CREATE_FINAL_USER": "Vytvořit nového uživatele",
+    "CUSTOMER_COULD_NOT_DELETE": "Zákazníka nelze smazat! Odeberte všechny nové a otevřené objednávky a zkuste to znovu.",
+    "DELETE_CUSTOMER_CONFIRM": "Smazat <strong>{{param}}</strong> ?",
+    "DELETE_MESSAGE": "Chcete uživatele smazat?",
+    "DELETE_FINAL_USER_MESSAGE": "Opravdu chcete smazat uživatele?",
+    "FINAL_USER_ERROR": {
+      "DUPLICATED_USER": "Toto uživatelské jméno již existuje."
+    },
+    "TYPE": {
+      "ONLINE": "EH Zákazník",
+      "PASSANT": "Kolemjdoucí"
+    }
+  },
+  "FOOTER": {
+    "COMPANY_INFO_DERENDINGER": "Derendinger AG, Švýcarsko - Společnost Swiss Automotive Group AG",
+    "COMPANY_INFO_DERENDINGER_AT": "SAG Austria Handels GmbH, Rakousko - Společnost Swiss Automotive Group AG",
+    "COMPANY_INFO_MATIK": "SAG Austria Handels GmbH, Rakousko - Společnost Swiss Automotive Group AG",
+    "COMPANY_INFO_MCH": "Matik Handels GmbH, Rakousko - Společnost Swiss Automotive Group AG",
+    "COMPANY_INFO_RBE": "Remco Belgium NV - Lid van de Swiss Automotive Group",
+    "COMPANY_INFO_TECHNOMAG": "Technomag AG, Švýcarsko - společnost Swiss Automotive Group",
+    "COMPANY_INFO_WBB": "Walchli + Bollier AG",
+    "DATA_PROTECTION": {
+      "LINK": {
+        "EH_CH": "https://www.waelchli-bollier.ch/de/footer-menu/Datenschutz.html"
+      },
+      "TITLE": "Zásady ochrany osobních údajů"
+    },
+    "DISCLAIMER": {
+      "LINK": {
+        "EH_CH": "https://www.waelchli-bollier.ch/de/footer-menu/disclaimer.html"
+      },
+      "TITLE": "Zřeknutí se odpovědnosti"
+    },
+    "HOTLINE": "online podpora",
+    "TERM_OF_SERVICE": {
+      "LINK": {
+        "DERENDINGER_AT": "https://s3.exellio.de/connect_media/derendinger-at/pdfs/derendinger-at-agb.pdf",
+        "DERENDINGER_CH": "https://www.derendinger.ch/_Resources/Persistent/081e9c0935907a3de7dc6d24f9cff853c4086314/AGB_Derendinger%20AG_D.pdf",
+        "EH_CH": "https://www.waelchli-bollier.ch/_Resources/Persistent/83d37b11048f9f3dc7e86b9a7aecccbe00da6900/AGB_Waelchli-Bollier%20AG_D.pdf",
+        "MATIK_AT": "https://s3.exellio.de/connect_media/matik-at/pdfs/Matik_AGB.pdf",
+        "MATIK_CH": "https://www.matik.ch/_Resources/Persistent/772470a94ebe9657a6878c10c1c1d0629fa14a37/AGB_Matik%20AG_D.pdf",
+        "REMCO": "https://shop.remco.be",
+        "TECHNOMAG": "https://www.technomag.ch/_Resources/Persistent/9344c38e3159abad129a8152fc8625cda16e58ac/AGB_Technomag%20AG_D.pdf",
+        "WBB": "https://www.waelchli-bollier.ch/_Resources/Persistent/83d37b11048f9f3dc7e86b9a7aecccbe00da6900/AGB_Waelchli-Bollier%20AG_D.pdf",
+        "CZ": "https://s3.exellio.de/connect_media/stahlgruber-cz/pdfs/VODP_CZ.pdf"
+      },
+      "TITLE": "Všeobecné obchodní podmínky"
+    }
+  },
+  "FORGOT_PASSWORD": {
+    "CODE_IN_EMAIL": "Na vaši e-mailovou adresu jsme zaslali kód.",
+    "CODE_PLACEHOLDER": "Kód byl odeslán na vaši e-mailovou adresu",
+    "CONFIRM_IDENDITY": "Potvrďte svou totožnost zadáním zaslaného kódu.",
+    "CONTINUE": "Pokračovat",
+    "ERROR_MESSAGE": {
+      "EMAIL_INPUT_REQUIRED": "Prosím zadejte svou e-mailovou adresu.",
+      "INPUT_REQUIRED": "Zadejte své uživatelské jméno nebo e-mailovou adresu.",
+      "MULTIPLE_MAIL_ADDRESSES": "Pro tuto e-mailovou adresu existuje více než jeden uživatelský účet. Použijte prosím uživatelské jméno.",
+      "NOT_AUTHORIZED_USER": "Pro tento obchod nemáte oprávnění",
+      "NOT_FOUND_USER": "Neplatné uživatelské jméno nebo e-mailová adresa",
+      "SEND_MAIL_FAILED": "Chyba při odesílání e-mailu!",
+      "USERNAME_INPUT_REQUIRED": "Zadejte své uživatelské jméno"
+    },
+    "INFO_MESSAGE": {
+      "PASSWORD_RETRIEVED_SUCCESSFUL": "Zkontrolujte doručenou poštu a spam, zda jste obdrželi nové heslo"
+    },
+    "INPUT_CODE": "Zadejte kód",
+    "INVALID_CODE": "Neplatný kód...",
+    "LABEL": {
+      "EMAIL": "Emailová adresa",
+      "FORGOT_PASSWORD_BUTTON": "Zapomenuté heslo",
+      "NEW_REGISTER": "Registrace",
+      "OR": "nebo"
+    },
+    "TOKEN_EXPIRED": "Platnost kódu vypršela"
+  },
+  "GTMOTIVE": {
+    "LABEL": {
+      "CANCEL": "Zrušit",
+      "CONTINUE": "Pokračovat",
+      "DATE_OF_MANUFACTURE": "Datum výroby",
+      "ENTER_VIN": "Zadejte VIN",
+      "EQUIPMENT_INFORMATION": "Informace o vybavení",
+      "EQUIPMENT_OPTIONS": "Vybavení: možnosti",
+      "EQUIPMENT_OTHER_INFO": "Vybavení: Další informace",
+      "MULTI_PARTS": "Výběr náhradních dílů",
+      "PARTS_TREE": "Vyhledávání podle názvů",
+      "VEHICLE_BOARD_NAVIGATION": "Náhled vozidla",
+      "VEHICLE_COMPOSITION": "Grafické vyhledávání"
+    },
+    "MESSAGE": {
+      "INCOMPATIBILITY_CASE": "Vybrané zařízení není kompatibilní. Prosím opravte svou volbu.",
+      "NON_MATCHED_CATALOGUE": "Následující části nebyly v katalogu identifikovány:",
+      "WARNING_USE_VIN": "Pro grafické vyhledávání doporučujeme použít VIN"
+    }
+  },
+  "GT_MORE_INFO": {
+    "DESCRIPTION_HEADER": "Označení",
+    "MANUFACTURER_PARTS": "Výrobce dílů",
+    "NORMAUTO_INTRODUCE": "Služba Normauto OE-Teile AG",
+    "OE_NUMBER_HEADER": "OE č.",
+    "SEND_OFFER_ORDER": "Pro tyto části bych chtěl nabídku od společnosti Normauto",
+    "TITLE": "V našem sortimentu nebyly nalezeny následující součásti:",
+    "TITLE_NORMAUTO": "Následující díly jsou k dispozici u našeho partnera Normauto:"
+  },
+  "HAPPY_POINT": {
+    "TERM": "Klepnutím na tlačítko OK souhlasíte se smluvními podmínkami Happy Bonus Shop.",
+    "TITLE": "Objednejte online a získejte HAPPY bonusové body. Čekají na vás velké odměny. Zaregistrujte se nyní."
+  },
+  "HAYNES_PRO": {
+    "ERROR": {
+      "NO_LICENSE": "Bohužel nemáte licenci HaynesPro. Kontaktujte prosím svou pobočku nebo obchodního zástupce.",
+      "REQUEST_PROCCESS_MESG": "Děkujeme, vaše žádost se zpracovává, budeme vás kontaktovat.",
+      "REQUEST_TRIAL_LICENSE": "Žádost o 30denní demo licenci!",
+      "REQUEST_TRIAL_LICENSE_MESG": "Bohužel nemáte licenci HaynesPro."
+    },
+    "EXPORT_TO_WEBSHOP": "Převzít do nákupního košíku",
+    "SELECT_OPTION": {
+      "ADJUSTMENT": "Úpravy dat",
+      "DIAGNOSIS": "Diagnostika",
+      "DRAWINGS": "Technické výkresy",
+      "ELECTRONICS": "Elektronika",
+      "FUSES": "Pojistky a relé",
+      "LUBRICANTS": "Mazivo",
+      "MAINTENANCE": "Údržba",
+      "OVERVIEW": "Přehled",
+      "RECALLS": "Návrat",
+      "REPAIR_TIMES": "Pracovní časy",
+      "SMARTCASE": "SmartCase",
+      "SMARTFIX": "SmartFix / Oznámení technické služby"
+    },
+    "SELECT_SUBJECT": "Vyberte prosím"
+  },
+  "HEADER": {
+    "INFORMATION": "Informace",
+    "PROMOTIONS": "Akce",
+    "SHOPPING_BASKET": "Nákupní košík",
+    "WELCOME": "Dobrý den"
+  },
+  "HOME": {
+    "COVERING_FRONT": "Brzdové destičky (přední)"
+  },
+  "INCENTIVE": {
+    "MILES_DESCRIPTION": "Incentive Miles 2018. Od 1. února 2018 do 30. listopadu 2018"
+  },
+  "INFORMATIONS_DATA": {
+    "THULE_LINK": "Katalog Thule"
+  },
+  "INFORMATIONS_DATA_DE": {
+    "AT_LINK_1": "Přehled sortimentu",
+    "AT_LINK_2": "Katalog motocyklů",
+    "AT_LINK_3": "Přehled použití protimrazové ochrany",
+    "AT_LINK_4": "Školicí program Techpool",
+    "AT_LINK_5": "Příslušenství QUICK BRAKE",
+    "AT_LINK_6": "QWP Katalog",
+    "DD_LINK_1": "Technické informace brzdy Ferodo",
+    "DD_LINK_10": "Katalog produktů Castrol",
+    "DD_LINK_11": "Obchodní portál VARTA",
+    "DD_LINK_2": "Katalog Mahle Filter",
+    "DD_LINK_3": "Katalog produktů NGK",
+    "DD_LINK_4": "Katalog světel Osram",
+    "DD_LINK_5": "Katalog Thule",
+    "DD_LINK_6": "Katalog nástrojů Beta",
+    "DD_LINK_7": "Katalog HAZET",
+    "DD_LINK_8": "Katalog nářadí SW-Stahl",
+    "DD_LINK_9": "Katalog produktů Eni",
+    "MCH_LINK_1": "Náhradní díly BPW Bergische Axles",
+    "MCH_LINK_2": "Náhradní díly SAF-Holland",
+    "MCH_LINK_3": "HACO Náhradní díly pro zadní zvedání - německy",
+    "MCH_LINK_4": "Osvětlení proplastu",
+    "MCH_LINK_5": "Osvětlení Aspöck",
+    "MCH_LINK_6": "Termální autobusové systémy Valeo",
+    "MCH_LINK_7": "Technologie připojení Petec",
+    "MCH_LINK_8": "KS Tools German",
+    "RBE_LINK_1": "Náhradní díly BPW Bergische Axles",
+    "RBE_LINK_2": "Náhradní díly SAF Holland",
+    "RBE_LINK_3": "Osvětlení Aspöck",
+    "SNR_LINK": "Diagnostika SNR  ložisek kol",
+    "SNR_LINK2": "Technologie SNR ASB",
+    "TM_LINK_1": "Technické informace brzdy Ferodo",
+    "TM_LINK_2": "Katalog Man Filtr",
+    "TM_LINK_3": "Katalog produktů NGK",
+    "TM_LINK_4": "Katalog světel Osram",
+    "TM_LINK_5": "Katalog Thule",
+    "TM_LINK_6": "Katalog nářadí Facom",
+    "TM_LINK_7": "Katalog nářadí EXPERT",
+    "TM_LINK_8": "Katalog nářadí SW-Stahl",
+    "TM_LINK_9": "Označení MOBIL",
+    "WBB_LINK_1": "Katalog Thule",
+    "WBB_LINK_2": "Ceník Thule",
+    "WBB_LINK_3": "ARAL olejový průvodce",
+    "WBB_LINK_4": "ARAL Oilfinder",
+    "CTL_LINK_1": "",
+    "CTL_LINK_2": "",
+    "CTL_LINK_3": "",
+    "CTL_LINK_4": "",
+    "CTL_LINK_5": "",
+    "AT_LINK_4_2": "Schulungsprogramm"
+  },
+  "INFORMATIONS_DATA_FR": {
+    "DD_LINK_1": "Informační leták FERODO",
+    "DD_LINK_10": "Katalog CASTROL",
+    "DD_LINK_11": "Profesní portál portálu VARTA",
+    "DD_LINK_2": "Katalog fitrů MAHLE",
+    "DD_LINK_3": "Katalog NGK",
+    "DD_LINK_4": "Katalog OSRAM",
+    "DD_LINK_5": "Katalog THULE",
+    "DD_LINK_6": "Katalog produktů BETA",
+    "DD_LINK_7": "Katalog nářadí Hazet",
+    "DD_LINK_8": "Katalog nářadí SW-Stahl",
+    "DD_LINK_9": "Katalog ENI",
+    "MCH_LINK_1": "BPW Bergische Axles Pièces détachées",
+    "MCH_LINK_2": "SAF-Holland Pièces détachées",
+    "MCH_LINK_3": "HACO Náhradní díly pro zvedáky - Français",
+    "MCH_LINK_8": "KS Tools Français",
+    "RBE_LINK_1": "Náhradní díly BPW Bergische Axles",
+    "RBE_LINK_2": "Náhradní díly SAF Holland",
+    "RBE_LINK_3": "Osvětlení Aspöck",
+    "SNR_LINK": "Analýza a předběžné zprávy SNR",
+    "SNR_LINK2": "Technologie SNR ASB",
+    "TM_LINK_1": "Informační leták FERODO",
+    "TM_LINK_2": "Katalog filtrů MANN",
+    "TM_LINK_3": "Katalog NGK",
+    "TM_LINK_4": "Katalog OSRAM",
+    "TM_LINK_5": "Katalog THULE",
+    "TM_LINK_6": "Katalog produktů FACOM",
+    "TM_LINK_7": "Katalog produktů EXPERT",
+    "TM_LINK_8": "Katalog nářadí SW-Stahl",
+    "TM_LINK_9": "Katalog MOBIL",
+    "WBB_LINK_1": "Katalog Thule",
+    "WBB_LINK_2": "List de prix Thule",
+    "CTL_LINK_5": ""
+  },
+  "INFORMATIONS_DATA_IT": {
+    "DD_LINK_1": "Katalog FERODO",
+    "DD_LINK_10": "Katalog CASTROL",
+    "DD_LINK_2": "Guida na candele NGK",
+    "DD_LINK_3": "Katalog NGK",
+    "DD_LINK_4": "Katalog OSRAM",
+    "DD_LINK_5": "Katalog THULE",
+    "DD_LINK_6": "Katalog produktů BETA",
+    "DD_LINK_7": "SNR Analisi & raccomandazioni gamma routa",
+    "DD_LINK_8": "Podpořte tecnico na komponentu dei freni Ferodo",
+    "DD_LINK_9": "Katalog ENI",
+    "FERODO_VIDEO": "Ferodo - Video směrové kaučuky",
+    "MCH_LINK_3": "Náhradní díly pro zvedací plošinu HACO - Italiano",
+    "MCH_LINK_8": "KS Tools Italiano",
+    "SNR_LINK": "SNR Analisi & raccomandazioni gamma routa",
+    "SNR_LINK2": "SNR Tecnologia ASB",
+    "TM_LINK_1": "Katalog FERODO",
+    "TM_LINK_2": "Katalog profuktů MANN Filter",
+    "TM_LINK_3": "Katalog NGK",
+    "TM_LINK_4": "Katalog OSRAM",
+    "TM_LINK_5": "Katalog THULE",
+    "TM_LINK_6": "Catalogo utensili Facom",
+    "TM_LINK_7": "Catalogo utensili Expert",
+    "TM_LINK_8": "",
+    "TM_LINK_9": "Guida per mazificanti Mobil",
+    "WBB_LINK_1": "Catalogo Thule",
+    "WBB_LINK_2": "Listino prezzi Thule"
+  },
+  "INVOICE": {
+    "ARTICLE_HAS_NO_NUMBER_MESSAGE": "Pro tuto fakturu nejsou k dispozici žádné informace o položce",
+    "INVALID_ARTICLE_TO_ADD_MESSAGE": "Faktura obsahuje jednu nebo více položek, které nelze přidat do nákupního košíku.",
+    "NO_RESULTS_FOUND_MESSAGE": "Vašim kritériím neodpovídají žádné faktury! Upravte prosím vyhledávání. Upozorňujeme, že nejprve je třeba vybrat platný rozsah dat.",
+    "GROSS_PRICE": "Částka"
+  },
+  "IS_DISPLAY": {
+    "FALSE": "Ne",
+    "TRUE": "Ano"
+  },
+  "LEGAL_TERM": {
+    "AGREEMENT": "I have read and I agree to the terms & conditions",
+    "DAYS_LEFT_INFO": "You have {{value}} days left to accept!",
+    "ERROR_MESSAGE": {
+      "NOT_ACCEPTED": "All terms & conditions must be accepted"
+    },
+    "HEADER": {
+      "STATUS": "Status",
+      "DAYS_LEFT": "Days left"
+    },
+    "PRINTABLE_VERSION": "Printable version",
+    "STATUS": {
+      "ACCEPTED": "Accepted",
+      "NOT_ACCEPTED": "Not Accepted"
+    },
+    "TITLE": "Legal terms and conditions"
+  },
+  "LOGIN": {
+    "BUTTON": {
+      "LOGIN": "Přihlásit se"
+    },
+    "ERROR_MESSAGE": {
+      "BLOCKED_CUSTOMER": "Tento účet byl zablokován. Obraťte se na svého obchodního zástupce.",
+      "INVALID_CREDENTIALS": "Přihlášení se nezdařilo! Nebylo zadáno správné uživatelské jméno nebo heslo.",
+      "NO_CREDENTIALS": "Přihlášení se nezdařilo! Zadejte správné uživatelské jméno a heslo.",
+      "SYSTEM_ERROR": "Omlouváme se za komplikace, zkuste to prosím za chvíli.",
+      "USER_IS_NOT_ACTIVED": "Tento účet je uzamčen. Obraťte se na svého obchodního zástupce.",
+      "WHOLESALER_PERMISSION_ACCESS_DENIED": "Oprávnění velkoobchodníka je deaktivováno!"
+    },
+    "LABEL": {
+      "FORGOT_PASSWORD": "Zapomenuté heslo?",
+      "LOGIN": "Přihlásit se",
+      "PASSWORD": "Heslo",
+      "REGISTRATION": "Registrovat",
+      "SHOW": "Ukázat",
+      "SSO": "Přihlášení obchodního agenta",
+      "USER_NAME": "Uživatelské jméno"
+    }
+  },
+  "MARGIN_MANAGE": {
+    "ARTICLE_GROUP_MGT": "Skupiny položek",
+    "BRANDS": "Značky",
+    "BRAND": "Značka",
+    "DELETE_BRAND": {
+      "MSG": "Opravdu chcete odstranit definici marže pro značku <strong>{{name}}</strong> ?"
+    },
+    "NEW_BRAND": "Nová značka",
+    "MARGIN": "Marže",
+    "EDIT_BRAND": "Značka - úprava marže",
+    "ERROR_MSG": {
+      "DUPLICATED_MARGIN_BRAND": "Definice marže pro značku <strong>{{name}}</strong> již existuje.",
+      "MARGIN_VALUE_RANGE": "Marže musí být v rozmezí 0 až 99,9 %.",
+      "DUPLICATED_MARGIN_ARTICLE_GROUP": "Definice marže pro tuto skupinu položek již existuje: <strong>{{sagArticleGroup}} - {{customArticleGroup}}</strong>",
+      "INVALID_INDEX_ARTICLE_GROUP": "DE_This margin article group with parent leaf id <strong>{{leafId}}</strong> not existed"
+    },
+    "ARTICLE_GROUP": "Art-Grp",
+    "ARTICLE_GROUP_EXPORT_TYPE": {
+      "SAG_ARTICLE_GROUP": "Stáhnout šablonu CSV (+ všechny skupiny položek)",
+      "MARGIN_SAG_ARTICLE_GROUP": "Export (definice marží + všechny skupiny položek)",
+      "MARGIN_DEF": "Export (pouze definice marží)"
+    },
+    "ARTICLE_GROUP_DES": "Art-Grp Popis",
+    "YOUR_ARTICLE_GROUP": "Vaše skupina položek",
+    "GH_ARTICLE_GROUP_COL": "Vaše Art-Grp",
+    "GH_ARTICLE_GROUP_DES_COL": "Váš Art-Grp Popis",
+    "MARGINS": "Marže",
+    "SUPPLIER_ARTICLE_GROUP": "Skupina položek dodavatele",
+    "EDIT_ARTICL_GROUP": "Skupina položek - Úprava marží",
+    "DELETE_ART_GROUP": "Opravdu chcete odstranit tuto definici marže pro skupinu položek <strong>{{sagArticleGroup}} - {{customArticleGroup}}</strong> ?",
+    "NEW_ART_GRP": "Nová skupina položek",
+    "GH_ARTICLE_GROUP": "Vaše skupina položek",
+    "ARTICLE_GROUPS": "Art-Grps",
+    "ARTICLE_GROUPS_EXPORT": "Skupiny položek",
+    "NETTO_CONFIRM": "Chystáte se změnit zobrazení nákupní ceny pro všechny své zákazníky. Jste si jisti, že chcete tuto změnu provést?",
+    "DEFAULT_MARGIN_NOT_SETUP": "Abyste mohli povolit zobrazení nákupních cen, je třeba definovat výchozí marži pro skupiny položek a výchozí marže značek."
+  },
+  "MENU": {
+    "EXTERNAL_LINKS": {
+      "BIG_POINTS": "<b> Velké </b> Body",
+      "DIGITAL_CATALOG": "Digitální katalog",
+      "HAPPY_POINTS_REGISTRATION": "Registrace HAPPY bonusových bodů",
+      "HAPPY_POINTS_SHOP": "Katalog HAPPY bonusových bodů"
+    },
+    "HINT": "Poznámka",
+    "LICENSE_SPECIFICATIONS": "Licenčné technické údaje",
+    "LOG_OUT": "Odhlášení",
+    "MANAGE_CUSTOMERS": "Správa zákazníků",
+    "MY_FAVORITES": "Moje oblíbené",
+    "MY_ORDERS": "Mé objednávky",
+    "PRICE_FILE": "Ceník (Excel)",
+    "PROFILE": "Profil",
+    "RETURN": "Vratky",
+    "SETTINGS": "Nastavení",
+    "USER_ADMINISTRATION_TAB": "Správa uživatelů",
+    "VIEW_INVOICES": "Zobrazit faktury",
+    "VIEW_ORDER": "Zobrazit objednávku"
+  },
+  "MESSAGES": {
+    "ADDED_SUCCESSFULLY": "Úspěšně přidáno!",
+    "GENERAL_ERROR": "Chyba!",
+    "NO_RESULTS_FOUND": "Nebyly nalezeny žádné výsledky!",
+    "PRICE_FILE_NOT_FOUND": "Nejsou k dispozici žádné ceníky",
+    "SECTION_EXPIRED": "Platnost aktuální relace vypršela!",
+    "SERVER_ERROR": "Chyba serveru!",
+    "VERSION_CHECKER_INFORM": "K dispozici je nová verze! <br> Systém bude znovu načten a lze jej dále používat."
+  },
+  "MY_DATE_RANGE_PICKER": {
+    "DAYS": {
+      "FRI": "Pá",
+      "MON": "Po",
+      "SAT": "So",
+      "SUN": "Ne",
+      "THU": "Čt",
+      "TUE": "Út",
+      "WED": "St"
+    },
+    "MONTHS": {
+      "APR": "Duben",
+      "AUG": "Srpen",
+      "DEC": "Prosinec",
+      "FEB": "Únor",
+      "JAN": "Leden",
+      "JUL": "Červenec",
+      "JUN": "Červen",
+      "MAR": "Březen",
+      "MAY": "Květen",
+      "NOV": "Listopad",
+      "OCT": "Říjen",
+      "SEP": "Září"
+    },
+    "SELECT_BEGIN_DATE_TEXT": "Datum od",
+    "SELECT_END_DATE_TEXT": "Datum do"
+  },
+  "OCI": {
+    "EXPORT_TO_SAP": "Odeslat informace o položce do SAP",
+    "TRANSFER": "Převod"
+  },
+  "OFFERS": {
+    "DELETE_OFFER_MESSAGE": "Chcete tuto nabídku zrušit <strong> {{param}} </ strong>?",
+    "DELETE_UNSUCCESSFULLY": "Odstranění selhalo!",
+    "DISCOUNT": {
+      "ADDITION_AS_AMOUNT": "Příplatek jako částka",
+      "ADDITION_AS_AN_AMOUNT_ON_ARTICLES": "Příplatek jako částka za vlastní položky",
+      "ADDITION_AS_AN_AMOUNT_ON_WORKS": "Příplatek jako částka za veškerou práci",
+      "ADDITION_IN_PERCENT": "Příplatek v procentech",
+      "ADDITION_IN_PERCENT_ON_ARTICLES": "Přirážka v procentech za vlastní položky",
+      "ADDITION_IN_PERCENT_ON_WORKS": "Příplatek v procentech veškerá práce",
+      "ADD_DISCOUNTS_SURCHARGES": "Přidejte slevy, příplatky",
+      "DISCOUNT_AS_AMOUNT": "Částka slevy",
+      "DISCOUNT_AS_AN_AMOUNT_ON_ARTICLES": "Částka slevy na vlastní položky",
+      "DISCOUNT_AS_AN_AMOUNT_ON_WORKS": "Částka slevy na veškerou práci",
+      "DISCOUNT_IN_PERCENT": "Procentuelní sleva",
+      "DISCOUNT_IN_PERCENT_ON_ARTICLES": "Procentuelní sleva na vlastní položky",
+      "DISCOUNT_IN_PERCENT_ON_WORKS": "Procentuelní sleva na veškerou práci",
+      "INVALID_AMOUNT": "Neplatná množství!",
+      "INVALID_PERCENT": "Neplatná hodnota",
+      "ON_ALL_OWN_ARTICLE": "Pro všechny vlastní položky",
+      "ON_ALL_OWN_WORK": "Pro vaši vlastní práci"
+    },
+    "INVALID_AMOUNT": "Neplatné množství!",
+    "INVALID_NUMBER": "Neplatné číslo!",
+    "INVALID_PRICE": "Neplatná cena!",
+    "MANAGE_CUSTOMERS": "Správa zákazníků",
+    "MANAGE_OFFERS": "Spravujte nabídky",
+    "MANAGE_YOUR_ARTICLES": "Správa vlastních položek",
+    "MANAGE_YOUR_OWN_WORK": "Spravujte svou vlastní práci",
+    "NEW_CUSTOMER": "Zadání nového zákazníka",
+    "NEW_OFFER": "Nová nabídka",
+    "OFFER_CUSTOMER": {
+      "ADDRESS": "Adresa",
+      "CONTACT_INFO": "Kontaktní informace",
+      "DELETE_MESSAGE": "Chcete smazat zákazníka <strong> {{param}} </ strong>?",
+      "EDIT_CUSTOMER_TITLE": "Upravit zákazníka",
+      "NAME": "Příjmení",
+      "NEW_CUSTOMER_TITLE": "Zadání nového zákazníka",
+      "NO": "Ne",
+      "YES": "Ano"
+    },
+    "OFFER_DETAIL": {
+      "CONFIRM_SAVE_CHANGES": "Chcete uložit změny?",
+      "DATE": "Datum",
+      "DELIVERY_DATE": "Datum doručení",
+      "DETAIL": "Podrobnosti",
+      "OFFER_ITEM": {
+        "ARTICLE": "Položky",
+        "ARTICLE_WITH_VEHICLE": "Položka k vozidlu",
+        "ARTICLE_WTHOUT_CATEGORY": "Ostatní",
+        "ARTICLE_WTHOUT_VEHICLE": "Položky bez vozidla",
+        "BACK": "Zpět",
+        "DESCRIPTION": "Popis",
+        "MORE_ITEMS_FOR_VEHICLE": "Další díly na toto vozidlo",
+        "ORDER": "Objednat",
+        "OWN_ARTICLES": "Vlastní položky",
+        "OWN_WORK": "Vlastní práce",
+        "PRICE": "Cena",
+        "PRINT_INVOICE": "Tisknout jako fakturu",
+        "QUANTITY": "Množství",
+        "SAVE": "Uložit",
+        "SURCHARGES_DISCOUNT": "Slevy, příplatky",
+        "TOTAL": "Celkem",
+        "TOTAL_OFFER_WITHOUT_VAT": "Celková nabídka bez DPH",
+        "TOTAL_OFFER_WITH_VAT": "Celková nabídka vč. DPH",
+        "VAT": "DPH",
+        "VIEW_TO_ADD": "Zobrazit pracovní časy",
+        "WORK": "Práce",
+        "WORKING_TO_ADD": "Vložit pracovní časy"
+      },
+      "OFFER_NUMBER": "Číslo",
+      "OFFER_STATUS": {
+        "ALL": "Všechno",
+        "MANUALLY_ORDERED": "Objednáno samostatně",
+        "OPEN": "Související",
+        "ORDERED": "OBJEDNÁNO"
+      },
+      "REMARKS": "Poznámky",
+      "STATUS": "Status",
+      "TITLE": "Změnit nabídku"
+    },
+    "OVERVIEW_OF_ALL_CUSTOMERS": "Přehled všech zákazníků",
+    "OVERVIEW_OF_ALL_OFFERS": "Přehled všech nabídek",
+    "OWN_ARTICLE": {
+      "CAPTURE_NEW_ARTICLE": "Zadání nové položky",
+      "CREATE_NEW_ARTICLE": "Zadání nové položky",
+      "EDIT_ARTICLE": "Změnit položku",
+      "MESSAGE": {
+        "DELETE_CONFIRM": "Chcete smazat položku <strong> {{param}} </ strong>?",
+        "NOT_FOUND_ARTICLES": "Nebyly nalezeny žádné vlastní položky"
+      },
+      "OVERVIEW_OF_ALL_ARTICLE": "Přehled všech vlastních položek"
+    },
+    "OWN_WORK": {
+      "CAPTURE_NEW_WORK": "Přidat novou práci",
+      "CREATE_NEW_WORK": "Přidejte svou vlastní práci",
+      "EDIT_WORK": "Změňte svou vlastní práci",
+      "MESSAGE": {
+        "DELETE_CONFIRM": "Chcete smazat informace <strong> {{param}} </ strong>?",
+        "NOT_FOUND_WORKS": "Nebyla nalezena žádná vlastní práce"
+      },
+      "OVERVIEW_OF_ALL_WORK": "Přehled veškeré vlastní práce"
+    },
+    "SAVE_UNSUCCESSFULLY": "Ukložení se nezdařilo!",
+    "SELECT_CUSTOMER": "Vyberte zákazníka",
+    "SELECT_YOUR_OWN_ARTICLE": "Vyberte své vlastní položky",
+    "SELECT_YOUR_OWN_WORK": "Vyberte si svou vlastní práci"
+  },
+  "OIL": {
+    "AGGREGATE": "Typ oleje/kapaliny",
+    "ALL": "Všechno",
+    "APPROVED": "Schválení",
+    "BOTTLE_SIZE": "Objem balení",
+    "OIL": "Kapaliny",
+    "SPECIFICATION": "Specifikace",
+    "VEHICLE": "Typ vozidla",
+    "VISCOSITY": "Viskozita",
+    "BRAND": "Výrobce"
+  },
+  "OLYSLAGER": {
+    "APP_NOTE": "Aplikační poznámka",
+    "DESCRIPTION": "Vyberte požadovaný model vozidla:",
+    "FILL_QUANTITY": "Množství",
+    "MESSAGE": {
+      "API_ERROR": "Pro toto vozidlo nejsou k dispozici žádné informace o oleji",
+      "NOT_FOUND_VEHICLES": "Bohužel nebyl nalezen žádný odpovídající produkt pro vámi vybrané vozidlo. Požádejte o radu Vaši pobočku."
+    },
+    "TITLE": "Vozidla",
+    "USE_INTERVAL": "Použití / interval"
+  },
+  "OPENING_DAY": {
+    "CREATE_OPENING_DAY_LABEL": "+ Nový kalendář",
+    "DELETE_CONFIRM": "Opravdu chcete tuto položku kalendáře odstranit?",
+    "DELETE_SUCCESSFULLY": "Tento kalendář byl úspěšně odstraněn.",
+    "DELETE_TITLE": "Odstranit",
+    "DUPLICATED_OPENING_DAYS": "Datum položky kalendáře musí být jedinečné.",
+    "FILTER_DATE": {
+      "2_DAYS": "poslední 2 dny",
+      "31_DAYS": "posledních 31 dní",
+      "7_DAYS": "posledních 7 dní",
+      "FROM": "Datum od",
+      "TO": "Datum do",
+      "TODAY": "Dnes"
+    },
+    "IMPORT_CALENDAR_FILE": "Import kalendáře (CSV)",
+    "IMPORT_DUPLICATED_OPENING_DAYS": "Kalendář pro rok, který importujete již existuje. <br /> Chcete předchozí kalendář přepsat?",
+    "IMPORT_TITLE": "Import kalendáře (CSV)",
+    "NON_WORKING_DAY": "Volný den",
+    "OPENING_DAY_COLUMNS": {
+      "DATE": "Datum",
+      "DAY_TYPE": "Typ dne",
+      "EXCEPT_AFFILIATE": "Obchodní partner",
+      "EXCEPT_BRANCH_ID": "Pobočka",
+      "EXCEPT_DAY_TYPE": "Typ dne",
+      "EXCEPT_DELIVERY_ADDRESS_ID": "Dodací adresa ID",
+      "LAND": "Země"
+    },
+    "OPENING_DAY_FORM": {
+      "AFFILIATE": "Obchodní partner",
+      "BRANCH_CODE_LABEL": "Kód obchodu",
+      "BRANCH_NUMBER_LABEL": "Obchod",
+      "DATE": "Datum",
+      "DAY_TYPE": "Typ dne",
+      "EXCEPTIONS": "Výjimka",
+      "HINT": " ** Musí být zadáno buď Pobočka\"nebo \"Adresa dodání ID\".\"",
+      "LAND": "Země",
+      "ONLY_NUMBER": "Zadejte prosím číslo",
+      "SHIPPING_ADDRESS_ID": "ID doručovací adresy",
+      "TITLE": "Upravit otvírací dobu v kalendáři",
+      "LAND_SHORT_CODE": {
+        "CH": "Švýcarsko",
+        "AT": "Rakousko",
+        "CZ": "Česká republika",
+        "RS": "Srbsko"
+      }
+    },
+    "OPENING_DAY_MENU_TITLE": "Otevírací doba",
+    "OPENING_DAY_TITLE": "Kalendář pracovních dnů",
+    "PUBLIC_HOLIDAY": "Svátky",
+    "WORKING_DAY": "Pracovní dny",
+    "NOT_UPLOAD_SUCCESSFULLY": "Import se nezdařil!"
+  },
+  "ORDER": {
+    "ERROR": {
+      "AX_INVALID_COMPANY": "Neplatná společnost!",
+      "AX_INVALID_DATA": "Objednávka porušuje jedno nebo více ověřovacích pravidel! Zkontrolujte prosím své zadání.",
+      "AX_TIMEOUT": "Objednávka se nezdařila (TIMEOUT ERROR)! <br> Zkontrolujte objednávku v AX.",
+      "CREATE_OFFER_FAILED": "Nabídku AX nelze vytvořit.",
+      "EMAIL_FAILED": "Doručení e-mailu se nezdařilo!",
+      "OFFER_FAILED": "Nabídka nebyla přijata!",
+      "ORDER_FAILED": "Objednávka není možná! Obraťte se prosím na svou pobočku.",
+      "TIMEOUT": "Objednávka se nezdařila (TIMEOUT ERROR)! Zkontrolujte prosím objednávku v SAGsys.",
+      "TRANSFER_FAILED": "Přenos nákupního košíku selhal!",
+      "TRANSFER_ONLY_TIMEOUT_FAILED": "Úspěšné dokončení objednávky nebylo možné potvrdit. Prosím, obraťte se na pobočku pro kontrolu objednávky.",
+      "TRANSFER_TIMEOUT_AND_OTHER_FAILED": "Převod nákupního košíku částečně selhal! Úspěšné dokončení objednávky nebylo možné potvrdit. Prosím, obraťte se na pobočku pro kontrolu objednávky."
+    },
+    "TYPE": {
+      "ABS": "ABS",
+      "ALL": "Všechno",
+      "COUNTER": "KSL",
+      "ORDER": "Objednávka",
+      "STD": "STD",
+      "KSO_AUT": "Objednávka (N)"
+    },
+    "WARNING": {
+      "TRANSFER_PARTIALLY_TIMEOUT_FAILED": "Varování! Některé položky nebylo možné objednat. Zkontrolujte prosím nákupní košík a kontaktujte svou pobočku.",
+      "TRANSFER_PARTIALLY_TIMEOUT_FAILED_SUFFIX": "Pokud máte jakékoli dotazy, kontaktujte prosím svou pobočku.",
+      "INVALID_COUPON": "Na tuto objednávku nemůžeme uplatnit kupón. Obraťte se prosím na svou pobočku.",
+      "TRANSFER_PARTIALLY_FAILED": "Pozor! Některé položky nebylo možné objednat. Zkontrolujte prosím nákupní košík a zavolejte na místní pobočku."
+    }
+  },
+  "ORDER_CONFIRMATION": {
+    "COUNTER": {
+      "BARCODE_ITEMS": "Pomocí tohoto čárového kódu lze položku vyskladnit",
+      "HEADER": "Objednávka byla odeslána zákazníkovi",
+      "ORDER_NR": "Vaše číslo objednávky"
+    },
+    "REFERENCE": "Vaše poznámka"
+  },
+  "ORDER_DASHBOARD": {
+    "CART_NR": "Nákupní košík / číslo objednávky",
+    "COMPANY_TYPE": "Typ společnosti",
+    "CONFIRMATION": {
+      "CONFIRM_ADD_TO_BASKET": "Uložit a zavřít nákupní košík",
+      "CONFIRM_BTN_ADD_TO_BASKET": "Objednat",
+      "CONFIRM_DELETE_ORDER": "Objednávka bude smazána"
+    },
+    "CONTACT_INFO": "Kontaktní informace",
+    "CUSTOMER": "Zákazník",
+    "DELETE": "Smazat",
+    "GOODS_RECEIVER": "Příjemce",
+    "MY_CUSTOMERS_ORDERS": "Moje objednávky",
+    "NEW_ORDERS": "Nové objednávky",
+    "ORDERED": "Objednáno",
+    "ORDER_DATE_TIME": "Datum objednávky",
+    "ORDER_LIST_NOT_FOUND": "Nenalezeny žádné záznamy.",
+    "ORDER_REF": {
+      "CUSTOMER_MESSAGE": "Zpráva od zákazníka",
+      "CUSTOMER_POSITION_REF": "Referenční číslo zákazníka",
+      "CUSTOMER_REF": "Reference zákazníka"
+    },
+    "REMOVE_CUSTOMER": "Odebrat zákazníka",
+    "SELECT_CUSTOMER": "Vyberte zákazníka",
+    "TOTAL": "Celková maloobchodní cena",
+    "TOTAL_NETTO": "Celková nákupní cena koncového zákazníka",
+    "TOTAL_ORDER": "Celkem: {{total}} objednávek",
+    "VEHICLE_ARTICLE": "Vozidlo / Položka"
+  },
+  "ORDER_HISTORY": {
+    "ADDING_FAILED": "Přidávání nefunguje!",
+    "ADDING_SUCCESSFULLY": "Položky byly přidány do košíku",
+    "ARTICLE": "Položky",
+    "COLUMNS": {
+      "ORDER_NUMBER": "Číslo objednávky",
+      "STATUS": "Status",
+      "TYPE": "Typ"
+    },
+    "ERROR": {
+      "ERROR_HAPPENED": "Historie objednávek nebyla nalezena!"
+    },
+    "LABEL": "Uložené nákupní košíky",
+    "ORDER_LIST": "Úlohy",
+    "PLACE_HOLDERS": {
+      "ORDER_NUMBER": "Číslo objednávky"
+    }
+  },
+  "PAGE_TITLE": {
+    "ARTICLE_SEARCH_LIST": "Import",
+    "BATTERY": "Baterie",
+    "BULBS": "Žárovky",
+    "HOME": "Vozidla, díly",
+    "INFORMATION": "Informace",
+    "OFFERS": "Nabídky",
+    "OIL": "Kapaliny",
+    "OUTLET_SHOP": "Prodejna",
+    "PROMOTIONS": "Akce",
+    "TYPRES": "Pneumatiky",
+    "UNIVERSAL_PART": "Univerzální díly",
+    "RENT_TOOLS": "Pronájem nástrojů"
+  },
+  "PAGINATION": {
+    "NEXT": "další",
+    "PREVIOUS": "Předchozí"
+  },
+  "PERMISSION": {
+    "BATTERY": "Baterie",
+    "BULB": "Žárovka",
+    "DMS": "DMS",
+    "HAYNESPRO": "HaynesPro",
+    "HOME": "Domů",
+    "OCI": "OCI",
+    "OFFER": "Nabídky",
+    "OIL": "Kapaliny",
+    "TYRE": "Pneumatiky",
+    "VIN": "VIN",
+    "UNIPARTS": "Univerzální díly",
+    "MOTO": "Moto"
+  },
+  "PROMOTIONS_DATA": {
+    "AT_LINK_1": "Zaměření",
+    "AT_LINK_2": "Měsíční propagace",
+    "DD_LINK_1": "Akce",
+    "DD_LINK_1_TYRES": "Akční pneumatiky",
+    "DD_LINK_2": "Akce",
+    "DD_LINK_2_TYRES": "Promo pneumatiky",
+    "DD_LINK_3": "Akce",
+    "DD_LINK_3_TYRES": "Promo pneumatiky",
+    "MT_LINK_1": "Matik aktuálně",
+    "MT_LINK_2": "KSTools horké nabídky",
+    "RBE_LINK_1": "REMCO PROMOTIE - PROPAGACE REMCO",
+    "TM_LINK_1": "Akce",
+    "TM_LINK_1_TYRES": "Akční pneumatiky",
+    "TM_LINK_2": "Akce",
+    "TM_LINK_2_TYRES": "Promo pneumatiky",
+    "TM_LINK_3": "Akce",
+    "TM_LINK_3_TYRES": "Promo pneumatiky",
+    "CZ_LINK_1": "Stahlgruber Hity",
+    "CZ_LINK_2": "Prodejní Akce OSRAM"
+  },
+  "QUICK_CLICK": {
+    "ARTICLES_DISPLAY": "Zobrazit díly",
+    "FOLD": "Zobrazit méně",
+    "UNFOLD": "Zobrazit více"
+  },
+  "RECOMMENDATIONS": {
+    "DISC_BRAKE_SET_ACCESSORIES": "Sada kotoučových brzd + příslušenství"
+  },
+  "REGISTER": {
+    "ADDITIONAL_LINK_TO_CONTACT": "Klikněte zde, pokud ještě nemáte zákaznické číslo.",
+    "CONTACT": {
+      "SUCCESS_MESSAGE": "Děkujeme za váš zájem o náš internetový obchod. Vaše žádost byla odeslána, budeme Vás kontaktovat co nejdříve.",
+      "TEXT": "Tento internetový obchod je určen výhradně pro smluvní zákazníky. Bohužel neprodáváme soukromým osobám."
+    },
+    "CUSTOMER_NUMBER": "Zákaznické číslo",
+    "DESCRIPTION": "Popis",
+    "FAX_NUMBER": "Fax",
+    "HOMEPAGE": "Domovská stránka",
+    "INTRODUCTION_1": "Tento internetový obchod je určen výhradně pro smluvní zákazníky.",
+    "INTRODUCTION_2": "Info: Chcete-li se zaregistrovat, musíte se nejprve identifikovat svým zákaznickým číslem a poštovním směrovacím číslem vaší hlavní adresy. Poté budete moci vytvořit nový uživatelský účet pro internetový obchod.",
+    "MESSAGES": {
+      "CREATE_MDM_CUSTOMER_FAILED": "Zákazníka MDM nelze vytvořit!",
+      "CREATE_MDM_USER_FAILED": "Uživatel MDM nelze vytvořit!",
+      "CUSTOMER_INACTIVE": "Tento zákazník nemůže být zaregistrován. Obraťte se prosím na svou pobočku.",
+      "CUSTOMER_NOT_BELONG_TO_AFFILIATE": "Zákazník nebyl nalezen!",
+      "INTERNAL_ERROR": "Interní chyba serveru!",
+      "INVALID_ADMIN_ROLE": "Role správce není platná!",
+      "INVALID_AFFILIATE": "Společnost není platná!",
+      "INVALID_COMPANY_NAME": "Název společnosti není platný!",
+      "INVALID_CUSTOMER": "Zákaznické číslo není platné!",
+      "INVALID_DELIVERY_METHOD": "Způsob doručení není platný!",
+      "INVALID_EMAIL": "E-mail je neplatný!",
+      "INVALID_GROUP": "Skupina není platná!",
+      "INVALID_ORGANISATION_TYPE": "Typ organizace není platný!",
+      "INVALID_POST_CODE": "Poštovní směrovací číslo není platné!",
+      "INVALID_SALUTATION": "Neplatný údaj!",
+      "INVALID_SUR_NAME": "Příjmení není platné!",
+      "INVALID_USERNAME_IN_AFFILIATE": "Toto uživatelské jméno je již použito.",
+      "INVALID_USERNAME_IN_CUSTOMER": "Toto uživatelské jméno již existuje!",
+      "INVALID_CUSTOMER_ALREADY_REGISTERED": "Zákazník, je již zaregistrován",
+      "INVALID_USER_NAME": "Uživatelské jméno je neplatné!",
+      "INVALID_USER_ROLE": "Uživatelská role není platná!",
+      "MESSAGE_SUCCESS": "Nový uživatel byl úspěšně vytvořen."
+    },
+    "OPTIONAL_ADDRESS": "Adresa další",
+    "REGISTRY": "Registrovat",
+    "USERNAME": "Uživatelské jméno",
+    "CREATE_ON_BEHALF_ONLY": "Offline zákazník"
+  },
+  "RETURN_ARTICLE_BASKET": {
+    "CONTAIN_DEPOSIT_WARNING": "Tato položka obsahuje zálohu za starý díl. Při vracení starého dílu zvolte důvod vrácení \"8 - starý díl\"!",
+    "CREATE_SELECTED_RETURNS": "Výběr položek pro vrácení",
+    "ERRORS": {
+      "AX_TIMEOUT": "Žádost selhala (TIMEOUT ERROR)! <br> Zkontrolujte vrácené položky v AX.",
+      "INVALID_RETURN_QUANTITY": "Vrácené množství je neplatné! Povoleny jsou pouze hodnoty mezi 1 a zbývajícím množstvím.",
+      "SUBMIT": "Tyto vratky nelze odeslat! Zkontrolujte prosím své údaje."
+    },
+    "MULTIPLE_PIECES_WARNING": "Bylo zakoupeno několik kusů této položky. Zkontrolujte vrácené množství!",
+    "PAYMENT_TERM": "Platební podmínky",
+    "PAYMENT_TERM_DESC": "Vratka <strong> {{value}} </ strong> musí být vždy stejná jako objednávka.",
+    "PRINT_RETURN_CONFIRMATION": "Tisk potvrzení o vrácení",
+    "QUARANTINE_REASON": "Důvod karantény (max. 60 znaků)",
+    "REFUND": "Vytvořit vratku",
+    "RETURN_CONDITION": {
+      "REASON_LIST": {
+        "AIS_RETOUR": "9 - AIS vratka",
+        "ALTERNATIVE": "8 - Starý díl",
+        "DEFECT": "1 - Vadný výrobek",
+        "FALSE_ARTICLE": "3 - Špatná položka",
+        "INCORRECT_FEED_LINE": "2 - Špatné přiřazení",
+        "NOT_USED": "6 - Nepotřebná položka",
+        "SELECTION": "5 - Špatný výběr",
+        "SUPPLIER_CALLBACK": "7 - Staženo dodavatelem",
+        "WRONG_AMOUNT": "4 - Špatné množství",
+        "REPAIR": "10 - Oprava"
+      },
+      "TITLE": "Podmínky vrácení"
+    },
+    "RETURN_CONFIRMATION": {
+      "INFO": "Tuto vratku jsme obdrželi a bude zpracována co nejdříve.",
+      "QUARANTINE_ORDER": "Vaše vratky jsou ve výši:",
+      "RETURN_ORDER": "Vaše zakázky na vrácení zboží jsou:",
+      "TITLE": "Přehled vratek",
+      "MESSAGE": "Chcete vrátit pouze <b>staré díly</b>?",
+      "SELECT_ANOTHER_REASON": "Vyberte prosím jiný důvod vrácení."
+    },
+    "RETURN_REASON_TITLE": "Důvod vrácení",
+    "TABLE_COLUMNS": {
+      "AMOUNT": "Množství",
+      "ASSIGNMENT": "Číslo objednávky",
+      "CASH_DISCOUNT": "Sleva za platbu hotově",
+      "DEADLINE": "Splatnost",
+      "ID": "ID",
+      "KEYWORD": "Klíčové slovo",
+      "NAME": "Popis",
+      "NUMBER": "Množství",
+      "PAYMENT": "Způsob platby",
+      "QUARANTINE": "Karanténa",
+      "REST": "Zůstatek",
+      "STORAGE_LOCATION": "Číslo pobočky",
+      "TYPE": "Typ",
+      "DESCRIPTION": "Popis "
+    },
+    "TABLE_TITLE": "Vytvořit vratku"
+  },
+  "SEARCH": {
+    "ADD_TO_CART": "V nákupním košíku",
+    "ALL": "Všechno",
+    "ARTICLE_DESC": "Popis položky",
+    "ARTICLE_FULLTEXT": "Fulltextové vyhledávání",
+    "ARTICLE_HISTORY_TITLE": "Nedávno vyhledané",
+    "ARTICLE_TIPS": "Číslo položky / OE číslo",
+    "BRAKES": "Brzdy",
+    "BUYVIN": "Objednejte VIN balíček",
+    "CHOOSE": "Historie objednávek",
+    "COLUMN_BODY": "Karoserie",
+    "COLUMN_CYLINDER": "Válce",
+    "COLUMN_DRIVE_TYPE": "Pohon",
+    "COLUMN_ENGINE": "Objem motoru",
+    "COLUMN_FUEL": "Palivo",
+    "COLUMN_MOTOR": "Motor",
+    "COLUMN_NAME": "Typ",
+    "COLUMN_POWER": "Napájení",
+    "COLUM_PERIOD": "Rok",
+    "DATA": "Termíny",
+    "DEAL_OFWEEK": "Nabídka týdne",
+    "ENGINE_PARTS": "Části motoru",
+    "ERROR_MESSAGE": {
+      "ARTICLE_NOT_FOUND": "Položku nelze vyhledat.",
+      "EXCEED_30_DAYS": "Rozdíl nesmí překročit 30 dní!",
+      "EXCEED_31_DAYS": "Rozdíl nesmí překročit 31 dní!",
+      "FROM_DATE_CHANGED": "„Datum od“ byl upraven na rozdíl 31 dnů",
+      "HAS_VALUES": "Zadání čísla HSN / TSN",
+      "INVALID_RETURN_ARTICLE": "Neplatná položka!",
+      "INVALID_VIN": "VIN je neplatný",
+      "MAKE_MODEL_TYPE_REQUIRED": "Vyberte prosím značku / model / typ",
+      "NOT_FOUND": "Dle zadaných parametrů nebylo nic nalezeno.",
+      "PERMISSION": "Nemáte dostatečná práva k provedení této akce.",
+      "REQUIRED_FIELD": "Vyplňte prosím",
+      "TO_DATE_CHANGED": "Položka „Datum do“ byla upravena na rozdíl 31 dnů",
+      "UNSUPPORTED": "Tato vyhledávací funkce není podporována!",
+      "VEHICLE_NOT_FOUND": "Podle zadání nebylo nalezeno žádné vozidlo!",
+      "VEHICLE_NOT_MATCHED": "Nebylo nalezeno žádné odpovídající vozidlo.",
+      "SELECT_CATEGORIES_ON_LEFT": "Vyberte si z kategorií vlevo."
+    },
+    "FILTER": "Filtr",
+    "FILTER_NAME_TITLE": "Hledání pomocí zástupných znaků: (*) odpovídá jednomu nebo více znakům. např. \"Sport *\" najde \"Sportback\"",
+    "HISTORY_TIPS": "Dříve hledaná vozidla",
+    "HOVER_TITLES": {
+      "VEHICLES": "Vyhledat podle: Typové číslo (CH), SPZ (CH), Národní kód (AT)",
+      "VEHICLES_DESC": "Hledejte: Značku, Model, Typ, Styl těla, Druh paliva, CC, Kód motoru, Výkon KW nebo HP, Typ pohonu nebo jakoukoliv kombinaci",
+      "VEHICLES_DESC_HELP": "Zástupný znak (*) odpovídá jednomu nebo více znakům, např. \"Sport *\" najde \"Sportback\"",
+      "VIN_20": "Vyhledejte podle: VIN nebo číslo podvozku",
+      "YEAR": "Hledejte podle roku: RRRR"
+    },
+    "HSN": "HSN",
+    "KILOMETER": "Tachometr",
+    "KW_PS": "KW / HP",
+    "LANDING_GEAR": "Podvozek",
+    "LOADING": "Loading...",
+    "MAINTENANCE": "Údržba",
+    "MAKE_MODEL_HINT": "Vyhledejte vozidlo pomocí polí níže",
+    "MARK": "SPZ",
+    "MOTOCODE_DESC": "Kód motoru / kód práce",
+    "MULTIPLE_VEHICLES_DESCRIPTION": "Výběr vozidla",
+    "MULTIPLE_VEHICLES_TITLE": "Všechna vozidla",
+    "MYFAVORITES": "Moje oblíbené",
+    "NATIONAL_CODE": "Národní kód",
+    "NO_ARTICLE_SEARCH_FOUND": "Nebyly nalezeny žádné záznamy",
+    "NO_RESULTS_FOUND": "Nebyly nalezeny žádné výsledky",
+    "NO_VEHICLE_SEARCH_FOUND": "Nebyla nalezena žádná vozidla",
+    "OR": "nebo",
+    "PART_SEARCH": "Vyhledávání dílů",
+    "QUICK_ORDER": "Expresní objednávka",
+    "REMOVE": "Odstranit",
+    "SEARCH_BUTTON": "Vyhledávání",
+    "SEARCH_OIL": {
+      "ADDITIONAL_INFORMATION": "Další informace",
+      "LUBRICANT_CATALOG": "Katalog maziv",
+      "MOBILE_PRODUCT_DATA_SHEETS": "Datové listy produktů MOBIL",
+      "MOBILE_SAFETY_DATA_SHEETS": "Bezpečnostní listy MOBIL",
+      "WHICH_ENGINE_OIL": "Jaký motorový olej?"
+    },
+    "SEARCH_TYRES": {
+      "ACCESSORIES": "Příslušenství",
+      "ADDITIONAL_INFORMATION": "Další informace",
+      "COMPARISON_TATBLE": "Srovnávací tabulka",
+      "CROSS_SECTION": "Profil",
+      "DIAMETER": "Průměr",
+      "FZ_CATEGORY": "Typ vozidla",
+      "INPUT_EXAMPLE": "Příklad",
+      "LOAD_INDEX": "Index zatížení",
+      "MANUFACTURER": "Výrobce",
+      "MATCH_CODE": "Srovnávací kód",
+      "MATURITY_INDEX": "Index zatížení",
+      "MOTORBIKES": "Motocykl",
+      "MOTOR_CATEGORY": "Kategorie",
+      "POTS_AND_PANS": "Opravné sady",
+      "REPAIR_MATERIAL": "Opravný materiál",
+      "RESET": "Odstranit",
+      "RIM": "Ráfky",
+      "RUNFLAT": "Runflat",
+      "SEASON": "Sezóna",
+      "SHOW_ALL_ARTICLES": "Zobrazit všechny položky",
+      "SPEED_CATEGORIES": "Rychlostní kategorie",
+      "SPEED_INDEX": "Index rychlosti",
+      "SPIKE": "Špice",
+      "TYRES": "Osobní a lehký nákladní vůz",
+      "TYRE_LABEL": "Štítek pneumatiky",
+      "TYRE_SAFETY_NOTES": "Bezpečnostní informace o pneumatikách",
+      "TYRE_SEGMENT": "Segment pneu",
+      "TYRE_TECHNICAL_TERMS": "Technické podmínky pneumatik",
+      "WHEELS": "Příslušenství kol",
+      "WIDTH": "Šířka",
+      "MATCH_CODE_ARTICLE_OVER_LIMIT": "CS_MATCH_CODE_ARTICLE_OVER_LIMIT"
+    },
+    "SEARCH_VIN": {
+      "CONTINUE_WITHOUT_VIN": "Pokračujte bez VIN",
+      "VIN_POPUP_TITLE": "VIN (číslo podvozku)",
+      "VIN_VALUE": "VIN (číslo podvozku)"
+    },
+    "SELECT": "Vybrat",
+    "SELECT_VEHICLE": "Výběr vozidla",
+    "SUGGESTION": "Mohlo by vás také zajímat",
+    "TSN": "TSN",
+    "TYPECERTIFICATE": "Typový list",
+    "VEHICLES": "Typový list (CH), SPZ (CH), Národní kód (AT)",
+    "VEHICLES_DESC": "Popis vozidla",
+    "VEHICLE_HINT": "Hledání vozidla se provádí pomocí jednoho z těchto polí.",
+    "VEHICLE_HISTORY_TITLE": "Naposledy vyhledaná vozidla",
+    "VEHICLE_HISTORY_SHOW_MOTO_ONLY": "Pouze motocykly",
+    "VEHICLE_SEARCH": {
+      "MAKE_MODEL_TITLE": "Značka/Model",
+      "VEHICLE_TITLE": "Vozidlo"
+    },
+    "VEHICLE_SEARCH_TITLE": "Vyhledání vozidel",
+    "VEHICLE_SEARCH_TITLE_MORE_INFO": "Osobní/Dodávky",
+    "VEHICLE_SEARCH_TITLE_MOTO_MORE_INFO": "Motocykly",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB": "Kód/Vyhledávací termín",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB_AT": "Výběr značky/Kód",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_WITH_SELECT_MAKE_TAB": "Výběr značky",
+    "VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB": "Značka/Model/Typ",
+    "VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB_CH": "Rozšířené vyhledávání vozidel",
+    "VIN": "VIN (číslo podvozku)",
+    "VIN_20": "VIN nebo číslo podvozku",
+    "VIN_CALLS": "Zbývající dotazy VIN",
+    "VIN_ERROR_MSG": {
+      "ACCESS_LIMIT_EXCEEDED": "Technická chyba {33}!",
+      "AUTHENTICATION_ERROR": "Technická chyba {3}!",
+      "DATA_ERROR": "Chyba dat",
+      "IMPOSSIBLE_TO_OBTAIN_LABOUR_TIME": "Chyba, neúplná nebo neznámá data {14}!",
+      "INACTIVE_USER": "Technická chyba {31}!",
+      "INCOMPATIBLE_EQUIPMENT_FOR_TYPE_ITEM": "Chyba, neúplná nebo neznámá data {24}!",
+      "INCOMPATIBLE_EQUIPMENT_FOR_TYPE_RANK": "Chyba, neúplná nebo neznámá data {23}!",
+      "INCOMPATIBLE_MAINTENANCE_PART_CODES": "Chyba, neúplná nebo neznámá data {38}!",
+      "INTERNAL_ERROR": "Technická chyba {6}!",
+      "INVALID_EQUIPMENT_ITEM": "Chyba, neúplná nebo neznámá data {12}!",
+      "INVALID_FAMILY_IN_EQUIPMENT_RANK_LIST": "Chyba, neúplná nebo neznámá data {16}!",
+      "INVALID_MAINTENANCE_PART_CODE": "Chyba, neúplná nebo neznámá data {25}!",
+      "INVALID_MANUFACTURER_OPERATION_CODE": "Chyba, neúplná nebo neznámá data {13}!",
+      "INVALID_MODEL_CODE": "Chyba, neúplná nebo neznámá data {7}!",
+      "INVALID_OPERATION_TYPE": "Chyba, neúplná nebo neznámá data {15}!",
+      "INVALID_PART_CODE": "Chyba, neúplná nebo neznámá data {18}!",
+      "INVALID_PART_CODE_FOR_THIS_METHOD": "Chyba, neúplná nebo neznámá data {39}!",
+      "INVALID_PART_CODE_IN_MODEL": "Chyba, neúplná nebo neznámá data {19}!",
+      "INVALID_RANGE_VALUE_1": "Chyba, neúplná nebo neznámá data {70}!",
+      "INVALID_RANGE_VALUE_2": "Chyba, neúplná nebo neznámá data {71}!",
+      "INVALID_REFERENCE": "Chyba, neúplná nebo neznámá data {32}!",
+      "INVALID_USER": "Technická chyba {5}!",
+      "INVALID_USER_CODE": "Technická chyba {4}!",
+      "INVALID_VIN_FORMAT": "Chyba VIN {8}! Zkontrolujte číslo podvozku a zadejte jej znovu.",
+      "MODEL_IDENTIFICATION_REQUIRED": "Chyba, neúplná nebo neznámá data {11}!",
+      "MULTIPLE_UMC_DECODED": "Chyba, neúplná nebo neznámá data {10}!",
+      "NOT_FOUND_VEHICLE": "Nebylo nalezeno žádné vhodné vozidlo",
+      "NO_MODEL_CODE": "Chyba, neúplná nebo neznámá data {69}!",
+      "NO_RELATIONSHIP_FOUND_BETWEEN_FAMILY_AND_MODEL": "Chyba, neúplná nebo neznámá data {17}!",
+      "NO_RESULT_FOUND": "Nebyly nalezeny žádné výsledky {21}!",
+      "NO_VALID_MODEL_CODE_DECODED_FROM_VIN": "Chyba VIN {9}! Zkontrolujte číslo podvozku a zadejte jej znovu.",
+      "OPERATION_CODE_DOES_NOT_EXIST_FOR_UMC": "Chyba, neúplná nebo neznámá data {22}!",
+      "OPERATION_TYPE_NOT_VALID_FOR_PART_CODE": "Chyba, neúplná nebo neznámá data {20}!",
+      "SYSTEM_ERROR": "Chyba systému",
+      "UNKNOWN": "Neznámá chyba",
+      "USER_UNKNOWN": "Neznámý uživatel",
+      "VIN ALREADY EXISTS": "Chyba VIN {40}! Zkontrolujte číslo podvozku a zadejte jej znovu.",
+      "VIN DOES NOT EXIST": "VIN neexistuje {41}!",
+      "VIN_ERROR": "Chyba VIN! Zkontrolujte číslo podvozku a zadejte jej znovu.",
+      "VIN_INVALID": "Neplatné VIN!",
+      "VIN_UNKNOWN": "VIN neznámé! Zkontrolujte číslo podvozku a zadejte jej znovu.",
+      "VIN_UNSUPPORTED": "Služba vyhledávání pomocí VIN není k dispozici! Použijte jiný typ vyhledávání vozidel.",
+      "XML_FORMAT_ERROR": "Technická chyba {2}!"
+    },
+    "VIN_INFORM_MESSAGE": "Můžeme nabídnout ověřovací službu, abychom zajistili správnou část tohoto vozidla. Pro ověření zadejte číslo podvozku (VIN):",
+    "VIN_MODE": {
+      "STANDARD": "Standard",
+      "PREMIUM": "Premium"
+    },
+    "WORKSHOP_GROUPS": "Pracovní skupiny",
+    "YEAR": "Rok",
+    "YEAR_ERROR_HINT": "RRRR, MM/RRRR, MM/RRRR"
+  },
+  "SEARCH_RESULT": {
+    "BACK": "Zpět",
+    "DISC_BRAKE_SET_ACCESSORIES": "Sada kotoučových brzd + příslušenství",
+    "GO_TO_HAYNESPRO": "Klikněte zde pro HaynesPro",
+    "HAYNESPRO_TD_WORKSHOP": "HaynesPro",
+    "HIDE_ADDTIONAL": "Zobrazit méně",
+    "LIQUIDATION": "AKCE / Výprodej",
+    "LOAD_MORE": "Zobrazit více",
+    "NEXT": "Pokračovat k objednávce",
+    "ORDER_NEXT": "Objednat nyní",
+    "SHOW_MORE_ADDTIONAL": "Zobrazit více značek"
+  },
+  "SEARCH_TYPE": {
+    "ALL": "Všechno",
+    "ARTICLES": "Položky",
+    "BARCODE": "Rychlé hledání",
+    "BARCODE_NOT_FOUND_MS": "Čárový kód {{barcode}} nebyl rozpoznán! Použijte prosím hledání položky.",
+    "BATTERIES": "Baterie",
+    "MSG_DISPLAY": "Zobrazit",
+    "MSG_NO_RECORDS": "Žádné shody",
+    "MSG_RECORDS_FOUND": "Nalezeno",
+    "NO_RETURN_ARTICLE_FOUND": "Pro toto zadání nebyla nalezena žádná položka! Zadejte platné číslo objednávky, dodacího listu nebo faktury.",
+    "RETURN": "Vratky",
+    "RETURN_QUANTITY_IS_ZERO": "Nebyly nalezeny žádné položky, které mají vrácené množství!",
+    "SEARCH_LABLE": "Fulltextové vyhledávání: číslo dílu, vozidlo, položka",
+    "VEHICLES": "Vozidla",
+    "PRODUCT_CATEGORY": "Kategorie produktů"
+  },
+  "SERVICE": {
+    "REAR": {
+      "BRAKE_HOSES": "Brzdové hadice",
+      "CALIPER_ACCESSORIES": "Brzdový třmen + příslušenství",
+      "DISC_ACCESSORIES": "Brzdové kotouče + příslušenství",
+      "DISC_BRAKE_SET_ACCESSORIES": "Sada kotoučových brzd + příslušenství",
+      "SELECT_ALL": "Vybrat vše"
+    }
+  },
+  "SETTINGS": {
+    "CANCEL": "Zrušit",
+    "CONFIG": "Nastavení",
+    "DELETE": "Smazat",
+    "DELETE_CONFIRM_MESSAGE": "Opravdu chcete smazat uživatele <strong> {{value}} </strong>?",
+    "DELETE_DVSE_EXTERNAL": "Odstranit externí uživatele DVSE",
+    "FINAL_CUSTOMER_USER_MANAGEMENT_TAB": "Správa uživatelů",
+    "FINAL_USER_ORDER": {
+      "FILTER": {
+        "ALL": "Všechno",
+        "NEW": "Objednávka byla odeslána",
+        "OPEN": "Objednávka byla odeslána",
+        "ORDERED": "Objednáno"
+      }
+    },
+    "FINAL_USER_ORDER_TAB": "Poslední objednávky",
+    "FIRSTNAME": "Jméno",
+    "INVOICE_ARCHIVE_TAB": "Archiv faktur",
+    "MANAGE_CUSTOMERS_TAB": "Správa zákazníků",
+    "MESSAGE_FAILURE": "Uložení se nezdařilo!",
+    "MESSAGE_SUCCESSFUL": "Úspěšně uloženo",
+    "MY_FAVORITE_TAB": "Moje oblíbené",
+    "MY_ORDER": {
+      "ADD_TO_BASKET_SUCCESSFULLY": "Položky byly přidány do košíku.",
+      "DETAIL": {
+        "AROUND": "ve",
+        "HEADER": {
+          "ARTICLE_NUMBER": "Položky",
+          "DELIVERY_INFORMATION": "Způsob dodání",
+          "GROSS_PRICE": "Cena bez DPH / ks",
+          "IMAGE": "Obrázek",
+          "MANUFACTURER": "Výrobce",
+          "QUANTITY": "Počet kusů",
+          "REFERENCE": "Vaše pos. Reference",
+          "UVPE_PRICE": "UVPE na kus",
+          "VEHICLE": "Vyhledáno podle vozidla"
+        },
+        "ORDER_DATE": "Datum objednávky",
+        "ORDER_DETAILS": "Podrobnosti o objednávce",
+        "ORDER_NUMBER": "Číslo objednávky"
+      },
+      "DUMMY": {
+        "ORDER_STATUS": "Stav objednávky"
+      },
+      "ERP_SYSTEM": "Systém",
+      "ESHOP": "eShop",
+      "FILTER": {
+        "DATE_FROM": "Datum od",
+        "DATE_TO": "Datum do",
+        "FILTER_ALL_COLUMNS": "Filtrujte všechny sloupce",
+        "ORDER_STATUS": "Stav objednávky",
+        "USER_NAME": "Uživatelské jméno"
+      },
+      "HEADER": {
+        "CUSTOMER_NAME": "Zákazník",
+        "ORDER_DATE": "Datum objednávky",
+        "ORDER_NUMBER": "Číslo objednávky",
+        "ORDER_STATUS": "Stav objednávky",
+        "ORDER_TYPE": "Typ objednávky",
+        "SOURCE": "Zdroj",
+        "USERNAME": "Uživatelské jméno",
+        "VEHICLE": "Vyhledáno podle vozidla",
+        "DETAILS": "Detail objednávky",
+        "ADD_TO_CART": "Kopírovat do košíku"
+      },
+      "STATUS": {
+        "ALL": "Vše",
+        "BACKORDER": "Otevřená",
+        "CANCELLED": "Zrušená",
+        "DELIVERED": "Dodaná",
+        "INVOICED": "Fakturovaná",
+        "NONE": "Není",
+        "PENDING": "Ve zpracování"
+      }
+    },
+    "ORDER_HISTORY_TAB": "Poslední objednávky",
+    "PROFILE": {
+      "HOURLY_RATE": "Hodinová sazba",
+      "INVALID_EMAIL": "E-mail není platný",
+      "INVALID_HOURLY_RATE": "Neplatná hodinová sazba",
+      "INVALID_MANDATORY_FIELDS": "Nelze uložit! Vyplňte prosím všechna povinná pole, která jsou označena hvězdičkou.",
+      "INVALID_USERNAME": "Neplatné uživatelské jméno. Délka jména musí být mezi {{{min}} a {{max}}} znaky",
+      "LANGUAGE": {
+        "LANG_DE": "němčina",
+        "LANG_FR": "francouzština",
+        "LANG_IT": "italština",
+        "LANG_CS": "čeština",
+        "LANG_EN": "angličtina",
+        "LANG_SR": "CS_Latin Serbia",
+        "TEXT": "Jazyk"
+      },
+      "LICENSE": "Licence technických dat",
+      "LICENSE_LABEL": "Lorem ipsum dolor sit amet, consectetur adipiscing elit:",
+      "MESSAGE_SUCCESSFUL": "Úspěšně uloženo",
+      "PASSWORD_CHANGE": {
+        "CONFIRM_PASSWORD": "Zopakovat heslo",
+        "INVALID": "Neplatné heslo. Heslo musí mít délku 8 až 14 znaků a musí obsahovat alespoň jedno písmeno (az nebo AZ) a jedno číslo (0-9).",
+        "MIN_LENGTH": "Alespoň {{param}} znaků",
+        "NEW_PASSWORD": "Nové heslo",
+        "NOT_MATCH": "Hesla se neshodují",
+        "OLD_PASSWORD": "Staré heslo",
+        "TITLE": "Změnit heslo",
+        "WRONG_FORMAT_PASSWORD": "Neplatné heslo.",
+        "WRONG_OLD_PASSWORD": "Nesprávné staré heslo."
+      },
+      "REMAINING_VIN": "Zbývající dotazy VIN",
+      "REQUIRED_FIELD": "Prosím vyplnit",
+      "SALUTATION": {
+        "ALL": "Vše",
+        "GENERAL_SALUTATION_COMPANY": "společnost",
+        "GENERAL_SALUTATION_FEMALE": "Paní",
+        "GENERAL_SALUTATION_MALE": "Pan",
+        "SALUTATION_DR": "Dr.",
+        "SALUTATION_I": "I.",
+        "SALUTATION_II": "II",
+        "SALUTATION_III": "III",
+        "SALUTATION_JR": "Jr.",
+        "SALUTATION_MADAM": "Paní",
+        "SALUTATION_MISS": "Slečna",
+        "SALUTATION_MR": "Pan",
+        "SALUTATION_MRS": "Paní",
+        "SALUTATION_MS": "Ing.",
+        "SALUTATION_OTHER": "jiný",
+        "SALUTATION_PROF": "Prof.",
+        "SALUTATION_SIR": "pan",
+        "SALUTATION_SR": "Sr.",
+        "TEXT": "Oslovení"
+      },
+      "SAVE": "Uložit",
+      "TYPE": {
+        "ALL": "Vše",
+        "FINAL_NORMAL_USER": "Uživatel",
+        "FINAL_USER_ADMIN": "Správce uživatelů",
+        "GROUP_ADMIN": "Správce skupiny",
+        "MARKETING_ASSISTANT": "marketing",
+        "NORMAL_USER": "Uživatel",
+        "SALES_ASSISTANT": "Prodej",
+        "SYSTEM_ADMIN": "Správce systému",
+        "TEXT": "Typ účtu",
+        "USER_ADMIN": "Správce uživatelů"
+      },
+      "USER_NAME": "Uživatelské jméno",
+      "VIN_CALLS": "VIN dotaz"
+    },
+    "PROFILE_TAB": "Profil",
+    "ROLE": "Typ účtu",
+    "SALUTATION": "Oslovení",
+    "SETTING": {
+      "ADDRESS": "Fischermättelistrasse 6 3000 Bern 5",
+      "ADDRESS_SETTINGS": "Upravit adresu společnosti",
+      "BILLS": "Zobrazit fakturu",
+      "BILL_SHOW": "Zobrazit",
+      "CATEGORY_VIEW_MODE": {
+        "CLASSIC": "Klasický režim vyhledávání",
+        "TEXT": "Režim vyhledávání podle kategorie",
+        "TREE": "Režim vyhledávání stromově"
+      },
+      "DEFAULT_SETTINGS": "Nastavení pro všechny uživatele",
+      "DEFAUL_SETTING": "Výchozí nastavení",
+      "EMAIL_CONFIRMATION": "Odesílat e-mailové potvrzení",
+      "EXPAND": "Rozšířit",
+      "NET_PRICE": "Zobrazit nákupní ceny",
+      "NET_PRICE_EMAIL": "Zobrazit nákupní cenu v e-mailovém potvrzení",
+      "OFFER": {
+        "FOOTER_TEXT": {
+          "TITLE": "Zápatí pro nabídku"
+        },
+        "FORMAT_ALIGN": {
+          "LEFT": "Zarovnání doleva",
+          "RIGHT": "Zarovnání doprava",
+          "TITLE": "Formát dopisu"
+        },
+        "GENERAL_CROSSING": {
+          "TITLE": "Cenotvorba"
+        },
+        "PRINT_VENDOR_ADDR": {
+          "FALSE": "Ne",
+          "TITLE": "Zobrazit adresu společnosti v nabídce",
+          "TRUE": "Ano"
+        }
+      },
+      "PAYMENT_DELIVERY": "Objednávky",
+      "PRICE_DISPLAY": {
+        "LABEL": "Standard pro cenové doporučení v seznamu zboží, nákupním košíku a nabídkách",
+        "OEP_UVPE_GROSS": "OEP > UVPE > Brutto",
+        "TIP_LABEL": "Změna se projeví po novém přihlášení",
+        "UVPE_OEP_GROSS": "UVPE > OEP > Brutto"
+      },
+      "REDUCE": "Skrýt",
+      "SHOW_DISCOUNT": "Zobrazit slevu",
+      "SINGLE_SELECT_MODE": "Režim jednoho kliknutí",
+      "USER_SETTINGS": "Uživatelské nastavení",
+      "ELECTRONIC_INVOICE": "Elektronická faktura (PDF e-mailem)",
+      "REQUEST_BUTTON": "Žádost / Změna",
+      "INVOICE_MODAL": {
+        "TITLE": "Žádost / změna elektronické faktury (PDF e-mailem)",
+        "EMAIL_LABEL": "E-mailová adresa příjemce faktury",
+        "RE_SEND_CODE": "Opětovné odeslání kódu",
+        "SUBMITTED_SUCCESSFUL_MSG": "Váš požadavek jsme zaslali našemu zákaznickému servisu. Na zadanou e-mailovou adresu obdržíte potvrzení žádosti. Upozorňujeme, že může trvat několik dní, než se změna aktivuje."
+      }
+    },
+    "TITLE": "Můj účet",
+    "USER_ADMINISTRATION_TAB": "Správa uživatelů",
+    "USER_MANAGEMENT": {
+      "CREATE_PROFILE": "Vytvořit uživatele",
+      "GARAGE_NAME": "Uživatelské jméno",
+      "MESSAGE": {
+        "DELETE_SUCCESFULLY": "Uživatel byl úspěšně smazán.",
+        "DELETE_UNSUCCESFULLY": "Tento uživatel nemůže být smazán!",
+        "NOT_FOUND_EXTERNAL_CUSTOMER": "Tento zákazník již v systému MDM není platný! Obraťte se na svého správce.",
+        "NOT_FOUND_EXTERNAL_USER": "Vybraný uživatel nemá v DVSE uživatelské jméno! Obraťte se na svého správce."
+      },
+      "PROFILE_NAME": "Účet",
+      "ROLE": {
+        "ADMIN": "Správce",
+        "ASSISTANT": "Asistent",
+        "NORMAL_USER": "Uživatel",
+        "ROLE_NAME": "Typ účtu",
+        "USER_ADMIN": "Správce uživatelů",
+        "SALES_ASSISTANT": "Prodej"
+      },
+      "TABLE_COLUMNS": {
+        "FIRST_NAME": "Jméno",
+        "LAST_NAME": "Příjmení",
+        "ROLE_NAME": "Typ účtu",
+        "SALUTATION": "Oslovení",
+        "USER_NAME": "Uživatelské jméno"
+      },
+      "TABLE_FILTER": {
+        "FILTER_ALL_COLUMNS": "Všechny sloupce"
+      }
+    },
+    "USER_NAME": "Uživatelské jméno",
+    "VIEW_INVOICES_TAB": "Zobrazit faktury",
+    "VIEW_ORDER_TAB": "Zobrazit objednávku",
+    "DELIVERY_PROFILE": "Profil doručení",
+    "MARGIN_GROUP": "Skupina marží",
+    "GROUP": "Skupina"
+  },
+  "SHOPPING_BASKET": {
+    "ADD_TO_EXISTING_OFFER": "Přidat položky k existující nabídce ({{value}})",
+    "ADD_TO_NEW_OFFER": "Vložit položky do nové nabídky",
+    "ARTICLE_DESCRIPTION": "Popis položky",
+    "ARTICLE_LIST_EXPORT": "Nákupní seznam",
+    "ARTICLE_LIST_EXPORT_FILE_NAME": "Nákupní_seznam",
+    "ARTICLE_NUMBER": "Číslo položky",
+    "BACK": "Zpět",
+    "BASKET_FILE": "Nabídka",
+    "BILLING_ADDRESS": "Fakturační adresa",
+    "BTN_CONTINUE": "Pokračovat",
+    "CART_TOTAL": "Nákupní košík celkem",
+    "COLLAPSE": "Pokles",
+    "CONFIRMATION": "Potvrzení",
+    "CONFIRM_SAVE_CHANGES": "Chcete uložit změny?",
+    "COUNTER_MESSAGE": "Tento nákupní košík obsahuje položky, které nejsou dostupné z vaší pobočky. <br> Odeberte prosím nedostupné položky nebo změťe typ na normální objednávku.",
+    "COUPON_CODE": "Kód kupónu:",
+    "CREATE_AX_OFFER": "Nabídka v AX",
+    "CREDITE_LIMIT_REMOVE_ITEM": "Odstraňte položky z nákupního košíku nebo změňte platební podmínky nebo upravte tuto objednávku v AX.",
+    "CREDIT_LIMIT": "Byl překročen kreditní limit!",
+    "CREDIT_MESSAGE": {
+      "CREDIT": "Zadané objednávky nesmí překročit dostupný kreditní limit účtu <span class='text-nowrap'> {{credit}} </span>.",
+      "ADDITIONAL_CREDIT": "Zadané objednávky nesmí překročit dostupný kreditní limit účtu <span class='text-nowrap'> {{additionalCredit}} </span>.",
+      "DIRECT_INVOICE": "U okamžitých plateb může být dostupný kreditní limit <span class='text-nowrap'> {{credit}} </span> překročen pouze o <span class='text-nowrap'> {{additionalCredit}} </span>."
+    },
+    "CSV_FILE": "CSV",
+    "DELIVERY_ADDRESS": "Doručovací adresa",
+    "DELIVERY_MESSAGE": "Zpráva pro pobočku. Zadání zprávy může mít za následek zpoždění doručení!",
+    "DEPOT_TEXT": "Záloha na starý díl",
+    "DVSE": {
+      "CONTACT_BRANCH": "Obraťte se prosím na svou pobočku",
+      "ORDER_VIA_PHONE": "Tuto položku lze objednat pouze telefonicky"
+    },
+    "EMPTY": "Váš nákupní košík je prázdný!",
+    "EMPTY_VEHICLE_TITLE": "Další položky",
+    "ERROR_MESSAGE_EXTENDED": "Bohužel vám nemůžeme dodat všechny položky. Upravte množství v nákupním košíku nebo kontaktujte pobočku.",
+    "EXCEL_FILE": "Excel",
+    "EXCLUDE_VAT": "Bez DPH",
+    "EXPAND": "Rozšířit",
+    "EXPORT": "Export",
+    "EXPORTING_HEADING": "Export nákupního košíku",
+    "EXPORT_HEADER": {
+      "GROSS_PRICE": "Maloobchodní cena za kus",
+      "NET_PRICE": "Nákupní cena za kus",
+      "UVPE_PRICE": "DMOC za kus",
+      "GROSS_PRICE_TYPE": "Typ ceny"
+    },
+    "ITEM": "Položky",
+    "ITEM_REFERENCE": "Poznámka k položce",
+    "MAKE_ORDER": "Objednat",
+    "MESSAGES": "Vyberte formát souboru",
+    "MWST": "DPH",
+    "ORDER": "Objednávka",
+    "ORDER_COMPLETE": "Objednávka byla dokončena",
+    "ORDER_CONDITION": {
+      "AUTO_CHANGE_TO_PICKUP_MESG": "Automaticky nastaveno na osobní odběr, protože není dostupná rozvozová trasa."
+    },
+    "ORDER_NUMBER": "Číslo objednávky",
+    "PAYMENT_CONTENT": "Dodání a platba",
+    "PAYMENT_LABEL": "Dodání a platba",
+    "PFAND_TEXT": "Pfand",
+    "RECYCLING_TEXT": "Předběžný recyklační poplatek",
+    "REFERENCE": "Vaše poznámka",
+    "REFERENCE_MAX_200_LENGTH": "Max. 200 znaků",
+    "REFERENCE_MAX_60_LENGTH": "Max. 60 znaků",
+    "REFERENCE_MAX_20_LENGTH": "Max. 20 znaků",
+    "SHOPPING": "Nákupní košík",
+    "SHORT_CSV_EXPORT": "Seznam položek",
+    "SHORT_CSV_FILE_NAME": "Seznam položek",
+    "SUB_TOTAL": "Mezisoučet",
+    "TOTAL": "Celkem",
+    "TOTAL_EXCLUDE_VAT": "Celkem bez DPH",
+    "TOTAL_INCLUDE_VAT": "Konečná částka včetně DPH",
+    "TRANSACTION_NUMBER": "Číslo transakce",
+    "TXT_TRANSFER_BASKET": "Převod do AX",
+    "UPDATE_AVAIL_MESSAGE": "Dostupnost položek se změnila; čas vypršel.",
+    "VOC_TEXT": "VOC poplatek (těkavá organická sloučenina)",
+    "VOC_TEXT_SHORT": "VOC poplatek",
+    "VRG_TEXT": "Předplacený recyklační poplatek",
+    "VRG_TEXT_SHORT": "PRP",
+    "WORD_FILE": "Word",
+    "REQUEST_QUANTITY_NOT_AVAIL_AT_PRIMARY_LOCATION": "Die angeforderte Menge ist an den Hauptstandorten nicht verfügbar. Für zusätzliche Mengen überprüfen Sie bitte die Informationen pro Artikel unten.",
+    "BRANCH_REQUIRED": "Pro vyzvednutí položek vyberte platnou pobočku.",
+    "EXPORT_OPTIONS": {
+      "LEGACY": "Legacy",
+      "NEW": "Nový (s typem Maloobchodní cena)"
+    },
+    "THULE_NOT_FOUND_PARTS": ""
+  },
+  "SHOPPING_ORDER": {
+    "CONFIRMATION": {
+      "ADDITIONAL_MESG": {
+        "ABS": "Dokumenty pro tuto objednávku budou vytištěny automaticky.",
+        "STD": "Jakmile zákazník vyzvedne položky na pobočce, vytiskněte dokumenty ručně."
+      },
+      "TXT_ORDER_MESSAGE": "Obdrželi jsme vaši objednávku a vyřídíme ji co nejdříve",
+      "TXT_ORDER_NUMBER": "Vaše objednací čísla",
+      "TXT_ORDER_TRANSACTION": "Vaše číslo transakce je"
+    },
+    "MODAL": {
+      "ACCEPT": "Přijato",
+      "NOT_ACCEPT": "Nepřijato",
+      "TITLE": "Dostupnost se změnila"
+    },
+    "TXT_ORDER_SUCCESS": "Objednávka byla dokončena"
+  },
+  "TIMEOUT": {
+    "AUTOMATIC_LOGOUT": "Automatické odhlášení",
+    "REGISTER_AGAIN": "Přihlaste se znovu:",
+    "SERVER_REQUEST": "Server neodpovídá. Prosím zkuste to znovu."
+  },
+  "TYRE": {
+    "ALL": "Vše",
+    "FZ_CATEGORIES": {
+      "FOUR_X_FOUR": "4 x 4",
+      "LNFZ": "LNFZ",
+      "PKW": "Osobní vůz"
+    },
+    "MOTOR_CATEGORIES": {
+      "ALL": "Všechny motocyklové pneumatiky",
+      "OFFROAD": "Offroad",
+      "RENNREIFEN": "Závodní pneumatiky",
+      "ROLLER": "skůtr",
+      "STRASSENREIFEN": "Silniční pneumatiky"
+    },
+    "SEASONS": {
+      "ALL_YEAR": "Celoroční pneumatiky",
+      "SPRING": "Jarní pneumatiky",
+      "SUMMER": "Letní pneumatiky",
+      "WINTER": "Zimní pneumatiky"
+    },
+    "TYRE_SEGMENTS": {
+      "BUDGET": "Rozpočet",
+      "ECO": "Eco",
+      "PREMIUM": "Premium",
+      "KUMHO": "KUMHO",
+      "PIREL": "PIREL",
+      "MICHE" : "MICHE"
+    }
+  },
+  "VEHICLE_FILTER": {
+    "APPROVAL": "Schválení typu",
+    "BODY": "Karoserie",
+    "BODY_TYPE": "Typ karoserie",
+    "BRAND": "Značka",
+    "BUILD_YEAR": "Rok",
+    "CAPACITY_ENGINE": "Objem motoru",
+    "CATALYST_CONVERTER_TYPE": "Katalyzátor",
+    "CYLINDER": "Válce",
+    "DOORS": "Dveře",
+    "DRIVE_TYPE": "Typ pohonu",
+    "ENGINE_CODE": "Motor",
+    "FUEL": "Palivo",
+    "FUEL_SUPPLY": "Dodávky paliva",
+    "FUEL_TYPE": "Palivo",
+    "MB": "Motocykly",
+    "MODEL": "Model",
+    "PC": "Osobní/Dodávky",
+    "POWER": "Napájení",
+    "POWER_HP": "PS",
+    "POWER_KW": "KW",
+    "TITLE": "Značka/Model",
+    "TYPE": "Typ",
+    "VALVES": "Ventily",
+    "ROAD": "Road",
+    "MX": "MX",
+    "SCOOTER": "Scooter",
+    "ATV": "ATV",
+    "CUBIC_CAPACITY": "Objem",
+    "MOTORBIKE_SHOP_LINK": "Motocykly",
+    "ADVANCE_VEHICLE_SEARCH_LINK": "Erweiterte Suche"
+  },
+  "WORKSHOP_GROUPS": {
+    "PADS": "Brzdové destičky",
+    "SHOCK_ABSORBER": "Tlumič"
+  },
+  "file": {
+    "comment": "TODO This file needs to be reviewed for its vocabulary and grammar before going to production!!! All the translation in this file is not assured."
+  },
+  "HISTORY_MODE": {
+    "OWN_HISTORY": "Moje poslední hledání"
+  },
+  "WSP": {
+    "CATEGORY_NOT_FOUND": "Tato kategorie již neexistuje.",
+    "TABELLO_INFO": ""
+  },
+  "WSS": {
+    "TOUR_MANAGE": "Správa tras",
+    "DISCOUNT_MANAGE": "Správa marží",
+    "EDIT_TOUR": "Upravit trasu",
+    "DELETE_TOUR": "Opravdu chcete smazat tuto trasu <strong>{{name}}</strong> ?",
+    "UNABLE_DELETE_ASSIGNED_TOUR": "Tato trasa se používá a nelze ji odstranit.",
+    "TOUR_NAME": "Název trasy",
+    "NEW_TOUR": "Nová trasa",
+    "TIME": "Časy odjezdů",
+    "TITLE": "Správa velkoobchodu",
+    "EDIT_CUSTOMER_TITLE": "Upravit zákazníka",
+    "CREATE_DUPLICATE_TOUR": "Název trasy musí být jedinečný.",
+    "WHOLESALER_DELIVERY_SETTINGS": {
+      "WHOLESALER_DELIVERY_TYPE": "Typ dodávky",
+      "PICKUP": "Osobní odběr na pobočce",
+      "TOUR": "Dodání rozvozem"
+    },
+    "DOWNLOAD_TEMPLATE": "Stáhnout šablonu CSV",
+    "IMPORT_EXPORT": "Import/export (CSV)",
+    "UPLOAD_SUCCESSFULLY": "Úspěšně importováno."
+  },
+  "PDP": {
+    "PRICE_INFO_PER_PIECE": "Informace o ceně (za kus)",
+    "INCLUDE_VAT": "včetně DPH",
+    "EXCLUDE_VAT": "bez DPH",
+    "PROMOTION": "Akční sleva",
+    "PROMOTION_PRICE": "Akční cena",
+    "GROSS_PRICE": "Brutto cena",
+    "NET_PRICE": "Nákupní cena",
+    "NOT_REFERENCED": "Není odkazováno"
+  },
+  "AVAIL_DISPLAY": {
+    "DEPARTURE_TIME_FROM_BRANCH": "(Čas odjezdu z pobočky)"
+  },
+  "MESSAGE_SEARCH_NOT_FOUND": {
+    "ORDER_HISTORY": "Nebyly nalezeny žádné objednávky!",
+    "USER_MANAGEMENT": "Nebyli nalezeni žádní uživatelé!",
+    "SUB_ORDERS": "Nebyly nalezeny žádné objednávky!"
+  },
+  "CURRENCY": {
+    "CZK": "Kč"
+  },
+  "CUSTOM_PRICE": {
+    "OEP": "",
+    "UVPE": ""
+  },
+  "SHOW_TOUR_PLAN": "Zobrazit plán rozvozů",
+  "TOUR_TITLE": "Rozvozy",
+  "BROWSER_RECOMMENDATION": {
+    "TITLE": "Důležité upozornění pro uživatele prohlížeče Internet Explorer (IE) 11!",
+    "FIRST_DESCRIPTION": "V současné době používáte zastaralý prohlížeč, který z bezpečnostních důvodů a z důvodu podpory nebude po 1.1.2023 možné používat.",
+    "SECOND_DESCRIPTION": "Proto co nejdříve používejte aktuální internetový prohlížeč, např. Microsoft Edge, Google Chrome, Mozilla Firefox."
+  },
+  "ADVANCE_VEHICLE_SEARCH": {
+    "HEADER": "Rozšířené vyhledávání vozidel",
+    "TOP_MAKES_HEADER": "Populární značky",
+    "ALL_MAKES_HEADER": "Všechny Značky",
+    "MAKES": "Značky",
+    "MODELS": "Modely",
+    "MODEL_SERIES": "Modelová řada",
+    "MODEL_YEAR": "Rok",
+    "FILTER_BY_YEAR": "Filtrování podle roku",
+    "QUICK_SELECTION": "Rychlý výběr modelů",
+    "SEARCH": {
+      "COLUMN_TYPE": "Typ",
+      "COLUMN_YEAR": "Rok"
+    }
+  },
+  "RETURN_ORDER":{
+    "MESSAGE_HEADER":"Vratka byla vytvořena a odeslána do AX.<br />Zpracování může nějakou dobu trvat.",
+    "MESSAGE_BODY":"Pokud nechcete čekat, zvolte zpracování  na pozadí. Po dokončení budete informováni e-mailem. Mezitím můžete pokračovat v práci v katalogu Connect.",
+    "MESSAGE_FOOTER":"<strong>Pozor</strong>: Neprovádějte žádné změny ve vratkách v AX dokud nebude dokončeno jejich zpracování!",
+    "PROCESSING_IN_BACKGROUND":"Zpracování na pozadí",
+    "BATCH_JOB_ERROR_MESSAGE": "Vrácení vratek se nezdařilo (Batch Job ID: {{batchJobId}}) ",
+    "BATCH_JOB_ERROR_TITLE": "Chyba - Vratky se nezdařily",
+    "PROCESSING_IN_BACKGROUND_TIMEOUT_TITLE":"Varování - Požadavek na stav není v současné době možný",
+    "PROCESSING_IN_BACKGROUND_TIMEOUT": "Časový limit pro dotaz na stav (ID dávkové úlohy: {{batchJobId}}). Stav vrácených úloh obdržíte e-mailem.",
+    "PROCESSING_IN_BACKGROUND_RETRY_ERROR_TITLE":"Varování - Timeout",
+    "PROCESSING_IN_BACKGROUND_RETRY_ERROR": "Vracení vratek se zatím nepodařilo dokončit (ID dávky: {{batchJobId}}). Zkontrolujte prosím vratky v systému AX.",
+    "MESSAGE_ERROR_FROM_API":"Vrácení vratek se nezdařilo ({{errorMessage}})!",
+    "ORDER_WARNING_TITLE": "Varování - Dotaz na čísla vratek v současné době není možný",
+    "ORDER_WARNING_MESSAGE": "Vrácení vratek proběhlo úspěšně. Ale načtení čísel příkazů k vrácení se nezdařilo (ID dávky: {{batchJobId}}). Zkontrolujte prosím vratky v systému AX."
+  },
+  "PAGE_NOT_FOUND": "Stránka nebyla nalezena! Kliknutím na níže uvedenou adresu URL se vrátíte na domovskou stránku.",
+  "HOME_PAGE": "Domovská stránka",
+  "RANGE_CHECKBOX": "Vyberte rozsah"
+}

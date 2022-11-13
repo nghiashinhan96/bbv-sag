@@ -1,0 +1,4 @@
+<div class="alert" [class.alert-danger]="data.type === 'ERROR'" [class.alert-success]="data.type === 'SUCCESS'"
+    [class.alert-warning]="data.type === 'WARNING'">
+    {{data.message | translate: data.params}}
+</div>

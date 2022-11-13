@@ -1,0 +1,15 @@
+.shopping-location-condition,
+.connect-shopping-order-condition {
+    .card-header {
+        a {
+            color: #333333;
+            font-weight: 500;
+        }
+    }
+
+    .is--counter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,5 @@
+spring.profiles.include: ax-pre, elasticsearch-umbpre, mail-dev, db-at-test, no-liquibase, country-at, executor-pool, cache-dev-test
+
+logging:
+  level:
+    com.sagag.services.hazelcast: DEBUG

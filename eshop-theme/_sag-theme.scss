@@ -1,0 +1,56 @@
+/* Custom variables */
+@import 'sag-custom-bootstrap-variables.scss';
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+@import './sag-variables.scss';
+
+/* Custom boostrap style */
+@import './custom-bootstrap/bootstrap';
+@import './lib/lib';
+/* SAG application base style */
+@import './menu-icon/menu-icon';
+@import './app/app';
+@import './cz-custom/cz';
+@import './sb-custom/sb';
+
+/* Third party styling*/
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    min-width: $min-screen-width;
+    --pre-loader: 'assets/images/DS-Loader_small.gif';
+    background: $primaryBackground, $background, $preloadBackground;
+    background-repeat: no-repeat;
+    background-size: 100% calc(100% - 82px - var(--msg-height, 0px));
+    background-attachment: fixed;
+    background-position: 50% calc(82px + var(--msg-height, 0px));
+}
+
+body {
+    font-size: 1rem;
+    height: 100vh;
+    background-color: transparent;
+    font-family: Roboto, sans-serif;
+    line-height: normal !important;
+    overflow-y: scroll;
+    color: $text-color;
+    padding-right: 0 !important;
+
+    &.dvse-openned, &.unicat-openned, &.stginfo-openned {
+        overflow: hidden;
+    }
+
+    &.wbb {
+        .connect-header-search-nav-item {
+            padding-left: 0px !important;
+        }
+
+        .header-search-result {
+            transform: translate3d(0px, 40px, 0px) !important;
+        }
+    }
+}

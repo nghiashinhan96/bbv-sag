@@ -1,0 +1,7 @@
+.connect-shopping-order-condition {
+    &:not(.is-wss-mode) {
+        .order-info-block {
+            width: calc(100%/3);
+        }
+    }
+}

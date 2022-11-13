@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-xs-left">
+        {{ title | translate}}
+    </h4>
+    <a href="javascript:void(0)"><i class="fa fa-times-circle close" (click)="hideModal()"></i></a>
+</div>
+<div class="modal-body">
+    <span>
+        {{data.title}}
+    </span>
+    <div class="form-group row mt-3">
+        <label class="col-2">{{ 'FAVORITE.COMMENT' | translate }}</label>
+        <div class="col-10">
+            <form [formGroup]="commentForm">
+                <input type="text" maxlength="100" class="form-control" formControlName="comment" [popover]="commentRef"
+                    (focusin)="resetSearch()" triggers="manually" #pop="bs-popover"
+                    [outsideClick]="true" placement="bottom" containerClass="comments-popover" (click)="showPopup()"
+                    [adaptivePosition]="!isIE">
+            </form>
+        </div>
+    </div>
+    <div class="nav mt-3">
+        <div class="ml-auto">
+            <button class="btn btn-primary" (click)="removeFavorite()"
+                *ngIf="shouldShowRemoveBtn">
+                {{ 'FAVORITE.REMOVE' | translate }}
+            </button>
+            <button class="btn btn-primary ml-2" (click)="saveFavorite()">
+                {{ 'COMMON_LABEL.SAVE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<ng-template #commentRef>
+    <div class="comments-list" *ngIf="latestComments.length>0">
+        <div *ngFor="let item of latestComments" class="d-flex justify-content-between fav-item">
+            <div class="pr-3 item-title">
+                <a href="javascript:void(0)" class="lastest-comment-item" (click)="onChooseComment(item)">{{item}}</a>
+            </div>
+        </div>
+    </div>
+</ng-template>

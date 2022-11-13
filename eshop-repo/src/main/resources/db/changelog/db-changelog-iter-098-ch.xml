@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_98_ADD_ABS_CUSTOMER_SETTING-CH">
+        <sql>
+            DECLARE @DCH_ID INT = (select ID from ORGANISATION where shortname='derengdinger-ch')
+            INSERT INTO organisation_settings(NAME, ORGANISATION_ID, SETTING_KEY, SETTING_VALUE)
+            VALUES('Derendinger-Switzerland', 2, 'is_customer_abs_enabled', 'true')
+
+            DECLARE @MCH_ID INT = (select ID from ORGANISATION where shortname='matik-ch')
+            INSERT INTO organisation_settings(NAME, ORGANISATION_ID, SETTING_KEY, SETTING_VALUE)
+            VALUES('Matik-Switzerland', @MCH_ID, 'is_customer_abs_enabled', 'true')
+
+            DECLARE @TNMCH_ID INT = (select ID from ORGANISATION where shortname='technomag')
+            INSERT INTO organisation_settings(NAME, ORGANISATION_ID, SETTING_KEY, SETTING_VALUE)
+            VALUES('Technomag-Switzerland', @TNMCH_ID, 'is_customer_abs_enabled', 'true')
+
+            DECLARE @WBB_ID INT = (select ID from ORGANISATION where shortname='wbb')
+            INSERT INTO organisation_settings(NAME, ORGANISATION_ID, SETTING_KEY, SETTING_VALUE)
+            VALUES('Walchli-Bollier-Bulach', @WBB_ID, 'is_customer_abs_enabled', 'true')
+
+            DECLARE @RBE_ID INT = (select ID from ORGANISATION where shortname='rbe')
+            INSERT INTO organisation_settings(NAME, ORGANISATION_ID, SETTING_KEY, SETTING_VALUE)
+            VALUES('Remco-Belgium', @RBE_ID, 'is_customer_abs_enabled', 'true')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

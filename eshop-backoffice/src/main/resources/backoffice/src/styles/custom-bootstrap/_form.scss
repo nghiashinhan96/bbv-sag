@@ -1,0 +1,60 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: $primary;
+    margin-bottom: $spacer;
+}
+
+.form-group {
+    label:not(.form-check-label) {
+        font-weight: 700;
+    }
+    input[type='checkbox'],
+    input[type='radio'] {
+        margin-top: 0.1rem;
+    }
+}
+
+.form-control {
+    font-size: inherit;
+    height: 2.5rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0;
+    &:focus {
+        border-color: $thin-grey;
+        outline: 0;
+        box-shadow: none;
+    }
+}
+
+.hint {
+    &-error {
+        display: block;
+        white-space: normal;
+        margin-top: $quarter-spacer;
+        font-size: 85%;
+        color: $danger;
+    }
+}
+
+hr {
+    margin-top: $spacer;
+    margin-bottom: $spacer;
+}
+
+.alert-custom {
+    background: none;
+    border: none;
+    color: $message-color-danger;
+}
+
+.highlight-filter {
+    box-shadow: 0 1px 1px $brand-color inset, 0 0 5px $brand-color;
+    border: 1px solid #005eaa;
+
+    .form-control {
+        max-height: 26px;
+    }
+}

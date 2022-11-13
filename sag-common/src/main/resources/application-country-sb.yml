@@ -1,0 +1,35 @@
+spring.profiles: country-sb
+
+country:
+  code: rs
+  supported_iso3_countries:
+    - AUT
+    - CHE
+  hashtype: BCRYPT
+  languages:
+    - SR
+    - EN
+  exclude_countries:
+  attached_article:
+    depot: true
+    recycle: false
+    vrg: false
+    voc: false
+  config:
+    erp-type: WINT
+    user-loader-mode: ESHOP
+    enable-shopping-cart-map-store: true
+    enable-local-stock-availability-preferring: false
+    enable-price-discount-promotion: false
+    es-external-article-service: default
+    category-converter: default
+    oauth2-external-authenticator: cloud-dms
+    article-id-mapper: id_pim
+    default-language: sr
+    register-customer-user-setting:
+      customer-setting: 
+        session-timeout-seconds: 3600
+        net-price-view: true
+        net-price-confirm: true
+      user-setting: 
+        language: sr

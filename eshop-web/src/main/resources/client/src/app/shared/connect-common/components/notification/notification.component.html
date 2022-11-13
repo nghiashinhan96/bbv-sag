@@ -1,0 +1,4 @@
+<div *ngIf="messages.length" class="alert" [class.alert-danger]="type === 'ERROR'"
+    [class.alert-success]="type === 'SUCCESS'" [class.alert-warning]="type === 'WARNING'">
+    <div *ngFor="let mess of messages">{{mess|translate}}</div>
+</div>

@@ -1,0 +1,59 @@
+# ************************************************************************
+# This is the CZ configuration of RESTful application for Development mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - HaynesPro Endpoint - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - OATS(replace Olyslager) - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - Proxy - 
+# - Media Server - 
+# - Price File Location - 
+# - Java Melody Monitoring - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  stakis-erp-pre,
+  incentive-dev,
+  hp-dev,
+  gtmotive-cz-dev,
+  mdm-pre,
+  unicat-pre,
+  unicat-callback-dev,
+  oates-pre-cz,
+  mail-dev,
+  elasticsearch-dev,
+  db-dev,
+  executor-pool,
+  logging-cz-dev,
+  actuator,
+  cache-dev,
+  country-cz,
+  analytics-pre-cloud,
+  liquibase-cz-dev,
+  no-proxy,
+  media-server,
+  price-file-cz,
+  javamelody,
+  thule-dev,
+  auth-endpoint-cz-dev,
+  recommend-art-cz-dev
+
+license:
+  vin:
+    minimumOrder: 600

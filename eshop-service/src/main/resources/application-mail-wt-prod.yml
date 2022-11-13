@@ -1,0 +1,12 @@
+spring.profiles: mail-wt-prod
+# Mail Server properties
+spring:
+  mail:
+    host: wint-rs.mail.protection.outlook.com
+    port: 25
+    protocol: smtp
+    # tls: true
+    # properties.mail.smtp:
+    #  auth: true
+    #  starttls.enable: true
+    #  ssl.trust: smtp.gmail.com

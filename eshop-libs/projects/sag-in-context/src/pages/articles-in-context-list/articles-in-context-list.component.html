@@ -1,0 +1,58 @@
+<ng-container *ngIf="!isSb && integrationService.creditCardInfo$ | async as creditCardInfo">
+    <div class="card mb-2 card-body credit-limit-panel" *ngIf="!creditCardInfo.creditValid">
+        <strong class="message-title w-100 mb-2">
+            {{'SHOPPING_BASKET.CREDIT_LIMIT' | translate}}
+        </strong>
+        <div class="message-content"
+            [innerHTML]="creditCardInfo.creditMessageListPart?.message | translate: creditCardInfo.creditMessageListPart?.messageParams">
+        </div>
+        <div class="message-content sub-message"
+            [innerHTML]="creditCardInfo.creditMessageListPart?.subMessage | translate">
+        </div>
+    </div>
+</ng-container>
+<sag-article-list
+    [data]="articleInContextService.data$ | async"
+    [articleListType]="articleListType"
+    [(articleMode)]="storage.articleMode"
+    [userSetting]="integrationService.userPrice"
+    (currentNetPriceChange)="onCurrentNetPriceChange()"
+    [vehicle]="storage.selectedVehicle"
+    [specialInfoTemplateRef]="specialInfoTemplateRef"
+    [memosTemplateRef]="memosTemplateRef"
+    [customAvailTemplateRef]="customAvailTemplateRef"
+    [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+    [priceTemplateRef]="priceTemplateRef"
+    [totalPriceTemplateRef]="totalPriceTemplateRef"
+    (customPriceChange)="onCustomPriceChange($event)"
+    [brandsData]="brandsDataAsync | async"
+    (brandsItemsChange)="onBrandsItemsChange($event)"
+    (brandsStateChange)="onBrandsStateChange($event)"
+    (barFilterStateChange)="onBarFilterStateChange($event)"
+    [returnUrl]="returnUrl"
+    [hasMoreData]="hasMoreData"
+    [moreData]="moreData"
+    (showMoreArticlesEmitter)="showMoreArticlesEmitter.emit($event)"
+    [barFilterOption]="barFilterOptionAsync | async"
+    [genArts]="genArts"
+    (rootHeaderClick)="rootHeaderClick.emit()"
+    [articleCount]="articleCount"
+    (barFilterItemsChange)="onBarFilterItemsChange($event)"
+    (sendArticleResultData) = "onArticleResultDisplay($event)"
+    (sendArticlesGaData)="onSendArticlesGaData($event)"
+    [isFavoritedList] = "isFavoritedList"
+    [enabledFavorite]="enabledFavorite"
+    [gaId]="gaId"
+    (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+    (onShowAccessoriesEmitter)="onShowAccessories($event)"
+    (onShowPartsListEmitter)="onShowPartsList($event)"
+    (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+    [hasPositionWithCvpValueIsNull]="articleInContextService.hasPositionWithCvpValueIsNull"
+    (onRemovePseudoGroup)="onRemovePseudoGroup($event)"
+    >
+</sag-article-list>
+<section class="mt-5">
+    <sag-common-action icon="fa-chevron-right" text="SHOPPING_BASKET.SHOPPING" [disabled]="!cartItemQuantity"
+        customClass="float-right" (isClicked)="goToBasket()">
+    </sag-common-action>
+</section>

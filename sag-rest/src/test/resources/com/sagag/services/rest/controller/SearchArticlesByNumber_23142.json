@@ -1,0 +1,310 @@
+{
+  "content": [
+    {
+      "id": "bfdd54d3041db887db4dfa669dec9dc1",
+      "criteria": [
+        {
+          "cvp": "radseitig",
+          "cid": "100",
+          "cndech": "Einbauseite"
+        },
+        {
+          "cvp": "26,5",
+          "cid": "995",
+          "cndech": "Innendurchmesser 1 [mm]"
+        },
+        {
+          "cvp": "81",
+          "cid": "996",
+          "cndech": "Innendurchmesser 2 [mm]"
+        },
+        {
+          "cvp": "109",
+          "cid": "209",
+          "cndech": "Höhe [mm]"
+        },
+        {
+          "cvp": "Thermoplast",
+          "cid": "468",
+          "cndech": "Material"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "23142",
+          "id_pim": "1000000015925641412",
+          "id_dlnr": "1",
+          "supplier": "SPIDAN",
+          "id_autonet": "SP23142",
+          "artid": "bfdd54d3041db887db4dfa669dec9dc1",
+          "artnr_display": "23142",
+          "gaID": "194",
+          "genArtTxts": [
+            {
+              "gaid": "194",
+              "gatxtdech": "Faltenbalgsatz, Antriebswelle"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000007660980414,
+            "leadingArticleId": 1000000015925641412,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "${json-unit.any-string}",
+              "tourName": "${json-unit.any-string}",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000007660980414,
+            "price": {
+              "grossPrice": 31,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 20.15,
+              "discountPrice": 10.85,
+              "discountInPercent": 35,
+              "vatInPercent": 8,
+              "totalGrossPrice": 31,
+              "totalNetPrice": 20.15,
+              "totalDiscountPrice": 10.85,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "3166",
+          "pnrn": "844005",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "72",
+          "pnrn": "GD38-22-530",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "72",
+          "pnrn": "GD3822530A",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "72",
+          "pnrn": "GD3822530B",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "550",
+          "pnrn": "VKJP 1391",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "811",
+          "pnrn": "304096",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "e525c013955757a16dd675195681b7a9",
+      "criteria": [
+        {
+          "cvp": "6.320",
+          "cid": "212",
+          "cndech": "Gewicht  [kg]"
+        },
+        {
+          "cvp": "Stock code : 66",
+          "cid": "903",
+          "cndech": "Technische Informationsnummer"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "23142",
+          "id_pim": "1000000013982083537",
+          "id_dlnr": "13",
+          "supplier": "WALKER",
+          "id_autonet": "",
+          "artid": "e525c013955757a16dd675195681b7a9",
+          "artnr_display": "23142",
+          "gaID": "3436",
+          "genArtTxts": [
+            {
+              "gaid": "3436",
+              "gatxtdech": "Mittelschalldämpfer"
+            }
+          ],
+          "partImage": "${json-unit.any-string}",
+          "partDesc": "${json-unit.any-string}",
+          "brandImage": "${json-unit.any-string}",
+          "amountNumber": "${json-unit.any-string}",
+          "availableIcon": "${json-unit.any-string}",
+          "characteristics": "${json-unit.any-string}",
+          "partBigImage": "${json-unit.any-string}",
+          "content": "${json-unit.any-string}",
+          "productDesc": "${json-unit.any-string}",
+          "usage": "${json-unit.any-string}",
+          "safety": "${json-unit.any-string}",
+          "favourite": "${json-unit.any-string}",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000012315551987,
+            "leadingArticleId": 1000000013982083537,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": true,
+              "immediateDelivery": false,
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000012315551987,
+            "price": {
+              "grossPrice": 275,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 154,
+              "discountPrice": 121,
+              "discountInPercent": 44,
+              "vatInPercent": 8,
+              "totalGrossPrice": 275,
+              "totalNetPrice": 154,
+              "totalDiscountPrice": 121,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "532",
+          "pnrn": "30 1700 313 856",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "84",
+          "pnrn": "5852471",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "117",
+          "pnrn": "13124155",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "507",
+          "pnrn": "08.307.80",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "529",
+          "pnrn": "055277",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "541",
+          "pnrn": "285-313",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "1424",
+          "pnrn": "P4438",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "1425",
+          "pnrn": "23142",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "1426",
+          "pnrn": "54.87.46",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2744",
+          "pnrn": "34.6124",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3080",
+          "pnrn": "OP40088",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3279",
+          "pnrn": "260955",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3279",
+          "pnrn": "GM514W",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    }
+  ],
+  "last": true,
+  "totalElements": 2,
+  "totalPages": 1,
+  "size": 10,
+  "number": 0,
+  "sort": null,
+  "first": true,
+  "numberOfElements": 2
+}

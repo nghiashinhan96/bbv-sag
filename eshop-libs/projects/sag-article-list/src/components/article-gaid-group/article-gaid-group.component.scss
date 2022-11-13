@@ -1,0 +1,38 @@
+.car-animation {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 0.6rem;
+}
+
+.car {
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: movingCar 6s ease forwards;
+}
+
+@keyframes movingCar {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 300px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

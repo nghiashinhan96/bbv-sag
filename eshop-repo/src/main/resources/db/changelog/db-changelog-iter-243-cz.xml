@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_243_ADD_OWN_EXTERNAL_VENDOR_CH">
+      <sql>
+          IF NOT EXISTS(SELECT * FROM dbo.EXTERNAL_VENDOR ev WHERE ev.AVAILABILITY_TYPE_ID='OWN') 
+			BEGIN 
+				INSERT INTO dbo.EXTERNAL_VENDOR
+				(COUNTRY, SAG_ARTICLE_GROUP, BRAND_ID, VENDOR_ID, VENDOR_NAME, VENDOR_PRIORITY, DELIVERY_PROFILE_ID, AVAILABILITY_TYPE_ID, CREATED_USER_ID, CREATED_DATE, MODIFIED_USER_ID, MODIFIED_DATE)
+				VALUES(N'cz', NULL, NULL, 0, N'Own Sag', 0, 0, N'OWN', NULL, getDate(), 0, NULL)
+			END
+      </sql>
+  </changeSet>
+
+<!--
+    <changeSet author="CONNECT_APP"
+        id="ITER_243_SENDER_EMAIL_ADDRESS_FINAL_CUSTOMER_CZ">
+        <sql>
+
+            ## This email address just use for PROD only
+            UPDATE dbo.ORG_COLLECTION_SETTINGS set SETTING_VALUE ='shop@connectshop.cz' WHERE
+            SETTING_KEY ='eh_default_email';
+
+        </sql>
+    </changeSet>
+-->
+
+</databaseChangeLog>

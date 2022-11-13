@@ -1,0 +1,65 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_116_INSERT_ADDITIONAL_INVOICE_TYPE">
+    <sql>
+      -- Invoice Type Code: ALL
+      INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE, INVOICE_TYPE_NAME, INVOICE_TYPE_DESC)
+      VALUES('ALL', 'ALLE', 'Fallbackprofil');
+
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_116_ADD_START_END_WORKING_TIME_COLUMN_AFFILIATE">
+    <sql>
+      ALTER TABLE [dbo].[SUPPORTED_AFFILIATE] ADD [START_WORKING_TIME] [varchar](20) DEFAULT'00:00';
+      ALTER TABLE [dbo].[SUPPORTED_AFFILIATE] ADD [END_WORKING_TIME] [varchar](20) DEFAULT '00:00';
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_116_UPDATE_START_END_WORKING_TIME_AFFILIATE">
+    <sql>
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='derendinger-ch'
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='derendinger-at'
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='technomag'
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='matik-ch'
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='matik-at'
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='wbb'
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='rbe'
+      UPDATE [dbo].[SUPPORTED_AFFILIATE] SET START_WORKING_TIME='05:00', END_WORKING_TIME='17:00' WHERE SHORT_NAME='klaus'
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_116_ADD_COLUMN_CUSTOMER_SETTINGS_NORMAUTO_DISPLAY">
+    <sql>
+        IF NOT EXISTS (
+        SELECT 1 FROM
+        INFORMATION_SCHEMA.COLUMNS
+        WHERE
+        TABLE_NAME = 'CUSTOMER_SETTINGS'
+        AND COLUMN_NAME = 'NORMAUTO_DISPLAY')
+        BEGIN
+        ALTER TABLE [dbo].[CUSTOMER_SETTINGS] ADD [NORMAUTO_DISPLAY] bit NOT NULL DEFAULT 0
+        END;
+    </sql>
+  </changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_116_CREATE_VIEW_V_VIRTUAL_USER">
+    <sql>
+      CREATE VIEW [dbo].[V_VIRTUAL_USER] AS
+      SELECT
+        U.ID,
+        U.USERNAME,
+	    U.ORIGINAL_USER_ID,
+	    U.SETTING,
+	    U.TYPE,
+	    L.FIRST_LOGIN_DATE
+      FROM
+        ESHOP_USER U
+        JOIN LOGIN L ON L.USER_ID = U.ID
+      WHERE
+        U.TYPE = 'VIRTUAL_DMS' OR U.TYPE = 'VIRTUAL_OCI'
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

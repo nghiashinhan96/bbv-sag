@@ -1,0 +1,9 @@
+<sag-gtmotive
+    [lang]="lang"
+    [isVinMode]="isVinMode"
+    [estimateId]="estimateId"
+    [vehicleInfo]="gtMotiveService.vehicle?.vehicleInfo"
+    [gteCodes]="gtMotiveService.gteCodes"
+    [gtType]="gtType"
+    (submitParts)="getPartsFromGtmotive($event)">
+</sag-gtmotive>

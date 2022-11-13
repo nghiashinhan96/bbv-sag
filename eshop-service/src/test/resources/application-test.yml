@@ -1,0 +1,7 @@
+spring.profiles.include: 
+  mail-dev, db-test, no-liquibase, country-at, executor-pool, no-proxy
+
+logging:
+  level:
+    org.elasticsearch.bootstrap: ERROR
+    com.sagag.eshop.service: DEBUG

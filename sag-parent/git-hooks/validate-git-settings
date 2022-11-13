@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# Ensure line-endings are configured correctly
+function check_line_endings()
+{
+    local auto_crlf=`git config core.autocrlf`
+    local os_name=`uname -s`
+
+    if [ "${os_name}" == "Darwin" ] || [ "${os_name:0:5}" == "Linux" ]; then
+        # Using 'input' allows 'CRLF' line-endings to be converted to 'LF' automatically
+        # e.g. in case a file with 'CRLF' line-endings is copy-pasted
+        if [ "$auto_crlf" != "input" ]; then
+            printf "Incorrect line ending setting\n"
+            printf "Please configure your git line endings either:\n"
+            printf " * Globally (all repos) with 'git config --global core.autocrlf input'; or\n"
+            printf " * Locally (this repo) with 'git config core.autocrlf input'\n"
+            exit 1
+        fi
+    elif [ "${os_name:0:5}" == "MINGW" ] || [ "${os_name:0:9}" == "CYGWIN_NT" ]; then
+        # Windows uses 'CRLF' line-endings, and will commit files that way by default too
+        # While we want Windows users to have 'CRLF' when checked out, files must be committed with 'LF'
+        if [ "$auto_crlf" != "true" ]; then
+            printf "Incorrect line ending setting\n"
+            printf "Please configure your git line endings either:\n"
+            printf " * Globally (all repos) with 'git config --global core.autocrlf true'; or\n"
+            printf " * Locally (this repo) with 'git config core.autocrlf true'\n"
+            exit 1
+        fi
+    else
+        printf "Unknown OS \"${os_name}\", unable to determine correct line-ending setting\n"
+        exit 1
+    fi
+}
+
+# Ensure that the user name and email have been set
+function check_user_config()
+{
+    local git_username=`git config user.name`
+    local git_email=`git config user.email`
+
+    if [ "$git_username" == "" ]; then
+            printf "Git username has not been set\n"
+            printf "Please configure your git username:\n"
+            printf " * Globally (all repos) with 'git config --global user.name \"Long Nguyen\"; or\n"
+            printf " * Locally (this repo) with 'git config user.name \"Long Nguyen\"'\n"
+            exit 1
+    fi
+    if [ "$git_email" == "" ]; then
+            printf "Git email address has not been set\n"
+            printf "Please configure your git email address:\n"
+            printf " * Globally (all repos) with 'git config --global user.email long.nguyen@swissitbridge.com; or\n"
+            printf " * Locally (this repo) with 'git config user.email longnguyen@bbv.ch'\n"
+            exit 1
+    fi
+}
+
+# Run each of the Git setting checks
+check_line_endings && \
+check_user_config

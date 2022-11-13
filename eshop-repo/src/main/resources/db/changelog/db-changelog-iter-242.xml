@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_242_ALTER_VIEW_V_FINAL_CUSTOMER_ORDER_STATUS">
+      <sql>
+          ALTER VIEW [dbo].[V_FINAL_CUSTOMER_ORDER_STATUS] AS
+          SELECT DISTINCT
+              O.ID AS ORG_ID,
+              PARENT.ORG_CODE,
+              (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='OPEN') AS 'OPEN_ORDER',
+                  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='NEW') AS 'NEW_ORDER',
+                  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='ORDERED') AS 'PLACED_ORDER'
+          FROM
+              ORGANISATION O
+                  LEFT JOIN ORGANISATION PARENT ON O.PARENT_ID = PARENT.ID
+                  LEFT JOIN FINAL_CUSTOMER_ORDER FO ON FO.ORG_ID = O.ID
+          WHERE O.ORG_CODE is null;
+
+      </sql>
+  </changeSet>
+
+</databaseChangeLog>

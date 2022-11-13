@@ -1,0 +1,49 @@
+<section class="analytical-card-detail">
+    <section class="card">
+        <section class="card-header">{{'COMMON_LABEL.INVOICE' | translate}} {{detail?.documentNr}} {{'COMMON_LABEL.DATE' | translate | lowercase}}: {{detail?.postingDate | date:'dd.MM.yyyy'}}</section>
+        <section class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <h6>{{ 'SETTINGS.ANALYTICAL_CARD.POSTED_DATE' | translate}}:</h6>
+                    <p>{{ detail?.postingDate | date:'dd.MM.yyyy' }}</p>
+                </div>
+                <div class="col-4">
+                    <h6>{{ 'SETTINGS.ANALYTICAL_CARD.VALUE_DATE' | translate}}:</h6>
+                    <p>{{ detail?.dueDate | date:'dd.MM.yyyy' }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h6>{{ 'SETTINGS.ANALYTICAL_CARD.DESCRIPTION' | translate}}:</h6>
+                    <p>{{ detail?.description }}</p>
+                </div>
+                <div class="col-4">
+                    <h6>{{ 'SETTINGS.ANALYTICAL_CARD.SELLER' | translate}}:</h6>
+                    <p>{{ detail?.salesperson }}</p>
+                </div>
+                <div class="col-4">
+                    <h6>{{ 'SETTINGS.ANALYTICAL_CARD.EXTERNAL_DOCUMENT' | translate}}:</h6>
+                    <p>{{ detail?.externalDocumentNr }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <h6>{{ 'SETTINGS.ANALYTICAL_CARD.REMAIN_AMOUNT' | translate}}:</h6>
+                    <p>{{ detail?.remainingAmount | sagCurrency }}</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <div class="mt-4">
+        <div class="text-right">
+            <label class="label font-weight-bold">{{ 'SETTINGS.ANALYTICAL_CARD.LINES' | translate }}: {{detail?.entryLinesNo}}</label>
+        </div>
+        <sag-table [mode]="'online'" [columns]="columns" [rows]="detail?.entryLines" (searchData)="searchTableData($event)" [searchModel]="searchModel"></sag-table>
+    </div>
+
+    <div class="py-4">
+        <connect-action icon="fa-chevron-left" text="COMMON_LABEL.BACK" (isClicked)="backToList()">
+        </connect-action>
+    </div>
+</section>

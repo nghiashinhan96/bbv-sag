@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:remove="all">Sending of a confirmation of the request submission to the requesting customer - Email</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div>
+  <p th:text="#{mail.sag.welcome}">Welcome to SAG System!</p>
+  <p th:text="#{mail.digi_invoice.confirm}"></p>
+  &mdash;&mdash;&mdash;&mdash;&mdash;
+  <br/>
+  <p th:text="#{mail.digi_invoice.follow}">Following the customer</p>
+  <br/>
+  <p th:text="#{mail.digi_invoice.your_data}" style="font-weight: bold">Your Data</p>
+  <p>
+    <span th:text="#{mail.digi_invoice.address}"></span>
+    <span th:text="${customerAddress}"></span>
+   </p>
+   <p>
+    <span th:text="#{mail.digi_invoice.email.address}"></span>
+    <span th:text="${invoiceRecipientEmail}"></span>
+   </p>
+  &mdash;&mdash;&mdash;&mdash;&mdash;
+  <br/>
+  <p th:text="#{mail.forgot_password.thanks}"></p>
+  <p th:text="#{mail.create.user.signature}"></p>
+</div>
+</body>
+</html>

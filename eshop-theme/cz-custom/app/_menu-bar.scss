@@ -1,0 +1,19 @@
+nav.menu-bar {
+    ul.navbar-nav {
+        li.nav-item {
+            .nav-link.active {
+                color: $text-color-inversed;
+            }
+            
+            &.stginfo:hover, &.unicat:hover {
+                .nav-link {
+                    color: $text-color-inversed;
+                }
+            }
+
+            .icon-cz-default, .icon-cz-uni-cat, .icon-cz-sag-info, .icon-cz-webcat, .icon-ch-lv, .icon-ch-motorbike, .icon-cz-lv, .icon-cz-motorbike {
+                width: auto;
+            }
+        }
+    }
+}

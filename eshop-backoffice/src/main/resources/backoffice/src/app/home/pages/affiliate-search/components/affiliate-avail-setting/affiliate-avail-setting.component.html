@@ -1,0 +1,182 @@
+<div class="panel panel-primary panel-primary card mb-4 avail-setting-container">
+  <div class="card-header">
+    <connect-expanded [title]="title" [(expand)]="isFormExpanded">
+    </connect-expanded>
+  </div>
+  <div class="card-body" [hidden]="!isFormExpanded">
+    <form class="form-horizontal" id="affiliate-avail-setting-panel" [formGroup]="availSettingForm">
+      <div class="form-group row">
+        <label class="col-3 control-label">{{"AVAIL_SETTINGS.COLOR" | translate}}</label>
+        <div class="col-9">
+          <backoffice-color-picker [color]="color" (updateColorEmit)="updateColor($event)">
+          </backoffice-color-picker>
+        </div>
+      </div>
+      <ng-container *ngIf="availState !== SAG_AVAIL_DISPLAY_STATES.NOT_AVAILABLE; else notAvailStateRef">
+        <ng-container *ngTemplateOutlet="availStateRef;"></ng-container>
+    </ng-container>
+    <!-- availStateRef section -->
+    <ng-template #availStateRef>
+      <div class="form-group row editor-setting avail-state">
+        <div class="col-3 d-flex flex-column">
+          <label class="control-label">{{"AVAIL_SETTINGS.LIST_AVAIL_TEXT" | translate}}</label>
+          <ng-container *ngIf="isShowExceptionalCasesHintText">
+            <span class="mt-3">{{"AVAIL_SETTINGS.EXCEPTIONAL_CASE_HINT_TEXT" | translate}}</span>
+          </ng-container>
+        </div>
+        <div class="col-9 row mx-0 avail-option">
+          <div [hidden]="availState === SAG_AVAIL_DISPLAY_STATES.NOT_ORDERABLE || availState === SAG_AVAIL_DISPLAY_STATES.IN_STOCK" class="pr-2">
+            <input formControlName="displayOption" class="form-check-input" type="checkbox" id="isAcivatedOptionalDisplayText">
+          </div>
+          <div formGroupName="listAvail" class="form-group ms-content row" [class.pl-0]="availState === SAG_AVAIL_DISPLAY_STATES.NOT_ORDERABLE || availState === SAG_AVAIL_DISPLAY_STATES.IN_STOCK">
+            <div class="col-12 p-0">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" *ngFor="let lang of listAvailForm.controls | keyvalue; let i = index" class="nav-item">
+                  <a href="javascript:void(0)" [attr.aria-controls]="'language-' + lang.key.split('_')[0]" role="tab"
+                    data-toggle="tab" (click)="initAutoFocus(lang.key.split('_')[0], i, false)"
+                    [class]="lang.key == currentEditorLangList + '_List' ? 'nav-link active' : 'nav-link' ">
+                    {{'COMMON_LABEL.'+ lang.key.split('_')[0] | translate}}
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div *ngFor="let lang of listAvailForm.controls | keyvalue"
+                  [class]="lang.key == currentEditorLangList + '_List' ? 'tab-pane active' : 'tab-pane' " role="tabpanel"
+                  id="listAvail-language-{{lang.key}}">
+                  <md-editor class="custom-editor" name="content" mode="editor" id="listAvail-editor-{{lang.key}}"
+                    [formControlName]="lang.key" [options]="markdownOptions" maxlength="255">
+                  </md-editor>
+                </div>
+                <div *ngIf="availSettingForm?.invalid && submitted" class="col-12 alert alert-danger">
+                  <ng-container *ngIf="isRequiredListText">
+                    {{'MESSAGE.MESSAGE_CONTENT_IS_REQUIRED_FOR_ALL_LANGUAGE' | translate}}
+                  </ng-container>
+    
+                  <ng-container *ngIf="isMaxLengthListText">
+                    {{'AVAIL_SETTINGS.MAX_255_LENGTH' | translate}}
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- not availStateRef section -->
+    <ng-template #notAvailStateRef>
+      <div class="form-group row order-confirmation-container">
+        <label class="col-3 control-label">{{"AVAIL_SETTINGS.ORDER_CONFIRMATION" | translate}}</label>
+        <div class="col-9">
+          <div class="order-confirmation-color-picker">
+            <backoffice-color-picker [color]="orderConfirmationTextcolor" (updateColorEmit)="updateOrderConfirmationTextColor($event)">
+            </backoffice-color-picker>
+          </div>
+          <div class="order-confirmation-text-preview-container">
+            <div class="order-confirmation-text-preview-box">
+              {{orderConfirmationTextPreview}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row editor-setting not-avail-state">
+        <label class="col-3 control-label text-nowrap">{{"AVAIL_SETTINGS.DETAIL_AVAIL_TEXT" | translate}} *</label>
+        <div class="col-9 row mx-0">
+          <div class="form-group ms-content row" formGroupName="detailAvail">
+            <div class="col-12">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" *ngFor="let lang of detailAvailForm.controls | keyvalue; let i = index" class="nav-item">
+                  <a href="javascript:void(0)" [attr.aria-controls]="'language-' + lang.key.split('_')[0]" role="tab" data-toggle="tab"
+                    (click)="initAutoFocus(lang.key.split('_')[0], i, true)"
+                    [class]="lang.key == currentEditorLangDetail + '_Detail'? 'nav-link active' : 'nav-link' ">
+                    {{'COMMON_LABEL.'+ lang.key.split('_')[0] | translate}}
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div *ngFor="let lang of detailAvailForm.controls | keyvalue"
+                  [class]="lang.key == currentEditorLangDetail + '_Detail' ? 'tab-pane active' : 'tab-pane' " role="tabpanel"
+                  id="detailAvail-language-{{lang.key}}">
+                  <md-editor class="custom-editor" name="content" mode="editor" id="detailAvail-editor-{{lang.key}}"
+                    [formControlName]="lang.key" [options]="markdownOptions" maxlength="255">
+                  </md-editor>
+                </div>
+                <div *ngIf="availSettingForm.get('detailAvail').invalid && submitted" class="col-12 alert alert-danger">
+                  <ng-container *ngIf="isRequiredDetailText">
+                    {{'MESSAGE.MESSAGE_CONTENT_IS_REQUIRED_FOR_ALL_LANGUAGE' | translate}}
+                  </ng-container>
+    
+                  <ng-container *ngIf="isMaxLengthDetailText">
+                    {{'AVAIL_SETTINGS.MAX_255_LENGTH' | translate}}
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row avail-icon">
+        <label class="col-3 control-label">{{"AVAIL_SETTINGS.LIST_AVAIL_ICON" | translate}}</label>
+        <div class="col-9 row mx-0 avail-option">
+          <div class="pr-2">
+            <input class="form-check-input" type="radio" id="availIcon" [value]="SAG_AVAIL_DISPLAY_OPTIONS.DOT" formControlName="displayOption">
+          </div>
+          <div>
+            <span class="dot">&#11044;</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row editor-setting">
+        <label class="col-3 control-label">{{"AVAIL_SETTINGS.LIST_AVAIL_TEXT" | translate}}</label>
+        <div class="col-9 row mx-0 avail-option">
+          <div class="pr-2">
+            <input class="form-check-input" type="radio" id="isListAvail" [value]="SAG_AVAIL_DISPLAY_OPTIONS.DISPLAY_TEXT" formControlName="displayOption">
+          </div>
+    
+          <div class="form-group ms-content row" formGroupName="listAvail">
+            <div class="col-12 p-0">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" *ngFor="let lang of listAvailForm.controls | keyvalue; let i = index" class="nav-item">
+                  <a href="javascript:void(0)" [attr.aria-controls]="'language-' + lang.key.split('_')[0]" role="tab" data-toggle="tab"
+                    (click)="initAutoFocus(lang.key.split('_')[0], i, false)"
+                    [class]="lang.key == currentEditorLangList + '_List' ? 'nav-link active' : 'nav-link' ">
+                    {{'COMMON_LABEL.'+ lang.key.split('_')[0] | translate}}
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div *ngFor="let lang of listAvailForm.controls | keyvalue"
+                  [class]="lang.key == currentEditorLangList + '_List' ? 'tab-pane active' : 'tab-pane' " role="tabpanel"
+                  id="listAvail-language-{{lang.key}}">
+                  <md-editor class="custom-editor" name="content" mode="editor" id="listAvail-editor-{{lang.key}}"
+                    [formControlName]="lang.key" [options]="markdownOptions" maxlength="255">
+                  </md-editor>
+                </div>
+                <div *ngIf="availSettingForm?.get('listAvail').invalid && submitted" class="col-12 alert alert-danger">
+                  <ng-container *ngIf="isRequiredListText">
+                    {{'MESSAGE.MESSAGE_CONTENT_IS_REQUIRED_FOR_ALL_LANGUAGE' | translate}}
+                  </ng-container>
+    
+                  <ng-container *ngIf="isMaxLengthListText">
+                    {{'AVAIL_SETTINGS.MAX_255_LENGTH' | translate}}
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-3 control-label">{{"AVAIL_SETTINGS.DROP_SHIPMENT_AVAIL" | translate}}</label>
+        <div class="col-9 row mx-0 avail-option">
+          <div class="pr-2">
+            <input class="form-check-input" type="radio" id="dropShipmentAvail" [value]="SAG_AVAIL_DISPLAY_OPTIONS.DROP_SHIPMENT" formControlName="displayOption">
+          </div>
+          <div class="drop-shipment-text-preview">
+            <span>19.10.2021 12:00</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    </form>
+  </div>
+</div>

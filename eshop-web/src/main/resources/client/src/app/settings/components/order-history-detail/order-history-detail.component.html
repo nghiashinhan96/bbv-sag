@@ -1,0 +1,81 @@
+<section *ngIf="orderItem">
+    <div class="my-3">
+        <h5 class="card-title">{{('SETTINGS.MY_ORDER.DETAIL.ORDER_DETAILS' | translate)}}</h5>
+        <p class="card-text pl-3 font-weight-bold">
+            <span class="text-primary">{{('SETTINGS.MY_ORDER.DETAIL.ORDER_NUMBER' | translate)}}: </span>
+            {{orderItem.nr}}</p>
+        <p class="card-text pl-3 font-weight-bold">
+            <span class="text-primary">{{('SETTINGS.MY_ORDER.DETAIL.ORDER_DATE' | translate)}}: </span>
+            {{orderItem.date | orderDatePipe}}</p>
+    </div>
+
+    <sag-table [columns]="columns" [firstlySearch]="false" [rows]="orderItem.orderItems">
+    </sag-table>
+    <div class="p-4 bg-light font-weight-500 my-4" *sagCommonShowHideByAff="[sb];show:false">
+        <div>{{('CONDITION.INVOICE_TYPE.TITLE' | translate)}}</div>
+        <div class="mt-2 mb-2" *ngIf="orderItem?.invoiceTypeCode">
+            {{ 'CONDITION.INVOICE_TYPE.' + orderItem.invoiceTypeCode | translate }}</div>
+        <div class="mb-2">{{ orderItem.reference }}</div>
+        <div class="mt-2">{{ orderItem.branchRemark }}</div>
+    </div>
+
+    <div *ngIf="responseMessage"
+             connectResponseMessage
+             [responseMessage]="responseMessage">{{ responseMessage.key | translate }}</div>
+
+    <div class="py-4">
+        <div class="btn-take">
+            <a href="javascript:void(0);"
+               id="add-order-history-to-cart"
+               class="btn-link"
+               (click)="addOrderToCart()">
+                <i class="fa fa-chevron-right"></i>{{'COMMON_LABEL.BUTTON.TAKE'| translate}}</a>
+        </div>
+    </div>
+</section>
+
+<ng-template let-row="row" #articleNumber>
+    <sag-article-detail-description [article]="row.article" [type]="descriptionType"></sag-article-detail-description>
+</ng-template>
+
+<ng-template let-row="row" #articleSupplier>
+    <sag-article-detail-manufacturer [article]="row.article" [affiliateCode]="affiliateCode"></sag-article-detail-manufacturer>
+</ng-template>
+
+<ng-template let-row="row" #articleImage>
+    <sag-article-detail-image [article]="row.article" [showHoverImg]="false"></sag-article-detail-image>
+</ng-template>
+
+<ng-template let-row="row" #vehicleInfo>
+    {{row.vehicle.vehicleInfo}}
+</ng-template>
+
+<ng-template let-row="row" #price>
+    <div class="col-gross-price">
+        <div>
+            {{row.grossPrice}}
+        </div>
+        <span *ngIf="row.showPriceType && row.priceType" class="price-type">
+            {{row.priceType}}
+        </span>
+    </div>
+</ng-template>
+
+<ng-template let-row="row" #amountNumber>
+    {{row.article.amountNumber}}
+</ng-template>
+
+<ng-template let-row="row" #deliveryInfo>
+    <span *ngIf="!row.vin">
+        <ng-container *ngFor="let info of getDeliveryInfos(row)">
+            {{ info | translate:{param: param | translate} }}
+        </ng-container>
+    </span>
+</ng-template>
+
+<ng-container *sagCommonShowHideByAff="[sb];show:false">
+    <ng-template let-row="row" #additionalText>
+        {{row.additionalText}}
+    </ng-template>
+</ng-container>
+

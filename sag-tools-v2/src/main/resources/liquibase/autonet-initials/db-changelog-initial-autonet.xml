@@ -1,0 +1,3351 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="dangnguyen (generated)" id="1579071827031-1">
+        <createTable tableName="OFFER">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_OFFER"/>
+            </column>
+            <column name="OFFER_NUMBER" type="varchar(10)"/>
+            <column name="CLIENT_ID" type="int"/>
+            <column name="OWNER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OFFER_DATE" type="datetime2"/>
+            <column name="RECIPIENT_ID" type="bigint"/>
+            <column name="RECIPIENT_ADDRESS_ID" type="bigint"/>
+            <column name="TOTAL_GROSS_PRICE" type="decimal(18, 10)"/>
+            <column name="DELIVERY_DATE" type="datetime2"/>
+            <column name="REMARK" type="varchar(8000)"/>
+            <column name="DELIVERY_LOCATION" type="varchar(50)"/>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="datetime2"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime2"/>
+            <column defaultValue="ACTIVE" defaultValueConstraintName="DF_OFFER_TECSTATE" name="TECSTATE" type="varchar(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CURRENCY_ID" type="int"/>
+            <column name="VAT" type="decimal(18, 3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_OFFER_ALT_OFFER_PRICE_USED" name="ALT_OFFER_PRICE_USED" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF_OFFER_VERSION" defaultValueNumeric="1" name="VERSION" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-2">
+        <createTable tableName="BATCH_JOB_EXECUTION_SEQ">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-3">
+        <createTable tableName="ESHOP_CLIENT">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__ESHOP_CL__3214EC2705FEAD17"/>
+            </column>
+            <column name="CLIENT_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CLIENT_SECRET" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RESOURCE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-4">
+        <createTable tableName="ORGANISATION_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(45)"/>
+            <column name="LEVEL" type="int"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-5">
+        <createTable tableName="ESHOP_RELEASE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RELEASE_BUILD" type="varchar(20)"/>
+            <column name="RELEASE_VERSION" type="varchar(20)"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_ESHOP_RELEASE_RELEASE_DATE" name="RELEASE_DATE" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-6">
+        <createTable tableName="COUPON_CONDITIONS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_COUPON_CONDITIONS"/>
+            </column>
+            <column name="COUPON_CODE" type="varchar(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_START" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_END" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USAGE_COUNT" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USED_COUNT" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMOUNT" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PERCENTAGE" type="int"/>
+            <column name="DISCOUNT_ARTICLE_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MINIMUM_ORDER_AMOUNT" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MAXIMUM_DISCOUNT" type="decimal(18, 2)"/>
+            <column name="BULK_QUANTITY_TRIGGER" type="int"/>
+            <column name="BULK_QUANTITY_ARTICLE_ID" type="bigint"/>
+            <column name="COUNTRY" type="varchar(2)"/>
+            <column name="AFFILIATE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CUSTOMER_GROUP" type="varchar(255)"/>
+            <column name="CUSTOMER_NR" type="bigint"/>
+            <column name="ARTICLE_CATEGORIES" type="varchar(255)"/>
+            <column name="ARTICLE_ID" type="varchar(255)"/>
+            <column name="BRANDS" type="varchar(255)"/>
+            <column name="UPDATED_BY" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_OF_LAST_UPDATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_OF_CREATION" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF_COUPON_CONDITIONS_UMAR_ID" defaultValueNumeric="0" name="UMAR_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF__COUPON_CO__SINGL__16DA1AE5" name="SINGLE_CUSTOMER" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-7">
+        <createTable tableName="MESSAGE_ACCESS_RIGHT_ROLE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_ACCESS_RIGHT _ROLE"/>
+            </column>
+            <column name="MESSAGE_ACCESS_RIGHT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ESHOP_ROLE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-8">
+        <createTable tableName="PRICE_DISPLAY_TYPE">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__PRICE_DI__3214EC27EC9B8BFF"/>
+            </column>
+            <column name="TYPE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESC_CODE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-9">
+        <createTable tableName="ROLE_PERMISSION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ROLE_PERMISSION"/>
+            </column>
+            <column name="PERM_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ROLE_PERMISSION"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-10">
+        <createTable tableName="BASKET_HISTORY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_BASKET_HISTORY"/>
+            </column>
+            <column name="BASKET_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SALES_USER_ID" type="bigint"/>
+            <column defaultValueConstraintName="DF_BASKET_HISTORY_GRAND_TOTAL_EXCLUDE_VAT" defaultValueNumeric="0" name="GRAND_TOTAL_EXCLUDE_VAT" type="decimal(10, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BASKET_JSON" type="varchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_BASKET_HISTORY_UPDATED_DATE" name="UPDATED_DATE" type="datetime"/>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_BASKET_HISTORY_ACTIVE" name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CUSTOMER_REF_TEXT" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-11">
+        <createTable tableName="FEEDBACK_TOPIC">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FEEDBACK_TOPIC_ID"/>
+            </column>
+            <column name="TOPIC_CODE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-12">
+        <createTable tableName="FEEDBACK_STATUS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FEEDBACK_STATUS_ID"/>
+            </column>
+            <column name="STATUS_CODE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(500)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-13">
+        <createTable tableName="MESSAGE_SUB_AREA">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_SUB_AREA"/>
+            </column>
+            <column name="SUB_AREA" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SORT" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_AREA_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-14">
+        <createTable tableName="MESSAGE_ACCESS_RIGHT">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_ACCESS_RIGHT"/>
+            </column>
+            <column name="USER_GROUP" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_GROUP_KEY" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_ROLE_TYPE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-15">
+        <createTable tableName="ARTICLE_HISTORY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ARTICLE_HISTORY"/>
+            </column>
+            <column name="ART_NUMBER" type="varchar(50)"/>
+            <column name="ART_ID" type="varchar(50)"/>
+            <column name="ART_SAG_SYS_ID" type="varchar(50)"/>
+            <column name="MANUFACTURE" type="varchar(255)"/>
+            <column name="ART_IMG" type="varchar(255)"/>
+            <column name="VEHICLE_INFO" type="varchar(255)"/>
+            <column name="GROSS_PRICE" type="decimal(18, 2)"/>
+            <column name="MENGE" type="int"/>
+            <column name="DELIVERY_INFO" type="varchar(255)"/>
+            <column name="REFERENCE" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-16">
+        <createTable tableName="LICENSE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="LICENSE_PK"/>
+            </column>
+            <column name="TYPE_OF_LICENSE" type="char(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PACK_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PACK_NAME" type="char(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CUSTOMER_NR" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BEGIN_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="END_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="QUANTITY" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="QUANTITY_USED" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_USED" type="datetime"/>
+            <column name="LAST_UPDATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_UPDATED_BY" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-17">
+        <createTable tableName="AAD_ACCOUNTS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_AAD_ACCOUNTS_ID"/>
+            </column>
+            <column name="FIRST_NAME" type="varchar(255)"/>
+            <column name="LAST_NAME" type="varchar(255)"/>
+            <column name="PRIMARY_CONTACT_EMAIL" type="varchar(255)"/>
+            <column name="PERSONAL_NUMBER" type="varchar(255)"/>
+            <column name="GENDER" type="varchar(10)"/>
+            <column name="LEGAL_ENTITY_ID" type="varchar(10)"/>
+            <column name="PERMIT_GROUP" type="varchar(10)"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF__AAD_ACCOU__CREAT__5086CE36" name="CREATED_DATE" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-18">
+        <createTable tableName="CLIENT_ROLE">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__CLIENT_R__3214EC270E35A2F4"/>
+            </column>
+            <column name="CLIENT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-19">
+        <createTable tableName="COLLECTION_RELATION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_COLLECTION_RELATION"/>
+            </column>
+            <column name="COLLECTION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF__COLLECTIO__IS_AC__053A8D97" name="IS_ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-20">
+        <createTable tableName="MESSAGE_LOCATION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_LOCATION"/>
+            </column>
+            <column name="MESSAGE_LOCATION_TYPE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-21">
+        <createTable tableName="FEEDBACK_DEPARTMENT_CONTACT">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FEEDBACK_DEPARTMENT_CONTACT_ID"/>
+            </column>
+            <column name="DEPARTMENT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-22">
+        <createTable tableName="ESHOP_USER">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SALUTATION" type="int"/>
+            <column name="FIRST_NAME" type="varchar(255)"/>
+            <column name="LAST_NAME" type="varchar(255)"/>
+            <column name="EMAIL" type="varchar(255)"/>
+            <column name="USERNAME" type="varchar(255)"/>
+            <column name="PHONE" type="varchar(45)"/>
+            <column name="LANGUAGE" type="int"/>
+            <column name="TYPE" type="varchar(45)"/>
+            <column name="HOURLY_RATE" type="decimal(19, 2)"/>
+            <column name="EMAIL_CONFIRMATION" type="bit"/>
+            <column name="NEWSLETTER" type="bit"/>
+            <column name="SETTING" type="int"/>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_ESHOP_USER_VAT_CONFIRM" name="VAT_CONFIRM" type="bit"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_ESHOP_USER_SIGN_IN_DATE" name="SIGN_IN_DATE" type="datetime"/>
+            <column name="FAX" type="char(50)"/>
+            <column name="ORIGINAL_USER_ID" type="bigint"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-23">
+        <createTable tableName="BATCH_JOB_EXECUTION_CONTEXT">
+            <column name="JOB_EXECUTION_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__BATCH_JO__56435A7788052714"/>
+            </column>
+            <column name="SHORT_CONTEXT" type="varchar(2500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SERIALIZED_CONTEXT" type="varchar (max) (16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-24">
+        <createTable tableName="ESHOP_CART_ITEM">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ESHOP_CART_ITEM"/>
+            </column>
+            <column name="CART_KEY" type="varchar(300)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CUSTOMER_NR" type="bigint"/>
+            <column defaultValueConstraintName="DF_ESHOP_CART_ITEM_QUANTITY" defaultValueNumeric="1" name="QUANTITY" type="int"/>
+            <column name="ARTICLE_JSON" type="varchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_ESHOP_CART_ITEM_ADDED_TIME" name="ADDED_TIME" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CATEGORY_JSON" type="varchar(MAX)"/>
+            <column name="VEHICLE_JSON" type="varchar(MAX)"/>
+            <column name="ITEM_DESC" type="varchar(MAX)"/>
+            <column name="ITEM_TYPE" type="varchar(50)"/>
+            <column name="USER_ID" type="varchar(20)"/>
+            <column defaultValueComputed="NULL" defaultValueConstraintName="DF__ESHOP_CAR__SHOPT__0BE78B26" name="SHOPTYPE" type="varchar(50)"/>
+            <column name="ATTACHED_ARTICLES_JSON" type="varchar(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-25">
+        <createTable tableName="INVOICE_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_INVOICE_TYPE"/>
+            </column>
+            <column name="INVOICE_TYPE_CODE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INVOICE_TYPE_NAME" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="INVOICE_TYPE_DESC" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-26">
+        <createTable tableName="MESSAGE_LOCATION_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_LOCATION_TYPE"/>
+            </column>
+            <column name="LOCATION_TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-27">
+        <createTable tableName="OFFER_ADDRESS">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_OFFER_ADDRESS"/>
+            </column>
+            <column name="PERSON_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LINE1" type="varchar(150)"/>
+            <column name="LINE2" type="varchar(50)"/>
+            <column name="LINE3" type="varchar(50)"/>
+            <column name="COUNTRYISO" type="varchar(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATE" type="varchar(50)"/>
+            <column name="CITY" type="varchar(50)"/>
+            <column name="ZIPCODE" type="varchar(10)"/>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+            <column defaultValue="ACTIVE" defaultValueConstraintName="DF_OFFER_ADDRESS_TECSTATE" name="TECSTATE" type="varchar(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ERP_ID" type="varchar(19)"/>
+            <column name="TYPE" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PO_BOX" type="varchar(50)"/>
+            <column defaultValueConstraintName="DF_OFFER_ADDRESS_VERSION" defaultValueNumeric="1" name="VERSION" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-28">
+        <createTable tableName="DELIVERY_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DELIVERY_TYPE"/>
+            </column>
+            <column name="TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESC_CODE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-29">
+        <createTable tableName="BATCH_JOB_EXECUTION">
+            <column name="JOB_EXECUTION_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__BATCH_JO__56435A77EBF2658F"/>
+            </column>
+            <column name="VERSION" type="bigint"/>
+            <column name="JOB_INSTANCE_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATE_TIME" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" defaultValueConstraintName="DF__BATCH_JOB__START__7C30464A" name="START_TIME" type="datetime"/>
+            <column defaultValueComputed="NULL" defaultValueConstraintName="DF__BATCH_JOB__END_T__7D246A83" name="END_TIME" type="datetime"/>
+            <column name="STATUS" type="varchar(10)"/>
+            <column name="EXIT_CODE" type="varchar(2500)"/>
+            <column name="EXIT_MESSAGE" type="varchar(2500)"/>
+            <column name="LAST_UPDATED" type="datetime"/>
+            <column name="JOB_CONFIGURATION_LOCATION" type="varchar(2500)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-30">
+        <createTable tableName="ADDRESS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ADDRESS"/>
+            </column>
+            <column name="LINE1" type="varchar(150)"/>
+            <column name="LINE2" type="varchar(50)"/>
+            <column name="LINE3" type="varchar(50)"/>
+            <column name="COUNTRYISO" type="char(3)"/>
+            <column name="STATE" type="varchar(50)"/>
+            <column name="CITY" type="varchar(50)"/>
+            <column name="ZIPCODE" type="varchar(10)"/>
+            <column name="ADDRESS_TYPE_ID" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-31">
+        <createTable tableName="USER_VEHICLE_HISTORY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_VEHICLE_HISTORY"/>
+            </column>
+            <column name="VEH_HISTORY_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_VEHICLE_HISTORY"/>
+            </column>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_USER_VEHICLE_HISTORY_SELECT_DATE" name="SELECT_DATE" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-32">
+        <createTable tableName="FEEDBACK">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FEEDBACK_ID"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SALES_ID" type="bigint"/>
+            <column name="STATUS_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOPIC_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORG_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_INFORMATION" type="varchar(MAX)"/>
+            <column name="TECHNICAL_INFORMATION" type="varchar(MAX)"/>
+            <column name="FEEDBACK_MESSAGE" type="varchar(3000)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_FEEDBACK_CREATED_DATE" name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_DATE" type="datetime"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="SOURCE" type="varchar(100)"/>
+            <column name="SALES_INFORMATION" type="varchar(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-33">
+        <createTable tableName="EXTERNAL_VENDOR">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_EXTERNAL_VENDOR"/>
+            </column>
+            <column name="COUNTRY" type="nvarchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SAG_ARTICLE_GROUP" type="nvarchar(100)"/>
+            <column name="BRAND_ID" type="bigint"/>
+            <column name="VENDOR_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VENDOR_NAME" type="nvarchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VENDOR_PRIORITY" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_PROFILE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AVAILABILITY_TYPE_ID" type="nvarchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER_ID" type="bigint"/>
+            <column name="CREATED_DATE" type="datetime"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-34">
+        <createTable tableName="PERM_FUNCTION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PERM_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PERM_FUNCTION"/>
+            </column>
+            <column name="FUNCTION_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PERM_FUNCTION"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-35">
+        <createTable tableName="MESSAGE_HIDING">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_HIDING"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-36">
+        <createTable tableName="USER_SETTINGS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_SETTINGS"/>
+            </column>
+            <column name="ALLOCATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PAYMENT_METHOD" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COLLECTIVE_DELIVERY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_USER_SETTINGS_NET_PRICE_VIEW" name="NET_PRICE_VIEW" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_USER_SETTINGS_NET_PRICE_CONFIRM" name="NET_PRICE_CONFIRM" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_USER_SETTINGS_VIEW_BILLING" name="VIEW_BILLING" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_USER_SETTINGS_ADDRESS_ID" name="ADDRESS_ID" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_USER_SETTINGS_USE_DEFAULT_SETTING" name="USE_DEFAULT_SETTING" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_USER_SETTINGS_EMAIL_NOTIFICATION_ORDER" name="EMAIL_NOTIFICATION_ORDER" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BILLING_ADDRESS_ID" type="varchar(19)"/>
+            <column name="DELIVERY_ADDRESS_ID" type="varchar(19)"/>
+            <column defaultValueConstraintName="DF_USER_SETTINGS_INVOICE_TYPE" defaultValueNumeric="1" name="INVOICE_TYPE" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_USER_SETTINGS_SHOW_DISCOUNT" name="SHOW_DISCOUNT" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_USER_SETTINGS_SHOW_HAPPY_POINTS" name="SHOW_HAPPY_POINTS" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_USER_SETTINGS_ACCEPT_HAPPY_POINT_TERM" name="ACCEPT_HAPPY_POINT_TERM" type="bit"/>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_USER_SETTINGS_SALE_ON_BEHALF_OF" name="SALE_ON_BEHALF_OF" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_USER_SETTINGS_SHOW_RECOMMENDED_RETAIL_PRICE" name="SHOW_RECOMMENDED_RETAIL_PRICE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_USER_SETTINGS_CURRENT_STATE_NET_PRICE_VIEW" name="CURRENT_STATE_NET_PRICE_VIEW" type="bit"/>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_USER_SETTINGS_CLASSIC_CATEGORY_VIEW" name="CLASSIC_CATEGORY_VIEW" type="bit"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-37">
+        <createTable tableName="ESHOP_PERMISSION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PERMISSION" type="varchar(45)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column name="CREATED_BY" type="bigint"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_ESHOP_PERMISSION_CREATED_DATE" name="CREATED_DATE" type="datetime"/>
+            <column name="MODIFIED_BY" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+            <column name="PERMISSION_KEY" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-38">
+        <createTable tableName="COUPON_USE_LOG">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_COUPON_USE_LOG"/>
+            </column>
+            <column name="COUPONS_CODE" type="varchar(12)"/>
+            <column name="DATE_USED" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USAGE_COUNT_REMAINDER" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMOUNT_APPLIED" type="decimal(18, 2)"/>
+            <column name="DISCOUNT_ARTICLE_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CUSTOMER_NR" type="varchar(20)"/>
+            <column name="USER_ID" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDER_CONFIRMATION_ID" type="bigint"/>
+            <column name="ORDER_ID" type="bigint"/>
+            <column name="COUNTRY_MATCH" type="varchar(2)"/>
+            <column name="AFFILIATE_MATCH" type="varchar(255)"/>
+            <column name="ARTICLE_CATEGORIES" type="varchar(255)"/>
+            <column name="ARTICLE_ID_MATCH" type="varchar(255)"/>
+            <column name="BRANDS_MATCH" type="varchar(255)"/>
+            <column defaultValueConstraintName="DF_COUPON_USE_LOG_UMAR_ID" defaultValueNumeric="0" name="UMAR_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-39">
+        <createTable tableName="BATCH_JOB_SEQ">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-40">
+        <createTable tableName="USER_ARTICLE_HISTORY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_ARTICLE_HISTORY"/>
+            </column>
+            <column name="ART_HISTORY_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_ARTICLE_HISTORY"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-41">
+        <createTable tableName="ESHOP_GROUP">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(45)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column defaultValue="000000" defaultValueConstraintName="DF_ESHOP_GROUP_ORG_CODE" name="ORG_CODE" type="varchar(20)"/>
+            <column defaultValueConstraintName="DF_ESHOP_GROUP_ROLE_ID" defaultValueNumeric="6" name="ROLE_ID" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-42">
+        <createTable tableName="BATCH_JOB_INSTANCE">
+            <column name="JOB_INSTANCE_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__BATCH_JO__4848154A781D4BA7"/>
+            </column>
+            <column name="VERSION" type="bigint"/>
+            <column name="JOB_NAME" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="JOB_KEY" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-43">
+        <createTable tableName="ALLOCATION_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ALLOCATION_TYPE"/>
+            </column>
+            <column name="TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESC_CODE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-44">
+        <createTable tableName="ORGANISATION_COLLECTION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_COLLECTION"/>
+            </column>
+            <column name="NAME" type="varchar(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AFFILIATE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column name="SHORTNAME" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-45">
+        <createTable tableName="SAGSYS_INVOICE">
+            <column name="ID" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FAKTURANR" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AUFTRAGSNR" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LIEFERSCHEINNR" type="int"/>
+            <column name="KUNDENNR" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FIRMENNAME" type="varchar(50)"/>
+            <column name="NACHNAME" type="varchar(50)"/>
+            <column name="VORNAME" type="varchar(50)"/>
+            <column name="SUCHBEGR" type="varchar(20)"/>
+            <column name="STRASSE" type="varchar(50)"/>
+            <column name="PLZ" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORT" type="varchar(50)"/>
+            <column name="LAND" type="varchar(10)"/>
+            <column name="FAKTDAT" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WAEHRUNG" type="varchar(10)"/>
+            <column name="FWBETRINCL" type="float(53)"/>
+            <column name="FAKTURAART" type="varchar(10)"/>
+            <column name="BARKREDIT" type="varchar(10)"/>
+            <column name="ORGANISATION" type="varchar(10)"/>
+            <column name="DOCID" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-46">
+        <createTable tableName="ORGANISATION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION"/>
+            </column>
+            <column name="NAME" type="varchar(150)"/>
+            <column name="ORG_CODE" type="varchar(20)"/>
+            <column name="ORGTYPE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PARENT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column name="SHORTNAME" type="varchar(45)"/>
+            <column name="ORDER_SETTINGS_ID" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-47">
+        <createTable tableName="MESSAGE_AREA">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_AREA"/>
+            </column>
+            <column name="AREA" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_MESSAGE_AREA_AUTH" name="AUTH" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-48">
+        <createTable tableName="BATCH_JOB_EXECUTION_PARAMS">
+            <column name="JOB_EXECUTION_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE_CD" type="varchar(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="KEY_NAME" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STRING_VAL" type="varchar(250)"/>
+            <column defaultValueComputed="NULL" defaultValueConstraintName="DF__BATCH_JOB__DATE___0000D72E" name="DATE_VAL" type="datetime"/>
+            <column name="LONG_VAL" type="bigint"/>
+            <column name="DOUBLE_VAL" type="float(53)"/>
+            <column name="IDENTIFYING" type="char(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-49">
+        <createTable tableName="ESHOP_GLOBAL_SETTING">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ESHOP_GLOBAL_SETTING"/>
+            </column>
+            <column name="CODE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF__ESHOP_GLO__ENABL__7E0E6D1B" name="ENABLED" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-50">
+        <createTable tableName="ESHOP_ROLE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ESHOP_ROLE"/>
+            </column>
+            <column name="NAME" type="varchar(45)"/>
+            <column name="ROLE_TYPE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-51">
+        <createTable tableName="FINAL_CUSTOMER_ORDER">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__FINAL_CU__3214EC277FED5DAE"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORG_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REFERENCE" type="varchar(254)"/>
+            <column name="BRANCH_REMARK" type="varchar(254)"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF__FINAL_CUST__DATE__78D4B6B2" name="DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_GROSS_PRICE" type="decimal(18, 10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-52">
+        <createTable tableName="ROLE_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(45)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-53">
+        <createTable tableName="LICENSE_SETTINGS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="LICENSE_SETTINGS_PK"/>
+            </column>
+            <column name="PACK_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PACK_NAME" type="char(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PRODUCT_PARAMETERS" type="nvarchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PACK_ARTICLE_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PACK_ARTICLE_NO" type="char(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PACK_UMAR_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="QUANTITY" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_UPDATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_UPDATED_BY" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE_OF_LICENSE" type="char(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-54">
+        <createTable tableName="COLLECTIVE_DELIVERY">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_COLLECTIVE_DELIVERY"/>
+            </column>
+            <column name="TYPE" type="varchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESC_CODE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-55">
+        <createTable tableName="STATE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_STATE_ID"/>
+            </column>
+            <column name="CODE" type="varchar(50)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-56">
+        <createTable tableName="PAYMENT_METHOD">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PAYMENT_METHOD"/>
+            </column>
+            <column name="PAY_METHOD" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESC_CODE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column defaultValueConstraintName="DF_PAYMENT_METHOD_ORDER_DISPLAY" defaultValueNumeric="0" name="ORDER_DISPLAY" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-57">
+        <createTable tableName="BATCH_STEP_EXECUTION_SEQ">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-58">
+        <createTable tableName="ORGANISATION_GROUP">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_GROUP"/>
+            </column>
+            <column name="GROUP_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_GROUP"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_GROUP"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-59">
+        <createTable tableName="USER_ORDER_HISTORY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_ORDER_HISTORY_1"/>
+            </column>
+            <column name="ORDER_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_USER_ORDER_HISTORY_1"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-60">
+        <createTable tableName="BATCH_STEP_EXECUTION">
+            <column name="STEP_EXECUTION_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__BATCH_ST__60B8C8A5D6F32422"/>
+            </column>
+            <column name="VERSION" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STEP_NAME" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="JOB_EXECUTION_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_TIME" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="NULL" defaultValueConstraintName="DF__BATCH_STE__END_T__03D16812" name="END_TIME" type="datetime"/>
+            <column name="STATUS" type="varchar(10)"/>
+            <column name="COMMIT_COUNT" type="bigint"/>
+            <column name="READ_COUNT" type="bigint"/>
+            <column name="FILTER_COUNT" type="bigint"/>
+            <column name="WRITE_COUNT" type="bigint"/>
+            <column name="READ_SKIP_COUNT" type="bigint"/>
+            <column name="WRITE_SKIP_COUNT" type="bigint"/>
+            <column name="PROCESS_SKIP_COUNT" type="bigint"/>
+            <column name="ROLLBACK_COUNT" type="bigint"/>
+            <column name="EXIT_CODE" type="varchar(2500)"/>
+            <column name="EXIT_MESSAGE" type="varchar(2500)"/>
+            <column name="LAST_UPDATED" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-61">
+        <createTable tableName="BRANCH">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_BRANCH"/>
+            </column>
+            <column name="BRANCH_NUMBER" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BRANCH_CODE" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORG_ID" type="int"/>
+            <column name="ZIP" type="varchar(10)"/>
+            <column name="ADDRESS_STREET" type="varchar(255)"/>
+            <column name="ADDRESS_CITY" type="varchar(255)"/>
+            <column name="ADDRESS_DESC" type="varchar(255)"/>
+            <column name="ADDRESS_COUNTRY" type="varchar(255)"/>
+            <column name="COUNTRY_ID" type="int"/>
+            <column name="REGION_ID" type="varchar(10)"/>
+            <column name="PRIMARY_FAX" type="varchar(255)"/>
+            <column name="PRIMARY_EMAIL" type="varchar(255)"/>
+            <column name="PRIMARY_PHONE" type="varchar(20)"/>
+            <column name="PRIMARY_URL" type="varchar(255)"/>
+            <column name="ID_KSL" type="bit"/>
+            <column name="OPENING_TIME" type="time(0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CLOSING_TIME" type="time(0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LUNCH_START_TIME" type="time"/>
+            <column name="LUNCH_END_TIME" type="time"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-62">
+        <createTable tableName="TOUR_TIME">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TOUR_TIME_ID"/>
+            </column>
+            <column name="CUSTOMER_NUMBER" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BRANCH_ID" type="varchar(20)"/>
+            <column name="TOUR_NAME" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-63">
+        <createTable tableName="ORDER_HISTORY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORDER_HISTORY"/>
+            </column>
+            <column name="ORDER_NUMBER" type="varchar(50)"/>
+            <column name="TRANS_NUMBER" type="varchar(50)"/>
+            <column name="USER_ID" type="bigint"/>
+            <column name="CUSTOMER_NUMBER" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDER_INFO_JSON" type="varchar(MAX)"/>
+            <column name="ERP_ORDER_DETAIL_URL" type="varchar(2048)"/>
+            <column name="SALE_ID" type="bigint"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_ORDER_HISTORY_CREATED_DATE" name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SALE_NAME" type="varchar(150)"/>
+            <column defaultValueConstraintName="DF_ORDER_HISTORY_TOTAL" defaultValueNumeric="0.0" name="TOTAL" type="float(53)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CLOSED_DATE" type="datetime"/>
+            <column name="TYPE" type="varchar(20)"/>
+            <column name="AX_PROCESS_STATUS" type="varchar(20)"/>
+            <column name="WORK_IDS" type="varchar(1000)"/>
+            <column name="ORDER_STATE" type="varchar(50)"/>
+            <column name="FINAL_CUSTOMER_ORDER_ID" type="bigint"/>
+            <column name="GOODS_RECEIVER_ID" type="bigint"/>
+            <column name="VEHICLE_INFOS" type="varchar(256)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-64">
+        <createTable tableName="ESHOP_FUNCTION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ESHOP_FUNCTION_ID"/>
+            </column>
+            <column name="FUNCTION_NAME" type="varchar(45)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column name="RELATIVE_URL" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-65">
+        <createTable tableName="ORGANISATION_PROPERTY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORGANISATION_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_PROPERTY"/>
+            </column>
+            <column name="TYPE" type="varchar(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_PROPERTY"/>
+            </column>
+            <column name="VALUE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-66">
+        <createTable tableName="GROUP_CUSTOMER">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_CUSTOMER"/>
+            </column>
+            <column name="CUSTOMER_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="GROUP_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-67">
+        <createTable tableName="RETURN_ORDER_REASON">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_RETURN_ORDER_REASON_ID"/>
+            </column>
+            <column name="CODE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(255)"/>
+            <column name="AX_CODE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_RETURN_ORDER_REASON_IS_DEFAULT" name="IS_DEFAULT" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-68">
+        <createTable tableName="MESSAGE_LOCATION_TYPE_ROLE_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_LOCATION_TYPE_ROLE_TYPE"/>
+            </column>
+            <column name="MESSAGE_LOCATION_TYPE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_ROLE_TYPE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-69">
+        <createTable tableName="MESSAGE_LANGUAGE">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_LANGUAGE"/>
+            </column>
+            <column name="MESSAGE_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LANG_ISO" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTENT" type="varchar(MAX)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-70">
+        <createTable tableName="ADDRESS_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ADDRESS_TYPE_ID"/>
+            </column>
+            <column name="TYPE" type="varchar(45)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-71">
+        <createTable tableName="BATCH_STEP_EXECUTION_CONTEXT">
+            <column name="STEP_EXECUTION_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__BATCH_ST__60B8C8A584F8C947"/>
+            </column>
+            <column name="SHORT_CONTEXT" type="varchar(2500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SERIALIZED_CONTEXT" type="varchar (max) (16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-72">
+        <createTable tableName="ESHOP_CLIENT_RESOURCE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__ESHOP_CL__3214EC27AD9134EE"/>
+            </column>
+            <column name="NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-73">
+        <createTable tableName="PAYMENT_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PAYMENT_TYPE_ID"/>
+            </column>
+            <column name="CODE" type="varchar(50)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-74">
+        <createTable tableName="OFFER_POSITION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_OFFER_POSITION"/>
+            </column>
+            <column name="OFFER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UMSART_ID" type="varchar(19)"/>
+            <column name="SHOP_ARTICLE_ID" type="bigint"/>
+            <column name="ARTICLE_NUMBER" type="varchar(50)"/>
+            <column name="ARTICLE_DESCRIPTION" type="varchar(500)"/>
+            <column name="VEHICLE_ID" type="varchar(19)"/>
+            <column name="VEHICLE_DESCRIPTION" type="varchar(500)"/>
+            <column name="CALCULATED" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEQUENCE" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONTEXT" type="varchar(50)"/>
+            <column name="QUANTITY" type="decimal(18, 2)"/>
+            <column name="UOM_ISO" type="varchar(3)"/>
+            <column name="CURRENCY_ID" type="int"/>
+            <column name="GROSS_PRICE" type="decimal(18, 2)"/>
+            <column name="NET_PRICE" type="decimal(18, 2)"/>
+            <column name="TOTAL_GROSS_PRICE" type="decimal(18, 2)"/>
+            <column name="REMARK" type="varchar(500)"/>
+            <column name="ACTION_TYPE" type="varchar(50)"/>
+            <column name="DELIVERY_TYPE_ID" type="int"/>
+            <column name="DELIVERY_DATE" type="datetime2"/>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="datetime2"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime2"/>
+            <column defaultValue="ACTIVE" defaultValueConstraintName="DF_OFFER_POSITION_TECSTATE" name="TECSTATE" type="varchar(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MAKE_ID" type="varchar(100)"/>
+            <column name="MODEL_ID" type="varchar(100)"/>
+            <column defaultValueConstraintName="DF_OFFER_POSITION_ACTION_VALUE" defaultValueNumeric="0" name="ACTION_VALUE" type="decimal(18, 3)"/>
+            <column name="VEHICLE_BOM_ID" type="varchar(100)"/>
+            <column name="VEHICLE_BOM_DESCRIPTION" type="varchar(500)"/>
+            <column name="ARTICLE_ENHANCED_DESCRIPTION" type="varchar(500)"/>
+            <column name="PRICED_UNIT" type="varchar(500)"/>
+            <column name="CATALOG_PATH" type="varchar(500)"/>
+            <column name="VEHICLE_TYPE_CODE" type="varchar(500)"/>
+            <column name="PRICED_QUANTITY" type="decimal(18, 2)"/>
+            <column defaultValueConstraintName="DF_OFFER_POSITION_VERSION" defaultValueNumeric="1" name="VERSION" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONNECT_VEHICLE_ID" type="varchar(50)"/>
+            <column name="SAGSYS_ID" type="varchar(19)"/>
+            <column name="AW_NUMBER" type="varchar(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-75">
+        <createTable tableName="PASSWORD_RESET_TOKEN">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PASSWORD_RESET_TOKEN_ID"/>
+            </column>
+            <column name="token" type="varchar(6)"/>
+            <column name="expiry_date" type="datetime"/>
+            <column name="USER_ID" type="bigint"/>
+            <column name="hash_username_code" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-76">
+        <createTable tableName="GROUP_USER">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_USER"/>
+            </column>
+            <column name="GROUP_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_USER"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_USER"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-77">
+        <createTable tableName="DELIVERY_PROFILE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DELIVERY_PROFILE"/>
+            </column>
+            <column name="COUNTRY" type="nvarchar(10)"/>
+            <column name="DELIVERY_PROFILE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DISTRIBUTION_BRANCH_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_BRANCH_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NEXT_DAY" type="int"/>
+            <column name="VENDOR_CUT_OFF_TIME" type="time"/>
+            <column name="LAST_DELIVERY" type="time(0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LATEST_TIME" type="time"/>
+            <column name="DELIVERY_DURATION" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER_ID" type="bigint"/>
+            <column name="CREATED_DATE" type="datetime"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+            <column name="DELIVERY_PROFILE_NAME" type="nvarchar(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-78">
+        <createTable tableName="SALUTATION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SALUTATION_ID"/>
+            </column>
+            <column name="CODE" type="varchar(50)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column name="TYPE" type="varchar(10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-79">
+        <createTable tableName="OAUTH_REFRESH_TOKEN">
+            <column name="TOKEN_ID" type="varchar(256)"/>
+            <column name="TOKEN" type="varchar(MAX)"/>
+            <column name="AUTHENTICATION" type="varchar(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-80">
+        <createTable tableName="ORG_COLLECTION_SETTINGS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORG_COLLECTION_SETTINGS"/>
+            </column>
+            <column name="COLLECTION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_KEY" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_VALUE" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-81">
+        <createTable tableName="GROUP_PERMISSION">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_PERMISSION_ID"/>
+            </column>
+            <column name="GROUP_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PERM_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_GROUP_PERMISSION_ALLOWED" name="ALLOWED" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-82">
+        <createTable tableName="FEEDBACK_TOPIC_DEPARTMENT">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FEEDBACK_TOPIC_DEPARTMENT_ID"/>
+            </column>
+            <column name="TOPIC_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEPARTMENT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-83">
+        <createTable tableName="COLLECTION_PERMISSION">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COLLECTION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ESHOP_PERMISSION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-84">
+        <createTable tableName="ORGANISATION_SETTINGS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SETTINGS"/>
+            </column>
+            <column name="NAME" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_KEY" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_VALUE" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-85">
+        <createTable tableName="OAUTH_ACCESS_TOKEN">
+            <column name="TOKEN_ID" type="varchar(256)"/>
+            <column name="TOKEN" type="varchar(MAX)"/>
+            <column name="AUTHENTICATION_ID" type="varchar(256)"/>
+            <column name="USER_NAME" type="varchar(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CLIENT_ID" type="varchar(256)"/>
+            <column name="AUTHENTICATION" type="varchar(MAX)"/>
+            <column name="REFRESH_TOKEN" type="varchar(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-86">
+        <createTable tableName="OPENING_DAYS_CALENDAR">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_OPENING_DAYS_CALENDAR"/>
+            </column>
+            <column name="DATETIME" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COUNTRY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WORKING_DAY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXCEPTIONS" type="varchar(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-87">
+        <createTable tableName="EXTERNAL_USER">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="EXTERNAL_USER_PK"/>
+            </column>
+            <column name="ESHOP_USER_ID" type="bigint"/>
+            <column name="USERNAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PASSWORD" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="DVSE" defaultValueConstraintName="DF_EXTERNAL_USER_EXTERNAL_APP" name="EXTERNAL_APP" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_EXTERNAL_USER_ACTIVE" name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_EXTERNAL_USER_CREATED_DATE" name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOCK_VIRTUAL_USER" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-88">
+        <createTable tableName="COUNTRY">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_COUNTRY_ID"/>
+            </column>
+            <column name="CODE" type="varchar(50)"/>
+            <column name="SHORT_NAME" type="varchar(255)"/>
+            <column name="FULL_NAME" type="varchar(500)"/>
+            <column name="SHORT_CODE" type="varchar(5)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-89">
+        <createTable tableName="OFFER_PERSON">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_OFFER_PERSON"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FIRST_NAME" type="varchar(100)"/>
+            <column name="LAST_NAME" type="varchar(100)"/>
+            <column name="EMAIL" type="varchar(255)"/>
+            <column name="LANGUAGE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOURLY_RATE" type="decimal(19, 0)"/>
+            <column name="CREATED_USER_ID" type="bigint"/>
+            <column name="CREATED_DATE" type="datetime"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+            <column defaultValue="ACTIVE" defaultValueConstraintName="DF_OFFER_PERSON_TECSTATE" name="TECSTATE" type="varchar(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF_OFFER_PERSON_VERSION" defaultValueNumeric="1" name="VERSION" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="OFFER_COMPANY_NAME" type="varchar(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-90">
+        <createTable tableName="SUPPORTED_AFFILIATE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SUPPORTED_AFFILIATE_ID"/>
+            </column>
+            <column name="SHORT_NAME" type="varchar(50)"/>
+            <column name="COMPANY_NAME" type="varchar(255)"/>
+            <column name="DESCRIPTION" type="varchar(500)"/>
+            <column name="COUNTRY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_SUPPORTED_AFFILIATE_UPDATED_DATE" name="UPDATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ES_SHORT_NAME" type="char(50)"/>
+            <column name="SALES_ORIGIN_ID" type="char(50)"/>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_SUPPORTED_AFFILIATE_SHOW_PFAND_ARTICLE" name="SHOW_PFAND_ARTICLE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LOGO_LINK" type="varchar(255)"/>
+            <column name="NO_REPLY_EMAIL" type="varchar(255)"/>
+            <column defaultValue="00:00" defaultValueConstraintName="DF__SUPPORTED__START__53240F16" name="START_WORKING_TIME" type="varchar(20)"/>
+            <column defaultValue="00:00" defaultValueConstraintName="DF__SUPPORTED__END_W__5418334F" name="END_WORKING_TIME" type="varchar(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-91">
+        <createTable tableName="MESSAGE_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_TYPE"/>
+            </column>
+            <column name="TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-92">
+        <createTable tableName="CUSTOMER_SETTINGS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORG_ORDER_SETTINGS"/>
+            </column>
+            <column name="ALLOCATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PAYMENT_METHOD" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COLLECTIVE_DELIVERY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_NET_PRICE_VIEW" name="NET_PRICE_VIEW" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_NET_PRICE_CONFIRM" name="NET_PRICE_CONFIRM" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_VIEW_BILLING" name="VIEW_BILLING" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_ADDRESS_ID" name="ADDRESS_ID" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_USE_DEFAULT_SETTING" name="USE_DEFAULT_SETTING" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_EMAIL_NOTIFICATION_ORDER" name="EMAIL_NOTIFICATION_ORDER" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BILLING_ADDRESS_ID" type="varchar(19)"/>
+            <column name="DELIVERY_ADDRESS_ID" type="varchar(19)"/>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_ALLOW_NET_PRICE_CHANGED" name="ALLOW_NET_PRICE_CHANGED" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF_CUSTOMER_SETTINGS_INVOICE_TYPE" defaultValueNumeric="1" name="INVOICE_TYPE" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_SHOW_DISCOUNT" name="SHOW_DISCOUNT" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF_CUSTOMER_SETTINGS_SESSION_TIMEOUT_SECONDS" defaultValueNumeric="3600" name="SESSION_TIMEOUT_SECONDS" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_SHOW_OCI_VAT" name="SHOW_OCI_VAT" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOME_BRANCH" type="varchar(50)"/>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF__CUSTOMER___DEMO___6F0133B5" name="DEMO_CUSTOMER" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF__CUSTOMER___PRICE__71DDA060" defaultValueNumeric="1" name="PRICE_DISPLAY_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF__CUSTOMER___NORMA__72D1C499" name="NORMAUTO_DISPLAY" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF__CUSTOMER___HAS_P__550C5788" name="HAS_PARTNER_PROGRAM_VIEW" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-93">
+        <createTable tableName="MIGRATION_ORGANISATION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MIGRATION_ORGANISATION"/>
+            </column>
+            <column name="ORG_CODE" type="varchar(20)"/>
+            <column name="ORG_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COMPANY_NAME" type="varchar(150)"/>
+            <column name="CUSTOMER_NAME" type="varchar(255)"/>
+            <column defaultValueComputed="'false'" defaultValueConstraintName="DF_MIGRATION_ORGANISATION_IS_MIGRATED" name="IS_MIGRATED" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-94">
+        <createTable tableName="LOGIN">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_LOGIN"/>
+            </column>
+            <column name="PASSWORD" type="varchar(255)"/>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="'true'" defaultValueConstraintName="DF_LOGIN_IS_USER_ACTIVE" name="IS_USER_ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hash_type" type="varchar(255)"/>
+            <column name="LAST_ON_BEHALF_OF_DATE" type="datetime"/>
+            <column name="FIRST_LOGIN_DATE" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-95">
+        <createTable tableName="OFFER_PERSON_PROPERTY">
+            <column name="PERSON_ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_OFFER_PERSON_PROPERTY"/>
+            </column>
+            <column name="TYPE" type="varchar(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_OFFER_PERSON_PROPERTY"/>
+            </column>
+            <column name="VALUE" type="varchar(8000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-96">
+        <createTable tableName="MESSAGE_VISIBILITY">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_VISIBILITY"/>
+            </column>
+            <column name="VISIBILITY" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-97">
+        <createTable tableName="FEEDBACK_DEPARTMENT">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FEEDBACK_DEPARTMENT_ID"/>
+            </column>
+            <column name="DEPARTMENT_CODE" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(500)"/>
+            <column name="SUPPORTED_AFFILIATE_ID" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-98">
+        <createTable tableName="VIN_LOGGING">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_VIN_LOGGING"/>
+            </column>
+            <column name="VIN" type="varchar(17)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CUSTOMER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ESTIMATE_ID" type="varchar(255)"/>
+            <column name="VEHICLE_ID" type="varchar(255)"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_VIN_LOGGING_DATE_OF_LOG_ENTRY" name="DATE_OF_LOG_ENTRY" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="int"/>
+            <column name="ERROR_CODE" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-99">
+        <createTable tableName="MESSAGE_STYLE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_STYLE"/>
+            </column>
+            <column name="STYLE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-100">
+        <createTable tableName="MESSAGE_ROLE_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_ROLE_TYPE"/>
+            </column>
+            <column name="ROLE_TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(200)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-101">
+        <createTable tableName="MAPPING_USER_ID_EBL_CONNECT">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EBL_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CONNECT_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EBL_ORG_ID" type="bigint"/>
+            <column name="CONNECT_ORG_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-102">
+        <createTable tableName="ORDER_TYPE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORDER_TYPE"/>
+            </column>
+            <column name="ORDER_TYPE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESC_CODE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-103">
+        <createTable tableName="CURRENCY">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CURRENCY"/>
+            </column>
+            <column name="ISO_CODE" type="varchar(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-104">
+        <createTable tableName="MESSAGE_ACCESS_RIGHT_AREA">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_ACCESS_RIGHT_AREA"/>
+            </column>
+            <column name="MESSAGE_ACCESS_RIGHT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_AREA_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-105">
+        <createTable tableName="MESSAGE_LOCATION_RELATION">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE_LOCATION_RELATION"/>
+            </column>
+            <column name="MESSAGE_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_LOCATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-106">
+        <createTable tableName="GROUP_ROLE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="GROUP_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_ROLE"/>
+            </column>
+            <column name="ROLE_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_ROLE"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-107">
+        <createTable tableName="INVOICE_HISTORY">
+            <column name="ID" type="varchar(20)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK__INVOICE___3214EC276AB7BF78"/>
+            </column>
+            <column name="INVOICE_NR" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORDER_NR" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELIVERY_NR" type="int"/>
+            <column name="CUSTOMER_NR" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COMPANY_NAME" type="varchar(50)"/>
+            <column name="LAST_NAME" type="varchar(50)"/>
+            <column name="FIRST_NAME" type="varchar(50)"/>
+            <column name="SEARCH_TERM" type="varchar(20)"/>
+            <column name="STREET" type="varchar(50)"/>
+            <column name="POST_CODE" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PLACE" type="varchar(50)"/>
+            <column name="COUNTRY" type="varchar(10)"/>
+            <column name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CURRENCY" type="varchar(10)"/>
+            <column name="PRICE" type="float(53)"/>
+            <column name="INVOICE_TYPE" type="varchar(10)"/>
+            <column name="CASH_CREDIT" type="varchar(10)"/>
+            <column name="ORGANISATION" type="varchar(10)"/>
+            <column name="DOC_ID" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SOURCE_FROM" type="varchar(10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-108">
+        <createTable tableName="FINAL_CUSTOMER_ORDER_ITEM">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FINAL_CUSTOMER_ORDER_ITEM_ID"/>
+            </column>
+            <column name="FINAL_CUSTOMER_ORDER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEHICLE_ID" type="varchar(20)"/>
+            <column name="ARTICLE_ID" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="QUANTITY" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEHICLE_DESC" type="varchar(255)"/>
+            <column name="ARTICLE_DESC" type="varchar(255)"/>
+            <column name="TYPE" type="varchar(50)"/>
+            <column name="GEN_ART_DESCRIPTION" type="varchar(255)"/>
+            <column name="SUPPLIER" type="varchar(255)"/>
+            <column name="BRAND" type="varchar(255)"/>
+            <column name="PRODUCT_ADDON" type="varchar(255)"/>
+            <column name="IMAGES" type="varchar(MAX)"/>
+            <column name="REFERENCE" type="varchar(255)"/>
+            <column name="GROSS_PRICE" type="decimal(18, 10)"/>
+            <column name="SALES_QUANTITY" type="int"/>
+            <column name="NET_PRICE" type="decimal(18, 10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-109">
+        <createTable tableName="FINAL_CUSTOMER_PROPERTY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORG_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_KEY" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE" type="varchar(254)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-110">
+        <createTable tableName="LANGUAGES">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_LANGUAGES_ID"/>
+            </column>
+            <column name="LANGCODE" type="varchar(255)"/>
+            <column name="LANGISO" type="varchar(255)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-111">
+        <createTable tableName="EXTERNAL_ORGANISATION">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="EXTERNAL_ORGANISATION_PK"/>
+            </column>
+            <column name="ORG_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXTERNAL_CUSTOMER_ID" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValue="DVSE" defaultValueConstraintName="DF_EXTERNAL_ORGANISATION_EXTERNAL_APP" name="EXTERNAL_APP" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EXTERNAL_CUSTOMER_NAME" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-112">
+        <createTable tableName="ORGANISATION_ADDRESS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_ADDRESS"/>
+            </column>
+            <column name="ADDRESS_ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORGANISATION_ADDRESS"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-113">
+        <createTable tableName="MESSAGE">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MESSAGE"/>
+            </column>
+            <column name="TITLE" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_ACCESS_RIGHT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_TYPE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_SUB_AREA_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_STYLE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MESSAGE_VISIBILITY_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_VALID_FROM" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_VALID_TO" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-114">
+        <createTable tableName="WORKING_DAY">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_WORKING_DAY"/>
+            </column>
+            <column name="CODE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-115">
+        <createTable tableName="ORDER_STATUS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ORDER_STATUS"/>
+            </column>
+            <column name="ORDER_STATUS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESC_CODE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-116">
+        <createTable tableName="SHOP_ARTICLE">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SHOP_ARTICLE"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="varchar(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ARTICLE_NUMBER" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(8000)"/>
+            <column name="DESCRIPTION" type="varchar(8000)"/>
+            <column defaultValueConstraintName="DF_SHOP_ARTICLE_AMOUNT" defaultValueNumeric="0" name="AMOUNT" type="decimal(18, 10)"/>
+            <column name="PRICE" type="decimal(18, 10)"/>
+            <column name="CREATED_USER_ID" type="bigint"/>
+            <column name="CREATED_DATE" type="datetime"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+            <column defaultValue="ACTIVE" defaultValueConstraintName="DF_SHOP_ARTICLE_TECSTATE" name="TECSTATE" type="varchar(8)"/>
+            <column name="CURRENCY_ID" type="int"/>
+            <column defaultValueConstraintName="DF_SHOP_ARTICLE_VERSION" defaultValueNumeric="1" name="VERSION" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-117">
+        <createTable tableName="VEHICLE_HISTORY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_VEHICLE_HISTORY"/>
+            </column>
+            <column name="VEH_ID" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEH_MAKE" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEH_MODEL" type="varchar(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEH_TYPE" type="varchar(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEH_NAME" type="varchar(255)"/>
+            <column name="VEH_INFO" type="varchar(255)"/>
+            <column name="VEH_VIN" type="varchar(50)"/>
+            <column name="ID_SAG" type="varchar(19)"/>
+            <column name="ID_SAG_MAKE" type="varchar(19)"/>
+            <column name="ID_SAG_MODEL" type="varchar(19)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-118">
+        <createView fullDefinition="false" viewName="VIEW_OFFER">-- Create view offer
+SELECT DISTINCT
+		o.ID,
+		o.OWNER_ID,
+		o.CLIENT_ID AS ORGANISATION_ID,
+		o.OFFER_NUMBER,
+		(SELECT
+			CASE WHEN (operson.OFFER_COMPANY_NAME IS NULL OR operson.OFFER_COMPANY_NAME='')
+			THEN CONCAT(operson.FIRST_NAME, ' ', operson.LAST_NAME)
+			ELSE operson.OFFER_COMPANY_NAME
+			END
+		WHERE operson.TECSTATE = 'ACTIVE')
+		AS CUSTOMER_NAME,
+		e.USERNAME AS OWNER_USERNAME,
+		o.REMARK,
+		o.OFFER_DATE,
+		o.STATUS,
+		(SELECT
+			STUFF((SELECT ';' + t2.VEHICLE_DESCRIPTION
+				FROM OFFER_POSITION t2
+				WHERE t1.ID = t2.OFFER_ID
+				AND t2.TECSTATE = 'ACTIVE'
+				AND t2.VEHICLE_DESCRIPTION IS NOT NULL AND t2.VEHICLE_DESCRIPTION &lt;&gt; ''
+				FOR XML PATH('')), 1, 1, '')
+			FROM OFFER t1
+			WHERE ID = o.ID
+			GROUP BY ID) AS VEHICLE_DESCRIPTIONS,
+		o.TOTAL_GROSS_PRICE
+	FROM OFFER o
+	LEFT JOIN OFFER_POSITION op
+	ON op.OFFER_ID = o.ID
+	LEFT JOIN OFFER_PERSON operson
+	ON operson.ID = o.RECIPIENT_ID
+	JOIN ESHOP_USER e
+	ON e.ID = o.OWNER_ID
+	WHERE o.TECSTATE = 'ACTIVE'
+	AND (op.TECSTATE = 'ACTIVE' OR op.TECSTATE IS NULL);</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-119">
+        <createView fullDefinition="false" viewName="V_ESHOP_CLIENT">SELECT ec.ID AS ID,
+      ec.CLIENT_NAME AS CLIENT_NAME,
+      ec.CLIENT_SECRET AS CLIENT_SECRET,
+      ecr.NAME AS RESOURCE_ID,
+      STUFF(
+      (
+      SELECT CAST(',' AS varchar(max)) + er.NAME
+      FROM ESHOP_ROLE er
+      INNER JOIN CLIENT_ROLE cr ON cr.ROLE_ID = er.ID
+      WHERE cr.CLIENT_ID = ec.ID
+      FOR XML PATH(''), TYPE
+      ).value('.', 'varchar(max)'), 1, 1, '') AS CLIENT_ROLES
+      FROM ESHOP_CLIENT ec
+      LEFT JOIN ESHOP_CLIENT_RESOURCE ecr ON ecr.ID = ec.RESOURCE_ID
+      WHERE ec.ACTIVE = 1 AND ecr.ACTIVE = 1</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-120">
+        <addPrimaryKey clustered="false" columnNames="ID" constraintName="PK_ORGANISATION_TYPE" tableName="ORGANISATION_TYPE"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-121">
+        <addUniqueConstraint columnNames="ID" constraintName="UQ_ORGTYPE_ID" tableName="ORGANISATION_TYPE"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-122">
+        <addUniqueConstraint columnNames="LEVEL" constraintName="UQ_ORGTYPE_LEVEL" tableName="ORGANISATION_TYPE"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-123">
+        <createView fullDefinition="false" viewName="V_COLLECTION_SEARCH">SELECT temp.NAME
+	COLLECTION_NAME,
+	temp.SHORTNAME AFFILIATE,
+	STUFF(
+	(SELECT CAST(', ' AS
+	varchar(max)) + L.ORG_CODE
+	FROM ORGANISATION as L
+	WHERE L.ID in (
+	SELECT
+	top 5 LR.ORGANISATION_ID FROM COLLECTION_RELATION LR
+	JOIN ORGANISATION
+	oga on oga.ID = LR.ORGANISATION_ID
+	JOIN ORGANISATION_TYPE ota on
+	oga.ORGTYPE_ID = ota.ID
+	WHERE LR.COLLECTION_ID = temp.ID AND
+	ota.[LEVEL]= 3)
+	FOR XML PATH(''), TYPE
+	)
+	.value('.', 'varchar(max)'),1,
+	1,'') AS CUSTOMER_NR,
+	temp.COLLECTION_SHORT_NAME COLLECTION_SHORT_NAME
+	FROM (
+	SELECT DISTINCT orgColl.ID, orgColl.NAME, aff.SHORTNAME,
+	orgColl.SHORTNAME
+	COLLECTION_SHORT_NAME from
+	ORGANISATION_COLLECTION
+	orgColl
+	join ORGANISATION aff on aff.ID = orgColl.AFFILIATE_ID
+	where
+	aff.SHORTNAME != 'sag'
+	) AS temp</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-124">
+        <createView fullDefinition="false" viewName="V_FINAL_CUSTOMER">SELECT
+	      ORG.ID AS ORG_ID,
+	      ORG.NAME AS NAME,
+	      ORG.DESCRIPTION AS DESCRIPTION,
+	      ORG.PARENT_ID AS PARENT_ORG_ID,
+	      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP
+	      WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY = 'TYPE' FOR XML
+	      PATH(''), TYPE).value('.', 'varchar(max)'), 1, 1, '') AS
+	      FINAL_CUSTOMER_TYPE,
+	      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP
+	      WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY IN ('STREET', 'POSTCODE', 'PLACE') ORDER BY
+	      (CASE FP.SETTING_KEY  WHEN 'STREET' THEN 1 WHEN 'POSTCODE' THEN 2 WHEN 'PLACE' THEN 3 END) ASC FOR XML PATH(''),
+	      TYPE).value('.', 'varchar(max)'), 1, 1, '') AS ADDRESS_INFO,
+	      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM
+	      FINAL_CUSTOMER_PROPERTY FP WHERE FP.ORG_ID = ORG.ID AND
+	      FP.SETTING_KEY IN ('SURNAME', 'FIRSTNAME')  ORDER BY
+	      (CASE FP.SETTING_KEY  WHEN 'SURNAME' THEN 1 WHEN 'FIRSTNAME' THEN 2 END) ASC FOR XML PATH(''),
+	      TYPE).value('.', 'varchar(max)'), 1, 1, '') AS CONTACT_INFO,
+		  (SELECT FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY = 'STATUS') AS STATUS,
+		  (SELECT CASE WHEN COUNT(FO.ID) &gt; 0 THEN '1' ELSE '0' END FROM FINAL_CUSTOMER_ORDER FO WHERE FO.ORG_ID = ORG.ID AND FO.STATUS IN('NEW','OPEN')) AS HAS_IN_PROGRESS_ORDERS
+	      FROM [dbo].ORGANISATION ORG
+	      INNER JOIN [dbo].ORGANISATION_TYPE ORG_TYPE ON ORG.ORGTYPE_ID =
+	      ORG_TYPE.ID
+	      WHERE ORG_TYPE.NAME = 'FINAL_CUSTOMER'</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-125">
+        <addUniqueConstraint columnNames="COUPON_CODE" constraintName="UQ_COUPON_CONDITIONS_COUPON_CODE" tableName="COUPON_CONDITIONS"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-126">
+        <createView fullDefinition="false" viewName="V_BASKET_HISTORY">---------------
+SELECT DISTINCT 
+    ROW_NUMBER() OVER (ORDER BY BH.ID) AS ID,
+    BH.ID AS BASKET_HISTORY_ID, 
+    BH.BASKET_NAME,
+    BH.GRAND_TOTAL_EXCLUDE_VAT,
+    BH.BASKET_JSON,
+    BH.UPDATED_DATE,
+    BH.ACTIVE,
+    BH.ORGANISATION_ID AS ORG_ID,
+    ORG.ORG_CODE AS ORG_CODE,
+    ORG.SHORTNAME AS ORG_SHORT_NAME,
+	(SELECT CASE 
+		WHEN (ORG.NAME IS NULL OR ORG.NAME = '')
+		THEN CU.FIRST_NAME
+		ELSE ORG.NAME
+		END) AS CUSTOMER_NAME,
+    BH.CREATED_USER_ID,
+    CU.FIRST_NAME AS CREATED_FIRST_NAME,
+    CU.LAST_NAME AS CREATED_LAST_NAME,
+    CONCAT(CU.FIRST_NAME, ' ', CU.LAST_NAME) AS CREATED_FULL_NAME,
+    BH.SALES_USER_ID, 
+    SU.FIRST_NAME AS SALES_FIRST_NAME,
+    SU.LAST_NAME AS SALES_LAST_NAME,
+    CONCAT(SU.FIRST_NAME, ' ', SU.LAST_NAME) AS SALES_FULL_NAME,
+    BH.CUSTOMER_REF_TEXT
+  FROM 
+    BASKET_HISTORY BH
+    JOIN ESHOP_USER CU ON CU.ID = BH.CREATED_USER_ID
+    LEFT JOIN ESHOP_USER SU ON SU.ID = BH.SALES_USER_ID
+    JOIN ORGANISATION ORG ON ORG.ID = BH.ORGANISATION_ID
+  WHERE BH.ACTIVE = 1;</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-127">
+        <createView fullDefinition="false" viewName="V_FEEDBACK">SELECT DISTINCT 
+    F.ID AS ID,
+    F.USER_ID AS USER_ID,
+    NU.USERNAME AS USER_NAME,
+    NU.EMAIL AS EMAIL,
+    F.SALES_ID AS SALES_ID,
+    SU.USERNAME AS SALES_USER_NAME,
+    SU.EMAIL AS SALES_EMAIL,
+    F.ORG_ID AS ORG_ID,
+    ORG.ORG_CODE AS ORG_CODE,
+    ORG.NAME AS ORG_NAME,
+    F.STATUS_ID AS STATUS_ID,
+    FS.STATUS_CODE AS STATUS_CODE,
+    F.TOPIC_ID AS TOPIC_ID,
+    FT.TOPIC_CODE AS TOPIC_CODE
+  FROM FEEDBACK F
+  JOIN ESHOP_USER NU ON NU.ID = F.USER_ID
+  LEFT JOIN ESHOP_USER SU ON SU.ID = F.SALES_ID
+  JOIN FEEDBACK_STATUS FS ON FS.ID = F.STATUS_ID
+  JOIN FEEDBACK_TOPIC FT ON FT.ID = F.TOPIC_ID
+  JOIN ORGANISATION ORG ON ORG.ID = F.ORG_ID</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-128">
+        <createView fullDefinition="false" viewName="V_MESSAGE">SELECT
+		    TEMP.*,
+		 	STUFF(
+		        (SELECT CAST(', ' AS varchar(max)) + L.VALUE
+		            FROM MESSAGE_LOCATION  as L
+		            WHERE L.ID in (
+		                select LR.MESSAGE_LOCATION_ID FROM MESSAGE_LOCATION_RELATION LR
+		                WHERE LR.MESSAGE_ID = TEMP.ID)
+		            FOR XML PATH(''), TYPE
+		        )
+		        .value('.', 'varchar(max)'),1, 1,'') AS LOCATION_VALUE
+		FROM
+		 	(SELECT DISTINCT
+			    M.ID AS ID,
+			    M.TITLE AS TITLE,
+			    T.TYPE AS TYPE,
+			    A.AREA AS AREA,
+			    SA.SUB_AREA AS SUB_AREA,
+			    M.ACTIVE AS ACTIVE,
+			    CREATED_DATE AS CREATED_DATE,
+			    M.DATE_VALID_FROM,
+			    M.DATE_VALID_TO
+			    FROM (
+			        MESSAGE M
+			        JOIN MESSAGE_TYPE T ON M.MESSAGE_TYPE_ID = T.ID
+			    	JOIN MESSAGE_SUB_AREA SA ON M.MESSAGE_SUB_AREA_ID=SA.ID
+			        JOIN MESSAGE_AREA A ON SA.MESSAGE_AREA_ID = A.ID
+		            )
+		    ) AS TEMP</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-129">
+        <createIndex indexName="IDX_LICENSE_VEH_CUSTOMER_NR" tableName="LICENSE">
+            <column name="CUSTOMER_NR"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-130">
+        <createIndex indexName="IDX_LICENSE_VEH_CUSTOMER_NR_TYPE_OF_LICENSE" tableName="LICENSE">
+            <column name="CUSTOMER_NR"/>
+            <column name="TYPE_OF_LICENSE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-131">
+        <createIndex indexName="IDX_LICENSE_VEH_TYPE_OF_LICENSE" tableName="LICENSE">
+            <column name="TYPE_OF_LICENSE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-132">
+        <createIndex indexName="IDX_AAD_ACCOUNTS_PERMIT_GROUP" tableName="AAD_ACCOUNTS">
+            <column name="PERMIT_GROUP"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-133">
+        <createIndex indexName="IDX_AAD_ACCOUNTS_PRIMARY_CONTACT_EMAIL" tableName="AAD_ACCOUNTS">
+            <column name="PRIMARY_CONTACT_EMAIL"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-134">
+        <addUniqueConstraint columnNames="PERSONAL_NUMBER, PRIMARY_CONTACT_EMAIL" constraintName="UQ_PERSONAL_NUMBER_EMAIL" tableName="AAD_ACCOUNTS"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-135">
+        <addUniqueConstraint columnNames="COLLECTION_ID, ORGANISATION_ID" constraintName="UK_COLLECTION_RELATION" tableName="COLLECTION_RELATION"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-136">
+        <createIndex indexName="IDX_ESHOP_USER_EMAIL" tableName="ESHOP_USER">
+            <column name="EMAIL"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-137">
+        <createIndex indexName="IDX_ESHOP_USER_LANGUAGE" tableName="ESHOP_USER">
+            <column name="LANGUAGE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-138">
+        <createIndex indexName="IDX_ESHOP_USER_SETTING" tableName="ESHOP_USER">
+            <column name="SETTING"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-139">
+        <createIndex indexName="IDX_ESHOP_USER_USERNAME" tableName="ESHOP_USER">
+            <column name="USERNAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-140">
+        <addPrimaryKey clustered="false" columnNames="ID" constraintName="PK_ESHOP_USER" tableName="ESHOP_USER"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-141">
+        <addUniqueConstraint columnNames="ID" constraintName="UQ_ESHOP_USER_ID" tableName="ESHOP_USER"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-142">
+        <createView fullDefinition="false" viewName="V_ACTIVE_USER">SELECT
+        U.ID,
+        U.USERNAME,
+        U.EMAIL,
+        CONCAT(U.FIRST_NAME, ' ', U.LAST_NAME) AS FULL_NAME,
+        U.PHONE,
+        L.IS_USER_ACTIVE,
+        R.NAME AS ROLE_NAME,
+        G.NAME AS GROUP_NAME,
+        OG.ORGANISATION_ID AS ORG_ID,
+        O.PARENT_ID AS ORG_PARENT_ID,
+        O.ORG_CODE AS ORG_CODE,
+        OP.SHORTNAME AS AFFILIATE,
+        O.NAME AS ORG_NAME
+        FROM
+        ESHOP_USER U
+        JOIN GROUP_USER GU ON U.ID = GU.USER_ID
+        JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+        JOIN GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+        JOIN ESHOP_ROLE R  ON GR.ROLE_ID = R.ID
+        JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID
+        JOIN ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+        JOIN LOGIN L ON L.USER_ID = U.ID
+        JOIN ORGANISATION OP ON O.PARENT_ID = OP.ID
+        WHERE
+        (U.TYPE IS NULL OR (U.TYPE &lt;&gt; 'VIRTUAL_DMS' AND U.TYPE &lt;&gt; 'VIRTUAL_OCI' AND U.TYPE &lt;&gt; 'ON_BEHALF_ADMIN')) AND NULLIF(O.ORG_CODE, '') IS NOT NULL</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-143">
+        <createView fullDefinition="false" viewName="V_CUSTOMER_ORDER_HISTORY">SELECT
+		    o.ID,
+		    o.ORDER_NUMBER,
+		    o.TRANS_NUMBER,
+		    o.CREATED_DATE,
+			o.VEHICLE_INFOS,
+		    o.ERP_ORDER_DETAIL_URL,
+		    o.USER_ID,
+		    u.USERNAME,
+		    o.CUSTOMER_NUMBER,
+		    o.ORDER_STATE,
+		    o.FINAL_CUSTOMER_ORDER_ID,
+		    o.GOODS_RECEIVER_ID
+		  FROM ORDER_HISTORY o 
+		  JOIN ESHOP_USER u ON u.id = o.USER_ID
+		  WHERE o.ORDER_NUMBER IS NOT NULL</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-144">
+        <createView fullDefinition="false" viewName="V_CUSTOMER_USER">SELECT
+                    O.ORG_CODE AS CUSTOMER_NUMBER,
+                    L.IS_USER_ACTIVE AS ACTIVE,
+                    U.USERNAME,
+                    S.DESCRIPTION AS SALUTATION,
+                    U.LAST_NAME,
+                    U.FIRST_NAME,
+                    R.DESCRIPTION AS USER_ROLE,
+                    U.EMAIL,
+                    LNG.DESCRIPTION AS LANGUAGE,
+                    XU.USERNAME AS DVSE_USER_NAME,
+                    XO.EXTERNAL_CUSTOMER_NAME AS DVSE_CUSTOMER_NAME,
+                    US.NET_PRICE_VIEW,
+                    US.NET_PRICE_CONFIRM AS NET_PRICE_EMAIL_CONFIRM
+                FROM
+                    ESHOP_USER U
+                    JOIN GROUP_USER GU ON U.ID = GU.USER_ID
+                    JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+                    JOIN GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+                    JOIN ESHOP_ROLE R  ON GR.ROLE_ID = R.ID
+                    JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID
+                    JOIN ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+                    JOIN LOGIN L ON L.USER_ID = U.ID
+                    JOIN SALUTATION S ON U.SALUTATION = S.ID
+                    JOIN LANGUAGES LNG ON U.LANGUAGE = LNG.ID
+                    JOIN USER_SETTINGS US ON U.SETTING = US.ID
+                    LEFT JOIN EXTERNAL_USER XU ON U.ID = XU.ESHOP_USER_ID
+                    LEFT JOIN EXTERNAL_ORGANISATION XO ON XO.ORG_ID = O.ID
+                WHERE U.TYPE IS NULL OR (U.TYPE &lt;&gt; 'VIRTUAL_DMS' AND U.TYPE &lt;&gt; 'VIRTUAL_OCI' AND U.TYPE &lt;&gt; 'ON_BEHALF_ADMIN')</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-145">
+        <createView fullDefinition="true" viewName="V_FINAL_CUSTOMER_ORDER">-- #5078 WSS - Display Final Customer Reference on the Wholesaler's list of New,Open or ordered orders
+	CREATE VIEW [dbo].[V_FINAL_CUSTOMER_ORDER] AS
+	SELECT DISTINCT
+	  FO.DATE,
+	  FO.ID AS ID,
+	  O.NAME AS COMPANY_NAME,
+	  (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='ADDRESS_1') AS ADDRESS,
+	  (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='POSTCODE') AS POSTCODE,
+	  (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='CUSTOMER_NUMBER') AS CUSTOMER_NUMBER,
+	  (SELECT
+		STUFF((SELECT ';' + t2.VEHICLE_DESC
+			FROM FINAL_CUSTOMER_ORDER_ITEM t2
+			WHERE t1.ID = t2.FINAL_CUSTOMER_ORDER_ID
+			AND t2.VEHICLE_DESC IS NOT NULL AND t2.VEHICLE_DESC &lt;&gt; ''
+			FOR XML PATH('')), 1, 1, '')
+		FROM FINAL_CUSTOMER_ORDER t1
+		WHERE ID = FO.ID
+		GROUP BY ID) AS VEHICLE_DESCS,
+	  (SELECT TOP(1) ARTICLE_DESC FROM FINAL_CUSTOMER_ORDER_ITEM WHERE FINAL_CUSTOMER_ORDER_ID = FO.ID) AS ARTICLE_DESC,
+	  (SELECT USERNAME FROM ESHOP_USER WHERE ID = FO.USER_ID) AS USERNAME,
+	  FO.STATUS,
+	  FO.ORG_ID,
+	  FO.TOTAL_GROSS_PRICE,
+	  FO.REFERENCE,
+	  FO.BRANCH_REMARK,
+	  (SELECT
+		STUFF((SELECT ';' + t2.ARTICLE_DESC + ' ' + t2.REFERENCE 
+			FROM FINAL_CUSTOMER_ORDER_ITEM t2
+			WHERE t1.ID = t2.FINAL_CUSTOMER_ORDER_ID
+			AND t2.REFERENCE IS NOT NULL AND t2.REFERENCE &lt;&gt; ''
+			FOR XML PATH('')), 1, 1, '')
+		FROM FINAL_CUSTOMER_ORDER t1
+		WHERE ID = FO.ID
+		GROUP BY ID) AS POSITION_REFERENCES
+	FROM
+	  FINAL_CUSTOMER_ORDER FO
+	  LEFT JOIN FINAL_CUSTOMER_PROPERTY FP
+	  ON FP.ORG_ID = FO.ORG_ID
+	  AND (FP.SETTING_KEY = 'ADDRESS_1' OR FP.SETTING_KEY = 'POSTCODE' OR FP.SETTING_KEY = 'CUSTOMER_NUMBER')
+	  LEFT JOIN ORGANISATION O ON O.ID=FO.ORG_ID
+	  WHERE FO.STATUS &lt;&gt; 'DELETED'</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-146">
+        <createView fullDefinition="true" viewName="V_USER_DETAIL">CREATE VIEW [dbo].[V_USER_DETAIL]
+		with schemabinding
+		AS
+		SELECT U.ID AS USER_ID,
+		U.USERNAME AS USER_NAME,
+		U.EMAIL AS USER_EMAIL,
+		U.FIRST_NAME AS FIRST_NAME,
+		U.LAST_NAME AS LAST_NAME,
+		U.PHONE AS
+		TELEPHONE,
+		US.ID AS USER_SETTING_ID,
+		U.TYPE AS USER_TYPE,
+		US.SALE_ON_BEHALF_OF AS SALE_ON_BEHALF_OF, -- deprecated
+		R.ID AS
+		ROLE_ID,
+		R.NAME AS ROLE_NAME,
+		G.ID AS GROUP_ID,
+		G.NAME AS GROUP_NAME,
+		OG.ORGANISATION_ID AS ORG_ID,
+		O.PARENT_ID AS ORG_PARENT_ID,
+		O.ORG_CODE AS ORG_CODE,
+		O.SHORTNAME AS ORG_SHORT_NAME,
+		O.NAME AS
+		ORG_NAME,
+		O.ORDER_SETTINGS_ID AS ORG_SETTINGS_ID,
+		SL.CODE AS
+		SALUT_CODE,
+		SL.ID AS
+		SALUT_ID,
+		L.FIRST_LOGIN_DATE AS FIRST_LOGIN_DATE,
+		U.SIGN_IN_DATE
+		AS LAST_LOGIN_DATE
+		from
+		dbo.ESHOP_USER U
+		JOIN dbo.GROUP_USER GU ON
+		U.ID = GU.USER_ID
+		JOIN dbo.ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+		JOIN
+		dbo.GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+		JOIN dbo.ESHOP_ROLE R ON
+		GR.ROLE_ID = R.ID
+		JOIN dbo.ORGANISATION_GROUP OG ON G.ID =
+		OG.GROUP_ID
+		JOIN dbo.ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+		JOIN dbo.LOGIN L ON L.USER_ID = U.ID
+		JOIN dbo.USER_SETTINGS US ON
+		US.ID = U.SETTING
+		JOIN dbo.SALUTATION SL ON SL.ID = U.SALUTATION
+		WHERE L.IS_USER_ACTIVE = 1</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-147">
+        <createView fullDefinition="false" viewName="V_USER_DETAIL2">SELECT ROW_NUMBER() OVER (ORDER BY (select (1))) AS ID,
+      U.ID AS USER_ID,
+      U.USERNAME AS USER_NAME,
+      U.EMAIL AS USER_EMAIL,
+      U.FIRST_NAME AS FIRST_NAME,
+      U.LAST_NAME AS LAST_NAME,
+      U.PHONE AS TELEPHONE,
+      US.ID AS USER_SETTING_ID,
+      U.TYPE AS USER_TYPE,
+      US.SALE_ON_BEHALF_OF AS SALE_ON_BEHALF_OF, -- deprecated
+      R.ID AS ROLE_ID,
+      R.NAME AS ROLE_NAME,
+      G.ID AS GROUP_ID,
+      G.NAME AS GROUP_NAME,
+      OG.ORGANISATION_ID AS ORG_ID,
+      O.PARENT_ID AS ORG_PARENT_ID,
+      O.ORG_CODE AS ORG_CODE,
+      O.SHORTNAME AS ORG_SHORT_NAME,
+      O.NAME AS ORG_NAME,
+      O.ORDER_SETTINGS_ID AS ORG_SETTINGS_ID,
+      SL.CODE AS SALUT_CODE,
+      L.FIRST_LOGIN_DATE AS FIRST_LOGIN_DATE,
+      U.SIGN_IN_DATE AS LAST_LOGIN_DATE
+      from
+      ESHOP_USER U
+      JOIN GROUP_USER GU ON U.ID = GU.USER_ID
+      JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+      JOIN GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+      JOIN ESHOP_ROLE R ON GR.ROLE_ID = R.ID
+      JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID
+      JOIN ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+      JOIN LOGIN L ON L.USER_ID = U.ID
+      JOIN USER_SETTINGS US ON US.ID = U.SETTING
+      JOIN SALUTATION SL ON SL.ID = U.SALUTATION
+      WHERE L.IS_USER_ACTIVE = 1</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-148">
+        <createView fullDefinition="false" viewName="V_VIRTUAL_USER">SELECT
+        U.ID,
+        U.USERNAME,
+	    U.ORIGINAL_USER_ID,
+	    U.SETTING,
+	    U.TYPE,
+	    L.FIRST_LOGIN_DATE
+      FROM
+        ESHOP_USER U
+        JOIN LOGIN L ON L.USER_ID = U.ID
+      WHERE
+        U.TYPE = 'VIRTUAL_DMS' OR U.TYPE = 'VIRTUAL_OCI'</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-149">
+        <createView fullDefinition="false" viewName="VIEW_ACTIVE_USER">SELECT  
+        U.ID, 
+        U.USERNAME, 
+        U.EMAIL,
+        CONCAT(U.FIRST_NAME, ' ', U.LAST_NAME) AS FULL_NAME,
+        U.PHONE,
+        R.NAME AS ROLE_NAME, 
+        G.NAME AS GROUP_NAME, 
+        OG.ORGANISATION_ID AS ORG_ID, 
+        O.PARENT_ID AS ORG_PARENT_ID, 
+        O.ORG_CODE AS ORG_CODE, 
+        OP.SHORTNAME AS AFFILIATE,
+        O.NAME AS ORG_NAME
+    FROM 
+        ESHOP_USER U 
+        JOIN GROUP_USER GU ON U.ID = GU.USER_ID 
+        JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID 
+        JOIN GROUP_ROLE GR ON GR.GROUP_ID = G.ID 
+        JOIN ESHOP_ROLE R  ON GR.ROLE_ID = R.ID  
+        JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID 
+        JOIN ORGANISATION O ON (O.ID = OG.ORGANISATION_ID AND O.PARENT_ID IN (SELECT O1.ID FROM ORGANISATION O1 WHERE O1.PARENT_ID=1 ) )
+        JOIN LOGIN L ON L.USER_ID = U.ID
+        JOIN ORGANISATION OP ON O.PARENT_ID = OP.ID
+    WHERE L.IS_USER_ACTIVE = 1;</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-150">
+        <createIndex indexName="INX_ESHOP_CART_ITEM_CART_KEY" tableName="ESHOP_CART_ITEM">
+            <column name="CART_KEY"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-151">
+        <createIndex indexName="INX_ESHOP_CART_ITEM_CUSTOMER_NR" tableName="ESHOP_CART_ITEM">
+            <column name="CUSTOMER_NR"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-152">
+        <createIndex indexName="INX_ESHOP_CART_ITEM_USER_ID" tableName="ESHOP_CART_ITEM">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-153">
+        <createIndex indexName="INX_ESHOP_CART_ITEM_USER_ID_CUSTOMER_NR" tableName="ESHOP_CART_ITEM">
+            <column name="USER_ID"/>
+            <column name="CUSTOMER_NR"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-154">
+        <createIndex indexName="INX_ESHOP_CART_ITEM_USER_NAME" tableName="ESHOP_CART_ITEM">
+            <column name="USER_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-155">
+        <createIndex indexName="IDX_INVOICE_TYPE_NAME" tableName="INVOICE_TYPE">
+            <column name="INVOICE_TYPE_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-156">
+        <createIndex indexName="IDX_OFFER_ADDRESS_PERSON_ID" tableName="OFFER_ADDRESS">
+            <column name="PERSON_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-157">
+        <createView fullDefinition="false" viewName="VIEW_OFFER_PERSON">-- Create view offer person
+SELECT DISTINCT
+    o.ID,
+    o.ORGANISATION_ID,
+    (SELECT
+      CASE WHEN (o.OFFER_COMPANY_NAME IS NULL OR o.OFFER_COMPANY_NAME='')
+      THEN CONCAT(o.FIRST_NAME, ' ', o.LAST_NAME)
+      ELSE o.OFFER_COMPANY_NAME
+      END)
+    AS DISPLAY_NAME,
+    COALESCE(o.OFFER_COMPANY_NAME,'') AS COMPANY_NAME,
+    COALESCE(o.FIRST_NAME,'') AS FIRST_NAME,
+    COALESCE(o.LAST_NAME,'') AS LAST_NAME,
+    COALESCE(oa.LINE1,'') AS LINE1,
+    COALESCE(oa.ZIPCODE,'') AS ZIPCODE,
+    COALESCE(oa.CITY,'') AS CITY,
+    COALESCE((SELECT VALUE FROM OFFER_PERSON_PROPERTY WHERE PERSON_ID=o.ID and TYPE='PHONE'), '') AS PHONE,
+    COALESCE((SELECT VALUE FROM OFFER_PERSON_PROPERTY WHERE PERSON_ID=o.ID and TYPE='FAX'), '') AS FAX,
+    COALESCE((SELECT VALUE FROM OFFER_PERSON_PROPERTY WHERE PERSON_ID=o.ID and TYPE='SALUTATION'), '') AS SALUTATION,
+    COALESCE(o.EMAIL,'') AS EMAIL
+    FROM OFFER_PERSON o
+    LEFT JOIN OFFER_ADDRESS oa
+    ON oa.PERSON_ID = o.ID
+  WHERE o.TECSTATE = 'ACTIVE' AND o.STATUS = 'ACTIVE';</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-158">
+        <createView fullDefinition="false" viewName="V_USER_EXPORT">SELECT DISTINCT
+    ROW_NUMBER() OVER (ORDER BY VU.USER_ID) AS ID,
+    VU.USER_ID AS USER_ID,
+    VU.ORG_CODE AS ORG_CODE,
+    EO.EXTERNAL_CUSTOMER_NAME AS EXTERNAL_CUSTOMER_NAME,
+    EU.USERNAME AS EXTERNAL_USER_NAME,
+    VU.USER_NAME AS USER_NAME,
+    VU.FIRST_NAME AS FIRST_NAME,
+    VU.LAST_NAME AS LAST_NAME,
+    VU.USER_EMAIL AS USER_EMAIL,
+    A.ZIPCODE AS ZIPCODE,
+    OP.SHORTNAME AS ORG_PARENT_SHORT_NAME,
+    VU.FIRST_LOGIN_DATE AS FIRST_LOGIN_DATE,
+    VU.LAST_LOGIN_DATE AS LAST_LOGIN_DATE
+    FROM V_USER_DETAIL VU
+    JOIN ORGANISATION OP ON VU.ORG_PARENT_ID=OP.ID
+    LEFT JOIN EXTERNAL_ORGANISATION EO ON EO.ORG_ID=VU.ORG_ID
+    LEFT JOIN ORGANISATION_ADDRESS OA ON OA.ORGANISATION_ID = VU.ORG_ID
+    LEFT JOIN ADDRESS A ON A.ID=OA.ADDRESS_ID
+    LEFT JOIN ADDRESS_TYPE AT ON (A.ADDRESS_TYPE_ID = AT.ID AND AT.TYPE='DEFAULT')
+    LEFT JOIN EXTERNAL_USER EU ON EU.ESHOP_USER_ID = VU.USER_ID</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-159">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_VEHICLE_HISTORY" constraintName="FK_USER_VEHICLE_HISTORY_ESHOP_USER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-160">
+        <addForeignKeyConstraint baseColumnNames="SALES_ID" baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_SALES_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-161">
+        <addForeignKeyConstraint baseColumnNames="STATUS_ID" baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_STATUS_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="FEEDBACK_STATUS" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-162">
+        <addForeignKeyConstraint baseColumnNames="TOPIC_ID" baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_TOPIC_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="FEEDBACK_TOPIC" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-163">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_USER_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-164">
+        <createView fullDefinition="false" viewName="V_EXTERNAL_VENDOR">SELECT distinct
+		ex.ID,
+		ex.COUNTRY,
+		ex.VENDOR_ID,
+		ex.VENDOR_NAME,
+		ex.VENDOR_PRIORITY,
+		de.DELIVERY_PROFILE_NAME,
+		ex.AVAILABILITY_TYPE_ID
+		FROM external_vendor ex
+		LEFT JOIN delivery_profile de
+		ON ex.delivery_profile_id = de.DELIVERY_PROFILE_ID</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-165">
+        <addForeignKeyConstraint baseColumnNames="DELIVERY_ID" baseTableName="USER_SETTINGS" constraintName="FK_USER_SETTINGS_DELIVERY_TYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="DELIVERY_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-166">
+        <addForeignKeyConstraint baseColumnNames="INVOICE_TYPE" baseTableName="USER_SETTINGS" constraintName="FK_USER_SETTINGS_INVOICE_TYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="INVOICE_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-167">
+        <addPrimaryKey clustered="false" columnNames="ID" constraintName="PK_ESHOP_PERMISSION_ID" tableName="ESHOP_PERMISSION"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-168">
+        <addUniqueConstraint columnNames="ID" constraintName="UQ_ESHOP_PERMISSION_ID" tableName="ESHOP_PERMISSION"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-169">
+        <addForeignKeyConstraint baseColumnNames="ART_HISTORY_ID" baseTableName="USER_ARTICLE_HISTORY" constraintName="FK_USER_ARTICLE_HISTORY_ARTICLE_HISTORY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ARTICLE_HISTORY" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-170">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_ARTICLE_HISTORY" constraintName="FK_USER_ARTICLE_HISTORY_ESHOP_USER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-171">
+        <addPrimaryKey clustered="false" columnNames="ID" constraintName="PK_ESHOP_GROUP_ID" tableName="ESHOP_GROUP"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-172">
+        <addUniqueConstraint columnNames="ID" constraintName="UQ_ESHOP_GROUP_ID" tableName="ESHOP_GROUP"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-173">
+        <addUniqueConstraint columnNames="JOB_NAME, JOB_KEY" constraintName="JOB_INST_UN" tableName="BATCH_JOB_INSTANCE"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-174">
+        <addForeignKeyConstraint baseColumnNames="ORGTYPE_ID" baseTableName="ORGANISATION" constraintName="FK_ORGANISATION_ORGTYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-175">
+        <createIndex indexName="IDX_ORGANISATION_NAME" tableName="ORGANISATION">
+            <column name="NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-176">
+        <createIndex indexName="IDX_ORGANISATION_ORG_CODE" tableName="ORGANISATION">
+            <column name="ORG_CODE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-177">
+        <createIndex indexName="IDX_ORGANISATION_ORG_CODE_PARENT_ID" tableName="ORGANISATION">
+            <column name="ORG_CODE"/>
+            <column name="PARENT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-178">
+        <createIndex indexName="IDX_ORGANISATION_PARENT_ID" tableName="ORGANISATION">
+            <column name="PARENT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-179">
+        <createIndex indexName="IDX_ORGANISATION_SETTINGS_ID" tableName="ORGANISATION">
+            <column name="ORDER_SETTINGS_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-180">
+        <createIndex indexName="IDX_ORGANISATION_SHORTNAME" tableName="ORGANISATION">
+            <column name="SHORTNAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-181">
+        <createView fullDefinition="false" viewName="V_FINAL_CUSTOMER_ORDER_STATUS">SELECT DISTINCT
+	      O.ID AS ORG_ID,
+	      PARENT.ORG_CODE,
+		  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='OPEN') AS 'OPEN_ORDER',
+		  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='NEW') AS 'NEW_ORDER',
+		  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='PLACED') AS 'PLACED_ORDER'
+        FROM
+	      ORGANISATION O
+		  LEFT JOIN ORGANISATION PARENT ON O.PARENT_ID = PARENT.ID
+		  LEFT JOIN FINAL_CUSTOMER_ORDER FO ON FO.ORG_ID = O.ID
+		  WHERE O.ORG_CODE is null</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-182">
+        <createView fullDefinition="false" viewName="V_ORDER_HISTORY">---------------
+SELECT DISTINCT
+    o.ID,
+    o.CUSTOMER_NUMBER,
+    org.NAME AS CUSTOMER_NAME,
+    o.ORDER_NUMBER,
+    o.TOTAL AS TOTAL_PRICE,
+    o.CREATED_DATE,
+    o.SALE_NAME,
+    o.SALE_ID,
+    org.PARENT_ID AS AFFILIATE_ID,
+    o.CLOSED_DATE,
+    o.TYPE,
+    o.AX_PROCESS_STATUS,
+    o.WORK_IDS,
+    o.ERP_ORDER_DETAIL_URL AS AX_ORDER_URL
+  FROM ORDER_HISTORY o
+  LEFT JOIN ORGANISATION org
+  ON o.CUSTOMER_NUMBER = org.ORG_CODE
+  WHERE o.ORDER_NUMBER IS NOT NULL AND o.SALE_ID IS NOT NULL</createView>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-183">
+        <addForeignKeyConstraint baseColumnNames="JOB_EXECUTION_ID" baseTableName="BATCH_JOB_EXECUTION_PARAMS" constraintName="JOB_EXEC_PARAMS_FK" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JOB_EXECUTION_ID" referencedTableName="BATCH_JOB_EXECUTION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-184">
+        <createIndex indexName="IDX_FINAL_CUSTOMER_ORDER_ORG_ID" tableName="FINAL_CUSTOMER_ORDER">
+            <column name="ORG_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-185">
+        <createIndex indexName="IDX_FINAL_CUSTOMER_ORDER_USER_ID" tableName="FINAL_CUSTOMER_ORDER">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-186">
+        <addPrimaryKey clustered="false" columnNames="ID" constraintName="PK_ROLE_TYPE_ID" tableName="ROLE_TYPE"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-187">
+        <addUniqueConstraint columnNames="ID" constraintName="UQ_ROLE_TYPE_ID" tableName="ROLE_TYPE"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-188">
+        <createIndex indexName="IDX_LICENSE_SETTINGS_TYPE_OF_LICENSE" tableName="LICENSE_SETTINGS">
+            <column name="TYPE_OF_LICENSE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-189">
+        <addUniqueConstraint columnNames="PACK_ID" constraintName="UQ_LICENSE_SETTINGS_PACK_ID" tableName="LICENSE_SETTINGS"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-190">
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="ORGANISATION_GROUP" constraintName="FK_ORGANISATION_GROUP_ESHOPGROUP" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_GROUP" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-191">
+        <addForeignKeyConstraint baseColumnNames="ORGANISATION_ID" baseTableName="ORGANISATION_GROUP" constraintName="FK_ORGANISATION_GROUP_ORGANISATION" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-192">
+        <createIndex indexName="IDX_ORGANISATION_GROUP_ID" tableName="ORGANISATION_GROUP">
+            <column name="GROUP_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-193">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="USER_ORDER_HISTORY" constraintName="FK_USER_ORDER_HISTORY_ESHOP_USER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-194">
+        <addForeignKeyConstraint baseColumnNames="JOB_EXECUTION_ID" baseTableName="BATCH_STEP_EXECUTION" constraintName="JOB_EXEC_STEP_FK" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JOB_EXECUTION_ID" referencedTableName="BATCH_JOB_EXECUTION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-195">
+        <createIndex indexName="IDX_TOUR_TIME_BRANCH_ID" tableName="TOUR_TIME">
+            <column name="BRANCH_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-196">
+        <createIndex indexName="IDX_TOUR_TIME_CUST_NR" tableName="TOUR_TIME">
+            <column name="CUSTOMER_NUMBER"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-197">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="ORDER_HISTORY" constraintName="FK_ORDER_HISTORY_ESHOP_USER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-198">
+        <createIndex indexName="IDX_ORDER_HISTORY_CUSTOMER_NUMBER" tableName="ORDER_HISTORY">
+            <column name="CUSTOMER_NUMBER"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-199">
+        <createIndex indexName="IDX_ORDER_HISTORY_FINAL_CUSTOMER_ORDER_ID" tableName="ORDER_HISTORY">
+            <column name="FINAL_CUSTOMER_ORDER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-200">
+        <createIndex indexName="IDX_ORDER_HISTORY_GOODS_RECEIVER_ID" tableName="ORDER_HISTORY">
+            <column name="GOODS_RECEIVER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-201">
+        <createIndex indexName="IDX_ORDER_HISTORY_ORDER_NUMBER" tableName="ORDER_HISTORY">
+            <column name="ORDER_NUMBER"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-202">
+        <createIndex indexName="IDX_ORDER_HISTORY_SALE_ID" tableName="ORDER_HISTORY">
+            <column name="SALE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-203">
+        <createIndex indexName="IDX_ORDER_HISTORY_SALE_ID_CUSTOMER_NUMBER" tableName="ORDER_HISTORY">
+            <column name="SALE_ID"/>
+            <column name="CUSTOMER_NUMBER"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-204">
+        <createIndex indexName="IDX_ORDER_HISTORY_USER_ID" tableName="ORDER_HISTORY">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-205">
+        <addForeignKeyConstraint baseColumnNames="CUSTOMER_ID" baseTableName="GROUP_CUSTOMER" constraintName="FK_CUSTOMER_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-206">
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="GROUP_CUSTOMER" constraintName="FK_GROUP_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-207">
+        <addUniqueConstraint columnNames="CUSTOMER_ID, GROUP_ID" constraintName="UK_GROUP_CUSTOMER" tableName="GROUP_CUSTOMER"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-208">
+        <addForeignKeyConstraint baseColumnNames="STEP_EXECUTION_ID" baseTableName="BATCH_STEP_EXECUTION_CONTEXT" constraintName="STEP_EXEC_CTX_FK" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="STEP_EXECUTION_ID" referencedTableName="BATCH_STEP_EXECUTION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-209">
+        <createIndex indexName="IDX_OFFER_POSITION_OFFER_ID" tableName="OFFER_POSITION">
+            <column name="OFFER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-210">
+        <createIndex indexName="IDX_OFFER_VEHICLE_DESC" tableName="OFFER_POSITION">
+            <column name="OFFER_ID"/>
+            <column name="VEHICLE_DESCRIPTION"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-211">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="PASSWORD_RESET_TOKEN" constraintName="FK_PASSWORD_RESET_TOKEN_ESHOP_USER_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-212">
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="GROUP_USER" constraintName="FK_GROUP_ID_USER_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_GROUP" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-213">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="GROUP_USER" constraintName="FK_USER_ID_GROUP_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-214">
+        <createIndex indexName="IDX_GROUP_USER_ID" tableName="GROUP_USER">
+            <column name="USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-215">
+        <addForeignKeyConstraint baseColumnNames="COLLECTION_ID" baseTableName="ORG_COLLECTION_SETTINGS" constraintName="FK_COLLECTION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION_COLLECTION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-216">
+        <addUniqueConstraint columnNames="GROUP_ID, PERM_ID" constraintName="UQ_GROUP_PERMISSION" tableName="GROUP_PERMISSION"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-217">
+        <addForeignKeyConstraint baseColumnNames="ORGANISATION_ID" baseTableName="ORGANISATION_SETTINGS" constraintName="FK_ORGANISATION_SETTINGS_ORGANISATION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-218">
+        <createIndex indexName="IDX_OAUTH_ACCESS_TOKEN_AUTHENTICATION_ID" tableName="OAUTH_ACCESS_TOKEN">
+            <column name="AUTHENTICATION_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-219">
+        <createIndex indexName="IDX_OAUTH_ACCESS_TOKEN_TOKEN_ID" tableName="OAUTH_ACCESS_TOKEN">
+            <column name="TOKEN_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-220">
+        <addUniqueConstraint columnNames="USER_NAME" constraintName="UQ_OAUTH_ACCESS_TOKEN_USER_NAME" tableName="OAUTH_ACCESS_TOKEN"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-221">
+        <createIndex indexName="IDX_EXTERNAL_ESHOP_USER_ID" tableName="EXTERNAL_USER">
+            <column name="ESHOP_USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-222">
+        <createIndex indexName="IDX_COUNTRY_CODE" tableName="COUNTRY">
+            <column name="CODE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-223">
+        <createIndex indexName="IDX_OFFER_PERSON_EMAIL" tableName="OFFER_PERSON">
+            <column name="EMAIL"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-224">
+        <createIndex indexName="IDX_OFFER_PERSON_FIRST_NAME" tableName="OFFER_PERSON">
+            <column name="FIRST_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-225">
+        <createIndex indexName="IDX_OFFER_PERSON_LANGUAGE_ID" tableName="OFFER_PERSON">
+            <column name="LANGUAGE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-226">
+        <createIndex indexName="IDX_OFFER_PERSON_LAST_NAME" tableName="OFFER_PERSON">
+            <column name="LAST_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-227">
+        <createIndex indexName="IDX_OFFER_PERSON_OFFER_COMPANY_NAME" tableName="OFFER_PERSON">
+            <column name="OFFER_COMPANY_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-228">
+        <createIndex indexName="IDX_OFFER_PERSON_ORGANISATION_ID" tableName="OFFER_PERSON">
+            <column name="ORGANISATION_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-229">
+        <createIndex indexName="IDX_OFFER_PERSON_STATUS" tableName="OFFER_PERSON">
+            <column name="STATUS"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-230">
+        <createIndex indexName="IDX_OFFER_PERSON_TYPE" tableName="OFFER_PERSON">
+            <column name="TYPE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-231">
+        <createIndex indexName="IDX_SUPPORTED_AFFILIATE_COMPANY_NAME" tableName="SUPPORTED_AFFILIATE">
+            <column name="COMPANY_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-232">
+        <createIndex indexName="IDX_SUPPORTED_AFFILIATE_COUNTRY_ID" tableName="SUPPORTED_AFFILIATE">
+            <column name="COUNTRY_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-233">
+        <createIndex indexName="IDX_SUPPORTED_AFFILIATE_SHORT_NAME" tableName="SUPPORTED_AFFILIATE">
+            <column name="SHORT_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-234">
+        <addForeignKeyConstraint baseColumnNames="ALLOCATION_ID" baseTableName="CUSTOMER_SETTINGS" constraintName="FK_ORG_ORDER_SETTINGS_ALLOCATION_TYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ALLOCATION_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-235">
+        <addForeignKeyConstraint baseColumnNames="COLLECTIVE_DELIVERY_ID" baseTableName="CUSTOMER_SETTINGS" constraintName="FK_ORG_ORDER_SETTINGS_COLLECTIVE_DELIVERY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="COLLECTIVE_DELIVERY" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-236">
+        <addForeignKeyConstraint baseColumnNames="DELIVERY_ID" baseTableName="CUSTOMER_SETTINGS" constraintName="FK_ORG_ORDER_SETTINGS_DELIVERY_TYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="DELIVERY_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-237">
+        <addForeignKeyConstraint baseColumnNames="INVOICE_TYPE" baseTableName="CUSTOMER_SETTINGS" constraintName="FK_ORG_ORDER_SETTINGS_INVOICE_TYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="INVOICE_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-238">
+        <addForeignKeyConstraint baseColumnNames="PAYMENT_METHOD" baseTableName="CUSTOMER_SETTINGS" constraintName="FK_ORG_ORDER_SETTINGS_PAYMENT_METHOD" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="PAYMENT_METHOD" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-239">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="LOGIN" constraintName="FK_LOGIN_ESHOP_USER" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-240">
+        <addUniqueConstraint columnNames="USER_ID" constraintName="UQ_LOGIN_USER_ID" tableName="LOGIN"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-241">
+        <createIndex indexName="IDX_OFFER_PERSON_PROPERTY_PERSON_ID" tableName="OFFER_PERSON_PROPERTY">
+            <column name="PERSON_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-242">
+        <createIndex indexName="IDX_OFFER_PERSON_PROPERTY_TYPE" tableName="OFFER_PERSON_PROPERTY">
+            <column name="TYPE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-243">
+        <addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="VIN_LOGGING" constraintName="FK_VIN_LOGGING_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_USER" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-244">
+        <addForeignKeyConstraint baseColumnNames="MESSAGE_LOCATION_ID" baseTableName="MESSAGE_LOCATION_RELATION" constraintName="FK_MESSAGE_LOCATION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="MESSAGE_LOCATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-245">
+        <addUniqueConstraint columnNames="MESSAGE_ID, MESSAGE_LOCATION_ID" constraintName="UK_MESSAGE_MESSAGELOCATION" tableName="MESSAGE_LOCATION_RELATION"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-246">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="GROUP_ROLE" constraintName="FK_GROUP_ROLE_ESHOP_ROLE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_ROLE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-247">
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="GROUP_ROLE" constraintName="FK_GROUP_ROLE_ESHOPGROUP" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_GROUP" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-248">
+        <createIndex indexName="IDX_INVOICE_HISTORY_CREATED_DATE" tableName="INVOICE_HISTORY">
+            <column name="CREATED_DATE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-249">
+        <createIndex indexName="IDX_INVOICE_HISTORY_CUSTOMER_NR" tableName="INVOICE_HISTORY">
+            <column name="CUSTOMER_NR"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-250">
+        <createIndex indexName="IDX_INVOICE_HISTORY_INVOICE_NR" tableName="INVOICE_HISTORY">
+            <column name="INVOICE_NR"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-251">
+        <createIndex indexName="IDX_FINAL_CUSTOMER_ORDER_ITEM_FINAL_CUSTOMER_ORDER_ID" tableName="FINAL_CUSTOMER_ORDER_ITEM">
+            <column name="FINAL_CUSTOMER_ORDER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-252">
+        <createIndex indexName="IDX_LANGUAGES_LANGISO" tableName="LANGUAGES">
+            <column name="LANGISO"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-253">
+        <addUniqueConstraint columnNames="EXTERNAL_CUSTOMER_NAME" constraintName="UQ_EXTERNAL_ORGANISATION_EXTERNAL_CUSTOMER_NAME" tableName="EXTERNAL_ORGANISATION"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-254">
+        <addForeignKeyConstraint baseColumnNames="ADDRESS_ID" baseTableName="ORGANISATION_ADDRESS" constraintName="FK_ORGANISATION_ADDRESS_ADDRESS" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ADDRESS" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-255">
+        <addForeignKeyConstraint baseColumnNames="ORGANISATION_ID" baseTableName="ORGANISATION_ADDRESS" constraintName="FK_ORGANISATION_ADDRESS_ORGANISATION" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-256">
+        <createIndex indexName="IDX_SHOP_ARTICLE_AMOUNT" tableName="SHOP_ARTICLE">
+            <column defaultValueConstraintName="DF_SHOP_ARTICLE_AMOUNT" defaultValueNumeric="0" name="AMOUNT"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-257">
+        <createIndex indexName="IDX_SHOP_ARTICLE_ARTICLE_NUMBER" tableName="SHOP_ARTICLE">
+            <column name="ARTICLE_NUMBER"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-258">
+        <createIndex indexName="IDX_SHOP_ARTICLE_ORG_ID" tableName="SHOP_ARTICLE">
+            <column name="ORGANISATION_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-259">
+        <createIndex indexName="IDX_SHOP_ARTICLE_PRICE" tableName="SHOP_ARTICLE">
+            <column name="PRICE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-260">
+        <createIndex indexName="IDX_SHOP_ARTICLE_TECSTATE" tableName="SHOP_ARTICLE">
+            <column defaultValueConstraintName="DF_SHOP_ARTICLE_TECSTATE" name="TECSTATE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-261">
+        <createIndex indexName="IDX_SHOP_ARTICLE_TYPE" tableName="SHOP_ARTICLE">
+            <column name="TYPE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-262">
+        <createIndex indexName="IDX_SHOP_ARTICLE_VERSION" tableName="SHOP_ARTICLE">
+            <column defaultValueConstraintName="DF_SHOP_ARTICLE_VERSION" defaultValueNumeric="1" name="VERSION"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-263">
+        <createIndex indexName="IDX_VEHICLE_HISTORY_VEH_ID" tableName="VEHICLE_HISTORY">
+            <column name="VEH_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-264">
+        <addForeignKeyConstraint baseColumnNames="PERM_ID" baseTableName="ROLE_PERMISSION" constraintName="FK_ROLE_PERMISSION_ESHOP_PERMISSION" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_PERMISSION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-265">
+        <addForeignKeyConstraint baseColumnNames="ROLE_ID" baseTableName="ROLE_PERMISSION" constraintName="FK_ROLE_PERMISSION_ESHOP_ROLE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_ROLE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-266">
+        <addForeignKeyConstraint baseColumnNames="PACK_ID" baseTableName="LICENSE" constraintName="FK_LICENSE_PACK_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PACK_ID" referencedTableName="LICENSE_SETTINGS" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-267">
+        <addForeignKeyConstraint baseColumnNames="COLLECTION_ID" baseTableName="COLLECTION_RELATION" constraintName="FK_COLLECTION_RELATION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION_COLLECTION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-268">
+        <addForeignKeyConstraint baseColumnNames="ORGANISATION_ID" baseTableName="COLLECTION_RELATION" constraintName="FK_CUSTOMER_RELATION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-269">
+        <addForeignKeyConstraint baseColumnNames="DEPARTMENT_ID" baseTableName="FEEDBACK_DEPARTMENT_CONTACT" constraintName="FK_FEEDBACK_DEPARTMENT_CONTACT_DEPARTMENT_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="FEEDBACK_DEPARTMENT" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-270">
+        <addForeignKeyConstraint baseColumnNames="LANGUAGE" baseTableName="ESHOP_USER" constraintName="FK_ESHOP_USER_LANGUAGE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="LANGUAGES" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-271">
+        <addForeignKeyConstraint baseColumnNames="SALUTATION" baseTableName="ESHOP_USER" constraintName="FK_ESHOP_USER_SALUTATION" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="SALUTATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-272">
+        <addForeignKeyConstraint baseColumnNames="SETTING" baseTableName="ESHOP_USER" constraintName="FK_ESHOP_USER_SETTINGS" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="USER_SETTINGS" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-273">
+        <addForeignKeyConstraint baseColumnNames="JOB_EXECUTION_ID" baseTableName="BATCH_JOB_EXECUTION_CONTEXT" constraintName="JOB_EXEC_CTX_FK" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JOB_EXECUTION_ID" referencedTableName="BATCH_JOB_EXECUTION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-274">
+        <addForeignKeyConstraint baseColumnNames="JOB_INSTANCE_ID" baseTableName="BATCH_JOB_EXECUTION" constraintName="JOB_INST_EXEC_FK" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JOB_INSTANCE_ID" referencedTableName="BATCH_JOB_INSTANCE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-275">
+        <addForeignKeyConstraint baseColumnNames="ADDRESS_TYPE_ID" baseTableName="ADDRESS" constraintName="FK_ADDRESS_ADDRESSTYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ADDRESS_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-276">
+        <addForeignKeyConstraint baseColumnNames="VEH_HISTORY_ID" baseTableName="USER_VEHICLE_HISTORY" constraintName="FK_USER_VEHICLE_HISTORY_VEHICLE_HISTORY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="VEHICLE_HISTORY" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-277">
+        <addForeignKeyConstraint baseColumnNames="ORG_ID" baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_ORG_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-278">
+        <addForeignKeyConstraint baseColumnNames="PERM_ID" baseTableName="PERM_FUNCTION" constraintName="FK_FUNCTION_PERM_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_PERMISSION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-279">
+        <addForeignKeyConstraint baseColumnNames="FUNCTION_ID" baseTableName="PERM_FUNCTION" constraintName="FK_PERM_FUNCTION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ESHOP_FUNCTION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-280">
+        <addForeignKeyConstraint baseColumnNames="ALLOCATION_ID" baseTableName="USER_SETTINGS" constraintName="FK_USER_SETTINGS_ALLOCATION_TYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ALLOCATION_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-281">
+        <addForeignKeyConstraint baseColumnNames="COLLECTIVE_DELIVERY_ID" baseTableName="USER_SETTINGS" constraintName="FK_USER_SETTINGS_COLLECTIVE_DELIVERY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="COLLECTIVE_DELIVERY" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-282">
+        <addForeignKeyConstraint baseColumnNames="PAYMENT_METHOD" baseTableName="USER_SETTINGS" constraintName="FK_USER_SETTINGS_PAYMENT_METHOD" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="PAYMENT_METHOD" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-283">
+        <addForeignKeyConstraint baseColumnNames="AFFILIATE_ID" baseTableName="ORGANISATION_COLLECTION" constraintName="FK_ORG_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-284">
+        <addForeignKeyConstraint baseColumnNames="ORDER_SETTINGS_ID" baseTableName="ORGANISATION" constraintName="FK_ORGANISATION_ORG_ORDER_SETTINGS" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="CUSTOMER_SETTINGS" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-285">
+        <addForeignKeyConstraint baseColumnNames="ROLE_TYPE_ID" baseTableName="ESHOP_ROLE" constraintName="FK_ESHOP_ROLE_ROLE_TYPE" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ROLE_TYPE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-286">
+        <addForeignKeyConstraint baseColumnNames="ORDER_ID" baseTableName="USER_ORDER_HISTORY" constraintName="FK_USER_ORDER_HISTORY_ORDER_HISTORY" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORDER_HISTORY" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-287">
+        <addForeignKeyConstraint baseColumnNames="MESSAGE_ID" baseTableName="MESSAGE_LOCATION_RELATION" constraintName="FK_MESSAGE_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="MESSAGE" validate="true"/>
+    </changeSet>
+    <changeSet author="dangnguyen (generated)" id="1579071827031-288">
+        <createSequence cycle="false" incrementBy="50" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="hibernate_sequence" startValue="1000"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,23 @@
+# ************************************************************************
+# This is the AT configuration of DVSE(SOAP) application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch
+# - Liquibase - 
+# - Caching -
+# - Country Code - 
+# - MDM for DVSE service - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  ax-pre-cloud, 
+  db-at, 
+  elasticsearch-dev,
+  no-liquibase, 
+  cache-dev, 
+  country-at,
+  mdm-prod
+
+spring.banner.location: classpath:banner/banner_at.txt

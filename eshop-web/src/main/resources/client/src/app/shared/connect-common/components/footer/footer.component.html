@@ -1,0 +1,30 @@
+<nav class="navbar footer">
+    <div class="container-lg">
+        <div class="w-100 {{!info?.copy ? 'd-flex justify-content-between align-items-center' : ''}}">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{info?.urls?.terms | translate}}" target="_blank">
+                        {{'FOOTER.TERM_OF_SERVICE.TITLE' | translate}}
+                    </a>
+                </li>
+                <li class="nav-item" *sagCommonShowHideByAff="[sb];show:false">
+                    <a class="nav-link" href="{{info?.urls?.privacy}}" target="_blank">
+                        {{'FOOTER.DATA_PROTECTION.TITLE' | translate}}
+                    </a>
+                </li>
+                <li class="nav-item" *sagCommonShowHideByAff="[cz,ehcz,ehaxcz,sb];show:false">
+                    <a class="nav-link" href="{{info?.urls?.disclaimer}}" target="_blank">
+                        {{'FOOTER.DISCLAIMER.TITLE' | translate}}
+                    </a>
+                </li>
+            </ul>
+            <div class="d-flex justify-content-between">
+                <div *ngIf="info?.copy" class="footer-text pl-3">
+                    <i id="icon-copyright" class="fa fa-copyright" aria-hidden="true"></i>
+                    {{ info?.copy | translate}}
+                </div>
+                <div data-automation="app-version">{{buildEnv}} {{'APP_VERSION'|translate}}: {{appStorage.appVersion}}</div>
+            </div>
+        </div>
+    </div>
+</nav>

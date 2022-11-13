@@ -1,0 +1,17 @@
+<div class="modal-header border-0">
+    <a href="javascript:void()" (click)="onCancel()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <div class="alert alert-warning">{{'GTMOTIVE.MESSAGE.WARNING_USE_VIN' | translate}}</div>
+    <div class="row sag-button-wrapper gt-warning-modal-control">
+        <div class="col-4 text-left">
+            <a href="javascript:void(0)" class="btn-link text-decoration-none" (click)="onOpenGtmotive()">{{'GTMOTIVE.LABEL.CONTINUE'| translate}}</a>
+        </div>
+        <div class="col-4 text-center">
+            <a href="javascript:void(0)" class="btn-link text-decoration-none" (click)="onEnterVin()">{{'GTMOTIVE.LABEL.ENTER_VIN'| translate}}</a>
+        </div>
+        <div class="col-4 text-right">
+            <a href="javascript:void(0)" class="btn-link text-decoration-none" (click)="onCancel()">{{'GTMOTIVE.LABEL.CANCEL'| translate}}</a>
+        </div>
+    </div>
+</div>

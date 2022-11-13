@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet id="CONNECT_APP" author="ITER_104_UPDATE_COLLECTION_SHORT_NAME_ORGANISATION_COLLECTION">
+    <sql>
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='derendinger-at' WHERE NAME='Derendinger-Austria'
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='matik-at' WHERE NAME='Matik-Austria'
+    </sql>
+  </changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_105_TABLE_COLLECTION_PERMISSION_INITIAL">
+    <sql>
+       INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+       SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+       JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+       JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+       WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='derendinger-at' AND p.PERMISSION NOT IN ('')
+
+       INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+       SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+       JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+       JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+       WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='matik-at' AND p.PERMISSION NOT IN ('')
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

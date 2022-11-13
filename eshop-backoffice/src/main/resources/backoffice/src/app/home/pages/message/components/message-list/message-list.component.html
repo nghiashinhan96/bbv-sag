@@ -1,0 +1,42 @@
+<h3 class="section-title">{{'MESSAGE.MESSAGES' | translate}}</h3>
+
+<sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+    notFoundText="MESSAGE.NO_MESSAGE_FOUND">
+</sag-table>
+
+<div class="btn-section">
+    <button class="btn btn-primary add-item-btn pull-right" (click)="createMessage()">
+        <i class="fa fa-plus"></i> {{'MESSAGE.CREATE_MESSAGE'| translate}}</button>
+</div>
+
+<ng-template #colEdit let-row="row">
+    <div class="d-flex align-items-center">
+        <button class="btn-icon" (click)="handleEditEvent(row)">
+            <i class="fa fa-edit"></i>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #colDelete let-row="row">
+    <div class="d-flex align-items-center">
+        <button class="btn-icon" (click)="handleDeleteEvent(row)">
+            <i class="fa fa-trash"></i>
+        </button>
+    </div>
+</ng-template>
+
+<ng-template let-row="row" #colType>
+    <span>{{getShowedText(row.type) | translate}}</span>
+</ng-template>
+
+<ng-template let-row="row" #colArea>
+    <span>{{getShowedText(row.area) | translate}}</span>
+</ng-template>
+
+<ng-template let-row="row" #colSubArea>
+    <span>{{getShowedText(row.subArea, true) | translate}}</span>
+</ng-template>
+
+<ng-template let-row="row" #colStatus>
+    <span>{{getStatusText(row.active) | translate}}</span>
+</ng-template>

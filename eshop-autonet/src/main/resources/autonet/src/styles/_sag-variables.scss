@@ -1,0 +1,57 @@
+$primary : #FF7900;
+$secondary: #FADFC8;
+$danger: #dc3545;
+
+$grey:#D9DADA;
+$dark-grey: rgba(0, 0, 0, .65);
+$light-grey: rgba(0, 0, 0, 0.03); // background color
+$thin-grey: rgba(0, 0, 0, 0.125); // border-color
+$palceholder: #999;
+$primary-text: $primary;
+$secondary-text: var(--secondary-color);
+
+$logo: var(--logo);
+$background: var(--background);
+$background-color: white;
+// $body-bg: red;
+$font-small: .875rem;
+$font-extra-small: .75rem;
+$font-icon: 1.5rem;
+$font-icon-small: 1rem; // size of secondary icon
+
+$spacer : 1rem;
+$half-spacer : $spacer * 0.5;
+$quarter-spacer : $half-spacer * 0.5;
+
+$panel-height: 2.5rem;
+$second-panel-header-background: rgba(0, 0, 0, 0.065);
+/** Layout **/
+$footer-color: var(--footer-color);
+$footer-backgroud-color:var(--footer-backgroud-color);
+$footer-height: 4.5rem;
+$header-height: 5rem;
+/** End Layout **/
+
+
+// Part detail column sizes:
+$part-description-width: 260px;
+$part-brand-width: 80px;
+$part-img-width: 60px;
+$part-pos-width: 80px;
+$part-de-amount-width: 50px;
+$part-avail-width: 50px;
+$part-gross-width: 55px;
+$part-net-width: 80px;
+$part-quality-width: 80px;
+$part-total-width: 60px;
+$part-col-offset-left: 6px;
+$part-inner-space: 10px;
+$part-controler: 70px;
+
+// Part extra columns
+$part-remove-width: 40px;
+$part-check-width: 40px;
+
+:root {
+    --primary: #{$primary};
+}

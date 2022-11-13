@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://eshop.sag.ch/types/mission" xmlns:ns7="http://eshop.sag.ch/types/value" xmlns:ns6="http://eshop.sag.ch/types/entity" xmlns:ns5="http://eshop.sag.ch/types/description" xmlns:ns4="http://eshop.sag.ch/types/feature" xmlns:ns3="http://eshop.sag.ch/types/organisation" xmlns:ns2="http://eshop.sag.ch/types/uid" xmlns:ns1="http://eshop.sag.ch/elements" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/mission">
+
+<xs:import namespace="http://eshop.sag.ch/elements" schemaLocation="xsd7.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/uid" schemaLocation="xsd9.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/organisation" schemaLocation="xsd13.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/feature" schemaLocation="xsd2.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/description" schemaLocation="xsd4.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/entity" schemaLocation="xsd3.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/value" schemaLocation="xsd8.xsd"/>
+
+<xs:complexType name="mission">
+<xs:sequence/>
+<xs:attribute name="type" type="tns:missiontype" use="required"/>
+<xs:attribute name="state" type="tns:missionstate" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="missionresult">
+<xs:sequence>
+<xs:element name="entityIdx" type="xs:IDREF" minOccurs="0"/>
+<xs:element name="features" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns1:resultFeature" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="type" type="tns:missionresulttype" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="missiontype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="EMPTY"/>
+<xs:enumeration value="DONOTHING"/>
+<xs:enumeration value="VALIDATE_RECOGNITION"/>
+<xs:enumeration value="LOGON_USER"/>
+<xs:enumeration value="LOGON_USER"/>
+<xs:enumeration value="LOGOFF_USER"/>
+<xs:enumeration value="EXPAND_OBJECTIVS"/>
+<xs:enumeration value="EXPAND_OBJECTIVS_LONGPRICEONLY"/>
+<xs:enumeration value="EXPAND_OBJECTIVS_PRICEONLY"/>
+<xs:enumeration value="ORDER_OBJECTIVS"/>
+<xs:enumeration value="PURCHASE_OBJECTIVS"/>
+<xs:enumeration value="TERMINATE_SESSION"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="missionstate">
+<xs:restriction base="xs:string">
+<xs:enumeration value="INIT"/>
+<xs:enumeration value="INPROGRESS"/>
+<xs:enumeration value="FULFILLED"/>
+<xs:enumeration value="INVALID"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="missionresulttype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="RESPONSE"/>
+<xs:enumeration value="ERRORRESPONSE"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

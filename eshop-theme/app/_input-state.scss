@@ -1,0 +1,47 @@
+.input-state-section {
+    @keyframes fadeInIcon {
+        from {
+            opacity: 0;
+        }
+    
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadeInOutline {
+        from { border-color: #ced4da; }
+        to { border-color: #0F9D58; }
+    }
+
+    &.success {
+        input[type=text] {
+            border: 1px solid #ced4da;
+            animation: fadeInOutline 1s;
+        }
+
+        &:after {
+            opacity: 0;
+            position: absolute;
+            right: 15px;
+            top: 7px;
+            height: 20px;
+            width: 20px;
+            content: "\f00c";
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: 16px;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #0F9D58;
+            animation: fadeInIcon 1s;
+        }
+    }
+
+    &.error {
+        input[type=text] {
+            border: 1px solid red;
+        }
+    }
+}

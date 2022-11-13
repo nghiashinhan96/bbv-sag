@@ -1,0 +1,190 @@
+<div>
+    <tabset>
+        <tab heading="{{'OIL.OIL' | translate}}" class="p-3 border-left border-right border-bottom" id="app-oil-tab">
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'OIL.VEHICLE' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.vehicle"
+                        [items]="data.content.vehicles"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="oil-dropdown-vehicle">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'OIL.AGGREGATE' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.aggregate"
+                        [items]="data.content.aggregates"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="oil-dropdown-aggregate">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'OIL.VISCOSITY' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.viscosity"
+                        [items]="data.content.viscosities"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="oil-dropdown-viscosity">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'OIL.BOTTLE_SIZE' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select class="ng-select-filter" [class.disabled]="models.isRangeBottleSizeCb"
+                        [(ngModel)]="models.isRangeBottleSizeCb ? Constant.SPACE : models.bottleSize" [items]="data.content.bottle_sizes"
+                        (change)="onUpdateFilter()" [clearable]="false" bindValue="value" data-automation="oil-dropdown-bottle-size">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 offset-6 d-flex flex-column">
+                    <div class="d-flex">
+                        <input type="checkbox" name="bottle-size-range-cb" id="bottle-size-range-cb"
+                            data-automation="bottle-size-range-cb" [(ngModel)]="models.isRangeBottleSizeCb"
+                            (ngModelChange)="onChangeIsRangeBottleSizeCb($event)">
+                        <label for="bottle-size-range-cb" class="form-check-label ml-2">{{'RANGE_CHECKBOX' | translate}}</label>
+                    </div>
+                    <div class="mt-3" *ngIf="models.isRangeBottleSizeCb">
+                        <connect-slider-bar-chart-container
+                            [fullArrayDataUsedForRenderTemplate]="fullBottleSizeDataUsedForRenderTemplate"
+                            [arrayDataUsedForChart]="bottleSizeData" [selectedHistoryData]="bottleSizeHistoryData"
+                            [primaryColor]="themeService.primaryColor" [keyObj]="keyObj"
+                            [loading]="isSliderDataLoading"
+                            (sliderValueChange)="onSliderValueChange($event)">
+                        </connect-slider-bar-chart-container>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'OIL.APPROVED' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.approved"
+                        [items]="data.content.approved_list"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="oil-dropdown-approved">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'OIL.SPECIFICATION' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.specification"
+                        [items]="data.content.specifications"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="oil-dropdown-specification">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'OIL.BRAND' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.brand"
+                        [items]="data?.content?.brands"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="oil-dropdown-brand">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="my-3 border-bottom"></div>
+            <div class="py-2">
+                <div class="row">
+                    <div class="col-12 form-group d-flex justify-content-between">
+                        <button class="btn btn-secondary min-width-90-px"
+                            (click)="onReset()" data-automation="oil-button-reset">{{'SEARCH.SEARCH_TYRES.RESET' | translate}}</button>
+                        <sag-common-save-button
+                            [disabled]="!data.viewArticles"
+                            [loading]="loading"
+                            [hideTextOnLoading]="true"
+                            [css]="'btn-primary'"
+                            [text]="('SEARCH.SEARCH_TYRES.SHOW_ALL_ARTICLES' | translate) + ' [ ' + (data.totalElements || 0) + ' ]'"
+                            (save)="onSearch()"
+                            name="oil-button-search">
+                        </sag-common-save-button>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-secondary min-width-90-px" data-automation="oil-button-go-back"
+                            [routerLink]="['/home']">{{'SEARCH_RESULT.BACK' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </tab>
+    </tabset>
+</div>

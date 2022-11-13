@@ -1,0 +1,15 @@
+
+<ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let item of cards">
+        <a class="nav-link d-flex align-items-end" [class.active]="item.selected" (click)="selectTab(item)">
+            {{ item.text | translate}}
+        </a>
+    </li>
+</ul>
+<div class="content mt-3">
+    <ng-container *ngFor="let item of cards">
+        <div class="{{item.paymentMethod}}" [class.d-none]="!item.selected">
+            <connect-analytical-card-container [selected]="item.selected" [paymentMethod]="item.paymentMethod"></connect-analytical-card-container>
+        </div>
+    </ng-container>
+</div>

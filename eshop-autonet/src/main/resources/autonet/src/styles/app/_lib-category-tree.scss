@@ -1,0 +1,115 @@
+sag-article-list-category-tree {
+
+    .nav-item_first {
+        >sag-article-list-category-tree-item {
+            >.category-tree-item_header {
+                background-color: $light-grey;
+                border-top: 1px solid $thin-grey;
+            }
+        }
+
+        &:first-child {
+            >sag-article-list-category-tree-item {
+                >.category-tree-item_header {
+                    border-bottom: none;
+                }
+            }
+
+        }
+    }
+
+    sag-article-list-category-tree-item {
+        .category-tree-item {
+            &_header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: $half-spacer;
+                cursor: pointer;
+            }
+
+            &_body {
+                padding-left: 1rem;
+            }
+        }
+
+        label.checbox {
+            margin-left: -1rem;
+            padding: $half-spacer;
+            margin-bottom: 0;
+        }
+    }
+
+    .card-header {
+        background-color: $primary !important;
+        color: $white;
+        height: $panel-height;
+        display: flex;
+        align-items: center;
+    }
+
+    .card-body {
+        padding: 0;
+    }
+
+    .nav-reset {
+        padding: $half-spacer;
+        height: $panel-height;
+        display: flex;
+        align-items: center;
+        background-color: $light-grey;
+    }
+}
+
+.lib-vehicle-info,
+.lib-article-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    i {
+        font-size: 1.5rem;
+    }
+
+    .info {
+        padding-left: $half-spacer;
+    }
+
+    .btn-home {
+        img {
+            height: 18px;
+        }
+    }
+
+    .btn-price-offer {
+        color: #212529;
+        font-weight: bold;
+        
+        img {
+            width: 1.5rem;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .btn-refresh {
+        position: absolute;
+        right: 1.25rem;
+    }
+}
+
+.lib-vehicle-info {
+    padding: 0.25rem 1.25rem;
+
+    > a {
+        margin: 1rem 0;
+    }
+
+    .btn-price-offer {
+        margin: 0;
+        padding: 0.5rem;
+        border: solid 1px $primary;
+    }
+}

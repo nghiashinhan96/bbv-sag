@@ -1,0 +1,35 @@
+<sag-article-detail
+    [article]="art"
+    [availabilities]="availabilities"
+    [price]="art.price"
+    [articleMode]="articleMode"
+    [userSetting]="userSetting"
+    [isShownMoreInfo]="article?.info?.length"
+    [specialInfoTemplateRef]="specialInfoTemplateRef"
+    [memosTemplateRef]="memosTemplateRef"
+    [customAvailTemplateRef]="customAvailTemplateRef"
+    [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+    [priceTemplateRef]="priceTemplateRef"
+    [totalPriceTemplateRef]="totalPriceTemplateRef"
+    (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+    (onShowAccessoriesEmitter)="onShowAccessories($event)"
+    (onShowPartsListEmitter)="onShowPartsList($event)"
+    (onShowCrossReferenceEmitter)="onShowCrossReference($event)">
+</sag-article-detail>
+<div class="mt-3">
+    <sag-article-detail-avail-popup
+        *ngIf="art.priceRequested && art.availRequested"
+        [article]="art"
+        [availabilities]="availabilities[0]?.value"
+        [userSetting]="userSetting"
+        [isCollapsible]="true"
+        [availTemplateRef]="customAvailPopoverContentTemplateRef">
+    </sag-article-detail-avail-popup>
+</div>
+<div class="mt-3">
+    <sag-article-detail-refrences-content
+        [article]="art"
+        [isCollapsible]="true" [isShownContent]="false"
+        (navigateEmiter)="navigateTo($event)">
+    </sag-article-detail-refrences-content>
+</div>

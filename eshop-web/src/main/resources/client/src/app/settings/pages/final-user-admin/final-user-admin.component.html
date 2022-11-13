@@ -1,0 +1,25 @@
+<div class="mt-3 final-users-table">
+    <sag-table mode="online" [columns]="columns" [searchModel]="searchModel" [page]="page" [sort]="sort"
+        (searchData)="searchTableData($event)">
+    </sag-table>
+    <div class="text-right">
+        <button class="btn btn-primary" (click)="openCreateUserModal()">
+            {{ 'SETTINGS.USER_MANAGEMENT.CREATE_PROFILE' | translate }}
+        </button>
+    </div>
+</div>
+
+<ng-template let-value="value" #colSalutation>
+    {{ 'SETTINGS.PROFILE.SALUTATION.' + value | translate }}
+</ng-template>
+
+<ng-template let-value="value" #colType>
+    {{ 'SETTINGS.PROFILE.TYPE.' + value | translate }}
+</ng-template>
+
+<ng-template let-row="row" #colActions>
+    <div *ngIf="userProfile?.id !== row.userId" class="d-flex align-items-center">
+        <i class="fa fa-edit btn-icon mr-3" (click)="openEditUserModal(row)"></i>
+        <i class="fa fa-trash btn-icon" (click)="openDeleteUserModal(row)"></i>
+    </div>
+</ng-template>

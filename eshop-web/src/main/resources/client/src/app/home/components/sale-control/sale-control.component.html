@@ -1,0 +1,87 @@
+<section class="d-flex sale-customer-search">
+    <strong class="d-flex align-items-center search-title color-primary">{{'AX_CONNECTION.CUSTOMER_SEARCH' | translate}}</strong>
+    <div class="sale-customer-search-container" style="position: relative;flex:1" >
+        <div class="d-flex">
+            <form [formGroup]="searchForm" class="sale-customer-search-form">
+                <div class="search-input-container">
+                    <div class="d-flex">
+                        <input class="form-control fill" formControlName="text" (focusin)="cleanOtherDataOnFocus($event, 'text')"
+                            placeholder="{{'AX_CONNECTION.PLACE_HOLDER_CUSTOMER_FREE_TEXT' | translate}}" #searchInput>
+                        <!-- TODO: apply input number only of customer number field -->
+                        <input class="form-control" (keypress)="allowNumber($event)" formControlName="customerNr" (focusin)="cleanOtherDataOnFocus($event,'customerNr')"
+                            placeholder="{{'AX_CONNECTION.PLACE_HOLDER_CUSTOMER_NUMBER' | translate}}">
+                        <input class="form-control" formControlName="telephone" (focusin)="cleanOtherDataOnFocus($event,'telephone')"
+                            placeholder="{{'AX_CONNECTION.PLACE_HOLDER_CUSTOMER_TELEPHONE' | translate}}" maxlength="20">
+                    </div>
+                </div>
+                <sag-common-save-button text="SEARCH.SEARCH_BUTTON" btnType="submit" (save)="searchCustomers($event)" css="btn-primary btn-search-customer"
+                    [hideTextOnLoading]="true" [(loading)]="isSearchFreeText">
+                </sag-common-save-button>
+            </form>
+            <div class="recent-orders ml-auto">
+                <ng-select bindLabel="label" [items]="orders" [searchable]="false" [clearable]="false" [loading]="orderHistoriesLoading"
+                    placeholder="{{'SEARCH.CHOOSE' | translate}}" notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}"
+                    (open)="getOrderHistories()" (change)="onSelectCustomerFromHistory($event)">
+                    <ng-template ng-option-tmp let-item="item">
+                        <a href="javascript:void(0)" style="white-space: normal;" class="d-flex inversed">
+                            {{item.label}}
+                        </a>
+                    </ng-template>
+                </ng-select>
+            </div>
+        </div>
+        <div class="w-100" [popover]="resultRef" #pop="bs-popover" triggers="manualy" containerClass="sale-customer-search-container" placement="bottom" [outsideClick]="true"></div>
+    </div>
+</section>
+<sag-common-message *ngIf="errorMessage" [message]="errorMessage" type="ERROR"></sag-common-message>
+<ng-template #resultRef>
+    <ul class="list-group" (scroll)="onScroll($event)">
+        <ng-container *ngFor="let customer of customers; let i=index">
+            <li class="list-group-item">
+                <a href="javascript:void(0)" class="inversed" (click)="onSelectCustomerFromSearch(customer.value)">
+                    <i class="fa fa-chevron-right"></i>
+                    <span [innerHTML]="customer.label | safe: 'html'"></span>
+                </a>
+            </li>
+            <ng-container *ngIf="i === (customers.length - 1)">
+                <li class="list-group-item justify-content-center p-2">
+                    {{customers.length}}
+                    {{'AX_CONNECTION.OF' | translate}}
+                    {{total}}
+                    {{'AX_CONNECTION.CUSTOMERS' | translate}}
+                    <span class="loading-text" *ngIf="isLoading">{{'COMMON_LABEL.LOADING_MORE' | translate}}</span>
+                </li>
+            </ng-container>
+        </ng-container>
+    </ul>
+</ng-template>
+
+<ul class="nav nav-tabs sale-customers" *ngIf="customerTabs && customerTabs.length > 0">
+    <ng-container *ngFor="let customer of customerTabs; let i = index">
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" [class.active]="customer.nr == user.custNr" (click)="selectCustomer(customer.nr)">
+                <span>{{ customer.nr }}</span>
+                <a href="javascript:void(0)" class="btn-icon close" (click)="removeCustomer($event, customer.nr, i)">
+                    <i class="fa fa-times-circle "></i>
+                </a>
+            </a>
+        </li>
+    </ng-container>
+</ul>
+<ng-container *ngIf="user.isSalesOnBeHalf">
+    <tabset class="align-end">
+        <h5 class="customer-info-header color-primary">
+            <span class="customer-info-name">{{'AX_CONNECTION.CUSTOMER' | translate}}&nbsp;</span>
+            <span class="customer-info-detail">{{customerInfoHeader}}</span>
+        </h5>
+        <connect-customer-memo [userDetail]="user" [isAnimation]="true" [containerClass]="'sale-view'" [isOpenInfoBox]="isOpenInfoBox"></connect-customer-memo>
+        <tab heading="{{'AX_CONNECTION.CUSTOMER_INFORMATION' | translate}}" [active]="activeSection === 'customerInfo'" (selectTab)="activeSectionChange.emit('customerInfo')"></tab>
+        <tab heading="Connect" [active]="activeSection === 'connect'" (selectTab)="activeSectionChange.emit('connect')">
+        </tab>
+        <tab [disabled]="true">
+            <ng-template tabHeading>
+                <span class="ax">AX <i class="fa fa-caret-down"></i></span>
+            </ng-template>
+        </tab>
+    </tabset>
+</ng-container>

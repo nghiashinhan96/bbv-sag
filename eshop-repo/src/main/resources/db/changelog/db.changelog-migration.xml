@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet author="CONNECT_APP" id="MIGRATION_ORGANISATION_V1_0">
+    <createTable tableName="MIGRATION_ORGANISATION">
+      <column autoIncrement="true" name="ID" type="int">
+        <constraints primaryKey="true" primaryKeyName="PK_MIGRATION_ORGANISATION" />
+      </column>
+      <column name="ORG_CODE" type="varchar(20)" />
+      <column name="ORG_ID" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="COMPANY_NAME" type="varchar(150)" />
+      <column name="CUSTOMER_NAME" type="varchar(255)" />
+      <column defaultValueNumeric="0" name="IS_MIGRATED" type="bit">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

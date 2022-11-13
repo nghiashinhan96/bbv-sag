@@ -1,0 +1,497 @@
+﻿.anerp_btn 
+{
+    display:inline-flex;
+        
+    margin-left:3px;    
+    margin-right:0px;  
+    margin-top:0px;          
+    margin-bottom:0px;       
+    
+    height:24px;    
+    
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+    
+    white-space: nowrap;
+    vertical-align: middle;    
+    cursor: pointer;
+        
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;    
+    -ms-touch-action: manipulation;
+}
+
+.anerp_ico
+{
+    background-color: inherit;
+    color: inherit;  
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/icons/AdditionalInfo_v3.png');
+    background-repeat:no-repeat;
+    padding-left:0px;
+    padding-right:0px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px; 
+}
+
+.anerp_text
+{   
+    overflow:hidden;
+    background-color: inherit;
+    color:inherit;      
+    font-size: 12px;
+    font-weight: 400;
+    text-align: right;  
+    height: 24px;
+    float: left;    
+    vertical-align: middle;
+    line-height: 2.0;  
+    text-align:right;   
+    padding-left:3px;
+    padding-right:3px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px;     
+}
+
+a.anerp:link,a.anerp:visited,a.anerp:hover
+{   
+    display:inline-flex;  
+    height:24px;   
+    overflow:hidden;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: middle;
+    line-height: 2.0;  
+    text-align:right;   
+    padding-left:3px;
+    padding-right:3px; 
+    padding-top:0px;
+    padding-bottom:0px;   
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 3px;
+    margin-right: 0px;    
+}
+
+.anerp_compactview
+{
+    width: 25px; 
+    height:25px; 
+    display:inline-block; 
+    background-image:url('/assets/icons/ColorCircleZo1.jpg');
+    background-repeat:no-repeat;
+    cursor:pointer;
+    padding-left:0px;
+    padding-right:0px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px; 
+}
+
+a.anerp_equiv
+{   
+    background-color: inherit;
+    color: inherit;  
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/icons/AdditionalInfo_v3.png');
+    background-position:-303px -3px;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    padding-left:0px;
+    padding-right:0px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px; 
+}
+
+a.anerp_rentatool
+{   
+    background-color: inherit;
+    color: inherit;  
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/icons/AdditionalInfo_v3.png');
+    background-position:-453px -3px;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    padding-left:0px;
+    padding-right:0px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px; 
+}
+
+a.anerp_promo_image
+{   
+    background-color: inherit;
+    color: inherit;  
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/icons/AdditionalInfo_v3.png');
+    background-position:-423px -3px;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    padding-left:0px;
+    padding-right:0px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px; 
+}
+
+a.anerp_promo_info
+{   
+    background-color: inherit;
+    color: inherit;  
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/icons/AdditionalInfo_v3.png');
+    background-position:-243px -3px;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    padding-left:0px;
+    padding-right:0px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px; 
+}
+
+.anerp_bonus 
+{
+    background-color: yellow;
+    cursor:default;
+    color: black;
+}
+
+.anerp_bonus_ico 
+{    
+    background-position: -63px -3px;
+}
+
+.anerp_publicdescription
+{
+    display:inline-block;  
+    background-color:#11BCF0; 
+    color:black;
+    text-decoration:none; 
+    padding-left:0px;
+    padding-right:0px;    
+    padding-top:0px;
+    padding-bottom:0px;      
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    margin-left: 0px;
+    margin-right: 0px; 
+}
+
+.anerp_happyhour 
+{
+    background-color: #FF80FF;
+    cursor:default;
+    color: #070d17; 
+}
+
+.anerp_deliveryterm 
+{
+    background-color: #FF7900;
+    cursor:default;
+    color: #FFFFFF; 
+    font-size: 12px;
+    font-weight:bold;
+}
+
+.anerp_deliveryterm_0 {
+    background-color: #64a638;
+    cursor: default;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.anerp_deliveryterm_1 {
+    background-color: #92d050;
+    cursor: default;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.anerp_deliveryterm_2 {
+    background-color: #ebba00;
+    cursor: default;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.anerp_deliveryterm_3 {
+    background-color: #ee7420;
+    cursor: default;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.anerp_deliveryterm_ico 
+{
+    background-position:-608px -3px; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+.anerp_happyhour_ico 
+{
+    background-position:-333px -3px;
+}
+.anerp_promo 
+{
+    background-color: #CFFC51;
+    color: black;
+}
+
+.anerp_promo_image_ico 
+{
+    background-position:-423px -3px;
+}
+
+.anerp_promo_info_ico 
+{
+    background-position:-243px -3px;
+}
+
+.anerp_nolink {
+  cursor: none;
+}
+
+.anerp_grretur 
+{
+    background-color: #2DB300;
+    cursor:default;
+    color: black;
+}
+
+.anerp_grretur_ico 
+{
+   background-position:-213px -3px;
+}
+
+.anerp_equiv 
+{
+    background-color: #FF7900;
+    color: white;
+}
+
+.anerp_equiv_ico 
+{
+    background-position: -303px -3px;
+}
+
+.anerp_rentatools 
+{
+    background-color: #7f0c12;
+    color: white; 
+}
+
+.anerp_rentatools_ico 
+{
+    background-position: -453px -3px;
+}
+
+.anerp_ecoval 
+{
+    background-color: #259400;
+    cursor:default;
+    color: white;  
+}
+
+.anerp_ecoval_ico 
+{
+    background-position:-93px -3px;
+}
+
+.anerp_promo4 
+{
+    background-color: red;
+    cursor:default;
+    color: black;
+}
+
+.anerp_promo4_ico 
+{
+    background-position:-33px -3px;
+}
+
+.anerp_promo3 
+{
+    background-color: yellow;
+    cursor:default;
+    color: red;
+}
+
+.anerp_promo3_ico 
+{
+    background-position:-547px -3px;
+}
+
+.anerp_promo2 
+{
+    background-color: red;
+    cursor:default;
+    color: yellow;  
+}
+
+.anerp_promo2_ico 
+{
+    background-position:-515px -3px;
+}
+
+.anerp_promo1 
+{
+    background-color: yellow;
+    cursor:default;
+    color: black; 
+}
+
+.anerp_promo1_ico 
+{
+    background-position:-3px -3px;
+}
+
+.anerp_avr 
+{ 
+    background-color: #BBBBFC;
+    color: white;  
+    cursor:pointer;
+}
+
+.anerp_label 
+{
+    background-color: #0066ff;
+    color: white; 
+}
+
+.anerp_label_ico 
+{
+    background-position:-153px -3px;
+}
+
+.anerp_newcode 
+{
+    background-color: #0B570B;
+    color: white;  
+}
+
+.anerp_newcode_ico 
+{
+    display: inline-block;
+    background-position:-123px -3px;
+    cursor: pointer;
+}
+
+.anerp_recommend 
+{
+    background-color: #C21717;
+    color: white;  
+}
+
+.anerp_recommend_ico 
+{
+    display: inline-block;
+    background-position:-273px -3px;
+    cursor: pointer;
+}
+
+.anerp_fillinfo {
+    background-color: yellow;
+    cursor: default;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.anerp_fillinfo_ico 
+{   
+    background-position:-183px -3px;
+}
+
+.anerp_manual
+{
+    background-color:  #0066ff;
+    color: white;  
+}
+
+.anerp_manual_ico
+{
+    background-position: -393px -3px;
+}
+
+.anerp_techinfo
+{
+    background-color:  #0066ff;
+    color: white; 
+}
+
+.anerp_techinfo_ico
+{
+    background-position:-483px -3px;
+}
+
+.anerp_sheet
+{
+    background-color:  #0066ff;
+    color: white;  
+}
+
+.anerp_sheet_ico
+{
+    background-position:-363px -3px;
+}
+
+.anerp_multivendor
+{
+    cursor:help; 
+    font-weight:bold; 
+    text-align: right;
+    text-decoration:none; 
+    background-color: Red;
+    color:White;
+}

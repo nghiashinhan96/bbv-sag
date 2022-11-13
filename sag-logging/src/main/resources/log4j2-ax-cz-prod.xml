@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration  xmlns:xi="http://www.w3.org/2001/XInclude" scan="true" scanPeriod="5 seconds" status="debug">
+	<appenders>
+		<xi:include href="log4j2-appenders-console.xml"/>
+		<gelf 
+				name="GELF" 
+				host="udp:logstash.sag-ag.cloud"
+				port="5041"
+				includeFullMdc="true" 
+				maximumMessageSize="8192"
+				facility="ESHOP-CONNECT-SAG-PROD-AX-CZ"
+                extractStackTrace ="-1">
+		</gelf>
+	</appenders>
+	<loggers>
+      <logger name="org.springframework" level="info" additivity="false">
+          <appenderRef ref="GELF"/>
+      </logger>
+      <logger name="org.elasticsearch.index.search.slowlog.query" level="info" additivity="false">
+         <appenderRef ref="GELF"/>
+      </logger>    
+      <logger name="com.sagag.eshop" level="info" additivity="false">
+	        <appenderRef ref="GELF"/>
+	    </logger>   
+	    <logger name="com.sagag.services" level="info" additivity="false">
+	        <appenderRef ref="GELF"/>
+	    </logger>        
+	</loggers>
+</configuration>
+

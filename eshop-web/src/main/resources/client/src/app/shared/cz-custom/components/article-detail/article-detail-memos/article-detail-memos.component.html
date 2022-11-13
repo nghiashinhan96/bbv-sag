@@ -1,0 +1,10 @@
+<div id="additional-info-element-memos" class="additional-info-element">
+    <ng-container *ngFor="let memo of displayMemos">
+        <img *ngIf="memo.statusKey !== CZ_ARTICLE_STATUS.DEPOSIT_ITEM"
+            src="assets/images/cz/status/{{memo.statusKey | lowercase}}.png"
+            [title]="('ARTICLE.MEMO.' + memo.statusKey | uppercase) | translate">
+        <img *ngIf="memo.statusKey === CZ_ARTICLE_STATUS.DEPOSIT_ITEM"
+            src="assets/images/cz/status/{{memo.statusKey | lowercase}}.png"
+            [title]="('ARTICLE.MEMO.' + memo.statusKey | uppercase) | translate: {depositItemType: depositItemType}">
+    </ng-container>
+</div>

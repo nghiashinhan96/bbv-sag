@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://eshop.sag.ch/types/uid" xmlns:ns5="http://eshop.sag.ch/types/value" xmlns:ns4="http://eshop.sag.ch/types/description" xmlns:ns3="http://eshop.sag.ch/types/organisation" xmlns:ns2="http://eshop.sag.ch/elements" xmlns:ns1="http://eshop.sag.ch/types/authority" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/uid">
+
+<xs:import namespace="http://eshop.sag.ch/types/authority" schemaLocation="xsd6.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/elements" schemaLocation="xsd7.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/organisation" schemaLocation="xsd13.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/description" schemaLocation="xsd4.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/value" schemaLocation="xsd8.xsd"/>
+
+<xs:complexType name="uid">
+<xs:sequence>
+<xs:element name="authorityIdx" type="xs:IDREF" minOccurs="0"/>
+<xs:element name="organisationIdx" type="xs:IDREF" minOccurs="0"/>
+<xs:element ref="ns2:value"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,4 @@
+spring.profiles: unicat-callback-dev
+
+unicat:
+  callback_url: https://cz.bbv-demo.ch/dvse-st/ws

@@ -1,0 +1,39 @@
+<div class="table-container margin-article-group-table">
+    <table class="table table-hover table-striped margin-article-group">
+        <tbody>
+            <ng-container *ngIf="articleGroups?.length > 0">
+                <ng-container *ngIf="isViewTree; else viewTableRef">
+                    <tr>
+                        <td colspan="12" class="p-0 tree-grid-view">
+                            <connect-margin-article-group-tree [currentLangCode]="currentLangCode" [page]="page"
+                                [numberOfElements]="numberOfElements" (editEmit)="editArtGroup($event)"
+                                (deleteEmit)="deleteArtGroup($event)" [margins]="margins"
+                                (expandEmit)="expandArtGroup($event)" (searchEmit)="searchTreeRoot($event)">
+                            </connect-margin-article-group-tree>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-template #viewTableRef>
+                    <connect-margin-article-group-list (editEmit)="editArtGroup($event)" [margins]="margins"
+                        (deleteEmit)="deleteArtGroup($event)" [page]="page">
+                    </connect-margin-article-group-list>
+                </ng-template>
+            </ng-container>
+            <tr class="alert-row" *ngIf="articleGroups?.length === 0">
+                <td colspan="12">
+                    <div class="alert alert-warning">
+                        {{ 'SEARCH.NO_RESULTS_FOUND' | translate}}
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row" *ngIf="page?.itemsPerPage < page?.totalItems">
+    <div class="col-12">
+        <pagination-controls [id]="'margin-art-grp-table'" nextLabel="{{'PAGINATION.NEXT' | translate}}"
+            previousLabel="{{'PAGINATION.PREVIOUS' | translate}}" (pageChange)="pageChanged($event)"
+            (pageBoundsCorrection)="pageChanged($event)" autoHide="false">
+        </pagination-controls>
+    </div>
+</div>

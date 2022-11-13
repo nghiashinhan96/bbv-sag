@@ -1,0 +1,17 @@
+{
+  "username": "technomag",
+  "companyName": null,
+  "affiliateInUrl": "technomag",
+  "affiliateEmail": "eshop@technomag.ch",
+  "netPriceView": false,
+  "customer": null,
+  "lastName": "Vizcaino",
+  "email": "admin@technomag.ch",
+  "language": "de",
+  "emailOrderConfirmation": false,
+  "id": 2,
+  "customerAdress": null,
+  "vatConfirm": true,
+  "roleName": "GROUP_ADMIN",
+  "userAdminRole": false
+}

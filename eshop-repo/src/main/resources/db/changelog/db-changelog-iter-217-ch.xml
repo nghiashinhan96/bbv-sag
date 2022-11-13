@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_217_UPDATE_WBB_EMAIL">
+    <sql>
+		UPDATE DBO.ORG_COLLECTION_SETTINGS SET SETTING_VALUE=N'InfoWBB@sag-ag.ch' WHERE SETTING_KEY=N'default_email' AND SETTING_VALUE ='info@waelchli-bollier.ch';
+    </sql>
+  </changeSet>
+  
+   <changeSet author="CONNECT_APP" id="ITER_217_ADD_HAYNES_PRO_LICENSE_TYPE">
+    <sql>
+		INSERT INTO dbo.LICENSE_SETTINGS 
+		(PACK_ID, PACK_NAME, PACK_ARTICLE_ID, PACK_ARTICLE_NO, PACK_UMAR_ID, QUANTITY, LAST_UPDATE, LAST_UPDATED_BY, TYPE_OF_LICENSE)
+		VALUES(5555, N'CarTech + Electronics', 1000000027291389734, N'CarTech + Electronics', 1000000027291390545, 50, getdate(), 1, N'HaynesPro                                         ');
+    </sql>
+  </changeSet>
+  
+</databaseChangeLog>

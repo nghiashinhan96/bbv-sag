@@ -1,0 +1,147 @@
+
+sag-article-list {
+    .card {
+        padding: 0;
+        border: 0;
+    }
+
+    .cate-root {
+        &:first-child {
+            border-top-left-radius: 0.15rem;
+            border-top-right-radius: 0.15rem;
+        }
+
+        .cate-root-header {
+            background-color: $dark-grey;
+            cursor: pointer;
+            color: $white;
+            align-items: center;
+            padding: $half-spacer;
+            height: $panel-height;
+            i {
+                width: 1rem;
+            }
+        }
+
+        .cate-root-content {
+
+            .cate-group {
+
+                .cate-group-header {
+                    align-items: center;
+                    background-color: $light-grey;
+                    border: 1px solid $thin-grey;
+                    border-top: none;
+                    font-weight: 700;
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    padding: $half-spacer;
+                    height: $panel-height;
+
+                    &--name {
+                        .btn-icon {
+                            font-size: 1.4rem;
+                            color: #666;
+                            cursor: pointer;
+                            margin-right: 0.5rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        padding-left: 0.9rem;
+                        padding-right: 10px;
+                        display: flex;
+                        align-items: center;
+
+                        .btn-icon {
+                            margin-left: -0.9rem;
+                            margin-right: 0;
+                        }
+
+                        .title {
+                            margin-left: 0.5rem;
+                        }
+
+                        .badge {
+                            background-color: white;
+                            border: 1px solid #063462;
+                            border-radius: 4px;
+                            color: #063462;
+                            margin-left: 0.5rem;
+                            font-size: 1rem;
+                            font-weight: 500;
+                        }
+
+                        .separator {
+                            border-left: 1px solid rgba(0, 0, 0, 0.125);
+                        }
+                    }
+                }
+
+                .card-group-content {
+                    .nav-more {
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid $thin-grey;
+                        border-top: none;
+                        background-color: $light-grey;
+                        position: relative;
+                        padding: $half-spacer;
+                        height: $panel-height;
+                    }
+
+                    .btn-more {
+                        line-height: 1;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translateX(-50%) translateY(-50%);
+                    }
+
+
+                    .liquidation-only {
+                        color: $primary;
+                        font-weight: 700;
+                    }
+
+                    .spinner {
+                        border: 1px solid $thin-grey;
+                        border-top: none;
+                    }
+                }
+            }
+        }
+
+    }
+
+    sag-article-list-non-group{
+        .cate-group {
+            .cate-group-header {
+                padding: 0.35rem 0.6rem;
+                align-items: center;
+                background-color: $light-grey;
+                border: 1px solid $thin-grey;
+                border-top: none;
+                font-weight: 700;
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                min-height: $panel-height;
+            }
+        }
+    }
+
+
+    .liquidation {
+        color: $primary;
+        position: absolute;
+        right: 0.6rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 700;
+        opacity: 0;
+        animation: fadeIn 2s ease 4s forwards;
+    }
+}

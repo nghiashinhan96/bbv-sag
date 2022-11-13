@@ -1,0 +1,23 @@
+.sag-brands-list {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    a {
+        display: flex;
+        align-items: center;
+
+        .fa-angle-right {
+            font-size: $font-icon;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+    }
+}
+
+sag-haynespro-error-component {
+    &.spinner-wrapper {
+        position: initial !important;
+    }
+}

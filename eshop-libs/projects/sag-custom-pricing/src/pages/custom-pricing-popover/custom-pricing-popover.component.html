@@ -1,0 +1,18 @@
+<div class="custom-pricing-container" id="custom-pricing-{{article?.pimId || 'default'}}">
+    <ng-container *ngIf="list; else emptyRef">
+        <ng-container *ngFor="let item of list">
+            <a href="javascript:void(0)" (click)="onSelectPrice(item)">
+                <span [class.brand]="item.label">{{item.type}} {{item.brand}}</span>
+                <span class="price" *ngIf="!item.label">{{(item.price || 0) | sagCurrency}}</span>
+                <span class="label" *ngIf="item.label">{{item.label | translate}}</span>
+            </a>
+        </ng-container>
+    </ng-container>
+    <ng-template #emptyRef>
+        <div class="empty-container">
+            <div class="spinner overlay-loading relative">
+                <i class="fa fa-spinner fa-spin fa-fw"></i>
+            </div>
+        </div>
+    </ng-template>
+</div>

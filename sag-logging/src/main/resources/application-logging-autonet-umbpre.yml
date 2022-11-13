@@ -1,0 +1,4 @@
+spring.profiles: logging-autonet-umbpre
+
+logging:
+  config: classpath:log4j2-autonet-umbpre.xml

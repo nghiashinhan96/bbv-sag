@@ -1,0 +1,33 @@
+.vin-license-amount {
+    color: $success;
+    font-weight: bold;
+}
+
+.login-page {
+    width: 800px;
+    margin: 0 auto;
+
+    .btn-login {
+        min-width: 160px;
+    }
+
+    .nav-tabs {
+        .nav-link{
+            background-color: #f1eff0;
+            &.active{
+                background-color: white;
+            }
+        }
+        .nav-item {
+
+            a {
+                padding: 0.75rem 3rem;
+            }
+        }
+    }
+
+    .tab-content {
+        padding: 3rem;
+        background-color: white;
+    }
+}

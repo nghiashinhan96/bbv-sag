@@ -1,0 +1,4 @@
+spring.profiles: logging-at-dev
+
+logging:
+  config: classpath:log4j2-at-dev.xml

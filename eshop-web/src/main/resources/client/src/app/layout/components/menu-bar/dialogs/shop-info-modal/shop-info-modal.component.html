@@ -1,0 +1,510 @@
+<div class="modal-header">
+    <h4> {{'HEADER.INFORMATION' | translate}} </h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <ng-container *ngIf="isDerendChCustomer || isWbbCustomer">
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.ferodo.de/support.html">{{'INFORMATIONS_DATA_DE.DD_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.ferodo.fr/support/light-vehicles.html">{{'INFORMATIONS_DATA_FR.DD_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.ferodo.it/support.html">{{'INFORMATIONS_DATA_IT.DD_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item" *ngIf="isDerendChCustomer"><a href="javascript:void(0)"
+                    (click)="openVideo()">{{'INFORMATIONS_DATA_IT.FERODO_VIDEO' | translate}}</a>
+            </li>
+        </ul>
+
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://catalog.mahle-aftermarket.com/eu/modules/mahleFilter/index.xhtml">{{'INFORMATIONS_DATA_DE.DD_LINK_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://catalog.mahle-aftermarket.com/eu/modules/mahleFilter/index.xhtml">{{'INFORMATIONS_DATA_FR.DD_LINK_2' | translate}}</a>
+            </li>
+        </ul>
+
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.ngk.de/nc/produktfinder/">{{'INFORMATIONS_DATA_DE.DD_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.ngk.de/nc/fr/recherche-de-produits/">{{'INFORMATIONS_DATA_FR.DD_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.ngk.de/nc/it/ricerca-prodotti/">{{'INFORMATIONS_DATA_IT.DD_LINK_3' | translate}}</a>
+            </li>
+        </ul>
+
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://am-application.osram.info/de">{{'INFORMATIONS_DATA_DE.DD_LINK_4' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://am-application.osram.info/fr">{{'INFORMATIONS_DATA_FR.DD_LINK_4' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://am-application.osram.info/it">{{'INFORMATIONS_DATA_IT.DD_LINK_4' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information" *ngIf="thuleInfoLink">
+            <li class="list-group-item">
+                <a href="{{ thuleInfoLink.url }}" target="{{ thuleInfoLink.targetMode }}">{{ thuleInfoLink.label | translate }}</a>
+            </li>
+        </ul>
+
+        <ng-template [ngIf]="isDerendChCustomer">
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                            href="{{mediaDirectory}}/Alko_Hauptkatalog.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_1' | translate}}</a>
+                </li>
+            </ul>
+        
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                            href="{{mediaDirectory}}/Knott_Bauteilkatalog_Trailertechnik.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_2' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                            href="{{mediaDirectory}}/Knott_Ersatzteilkatalog_Trailertechnik.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_3' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                            href="{{mediaDirectory}}/Knott_Verladerampen.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_4' | translate}}</a>
+                </li>
+            </ul>
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                            href="{{mediaDirectory}}/SpanSet_Katalog_D.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_5' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                            href="{{mediaDirectory}}/SpanSet_Katalog_F.pdf">{{'INFORMATIONS_DATA_FR.CTL_LINK_5' | translate}}</a>
+                </li>
+            </ul>
+        </ng-template>
+
+        <ng-container *ngIf="isDerendChCustomer">
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="http://www.hazet.de/produktkatalog/index.php">{{'INFORMATIONS_DATA_DE.DD_LINK_7' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="http://www.hazet.de/produktkatalog/index.php?index.php&language=fr">{{'INFORMATIONS_DATA_FR.DD_LINK_7' | translate}}</a>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="http://tool-is.com/">{{'INFORMATIONS_DATA_DE.DD_LINK_8' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="http://tool-is.com/locale/fr">{{'INFORMATIONS_DATA_FR.DD_LINK_8' | translate}}</a>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="http://eni-ita.lubricantadvisor.com/Default.aspx?lang=ger">{{'INFORMATIONS_DATA_DE.DD_LINK_9' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="http://eni-ita.lubricantadvisor.com/Default.aspx?lang=fra">{{'INFORMATIONS_DATA_FR.DD_LINK_9' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="http://eni-ita.lubricantadvisor.com/Default.aspx?lang=ita">{{'INFORMATIONS_DATA_IT.DD_LINK_9' | translate}}</a>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="http://applications.castrol.com/oilselector/de_ch/c/search">{{'INFORMATIONS_DATA_DE.DD_LINK_10' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="http://applications.castrol.com/oilselector/fr_ch/c/search">{{'INFORMATIONS_DATA_FR.DD_LINK_10' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="http://applications.castrol.com/oilselector/it_it/w/search">{{'INFORMATIONS_DATA_IT.DD_LINK_10' | translate}}</a>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SNR_Experten_Analyse_DE.pdf">{{'INFORMATIONS_DATA_DE.SNR_LINK' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SNR_Diagnostic_Expert_FR.pdf">{{'INFORMATIONS_DATA_FR.SNR_LINK' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SNR_Diagnostic_Expert_IT.pdf">{{'INFORMATIONS_DATA_IT.SNR_LINK' | translate}}</a>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SNR_ASB_Technologie_DE.pdf">{{'INFORMATIONS_DATA_DE.SNR_LINK2' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SNR_Technologie_ASB_FR.pdf">{{'INFORMATIONS_DATA_FR.SNR_LINK2' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SNR_Technologia_ASB_IT.pdf">{{'INFORMATIONS_DATA_IT.SNR_LINK2' | translate}}</a>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="https://www.varta-automotive.ch/de-ch/business-portal/log-in">{{'INFORMATIONS_DATA_DE.DD_LINK_11' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="https://www.varta-automotive.com/fr-ch/portail-professionnel/connexion">{{'INFORMATIONS_DATA_FR.DD_LINK_11' | translate}}</a>
+                </li>
+            </ul>
+        </ng-container>
+        <ng-container *ngIf="isWbbCustomer">
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/TPG_Carriers_Racks_2018_13p_DE.pdf">{{'INFORMATIONS_DATA_DE.WBB_LINK_1' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/TPG_Carriers_Racks_2018_13p_FR-CH.pdf">{{'INFORMATIONS_DATA_FR.WBB_LINK_1' | translate}}</a>
+                </li>
+                <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/TPG_Carriers_Racks_2018_13p_FR-CH.pdf">{{'INFORMATIONS_DATA_IT.WBB_LINK_1' | translate}}</a>
+                </li>
+            </ul>
+
+            <ng-container *ngIf="!isWbbCustomer">
+                <ul class="list-group list-group-full list-group-information">
+                    <li class="list-group-item">
+                        <a target="_blank" href="{{mediaDirectory}}/Thule_Pricing.pdf">
+                            {{'INFORMATIONS_DATA_DE.WBB_LINK_2' | translate}}
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a target="_blank" href="{{mediaDirectory}}/Thule_Pricing.pdf">
+                            {{'INFORMATIONS_DATA_FR.WBB_LINK_2' | translate}}
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a target="_blank" href="{{mediaDirectory}}/Thule_Pricing.pdf">
+                            {{'INFORMATIONS_DATA_IT.WBB_LINK_2' | translate}}
+                        </a>
+                    </li>
+                </ul>
+            </ng-container>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="https://www.aral-lubricants.de/oelwegweiser/">{{'INFORMATIONS_DATA_DE.WBB_LINK_3' | translate}}</a>
+                </li>
+            </ul>
+
+            <ul class="list-group list-group-full list-group-information">
+                <li class="list-group-item"><a target="_blank"
+                        href="https://www.aral-lubricants.de/en/oilguide/">{{'INFORMATIONS_DATA_DE.WBB_LINK_4' | translate}}</a>
+                </li>
+            </ul>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="isTechnoChCustomer">
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.ferodo.de/support.html">{{'INFORMATIONS_DATA_DE.TM_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.ferodo.fr/support/light-vehicles.html">{{'INFORMATIONS_DATA_FR.TM_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.ferodo.it/support.html">{{'INFORMATIONS_DATA_IT.TM_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a class="pointer" href="javascript:void(0)"
+                    (click)="openVideo()">{{'INFORMATIONS_DATA_IT.FERODO_VIDEO' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://catalog.mann-filter.com/EU/ger">{{'INFORMATIONS_DATA_DE.TM_LINK_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://catalog.mann-filter.com/EU/fre">{{'INFORMATIONS_DATA_FR.TM_LINK_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://catalog.mann-filter.com/EU/ita">{{'INFORMATIONS_DATA_IT.TM_LINK_2' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.ngk.de/nc/produktfinder/">{{'INFORMATIONS_DATA_DE.TM_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.ngk.de/nc/fr/recherche-de-produits/">{{'INFORMATIONS_DATA_FR.TM_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.ngk.de/nc/it/ricerca-prodotti/">{{'INFORMATIONS_DATA_IT.TM_LINK_3' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://am-application.osram.info/de">{{'INFORMATIONS_DATA_DE.TM_LINK_4' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://am-application.osram.info/fr">{{'INFORMATIONS_DATA_FR.TM_LINK_4' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://am-application.osram.info/it">{{'INFORMATIONS_DATA_IT.TM_LINK_4' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information" *ngIf="thuleInfoLink">
+            <li class="list-group-item">
+                <a href="{{ thuleInfoLink.url }}" target="{{ thuleInfoLink.targetMode }}">{{ thuleInfoLink.label | translate }}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Alko_Hauptkatalog.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_1' | translate}}</a>
+            </li>
+        </ul>
+    
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Knott_Bauteilkatalog_Trailertechnik.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Knott_Ersatzteilkatalog_Trailertechnik.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Knott_Verladerampen.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_4' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SpanSet_Katalog_D.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_5' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SpanSet_Katalog_F.pdf">{{'INFORMATIONS_DATA_FR.CTL_LINK_5' | translate}}</a>
+            </li>
+        </ul>
+        
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://catalogue.facom.com/de">{{'INFORMATIONS_DATA_DE.TM_LINK_6' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://catalogue.facom.com/fr">{{'INFORMATIONS_DATA_FR.TM_LINK_6' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://catalogue.facom.com/it">{{'INFORMATIONS_DATA_IT.TM_LINK_6' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://catalogue.expert-tool.com/de">{{'INFORMATIONS_DATA_DE.TM_LINK_7' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://catalogue.expert-tool.com/fr">{{'INFORMATIONS_DATA_FR.TM_LINK_7' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://catalogue.expert-tool.com/it">{{'INFORMATIONS_DATA_IT.TM_LINK_7' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://tool-is.com/">{{'INFORMATIONS_DATA_DE.TM_LINK_8' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://tool-is.com/locale/fr">{{'INFORMATIONS_DATA_FR.TM_LINK_8' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.mobil1.de/welches-synthetische-motorenoel/start.aspx">{{'INFORMATIONS_DATA_DE.TM_LINK_9' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.mobil1.fr/quelle-huile-choisir/starte.aspx">{{'INFORMATIONS_DATA_FR.TM_LINK_9' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.mobil1.it/prodotti/qual-e-lolio-per-il-vostro-veicolo/inizio.aspx">{{'INFORMATIONS_DATA_IT.TM_LINK_9' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/SNR_Experten_Analyse_DE.pdf">{{'INFORMATIONS_DATA_DE.SNR_LINK' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/SNR_Diagnostic_Expert_FR.pdf">{{'INFORMATIONS_DATA_FR.SNR_LINK' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/SNR_Diagnostic_Expert_IT.pdf">{{'INFORMATIONS_DATA_IT.SNR_LINK' | translate}}</a>
+            </li>
+        </ul>
+
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/SNR_ASB_Technologie_DE.pdf">{{'INFORMATIONS_DATA_DE.SNR_LINK2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/SNR_Technologie_ASB_FR.pdf">{{'INFORMATIONS_DATA_FR.SNR_LINK2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/SNR_Technologia_ASB_IT.pdf">{{'INFORMATIONS_DATA_IT.SNR_LINK2' | translate}}</a>
+            </li>
+        </ul>
+    </ng-container>
+    <ng-container *ngIf="isDerendAtCustomer">
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/sortimentsuebersicht_aktuell.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                href="{{mediaDirectory}}/QWP-katalog.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_6' | translate}}</a>
+        </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/schulungsprogramm.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_4_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/motorradkatalog_aktuell.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/frostschutz.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="{{mediaDirectory}}/quickBrake.pdf?ver={{timestamp}}">{{'INFORMATIONS_DATA_DE.AT_LINK_5' | translate}}</a>
+            </li>
+            <li class="list-group-item" *ngFor="let infoLink of ddatInfoLinks">
+                <a href="{{ infoLink.url }}" target="{{ infoLink.targetMode }}">{{ infoLink.label | translate }}</a>
+            </li>
+        </ul>
+    </ng-container>
+    <ng-container *ngIf="isMatikAtCustomer">
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                href="{{mediaDirectory}}/Matik_Sortimentsübersicht.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                href="{{mediaDirectory}}/schulungsprogramm.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_4_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                href="{{mediaDirectory}}/frostschutz.pdf">{{'INFORMATIONS_DATA_DE.AT_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                href="{{mediaDirectory}}/quickBrake.pdf?ver={{timestamp}}">{{'INFORMATIONS_DATA_DE.AT_LINK_5' | translate}}</a>
+            </li>
+            <li class="list-group-item" *ngFor="let infoLink of matInfoLinks">
+                <a href="{{ infoLink.url }}" target="{{ infoLink.targetMode }}">{{ infoLink.label | translate }}</a>
+            </li>
+        </ul>
+    </ng-container>
+
+    <ul *ngIf="isRbeCustomer" class="list-group list-group-full list-group-information">
+        <li class="list-group-item"><a target="_blank"
+                href="{{remcoInfoLink1}}">{{'INFORMATIONS_DATA_FR.RBE_LINK_1' | translate}}</a></li>
+        <li class="list-group-item"><a target="_blank"
+                href="{{remcoInfoLink2}}">{{'INFORMATIONS_DATA_FR.RBE_LINK_2' | translate}}</a></li>
+        <li class="list-group-item"><a target="_blank"
+                href="{{remcoInfoLink3}}">{{'INFORMATIONS_DATA_FR.RBE_LINK_3' | translate}}</a></li>
+    </ul>
+
+    <ng-container *ngIf="isMatikChCustomer">
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.bpw.de/mybpw/login.php?l=de">{{'INFORMATIONS_DATA_DE.MCH_LINK_1' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.bpw.de/mybpw/login.php?l=fr">{{'INFORMATIONS_DATA_FR.MCH_LINK_1' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://portal.saf-axles.com/index-de.html">{{'INFORMATIONS_DATA_DE.MCH_LINK_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://portal.saf-axles.com/index-fr.html">{{'INFORMATIONS_DATA_FR.MCH_LINK_2' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.haco-parts.de/">{{'INFORMATIONS_DATA_DE.MCH_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.haco-parts.fr/">{{'INFORMATIONS_DATA_FR.MCH_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.haco-parts.it/">{{'INFORMATIONS_DATA_IT.MCH_LINK_3' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.proplast-online.de">{{'INFORMATIONS_DATA_DE.MCH_LINK_4' | translate}}</a>
+            </li>
+        </ul>
+        
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Alko_Hauptkatalog.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_1' | translate}}</a>
+            </li>
+        </ul>
+    
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Knott_Bauteilkatalog_Trailertechnik.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_2' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Knott_Ersatzteilkatalog_Trailertechnik.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_3' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/Knott_Verladerampen.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_4' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SpanSet_Katalog_D.pdf">{{'INFORMATIONS_DATA_DE.CTL_LINK_5' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                        href="{{mediaDirectory}}/SpanSet_Katalog_F.pdf">{{'INFORMATIONS_DATA_FR.CTL_LINK_5' | translate}}</a>
+            </li>
+        </ul>
+        
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.aspoeck.com/de">{{'INFORMATIONS_DATA_DE.MCH_LINK_5' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.valeo-thermalbus.com/eu_de">{{'INFORMATIONS_DATA_DE.MCH_LINK_6' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="http://www.petec.de">{{'INFORMATIONS_DATA_DE.MCH_LINK_7' | translate}}</a>
+            </li>
+        </ul>
+        <ul class="list-group list-group-full list-group-information">
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.kstools.com/de">{{'INFORMATIONS_DATA_DE.MCH_LINK_8' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.kstools.com/fr">{{'INFORMATIONS_DATA_FR.MCH_LINK_8' | translate}}</a>
+            </li>
+            <li class="list-group-item"><a target="_blank"
+                    href="https://www.kstools.com/it">{{'INFORMATIONS_DATA_IT.MCH_LINK_8' | translate}}</a>
+            </li>
+        </ul>
+    </ng-container>
+</div>

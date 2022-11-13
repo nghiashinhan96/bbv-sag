@@ -1,0 +1,1798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
+<estimate xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<estimateId locked="false">
+		<value>11000051543891652769</value>
+	</estimateId>
+	<calculated>
+		<id>2</id>
+		<value>Ohne Berechnung</value>
+	</calculated>
+	<dateCreation>2018-12-04T03:47:33</dateCreation>
+	<modifyDate>2018-12-04T03:47:39</modifyDate>
+	<calculationDate xsi:nil="true" />
+	<rateDate xsi:nil="true" />
+	<state>SAVED</state>
+	<estimateStatus>
+		<id>1</id>
+		<value>in Bearbeitung</value>
+	</estimateStatus>
+	<userInfo culture="de-DE" currency="CHF">
+		<billingCode locked="false">
+			<value>
+				<code>0000145592</code>
+				<description>SAG SERVICES AG - ctlgpro - GtEstimate</description>
+			</value>
+		</billingCode>
+		<country>
+			<id>21</id>
+			<value>SCHWEIZ</value>
+		</country>
+		<language>
+			<id>8</id>
+			<value>DEUTSCH</value>
+		</language>
+		<cultureIsoCode>de</cultureIsoCode>
+		<countryIsoCode>CH</countryIsoCode>
+		<currencyIsoCode>CHF</currencyIsoCode>
+	</userInfo>
+	<userData>
+		<vehicleAttributes>
+			<kilometers locked="true">
+				<value>0</value>
+			</kilometers>
+			<marketValue locked="true">
+				<value>0</value>
+			</marketValue>
+			<originalPurchase locked="true">
+				<value>0</value>
+			</originalPurchase>
+			<remainsValue locked="true">
+				<value>0</value>
+			</remainsValue>
+			<updatedPurchase locked="true">
+				<value>0</value>
+			</updatedPurchase>
+			<vehicleDamages>
+				<general locked="true">
+					<value>false</value>
+				</general>
+				<roof locked="true">
+					<value>false</value>
+				</roof>
+				<underside locked="true">
+					<value>false</value>
+				</underside>
+				<rear locked="true">
+					<value>false</value>
+				</rear>
+				<rearLeft locked="true">
+					<value>false</value>
+				</rearLeft>
+				<rearRight locked="true">
+					<value>false</value>
+				</rearRight>
+				<lateralLeft locked="true">
+					<value>false</value>
+				</lateralLeft>
+				<lateralRight locked="true">
+					<value>false</value>
+				</lateralRight>
+				<front locked="true">
+					<value>false</value>
+				</front>
+				<frontLeft locked="true">
+					<value>false</value>
+				</frontLeft>
+				<frontRight locked="true">
+					<value>false</value>
+				</frontRight>
+			</vehicleDamages>
+			<manufacturerPaintColourCode
+				locked="true">
+				<value>LF9R</value>
+			</manufacturerPaintColourCode>
+		</vehicleAttributes>
+		<estimateInfo>
+			<observations locked="true" />
+			<reference locked="true" />
+			<state locked="false">
+				<value>
+					<id>1</id>
+					<value>Offen</value>
+				</value>
+			</state>
+			<configurableValueList>
+				<configurableValue>
+					<label locked="true">
+						<value></value>
+					</label>
+					<value locked="true">
+						<value></value>
+					</value>
+				</configurableValue>
+				<configurableValue>
+					<label locked="true">
+						<value></value>
+					</label>
+					<value locked="true">
+						<value></value>
+					</value>
+				</configurableValue>
+				<configurableValue>
+					<label locked="true">
+						<value></value>
+					</label>
+					<value locked="true">
+						<value></value>
+					</value>
+				</configurableValue>
+				<configurableValue>
+					<label locked="true">
+						<value></value>
+					</label>
+					<value locked="true">
+						<value></value>
+					</value>
+				</configurableValue>
+				<configurableValue>
+					<label locked="true">
+						<value></value>
+					</label>
+					<value locked="true">
+						<value></value>
+					</value>
+				</configurableValue>
+			</configurableValueList>
+			<viewPrecalculation locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</viewPrecalculation>
+			<functionalityMode locked="false">
+				<value>
+					<id>1</id>
+					<value>Modus komplette Bewertung</value>
+				</value>
+			</functionalityMode>
+			<useAFTPlatforms locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</useAFTPlatforms>
+			<execVinQueryAfterLicensePlateService
+				locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</execVinQueryAfterLicensePlateService>
+			<askForManualTime locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</askForManualTime>
+			<aftAutomaticQueryInResult locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</aftAutomaticQueryInResult>
+			<discountsOnly locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</discountsOnly>
+			<alternativeAddOperation locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</alternativeAddOperation>
+			<partsSuggestion locked="true">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</partsSuggestion>
+			<customFieldList />
+			<hideEconomicParts locked="true">
+				<value>
+					<id>1</id>
+					<value>Ja</value>
+				</value>
+			</hideEconomicParts>
+			<hideStandardParts locked="true">
+				<value>
+					<id>1</id>
+					<value>Ja</value>
+				</value>
+			</hideStandardParts>
+		</estimateInfo>
+		<processInfo>
+			<paintSystem locked="false">
+				<value>
+					<id>5</id>
+					<value>Ohne Lackierung</value>
+				</value>
+			</paintSystem>
+			<viewOperationDetail locked="false">
+				<value>
+					<id>1</id>
+					<value>Ja</value>
+				</value>
+			</viewOperationDetail>
+			<priceByHourList>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>4</jobId>
+							<description>
+								<id>4</id>
+								<value>Mechanik</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>1</technicianId>
+							<description>T1</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>4</jobId>
+							<description>
+								<id>4</id>
+								<value>Mechanik</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>2</technicianId>
+							<description>T2</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>4</jobId>
+							<description>
+								<id>4</id>
+								<value>Mechanik</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>3</technicianId>
+							<description>T3</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>3</jobId>
+							<description>
+								<id>3</id>
+								<value>Blech</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>1</technicianId>
+							<description>T1</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>3</jobId>
+							<description>
+								<id>3</id>
+								<value>Blech</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>2</technicianId>
+							<description>T2</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>3</jobId>
+							<description>
+								<id>3</id>
+								<value>Blech</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>3</technicianId>
+							<description>T3</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>2</jobId>
+							<description>
+								<id>2</id>
+								<value>Lackierung</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>1</technicianId>
+							<description>T1</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>2</jobId>
+							<description>
+								<id>2</id>
+								<value>Lackierung</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>2</technicianId>
+							<description>T2</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>2</jobId>
+							<description>
+								<id>2</id>
+								<value>Lackierung</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>3</technicianId>
+							<description>T3</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>1</jobId>
+							<description>
+								<id>1</id>
+								<value>Elektrizität</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>1</technicianId>
+							<description>T1</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>1</jobId>
+							<description>
+								<id>1</id>
+								<value>Elektrizität</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>2</technicianId>
+							<description>T2</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>1</jobId>
+							<description>
+								<id>1</id>
+								<value>Elektrizität</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>3</technicianId>
+							<description>T3</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>5</jobId>
+							<description>
+								<id>5</id>
+								<value>Verkleidungen</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>1</technicianId>
+							<description>T1</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>5</jobId>
+							<description>
+								<id>5</id>
+								<value>Verkleidungen</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>2</technicianId>
+							<description>T2</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+				<priceByHour locked="true">
+					<value>
+						<job>
+							<jobId>5</jobId>
+							<description>
+								<id>5</id>
+								<value>Verkleidungen</value>
+							</description>
+						</job>
+						<technician>
+							<technicianId>3</technicianId>
+							<description>T3</description>
+						</technician>
+						<value>1</value>
+					</value>
+				</priceByHour>
+			</priceByHourList>
+			<total>
+				<deleteTax locked="true">
+					<value>
+						<id>2</id>
+						<value>Nein</value>
+					</value>
+				</deleteTax>
+				<discount locked="true">
+					<value>0</value>
+				</discount>
+				<fixed locked="true">
+					<value>0</value>
+				</fixed>
+				<maximum locked="true">
+					<value>0</value>
+				</maximum>
+				<minimum locked="true">
+					<value>0</value>
+				</minimum>
+				<percentage locked="true">
+					<value>0</value>
+				</percentage>
+				<taxType locked="true">
+					<value>
+						<TaxDescription>MwSt</TaxDescription>
+					</value>
+				</taxType>
+				<taxValue locked="true">
+					<value>
+						<Value>2.50</Value>
+					</value>
+				</taxValue>
+			</total>
+			<parts>
+				<autoSelectSuggestedPart locked="true">
+					<value>
+						<id>2</id>
+						<value>Nein</value>
+					</value>
+				</autoSelectSuggestedPart>
+				<selectCheapestAFTPart locked="true">
+					<value>
+						<id>2</id>
+						<value>Nein</value>
+					</value>
+				</selectCheapestAFTPart>
+				<auxiliarOperations locked="true">
+					<value>
+						<id>3</id>
+						<value>Beide</value>
+					</value>
+				</auxiliarOperations>
+				<anticorrosionMaterial locked="true">
+					<value>0</value>
+				</anticorrosionMaterial>
+				<sparePartDeliveryCost locked="true">
+					<value>0</value>
+				</sparePartDeliveryCost>
+				<discount locked="true">
+					<value>0</value>
+				</discount>
+				<fareToApply locked="true">
+					<value>
+						<id>1</id>
+						<value>Aktuell</value>
+					</value>
+				</fareToApply>
+				<smallPartAmount locked="true">
+					<value>0</value>
+				</smallPartAmount>
+				<smallPartPercentage locked="true">
+					<value>0</value>
+				</smallPartPercentage>
+				<smallPartMaxAmount locked="true">
+					<value>0</value>
+				</smallPartMaxAmount>
+				<undersidePaintMaterial locked="true">
+					<value>0</value>
+				</undersidePaintMaterial>
+				<alternativeSpareUse locked="true">
+					<value>
+						<id>1</id>
+						<value>Nein</value>
+					</value>
+				</alternativeSpareUse>
+				<partTypeDiscounts>
+					<partTypeDiscounts locked="true">
+						<value>
+							<partDiscountList>
+								<entityDiscount entityId="0">
+									<entityDiscounts>
+										<partDiscount locked="true">
+											<value>
+												<id>1</id>
+												<value>0</value>
+											</value>
+										</partDiscount>
+										<partDiscount locked="true">
+											<value>
+												<id>2</id>
+												<value>0</value>
+											</value>
+										</partDiscount>
+										<partDiscount locked="true">
+											<value>
+												<id>3</id>
+												<value>0</value>
+											</value>
+										</partDiscount>
+										<partDiscount locked="true">
+											<value>
+												<id>4</id>
+												<value>0</value>
+											</value>
+										</partDiscount>
+										<partDiscount locked="true">
+											<value>
+												<id>5</id>
+												<value>0</value>
+											</value>
+										</partDiscount>
+										<partDiscount locked="true">
+											<value>
+												<id>6</id>
+												<value>0</value>
+											</value>
+										</partDiscount>
+									</entityDiscounts>
+								</entityDiscount>
+							</partDiscountList>
+						</value>
+					</partTypeDiscounts>
+				</partTypeDiscounts>
+				<selectCheapestMultireference
+					locked="true">
+					<value>
+						<id>2</id>
+						<value>Nein</value>
+					</value>
+				</selectCheapestMultireference>
+				<partsPlatformFilter locked="true">
+					<value>0</value>
+				</partsPlatformFilter>
+			</parts>
+			<paint>
+				<discount locked="true">
+					<value>0</value>
+				</discount>
+				<discountLabour locked="true">
+					<value>0</value>
+				</discountLabour>
+				<discountMaterial locked="true">
+					<value>0</value>
+				</discountMaterial>
+				<includeCalculation locked="true">
+					<value>
+						<id>2</id>
+						<value>Nein</value>
+					</value>
+				</includeCalculation>
+				<materialDiscountPerRow locked="true">
+					<value>0</value>
+				</materialDiscountPerRow>
+			</paint>
+			<labour>
+				<discount locked="true">
+					<value>0</value>
+				</discount>
+				<jobDiscounts locked="true">
+					<value>
+						<mechanics locked="true">
+							<value>0</value>
+						</mechanics>
+						<sheet locked="true">
+							<value>0</value>
+						</sheet>
+						<paint locked="true">
+							<value>0</value>
+						</paint>
+						<electricity locked="true">
+							<value>0</value>
+						</electricity>
+						<trim locked="true">
+							<value>0</value>
+						</trim>
+					</value>
+				</jobDiscounts>
+			</labour>
+			<hideReportTable locked="false">
+				<value>
+					<id>2</id>
+					<value>Nein</value>
+				</value>
+			</hideReportTable>
+			<wasteMgmtInfo>
+				<oil>
+					<oilRecyclingRateType locked="true">
+						<value>
+							<id>1</id>
+							<value>Nicht anwenden</value>
+						</value>
+					</oilRecyclingRateType>
+					<oilRecyclingRateValue locked="true">
+						<value>0</value>
+					</oilRecyclingRateValue>
+				</oil>
+				<tyre>
+					<tyreRecyclingRateType locked="true">
+						<value>
+							<id>1</id>
+							<value>Nicht anwenden</value>
+						</value>
+					</tyreRecyclingRateType>
+					<tyreRecyclingRateValue locked="true">
+						<value>0</value>
+					</tyreRecyclingRateValue>
+				</tyre>
+				<otherWasteRecyclingRate locked="true">
+					<value>0</value>
+				</otherWasteRecyclingRate>
+			</wasteMgmtInfo>
+		</processInfo>
+		<tyres>
+			<frontRightTyreMake locked="true">
+				<value></value>
+			</frontRightTyreMake>
+			<frontRightTyreModel locked="true">
+				<value></value>
+			</frontRightTyreModel>
+			<frontRightTyreSize locked="true">
+				<value></value>
+			</frontRightTyreSize>
+			<frontRightTyreWear locked="true">
+				<value></value>
+			</frontRightTyreWear>
+			<frontLeftTyreMake locked="true">
+				<value></value>
+			</frontLeftTyreMake>
+			<frontLeftTyreModel locked="true">
+				<value></value>
+			</frontLeftTyreModel>
+			<frontLeftTyreSize locked="true">
+				<value></value>
+			</frontLeftTyreSize>
+			<frontLeftTyreWear locked="true">
+				<value></value>
+			</frontLeftTyreWear>
+			<rearRightTyreMake locked="true">
+				<value></value>
+			</rearRightTyreMake>
+			<rearRightTyreModel locked="true">
+				<value></value>
+			</rearRightTyreModel>
+			<rearRightTyreSize locked="true">
+				<value></value>
+			</rearRightTyreSize>
+			<rearRightTyreWear locked="true">
+				<value></value>
+			</rearRightTyreWear>
+			<rearLeftTyreMake locked="true">
+				<value></value>
+			</rearLeftTyreMake>
+			<rearLeftTyreModel locked="true">
+				<value></value>
+			</rearLeftTyreModel>
+			<rearLeftTyreSize locked="true">
+				<value></value>
+			</rearLeftTyreSize>
+			<rearLeftTyreWear locked="true">
+				<value></value>
+			</rearLeftTyreWear>
+			<spareTyreMake locked="true">
+				<value></value>
+			</spareTyreMake>
+			<spareTyreModel locked="true">
+				<value></value>
+			</spareTyreModel>
+			<spareTyreSize locked="true">
+				<value></value>
+			</spareTyreSize>
+			<spareTyreWear locked="true">
+				<value></value>
+			</spareTyreWear>
+		</tyres>
+	</userData>
+	<vehicleInfo>
+		<umc locked="true">
+			<value>SE02301</value>
+		</umc>
+		<makeCode locked="true">
+			<value>SE1</value>
+		</makeCode>
+		<make locked="true">
+			<value>
+				<value>SEAT</value>
+			</value>
+		</make>
+		<model locked="true">
+			<value>
+				<value>ATECA (5F) 5T (16-)</value>
+			</value>
+		</model>
+		<registrationNumber locked="true">
+			<value>123CH</value>
+		</registrationNumber>
+		<vin locked="true">
+			<value>VSSZZZ5FZH6561928</value>
+		</vin>
+		<commercialModelId>26617</commercialModelId>
+		<equipmentList>
+			<item>
+				<value>VA37</value>
+				<manufacturerCodes>G1C</manufacturerCodes>
+				<description>
+					<value>7 GÄNGE DSG</value>
+				</description>
+				<family>CAM</family>
+				<familyDescription>
+					<value>GETRIEBE</value>
+				</familyDescription>
+				<subFamily>AUT</subFamily>
+				<subFamilyDescription>
+					<value>AUTOMATISCH</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>CT05</value>
+				<manufacturerCodes>K8P</manufacturerCodes>
+				<description>
+					<value>5 TÜREN</value>
+				</description>
+				<family>CAR</family>
+				<familyDescription>
+					<value>KAROSSERIE</value>
+				</familyDescription>
+				<subFamily>TOT</subFamily>
+				<subFamilyDescription>
+					<value>GELÄNDEWAGEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EA79</value>
+				<manufacturerCodes>4E6/4E7</manufacturerCodes>
+				<description>
+					<value>HAUBE/KLAPPE AUTOM. BETÄTIGUNG</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ACC</subFamily>
+				<subFamilyDescription>
+					<value>ZUBEHÖR</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EC00</value>
+				<manufacturerCodes>4GX</manufacturerCodes>
+				<description>
+					<value>FRONTSCHEIBE THERMISCH</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>CRI</subFamily>
+				<subFamilyDescription>
+					<value>GLÄSER</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>ECS1</value>
+				<manufacturerCodes>8N6</manufacturerCodes>
+				<description>
+					<value>REGENSENSOR</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>CRI</subFamily>
+				<subFamilyDescription>
+					<value>GLÄSER</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EC91</value>
+				<manufacturerCodes>9T1</manufacturerCodes>
+				<description>
+					<value>BEHEIZB. WASCHDÜSEN FRONTSCHEIBE</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>CRI</subFamily>
+				<subFamilyDescription>
+					<value>GLÄSER</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EC48</value>
+				<manufacturerCodes>4KF</manufacturerCodes>
+				<description>
+					<value>SCHEIBEN SEITL. UND HI STARK GETÖNT</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>CRI</subFamily>
+				<subFamilyDescription>
+					<value>GLÄSER</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EA02</value>
+				<manufacturerCodes>8Y1</manufacturerCodes>
+				<description>
+					<value>MEHRTONHUPE</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ACC</subFamily>
+				<subFamilyDescription>
+					<value>ZUBEHÖR</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EA0I</value>
+				<manufacturerCodes>7X5</manufacturerCodes>
+				<description>
+					<value>ZUSÄTZLICHE EINPARKHILFE</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ACC</subFamily>
+				<subFamilyDescription>
+					<value>ZUBEHÖR</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>ET21</value>
+				<manufacturerCodes>3S1</manufacturerCodes>
+				<description>
+					<value>GEPÄCKTRÄGERSTANGEN VERCHROMT</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>TEC</subFamily>
+				<subFamilyDescription>
+					<value>DACH</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EL3V</value>
+				<manufacturerCodes>8SK</manufacturerCodes>
+				<description>
+					<value>LEUCHTE HI MIT LED</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>LUC</subFamily>
+				<subFamilyDescription>
+					<value>LEUCHTEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EE27</value>
+				<manufacturerCodes>4ZB</manufacturerCodes>
+				<description>
+					<value>BLENDEN VERCHROMT</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>EMB</subFamily>
+				<subFamilyDescription>
+					<value>BLENDEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EL02</value>
+				<manufacturerCodes>8WH</manufacturerCodes>
+				<description>
+					<value>NEBELSCHEINWERFER</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>LUC</subFamily>
+				<subFamilyDescription>
+					<value>LEUCHTEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EG67</value>
+				<manufacturerCodes>VL3</manufacturerCodes>
+				<description>
+					<value>ERW. FUSSGÄNGERSCHUTZ</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>GEN</subFamily>
+				<subFamilyDescription>
+					<value>ALLGEMEINES</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EE3X</value>
+				<manufacturerCodes>6EE</manufacturerCodes>
+				<description>
+					<value>LEISTEN SEITE</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>EMB</subFamily>
+				<subFamilyDescription>
+					<value>BLENDEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EL07</value>
+				<manufacturerCodes>8Q3</manufacturerCodes>
+				<description>
+					<value>AUTOM. HÖHENVERSTELLUNG SCHEINWERFER</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>LUC</subFamily>
+				<subFamilyDescription>
+					<value>LEUCHTEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EL3G</value>
+				<manufacturerCodes>8IT</manufacturerCodes>
+				<description>
+					<value>LED-SCHEINWERFER</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>LUC</subFamily>
+				<subFamilyDescription>
+					<value>LEUCHTEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EL11</value>
+				<manufacturerCodes>8K3</manufacturerCodes>
+				<description>
+					<value>AUTOMATISCHES FAHRLICHT</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>LUC</subFamily>
+				<subFamilyDescription>
+					<value>LEUCHTEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>EL10</value>
+				<manufacturerCodes>8X1</manufacturerCodes>
+				<description>
+					<value>SCHEINWERFERREINIGUNGSANLAGE</value>
+				</description>
+				<family>EEX</family>
+				<familyDescription>
+					<value>AUSSENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>LUC</subFamily>
+				<subFamilyDescription>
+					<value>LEUCHTEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IS35</value>
+				<manufacturerCodes>6E1/6E3</manufacturerCodes>
+				<description>
+					<value>ARMAUFLAGE VORNE</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ASI</subFamily>
+				<subFamilyDescription>
+					<value>SITZE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IS34</value>
+				<manufacturerCodes>9P5</manufacturerCodes>
+				<description>
+					<value>GURTE MIT AKUSTISCHEM WARNSIGNAL</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ASI</subFamily>
+				<subFamilyDescription>
+					<value>SITZE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IS08</value>
+				<manufacturerCodes>Q2J</manufacturerCodes>
+				<description>
+					<value>CONFORT</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ASI</subFamily>
+				<subFamilyDescription>
+					<value>SITZE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IS36</value>
+				<manufacturerCodes>3NU</manufacturerCodes>
+				<description>
+					<value>ARMAUFLAGE HI</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ASI</subFamily>
+				<subFamilyDescription>
+					<value>SITZE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IZ02</value>
+				<manufacturerCodes>9AK</manufacturerCodes>
+				<description>
+					<value>KLIMAAUTOMATIK</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>CLI</subFamily>
+				<subFamilyDescription>
+					<value>KLIMATISIERUNG</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IS70</value>
+				<manufacturerCodes>4A3</manufacturerCodes>
+				<description>
+					<value>VO BEHEIZBAR</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ASI</subFamily>
+				<subFamilyDescription>
+					<value>SITZE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IGA9</value>
+				<manufacturerCodes>4UP</manufacturerCodes>
+				<description>
+					<value>KNIEAIRBAG</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>SEG</subFamily>
+				<subFamilyDescription>
+					<value>SICHERHEIT</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IG26</value>
+				<manufacturerCodes>4L6</manufacturerCodes>
+				<description>
+					<value>RÜCKSPIEGEL INNEN AUTOM. ABBLENDBAR</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>SEG</subFamily>
+				<subFamilyDescription>
+					<value>SICHERHEIT</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>ICS1</value>
+				<manufacturerCodes>QV3</manufacturerCodes>
+				<description>
+					<value>EMPFANG DIGITALRADIO</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INC</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE KONSOLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IPAG</value>
+				<manufacturerCodes>4I2/4I3</manufacturerCodes>
+				<description>
+					<value>KEY LESS ENTRY</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INP</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE TÜREN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IS05</value>
+				<manufacturerCodes>UK3</manufacturerCodes>
+				<description>
+					<value>ÖFFNUNG LADEFLÄCHE LEHNE HI</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ASI</subFamily>
+				<subFamilyDescription>
+					<value>SITZE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IR96</value>
+				<manufacturerCodes>1Q3</manufacturerCodes>
+				<description>
+					<value>SCHWUNGRAD MIT GEGENGEWICHT</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>TAP</subFamily>
+				<subFamilyDescription>
+					<value>BEZÜGE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IR3Z</value>
+				<manufacturerCodes>6Q2</manufacturerCodes>
+				<description>
+					<value>LENKRAD UND SCHALTKNAUF LEDER</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>TAP</subFamily>
+				<subFamilyDescription>
+					<value>BEZÜGE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IA6L</value>
+				<manufacturerCodes>6T2/6T5</manufacturerCodes>
+				<description>
+					<value>LICHT-PAKET MIT LED</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ACC</subFamily>
+				<subFamilyDescription>
+					<value>ZUBEHÖR</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IA67</value>
+				<manufacturerCodes>4SM/4SD</manufacturerCodes>
+				<description>
+					<value>SONNENBLENDE BELEUCHTET</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ACC</subFamily>
+				<subFamilyDescription>
+					<value>ZUBEHÖR</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IA0K</value>
+				<manufacturerCodes>9S6</manufacturerCodes>
+				<description>
+					<value>INSTRUMENTEINSATZ MIT MULTIFUNKTIONSANZEIGE FARBE</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ACC</subFamily>
+				<subFamilyDescription>
+					<value>ZUBEHÖR</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IC30</value>
+				<manufacturerCodes>9VD</manufacturerCodes>
+				<description>
+					<value>SOUND-SYSTEM 10 LAUTSPRECHER</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INC</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE KONSOLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IC20</value>
+				<manufacturerCodes>U5A</manufacturerCodes>
+				<description>
+					<value>INSTRUMENTEINSATZ MIT KILOMETERZÄHLER</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INC</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE KONSOLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IA94</value>
+				<manufacturerCodes>QJ1/QJ3</manufacturerCodes>
+				<description>
+					<value>CHROM-PAKET</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>ACC</subFamily>
+				<subFamilyDescription>
+					<value>ZUBEHÖR</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IC65</value>
+				<manufacturerCodes>7K1/7K9</manufacturerCodes>
+				<description>
+					<value>REIFENDRUCKKONTROLLSYSTEM</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INC</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE KONSOLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>ICD3</value>
+				<manufacturerCodes>7UF/7UG</manufacturerCodes>
+				<description>
+					<value>NAVIGATIONSGERÄT</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INC</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE KONSOLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IC77</value>
+				<manufacturerCodes>KA6</manufacturerCodes>
+				<description>
+					<value>SICHTKAMERA VO/HI UND SEITL</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INC</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE KONSOLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>IC71</value>
+				<manufacturerCodes>QK1</manufacturerCodes>
+				<description>
+					<value>SICHTKAMERA VO</value>
+				</description>
+				<family>EIN</family>
+				<familyDescription>
+					<value>INNENAUSSTATTUNG</value>
+				</familyDescription>
+				<subFamily>INC</subFamily>
+				<subFamilyDescription>
+					<value>INSTRUMENTE KONSOLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>NILF</value>
+				<manufacturerCodes>QG1/QI6</manufacturerCodes>
+				<description>
+					<value>SERVICE-INSPEKTION LONGLIFE</value>
+				</description>
+				<family>MAN</family>
+				<familyDescription>
+					<value>WARTUNGSARBEITEN</value>
+				</familyDescription>
+				<subFamily>INT</subFamily>
+				<subFamilyDescription>
+					<value>INTERVALLE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>MA06</value>
+				<manufacturerCodes>7MM</manufacturerCodes>
+				<description>
+					<value>NORM EU6</value>
+				</description>
+				<family>MOT</family>
+				<familyDescription>
+					<value>MOTOR</value>
+				</familyDescription>
+				<subFamily>APL</subFamily>
+				<subFamilyDescription>
+					<value>EMISSIONSNORM</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>MA19</value>
+				<manufacturerCodes>1E9</manufacturerCodes>
+				<description>
+					<value>SCR-SYSTEM (ADBLUE)</value>
+				</description>
+				<family>MOT</family>
+				<familyDescription>
+					<value>MOTOR</value>
+				</familyDescription>
+				<subFamily>APL</subFamily>
+				<subFamilyDescription>
+					<value>EMISSIONSNORM</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>MM97</value>
+				<manufacturerCodes>0P1</manufacturerCodes>
+				<description>
+					<value>ABGASAUSTRITT SEITE</value>
+				</description>
+				<family>MOT</family>
+				<familyDescription>
+					<value>MOTOR</value>
+				</familyDescription>
+				<subFamily>EQM</subFamily>
+				<subFamilyDescription>
+					<value>MECHANISCHE ANLAGE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>MECB</value>
+				<manufacturerCodes>J2D</manufacturerCodes>
+				<description>
+					<value>BATTERIE 68 AH</value>
+				</description>
+				<family>MOT</family>
+				<familyDescription>
+					<value>MOTOR</value>
+				</familyDescription>
+				<subFamily>EQE</subFamily>
+				<subFamilyDescription>
+					<value>ELEKTRISCHE ANLAGE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>MEAA</value>
+				<manufacturerCodes>8GV</manufacturerCodes>
+				<description>
+					<value>GENERATOR 180 A</value>
+				</description>
+				<family>MOT</family>
+				<familyDescription>
+					<value>MOTOR</value>
+				</familyDescription>
+				<subFamily>EQE</subFamily>
+				<subFamilyDescription>
+					<value>ELEKTRISCHE ANLAGE</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>MR04</value>
+				<description>
+					<value>DOPPELLÜFTER</value>
+				</description>
+				<family>MOT</family>
+				<familyDescription>
+					<value>MOTOR</value>
+				</familyDescription>
+				<subFamily>REF</subFamily>
+				<subFamilyDescription>
+					<value>KÜHLUNG</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>MTCX</value>
+				<manufacturerCodes>DFHA</manufacturerCodes>
+				<description>
+					<value>1968CC 140KW (190)</value>
+				</description>
+				<family>MOT</family>
+				<familyDescription>
+					<value>MOTOR</value>
+				</familyDescription>
+				<subFamily>TDS</subFamily>
+				<subFamilyDescription>
+					<value>TURBO-DIESEL</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>ZCHE</value>
+				<manufacturerCodes>B13</manufacturerCodes>
+				<description>
+					<value>SCHWEIZ</value>
+				</description>
+				<family>PAI</family>
+				<familyDescription>
+					<value>LAND</value>
+				</familyDescription>
+				<subFamily>CHE</subFamily>
+				<subFamilyDescription>
+					<value>SCHWEIZ</value>
+				</subFamilyDescription>
+				<source>automatic</source>
+			</item>
+			<item>
+				<value>TG02</value>
+				<manufacturerCodes>A8H</manufacturerCodes>
+				<description>
+					<value>XCELLENCE</value>
+				</description>
+				<family>TIP</family>
+				<familyDescription>
+					<value>FAHRZEUGTYP</value>
+				</familyDescription>
+				<subFamily>GEN</subFamily>
+				<subFamilyDescription>
+					<value>ALLGEMEIN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>RN23</value>
+				<description>
+					<value>225/50 R 18..W</value>
+				</description>
+				<family>TRD</family>
+				<familyDescription>
+					<value>FAHRWERK</value>
+				</familyDescription>
+				<subFamily>NEU</subFamily>
+				<subFamilyDescription>
+					<value>REIFEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>RLTA</value>
+				<manufacturerCodes>1PE</manufacturerCodes>
+				<description>
+					<value>RADSCHRAUBEN DIEBSTAHLSICHERUNG</value>
+				</description>
+				<family>TRD</family>
+				<familyDescription>
+					<value>FAHRWERK</value>
+				</familyDescription>
+				<subFamily>LLA</subFamily>
+				<subFamilyDescription>
+					<value>FELGEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>RL91</value>
+				<manufacturerCodes>1G9</manufacturerCodes>
+				<description>
+					<value>REP 3.5JX18"</value>
+				</description>
+				<family>TRD</family>
+				<familyDescription>
+					<value>FAHRWERK</value>
+				</familyDescription>
+				<subFamily>LLA</subFamily>
+				<subFamilyDescription>
+					<value>FELGEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>RR05</value>
+				<manufacturerCodes>1X1</manufacturerCodes>
+				<description>
+					<value>4X4</value>
+				</description>
+				<family>TRD</family>
+				<familyDescription>
+					<value>FAHRWERK</value>
+				</familyDescription>
+				<subFamily>TRA</subFamily>
+				<subFamilyDescription>
+					<value>ANTRIEB</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>RS66</value>
+				<manufacturerCodes>0N4</manufacturerCodes>
+				<description>
+					<value>HI UNABHÄNGIG</value>
+				</description>
+				<family>TRD</family>
+				<familyDescription>
+					<value>FAHRWERK</value>
+				</familyDescription>
+				<subFamily>SUS</subFamily>
+				<subFamilyDescription>
+					<value>FEDERUNG</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<item>
+				<value>RL48</value>
+				<manufacturerCodes>U41</manufacturerCodes>
+				<description>
+					<value>LM 7.0JX18"</value>
+				</description>
+				<family>TRD</family>
+				<familyDescription>
+					<value>FAHRWERK</value>
+				</familyDescription>
+				<subFamily>LLA</subFamily>
+				<subFamilyDescription>
+					<value>FELGEN</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</item>
+			<rank>
+				<value>20170413</value>
+				<family>RNG</family>
+				<familyDescription>
+					<value>BEREICHE</value>
+				</familyDescription>
+				<subFamily>FEC</subFamily>
+				<subFamilyDescription>
+					<value>Herstellungsdatum</value>
+				</subFamilyDescription>
+				<source>vinquery</source>
+			</rank>
+		</equipmentList>
+		<modelType>FULL</modelType>
+		<umcSource>VinQuery</umcSource>
+	</vehicleInfo>
+	<operationList />
+	<result>
+		<parts>
+			<details />
+			<anticorrosionMaterial>0</anticorrosionMaterial>
+			<discountTotal>0</discountTotal>
+			<sparePartDeliveryCost>0</sparePartDeliveryCost>
+			<undersidePaintMaterial>0</undersidePaintMaterial>
+			<smallPartsTotal>0</smallPartsTotal>
+			<subtotal>0</subtotal>
+			<totalExcludeDiscount>0</totalExcludeDiscount>
+			<total>0</total>
+			<oilRecyclingRate>0</oilRecyclingRate>
+			<tyreRecyclingRate>0</tyreRecyclingRate>
+			<otherWasteRecyclingRate>0</otherWasteRecyclingRate>
+			<totalDiscountPerLine>0</totalDiscountPerLine>
+			<tyreUnits>0</tyreUnits>
+			<oilLiters>0</oilLiters>
+			<totalDepreciations>0</totalDepreciations>
+			<subtotalWDepreciations>0</subtotalWDepreciations>
+		</parts>
+		<labourTime>
+			<details />
+			<hours>0</hours>
+			<subtotal>0</subtotal>
+			<discountTotal>0</discountTotal>
+			<total>0</total>
+			<hoursAndAmountsPerTechnicityList />
+			<userLabourSubtotal>0</userLabourSubtotal>
+			<hourLabourSubtotal>0</hourLabourSubtotal>
+			<totalDiscountPerLine>0</totalDiscountPerLine>
+			<totalTimeDiscountPerLine>0</totalTimeDiscountPerLine>
+		</labourTime>
+		<paint>
+			<details />
+			<labourTimeHours>0</labourTimeHours>
+			<labourTimeTotal>0</labourTimeTotal>
+			<materialsTotal>0</materialsTotal>
+			<labourTimeSubtotal>0</labourTimeSubtotal>
+			<materialsSubtotal>0</materialsSubtotal>
+			<discountMaterialsTotal>0</discountMaterialsTotal>
+			<discountLabourTimeTotal>0</discountLabourTimeTotal>
+			<discountTotal>0</discountTotal>
+			<subtotal>0</subtotal>
+			<total>0</total>
+			<labourTimeManualHours>0</labourTimeManualHours>
+			<labourTimeScaleHours>0</labourTimeScaleHours>
+			<labourTimeManualSubtotal>0</labourTimeManualSubtotal>
+			<labourTimeScaleSubtotal>0</labourTimeScaleSubtotal>
+			<materialsManualSubtotal>0</materialsManualSubtotal>
+			<materialsScaleSubtotal>0</materialsScaleSubtotal>
+			<labourTimeCteTotal>0</labourTimeCteTotal>
+			<labourTimeCteHours>0</labourTimeCteHours>
+			<materialsCteTotal>0</materialsCteTotal>
+			<grammageImpTotal>0</grammageImpTotal>
+			<grammageColTotal>0</grammageColTotal>
+			<grammage2ColTotal>0</grammage2ColTotal>
+			<grammageBarTotal>0</grammageBarTotal>
+			<userLabourSubtotal>0</userLabourSubtotal>
+			<hourLabourSubtotal>0</hourLabourSubtotal>
+			<materialTotalDiscountPerLine>0</materialTotalDiscountPerLine>
+			<labourTotalDiscountPerLine>0</labourTotalDiscountPerLine>
+			<totalPearlescentUplift>0</totalPearlescentUplift>
+		</paint>
+		<deductible>0</deductible>
+		<discountTotal>0</discountTotal>
+		<totalAgainstMarketPercent>0</totalAgainstMarketPercent>
+		<subtotal>0</subtotal>
+		<taxBase>0</taxBase>
+		<taxTotal>0</taxTotal>
+		<totalExcDeductible>0</totalExcDeductible>
+		<total>0</total>
+		<totalWasteRecyclingRate>0</totalWasteRecyclingRate>
+	</result>
+</estimate> 

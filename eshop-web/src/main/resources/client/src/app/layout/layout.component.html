@@ -1,0 +1,12 @@
+<connect-system-message [subArea]="'ALL'" class="top-message"></connect-system-message>
+<connect-header></connect-header>
+<div class="container-lg container-main" [class.sale-view]="isShownCustomerInfo">
+    <connect-menu-bar *ngIf="isShown"></connect-menu-bar>
+    <ng-container *ngIf="isShownCustomerInfo">
+        <connect-customer-info [isShownMemo]="isShownMemo"></connect-customer-info>
+    </ng-container>
+    <router-outlet></router-outlet>
+    <connect-scroll-top></connect-scroll-top>
+</div>
+<connect-footer></connect-footer>
+<connect-feedback *ngIf="enableFeedback"></connect-feedback>

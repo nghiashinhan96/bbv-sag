@@ -1,0 +1,7 @@
+<div class="connect-final-customer-address" *ngIf="customerAddress$ | async as customerAddress">
+        <p>{{ customerAddress?.customerName }}</p>
+        <p>{{ customerAddress?.street }}</p>
+        <p>{{ customerAddress?.address1 }}</p>
+        <p>{{ customerAddress?.address2 }}</p>
+        <p>{{ customerAddress?.postCode }} {{ customerAddress?.place }}</p>
+</div>

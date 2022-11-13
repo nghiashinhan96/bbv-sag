@@ -1,0 +1,213 @@
+{
+  "items": [
+    {
+      "quantity": 1,
+      "articleItem": {
+        "id": "bfdd54d3041db887db4dfa669dec9dc1",
+        "criteria": [
+          {
+            "cvp": "radseitig",
+            "cid": "100"
+          },
+          {
+            "cvp": "26,5",
+            "cid": "995"
+          },
+          {
+            "cvp": "81",
+            "cid": "996"
+          },
+          {
+            "cvp": "109",
+            "cid": "209"
+          },
+          {
+            "cvp": "Thermoplast",
+            "cid": "468"
+          }
+        ],
+        "refs": [
+          {
+            "id_source": "tecdoc",
+            "artnr": "23142",
+            "id_pim": "1000000015925641412",
+            "id_dlnr": "1",
+            "supplier": null,
+            "id_autonet": "SP23142",
+            "artid": "bfdd54d3041db887db4dfa669dec9dc1",
+            "artnr_display": "23142",
+            "gaID": "194",
+            "genArtTxts": null,
+            "partImage": null,
+            "partDesc": null,
+            "brandImage": null,
+            "amountNumber": null,
+            "availableIcon": null,
+            "characteristics": null,
+            "partBigImage": null,
+            "content": null,
+            "productDesc": null,
+            "usage": null,
+            "safety": null,
+            "favourite": null,
+            "isNew": null,
+            "available": false,
+            "availability": null,
+            "article": null,
+            "price": null
+          }
+        ],
+        "parts": [
+          {
+            "brandid": "3166",
+            "pnrn": "844005",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "72",
+            "pnrn": "GD38-22-530",
+            "ptype": "OEM"
+          },
+          {
+            "brandid": "72",
+            "pnrn": "GD3822530A",
+            "ptype": "OEM"
+          },
+          {
+            "brandid": "72",
+            "pnrn": "GD3822530B",
+            "ptype": "OEM"
+          },
+          {
+            "brandid": "550",
+            "pnrn": "VKJP 1391",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "811",
+            "pnrn": "304096",
+            "ptype": "IAM"
+          }
+        ],
+        "info": []
+      }
+    },
+    {
+      "quantity": 1,
+      "articleItem": {
+        "id": "e525c013955757a16dd675195681b7a9",
+        "criteria": [
+          {
+            "cvp": "6.320",
+            "cid": "212"
+          },
+          {
+            "cvp": "Stock code : 66",
+            "cid": "903"
+          }
+        ],
+        "refs": [
+          {
+            "id_source": "tecdoc",
+            "artnr": "23142",
+            "id_pim": "1000000013982083537",
+            "id_dlnr": "13",
+            "supplier": null,
+            "id_autonet": "",
+            "artid": "e525c013955757a16dd675195681b7a9",
+            "artnr_display": "23142",
+            "gaID": "3436",
+            "genArtTxts": null,
+            "partImage": null,
+            "partDesc": null,
+            "brandImage": null,
+            "amountNumber": null,
+            "availableIcon": null,
+            "characteristics": null,
+            "partBigImage": null,
+            "content": null,
+            "productDesc": null,
+            "usage": null,
+            "safety": null,
+            "favourite": null,
+            "isNew": null,
+            "available": false,
+            "availability": null,
+            "article": null,
+            "price": null
+          }
+        ],
+        "parts": [
+          {
+            "brandid": "532",
+            "pnrn": "30 1700 313 856",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "84",
+            "pnrn": "5852471",
+            "ptype": "OEM"
+          },
+          {
+            "brandid": "117",
+            "pnrn": "13124155",
+            "ptype": "OEM"
+          },
+          {
+            "brandid": "507",
+            "pnrn": "08.307.80",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "529",
+            "pnrn": "055277",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "541",
+            "pnrn": "285-313",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "1424",
+            "pnrn": "P4438",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "1425",
+            "pnrn": "23142",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "1426",
+            "pnrn": "54.87.46",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "2744",
+            "pnrn": "34.6124",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "3080",
+            "pnrn": "OP40088",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "3279",
+            "pnrn": "260955",
+            "ptype": "IAM"
+          },
+          {
+            "brandid": "3279",
+            "pnrn": "GM514W",
+            "ptype": "IAM"
+          }
+        ],
+        "info": []
+      }
+    }
+  ],
+  "numberOfItems": 2,
+  "total": 0
+}

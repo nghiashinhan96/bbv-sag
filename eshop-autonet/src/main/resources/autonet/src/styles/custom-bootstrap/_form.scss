@@ -1,0 +1,56 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: $primary;
+    margin-bottom: $spacer;
+}
+
+.form-control {
+    font-size: inherit;
+    height: $panel-height;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0;
+}
+
+input.form-control {
+
+    &::placeholder {
+        color: $palceholder;
+    }
+}
+
+.hint {
+    &-error {
+        display: block;
+        white-space: normal;
+        margin-top: $quarter-spacer;
+        font-size: 85%;
+        color: $danger;
+    }
+}
+
+hr {
+    margin-top: $spacer;
+    margin-bottom: $spacer;
+}
+
+i.inner-tooltip {
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 7px;
+    color: #666;
+    opacity: .75;
+    transition: all 300ms;
+    cursor: pointer;
+
+    &:hover {
+        color: $primary;
+        opacity: 1;
+    }
+}

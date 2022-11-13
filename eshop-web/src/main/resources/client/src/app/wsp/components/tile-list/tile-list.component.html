@@ -1,0 +1,35 @@
+<div class="d-flex flex-wrap align-items-stretch w-100 tile-list">
+
+    <ng-container [ngSwitch]="tileMode">
+        <ng-container *ngSwitchCase="TILE_MODE.NODE_MODE">
+            <ng-container *ngIf="finalList && finalList.length > 0;">
+                <ng-container *ngFor="let item of finalList">
+                    <ng-container *ngIf="item.tileType === 'up_ad'; else defaultTileRef">
+                        <connect-card-ads-item class="w-33 mr-3 mb-3 tile-item" [item]="item" [nodeId]="nodeId"
+                            [treeId]="treeId"></connect-card-ads-item>
+                    </ng-container>
+
+                    <ng-template #defaultTileRef>
+                        <connect-card-tile-item class="w-33 mr-3 mb-3 tile-item" [tile]="item"
+                            (selectLinkEmit)="selectLink($event)"></connect-card-tile-item>
+                    </ng-template>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="TILE_MODE.GENART_MODE">
+            <ng-container *ngIf="genArts && genArts.length > 0; else noResult">
+                <ng-container *ngFor="let item of genArts; let i = index">
+                    <connect-card-genart-item class="w-33 mr-3 mb-3 tile-item" [tile]="item" [index]="i" [totalTiles]="genArts?.length" (onSelectedBrands)="selectBrandsEmit.emit($event)"></connect-card-genart-item>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+
+    <ng-template #noResult>
+        <div class="alert alert-warning">
+            {{ 'SEARCH.NO_VEHICLE_SEARCH_FOUND' | translate}}
+        </div>
+    </ng-template>
+
+</div>

@@ -1,0 +1,24 @@
+.delivery-row {
+    ul {
+        column-count: 3;
+        column-gap: 23px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.invoice-number {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0;
+    color: #333;
+}
+
+.invoice-line {
+    margin-top: 5px;
+}
+
+.fa-file-pdf-o {
+    font-size: 20px;
+}

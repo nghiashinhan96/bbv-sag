@@ -1,0 +1,16 @@
+connect-invoice {
+    connect-invoice-filter {
+        .label {
+            display: block;
+        }
+        .date-picker {
+            position: absolute;
+            top: 0;
+            width: 188px;
+        }
+        .ng-select-container {
+            height: 2.5rem !important;
+            min-height: 2.5rem !important;
+        }
+    }
+}

@@ -1,0 +1,4 @@
+spring.profiles: logging-default
+
+logging:
+  config: classpath:log4j2-default.xml

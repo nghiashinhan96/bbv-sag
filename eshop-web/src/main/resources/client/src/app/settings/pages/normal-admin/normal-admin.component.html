@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-between align-items-center mt-3 mb-2 current-user-info" [ngClass]="isOciFlow ? 'disabled':''">
+    <h6 class="card-title">
+        <label>{{ 'SETTINGS.USER_MANAGEMENT.GARAGE_NAME'| translate }}:</label>
+        <span class="text-primary ml-2">{{userDetail?.username}}</span>
+    </h6>
+
+    <button class="btn btn-primary"
+        (click)="openModal()">{{ 'SETTINGS.USER_MANAGEMENT.CREATE_PROFILE' | translate }}</button>
+</div>
+<div [ngClass]="isOciFlow ? 'disabled':''">
+    <connect-normal-admin-user-list [userList]="allUsersObserver" [currentUser]="userDetail" (refreshUserList)="refreshUserList()">
+    </connect-normal-admin-user-list>
+</div>

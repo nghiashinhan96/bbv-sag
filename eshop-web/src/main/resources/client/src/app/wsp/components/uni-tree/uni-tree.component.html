@@ -1,0 +1,12 @@
+<div class="d-flex result__list align-items-center unitree" id="resultEl">
+    <ul class="nav nav-tabs uni-tree" id="uniTreeEl">
+        <ng-container *ngFor="let tree of uniTrees; let i = index">
+            <li class="nav-item" id="tree-{{tree.treeId}}">
+                <a class="nav-link d-flex align-items-center text-nowrap" [class.active]="tree.active" (click)="activeTab(tree)">
+                    <img [src]="tree?.treeImage" class="tile-img" *ngIf="tree?.treeImage">
+                    {{tree.treeName}}
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</div>

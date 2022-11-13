@@ -1,0 +1,35 @@
+spring:
+   profiles.active: copydb,dev
+   datasource:
+      source:
+         type: com.zaxxer.hikari.HikariDataSource
+         jdbcUrl: jdbc:sqlserver://148.251.19.36:9254;databaseName=sag
+         username: sag
+         password: ENC@[FPsPTdkRSNUCm+5KCd1o0tdwbtLGD96W]
+         hikari:
+            poolName: Hikari
+            auto-commit: false
+            data-source-properties:
+               cachePrepStmts: true
+               prepStmtCacheSize: 250
+               prepStmtCacheSqlLimit: 2048
+               useServerPrepStmts: true
+      target:
+         type: com.zaxxer.hikari.HikariDataSource
+         jdbcUrl: jdbc:sqlserver://148.251.19.36:9254;databaseName=axprod
+         username: sag
+         password: ENC@[FPsPTdkRSNUCm+5KCd1o0tdwbtLGD96W]
+         hikari:
+            poolName: Hikari
+            auto-commit: false
+            data-source-properties:
+               cachePrepStmts: true
+               prepStmtCacheSize: 250
+               prepStmtCacheSqlLimit: 2048
+               useServerPrepStmts: true
+copy:
+   fromSchema: sag.dbo
+   toSchema: axprod.dbo
+logging:
+   level:
+      root: INFO

@@ -1,0 +1,17 @@
+.wt-sb {
+    sag-lib-make-model-type-search {
+        .ng-select {
+            &.ng-touched.ng-dirty.ng-invalid {
+                .ng-select-container {
+                    border-color: $danger;
+                }
+            }
+        }
+    }
+    
+    form {
+        .error-required {
+            border: 1px solid $danger;
+        }
+    }
+}

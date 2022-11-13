@@ -1,0 +1,1 @@
+export const ON_BEHALF_ADMIN_USER = 'ON_BEHALF_ADMIN';

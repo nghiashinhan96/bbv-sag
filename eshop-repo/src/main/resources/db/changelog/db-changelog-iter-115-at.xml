@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_115_AT_INITIAL_DATA_PRICE_DISPLAY_TYPE">
+        <sql>
+            IF NOT EXISTS (SELECT 1 FROM PRICE_DISPLAY_TYPE WHERE [DESC_CODE] = 'UVPE_OEP_GROSS')
+            BEGIN
+                INSERT INTO PRICE_DISPLAY_TYPE ([TYPE], [DESC_CODE], [DESCRIPTION]) VALUES ('UVPE_OEP_GROSS', 'UVPE_OEP_GROSS' , 'UVPE -> OEP -> Gross')
+            END;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

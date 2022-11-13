@@ -1,0 +1,3 @@
+export enum ORDER_WARNING {
+    INVALID_COUPON = 'INVALID_COUPON'
+}

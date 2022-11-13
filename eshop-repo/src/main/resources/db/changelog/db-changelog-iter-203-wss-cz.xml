@@ -1,0 +1,260 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_203_ESHOP_CLIENT_WHOLESALER_WBB_CLIENT_INITIAL_DATA">
+		<sql>
+			DECLARE @REST_ID INT = (select ID from ESHOP_CLIENT_RESOURCE
+			where NAME='sag-rest')
+			INSERT INTO [dbo].[ESHOP_CLIENT]
+			(CLIENT_NAME,
+			CLIENT_SECRET, RESOURCE_ID, ACTIVE) VALUES
+			('eshop-wholesaler',
+			'Fd73piTIWo3ugFdHNy9hpe3IRkFd1x7TeNFraqQ',
+			@REST_ID, 1);
+
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP"	id="ITER_203_CLIENT_ROLE_INITIAL_DATA">
+		<sql>
+			DECLARE @ESHOP_WEB_CLIENT_ID INT = (select ID from ESHOP_CLIENT
+			where CLIENT_NAME='eshop-web')
+			DECLARE @ROLE_USER_ADMIN_ID INT =
+			(select ID from ESHOP_ROLE where NAME = 'USER_ADMIN')
+			INSERT INTO
+			[dbo].[CLIENT_ROLE] (CLIENT_ID, ROLE_ID)
+			VALUES(@ESHOP_WEB_CLIENT_ID,
+			@ROLE_USER_ADMIN_ID)
+
+			DECLARE @ROLE_NORMAL_USER_ID INT = (select ID
+			from ESHOP_ROLE where NAME =
+			'NORMAL_USER')
+			INSERT INTO
+			[dbo].[CLIENT_ROLE] (CLIENT_ID, ROLE_ID)
+			VALUES(@ESHOP_WEB_CLIENT_ID,
+			@ROLE_NORMAL_USER_ID)
+
+			DECLARE @ROLE_GROUP_ADMIN_ID INT = (select ID
+			from ESHOP_ROLE where NAME =
+			'GROUP_ADMIN')
+			INSERT INTO
+			[dbo].[CLIENT_ROLE] (CLIENT_ID, ROLE_ID)
+			VALUES(@ESHOP_WEB_CLIENT_ID,
+			@ROLE_GROUP_ADMIN_ID)
+
+			DECLARE @ROLE_MARKETING_ASSISTANT_ID INT =
+			(select ID from ESHOP_ROLE where
+			NAME = 'MARKETING_ASSISTANT')
+			INSERT
+			INTO [dbo].[CLIENT_ROLE]
+			(CLIENT_ID, ROLE_ID)
+			VALUES(@ESHOP_WEB_CLIENT_ID,
+			@ROLE_MARKETING_ASSISTANT_ID)
+
+			DECLARE
+			@ROLE_SALES_ASSISTANT_ID INT = (select ID from ESHOP_ROLE where NAME
+			= 'SALES_ASSISTANT')
+			INSERT INTO [dbo].[CLIENT_ROLE] (CLIENT_ID,
+			ROLE_ID) VALUES(@ESHOP_WEB_CLIENT_ID, @ROLE_SALES_ASSISTANT_ID)
+
+			DECLARE @ESHOP_ADMIN_CLIENT_ID INT = (select ID from ESHOP_CLIENT
+			where CLIENT_NAME='eshop-admin')
+			DECLARE @ROLE_SYS_ADMIN_ID INT =
+			(select ID from ESHOP_ROLE where NAME = 'SYSTEM_ADMIN')
+			INSERT INTO	[dbo].[CLIENT_ROLE] (CLIENT_ID, ROLE_ID)
+			VALUES(@ESHOP_ADMIN_CLIENT_ID, @ROLE_SYS_ADMIN_ID)
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ITER_203_UPDATE_PERMISSION_FOR_DEFAULT_COLLECTION">
+		<sql>
+			INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID,
+			ESHOP_PERMISSION_ID)
+			SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p,
+			ORGANISATION_COLLECTION
+			orgCol
+			WHERE orgCol.SHORTNAME='st-cz' AND
+			p.PERMISSION IN ('WHOLESALER')
+			AND p.ID NOT IN (SELECT
+			cp.ESHOP_PERMISSION_ID from
+			COLLECTION_PERMISSION cp WHERE
+			COLLECTION_ID = orgCol.ID);
+		</sql>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP" id="ITER_203_ADD_EHCZ_ORGANISATION_COLLECTION">
+		<sql>
+			IF EXISTS 
+			(SELECT 1 FROM ORGANISATION where SHORTNAME = 'st-cz')
+			BEGIN
+			DECLARE @org_id int = (
+			SELECT
+				ID
+			FROM
+				ORGANISATION where SHORTNAME = 'st-cz')
+			INSERT
+				INTO
+				ORGANISATION_COLLECTION (
+				NAME,
+				AFFILIATE_ID,
+				DESCRIPTION,
+				SHORTNAME)
+			VALUES(
+			N'Stakis',
+			@org_id,
+			N'Description',
+			N'eh-cz')
+			END;
+		</sql>
+	</changeSet>
+	
+	<!-- Please run this manually as this setting is depend on environment -->
+	
+	<!-- <changeSet author="CONNECT_APP" id="ITER_203_ADD_EHCZ_ORG_COLLECTION_SETTING">
+		<sql>
+			IF EXISTS 
+			(SELECT 1 FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'eh-cz')
+			AND NOT EXISTS (SELECT	1 FROM ORG_COLLECTION_SETTINGS
+			WHERE
+				COLLECTION_ID = (SELECT	ID FROM	ORGANISATION_COLLECTION	WHERE
+					SHORTNAME = 'eh-cz'))
+			BEGIN
+			DECLARE @eh_cz_org_coll_id int = (
+			SELECT
+				ID
+			FROM
+				ORGANISATION_COLLECTION where SHORTNAME = 'eh-cz')
+			
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'logo_image', N'https://s3.exellio.de/connect_media/collections/1625046833633ApvT.png');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'default_logo', N'../images/logo/logo-st.png');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'background_image', N'../images/background/bg-st.jpg');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'default_background', N'../images/background/bg-st.jpg');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'description', N'EH Stakis-Czech settings');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'theme_color_1', N'#D50025');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'theme_color_2', N'#616264');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'font_color_1', N'#313131');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'font_color_2', N'black');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'back_to_top_arrow_color', N'#0073be');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'footer_color', N'#c0d1e3');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'footer_text_color', N'black');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'button_color', N'#0073be');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'button_text_color', N'#0073be');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'slide_show_paging_color', N'blue');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'slide_show_paging_color_inactive', N'blue');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'button_cart_color', N'#f6a60c');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'section_arrow_hover_color', N'#666666');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'availability_status_color_1', N'#f6a60c');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'availability_status_color_2', N'#20bc5d');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'availability_status_color_3', N'red');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'information_icon_color', N'#787878');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'vin_notification_color', N'#339900');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'carousel_background', N'../images/carousel-arrows-st.gif');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'ico_cart', N'../images/ico-cart-st.png');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'login_image', N'../images/login-st.jpg');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'pre_loader', N'../images/logo/DS-Loader_small.gif');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'default_email', N'noReply@sag-ag.ch');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'google_analytics_tracking_code', N'UA-186328955-1');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'show_tyres_discount', N'false');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'show_tyres_gross_price_header', N'true');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'title', N'Connect');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'default_url', N'https://cz.bbv-demo.ch/st-cz/');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'start_work_time', N'5:00');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'end_work_time', N'17:00');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'marketing_dept_email', N'chau.le@bbv.vn');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'setting_locale', N'cs_CZ');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'is_customer_abs_enabled', N'true');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'eh_portal_url', N'https://cz.bbv-demo.ch/eh-st-cz');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'default_vat_rate', N'21.0');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'eh_default_email', N'noReply@sag-ag.ch');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'payment_additional_credit_direct_invoice', N'10000');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'is_sales_abs_enabled', N'false');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'c4s_brand_priority_avail_filter', N'000');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'customer_brand_priority_avail_filter', N'000');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'availability_icon', N'true');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'drop_shipment_availability', N'false');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'detail_avail_text_de', N'WBB Sollte der Artikel nicht innerhalb von 24 Std lieferbar sein, werden Sie informiert.');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'list_avail_text_de', N'DE');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'detail_avail_text_fr', N'WBB Si l''article n''est pas disponible en 24 heures, vous en serez informé.');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'list_avail_text_fr', N'FR');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'detail_avail_text_it', N'WBB Se l''articolo non è disponibile entro 24 ore, sarete informati.');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'list_avail_text_it', N'IT');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'is_kso_enabled', N'false');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'is_customer_brand_filter_enabled', N'false');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'is_sales_brand_filter_enabled', N'false');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'detail_avail_text_cs', N'Test');
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@eh_cz_org_coll_id, N'list_avail_text_cs', N'Test');
+			
+			
+			END;
+		</sql>
+	</changeSet> -->
+
+	<!-- Please change URL per environment -->
+	<!-- PRE PROD: https://preconnect-int.sag.services/eh-st-cz/ -->
+	<!-- PRE PROD: https://connect-int.sag.services/eh-st-cz/ -->
+	<changeSet author="CONNECT_APP" id="ITER_203_INSERT_EH_PORTAL_URL_SETTING_ST_CZ">
+	    <sql>
+			DECLARE @st_cz_coll_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'st-cz')
+			IF EXISTS (SELECT 1 FROM ORG_COLLECTION_SETTINGS
+				WHERE
+					SETTING_KEY = 'eh_portal_url' AND COLLECTION_ID = @st_cz_coll_id)
+			BEGIN
+				UPDATE ORG_COLLECTION_SETTINGS SET SETTING_VALUE = N'https://cz.bbv-demo.ch/eh-st-cz/'
+				WHERE COLLECTION_ID = @st_cz_coll_id AND SETTING_KEY = 'eh_portal_url'
+			END
+			ELSE
+			BEGIN  
+				INSERT INTO ORG_COLLECTION_SETTINGS ( COLLECTION_ID, SETTING_KEY, SETTING_VALUE) VALUES(@st_cz_coll_id, N'eh_portal_url', N'https://cz.bbv-demo.ch/eh-st-cz/')
+			END
+	    </sql>
+  </changeSet>
+  
+  <!-- Please change URL per environment -->
+  <!-- PRE PROD: https://preconnect-int.sag.services/eh-st-cz/ -->
+  <!-- PRE PROD: https://connect-int.sag.services/eh-st-cz/ -->
+  <changeSet author="CONNECT_APP" id="ITER_203_INSERT_EH_PORTAL_URL_SETTING_EH_CZ">
+	    <sql>
+			DECLARE @eh_cz_coll_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'eh-cz')
+			IF EXISTS (SELECT 1 FROM ORG_COLLECTION_SETTINGS
+				WHERE
+					SETTING_KEY = 'eh_portal_url' AND COLLECTION_ID = @eh_cz_coll_id)
+			BEGIN
+				UPDATE ORG_COLLECTION_SETTINGS SET SETTING_VALUE = N'https://cz.bbv-demo.ch/eh-st-cz/'
+				WHERE COLLECTION_ID = @eh_cz_coll_id AND SETTING_KEY = 'eh_portal_url'
+			END
+			ELSE
+			BEGIN  
+				INSERT INTO ORG_COLLECTION_SETTINGS ( COLLECTION_ID, SETTING_KEY, SETTING_VALUE) 
+				VALUES(@eh_cz_coll_id, N'eh_portal_url', N'https://cz.bbv-demo.ch/eh-st-cz/')
+			END
+	
+	    </sql>
+  </changeSet>
+  
+  <!-- Please change URL per environment -->
+  <!-- PRE PROD: https://preconnect-int.sag.services/st-cz/ -->
+  <!-- PRE PROD: https://connect-int.sag.services/st-cz/ -->
+  <changeSet author="CONNECT_APP" id="ITER_203_INSERT_DEFAULT_URL_SETTING_EH_CZ">
+	    <sql>
+			DECLARE @eh_cz_coll_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'eh-cz')
+			IF EXISTS (SELECT 1 FROM ORG_COLLECTION_SETTINGS
+				WHERE
+					SETTING_KEY = 'default_url' AND COLLECTION_ID = @eh_cz_coll_id)
+			BEGIN
+				UPDATE ORG_COLLECTION_SETTINGS SET SETTING_VALUE = N'https://cz.bbv-demo.ch/st-cz/'
+				WHERE COLLECTION_ID = @eh_cz_coll_id AND SETTING_KEY = 'default_url'
+			END
+			ELSE
+			BEGIN  
+				INSERT INTO ORG_COLLECTION_SETTINGS ( COLLECTION_ID, SETTING_KEY, SETTING_VALUE) 
+				VALUES(@eh_cz_coll_id, N'default_url', N'https://cz.bbv-demo.ch/st-cz/')
+			END
+	
+	    </sql>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,89 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <!-- IMPORTANT: This is for DEV and PRE PROD only -->
+  <!-- Script for PROD is commented -->
+  <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS_AX_CZ">
+    <sql>
+		DECLARE @axcz_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'ax-cz')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @axcz_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@axcz_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-KQTWDS3", "gtm_env": "env-3", "gtm_auth": "qS622ZCYNssvBwqIXjGWww" } ] }')
+		  END
+		  
+	</sql>
+  </changeSet>
+  <!-- <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS_AX_CZ">
+    <sql>
+		DECLARE @axcz_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'ax-cz')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @axcz_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@axcz_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-KQTWDS3", "gtm_env": "env-1", "gtm_auth": "O-66bsgWHuarCwi_V6cqVQ" } ] }')
+		  END
+		  
+	</sql>
+  </changeSet> -->
+  
+  <changeSet author="CONNECT_APP" id="ITER_216_INSERT_PERMISSION_DEFAULT_FOR_TYRE_SHOP">
+		<sql>
+            <!--ESHOP_PERMISSION-->
+            BEGIN
+            IF NOT EXISTS (SELECT * FROM ESHOP_PERMISSION WHERE PERMISSION_KEY ='TYRE')
+                BEGIN
+                    INSERT INTO ESHOP_PERMISSION(PERMISSION,DESCRIPTION,CREATED_BY,PERMISSION_KEY)
+                    VALUES('TYRE', 'Permission to work with tyre module', '1', 'TYRE')
+                END
+            
+            <!--ESHOP_PERMISSION-->
+            
+            DECLARE @permTyreID VARCHAR(10) = (SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION_KEY= 'TYRE')
+            IF @permTyreID &lt;&gt; ''
+                BEGIN
+                    <!--COLLECTION_PERMISSION-->
+                    INSERT INTO COLLECTION_PERMISSION(COLLECTION_ID, ESHOP_PERMISSION_ID)
+                    SELECT ID, @permTyreID FROM ORGANISATION_COLLECTION oc
+                    <!--COLLECTION_PERMISSION-->
+
+                    <!--GROUP_PERMISSION-->
+                    INSERT INTO GROUP_PERMISSION(GROUP_ID , PERM_ID, ALLOWED)
+                    SELECT GROUP_ID, @permTyreID, '1' FROM GROUP_PERMISSION gp GROUP BY GROUP_ID ORDER BY GROUP_ID
+                    <!--GROUP_PERMISSION-->
+                END
+            
+
+            <!--ESHOP_FUNCTION-->           
+            IF NOT EXISTS (SELECT * FROM ESHOP_FUNCTION WHERE FUNCTION_NAME ='TYRE_URL_ACCESS')
+                BEGIN
+                    INSERT INTO ESHOP_FUNCTION ( FUNCTION_NAME, DESCRIPTION, RELATIVE_URL)
+                    VALUES( N'TYRE_URL_ACCESS', N'Function to work with tyres url at front-end', N'/tyres')
+                END
+            IF NOT EXISTS (SELECT * FROM ESHOP_FUNCTION WHERE FUNCTION_NAME ='TYRE_API_SEARCH')
+                BEGIN
+                    INSERT INTO ESHOP_FUNCTION ( FUNCTION_NAME, DESCRIPTION, RELATIVE_URL)
+                    VALUES( N'TYRE_API_SEARCH', N'Function to work with tyre search API at back-end', N'/search/tyre**')
+                END
+            <!--ESHOP_FUNCTION-->
+
+            <!--PERM_FUNCTION-->
+            DECLARE  @funcTyreUrlAccessID VARCHAR(10)= (SELECT ID FROM ESHOP_FUNCTION WHERE FUNCTION_NAME= 'TYRE_URL_ACCESS')
+			IF (@permTyreID &lt;&gt; '' AND @funcTyreUrlAccessID &lt;&gt; '')
+                BEGIN
+                    INSERT INTO PERM_FUNCTION (PERM_ID, FUNCTION_ID)
+                    VALUES( @permTyreID, @funcTyreUrlAccessID)
+                END
+            DECLARE  @funcTyreApiSearchID VARCHAR(10)= (SELECT ID FROM ESHOP_FUNCTION WHERE FUNCTION_NAME= 'TYRE_API_SEARCH')
+			IF (@permTyreID &lt;&gt; '' AND @funcTyreApiSearchID &lt;&gt; '')
+                BEGIN
+                    INSERT INTO PERM_FUNCTION (PERM_ID, FUNCTION_ID)
+                    VALUES( @permTyreID, @funcTyreApiSearchID)
+                END
+            END
+            <!--PERM_FUNCTION-->
+		</sql>
+	</changeSet>
+</databaseChangeLog>

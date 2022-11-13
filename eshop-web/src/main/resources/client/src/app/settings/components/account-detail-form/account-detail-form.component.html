@@ -1,0 +1,130 @@
+<section class="card">
+    <section class="card-body">
+        <div class="row">
+            <div class="form-group col-12">
+                <span>{{'COMMON_LABEL.COMPANY'|translate}}:</span>
+                <span class="text-primary company-name" data-automation="account-detail-company-name">{{companyInformation}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <span>{{'AX_CONNECTION.BRANCH_NAME'|translate}}:</span>
+                <span class="text-primary ml-2">{{branchInformation}}</span>
+            </div>
+        </div>
+        <form novalidate [formGroup]="accountDetailForm" *ngIf="accountDetailForm">
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>{{'SETTINGS.PROFILE.USER_NAME'| translate}}*</label>
+                    <input formControlName="userName" type="text" class="form-control"
+                        [ngClass]="{'is-invalid': userName.hasError('required') && (userName.dirty || userName.touched)}"
+                        required>
+                    <span class="invalid-feedback"
+                        *ngIf="userName.hasError('required')">{{ 'SETTINGS.PROFILE.REQUIRED_FIELD' | translate }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="s-anrede">{{'SETTINGS.PROFILE.SALUTATION.TEXT'| translate}}</label>
+                    <ng-select
+                        [searchable]="salutations?.length > 10"
+                        bindValue="id"
+                        bindLabel="code"
+                        [items]="salutations"
+                        [clearable]="false"
+                        [minTermLength]="3"
+                        [virtualScroll]="true"
+                        [clearSearchOnAdd]="false"
+                        formControlName="salutationIds"
+                        class="font-weight-bold">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ 'SETTINGS.PROFILE.SALUTATION.' + item.code | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                            {{ 'SETTINGS.PROFILE.SALUTATION.' + item.code | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>{{'COMMON_LABEL.SURNAME'| translate}}*</label>
+                    <input formControlName="surName" type="text" class="form-control"
+                        [ngClass]="{'is-invalid': surName.hasError('required') && (surName.dirty || surName.touched)}"
+                        required>
+                    <span class="invalid-feedback"
+                        *ngIf="surName.hasError('required')">{{ 'SETTINGS.PROFILE.REQUIRED_FIELD' | translate }}</span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>{{'COMMON_LABEL.FIRST_NAME'| translate}}*</label>
+                    <input formControlName="firstName" type="text" class="form-control"
+                        [ngClass]="{'is-invalid': firstName.hasError('required') && (firstName.dirty || firstName.touched)}"
+                        required>
+                    <span class="invalid-feedback"
+                        *ngIf="firstName.hasError('required')">{{ 'SETTINGS.PROFILE.REQUIRED_FIELD' | translate }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>{{'COMMON_LABEL.EMAIL'| translate}}*</label>
+                    <input formControlName="email" type="email" class="form-control"
+                        [ngClass]="{'is-invalid':( email.hasError('required') || email.hasError('email')) && (email.dirty || email.touched)}"
+                        required>
+                    <span class="invalid-feedback"
+                        *ngIf="email.hasError('required')">{{ 'SETTINGS.PROFILE.REQUIRED_FIELD' | translate }}</span>
+                    <span class="invalid-feedback"
+                        *ngIf="email.hasError('email')">{{ 'SETTINGS.PROFILE.INVALID_EMAIL' | translate }}</span>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>{{'COMMON_LABEL.PHONE'| translate}}</label>
+                    <input formControlName="phoneNumber" type="text" class="form-control">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="t-sprache">{{'SETTINGS.PROFILE.LANGUAGE.TEXT'| translate}}</label>
+                    <ng-select
+                        [searchable]="languages?.length > 10"
+                        bindValue="id"
+                        bindLabel="langcode"
+                        [items]="languages"
+                        [clearable]="false"
+                        formControlName="languageId"
+                        class="font-weight-bold">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ 'SETTINGS.PROFILE.LANGUAGE.' + item.langcode | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                            {{ 'SETTINGS.PROFILE.LANGUAGE.' + item.langcode | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="t-typ">{{'SETTINGS.PROFILE.TYPE.TEXT'| translate}}</label>
+                    <ng-select
+                        [searchable]="types?.length > 10"
+                        bindValue="id"
+                        bindLabel="name"
+                        [items]="types"
+                        [clearable]="false"
+                        formControlName="typeId"
+                        class="font-weight-bold">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ 'SETTINGS.PROFILE.TYPE.' + item.name | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                            {{ 'SETTINGS.PROFILE.TYPE.' + item.name | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>{{'SETTINGS.PROFILE.HOURLY_RATE'| translate}}</label>
+                    <input formControlName="hourlyRate" [libNumeric] class="form-control">
+                </div>
+            </div>
+            <sag-common-message *ngIf="result" [data]="result"></sag-common-message>
+            <p>
+                <sag-common-save-button [disabled]="accountDetailForm.invalid" (save)="onSubmit($event)" [disabled]="userDetail?.isSalesOnBeHalf" css="btn-primary btn-center">
+                </sag-common-save-button>
+            </p>
+        </form>
+    </section>
+</section>

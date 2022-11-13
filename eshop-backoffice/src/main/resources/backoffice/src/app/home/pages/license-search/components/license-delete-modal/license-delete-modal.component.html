@@ -1,0 +1,24 @@
+<div class="modal-user-form" tabindex="-1" role="dialog">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'HOME.LABEL.LICENSE_SEARCH.DELETE_LICENSE' | translate}}</h4>
+        <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="onCancel()" aria-hidden="true"></i>
+    </div>
+    <div class="modal-body">
+        <div class="messages">
+            <table class="full-width">
+                <tr>
+                    <td>
+                        <p> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                            {{'HOME.LABEL.LICENSE_SEARCH.DELETE_MESSAGE.CONFIRM' | translate: ({deletedPackName: deletedPackName}) }}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" (click)="onCancel()">{{'COMMON.BUTTON.BACK' | translate}}</button>
+        <button type="button" class="btn btn-primary" (click)="onDelete()">{{'COMMON.BUTTON.DELETE' | translate}}</button>
+    </div>
+</div>

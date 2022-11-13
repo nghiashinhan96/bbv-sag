@@ -1,0 +1,19 @@
+<h3 class="section-title">{{ 'EXTERNAL_VENDOR.EXTERNAL_VENDOR_MENU_TITLE' | translate }}</h3>
+<sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+    notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}">
+</sag-table>
+<button class="btn btn-primary ml-10 pull-right" (click)="createOrUpdate()">
+    <i class="fa fa-plus"></i>
+    {{'EXTERNAL_VENDOR.CREATE_EXTERNAL_VENDOR_BUTTON_TEXT'| translate}}
+</button>
+<button class="btn btn-primary pull-right" (click)="importCSV()">
+    <i class="fa fa-upload"></i>
+    {{'EXTERNAL_VENDOR.IMPORT_EXTERNAL_VENDOR_BUTTON_TEXT'| translate}}
+</button>
+
+<ng-template #colActions let-row="row">
+    <div class="provider-action">
+        <i class="fa fa-edit" (click)="createOrUpdate(row.id)"></i>
+        <i class="fa fa-trash" (click)="delete(row.id, row.vendorName)"></i>
+    </div>
+</ng-template>

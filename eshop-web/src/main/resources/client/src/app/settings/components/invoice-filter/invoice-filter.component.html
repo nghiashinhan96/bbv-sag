@@ -1,0 +1,91 @@
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="w-100" style="flex:1">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4 pr-0" [class.filter-highlight]="isUsedDateRangePicker">
+                            <label
+                                class="label font-weight-bold">{{ 'SETTINGS.MY_ORDER.FILTER.DATE_FROM' | translate }}</label>
+                            <div class="input-group">
+                                <i class="fa fa-caret-left pointer" (click)="moveBackOneMonth()"></i>
+                                <input class="form-control disabled opacity-100"
+                                    placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_FROM' | translate}}" 
+                                    [locale]="locale"
+                                    angular-mydatepicker formControlName="dateFrom" [options]="dateFromOption"
+                                    #dpFrom="angular-mydatepicker"
+                                    [class.today-disabled]="dateFromDisableToday"/>
+                                <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <i class="fa fa-caret-right pointer" (click)="moveForwardOneMonth()"></i>
+                            </div>
+                        </div>
+                        <div class="col-4" [class.filter-highlight]="isUsedDateRangePicker">
+                            <label
+                                class="label font-weight-bold">{{ 'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate }}</label>
+                            <div class="input-group">
+                                <input class="form-control disabled opacity-100"
+                                    placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate}}"
+                                    [locale]="locale"
+                                    angular-mydatepicker formControlName="dateTo" [options]="dateToOption"
+                                    #dpTo="angular-mydatepicker"
+                                    [class.today-disabled]="dateToDisableToday"/>
+                                <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label class="label font-weight-bold">&nbsp;</label>
+                            <button class="btn btn-primary w-100">{{ 'SEARCH.SEARCH_BUTTON' | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <ng-container *ngIf="isCH || isAxCz">
+                        <div data-toggle="tooltip" data-placement="top" title="Enable search old invoices before {{oldInvoiceYear}}">
+                            <label class="label font-weight-bold">&nbsp;</label>
+                            <div class="switch mt-20" [ngClass]="{'enable': isShownOldInvoice}"
+                                (click)="enableOldInvoice()">
+                                <span class="switch-label">
+                                    <i class="fa fa-angle-left"></i> 01.01.{{oldInvoiceYear}}
+                                </span>
+                                <small></small>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="date-range-option" [class.filter-highlight]="isUsedDatePicker"
+            [class.disabled-content]="isShownOldInvoice">
+            <label class="label font-weight-bold">&nbsp;</label>
+            <div class="position-relative">
+                <ng-select
+                    [searchable]="dateRangeOptions?.length > 10"
+                    bindValue="id"
+                    bindLabel="code"
+                    [items]="dateRangeOptions"
+                    formControlName="dateRangeSearch"
+                    [clearable]="false">
+                    <ng-template ng-label-tmp let-item="item">
+                        {{ item.code | translate }}
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index">
+                        {{ item.code | translate }}
+                    </ng-template>
+                </ng-select>
+                <div class="input-group date-picker">
+                    <input [ngStyle]="{'opacity': isShownDatePicker ? '1' : '0'}" class="form-control disabled"
+                        placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate}}" angular-mydatepicker
+                        name="datePicker" formControlName="datePicker" [options]="dateToOption"
+                        #dpRange="angular-mydatepicker" />
+                    <div class="input-group-append pointer" (click)="dpRange.toggleCalendar()">
+                        <span class="input-group-text border-bottom-0"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

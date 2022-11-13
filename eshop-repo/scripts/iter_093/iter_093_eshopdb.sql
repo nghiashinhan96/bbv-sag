@@ -1,0 +1,11 @@
+--- #4260 Query to update CH-AX Training Connect DB with 10 exception email
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='Eugen.Ruppen@sag-ag.ch' WHERE PRIMARY_CONTACT_EMAIL = 'Eugen.Ruppen@sag-ag.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='joel.souchon@sag-ag.ch' WHERE PRIMARY_CONTACT_EMAIL = 'joel.souchon@sag-ag.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='josef.husmann@matik.ch' WHERE PRIMARY_CONTACT_EMAIL = 'josef.husmann@matik.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='Miguel.Graf@derendinger.ch' WHERE PRIMARY_CONTACT_EMAIL = 'Miguel.Graf@derendinger.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='roland.pfund@derendinger.ch' WHERE PRIMARY_CONTACT_EMAIL = 'roland.pfund@derendinger.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='sacha.moesching@derendinger.ch' WHERE PRIMARY_CONTACT_EMAIL = 'sacha.moesching@derendinger.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='saida.deladoey@technomag.ch' WHERE PRIMARY_CONTACT_EMAIL = 'saida.deladoey@technomag.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='Sandra.Burkhardt@derendinger.ch' WHERE PRIMARY_CONTACT_EMAIL = 'Sandra.Burkhardt@derendinger.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='miguel.perez@sag-ag.ch' WHERE PRIMARY_CONTACT_EMAIL = 'miguel.perez@sag-ag.ch'
+UPDATE dbo.AAD_ACCOUNTS SET PRIMARY_CONTACT_EMAIL='Michele.Mueller@sag-ag.ch' WHERE PRIMARY_CONTACT_EMAIL = 'Michele.Mueller@sag-ag.ch'

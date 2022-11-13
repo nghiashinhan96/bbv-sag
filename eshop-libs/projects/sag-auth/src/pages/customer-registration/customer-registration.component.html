@@ -1,0 +1,100 @@
+<div class="intro">
+    <p>
+        <strong>{{'REGISTER.INTRODUCTION_1' | translate}}</strong>
+    </p>
+    <p>{{'REGISTER.INTRODUCTION_2' | translate}}</p>
+</div>
+<div class="row">
+    <div class="col-8">
+        <sag-common-message *ngIf="checkingFormNoti" [message]="checkingFormNoti" type='ERROR'></sag-common-message>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 mb-3">
+        <a class="additional-link" href="javascript:void(0)" (click)="addtionalPageHandler.emit()">
+            {{ 'REGISTER.ADDITIONAL_LINK_TO_CONTACT' | translate}}
+        </a>
+    </div>
+</div>
+<form [formGroup]="registrationForm">
+    <section formGroupName="searchCustomerForm">
+        <div class=" row form-group">
+            <div class="col-4">
+                <input formControlName="customerNumber" type="text" class="form-control"
+                    placeholder="{{'REGISTER.CUSTOMER_NUMBER' | translate}}*" required>
+                <sag-common-control-message [control]="searchCustomerForm.controls.customerNumber">
+                </sag-common-control-message>
+            </div>
+            <div class="col-4">
+                <input formControlName="postCode" type="text" class="form-control"
+                    placeholder="{{'COMMON_LABEL.POSTAL_CODE' | translate}}*" required>
+                <sag-common-control-message [control]="searchCustomerForm.controls.postCode">
+                </sag-common-control-message>
+            </div>
+            <div class="col-4">
+                <sag-common-save-button [loading]="!checkCustomerState"
+                    [icon]="'ico-search'"
+                    [disabled]="registrationForm.controls.searchCustomerForm.invalid"
+                    (save)="checkCustomerInfo(searchCustomerForm.value)" text="" css="btn btn-search btn-search-sm">
+                </sag-common-save-button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col col-12 customer-info text-primary" *ngIf="customerInfo">{{customerInfo}}</div>
+        </div>
+    </section>
+    <div class="divider-border primary"></div>
+    <sag-common-message *ngIf="registryFormNoti" [data]="registryFormNoti"></sag-common-message>
+    <section formGroupName="registerForm">
+        <div class="row form-group">
+            <div class="col-8">
+                <input [attr.disabled]="disabledRegistry ? true : null" formControlName="userName" type="text"
+                    class="form-control" placeholder="{{'REGISTER.USERNAME' | translate}}*" required>
+                <sag-common-control-message [control]="registerForm.controls.userName">
+                </sag-common-control-message>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-8">
+                <input [attr.disabled]="disabledRegistry ? true : null" formControlName="firstName" type="text"
+                    class="form-control" placeholder="{{'COMMON_LABEL.FIRST_NAME' | translate}}*" required>
+                <sag-common-control-message [control]="registerForm.controls.firstName"></sag-common-control-message>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-8">
+                <input [attr.disabled]="disabledRegistry ? true : null" formControlName="surName" type="text"
+                    class="form-control" placeholder="{{'COMMON_LABEL.SURNAME' | translate}}*" required>
+                <sag-common-control-message [control]="registerForm.controls.surName"></sag-common-control-message>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-8">
+                <input [attr.disabled]="disabledRegistry ? true : null" formControlName="email" type="text"
+                    class="form-control" placeholder="{{'COMMON_LABEL.EMAIL' | translate}}*" required>
+                <sag-common-control-message [control]="registerForm.controls.email"></sag-common-control-message>
+            </div>
+        </div>
+
+        <div class="row form-group" *ngIf="showOnBehalf">
+            <div class="col-8">
+                <div class="form-group form-check">
+                    <input id="createOnBehalfOnly" class="form-check-input mt-0" type="checkbox" 
+                        [attr.disabled]="disabledOnBehalf ? true : null"    
+                        (change)="onCheckOnBehalfOnly($event)"
+                        formControlName="createOnBehalfOnly">
+                    <label class="form-check-label" for="createOnBehalfOnly">
+                        {{'REGISTER.CREATE_ON_BEHALF_ONLY' | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row submit-row">
+            <div class="col-8">
+                <sag-common-save-button [loading]="!registerState" [disabled]="!validOnBehalf && registerForm.invalid"
+                    (save)="register(registerForm.value)" text="REGISTER.REGISTRY" css="btn btn-primary btn-center">
+                </sag-common-save-button>
+            </div>
+        </div>
+    </section>
+</form>

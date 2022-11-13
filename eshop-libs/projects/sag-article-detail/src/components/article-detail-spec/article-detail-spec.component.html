@@ -1,0 +1,71 @@
+<tabset class="part-detail-tab is-header small-header small-content">
+    <tab heading="{{'ARTICLE.FEATURES' | translate}}" *ngIf="true">
+        <sag-article-detail-merkmale [article]="article"></sag-article-detail-merkmale>
+    </tab>
+    <tab heading="{{'ARTICLE.MORE_INFO' | translate}}" *ngIf="isShownMoreInfo">
+        <ul class="list-group list-group-flush list-group-link list-article-info">
+            <div class="print-ico pointer" (click)="printInfo()">
+                <i class="fa fa-print " aria-hidden="true"></i>
+            </div>
+            <ng-container *ngFor="let info of article.info">
+                <ng-container *ngIf="info.type !== INFO_TYPE.ADD_REC">
+                    <li class="list-group-item">
+                        <sag-article-info-item class="d-block" [info]="info"></sag-article-info-item>
+                    </li>
+                </ng-container>
+            </ng-container>
+        </ul>
+
+    </tab>
+    <tab heading="{{'ARTICLE.USE' | translate}}" (selectTab)="getArticleVehicleUsages()" *ngIf="true">
+        <ng-container *ngIf="vehicleUsages$ | async as firstVehicleUsages; else loadingRef">
+            <ul class="list-group list-group-flush">
+                <h6>
+                    {{firstVehicleUsages['vehicleBrand']}}
+                </h6>
+                <li class="list-group-item article-info"
+                    *ngFor="let vehicleUsage of firstVehicleUsages['vehicleUsage'] | slice:0:10">
+                    <a class="text-primary" (click)="naviagteTo($event, vehicleUsage.vehId)">
+                        {{vehicleUsage.vehicleDisplayName}}
+                    </a>
+                </li>
+                <div class="w-100 text-center">
+                    <button class="btn btn-primary btn-sm" (click)="showAllVehicleUsage()"
+                        *ngIf="(allVehicleUsages && allVehicleUsages.length > 1) || (firstVehicleUsages && firstVehicleUsages['vehicleUsage'] && firstVehicleUsages['vehicleUsage'].length > 10)">
+                        {{'ARTICLE.USING_TAB.ALL_SEARCH' | translate}}
+                    </button>
+                </div>
+            </ul>
+        </ng-container>
+    </tab>
+    <tab heading="{{'ARTICLE.OLYSLAGER' | translate}}" *ngIf="article.oilArticle">
+        <div class="list-group">
+            <div *ngIf="article.oilProduct?.capacities?.length > 0">
+                <p><strong>{{'OLYSLAGER.FILL_QUANTITY' | translate}}</strong></p>
+                <ul *ngFor="let capacity of article.oilProduct?.capacities">
+                    <li>{{capacity}}</li>
+                </ul>
+            </div>
+            <div *ngIf="article.oilProduct?.intervals?.length > 0">
+                <p><strong>{{'OLYSLAGER.USE_INTERVAL' | translate}}</strong></p>
+                <ul *ngFor="let intervalItem of article.oilProduct?.intervals">
+                    <li class="olyslager-detail">{{intervalItem.use_name}} : {{intervalItem.interval}}</li>
+                </ul>
+            </div>
+            <div *ngIf="article.oilProduct?.appNotes?.length > 0">
+                <p><strong>{{'OLYSLAGER.APP_NOTE' | translate}}</strong></p>
+                <ul *ngFor="let appNoteItem of article.oilProduct?.appNotes">
+                    <li class="olyslager-detail">{{appNoteItem}}</li>
+                </ul>
+            </div>
+        </div>
+    </tab>
+</tabset>
+<ng-template #loadingRef>
+    <div class="spinner spinner-inner overlay-loading relative">
+        <div>
+            <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+            <span class="loader-text">Loading...</span>
+        </div>
+    </div>
+</ng-template>

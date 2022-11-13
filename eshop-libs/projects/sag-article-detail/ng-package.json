@@ -1,0 +1,16 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/sag-article-detail",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds":{
+      "ngx-bootstrap": "ngx-bootstrap",
+      "ngx-bootstrap/modal": "ngx-bootstrap/modal",
+      "@ngx-translate/core": "@ngx-translate/core",
+      "lodash": "lodash",
+      "sag-common": "sag-common",
+      "sag-currency": "sag-currency",
+      "sag-custom-pricing": "sag-custom-pricing"
+    }
+  }
+}

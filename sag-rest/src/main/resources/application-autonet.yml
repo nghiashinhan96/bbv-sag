@@ -1,0 +1,43 @@
+# ************************************************************************
+# This is the Autonet configuration of RESTful application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Caching - 
+# - Country Code - 
+# - Liquibase - 
+# - Media Server - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  autonet-erp-pre,
+  db-autonet,
+  elasticsearch-dev2,
+  cache-dev,
+  country-autonet,
+  liquibase-autonet-dev,
+  media-server,
+  gtmotive-ch-pre,
+  mdm-pre
+
+spring.banner.location: classpath:banner/banner_autonet.txt
+
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      host: http://autonet.bbv-demo.ch/auth-server
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: autonet-rest
+      clientSecret: autonet-rest-yztAhGpFW
+
+license:
+  vin:
+    minimumOrder: 150

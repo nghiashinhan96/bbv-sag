@@ -1,0 +1,89 @@
+@import 'layout';
+@import 'ng-select';
+@import 'moon-icon';
+@import 'login';
+@import 'component';
+@import 'dropdown';
+@import 'mark-down';
+@import 'time-picker';
+
+.spinner {
+    &.relative {
+        position: relative;
+    }
+
+    &.spinner-inner {
+        padding: 2rem;
+        .loader {
+            width: 40px;
+            height: 40px;
+            border-width: 4px;
+            border-top-width: 4px;
+        }
+    }
+
+    &.ex-sm {
+        .loader {
+            width: 14px;
+            height: 14px;
+            border-width: 2px;
+            border-top-width: 2px;
+        }
+    }
+
+    &.sm {
+        .loader {
+            width: 24px;
+            height: 24px;
+            border-width: 3px;
+            border-top-width: 3px;
+        }
+    }
+
+    &.app-spinner {
+        background: rgba(255, 255, 255, 0.25);
+
+        .app-loader {
+            background: $preload;
+            width: 60px;
+            height: 60px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+
+.spinner-wrapper {
+    position: relative;
+}
+
+.overlay-loading {
+    z-index: 999999999;
+    color: $primary;
+    &.absolute {
+        position: absolute;
+    }
+
+    &.remain {
+        position: relative;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.switch {
+    &.enable {
+        background-color: $primary;
+    }
+}
+
+.disabled-content {
+    pointer-events: none;
+    opacity: 0.6;
+}

@@ -1,0 +1,152 @@
+<sag-article-list-header
+    [articleListType]="articleListType"
+    [userSetting]="userSetting"
+    (currentNetPriceChange)="onCurrentNetPriceChange()" [articleMode]="articleMode"
+    (articleModeChange)="articleModeChange.emit($event)" [(isAllChecked)]="isSelectedAll"
+    (removeEmitter)="removeSelectedArticles()"
+    (customPriceChange)="onCustomPriceChange($event)"
+    [sortArticle]="sortArticle"
+    [returnUrl]="returnUrl"
+    [disableSort]="disableSort">
+</sag-article-list-header>
+<section class="card card-body {{articleListType}}" data-automation="article-list-body">
+    <ng-container [ngSwitch]="true">
+        <ng-container *ngSwitchCase="articleListType == TYPE.IN_CONTEXT || articleListType == TYPE.WSP">
+            <sag-common-message *ngIf="data && data.length === 0" type="ERROR" message="SEARCH.ERROR_MESSAGE.NOT_FOUND"></sag-common-message>
+            <div class="alert alert-danger" *ngIf="data === null && !hasPositionWithCvpValueIsNull">
+                {{ 'ERROR_500' | translate }}
+            </div>
+            <sag-common-message *ngIf="articleListType == TYPE.IN_CONTEXT && hasPositionWithCvpValueIsNull" type="ERROR" message="ARTICLE.ERROR_MESSAGE.INVALID_OR_MISSING_DATA"></sag-common-message>
+            <div class="cate-root" [attr.data-automation]="'cate-root-'+ i" *ngFor="let root of data; trackBy: trackByFn; let i = index">
+                <ng-container *ngIf="articleListType == TYPE.IN_CONTEXT; else wspRootHeader">
+                    <ng-container *ngIf="root.pseudo; else defaultInContextHeader">
+                        <div *ngIf="!root.deleted" class="nav cate-root-header pseudo">
+                            <span>{{root.key}}</span>
+                            <div class="d-flex align-items-center" (click)="removePseudoGroup(root)">
+                                <i class="fa fa-close"></i>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-template #defaultInContextHeader>
+                        <strong class="nav cate-root-header" (click)="root.hidden = !root.hidden" data-automation="cate-root-header">
+                            <i class="fa"
+                                [ngClass]="{'fa-caret-up': !root.hidden, 'fa-caret-down': root.hidden}"></i>{{root.key}}
+                        </strong>
+                    </ng-template>
+                </ng-container>
+                <ng-template #wspRootHeader>
+                    <div class="nav cate-root-header wsp" data-automation="cate-root-header">
+                        <span (click)="onWspGaidHeaderClick()" >
+                            <i *ngIf="genArts?.length > 1" class="fa fa-chevron-left"></i>{{root.key}}
+                        </span>
+
+                        <div class="d-flex align-items-center">
+                            <span>
+                                {{'ARTICLE.ARTICLE_COUNT' | translate}}: {{articleCount}}
+                            </span>
+                            <!-- <div class="fav-star ml-3" [ngClass]="{'selected': isFavorited}" (click)="toggleFavoriteStatus()">
+                                <span class="fa fa-star-o"></span>
+                                <span class="fa fa-star"></span>
+                            </div> -->
+                            <ng-container *ngIf="enabledFavorite">
+                                <sag-article-favorite-icon
+                                    customClass="ml-3"
+                                    [gaId]="gaId"
+                                    [(isFavorited)]="isFavoritedList"
+                                    [action]="actionFavorite">
+                                </sag-article-favorite-icon>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-template>
+                <div class="cate-root-content" [class.hidden]="root.hidden" data-automation="cate-root-content">
+                    <ng-container *ngFor="let g of root.values; trackBy: trackByFn">
+                        <sag-article-list-gaid-group
+                            *ngIf="!root.deleted"
+                            [group]="g"
+                            [articleMode]="articleMode"
+                            [userSetting]="userSetting"
+                            [vehicle]="vehicle"
+                            [specialInfoTemplateRef]="specialInfoTemplateRef"
+                            [memosTemplateRef]="memosTemplateRef"
+                            [customAvailTemplateRef]="customAvailTemplateRef"
+                            [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                            [priceTemplateRef]="priceTemplateRef"
+                            [totalPriceTemplateRef]="totalPriceTemplateRef"
+                            [brandsData]="brandsData"
+                            (brandsItemsChange)="brandsItemsChange.emit($event)"
+                            (brandsStateChange)="brandsStateChange.emit($event)"
+                            [sortArticle]="sortArticle"
+                            [articleListType]="articleListType"
+                            (barFilterStateChange)="barFilterStateChange.emit($event)"
+                            [hasMoreData]="hasMoreData"
+                            [moreArticles]="moreData"
+                            [rootModalName]="rootModalName"
+                            (showMoreArticleEmitter)="showMoreArticles($event)"
+                            [barFilterOptionData]="barFilterOption"
+                            (sendArticleResultData)="sendArticleResultData.emit($event)"
+                            (sendArticlesGaData)="sendArticlesGaData.emit($event)"
+                            (barFilterItemsChange)="barFilterItemsChange.emit($event)"
+                            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                            (onShowPartsListEmitter)="onShowPartsList($event)"
+                            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                            (popoversChanged)="popoversChanged($event)"
+                            >
+                        </sag-article-list-gaid-group>
+                        <!-- <sag-lib-article-group [group]="g" [articleMode]="articleMode" [userSetting]="userSetting" [vehicle]="vehicle"></sag-lib-article-group> -->
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="articleListType == TYPE.SHOPPING_BASKET">
+            <sag-article-list-shopping-group [group]="data" [(selectAll)]="isSelectedAll"
+                (removeArticleEmitter)="removeArticlesEmitter.emit($event)" [(selected)]="selectedArtilces"
+                [articleMode]="articleMode" [userSetting]="userSetting"
+                [hasHaynesProFeatures]="hasHaynesProFeatures"
+                (loginHaynesPro)="loginHaynesPro.emit($event)"
+                (openHaynesProModal)="openHaynesProModal.emit($event)"
+                [linkLoginHaynesPro]="linkLoginHaynesPro"
+                [(labourTimes)]="labourTimes"
+                [currentStateVatConfirm]="currentStateVatConfirm"
+                (customPriceChange)="onBasketCustomPriceChange($event)"
+                [specialInfoTemplateRef]="specialInfoTemplateRef"
+                [memosTemplateRef]="memosTemplateRef"
+                [customAvailTemplateRef]="customAvailTemplateRef"
+                [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                [priceTemplateRef]="priceTemplateRef"
+                [totalPriceTemplateRef]="totalPriceTemplateRef"
+                [isSubBasket]="isSubBasket"
+                [rootModalName]="rootModalName"
+                (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                (onShowPartsListEmitter)="onShowPartsList($event)"
+                (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                (popoversChanged)="popoversChanged($event)">
+            </sag-article-list-shopping-group>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <sag-article-list-non-group [groupByRelevance]="groupByRelevance" [rootArticles]="data" [hasMoreData]="hasMoreData" [moreArticles]="moreData"
+                [filterDataOnBadge]="filterDataOnBadge" (deselectMerkmaleEmitter)="deselectMerkmale($event)"
+                (showMoreArticleEmitter)="showMoreArticles($event)" [notFoundTempRef]="notFoundTempRef"
+                [articleMode]="articleMode" [userSetting]="userSetting" [sortArticle]="sortArticle"
+                [specialInfoTemplateRef]="specialInfoTemplateRef"
+                [memosTemplateRef]="memosTemplateRef"
+                [customAvailTemplateRef]="customAvailTemplateRef"
+                [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                [priceTemplateRef]="priceTemplateRef"
+                [totalPriceTemplateRef]="totalPriceTemplateRef"
+                (sendArticleResultData)="sendArticleResultData.emit($event)"
+                (sendArticlesGaData)="sendArticlesGaData.emit($event)"
+                [isSubBasket]="isSubBasket"
+                [rootModalName]="rootModalName"
+                (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                (onShowPartsListEmitter)="onShowPartsList($event)"
+                (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                (popoversChanged)="popoversChanged($event)"
+                >
+            </sag-article-list-non-group>
+        </ng-container>
+    </ng-container>
+</section>

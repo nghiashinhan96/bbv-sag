@@ -1,0 +1,31 @@
+--- modify V_MESSAGE
+ALTER VIEW [V_MESSAGE] AS
+SELECT
+    TEMP.*,
+ 	STUFF(
+        (SELECT CAST(', ' AS varchar(max)) + L.VALUE
+            FROM MESSAGE_LOCATION  as L
+            WHERE L.ID in (
+                select LR.MESSAGE_LOCATION_ID FROM MESSAGE_LOCATION_RELATION LR
+                WHERE LR.MESSAGE_ID = TEMP.ID)
+            FOR XML PATH(''), TYPE
+        )
+        .value('.', 'varchar(max)'),1, 1,'') AS LOCATION_VALUE
+FROM
+ 	(SELECT DISTINCT
+	    M.ID AS ID,
+	    M.TITLE AS TITLE,
+	    T.TYPE AS TYPE,
+	    A.AREA AS AREA,
+	    SA.SUB_AREA AS SUB_AREA,
+	    M.ACTIVE AS ACTIVE,
+	    CREATED_DATE AS CREATED_DATE,
+	    M.DATE_VALID_FROM,
+	    M.DATE_VALID_TO
+	    FROM (
+	        MESSAGE M
+	        JOIN MESSAGE_TYPE T ON M.MESSAGE_TYPE_ID = T.ID
+	    	JOIN MESSAGE_SUB_AREA SA ON M.MESSAGE_SUB_AREA_ID=SA.ID
+	        JOIN MESSAGE_AREA A ON SA.MESSAGE_AREA_ID = A.ID
+            )
+    ) AS TEMP

@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_184_UPDATE_DEFAULT_SAG_ART_GROUP_ID_WSS_MARGINS_ARTICLE_GROUP">
+    <sql>
+		UPDATE
+			WSS_MARGINS_ARTICLE_GROUP
+		SET
+			SAG_ART_GROUP_ID = 'Default'
+		where
+			IS_DEFAULT = 1
+			and SAG_ART_GROUP_ID is NULL ;
+	</sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_184_UPDATE_ROOT_SAG_ART_GROUP_ID_WSS_MARGINS_ARTICLE_GROUP">
+    <sql>
+		UPDATE
+			WSS_MARGINS_ARTICLE_GROUP
+		SET
+			PARENT_LEAF_ID = '100001'
+		where
+			IS_DEFAULT = 0 and PARENT_ID is null;
+	</sql>
+  </changeSet>
+  
+</databaseChangeLog>

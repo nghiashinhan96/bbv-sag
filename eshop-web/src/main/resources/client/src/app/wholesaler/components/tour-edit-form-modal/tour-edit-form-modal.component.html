@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4>{{ "WSS.EDIT_TOUR" | translate }}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <sag-common-message *ngIf="message" [data]="message" ></sag-common-message>
+    <form *ngIf="tourForm" [formGroup]="tourForm" (ngSubmit)="onSubmit()" novalidate class="row">
+        <div class="form-group col-6">
+            <div class="row">
+                <label class="col-4 control-label">
+                    {{'WSS.TOUR_NAME' | translate}} *
+                </label>
+                <div class="col-7">
+                    <input type="text" class="form-control" formControlName="tourName">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group row" *ngFor="let day of daysInWeek; let i = index">
+                <label class="col-2 control-label">
+                    {{'DAY_IN_WEEK.' +day.substr(0,3) | translate}}
+                </label>
+                <div class="col-6 time-picker-containter"
+                    [ngClass]="{ 'has-error': timeFormControl(day).errors?.invalidValue}">
+                    <input type="text" class="form-control" [formControlName]="day">
+                    <span class="time-picker" (click)="onToggleTimePicker(day)"><i class="fa fa-clock-o"></i></span>
+                    <div class="time-picker-content" *ngIf="timePickerToggle[day]">
+                        <ul class="time-picker-list">
+                            <li class="time-picker-item" *ngFor="let hour of hourList" (click)="onSetHour(hour, day)">
+                                {{ hour.formatText }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button [disabled]="tourForm.invalid" type="submit"
+            class="btn btn-primary btn-center mt-3">{{ 'COMMON_LABEL.SAVE' | translate }}</button>
+    </form>
+</div>

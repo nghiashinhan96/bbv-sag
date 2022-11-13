@@ -1,0 +1,23 @@
+spring:
+  target:
+    datasource:
+      hikari:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://116.203.249.156:1433;databaseName=axch;applicationName=ConnectRestServer
+      username: sag
+      password: eU24|%569k(v}yJ
+      minimum-idle: 1
+      maximum-pool-size: 125
+      pool-name: restatax_pool
+      connection-timeout: 10000
+      max-lifetime: 30000
+
+## This is the default value config to make persistent data for dev environment
+default:
+  ## user name: admin
+  userId: 1
+  ## customer nr: 469743
+  organisationId: 6
+  
+csv.branch_opening_hours: /csv/Branches_opening_hour_CH.csv
+es.index.branch: branches_ch

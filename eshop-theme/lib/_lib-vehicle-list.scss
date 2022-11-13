@@ -1,0 +1,241 @@
+.vehicle-list {
+    h2 {
+        font-weight: 700;
+    }
+
+    .btn-group {
+        margin-bottom: 1rem;
+
+        button {
+            min-width: 150px;
+            font-size: 0.9rem;
+            padding-top: 5px;
+
+            &:first-child {
+                background-color: $text-color;
+                color: $text-color-inversed;
+                font-weight: 400;
+                z-index: 1;
+            }
+        }
+    }
+
+    table {
+        margin-bottom: 0;
+        position: relative;
+
+        &.sale-view {
+            max-height: calc(100vh - 495px);
+        }
+
+        tr {
+            td.tcol {
+                padding: 0 0.6rem;
+                border-left: none;
+                border-right: none;
+                height: 100%;
+                color: $text-color;
+                font-weight: 500;
+                font-size: 0.85rem;
+            }
+
+            td.name {
+                position: relative;
+                width: 275px;
+
+                .tooltip-btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    font-size: 1.3rem;
+                    color: $grey;
+                    z-index: 9;
+                    padding: 0.5rem 6px;
+                    display: flex;
+                    align-items: center;
+                    height: 42px;
+
+                    &:hover {
+                        color: $primary-font;
+                    }
+                }
+            }
+
+            th.name {
+                width: 275px;
+
+                .sag-tip-item {
+                    position: relative;
+                }
+            }
+
+            th.year {
+                width: 116px;
+            }
+
+            td.year {
+                width: 116px;
+                text-align: left;
+            }
+
+            td.body,
+            th.body {
+                width: 100px;
+            }
+
+            td.fuel,
+            th.fuel {
+                width: 100px;
+            }
+
+            td.cylinder,
+            th.cylinder {
+                width: 70px;
+            }
+
+            td.engine,
+            th.engine {
+                width: 75px;
+            }
+
+            td.moto-code,
+            th.moto-code {
+                width: 90px;
+            }
+
+            td.kw,
+            th.kw {
+                width: 70px;
+            }
+
+            td.valves,
+            th.valves {
+                width: 70px;
+            }
+
+            td.drive,
+            th.drive {
+                flex: 1;
+            }
+
+            td.fetch-more {
+                flex: 1;
+                text-align: center;
+            }
+
+            a {
+                color: $text-color;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 0.85rem;
+
+                &:hover {
+                    color: $primary;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        thead {
+            tr {
+                th {
+                    padding: 0.95rem 0.3rem;
+                    background-color: $primary;
+                    color: $white;
+                    border-bottom: 0;
+                    height: 32px;
+                    vertical-align: middle;
+
+                    &.sortable {
+                        cursor: pointer;
+                    }
+                }
+
+                td {
+                    height: auto !important;
+                    text-align: left !important;
+                    border-top: 0;
+                    padding: 0.5rem 0 !important;
+
+                    .input-group,
+                    .ng-select {
+                        padding: 1px 0.6rem 1px 0 !important;
+                        width: inherit;
+                    }
+
+                    &:last-child {
+                        .ng-select {
+                            padding-right: 0 !important;
+                        }
+                    }
+                }
+
+                &.filter {
+                    height: 44px;
+                }
+            }
+        }
+
+        virtual-scroller {
+            min-height: 160px;
+            max-height: calc(100vh - 500px);
+        }
+
+        tbody {
+            overflow: auto;
+            min-height: 160px;
+            max-height: calc(100vh - 430px - var(--msg-height, 0px));
+            display: block;
+            position: absolute;
+            top: auto;
+            left: 0;
+            width: 100%;
+
+            tr {
+                height: 2.5rem;
+                display: flex;
+
+                td {
+                    line-height: 2.5rem;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    ng-select {
+        .ng-value {
+            .ng-value-label {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: black;
+            }
+        }
+
+        .ng-option {
+            span {
+                color: $dark-grey;
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+
+            &-marked {
+                span {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.sale-view {
+    .vehicle-list {
+        tbody {
+            max-height: calc(100vh - 472px - var(--msg-height, 0px));
+        }
+    }
+}

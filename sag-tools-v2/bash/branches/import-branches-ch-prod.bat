@@ -1,0 +1,1 @@
+java -jar sag-tools-1.0-SNAPSHOT.jar --spring.profiles.active=ch-umbprod --spring.batch.job.names=branchMigration --csv.branch_opening_hours=/BRANCH_201911071339.csv --es.index.branch=branches_ch_v1_20190322

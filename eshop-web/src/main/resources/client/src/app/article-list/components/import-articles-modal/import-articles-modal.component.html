@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4>{{'ARTICLE_SEARCH_LIST.IMPORT_ARTICLE_LIST' | translate }}</h4>
+    <a href="javascript:void(0)" (click)="close()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <div class="import-box mb-20">
+        <p *ngIf="!fileUpload || isValidFile" class="hint">{{'ARTICLE_SEARCH_LIST.IMPORT_HINT' | translate}}</p>
+        <div class="alert alert-danger" *ngIf="fileUpload && !isValidFile">
+            {{ 'ARTICLE_SEARCH_LIST.IMPORT_HINT' | translate}}
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <input type="file" class="pull-left" #fileUploadInput id="import-article-input-file" (change)="checkFileType($event)" />
+                <div class="input-outer">
+                <label for="import-article-input-file">
+                    <span class="file-text"
+                    [innerHTML]="fileName ? fileName : 'COMMON_LABEL.NO_FILE_CHOSEN' | translate"></span>
+                    <span class="browse-btn">{{'COMMON_LABEL.CHOOSE_FILE' | translate}}</span>
+                </label>
+                </div>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary" [disabled]="!isValidFile || !fileUpload"
+                    type="button" id="article-list-upload-btn"
+                    (click)="import()">{{ 'COMMON_LABEL.IMPORT' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

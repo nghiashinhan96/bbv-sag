@@ -1,0 +1,11 @@
+<h3 class="connect-setting-header-text">
+    {{'WSS.TITLE' | translate}}
+</h3>
+<ul class="nav nav-tabs nav-fill connect-settings">
+    <ng-container *ngFor="let tab of tabs">
+        <li class="nav-item"  *ngIf="tab.isShown">
+            <a class="nav-link" routerLink="{{tab.routerLink}}" routerLinkActive="active">{{ tab.routerText | translate}}</a>
+        </li>
+    </ng-container>
+</ul>
+<router-outlet></router-outlet>

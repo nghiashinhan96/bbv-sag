@@ -1,0 +1,302 @@
+<div class="panel panel-primary card mb-4">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{'BRANCHES.BRANCH_DETAIL_FORM.TITLE' | translate}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <form [formGroup]="branchDetailForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="form-group row">
+                    <div class="notice-panel alert"
+                        [ngClass]="{ 'alert-success': isCreatedSuccessful, 'alert-danger': isCreatedFail }"
+                        *ngIf="noticeMessage">
+                        {{ noticeMessage | translate }}
+                    </div>
+                </div>
+                <fieldset [disabled]="isCreatedNewBranch !== '1'">
+                    <div class="form-group row">
+                        <label class="col-2 control-label">
+                            {{'BRANCHES.BRANCH_DETAIL_FORM.BRANCH_NUMBER_LABEL' | translate}}*
+                        </label>
+                        <div class="col-10" [ngClass]="{ 'has-error': isRequiredError(branchNumber) }">
+                            <input #branchNumberInput required type="text" class="form-control"
+                                formControlName="branchNumber"
+                                (input)="onInputChange($event.target.value, 'PASTED_BRANCH_NUMBER_FIELD')"
+                                (keydown)="validateUserInput($event, 10, 'NUMBER_ONLY')"
+                                (paste)="onPaste($event, 10, branchNumber, 'PASTED_BRANCH_NUMBER_FIELD')">
+                        </div>
+                    </div>
+                    <ng-container *ngIf="isRequiredError(branchNumber); then thenTemplate; else elseTemplate">
+                    </ng-container>
+                    <ng-template #thenTemplate>
+                        <div class="alert alert-danger">
+                            {{ requiredErrorMessage | translate }}
+                        </div>
+                    </ng-template>
+                    <ng-template #elseTemplate>
+                        <div class="alert alert-danger" *ngIf="isPastedBranchNumberInvalid">
+                            {{ 'BRANCHES.ERRORS.INVALID_BRANCH_NUMBER' | translate }}
+                        </div>
+                    </ng-template>
+
+                </fieldset>
+                <fieldset>
+                    <div class="form-group row">
+                        <label class="col-2 control-label">
+                            {{'BRANCHES.BRANCH_DETAIL_FORM.BRANCH_CODE_LABEL' | translate}}
+                        </label>
+                        <div class="col-10">
+                            <input  type="text" #branchCodeInput class="form-control" formControlName="code"
+                                (keydown)="validateUserInput($event, 10, 'ALPHANUMBERIC')"
+                                (paste)="onPaste($event, 10, branchCode)">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="row">
+                    <label class="col-2 offset-2 font-weight-bold">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.OPENING_HOUR_LABEL' | translate}}
+                    </label>
+                    <label class="col-2 font-weight-bold">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.NOON_OPENING_HOUR_LABEL' | translate}}
+                    </label>
+                    <label class="col-2 font-weight-bold">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.NOON_CLOSING_HOUR_LABEL' | translate}}
+                    </label>
+                    <label class="col-2 font-weight-bold">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.CLOSING_HOUR_LABEL' | translate}}
+                    </label>
+                </div>
+
+                <ng-container *ngFor="let day of dayInWeek">
+                    <div [formGroupName]="day">
+                        <div class="form-group row">
+                            <label class="col-2 control-label">
+                                {{'DAY_IN_WEEK.' +day.substr(0,3) | translate}}
+                            </label>
+        
+                            <div class="col-2 time-picker-containter" [ngClass]="{ 'has-error': isOpeningTimeHasError(day) }">
+                                <input type="text" #openingHourInput class="form-control" formControlName="openingTime"
+                                    (focus)="onDetectInputFocus('OPENING_HOUR', day)">
+                                <span class="time-picker" (click)="onToggleTimePicker('OPENING_HOUR', day)"><i
+                                        class="fa fa-clock-o"></i></span>
+                                <div class="time-picker-content" *ngIf="showingTimePickerCode === 'OPENING_HOUR.'+day" #openingTimeScroller>
+                                    <ul class="time-picker-list">
+                                        <li class="time-picker-item" *ngFor="let hour of hourList"
+                                            (click)="onSetHour(hour, 'OPENING_HOUR',day)">
+                                            {{ hour.formatText }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+                            <div class="col-2 time-picker-containter"
+                                [ngClass]="{ 'has-error': isLunchOpeningTimeHasError(day)}">
+                                <input type="text" class="form-control" formControlName="lunchOpeningTime"
+                                    (focus)="onDetectInputFocus('LUNCH_OPENING_HOUR', day)">
+                                <span class="time-picker" (click)="onToggleTimePicker('LUNCH_OPENING_HOUR',day)"><i
+                                        class="fa fa-clock-o"></i></span>
+                                <div class="time-picker-content" *ngIf="showingTimePickerCode === 'LUNCH_OPENING_HOUR.'+day">
+                                    <ul class="time-picker-list">
+                                        <li class="time-picker-item" *ngFor="let hour of hourList"
+                                            (click)="onSetHour(hour, 'LUNCH_OPENING_HOUR',day)">
+                                            {{ hour.formatText }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+                            <div class="col-2 time-picker-containter"
+                                [ngClass]="{ 'has-error': isLunchClosingTimeHasError(day)  }">
+                                <input type="text" class="form-control" formControlName="lunchClosingTime"
+                                    (focus)="onDetectInputFocus('LUNCH_CLOSING_HOUR',day)">
+                                <span class="time-picker" (click)="onToggleTimePicker('LUNCH_CLOSING_HOUR',day)"><i
+                                        class="fa fa-clock-o"></i></span>
+                                <div class="time-picker-content" *ngIf="showingTimePickerCode === 'LUNCH_CLOSING_HOUR.'+day">
+                                    <ul class="time-picker-list">
+                                        <li class="time-picker-item" *ngFor="let hour of hourList"
+                                            (click)="onSetHour(hour, 'LUNCH_CLOSING_HOUR',day)">
+                                            {{ hour.formatText }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+                            <div class="col-2 time-picker-containter" [ngClass]="{ 'has-error': isClosingTimeHasError(day)}">
+                                <input type="text" #closingHourInput class="form-control" formControlName="closingTime"
+                                    (focus)="onDetectInputFocus('CLOSING_HOUR', day)">
+                                <span class="time-picker" (click)="onToggleTimePicker('CLOSING_HOUR', day)"><i
+                                        class="fa fa-clock-o"></i></span>
+                                <div class="time-picker-content" *ngIf="showingTimePickerCode === 'CLOSING_HOUR.'+day">
+                                    <ul class="time-picker-list">
+                                        <li class="time-picker-item" *ngFor="let hour of hourList"
+                                            (click)="onSetHour(hour, 'CLOSING_HOUR', day)">{{ hour.formatText }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </ng-container>
+
+                <div class="form-group row">
+                    <label class="col-2 control-label">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.ADDRESS_LABEL' | translate}}
+                    </label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="addressDesc"
+                            (keydown)="validateUserInput($event, 255, 'TEXT')"
+                            (paste)="onPaste($event, 255, addressDesc)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.ADDITIONAL_ADDRESS_LABEL' | translate}}
+                    </label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="addressStreet"
+                            (keydown)="validateUserInput($event, 255, 'TEXT')"
+                            (paste)="onPaste($event, 255, addressStreet)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">{{'BRANCHES.BRANCH_DETAIL_FORM.PLACE_LABEL' | translate}}</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="addressCity"
+                            (keydown)="validateUserInput($event, 255, 'TEXT')"
+                            (paste)="onPaste($event, 255, addressCity)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">{{'BRANCHES.BRANCH_DETAIL_FORM.LAND_LABEL' | translate}}</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="addressCountry"
+                            (keydown)="validateUserInput($event, 255, 'TEXT')"
+                            (paste)="onPaste($event, 255, addressCountry)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.LAND_CODE_LABEL' | translate}}
+                    </label>
+                    <div class="col-3">
+                        <ng-select class="sag-select" [items]="countries"
+                            notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="countryId"
+                            [clearable]="false"></ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">{{'BRANCHES.BRANCH_DETAIL_FORM.PLZ_LABEL' | translate}}</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="zipCode"
+                            (keydown)="validateUserInput($event, 10, 'ALPHANUMBERIC')"
+                            (paste)="onPaste($event, 10, zipCode)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.ORG_ID_LABEL' | translate}}
+                    </label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="orgId"
+                            (keydown)="validateUserInput($event, 10, 'NUMBER_ONLY')"
+                            (input)="onInputChange($event.target.value, 'PASTED_ORG_FIELD')"
+                            (paste)="onPaste($event, 10, orgId, 'PASTED_ORG_FIELD')">
+                    </div>
+                </div>
+                <div class="alert alert-danger" *ngIf="isPastedOrgIdInvalid">
+                    {{ 'BRANCHES.ERRORS.INVALID_ORG_ID' | translate }}
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.REGION_ID_LABEL' | translate}}
+                    </label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="regionId"
+                            (keydown)="validateUserInput($event, 10, 'ALPHANUMBERIC')"
+                            (paste)="onPaste($event, 10, regionId)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.TELEPHONE_LABEL' | translate}}
+                    </label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="primaryPhone"
+                            (keydown)="validateUserInput($event, 20, 'ALPHANUMBERIC')"
+                            (paste)="onPaste($event, 20, primaryPhone)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">
+                        {{'BRANCHES.BRANCH_DETAIL_FORM.FAX_LABEL' | translate}}
+                    </label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="primaryFax"
+                            (keydown)="validateUserInput($event, 255, 'TEXT')"
+                            (paste)="onPaste($event, 255, primaryFax)">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">{{'BRANCHES.BRANCH_DETAIL_FORM.EMAIL_LABEL' | translate}}</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="primaryEmail"
+                            (keydown)="validateUserInput($event, 255, 'ALPHANUMBERIC')"
+                            (input)="onInputChange($event.target.value, 'PASTED_EMAIL_FIELD')"
+                            (paste)="onPaste($event, 255, primaryEmail, 'PASTED_EMAIL_FIELD')">
+                    </div>
+                </div>
+                <div class="alert alert-danger" *ngIf="primaryEmail.errors?.invalidValue || isPastedEmailInvalid">
+                    {{ 'LOGIN.ERROR_MESSAGE.INVALID_EMAIL' | translate }}
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">{{'BRANCHES.BRANCH_DETAIL_FORM.KSL_LABEL' | translate}}</label>
+                    <div class="col-10 ksl-checkbox-container">
+                        <input type="checkbox" formControlName="validForKSL">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">{{'BRANCHES.BRANCH_DETAIL_FORM.URL_LABEL' | translate}}</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" formControlName="primaryUrl"
+                            (keydown)="validateUserInput($event, 255, 'ALPHANUMBERIC')"
+                            (input)="onInputChange($event.target.value, 'PASTED_URL_FIELD')"
+                            (paste)="onPaste($event, 255, primaryUrl, 'PASTED_URL_FIELD')">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-2 control-label">{{'BRANCHES.BRANCH_DETAIL_FORM.HIDE_FROM_UI_LABEL' |
+                        translate}}</label>
+                    <div class="col-10 row">
+                        <label class="checkbox col-2">
+                            <input type="checkbox" class="mr-2" formControlName="hideFromCustomers">
+                            <span>{{'BRANCHES.BRANCH_DETAIL_FORM.HIDE_FROM_CUSTOMERS' | translate}}</span>
+                        </label>
+
+                        <label class="checkbox col-2">
+                            <input type="checkbox" class="mr-2" formControlName="hideFromSales">
+                            <span>{{'BRANCHES.BRANCH_DETAIL_FORM.HIDE_FROM_SALES' | translate}}</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="alert alert-danger" *ngIf="primaryUrl.errors?.invalidValue || isPastedUrlInvalid">
+                    {{ 'BRANCHES.ERRORS.INVALID_URL' | translate }}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-default pull-left" type="button" (click)="goBack()">
+                    <i class="fa fa-arrow-left left"></i>
+                    {{'COMMON.BUTTON.BACK' | translate}}
+                </button>
+                <button class="btn btn-primary pull-right" (click)="onSubmit()"
+                    [disabled]="!branchDetailForm.valid || isPastedBranchNumberInvalid || isPastedOrgIdInvalid || isPastedEmailInvalid || isPastedUrlInvalid">
+                    <i class="fa fa-save"></i>
+                    {{'COMMON.BUTTON.SAVE' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

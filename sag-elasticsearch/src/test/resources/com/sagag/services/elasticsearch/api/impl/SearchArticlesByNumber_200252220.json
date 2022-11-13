@@ -1,0 +1,304 @@
+{
+  "id": "b17a092c93d734564eab7578571e3bcd",
+  
+  "criteria": [
+    {
+      "cvp": "InnenbelÃ¼ftet",
+      "cid": "232"
+    },
+    {
+      "cvp": "beschichtet",
+      "cid": "599"
+    },
+    {
+      "cvp": "320",
+      "cid": "497"
+    },
+    {
+      "cvp": "28",
+      "cid": "124"
+    },
+    {
+      "cvp": "26",
+      "cid": "328"
+    },
+    {
+      "cvp": "44",
+      "cid": "209"
+    },
+    {
+      "cvp": "5",
+      "cid": "333"
+    },
+    {
+      "cvp": "9,4",
+      "cid": "212"
+    },
+    {
+      "cvp": "114,3",
+      "cid": "1003"
+    },
+    {
+      "cvp": "68",
+      "cid": "1005"
+    }
+  ],
+  "refs": [
+    {
+      "id_source": "tecdoc",
+      "artnr": "200252220",
+      "id_pim": "1000000017879791919",
+      "id_dlnr": "86",
+      "id_autonet": "",
+      "artid": "b17a092c93d734564eab7578571e3bcd",
+      "artnr_display": "200.2522.20",
+      "gaID": "82",
+      "available": false
+    }
+  ],
+  "parts": [
+    {
+      "brandid": "3800",
+      "pnrn": "01.97850",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "80",
+      "pnrn": "40206-ET01A",
+      "ptype": "OEM"
+    },
+    {
+      "brandid": "93",
+      "pnrn": "40206-9828R",
+      "ptype": "OEM"
+    },
+    {
+      "brandid": "502",
+      "pnrn": "8DD 355 116-761",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "503",
+      "pnrn": "24.0128-0242.1",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "503",
+      "pnrn": "428242",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "512",
+      "pnrn": "55220",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "530",
+      "pnrn": "0 986 479 679",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "539",
+      "pnrn": "92222000",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "539",
+      "pnrn": "92222003",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "548",
+      "pnrn": "562578JC",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "549",
+      "pnrn": "562578BC",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "613",
+      "pnrn": "J3301067",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "617",
+      "pnrn": "MDC2178",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "798",
+      "pnrn": "DF4989S",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "876",
+      "pnrn": "DDF1724-1",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "877",
+      "pnrn": "200.2522.00",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "877",
+      "pnrn": "200.2522.50",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "877",
+      "pnrn": "200.2522.52",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1242",
+      "pnrn": "8120 14188C",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1400",
+      "pnrn": "BG4231",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1408",
+      "pnrn": "61349.10",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1847",
+      "pnrn": "BBD5162",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1941",
+      "pnrn": "23-1323C",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2044",
+      "pnrn": "313968",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2136",
+      "pnrn": "36-15 521 0045/PD",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2167",
+      "pnrn": "61349.10",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2168",
+      "pnrn": "61349.10",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2199",
+      "pnrn": "V38-80013",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2408",
+      "pnrn": "17945",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2446",
+      "pnrn": "61349 10",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2448",
+      "pnrn": "DF1313",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2450",
+      "pnrn": "BR-6812",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2563",
+      "pnrn": "142.1474",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2585",
+      "pnrn": "N3301106",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2641",
+      "pnrn": "6104032",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2702",
+      "pnrn": "6049895",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2719",
+      "pnrn": "61349 10",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2728",
+      "pnrn": "V579",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2741",
+      "pnrn": "DF1313",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2743",
+      "pnrn": "1815313968",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2821",
+      "pnrn": "19-2585",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2822",
+      "pnrn": "800-1323C",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2879",
+      "pnrn": "D61349.10",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3063",
+      "pnrn": "ADN143141",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3172",
+      "pnrn": "BDR2550.20",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3242",
+      "pnrn": "ADC1587V",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3275",
+      "pnrn": "N013-97",
+      "ptype": "IAM"
+    }
+  ],
+  "info": [
+    
+  ]
+}

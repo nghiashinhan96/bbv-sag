@@ -1,0 +1,34 @@
+<ng-container *ngIf="currentDeliveryType === DELIVERY_TYPE.TOUR 
+    || (currentDeliveryType === DELIVERY_TYPE.PICKUP && !isHideTourPlan)">
+    <a [popover]="popoverRef"
+       href="javascript:void(0)"
+       #pop="bs-popover"
+       [outsideClick]="true"
+       container="body"
+       triggers="click"
+       containerClass="{{containerClass}}">
+       (<span class="text-primary">{{ 'SHOW_TOUR_PLAN' | translate }}</span>)
+    </a>
+</ng-container>
+
+<ng-template #popoverRef>
+    <div class="sag-title">
+        <h4>{{ 'TOUR_TITLE' | translate }}</h4>
+    </div>
+    <div class="mt-2 tour-plan-content">
+        <table class="w-100">
+            <thead>
+                <th class="pr-3">{{'AX_CONNECTION.BRANCH_NAME' | translate}}</th>
+                <th class="pr-3">{{'DELIVERY_PROFILE.TOUR' | translate}}</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tourTime of tourTimes">
+                    <td class="pr-3">{{tourTime?.displayBranchInfo}}</td>
+                    <td class="text-nowrap pr-3">{{tourTime?.tourName}}</td>
+                    <td class="text-nowrap">{{tourTime?.tourDaysDisplay}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>

@@ -1,0 +1,97 @@
+.login-state {
+    background: url('/assets/images/unauthorized-bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+nav.navbar {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 0px !important;
+}
+
+backoffice-header {
+    background: $sag-bg;
+    width: 100%;
+    z-index: 1000;
+
+    header {
+        height: $header-height;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .welcome {
+        font-size: 13px;
+
+        .label {
+            color: hsla(0, 0%, 100%, 0.7);
+        }
+
+        .name {
+            color: white;
+        }
+    }
+
+    .user-role {
+        color: white;
+        span {
+            font-size: 13px;
+            padding: 0.375rem 0.75rem;
+            background-color: #004277;
+        }
+        button {
+            font-weight: 700;
+            border-color: #007add;
+            background-color: #007add;
+        }
+    }
+}
+
+backoffice-footer {
+    background: $sag-bg;
+    color: $footer-color;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+
+    footer {
+        height: $footer-height;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .nav-link {
+        color: white;
+    }
+}
+
+// footer {
+//     background-color: $footer-backgroud-color;
+//     height: $footer-height;
+//     color: $footer-color;
+// }
+
+// header {
+//     background-color: $background-color;
+//     position: fixed;
+//     z-index: 99;
+//     height: $header-height;
+//     width: 100%;
+//     border-bottom: 1px solid $thin-grey;
+//     .navbar-brand {
+//         width: 200px !important;
+//         height: 60px !important;
+//         background: $logo no-repeat center center;
+//         background-size: contain !important;
+//     }
+// }

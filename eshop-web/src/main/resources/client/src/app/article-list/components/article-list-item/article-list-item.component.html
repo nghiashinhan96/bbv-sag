@@ -1,0 +1,101 @@
+<section class="row mb-3" *ngIf="!loading && searchData">
+    <section class="col filter">
+        <div class="input-group" *ngIf="searchData.isHadResult && !searchData.isAddedToCart && !searchData.filter">
+            <input type="text" class="form-control" #inputSearchText [value]="searchData.searchTerm" (keydown.Tab)="handleInputTab($event)" (keyup.enter)="onSearch(inputSearchText.value)">
+            <div class="input-group-append">
+                <button tabindex="-1" class="btn btn-primary rounded-0 py-0" type="button" [disabled]="!inputSearchText.value" (click)="onSearch(inputSearchText.value)">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <section class="sag-article-filter" *ngIf="!searchData.isHadResult || searchData.isAddedToCart">
+            <section class="title">{{ searchData.searchTerm | uppercase }}</section>
+        </section>
+        <sag-article-list-merkmale-filter
+            *ngIf="searchData.isHadResult && !searchData.isAddedToCart && searchData.filter"
+            [title]="searchData.searchTerm | uppercase"
+            [filterData]="searchData.filter"
+            [brandFilterData]="merkmaleBrandFilterData"
+            [deselectMermaleValue]="uncheckMerkmale"
+            [selectedCateFilter]="subSelectedCategory"
+            [resetAllFilters]="resetAllFilters"
+            (changeRootCategoryEmitter)="selectRootCategory($event)"
+            (changeFilter)="selectCriteriaValue($event)"
+            (onFilterBrandChangeEmitter)="onMerkmaleBrandFilterChange($event)"
+            (resetFilterEmitter)="resetFilter()">
+        </sag-article-list-merkmale-filter>
+    </section>
+    <section class="col">
+        <sag-common-message *ngIf="searchData.message" [data]="searchData.message"></sag-common-message>
+        <div *ngIf="searchData.articles?.length" class="border-top">
+            <sag-article-list-non-group
+                [rootArticles]="searchData.articles || []"
+                [hasMoreData]="hasMoreData"
+                [moreArticles]="moreData"
+                [notFoundTempRef]="emptyRef"
+                [filterDataOnBadge]="filterDataOnBadge"
+                (deselectMerkmaleEmitter)="deselectMerkmale($event)"
+                (showMoreArticleEmitter)="showMoreArticles($event)"
+                [articleMode]="appStorage.articleMode"
+                [userSetting]="userService.userPrice"
+                [specialInfoTemplateRef]="specialInfoTemplateRef"
+                [memosTemplateRef]="memosTemplateRef"
+                [customAvailTemplateRef]="availTemplateRef"
+                [customAvailPopoverContentTemplateRef]="popoverContentTemplateRef"
+                [priceTemplateRef]="priceTemplateRef"
+                [totalPriceTemplateRef]="totalPriceTemplateRef"
+                [sortArticle]="sortArticle"
+                (sendArticleResultData)="sendArticleResultData($event)"
+                [isSubBasket]="isSubBasket"
+                [amountFromFileImported]="amountFromFileImported"
+                (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                (onShowPartsListEmitter)="onShowPartsList($event)"
+                (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                (popoversChanged)="popoversChanged($event)"
+                (sendArticlesGaData)="onSendArticlesGaData($event)"
+                >
+            </sag-article-list-non-group>
+        </div>
+    </section>
+</section>
+<ng-template #emptyRef></ng-template>
+
+<ng-template #specialInfoRef let-article="article">
+    <connect-cz-article-detail-special-info [article]="article" [memos]="article?.memos"></connect-cz-article-detail-special-info>
+</ng-template>
+
+<ng-container *ngIf="isCz || isAffiliateApplyFgasAndDeposit">
+    <ng-template #memosRef let-article="article">
+        <connect-cz-article-detail-memos [memos]="article?.memos" [article]="article"></connect-cz-article-detail-memos>
+    </ng-template>
+</ng-container>
+
+<ng-container *ngIf="isCz">
+    <ng-template #availRef let-availabilities="availabilities" let-popover="popover">
+        <div class="avail-state avail-state-{{availabilities[0]?.availState}}">
+            {{'ARTICLE.AVAILABILITY.' + czAvailState[availabilities[0]?.availState] | translate}}
+        </div>
+    </ng-template>
+
+    <ng-template #popoverContentRef let-article="article" let-currency="currency">
+        <connect-cz-avail-popover-content [article]="article" [currency]="currency"></connect-cz-avail-popover-content>
+    </ng-template>
+
+    <ng-template #priceRef let-article="article" let-popoversChanged="popoversChanged" let-currentStateVatConfirm="currentStateVatConfirm">
+        <div class="part-col part-gross">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.LIST_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm">
+        </connect-cz-article-detail-price>
+        </div>
+        <div class="part-col part-net">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.CUSTOMER_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm">
+        </connect-cz-article-detail-price>
+        </div>
+    </ng-template>
+
+    <ng-template #totalPriceRef let-article="article" let-currentStateVatConfirm="currentStateVatConfirm">
+        <connect-cz-article-detail-total-price [article]="article" [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-total-price>
+    </ng-template>
+</ng-container>

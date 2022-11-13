@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Bootstrap original style */
+@import '~bootstrap/scss/bootstrap.scss';
+/* Custom variables */
+@import './sag-variables.scss';
+@import 'variables';
+/* Custom boostrap style */
+@import './custom-bootstrap/bootstrap';
+@import './custom-bootstrap/_bootstrap-custom';
+@import '~@ng-select/ng-select/themes/default.theme.css';
+/* SAG application style */
+@import './lib//lib';
+@import './app/app';
+/* New fitlering style from original library*/
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+// Base style
+@import 'keyframes';
+
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    min-width: 1140px;
+    --pre-loader: 'assets/images/DS-Loader_small.gif';
+    background: $background;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Roboto, sans-serif;
+    line-height: normal !important;
+    background-attachment: fixed;
+}
+
+body {
+    font-size: 1rem;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.hidden {
+    display: none;
+}
+
+.divider {
+    margin-bottom: $spacer;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+}
+
+.login-page {
+    padding-top: 6rem;
+
+    .login-tab-style {
+        background-color: #fff;
+
+        .nav-link {
+            width: 10rem;
+            text-align: center;
+        }
+    }
+}
+
+.section-title {
+    margin-top: 0;
+    font-weight: bold;
+    color: $default-color;
+}

@@ -1,0 +1,2 @@
+INSERT INTO axtest.dbo.DELIVERY_TYPE (TYPE, DESC_CODE, DESCRIPTION, descCode) VALUES ('Abholung in Filiale', 'PICKUP', 'Abholung durch den Kunden', null);
+INSERT INTO axtest.dbo.DELIVERY_TYPE (TYPE, DESC_CODE, DESCRIPTION, descCode) VALUES ('Lieferung gemäss Tourenplan', 'TOUR', 'Kundenbelieferung durch Gebietsleiter', null);

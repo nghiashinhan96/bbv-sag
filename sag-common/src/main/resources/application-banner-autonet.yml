@@ -1,0 +1,3 @@
+spring.profiles: banner-autonet
+
+spring.banner.location: classpath:banner/banner_autonet.txt

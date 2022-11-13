@@ -1,0 +1,60 @@
+.ms-content {
+    width: 100%;
+
+    .nav-tabs li a:not(.active) a {
+        color: #005eaa;
+    }
+}
+
+.text-nowrap {
+    margin-bottom: 0px;
+}
+
+input[type=checkbox] {
+    margin-top: 0px;
+}
+
+
+.editor-setting {
+    padding: 16px 0px;
+
+    &:first-child {
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+
+    ::ng-deep {
+        .ace-editor {
+            min-height: 100px !important;
+        }
+    }
+}
+
+.avail-option {
+    padding-left: 30px !important;
+
+    .fa-info-circle {
+        font-size: 20px;
+        color: #666;
+    }
+
+    .fa-exclamation {
+        font-size: 13px;
+        background: #ffb74c;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+    }
+
+    input[type=radio] {
+        margin-top: 0.3rem;
+    }
+
+    .ms-content {
+        padding: 0px 15px;
+    }
+}
+
+.digi-invoice-request-allowed {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}

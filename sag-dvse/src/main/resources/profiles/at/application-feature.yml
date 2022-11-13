@@ -1,0 +1,37 @@
+# ************************************************************************
+# This is the AT configuration of DVSE(SOAP) application for Feature mode.
+# 
+# Required Common configuration:
+# - Elasticsearch -
+# - ERP -
+# - MDM for DVSE service - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Caching - 
+# - Incentive - 
+# - SOAP - 
+# - Country Code - 
+# -  Proxy - 
+# - Java Melody Monitoring - 
+#
+# ************************************************************************
+spring.profiles.include:
+  elasticsearch-dev,
+  mail-dev,
+  ax-pre-cloud,
+  mdm-prod,
+  db-dev,
+  executor-pool,
+  no-liquibase,
+  logging-at-feature,
+  actuator,
+  cache-dev,
+  incentive-dev,
+  soap,
+  country-at,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_at.txt

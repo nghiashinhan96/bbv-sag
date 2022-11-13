@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4>{{'GTMOTIVE.LABEL.MULTI_PARTS' | translate}}</h4>
+</div>
+<div class="modal-body">
+    <div class="multi-parts-listed">
+        <h4 class="text-body">{{multiPartsData?.description}}</h4>
+        <div class="form-check mb-3" *ngFor="let part of multiPartsData?.operations">
+            <input id="part-selected-{{part.reference}}" name="part-selected-{{multiPartsData?.partCode}}"
+                class="form-check-input" type="radio" value="{{part.reference}}"
+                (click)="handleSelectPartFromMultiParts({partCode: multiPartsData.partCode, reference: part.reference}, multiPartsData.isMaintenance)">
+            <label class="form-check-label" for="part-selected-{{part.reference}}">
+                <span>{{part.reference}}</span>
+                <span *ngIf="part.auxiliarInformation"> - {{part.auxiliarInformation}}</span>
+                <span *ngIf="part.supplyType"> - {{part.supplyType}}</span>
+            </label>
+        </div>
+    </div>
+    <div class="btn-groups text-right">
+        <a type="button" class="mr-3" [class.text-success]="!disabled" [class.disabled]="disabled"
+            (click)="handleClose()">
+            <i class="fa fa-check"></i>
+        </a>
+        <a type="button" class="text-danger"
+            (click)="handleDimissPart(multiPartsData?.partCode, multiPartsData.isMaintenance)">
+            <i class="fa fa-close"></i>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_215_CREATE_TABLE_INVOICE_HISTORY_POSITION">
+    <sql>
+      CREATE TABLE [dbo].[INVOICE_HISTORY_POSITION](
+      	[ID] [varchar](20) NOT NULL,
+      	[INVOICE_NR] [int] NOT NULL,
+      	[DATE_INVOICE_CREATED] [datetime] NULL,
+      	[CURRENCY] [varchar](10) NULL,
+      	[PRICE] [float] NULL,
+      	[ARTICLE_ERP_NR] [varchar](30) NULL,
+      	[PACKSLIP_POS_NR] [int] NULL,
+      	[PACKSLIPS] [varchar](10) NULL,
+      	PRIMARY KEY (ID)
+      )
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_215_ALTER_TABLE_INVOICE_HISTORY_POSITION">
+    <sql>
+      ALTER TABLE [dbo].[INVOICE_HISTORY_POSITION] ALTER COLUMN [PACKSLIPS] [varchar](50) NULL
+    </sql>
+  </changeSet>
+</databaseChangeLog>

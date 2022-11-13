@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="offer_articles" pageWidth="481" pageHeight="802" columnWidth="481" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ad644e2b-90b5-4ac8-ab63-5ee50b6722d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="printRemarks" class="java.lang.Boolean"/>
+	<field name="articleDescription" class="java.lang.String"/>
+	<field name="additionalArticleDescription" class="java.lang.String"/>
+	<field name="quantity" class="java.math.BigInteger"/>
+	<field name="quantityForWorkArticle" class="java.lang.String"/>
+	<field name="longPrice" class="java.lang.String"/>
+	<field name="totalLongPrice" class="java.lang.String"/>
+	<field name="articleNumber" class="java.lang.String"/>
+	<field name="offerActionValue" class="java.math.BigDecimal"/>
+	<field name="actionAmount" class="java.lang.String"/>
+	<field name="type" class="com.sagag.services.common.enums.offer.OfferPositionType"/>
+	<field name="offerPosition" class="com.sagag.eshop.service.dto.offer.ReportGroupedOfferPositionDto">
+		<fieldDescription><![CDATA[_THIS]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{printRemarks}]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="178" height="12" uuid="95f7037f-ca6b-4928-9460-e808548c3294"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{articleDescription} == null ? "" :$F{articleDescription})+" "+($F{articleNumber} == null ? "" : $F{articleNumber})+" "+($F{additionalArticleDescription} == null ? "" : $F{additionalArticleDescription})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="178" y="0" width="98" height="12" uuid="e4e28b1c-51a6-4aee-a075-c3f1a3fbef68"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantityForWorkArticle} == null ? $F{quantity} : $F{quantityForWorkArticle}]]></textFieldExpression>
+			</textField>
+			<textField pattern="0.00" isBlankWhenNull="true">
+				<reportElement x="276" y="0" width="69" height="12" uuid="bef8569e-7e57-4663-8836-ba1c7acddde0"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{longPrice}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="414" y="0" width="67" height="12" uuid="bdb69757-fc29-4630-bda5-3323142f6acf"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type} == com.sagag.services.common.enums.offer.OfferPositionType.REMARK ? "" : $F{totalLongPrice}]]></textFieldExpression>
+			</textField>
+			<textField pattern="0.00" isBlankWhenNull="true">
+				<reportElement x="345" y="0" width="69" height="12" uuid="0e7a0169-05d0-45c1-a2d9-5d6fd061583e"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{actionAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="12">
+			<printWhenExpression><![CDATA[$P{printRemarks} == false ? true : false]]></printWhenExpression>
+			<textField pattern="0.00" isBlankWhenNull="true">
+				<reportElement x="345" y="0" width="69" height="12" uuid="bef8569e-7e57-4663-8836-ba1c7acddde0"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{longPrice}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="247" y="0" width="98" height="12" uuid="e4e28b1c-51a6-4aee-a075-c3f1a3fbef68"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantityForWorkArticle} == null ? $F{quantity} : $F{quantityForWorkArticle}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="247" height="12" uuid="95f7037f-ca6b-4928-9460-e808548c3294"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{articleDescription} == null ? "" :$F{articleDescription})+" "+($F{articleNumber} == null ? "" : $F{articleNumber})+" "+($F{additionalArticleDescription} == null ? "" : $F{additionalArticleDescription})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="414" y="0" width="67" height="12" uuid="bdb69757-fc29-4630-bda5-3323142f6acf"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type} == com.sagag.services.common.enums.offer.OfferPositionType.REMARK ? "" : $F{totalLongPrice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

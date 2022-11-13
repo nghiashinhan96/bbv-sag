@@ -1,0 +1,214 @@
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 600px;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        max-width: 900px;
+    }
+}
+
+.modal-xl {
+    min-width: 1125px;
+}
+
+.modal-backdrop {
+    opacity: 0;
+    display: none;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1000;
+
+    .modal-dialog {
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+
+        &.article-favorite-edit-modal {
+            .modal-content {
+                padding: 2rem;
+                border-radius: 4px;
+
+                .modal-header {
+                    margin: 0;
+                    margin-bottom: 0;
+                    padding: 0;
+                    border: 0;
+                    border-radius: 0;
+                    border-bottom: 1px solid var(--primary);
+
+                    h4 {
+                        width: 100%;
+                        font-weight: 700;
+                        color: $primary;
+                        margin-bottom: 10px;
+                        line-height: 26px;
+                        font-size: 22px;
+                    }
+
+                    a {
+                        position: absolute;
+                        top: 8px;
+                        right: 0px;
+
+                        .close {
+                            font-size: 28px;
+                        }
+                    }
+                }
+
+                .modal-body {
+                    padding: 20px 0px 0px 0px;
+                }
+
+                .modal-footer {
+                    border: 0;
+                    padding: 0;
+                    margin: 0;
+
+                    >* {
+                        margin: 0;
+                    }
+
+                    .btn {
+                        margin-right: 10px !important;
+
+                        &:last-child {
+                            margin-right: 0 !important;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        &.oe-cross-reference-modal-content {
+            .modal-content {
+                padding: 20px 40px;
+                border-radius: 4px;
+            }
+
+            .modal-body {
+                padding: 0px;
+            }
+        }
+
+        a.close {
+            z-index: 99;
+        }
+    }
+}
+
+.modal-header {
+    padding: 0;
+    border-bottom: 1px solid $primary;
+    position: relative;
+
+    h4 {
+        color: $primary;
+    }
+
+    a {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+
+        .close {
+            font-size: 28px;
+        }
+    }
+}
+
+.modal-body {
+    padding: 2rem;
+    padding-bottom: 4rem;
+}
+
+#sys-notification {
+    .modal-header {
+        font-size: 3em;
+        background-color: $primary;
+        color: $white;
+    }
+
+    .modal-header,
+    .modal-footer,
+    .modal-body {
+        padding: 1rem !important;
+    }
+
+    .modal-header,
+    .modal-footer {
+        justify-content: center;
+    }
+
+    .modal-footer {
+        padding: 0.25rem !important;
+    }
+}
+
+.modal-dialog.add-to-card {
+    overflow: hidden;
+
+    .modal-body {
+        padding: 0;
+    }
+}
+
+autonet-single-article-modal,
+autonet-article-replace-modal,
+autonet-search-history-modal,
+autonet-article-accessories-modal,
+autonet-article-parts-list-modal,
+autonet-article-cross-reference-modal {
+    .modal-header {
+        padding: 1rem;
+    }
+
+    h3 {
+        margin:0
+    }
+}
+
+.oe-cross-reference-modal-content {
+    .col-reference {
+        min-width: 540px;
+        max-width: 800px;
+    }
+  
+    @media (min-width: 660px) {
+        &.single-column, &.double-column {
+            max-width: calc(100vw - 80px);
+        }
+    }
+  
+    @media (min-width: 920px) {
+        &.single-column, &.double-column {
+            max-width: 840px;
+        }
+    }
+    
+    @media (min-width: 1200px) {
+        &.single-column {
+                max-width: 840px;
+        }
+        &.double-column {
+                max-width: calc(100vw - 80px);
+        
+                .col-reference {
+                    width: 50% !important;
+                }
+        }
+    }
+    
+    @media (min-width: 1720px) {
+        &.double-column {
+            max-width: 1640px;
+        }
+    }
+}

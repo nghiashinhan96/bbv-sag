@@ -1,0 +1,160 @@
+<ng-container *ngIf="dataItems && dataItems.length">
+    <table class="table table-striped" data-automation="offer-detail-item"
+           *ngFor="let vehicle of vehicles; let i = index">
+        <thead *ngIf="vehicle.connectVehicleId">
+            <tr class="table-header text-white">
+                <th colspan="6">
+                    <div class="d-flex justify-content-between">
+                        <span>{{ vehicle.vehicleDesc }}</span>
+                        <!-- haynes pro only for articles with vehicle in context-->
+                        <span>
+                            <ng-container *ngIf="isShowLabourTime && haynesLinkHandleService.linkLoginHaynesPro[i]
+                                && haynesLinkHandleService.linkLoginHaynesPro[i].url_search">
+                                <a class="text-white mr-2"
+                                    target="_blank"
+                                    [attr.href]="haynesLinkHandleService.linkLoginHaynesPro[i].url_search"
+                                    (click)="generateHaynesProLink(vehicle.connectVehicleId, i)">
+                                    {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.VIEW_TO_ADD' | translate}}
+                                </a>
+                                <span>|</span>
+                            </ng-container>
+                            <ng-container *ngIf="isShowLabourTime && haynesLinkHandleService.linkLoginHaynesPro[i] && haynesLinkHandleService.linkLoginHaynesPro[i].url_add">
+                                <a class="text-white mx-2"
+                                    target="_blank"
+                                    [attr.href]="haynesLinkHandleService.linkLoginHaynesPro[i].url_add"
+                                    (click)="openModalToRetrieveDataRegenerateLink(i)">
+                                    {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.WORKING_TO_ADD' | translate}}
+                                </a>
+                                <span>|</span>
+                            </ng-container>
+                            <a class="text-white ml-2"
+                               [routerLink]="['/vehicle/' + vehicle.connectVehicleId]" [queryParams]="{fromOffer: true}">
+                                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.MORE_ITEMS_FOR_VEHICLE' | translate}}
+                            </a>
+                        </span>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let category of vehicle.content">
+            <tr *ngIf="vehicle.connectVehicleId">
+                <!-- show category, only for articles with vehicle in context-->
+                <th colspan="6">
+                    <h6 class="m-0 text-gray">
+                        {{category.catName || 'OFFERS.OFFER_DETAIL.OFFER_ITEM.ARTICLE_WTHOUT_CATEGORY' | translate}}
+                    </h6>
+                </th>
+            </tr>
+            <tr *ngFor="let article of category.articles">
+                <td>
+                    <div class="row mb-2">
+                        <div class="col-4 d-flex flex-column justify-content-center" data-automation="offer-detail-item-description">
+                            <div class="font-weight-bold">{{article.articleDescription}}</div>
+                            <div *ngIf="article.articleNumber"
+                                 class="mt-2">{{article.articleNumber}}</div>
+                        </div>
+                        <div class="col-2 d-flex align-items-center">
+                            <div
+                                 *ngIf="(article.type === CLIENT_ARTICLE || article.type === CLIENT_WORK); else otherTypeRef">
+                                <input class="form-control"
+                                       [ngModel]="article.quantity"
+                                       [libNumeric]
+                                       (ngModelChange)="onValueChaged($event,'quantity', article)"
+                                       (focusout)="updatePrice($event, article)" data-automation="offer-detail-item-amount-input">
+                            </div>
+                            <ng-template #otherTypeRef>
+                                <div class="d-flex flex-row align-items-center amount-block">
+                                    <input class="txt-amount mr-1 h-100 text-center"
+                                           maxlength="4"
+                                           (keypress)="allowNumber($event)"
+                                           (keyup.enter)="updatePrice($event, article)"
+                                           (focusout)="updatePrice($event, article)"
+                                           type="text"
+                                           name="txt-amount"
+                                           [ngModel]="article.quantity"
+                                           (ngModelChange)="onValueChaged($event,'quantity', article)" data-automation="offer-detail-item-amount-input">
+                                    <div class="d-flex flex-column justify-content-between h-100">
+                                        <button class="btn rounded-0 btn-plus small"
+                                                (click)="increaseQuantity(article)">+</button>
+                                        <button class="btn rounded-0 btn-minus small"
+                                                (click)="decreaseQuantity(article)">&minus;</button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                        <div class="col-2 d-flex align-items-center">
+                            <input class="form-control"
+                                   [ngModel]="article.grossPrice"
+                                   [libNumeric]
+                                   (ngModelChange)="onValueChaged($event,'grossPrice', article)"
+                                   (focusout)="updatePrice($event, article)" data-automation="offer-detail-item-price-input">
+                        </div>
+                        <div class="col-1 d-flex align-items-center">
+                            <button class="btn btn-outline-light border btn-plus medium rounded-1 mr-2"
+                                    (click)="showDiscount(article)"
+                                    [disabled]="article.discountValue"><i class="fa fa-plus text-dark"></i></button>
+                            <button class="btn btn-outline-light border btn-minus rounded-1 medium"
+                                    (click)="removeDiscount(article)"
+                                    [disabled]="!article.discountValue"><i class="fa fa-minus text-dark"></i></button>
+                        </div>
+                        <div class="col-2 d-flex align-items-center justify-content-end">
+                            {{article.totalGrossPrice | sagCurrency}}
+                        </div>
+                        <div class="col-1 d-flex align-items-center">
+                            <i class="fa fa-trash btn-icon"
+                               (click)="deleteItem(article)"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            {{article.discountDescription}}
+                        </div>
+                        <div class="col-2">
+                        </div>
+                        <div class="col-2">
+                            {{article.discountValue}}
+                        </div>
+                        <div class="col-1">
+                        </div>
+                        <div class="col-2 text-right">
+                            {{article.discountValue}}
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot class="labour-time"
+               *ngIf="vehicle.labourTimes.length >= 0">
+            <tr *ngFor="let item of vehicle.labourTimes; let i = index">
+                <td colspan="6">
+                    <div class="row">
+                        <div class="col-4 d-flex align-items-center">
+                            {{item.articleDescription}}
+                        </div>
+                        <div class="col-2 d-flex align-items-center">
+                            <input class="form-control"
+                                   [ngModel]="item.quantity"
+                                   (ngModelChange)="onValueChaged($event,'quantity', item)"
+                                   (focusout)="updatePrice($event, item)">
+                        </div>
+                        <div class="col-2 d-flex align-items-center">
+                            <input class="form-control"
+                                   [ngModel]="item.grossPrice"
+                                   (ngModelChange)="onValueChaged($event,'grossPrice', item)"
+                                   (focusout)="updatePrice($event, item)">
+                        </div>
+                        <div class="col-3 d-flex align-items-center justify-content-end">
+                            {{item.totalGrossPrice | sagCurrency}}
+                        </div>
+                        <div class="col-1 d-flex align-items-center">
+                            <i class="fa fa-trash btn-icon"
+                               aria-hidden="true"
+                               (click)="deleteItem(item)"></i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</ng-container>

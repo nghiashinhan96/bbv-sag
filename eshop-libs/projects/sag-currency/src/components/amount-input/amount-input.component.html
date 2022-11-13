@@ -1,0 +1,20 @@
+<ng-container *ngIf="mode === inputHorizontalMode; else normalModeRef">
+    <div class="horizontal-incremental-input-container" [class.disabled]="amountDisabled">
+        <a data-automation="article-amount-decrease" href="javascript:void(0);" (click)="decrease()" class="btn-minus">-</a>
+        <input class="form-control" type="text" maxlength="4" (focusin)="amountFocusIn($event)" data-automation="article-amount-input"
+            (focusout)="emitAmountFocusOut($event)" [libNumeric] [(ngModel)]="amountNumber"
+            (keydown.enter)="emitAmountKeyEnter($event)"
+            [formattedMode]="numberFormatMode.OTHER" [setting]="numberFormatSetting">
+        <a data-automation="article-amount-increase" href="javascript:void(0);" (click)="increase()" class="btn-plus">+</a>
+    </div>
+</ng-container>
+<ng-template #normalModeRef>
+    <div class="amount" [class.disabled]="amountDisabled">
+        <input class="form-control" type="text" maxlength="4" (focusin)="amountFocusIn($event)" data-automation="article-amount-input"
+            (focusout)="emitAmountFocusOut($event)" [(ngModel)]="amountNumber" [libNumeric]>
+        <div class="btns">
+            <a data-automation="article-amount-increase" href="javascript:void(0);" (click)="increase()" class="btnPlus">+</a>
+            <a data-automation="article-amount-decrease" href="javascript:void(0);" (click)="decrease()" class="btnMinus">-</a>
+        </div>
+    </div>
+</ng-template>

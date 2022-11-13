@@ -1,0 +1,12 @@
+<div class="card sag-card">
+    <div class="card-header">
+        <div class="d-flex align-items-baseline vehicle-search-title">
+            <h2 class="color-primary">{{ 'SEARCH.VEHICLE_SEARCH_TITLE' | translate }}</h2>
+            &nbsp;
+            <span class="color-primary font-weight-bold" title="({{'SEARCH.VEHICLE_SEARCH_TITLE_MOTO_MORE_INFO' | translate}})">({{'SEARCH.VEHICLE_SEARCH_TITLE_MOTO_MORE_INFO' | translate}})</span>
+        </div>
+    </div>
+    <div class="card-body">
+        <sag-make-model-search [customerNumber]="user?.custNr" (searchEmitter)="searchVehicle($event)"></sag-make-model-search>
+    </div>
+</div>

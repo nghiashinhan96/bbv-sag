@@ -1,0 +1,126 @@
+{
+  "id": "efe43b7d9fe19340866424f9595522b3",
+  "criteria": [
+    {
+      "cvp": "Koppelstange",
+      "cid": "553",
+      "cndech": "Stange/Strebe"
+    },
+    {
+      "cvp": "232",
+      "cid": "203",
+      "cndech": "Länge [mm]"
+    }
+  ],
+  "refs": [
+    {
+      "id_source": "tecdoc",
+      "artnr": "5113323",
+      "id_pim": "1000000025054183153",
+      "id_dlnr": "127",
+      "supplier": "NK",
+      "id_autonet": "",
+      "artid": "efe43b7d9fe19340866424f9595522b3",
+      "artnr_display": "5113323",
+      "gaID": "3229",
+      "genArtTxts": null,
+      "partImage": null,
+      "partDesc": null,
+      "brandImage": null,
+      "amountNumber": null,
+      "availableIcon": null,
+      "characteristics": null,
+      "partBigImage": null,
+      "content": null,
+      "productDesc": null,
+      "usage": null,
+      "safety": null,
+      "favourite": null,
+      "isNew": null,
+      "available": false,
+      "availability": null,
+      "article": null,
+      "price": null
+    }
+  ],
+  "parts": [
+    {
+      "brandid": "4110",
+      "pnrn": "59145113322",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "74",
+      "pnrn": "6383230468",
+      "ptype": "OEM"
+    },
+    {
+      "brandid": "535",
+      "pnrn": "2534402",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "535",
+      "pnrn": "2534402",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "797",
+      "pnrn": "21801",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "798",
+      "pnrn": "450",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1242",
+      "pnrn": "850023616",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1400",
+      "pnrn": "2123",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "1408",
+      "pnrn": "0569",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2100",
+      "pnrn": "2252",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2101",
+      "pnrn": "50166",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2678",
+      "pnrn": "2559",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "2743",
+      "pnrn": "19145113323",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "3305",
+      "pnrn": "664",
+      "ptype": "IAM"
+    },
+    {
+      "brandid": "4110",
+      "pnrn": "59145113323",
+      "ptype": "IAM"
+    }
+  ],
+  "info": [
+    
+  ]
+}

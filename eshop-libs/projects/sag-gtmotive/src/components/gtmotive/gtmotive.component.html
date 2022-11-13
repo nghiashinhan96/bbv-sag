@@ -1,0 +1,71 @@
+<div class="gte-wrapper" [class.active]="gteIsShown">
+    <a class="close-btn text-body" href="javascript:void(0)" (click)="onSubmitParts()" [class.disabled]="!hasLoadedPluginSuccess || !readyToClose"><i class="fa fa-close"></i></a>
+    <div class="gte-section d-flex h-100">
+        <div class="gte-outer flex-grow-1">
+            <div class="d-flex header-bar">
+                <div class="d-flex align-items-center flex-grow-1 gt-header">{{vehicleInfo}}</div>
+                <ul class="nav nav-tabs border-0">
+                    <li class="nav-item ml-auto" (click)="selectTab(TAB.NAVIGATION)">
+                        <a href="javascript:void(0)" class="nav-link" [class.active]="activeTab === TAB.NAVIGATION">
+                            {{'GTMOTIVE.LABEL.VEHICLE_BOARD_NAVIGATION' | translate}}
+                        </a>
+                    </li>
+                    <li class="nav-item" (click)="selectTab(TAB.COMPOSITION)">
+                        <a href="javascript:void(0)" class="nav-link" [class.active]="activeTab === TAB.COMPOSITION">
+                            {{'GTMOTIVE.LABEL.VEHICLE_COMPOSITION' | translate}}
+                        </a>
+                    </li>
+                    <li class="nav-item" (click)="selectTab(TAB.PARTS_TREE)">
+                        <a href="javascript:void(0)" class="nav-link" [class.active]="activeTab === TAB.PARTS_TREE">
+                            {{'GTMOTIVE.LABEL.PARTS_TREE' | translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane board-navigation-outer" [class.active]="activeTab === TAB.NAVIGATION">
+                    <div id="board-navigation"></div>
+                </div>
+                <div class="tab-pane composition-outer" [class.active]="activeTab === TAB.COMPOSITION">
+                    <div id="dynamic-composition"></div>
+                    <div class="controler">
+                        <div>
+                            <a href="javascript:void(0)" title="{{'COMMON_LABEL.REMOVE_ALL' | translate}}"
+                                (click)="refreshListPart()">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="javascript:void(0)" (click)="resetZoom()">
+                                <i class="fa fa-search-minus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane list-parts-outer p-3" [class.active]="activeTab === TAB.PARTS_TREE">
+                    <sag-gtmotive-parts-tree *ngIf="partsTree && partsTree.length" [partsTree]="partsTree" (pickPartOnTree)="pickPartOnTree($event)">
+                    </sag-gtmotive-parts-tree>
+                </div>
+            </div>
+        </div>
+        <div class="part-section border-left" style="width: 315px;">
+            <div class="text-center my-3">
+                <button class="btn btn-primary btn-center" (click)="onSubmitParts()"
+                    [disabled]="!partsList.length">{{'COMMON_LABEL.TAKE' | translate}}</button>
+            </div>
+            <div class="part-list">
+                <ng-container *ngFor="let part of partsList, let indexOfSet = index">
+                    <div *ngFor="let operation of part.operations" class="part-item d-flex justify-content-between p-3">
+                        <div class="part-name">
+                            <span id="non-matched-desc-{{operation.reference}}">{{operation.description}}</span>
+                            <span id="non-matched-ref-{{operation.reference}}">- {{operation.reference}}</span>
+                        </div>
+                        <a href="javascript:void(0)" id="non-matched-remove-{{operation.reference}}"
+                            (click)="deletePart(operation, part)"><i class="fa fa-trash"></i></a>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <a class="btn-hide-footer" (click)="toggleFooter()" href="javascript:void(0)"><i class="fa" [ngClass]="showFooter ? 'fa-angle-down' : 'fa-angle-up'"></i></a>
+</div>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Order Confirmation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style type="text/css">
+    table thead td, table tfoot td, table tbody table td, table tbody th {
+        padding: 3px 5px;
+    }
+    table tbody th {
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif; font-size: 10pt">
+        <thead>
+            <tr>
+                <td>
+                    <p>
+                       <span th:text="#{mail.order_confirm.title}"></span>
+                       <span th:unless="${orderConfirmMail.isFinalUser()}" th:text="${orderConfirmMail.getAffiliateText()}"></span>
+                       <span th:text="${orderConfirmMail.isFinalUser()} ? #{mail.order_confirm.automotive_shop} : #{mail.order_confirm.shop_name_suffix}"></span>
+                    </p>
+                    <p><span th:text="#{mail.order_confirm.welcome(${orderConfirmMail.getLastName()})}"></span></p>
+                    <p>
+                       <span th:text="#{mail.order_confirm.thankyou_first}"></span>
+                       <span th:text="${orderConfirmMail.isFinalUser()} ? #{mail.order_confirm.automotive_shop} : ${orderConfirmMail.getAffiliateText()}"></span><span th:text="#{mail.order_confirm.thankyou_second}"></span>
+                    </p>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr th:if="${orderConfirmMail.isFinalUser() == false}">
+                            <td>
+                                <span th:text="#{mail.order_confirm.ref_number}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.getOrderNr()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span th:text="#{mail.order_confirm.order_from}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.getOrderFrom()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span th:text="#{mail.order_confirm.customer_number}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.isFinalUser()} ? ${orderConfirmMail.getFinalCustomerNr()} : ${orderConfirmMail.getCustomerNr()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span th:text="#{mail.order_confirm.your_ref}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.getCustomerRefText()}"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top;">
+                                <span th:text="#{mail.order_confirm.article_quantity_title}"></span>
+                            </td>
+                            <td style="padding: 0;">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <th>
+                                            <span th:text="#{mail.order_confirm.article_quantity_title.number}"></span>
+                                        </th>
+                                        <th>
+                                            <span th:text="#{mail.order_confirm.article_quantity_title.article_number}"></span>
+                                        </th>
+                                        <th>
+                                            <span th:text="#{mail.order_confirm.article_quantity_title.description}"></span>
+                                        </th>
+                                        <th>
+                                            <span th:text="#{mail.order_confirm.article_quantity_title.retail_price_per_unit}"></span>
+                                        </th>
+                                        <th th:if="${(orderConfirmMail.isNetPriceView() == true && orderConfirmMail.isFinalUser() == false) || orderConfirmMail.isShowFinalCustomerNetPrice() == true}">
+                                            <span th:text="#{mail.order_confirm.article_quantity_title.net_price_per_unit}"></span>
+                                        </th>
+                                        <th th:if="${orderConfirmMail.isShowAvailability() == true}">
+                                            <span th:text="#{mail.order_confirm.article_quantity_title.date_of_delivery}"></span>
+                                        </th>
+                                        <th th:if="${orderConfirmMail.isReferenceTextShow() == true}">
+                                            <span th:text="#{mail.order_confirm.article_quantity_title.reference}"></span>
+                                        </th>
+                                    </tr>
+                                    <tbody th:if="${not #lists.isEmpty(orderArticleItems)}" th:each="subOrderArticleItems : ${orderArticleItems}">
+                                        
+                                        <tr th:if="${#strings.isEmpty(subOrderArticleItems.key) == false}">
+                                            <td colspan="7"><strong><span th:text="${subOrderArticleItems.key}"></span></strong></td>
+                                        </tr>
+                                        <tr th:if="${#strings.isEmpty(subOrderArticleItems.key) == true}">
+                                            <td colspan="7"><strong><span th:text="#{mail.order_confirm.more_article}"></span></strong></td>
+                                        </tr>
+                                        <tr th:if="${not #lists.isEmpty(subOrderArticleItems.value)}" th:each="cartItem : ${subOrderArticleItems.value}">
+                                            <td style="vertical-align: top;"><span th:text="${cartItem.getAmount()}"></span></td>
+                                            <td style="vertical-align: top;"><span th:text="${cartItem.getArtnrDisplay()}"></span></td>
+                                            <td style="vertical-align: top;"><span th:text="${cartItem.getArticleText()}"></span></td>
+                                            <td style="vertical-align: top;">
+                                            	<span th:text="${cartItem.getGrossPrice()}"></span>
+                                            	<br>
+                                            	<span th:if="${#strings.isEmpty(cartItem.getPriceType()) == false}" th:text="${cartItem.getPriceType()}"></span>
+                                            </td>
+                                            <td style="vertical-align: top;" th:if="${orderConfirmMail.isNetPriceView() == true && orderConfirmMail.isFinalUser() == false}"><span th:text="${cartItem.getNetPrice()}"></span></td>
+                                            <td style="vertical-align: top;" th:if="${orderConfirmMail.isShowFinalCustomerNetPrice() == true}"><span th:text="${cartItem.getFinalCustomerNetPrice()}"></span></td>
+                                            <td style="vertical-align: top;" th:if="${orderConfirmMail.isShowAvailability() == true}">
+                                            	<span
+													th:if="${#strings.isEmpty(cartItem.getArrivalDate()) == true && orderConfirmMail.isFinalUser() == true && orderConfirmMail.isCzAffiliate() == true}"
+													th:text="#{availability.text.non_orderale}"></span> 
+												<span
+													th:unless="${#strings.isEmpty(cartItem.getArrivalDate()) == true && orderConfirmMail.isFinalUser() == true && orderConfirmMail.isCzAffiliate() == true}"
+													th:text="${cartItem.getArrivalDate()}">
+												</span>
+											</td>
+                                            <td style="vertical-align: top;"><span th:text="${cartItem.getRemark()}"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr th:if="${orderConfirmMail.isShowAvailability() == true}">
+                            <td>
+                                <span th:text="#{mail.order_confirm.shipping}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.getShippingText()}"></span>
+                            </td>
+                        </tr>
+                        <tr th:if="${orderConfirmMail.isShowAvailability() == true}">
+                            <td>
+                                <span th:text="#{mail.order_confirm.delivery_type}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.getDeliveryText()}"></span>
+                            </td>
+                        </tr>
+                        <tr th:if="${orderConfirmMail.isShowAvailability() == true && orderConfirmMail.isFinalUser() == false}">
+                            <td>
+                                <span th:text="#{mail.order_confirm.payment_method}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.getPaymentMethodText()}"></span>
+                            </td>
+                        </tr>
+                        <tr th:if="${orderConfirmMail.isFinalUser() == true and orderConfirmMail.isShowAvailability() == false}">
+                          <td style="vertical-align: top;">
+                            <span th:text="#{mail.order_confirm.final_customer_address}"></span>
+                          </td>
+                          <td>
+                              <span th:text="${orderConfirmMail.getFinalCustomerName()}"></span>
+                              <br>
+                          	<span th:if="${orderConfirmMail.getStreet() != null}">
+                              <span th:utext="${orderConfirmMail.getStreet()}"></span>
+                              <br>
+                            </span>
+                            <span th:if="${orderConfirmMail.getAddress1() != null}">
+                              <span th:utext="${orderConfirmMail.getAddress1()}"></span>
+                              <br>
+                             </span>
+                            <span th:if="${orderConfirmMail.getAddress2() != null}">
+	                              <span th:utext="${orderConfirmMail.getAddress2()}"></span>
+	                              <br>
+                             </span>
+                             <span th:if="${orderConfirmMail.getPoBox() != null}">
+	                              <span th:utext="${orderConfirmMail.getPoBox()}"></span>
+	                              <br>
+                              </span>
+                             <span th:utext="${orderConfirmMail.getPostCode()}"></span>
+                             <span th:utext="${orderConfirmMail.getPlace()}"></span>
+                          </td>
+                        </tr>
+                        <tr th:if="${orderConfirmMail.isShowAvailability() == true}">
+                            <td>
+                                <span th:text="#{mail.order_confirm.billing_address}"></span>
+                            </td>
+                            <td>
+                                <span th:if="${orderConfirmMail.isFinalUser() == false}" th:text="${orderConfirmMail.getInvoiceAddr()}"></span>
+                                <span th:if="${orderConfirmMail.isFinalUser() == true}" th:text="${orderConfirmMail.getFinalCustomerDeliveryAddress()}"></span>
+                            </td>
+                        </tr>
+                        <tr th:if="${orderConfirmMail.isShowAvailability() == true}">
+                            <td>
+                                <span th:text="#{mail.order_confirm.delivery_address}"></span>
+                            </td>
+                            <td>
+                                <span th:if="${orderConfirmMail.isFinalUser() == false}" th:text="${orderConfirmMail.getDeliveryAddr()}"></span>
+                                <span th:if="${orderConfirmMail.isFinalUser() == true}" th:text="${orderConfirmMail.getFinalCustomerDeliveryAddress()}"></span>
+                            </td>
+                        </tr>
+                        <tr th:if="${orderConfirmMail.isReferenceTextShow() == true}">
+                            <td>
+                                <span th:text="#{mail.order_confirm.message_to_branch}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${orderConfirmMail.getBranchRemark()}"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <p th:if="${orderConfirmMail.isFinalUser() == false}">
+                      <span th:text="#{mail.order_confirm.reply_contact}"></span>
+                      <a th:href="@{'mailto:'+ ${orderConfirmMail.getAffiliateEmail()}}" style="color: #0073be;" th:text="${orderConfirmMail.getAffiliateEmail()}"></a>
+                    </p>
+                    <p><span th:text="#{mail.order_confirm.thankyou_end}"></span></p>
+                    <p>
+                       <span th:text="#{mail.order_confirm.shop_name}"></span>
+                       <span th:text="${orderConfirmMail.isFinalUser()} ? #{mail.order_confirm.automotive} : ${orderConfirmMail.getAffiliateText()}"></span>
+                       <span th:text="#{mail.order_confirm.shop_team}"></span>
+                    </p>
+                    <p style="font-size: 8pt"><span th:text="#{mail.order_confirm.footer(${orderConfirmMail.isFinalUser()} ? #{mail.order_confirm.automotive} : ${orderConfirmMail.getAffiliateText()})}"></span></p>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <p th:if="${orderConfirmMail.isFinalUser() == true}" th:text="#{mail.create.user.noreply}" style="font-family: Arial, sans-serif; font-size: 10pt; font-style: italic;"> Note: Please DO NOT respond to this automatic message</p>
+</body>
+</html>

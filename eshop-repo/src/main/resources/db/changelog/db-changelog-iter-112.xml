@@ -1,0 +1,82 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_109_ALTER_VIEW_V_FINAL_CUSTOMER_ADD_STATUS_AND_HAS_IN_PROGRESS_ORDERS_FIELDS">
+    <sql>
+	    ALTER VIEW [dbo].[V_FINAL_CUSTOMER] AS
+	      SELECT
+	      ORG.ID AS ORG_ID,
+	      ORG.NAME AS NAME,
+	      ORG.DESCRIPTION AS DESCRIPTION,
+	      ORG.PARENT_ID AS PARENT_ORG_ID,
+	      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP
+	      WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY = 'TYPE' FOR XML
+	      PATH(''), TYPE).value('.', 'varchar(max)'), 1, 1, '') AS
+	      FINAL_CUSTOMER_TYPE,
+	      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP
+	      WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY IN ('STREET', 'POSTCODE', 'PLACE') ORDER BY
+	      (CASE FP.SETTING_KEY  WHEN 'STREET' THEN 1 WHEN 'POSTCODE' THEN 2 WHEN 'PLACE' THEN 3 END) ASC FOR XML PATH(''),
+	      TYPE).value('.', 'varchar(max)'), 1, 1, '') AS ADDRESS_INFO,
+	      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM
+	      FINAL_CUSTOMER_PROPERTY FP WHERE FP.ORG_ID = ORG.ID AND
+	      FP.SETTING_KEY IN ('SURNAME', 'FIRSTNAME')  ORDER BY
+	      (CASE FP.SETTING_KEY  WHEN 'SURNAME' THEN 1 WHEN 'FIRSTNAME' THEN 2 END) ASC FOR XML PATH(''),
+	      TYPE).value('.', 'varchar(max)'), 1, 1, '') AS CONTACT_INFO,
+		  (SELECT FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY = 'STATUS') AS STATUS,
+		  (SELECT CASE WHEN COUNT(FO.ID) > 0 THEN '1' ELSE '0' END FROM FINAL_CUSTOMER_ORDER FO WHERE FO.ORG_ID = ORG.ID AND FO.STATUS IN('NEW','OPEN')) AS HAS_IN_PROGRESS_ORDERS
+	      FROM [dbo].ORGANISATION ORG
+	      INNER JOIN [dbo].ORGANISATION_TYPE ORG_TYPE ON ORG.ORGTYPE_ID =
+	      ORG_TYPE.ID
+	      WHERE ORG_TYPE.NAME = 'FINAL_CUSTOMER';
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_112_REMOVE_VIN_PACKAGES_FUNCTION">
+     <sql>
+      -- Remove VIN_PACKAGES Function in DB
+      DELETE FROM dbo.PERM_FUNCTION WHERE FUNCTION_ID = (SELECT ef.ID FROM dbo.ESHOP_FUNCTION ef WHERE ef.FUNCTION_NAME = 'VIN_API_PACKAGES');
+      DELETE FROM dbo.ESHOP_FUNCTION WHERE FUNCTION_NAME = 'VIN_API_PACKAGES';
+     </sql>
+   </changeSet>
+	<changeSet author="CONNECT_APP" id="ITER_112_ALTER_VIEW_V_COLLECTION_SEARCH">
+		<sql>
+			ALTER VIEW [dbo].[V_COLLECTION_SEARCH] AS
+			SELECT temp.NAME
+			COLLECTION_NAME,
+			temp.SHORTNAME AFFILIATE,
+			STUFF(
+			(SELECT CAST(', ' AS
+			varchar(max)) + L.ORG_CODE
+			FROM ORGANISATION as L
+			WHERE L.ID in (
+			SELECT
+			top 5 LR.ORGANISATION_ID FROM COLLECTION_RELATION LR
+			JOIN
+			ORGANISATION
+			oga on oga.ID = LR.ORGANISATION_ID
+			JOIN ORGANISATION_TYPE
+			ota on
+			oga.ORGTYPE_ID = ota.ID
+			WHERE LR.COLLECTION_ID = temp.ID AND
+			ota.[LEVEL]= 3)
+			FOR XML PATH(''), TYPE
+			)
+			.value('.', 'varchar(max)'),1,
+			1,'') AS CUSTOMER_NR,
+			temp.COLLECTION_SHORT_NAME COLLECTION_SHORT_NAME
+			FROM (
+			SELECT DISTINCT orgColl.ID, orgColl.NAME, aff.SHORTNAME,
+			orgColl.SHORTNAME
+			COLLECTION_SHORT_NAME from
+			ORGANISATION_COLLECTION
+			orgColl
+			join ORGANISATION aff on aff.ID = orgColl.AFFILIATE_ID
+			where
+			aff.SHORTNAME != 'sag'
+			) AS temp
+		</sql>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,4 @@
+spring.profiles: unicat-callback-ax-cz-dev
+
+unicat:
+  callback_url: https://axcz10.bbv-demo.ch/dvse-cz-ax/ws

@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_164_MATIK_CH_CUSTOMERS_MUST_HAVE_RABATT_DISABLED">
+    <sql>
+		DECLARE @matikAtOrg TABLE(org_id int, order_setting_id int)
+		DECLARE @matickAtUser TABLE(user_id int)
+		DECLARE @matickAtUserSetting TABLE(user_setting_id int)
+		
+		INSERT INTO @matikAtOrg
+			SELECT ID, ORDER_SETTINGS_ID FROM ORGANISATION WHERE PARENT_ID = (SELECT ID FROM ORGANISATION WHERE LOWER(SHORTNAME) ='matik-ch')
+			
+		INSERT INTO @matickAtUser
+			SELECT USER_ID FROM GROUP_USER 
+				WHERE GROUP_ID IN (SELECT GROUP_ID FROM ORGANISATION_GROUP
+					WHERE ORGANISATION_ID IN (SELECT org_id from @matikAtOrg))
+					
+		INSERT INTO @matickAtUserSetting
+			SELECT SETTING FROM ESHOP_USER WHERE ID IN (SELECT user_id FROM @matickAtUser)
+			
+		UPDATE CUSTOMER_SETTINGS SET SHOW_DISCOUNT = 0 where ID IN (SELECT order_setting_id from @matikAtOrg)
+		UPDATE USER_SETTINGS SET SHOW_DISCOUNT = 0 where ID IN (SELECT user_setting_id FROM @matickAtUserSetting);
+	</sql>
+  </changeSet>
+</databaseChangeLog>

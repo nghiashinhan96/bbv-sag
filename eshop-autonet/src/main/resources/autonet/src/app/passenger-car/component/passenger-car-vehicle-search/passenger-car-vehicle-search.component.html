@@ -1,0 +1,25 @@
+<div class="card search-card vehicle-history-card">
+    <div class="card-header">
+        <h2>{{ 'SEARCH.VEHICLE_SEARCH_TITLE' | translate }}</h2>
+    </div>
+    <div class="card-body">
+        <tabset class="search-page" [justified]="true">
+            <tab heading="{{'SEARCH.VEHICLE_SEARCH.VEHICLE_TITLE' | translate}}">
+                <sag-advance-search-vehicle (navigateToModelPageEventEmitter)="onNavigateToModelPage($event)">
+                </sag-advance-search-vehicle>
+                <hr style="margin-bottom: 23.5px;">
+                <sag-search-vehicle
+                    [language]="language"
+                    [isShownVehicleSearch]="false"
+                    [enableVin]="false"
+                    (vehicleSearchEmitter)="searchVehicle($event)">
+                </sag-search-vehicle>
+            </tab>
+            <tab heading="{{'SEARCH.VEHICLE_SEARCH.MAKE_MODEL_TITLE' | translate}}">
+                <sag-search-make-model-type
+                    (searchEmitter)="searchMakeModel($event)">
+                </sag-search-make-model-type>
+            </tab>
+        </tabset>
+    </div>
+</div>

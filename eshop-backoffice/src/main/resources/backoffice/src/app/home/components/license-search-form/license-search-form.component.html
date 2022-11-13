@@ -1,0 +1,75 @@
+<div class="card panel panel-primary mb-4 shopping-basket-condition">
+    <div class="card-header">
+        <connect-expanded [title]="'HOME.LABEL.LICENSE_SEARCH.LICENSE_SEARCH'" [(expand)]="isFormExpanded">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isFormExpanded">
+        <form class="form-horizontal" [formGroup]="form">
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{"HOME.LABEL.LICENSE_SEARCH.AFFILIATE" | translate}}</label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="affiliateData"
+                        notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" formControlName="affiliate"
+                        [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="license-search_customer-number"
+                    class="col-3 control-label">{{ "HOME.LABEL.LICENSE_SEARCH.CUSTOMER_NUMBER" | translate }}</label>
+                <div class="col-4">
+                    <input name="customer-number" type="text" class="form-control"
+                        id="license-search_customer-number" formControlName="customerNr" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{"HOME.LABEL.LICENSE_SEARCH.LICENSE_NAME" | translate}}</label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="licensesData"
+                        notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" formControlName="packName"
+                        [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="date-from"
+                    class="col-3 control-label">{{"HOME.LABEL.LICENSE_SEARCH.FROM_DATE" | translate}}</label>
+                <div class="col-4">
+                    <div class="input-group">
+                        <input class="form-control" angular-mydatepicker name="beginDate" [options]="dateFromSetting"
+                            #dpFrom="angular-mydatepicker" formControlName="beginDate" [locale]="locale"
+                            (dateChanged)="onDateFromChanged($event)" (click)="dpFrom.toggleCalendar()"
+                            autocomplete="off" />
+                        <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="date-to" class="col-3 control-label">{{
+          "HOME.LABEL.LICENSE_SEARCH.TO_DATE" | translate
+        }}</label>
+                <div class="col-4">
+                    <div class="input-group">
+                        <input class="form-control" angular-mydatepicker name="endDate" [options]="dateToSetting"
+                            #dpTo="angular-mydatepicker" formControlName="endDate" [locale]="locale"
+                            (dateChanged)="onDateToChanged($event)" (click)="dpTo.toggleCalendar()"
+                            autocomplete="off" />
+                        <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-3 col-4">
+                    <button type="button" id="customer-search-3-submit" class="btn btn-primary" (click)="onSubmit()">
+                        {{ "HOME.LABEL.LICENSE_SEARCH.SEARCH" | translate }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

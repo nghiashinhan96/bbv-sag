@@ -1,0 +1,166 @@
+<form *ngIf="model" [formGroup]="model" class="form-horizontal" id="affiliate-info-panel">
+    <div class="panel panel-primary panel-primary card mb-4">
+        <div class="card-header">
+            <connect-expanded [title]="'HOME.LABEL.AFFILIATE_SEARCH.AFFILIATE_INFO'" [(expand)]="isFormExpanded">
+            </connect-expanded>
+        </div>
+        <div class="card-body" *ngIf="isFormExpanded">
+            <div class="form-group row">
+                <label class="col-3 control-label">{{"HOME.LABEL.AFFILIATE_SEARCH.NAME" | translate}}</label>
+                <div class="col-5">
+                    <input readonly type="text" class="form-control" formControlName="name" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{"HOME.LABEL.AFFILIATE_SEARCH.SHORT_NAME" | translate}}</label>
+                <div class="col-5">
+                    <input readonly type="text" class="form-control" formControlName="shortName" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{"HOME.LABEL.AFFILIATE_SEARCH.ORG_CODE" | translate}}</label>
+                <div class="col-5">
+                    <input readonly type="text" class="form-control" formControlName="orgCode" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{"HOME.LABEL.AFFILIATE_SEARCH.DESCRIPTION" | translate}}</label>
+                <div class="col-5">
+                    <input readonly type="text" class="form-control" formControlName="description" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{"HOME.LABEL.AFFILIATE_SEARCH.VAT" | translate}}</label>
+                <div class="col-5">
+                    <input type="number" class="form-control" formControlName="vat" min="0" max="100"/>
+                    <div *ngIf="model.get('vat')?.invalid && submitted" class="alert alert-danger mt-3">
+                        {{'COMMON.MESSAGE.INVALID_RANGE_VAT' | translate}}
+                    </div>
+                </div>
+            </div>
+            
+            <div *ngIf="vatTypeDisplayShow" class="form-group row">
+                <label for="incl-vat-prices"
+                    class="col-3">{{"HOME.LABEL.AFFILIATE_SEARCH.INCL_VAT_PRICES" | translate}}</label>
+                <div class="col-2 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="vat-prices-list" formControlName="vtList" />
+                    <label class="col-8 text-nowrap">{{'INCL_VAT_PRICES.LIST' | translate}}</label>
+                </div>
+                <div class="col-3 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="vat-prices-detail" formControlName="vtDetail" />
+                    <label class="col-8 text-nowrap">{{'INCL_VAT_PRICES.DETAIL' | translate}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="abs-for-customer"
+                    class="col-3">{{"HOME.LABEL.AFFILIATE_SEARCH.ABS_FOR_CUSTOMER" | translate}}</label>
+                <div class="col-3">
+                    <input type="checkbox" id="abs-for-customer" formControlName="customerAbsEnabled" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="abs-for-sales"
+                    class="col-3">{{"HOME.LABEL.AFFILIATE_SEARCH.ABS_FOR_SALES" | translate}}</label>
+                <div class="col-3">
+                    <input type="checkbox" id="abs-for-sales" formControlName="salesAbsEnabled" />
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="!isSb">
+                <label for="kso-splitting"
+                    class="col-3">{{"HOME.LABEL.AFFILIATE_SEARCH.KSO_SPLITTING" | translate}}</label>
+                <div class="col-3">
+                    <input type="checkbox" id="kso-splitting" formControlName="ksoEnabled" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label text-nowrap">{{"BRAND_PRIORITY_AVAILABILITY.C4C" | translate}}</label>
+                <div class="col-2 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="cs4-p1" formControlName="cs4P1" />
+                    <label class="col-8 text-nowrap">{{'BRAND_PRIORITY_AVAILABILITY.P1' | translate}}</label>
+                </div>
+                <div class="col-3 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="cs4-p2" formControlName="cs4P2" />
+                    <label class="col-8 text-nowrap">{{'BRAND_PRIORITY_AVAILABILITY.P2' | translate}}</label>
+                </div>
+                <div class="col-4 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="cs4-p3" formControlName="cs4P3" />
+                    <label class="col-8 text-nowrap">{{'BRAND_PRIORITY_AVAILABILITY.P3' | translate}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{"BRAND_PRIORITY_AVAILABILITY.C4S" | translate}}</label>
+                <div class="col-2 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="c4s-p1" formControlName="c4sP1" />
+                    <label class="col-8 text-nowrap">{{'BRAND_PRIORITY_AVAILABILITY.P1' | translate}}</label>
+                </div>
+                <div class="col-3 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="c4s-p2" formControlName="c4sP2" />
+                    <label class="col-8 text-nowrap">{{'BRAND_PRIORITY_AVAILABILITY.P2' | translate}}</label>
+                </div>
+                <div class="col-4 row mx-0 d-flex align-items-center">
+                    <input type="checkbox" id="c4s-p3" formControlName="c4sP3" />
+                    <label class="col-8 text-nowrap">{{'BRAND_PRIORITY_AVAILABILITY.P3' | translate}}</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="brand-prio-disabled"
+                    class="col-3">{{"BRAND_PRIORITY_AVAILABILITY.DISABLED" | translate}}</label>
+                <div class="col-3">
+                    <input type="checkbox" id="brand-prio-disabled" formControlName="disabledBrandPriorityAvailability" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="brand-filter-customer"
+                    class="col-3">{{"HOME.LABEL.AFFILIATE_SEARCH.CUSTOMER_BRAND_FILTER_ENABLE" | translate}}</label>
+                <div class="col-3">
+                    <input type="checkbox" id="brand-filter-customer" formControlName="customerBrandFilterEnabled" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="brand-filter-sale"
+                    class="col-3">{{"HOME.LABEL.AFFILIATE_SEARCH.SALE_BRAND_FILTER_ENABLE" | translate}}</label>
+                <div class="col-3">
+                    <input type="checkbox" id="brand-filter-sale" formControlName="salesBrandFilterEnabled" />
+                </div>
+            </div>
+
+            <div class="form-group row pt-3 digi-invoice-request-allowed">
+                <label for="electronic-invoice-request-allowed" class="col-3 control-label">{{"HOME.LABEL.AFFILIATE_SEARCH.ELECTRONIC_INVOICE_REQUEST_ALLOWED" | translate}}</label>
+                <div class="col-3">
+                    <input type="checkbox" id="electronic-invoice-request-allowed" formControlName="invoiceRequestAllowed">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3 control-label">{{"HOME.LABEL.AFFILIATE_SEARCH.ELECTRONIC_INVOICE_REQUEST_EMAIL" | translate}}</label>
+                <div class="col-5">
+                    <input type="text" id="electronic-invoice-request-email" class="form-control" formControlName="invoiceRequestEmail">
+                    <control-messages [control]="model.controls.invoiceRequestEmail"></control-messages>
+                    <div *ngIf="model?.invalid && model.hasError('invoiceRequestEmailIsRequired') && submitted" class="alert alert-danger alert-custom">
+                        {{"PASSWORD.REQUIRED_FIELD" | translate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div formGroupName="externalPartSettings">
+        <backoffice-affiliate-external-part-setting
+            [form]="model?.controls?.externalPartSettings"
+            [submitted]="submitted">
+        </backoffice-affiliate-external-part-setting>
+    </div>
+    <div formArrayName="availDisplaySettings">
+        <div *ngFor="let availDisplaySetting of model?.controls?.availDisplaySettings['controls']; let i=index">
+            <div [formGroupName]="i">
+                <backoffice-affiliate-avail-setting
+                    [group]="model?.controls?.availDisplaySettings['controls'][i]"
+                    [title]="getTitle(model?.controls?.availDisplaySettings['controls'][i].getRawValue())"
+                    [isShowExceptionalCasesHintText]="getIsShowExceptionalCasesHintText(model?.controls?.availDisplaySettings['controls'][i].getRawValue())"
+                    [submitted]="submitted">
+                </backoffice-affiliate-avail-setting>
+            </div>
+        </div>
+    </div>
+</form>

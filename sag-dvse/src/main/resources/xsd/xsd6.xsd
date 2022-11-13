@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://eshop.sag.ch/types/authority" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/authority">
+
+<xs:complexType name="authority">
+<xs:sequence/>
+<xs:attribute name="idx" type="xs:ID" use="required"/>
+<xs:attribute name="name" type="xs:string" use="required"/>
+<xs:attribute name="type" type="tns:authoritytype" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="authoritytype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="SERVICE"/>
+<xs:enumeration value="STANDARTSETTINGBODY"/>
+<xs:enumeration value="MANUFACTURER"/>
+<xs:enumeration value="VENDOR"/>
+<xs:enumeration value="CLIENT"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

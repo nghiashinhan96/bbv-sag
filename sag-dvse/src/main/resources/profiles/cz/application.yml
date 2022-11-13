@@ -1,0 +1,36 @@
+# ************************************************************************
+# This is the CZ configuration of DVSE(SOAP) application for Development mode.
+# 
+# Required Common configuration:
+# - Elasticsearch -
+# - ERP -
+# - MDM for DVSE service - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Caching - 
+# - Incentive - 
+# - SOAP - 
+# - Country Code - 
+# -  Proxy - 
+# - Java Melody Monitoring - 
+#
+# ************************************************************************
+spring.profiles.include:
+  elasticsearch-dev,
+  stakis-erp-pre,
+  mdm-prod,
+  unicat-callback-dev,
+  db-dev,
+  executor-pool,
+  no-liquibase,
+  logging-cz-dev,
+  actuator,
+  cache-dev,
+  incentive-dev,
+  soap,
+  country-cz,
+  no-proxy,
+  javamelody
+

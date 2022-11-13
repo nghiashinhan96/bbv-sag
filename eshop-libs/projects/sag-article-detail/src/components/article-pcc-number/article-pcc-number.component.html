@@ -1,0 +1,12 @@
+<div class="article-pcc-number d-flex align-items-center {{customClass}}">
+    <div class="article-pcc-number__label" *ngIf="showLabel">{{label | translate}}</div>
+    <div class="pl-2 article-pcc-number__data" [popover]="pccRef" #pccDisplayPop="bs-popover" container="body"
+        triggers="click" containerClass="pcc-display-popover">
+        {{pnrnPccsDisplay}}
+    </div>
+</div>
+
+<ng-template #pccRef>
+    <sag-pcc-popover [popupRef]="pccDisplayPop" [pnrnPccs]="pnrnPccs">
+    </sag-pcc-popover>
+</ng-template>

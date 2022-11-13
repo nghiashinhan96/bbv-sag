@@ -1,0 +1,39 @@
+@import "../../../../styles/variables";
+
+.outer {
+  display: table;
+  width: 100%;
+  background-color: $gray-lighter;
+}
+
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  height: $menu-height;
+}
+
+nav {
+  ul {
+    li {
+      float: left;
+      list-style: none;
+
+      a {
+        display: block;
+        padding: 0 20px;
+        font-weight: 500;
+        color: $brand-color;
+        height: $menu-height;
+        line-height: $menu-height;
+
+        &:hover {
+          background-color: lighten($gray-lighter, 3.5%);
+        }
+
+        &.active {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}

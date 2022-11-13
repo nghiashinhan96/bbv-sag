@@ -1,0 +1,21 @@
+<sag-advance-vehicle-search-breadcumb *ngIf="breadcrumbs.length > 0" [breadcrumbs]="breadcrumbs">
+</sag-advance-vehicle-search-breadcumb>
+<div class="avs-types-wrapper vehicle-list" *ngIf="vehicles.length > 0">
+    <p class="avs-types-top-header">{{'ADVANCE_VEHICLE_SEARCH.HEADER' | translate}}</p>
+    <div class="types-list">
+        <sag-table-list-search 
+        [columns]="columns"
+        [sort]="sort"
+        [searchModel]="searchModel"
+        [result]="vehicles"
+        [isFetching]="isFetching"
+        [queryParams]="queryParams"
+        (sortDataEvent)="sortData($event)"
+        (filterFullNameEvent)="filterFullName()"
+        (optionSelectedEvent)="optionSelectedEvent()"
+        (fetchMoreVehiclesEvent)="fetchMoreVehicles($event)"
+        (filteringDataEvent)="filteringData($event)"
+        (navigateToListPartEvent)="navigateToPartList($event)">
+        </sag-table-list-search>
+    </div>
+</div>

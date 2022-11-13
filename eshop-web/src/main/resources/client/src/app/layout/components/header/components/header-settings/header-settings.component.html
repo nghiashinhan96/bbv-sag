@@ -1,0 +1,173 @@
+<ng-container *ngIf="loggedUser$ | async as user">
+    <div class="header-settings">
+        <div class="user-info" (click)="pop.toggle()">
+            <span class="select-item-text">{{'HEADER.WELCOME' | translate}}</span>
+            <a class="user-name" href="javascript:void(0)">{{user?.firstName + ' ' + user?.lastName}}</a>
+        </div>
+        <a href="javascript:void(0)" data-automation="header-settings-toggle">
+            <i class="drop-down-icon fa fa-angle-down fa-2x" [popover]="settingsRef" #pop="bs-popover"
+            containerClass="header-settings" placement="bottom" [outsideClick]="true" container="body"></i>
+        </a>
+    </div>
+
+    <ng-template #settingsRef>
+        <ng-container [ngSwitch]="incentiveLinkInfo?.mode">
+            <ng-container *ngSwitchCase="HAPPY_BONUS">
+                <div class="happy-bonus-wrapper">
+                    <a class="d-flex happy-bonus" href="javascript:void(0)" (click)="redeemHappyPoints()">
+                        <div class="point">
+                            <img src="assets/images/incentive/logo-profil.png" alt="" class="img-responsive">
+                            <span class="label"
+                                *ngIf="incentiveLinkInfo?.acceptHappyPointTerm">{{incentiveLinkInfo?.points }}</span>
+                        </div>
+                        <div class="text">{{'HAPPY_POINT.TITLE' | translate }}</div>
+                    </a>
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="CH_HAPPY_POINTS">
+                <div class="happy-bonus-wrapper">
+                    <a class="d-flex happy-bonus" href="javascript:void(0)" (click)="redeemHappyPoints()">
+                        <div class="point">
+                            <img src="assets/images/incentive/logo-profil.png" alt="" class="img-responsive">
+                            <span class="label"
+                                *ngIf="incentiveLinkInfo?.acceptHappyPointTerm">{{incentiveLinkInfo?.points }}</span>
+                        </div>
+                        <div class="text">{{'HAPPY_POINT.TITLE' | translate }}</div>
+                    </a>
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="BIG_POINTS">
+                <div class="d-flex big-points">
+                    <a target="_blank" href="{{incentiveLinkInfo?.url}}">
+                        <div class="text" [innerHTML]="'MENU.EXTERNAL_LINKS.BIG_POINTS' | translate"></div>
+                    </a>
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="MILES">
+                <a class="d-flex miles" target="_blank" href="{{incentiveLinkInfo?.url}}">
+                    <div class="point">
+                        <img src="assets/images/incentive/logo-miles-incentives.png" alt="" class="img-responsive">
+                    </div>
+                    <div class="text">
+                        {{incentiveLinkInfo?.description}}
+                    </div>
+                </a>
+            </ng-container>
+            <ng-container *ngSwitchCase="AT_HAPPY_POINTS">
+                <a class="d-flex happy-bonus" target="_blank" href="{{incentiveLinkInfo?.url}}">
+                    <div class="point">
+                        <img src="assets/images/incentive/logo-happy-point-at.png" alt="" class="img-responsive">
+                    </div>
+                    <div class="text">{{'HAPPY_POINT.TITLE' | translate }}</div>
+                </a>
+            </ng-container>
+        </ng-container>
+
+        <ul class="list-group list-group-header" data-automation="header-settings-body">
+            <li class="list-group-item border-0">
+                <a class="inversed w-100" [routerLink]="['/settings/profile']">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{ 'MENU.PROFILE' | translate}}</span>
+                </a>
+            </li>
+            <ng-container>
+                <li class="list-group-item border-0">
+                    <a class="inversed w-100"
+                        [routerLink]="user.isFinalUserRole? ['/settings/final-user-orders'] : ['/settings/order-history']">
+                        <i class="fa fa-chevron-right"></i>
+                        <span>{{ 'MENU.MY_ORDERS' | translate}}</span>
+                    </a>
+                </li>
+            </ng-container>
+            <li class="list-group-item border-0" *ngIf="user.finalUserAdminRole">
+                <a class="inversed w-100" [routerLink]="['/settings/final-user-admin']">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{ 'MENU.USER_ADMINISTRATION_TAB' | translate}}</span>
+                </a>
+            </li>
+            <ng-container *sagCommonShowHideByAff="[cz,ehcz,ehaxcz,sb];show:false">
+                <ng-container *connectHasPermission="['USED_INVOICE_HISTORY']">
+                    <li class="list-group-item border-0">
+                        <a class="inversed w-100" [routerLink]="['/settings/invoices']">
+                            <i class="fa fa-chevron-right"></i>
+                            <span>{{ 'COMMON_LABEL.INVOICE_ARCHIVE' | translate}}</span>
+                        </a>
+                    </li>
+                </ng-container>
+            </ng-container>
+            <ng-container *sagCommonShowHideByAff="[sb];show:true">
+                <ng-container *connectHasPermission="['USED_INVOICE_HISTORY']">
+                    <li class="list-group-item border-0">
+                        <a class="inversed w-100" [routerLink]="['/settings/analytical-card']">
+                            <i class="fa fa-chevron-right"></i>
+                            <span>{{ 'SETTINGS.ANALYTICAL_CARD.TITLE' | translate}}</span>
+                        </a>
+                    </li>
+                </ng-container>
+            </ng-container>
+            <li class="list-group-item border-0" *ngIf="user.userAdminRole && !user.isSalesOnBeHalf">
+                <a class="inversed w-100" [routerLink]="['/settings/administrator']">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{ 'MENU.USER_ADMINISTRATION_TAB' | translate}}</span>
+                </a>
+            </li>
+            <li class="list-group-item border-0" *ngIf="user.isSalesOnBeHalf">
+                <a class="inversed w-100" [routerLink]="['/return/basket']">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{ 'MENU.RETURN' | translate}}</span>
+                </a>
+            </li>
+            <li class="list-group-item border-0" *ngIf="isWBB && user.userAdminRole && !user.isSalesOnBeHalf">
+                <a class="inversed w-100" href="javascript:void(0)" (click)="showPriceList()">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{'MENU.PRICE_FILE' | translate}}</span>
+                </a>
+            </li>
+            <li class="list-group-item border-0" *ngIf="!user.salesUser || user.isSalesOnBeHalf">
+                <a class="inversed w-100" [routerLink]="['/settings/configuration']">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{ 'MENU.SETTINGS' | translate}}</span>
+                </a>
+            </li>
+            <ng-container *ngIf="user.hasWholesalerAdminPermission && !user.isSalesOnBeHalf">
+                <li class="list-group-item border-0">
+                    <a class="inversed w-100" [routerLink]="['/wholesaler']">
+                        <i class="fa fa-chevron-right"></i>
+                        <span>{{'MENU.MANAGE_CUSTOMERS' | translate}}</span>
+                    </a>
+                </li>
+                <li class="list-group-item border-0">
+                    <a class="inversed w-100" [routerLink]="['/wholesaler/tour-management']">
+                        <i class="fa fa-chevron-right"></i>
+                        <span>{{'WSS.TOUR_MANAGE' | translate}}</span>
+                    </a>
+                </li>
+                <li class="list-group-item border-0">
+                    <a class="inversed w-100" [routerLink]="['/wholesaler/margin-management']">
+                        <i class="fa fa-chevron-right"></i>
+                        <span>{{'WSS.DISCOUNT_MANAGE' | translate}}</span>
+                    </a>
+                </li>
+            </ng-container>
+
+            <li class="list-group-item border-0" *ngFor="let menu of externalLinks">
+                <a class="inversed w-100" target="_blank" [href]="menu['link']">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{ menu['label'] | translate}}</span>
+                </a>
+            </li>
+            <li class="list-group-item border-0" *ngIf="enableFeedback">
+                <a class="inversed w-100" href="javascript:void(0)" (click)="showFeeback()">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{'FEEDBACK.MENU_TITLE' | translate}}</span>
+                </a>
+            </li>
+            <li class="list-group-item border-0">
+                <a class="inversed w-100" href="javascript:void(0)" (click)="logout()">
+                    <i class="fa fa-chevron-right"></i>
+                    <span>{{'MENU.LOG_OUT' | translate}}</span>
+                </a>
+            </li>
+        </ul>
+    </ng-template>
+</ng-container>

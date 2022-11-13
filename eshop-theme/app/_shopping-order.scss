@@ -1,0 +1,23 @@
+.connect-shopping-order {
+    position: relative;
+
+    .basket-ref {
+        label {
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .ref-text {
+            text-indent: 10px;
+        }
+    }
+}
+
+.shopping-order-condition {
+    background-color: #f1f0f0;
+    box-sizing: border-box;
+
+    &.fc-address {
+        background-color: white;
+    }
+}

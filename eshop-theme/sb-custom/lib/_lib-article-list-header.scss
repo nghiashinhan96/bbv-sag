@@ -1,0 +1,45 @@
+.wt-sb {
+    .article-list-header {
+        min-height: 32px;
+        padding: 5px;
+
+        .header-col {
+            white-space: normal;
+            height: auto;
+            line-height: 0.8;
+        }
+
+        .header-description {
+            width: $part-description-width-sb;
+            padding-right: 0;
+        }
+
+        .header-pos {
+            width: $part-pos-width-sb;
+            padding: 5px 0;
+        }
+
+        .header-de-amount {
+            width: $part-de-amount-width-sb;
+            padding: 5px 0;
+        }
+
+        .header-gross {
+            white-space: normal;
+            text-align: center;
+            justify-content: center;
+
+            .custom-priciable {
+                display: none;
+            }
+        }
+    }
+
+    connect-shopping-basket {
+        .article-list-header {
+            .header-description {
+                width: $basket-description-width;
+            }
+        }
+    }
+}

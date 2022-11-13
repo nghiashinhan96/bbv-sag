@@ -1,0 +1,88 @@
+connect-article-list-search {
+    .filter {
+        width: 250px;
+        max-width: 250px;
+        button {
+            min-width: 0 !important;
+        }
+        .header-title{
+            height: 30px;
+        }
+        .card-header {
+            width: 220px;
+        }
+    }
+
+    .filter-container {
+        height: 500px;
+    }
+
+    .alert {
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+connect-import-articles-modal {
+    .import-box {
+        font-size: 1rem;
+    }
+
+    .input-outer {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        border: 1px solid $thin-grey;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+
+    label {
+        display: flex;
+        margin: 0;
+    }
+
+    input[type="file"] {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .browse-btn,
+    .file-text {
+        line-height: 30px;
+        height: 28px;
+    }
+
+    .file-text {
+        flex: 1;
+        padding: 0 5px;
+        font-weight: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 400;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .browse-btn {
+        border-left: 1px solid $thin-grey;
+        padding: 0 10px;
+        cursor: pointer;
+        background-color: $light-grey;
+        font-weight: 700;
+        font-size: 14px;
+    }
+}
+
+.article-list-search-modal {
+    min-width: 1070px;
+}
+
+.clear-article-list-modal {
+    .modal-content {
+        font-size: 16px;
+    }
+}

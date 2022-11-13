@@ -1,0 +1,100 @@
+@import 'src/styles/_variables';
+.table {
+    margin-bottom: 20px;
+
+    td,
+    th {
+        vertical-align: middle;
+        height: auto;
+    }
+
+    th {
+        .btn-ordering {
+            background: none;
+            border: none;
+            padding: 0;
+
+            .fa-caret-down {
+                margin-left: 4px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    td {
+        white-space: normal;
+        border-left: none;
+    }
+}
+::ng-deep {
+    .nav.nav-tabs {
+        .nav-link {
+            border-radius: 0;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
+}
+.customer-number-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.company-name {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.modal {
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 0;
+    }
+    .modal-title {
+        font-size: 22px;
+        color: $primary-color;
+    }
+    .close {
+        opacity: unset;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 28px;
+        cursor: pointer;
+        color: $default-color;
+    }
+    .modal-header {
+        border-bottom: 1px solid $brand-color;
+        background-color: transparent;
+        h4 {
+            font-size: 26px;
+            font-weight: bold;
+            color: $brand-color;
+            margin-bottom: 10px;
+            line-height: 26px;
+            background: transparent;
+            text-indent: 0;
+            border: none;
+        }
+    }
+    .modal-content {
+        border-radius: 0;
+        padding: 40px;
+        border: 0;
+    }
+    .modal-footer {
+        border-top: 0;
+    }
+    .modal-body {
+        padding-top: 20px;
+        .sag-offers & {
+            padding-top: 0;
+        }
+        .new-line {
+            line-height: 20px;
+        }
+    }
+}

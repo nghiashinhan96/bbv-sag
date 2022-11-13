@@ -1,0 +1,28 @@
+.avail {
+    &-color {
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+
+
+        &-GREEN {
+            border: 1px solid green;
+            background-color: green;
+        }
+
+        &-YELLOW {
+            border: 1px solid #ffd800;
+            background-color:#ffd800;
+        }
+
+        &-RED {
+            border: 1px solid #e01f1e;
+            background-color: #e01f1e;
+        }
+
+        &-BLUE {
+            border: 1px solid #006EB6;
+            background-color: #006EB6;
+        }
+    }
+}

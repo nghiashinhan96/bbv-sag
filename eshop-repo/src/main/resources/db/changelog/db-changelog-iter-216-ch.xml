@@ -1,0 +1,73 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <!-- IMPORTANT: This is for DEV and PRE PROD only -->
+  <!-- Script for PROD is commented -->
+  <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS_CH">
+    <sql>
+		DECLARE @ddch_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'derendinger-ch')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ddch_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@ddch_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-TM9LN5W", "gtm_env": "env-43", "gtm_auth": "SIkdYs_RX_AR6aawFu6v7A" }, { "name": "Rapidbox", "gtm_container_id": "GTM-N2LQSJT", "gtm_env": "env-3", "gtm_auth": "oPSPC2uxypVtFaWvJMvYjA" } ] }')
+		  END
+		  
+		DECLARE @mtch_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'matik-ch')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @mtch_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@mtch_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-WTF9DKJ", "gtm_env": "env-26", "gtm_auth": "JnSvUsxRx6V8v1ppbzGkZQ" }, { "name": "Rapidbox", "gtm_container_id": "GTM-TJLQZDN", "gtm_env": "env-3", "gtm_auth": "M8RImra9VoFl64Zj0EZSvA" } ] }')
+		  END
+		  
+		DECLARE @tnmch_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'technomag')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @tnmch_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@tnmch_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-NS32Q9P", "gtm_env": "env-27", "gtm_auth": "oZWR0lHQFADNY6pS58Du5A" }, { "name": "Rapidbox", "gtm_container_id": "GTM-MBPF7T2", "gtm_env": "env-3", "gtm_auth": "tlvDVSijZOWcoW57bGJfaA" } ] }')
+		  END
+		  
+		DECLARE @wbb_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'wbb')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @wbb_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@wbb_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-MTMQLL3", "gtm_env": "env-27", "gtm_auth": "8Qqhjbp7gFatpvQB997PsQ" }, { "name": "Rapidbox", "gtm_container_id": "GTM-WB3C5FL", "gtm_env": "env-3", "gtm_auth": "8fws9aV5jpm1O7IeOTMOnw" } ] }')
+		  END
+		  
+	</sql>
+  </changeSet>
+  <!-- <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS_CH">
+    <sql>
+		DECLARE @ddch_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'derendinger-ch')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @ddch_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@ddch_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-TM9LN5W", "gtm_env": "env-2", "gtm_auth": "34gfXE8qgzT7QEDICgevjA" }, { "name": "Rapidbox", "gtm_container_id": "GTM-N2LQSJT", "gtm_env": "env-1", "gtm_auth": "ApkKZhUatfpToyQBaULgJQ" } ] }')
+		  END
+		  
+		DECLARE @mtch_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'matik-ch')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @mtch_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@mtch_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-WTF9DKJ", "gtm_env": "env-2", "gtm_auth": "mKtlmQQ3FM1z-lbZRQyoDg" }, { "name": "Rapidbox", "gtm_container_id": "GTM-TJLQZDN", "gtm_env": "env-1", "gtm_auth": "cE-QWRO3tT5FPomHo60_Dg" } ] }')
+		  END
+		  
+		DECLARE @tnmch_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'technomag')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @tnmch_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@tnmch_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-NS32Q9P", "gtm_env": "env-2", "gtm_auth": "RtSkRTrYRkWtxVvNQWqOSQ" }, { "name": "Rapidbox", "gtm_container_id": "GTM-MBPF7T2", "gtm_env": "env-1", "gtm_auth": "Gt19waY4F08jD9t7T9rJew" } ] }')
+		  END
+		  
+		DECLARE @wbb_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'wbb')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @wbb_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@wbb_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-MTMQLL3", "gtm_env": "env-2", "gtm_auth": "8tPUYuiIs6NbyFO5jQHN1A" }, { "name": "Rapidbox", "gtm_container_id": "GTM-WB3C5FL", "gtm_env": "env-1", "gtm_auth": "Mtq50JPM53tPeue8fACEOQ" } ] }')
+		  END
+		  
+	</sql>
+  </changeSet> -->
+</databaseChangeLog>

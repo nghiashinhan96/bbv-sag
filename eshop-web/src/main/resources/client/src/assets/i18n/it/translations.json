@@ -1,0 +1,2317 @@
+{
+  "APP_VERSION": "Versione",
+  "ARTICLE": {
+    "24_HOURS": "Se l'articolo non è disponibile entro 24 ore, sarete informati.",
+    "24_HOURS_SHORT": "Da confermare",
+    "AMOUNT": "Quantità",
+    "ARTICLE_LIST": "Lista articoli",
+    "ARTICLE_COUNT": "Numero di articoli",
+    "BRIEF_INFORMATION": "Informazioni brevi",
+    "CLEAR_ALL_FILTER": "Alle löschen",
+    "COPIED_TEXT": "copiato",
+    "DELIVERY": "Consegna",
+    "DELIVERY_IMMEDIATE": "Subito",
+    "DELIVERY_TYPE": "Consegna",
+    "DEPOSIT": "Deposito",
+    "FAVORITES": "Favoriti",
+    "FEATURES": "Caratteristiche",
+    "FINISH_TIME": "Data",
+    "GENERAL_INFORMATION": "Informazioni generali",
+    "GRAPHIC_SEARCH": "Ricerca grafica",
+    "GROSS": "Lordo",
+    "GROSS_VALUE": "P. cons.",
+    "GROUPS": {
+      "DIRECT_MATCH": "Risultati diretti",
+      "REFERENCE_MATCH": "Risultati di riferimento",
+      "ORIGINAL_PART": "Parti originali",
+      "POSSIBLE_MATCH": "Possibili risultati"
+    },
+    "IAM_NUMBER": "Numeri IAM",
+    "IMAGE": "Immagine",
+    "INFORMATION": "Più Info",
+    "INSTALLATION_INFORMATION": "Le informazioni di installazione",
+    "LABOUR": "Valore-lavoro",
+    "MAINTENANCE_INTERVALS": "Dati di manutenzione",
+    "MANUFACTURER": "Produttore",
+    "MEASUREMENT_FUNCTIONS": "Funzioni di misura",
+    "MEMO": {
+      "DEPOSITITEM": "Allegato a questo prodotto: {{depositItemType}}",
+      "NONRETURNABLEITEM": "IT_ATTENTION! - non-returnable",
+      "NEWITEM": "IT_New",
+      "SELLOFF": "IT_While stocks available!",
+      "FGAS": "IT_Sold only with a certificate",
+      "NONRETURNABLEITEM_LONG_TEXT": "Attenzione! - L'articolo non può essere restituito"
+    },
+    "MORE_INFO": "Più Info",
+    "NET": "Netto",
+    "FC_NET": "Cliente finale netto",
+    "NOT_FOUND_IN_AX": "Articolo non trovato",
+    "NOT_INSTOCK_MESSAGE": "Purtroppo, al momento questo articolo non è ancora disponibile. Si prega di chiamare il vostro ramo.",
+    "NUMBER": "Quantità",
+    "OE_NUMBER": "Numeri OE",
+    "OLYSLAGER": "Quantità di riempimento/uso/intervallo",
+    "OPTIONAL_ACCESSORIES": "Accessori opzionali",
+    "PARTIAL_DELIVERY": "Cons. parziale",
+    "PARTIAL_DELIVERY_SURFIX": "p.",
+    "PDF": "PDF",
+    "PICKUP": "Banco",
+    "POSITION": "Posizione",
+    "PRICE": {
+      "ARTICLE_WITHOUT_PRICE": "Su richiesta",
+      "AVAILIBILITY": "Disponibilità",
+      "CALCULATION_PRICE": "Prezzo di calcolo",
+      "DISCOUNT": "Sconto",
+      "GROSS_PRICE": "Prezzo lordo",
+      "KB_PRICE": "Base di calcolo (KB)",
+      "NET_PRICE": "Prezzo netto",
+      "OEP_PRICE": "Prezzo originale del marchio (OEP)",
+      "PRICE_INFORMATION_AVAILIBILITY": "Informazioni sui prezzi. disponibilità",
+      "PRICE_INFORMATION": "Informazioni sui prezzi",
+      "INFORMATION_AVAILIBILITY": "Disponibilità",
+      "PRICE_INFORMATION_UNIT": "Informazioni sui prezzi IVA exclusa",
+      "PROMOTION_PRICE": "prezzo delle azioni",
+      "UVPE_PRICE": "Prezzo consigliato (UVPE)",
+      "UVP_PRICE": "Prezzo consigliato IVA inclusa (UVP)",
+      "FC_NET_PRICE": "Cliente finale Prezzo netto",
+      "DPC_PRICE": "Prezzo consigliato (DPC)"
+    },
+    "PRODUCT": "Prodotto",
+    "PRODUCT_DESCRIPTION": "Descrizione articolo",
+    "QUICK_CLICK": "Quick Click",
+    "REAR": "Posteriore",
+    "REFERENCE": "Referenze",
+    "REPLACED_BY": "Sostituito da",
+    "REPLACES": "Sostituisce",
+    "SAFETY_INFORMATION": "Informazioni sulla sicurezza",
+    "SAFETY_NOTE": "Indice di sicurezza",
+    "SNP_INFO": "Prezzi netti speziali",
+    "TECHNICAL_INFORMATION": "Le informazioni tecniche",
+    "TOUR": "Giro",
+    "TYRE_GROSS": "P. cons.",
+    "USE": "Uso",
+    "USING_TAB": {
+      "ALL_SEARCH": "Mostra tutti",
+      "LABLE": "Uso"
+    },
+    "UVPE": "Lordo",
+    "UVPE_VALUE": "P. cons.",
+    "AVAILABILITY": {
+      "TITLE": "Consegna",
+      "IN_STOCK_BRANCH": "IT_In stock - branch",
+      "PARTLY_AVAILABLE": "IT_Partly available",
+      "UNAVAILABLE": "IT_Unavailable",
+      "IN_STOCK_CENTRAL_WAREHOUSE": "IT_In stock - Central warehouse",
+      "NON_ORDERALE": "IT_Non-orderable",
+      "MULTI_SHOP": "Multi-shop",
+      "FULLY_EXTERNAL": "Eksterni magacin",
+      "PARTLY_EXTERNAL": "Tražena količina je dilimično dostupna u eksternom magacinu",
+      "PARTLY_LOCAL": "Tražena količina je delimično dostupna",
+      "NONE": "",
+      "NOT_AVAILABLE": "Item not available"
+    },
+    "PRODUCT_COMMERCIAL_CODE": "Numero d'uso",
+    "PCC_ARTICLE_DETAIL": "Nr. d'uso",
+    "AMOUNT_PER_LOCATION": "Amount per location",
+    "LOCATION": "Locations",
+    "VIEW_ALL_LOCATIONS": "View all locations",
+    "DELIVERY_WAREHOURSE": "Delivery warehouse",
+    "ORDER_DELIVERY": "Delivery",
+    "HIDE_NO_ARTICLE_AVAIL": "IT_Only in stock",
+    "SHOW_ONLY_ARTICLE_STOCK": "IT_Show unavailable items",
+    "HIDE_ONLY_ARTICLE_STOCK": "IT_Hide unavailable items",
+    "CUSTOMER_DOESNT_HAVE_CERTIFICATE": "Questo articolo può essere venduto solo a clienti con il permesso appropriato",
+    "ERROR_MESSAGE": {
+      "INVALID_OR_MISSING_DATA": "A causa di dati non validi o mancanti, non siamo in grado di mostrare alcun articolo per quella categoria."
+    }
+  },
+  "ARTICLE_FILTER": {
+    "AMPERE_HOURS": "Batteria-Capacità",
+    "ARTICLE_SEARCH": "Ricerca articoli",
+    "ATTRIBUTES": "Attributo",
+    "BOTTLE_SIZES": "Unità d'imballaggio",
+    "BRAND_FILTER": {
+      "BRANDS": "Marchi"
+    },
+    "CATEGORY_MERKMALE": "Categorie e caratteristiche",
+    "CODES": "Codici",
+    "DESC": "Applicare filtri",
+    "FILTER": "Filtro",
+    "GEN_ART": "Categoria",
+    "GEN_ARTS": "Categoria",
+    "LOAD_INDEX": "Indice di carico",
+    "MATCHING_PRODUCTS": "prodotto/i appropriato/i",
+    "RESET": "Ripristinare filtro",
+    "SPEED_INDEX": "Indice di velocità",
+    "SUPPLIERS": "Produttore",
+    "TYRE_SEGMENT": "Categoria di pneumatici",
+    "VISCOSITIES": "Viscosità",
+    "VOLTAGES": "Tensione",
+    "WATTS": "Watts"
+  },
+  "ARTICLE_SEARCH_LIST": {
+    "CLEAR_CART_COMFIRM_MESSAGE": "L'elenco corrente viene rimosso prima che l'elenco degli articoli possa essere importato, il carrello della spesa rimane invariato. <br> Vuoi eseguire l'importazione?",
+    "CONTINUE": "Annulla",
+    "IMPORTED_ITEM_ALREADY_IN_CART": "Questo articolo è già nel vostro carrello - quantità desiderata: <{{amount}}>.",
+    "IMPORTED_MULTIPLE_RESULT": "Diversi articoli trovati - quantità desiderata: <{{amount}}>.",
+    "IMPORTED_NO_RESULTS": "Nessun articolo trovato! - quantità desiderata: <{{amount}}>.",
+    "IMPORT_ARTICLE_LIST": "Importa lista della spesa",
+    "IMPORT_HINT": "Tipi di file validi: csv, txt, xls, xlsx",
+    "INVALID_IMPORTED_FILE": "Il file non può essere caricato! Si prega di verificare che si tratta di un file CSV corretto con virgole o punti e virgole.",
+    "NO_INFO": "nessuna informazione",
+    "NO_ARTILCE_IN_SECTION": "Attualmente non abbiamo altri articoli per questo settore nella nostra offerta.",
+    "TITLE": "Lista della spesa"
+  },
+  "ARTICLE_TITLE": "Ricerca articoli",
+  "AX_CONNECTION": {
+    "ACCOUNT_BALANCE": "Saldo conto",
+    "ACTIVATION_OF_DISCOUNT": "Stampar sconto",
+    "ACTIVATION_OF_NETPRICE": "Stampa prezzi netti",
+    "ACTIVATION_OF_SOW": "SOW 4+",
+    "ADDRESS": "Indirizzo",
+    "BLOCKED_CUSTOMER": "{{ customerNr }} è bloccato!",
+    "BRANCH_NAME": "Filiale",
+    "CASH_DISCOUNT": "Sconto",
+    "COMPANY": "Ditta",
+    "CREATOR": "Creatore",
+    "CREDIT_LIMIT_REST": "Limite di credito usato",
+    "CREDIT_LIMIT_TOTAL": "Limite di credito",
+    "CURRENCY_SHORTCUT": "Divisa",
+    "CUSTOMER": "Cliente",
+    "CUSTOMERS": "Clienti",
+    "CUSTOMER_CATEGORY": "Categoria cliente",
+    "CUSTOMER_FREE_TEXT_NOT_FOUND": "Nessun cliente corrisponde alla sua scelta. Verifichi la sua richiesta.",
+    "CUSTOMER_INFORMATION": "Informazioni cliente",
+    "CUSTOMER_INPUT_REQUIRED": "Verifichi la sua richiesta.",
+    "CUSTOMER_NOT_FOUND": "Cliente non trovato!",
+    "CUSTOMER_OVERVIEW": "Panoramica clienti",
+    "CUSTOMER_SEARCH": "Ricerca clienti",
+    "CUSTOMER_TELEPHONE_NOT_FOUND": "Nessun cliente corrisponde alla suo numero di telefono. Verifichi la sua richiesta.",
+    "CUSTOMER_USER_NAME": "Numero cliente",
+    "DELIVERY_SERVICE": "Servizio campo",
+    "DELIVERY_TYPE": "Consegna",
+    "DISPLAY_NET_PRICE": "Stampa prezzi netti",
+    "DUNNING_LEVEL": "Livello di sollecito finale",
+    "EMAIL": "E-Mail",
+    "ERROR": {
+      "CUSTOMER_LIMIT": "Solo {{size}} clienti aperti sono possibili. <br> Si prega di registrare o chiudere un cliente prima di aprire una nuova."
+    },
+    "FAX": "Fax",
+    "INVOICE_TYPE": "Fattura",
+    "LANGUAGE_SHORTCUT": "Lingua",
+    "LAST_DUNNING_DATE": "Sollecito finale",
+    "LOCATION": "Posizione",
+    "NAME_OR_COMPANY": "Nome / Ditta",
+    "OF": "di",
+    "ORDER_POSITION": "Posizioni aperte",
+    "ORDER_REGULATORY": "Ordinante",
+    "OTHER": "parecchi",
+    "OVERVIEW": "Visione generale",
+    "PAYMENT_OBJECTIVE": "Termine di pagamento",
+    "PAYMENT_TYPE": "Modalità di pagamento",
+    "PHONE": "Telefono",
+    "PLACE_HOLDER_CUSTOMER_FREE_TEXT": "Termine di ricerca, CP, città, nome",
+    "PLACE_HOLDER_CUSTOMER_NUMBER": "CNO",
+    "PLACE_HOLDER_CUSTOMER_TELEPHONE": "Telefono",
+    "RECEIVER": "Ricevente",
+    "RECENT_CUSTOMER_ORDERS": "Ultimo cliente ordini",
+    "SALES_ADMIN_NOT_FOUND": "Questo cliente non ha un ruolo utente amministratore e quindi non può essere caricato dai fornitori.",
+    "SALES_EMPLOYEE_NUMBER_INVALID": "Numero dipendente non valido",
+    "SALES_GROUP": "Area di visita",
+    "SHIPPING_TYPE": "Metodo di spedizione"
+  },
+  "BASKET_HISTORY": {
+    "ABORT": "Schliessen",
+    "ADDING_FAILED": "Aggiungere non funziona!",
+    "ADDING_SUCCESSFULLY": "Gli articoli sono stati aggiunti al carrello.",
+    "BACK_BASKET_HISTORY": "Torna ai vecchi carrelli",
+    "CART_STATUS": "Il carrello attuale è chiaro!",
+    "CLEAR": "Cancellare",
+    "CLEAR_CART_FAILED": "Il carrello non pu? essere svuotato!",
+    "CLEAR_CART_SUCCESSFULLY": "Carrello svuotato con successo.",
+    "COLUMNS": {
+      "BASKET_NAME": "Carrello",
+      "MANUFACTURER": "Produttore"
+    },
+    "CURRENT_CUSTOMER": "Cliente corrente",
+    "DELETE": "Vuoi davvero cancellare questo carrello salvato?",
+    "DESCRIPTION": "Descrizione (facoltativo)",
+    "LABEL": "Carrelli",
+    "MY_SAVED_BASKETS": "I miei carelli",
+    "NEW_SHOPPING": "Nuovo Carello",
+    "NOTICE_MESSAGE": {
+      "DELETE_FAILURE": "Salvare fallito!",
+      "DELETE_SUCCESS": "Eliminato con successo"
+    },
+    "NO_BASKET_HISTORIES_FOUND": "Nessun vecchi carrello trovati!",
+    "PLACE_HOLDERS": {
+      "BASKET_NAME": "Carrello",
+      "MANUFACTURER": "Produttore"
+    },
+    "SAVED_BASKETS": "Carrelli salvati",
+    "SAVING_MESSAGE": "Vuoi salvare il carrello corrente?",
+    "TAKE": "Addozione",
+    "OPEN_SHOPPING_BASKET": "Aprire il carrello",
+    "SAVE_SHOPPING_BASKET": "Salvare il carrello",
+    "EXPORT_SHOPPING_BASKET": "Esportare il carrello"
+  },
+  "BATTERIES": {
+    "AMPERES": "Batteria-Capacità",
+    "BATTERIES": "Batteria",
+    "CIRCUIT": "Schema",
+    "DIAGRAMS": "Diagrammi",
+    "FLOOR_FIXINGS": "Piano di fissaggio",
+    "REMARKS": "Commenti",
+    "TYPES_OF_POLE": "Tipo di polo",
+    "TYPES_OF_POLES": "Tipi di polo",
+    "VOLTAGES": "Tensione",
+    "WARNINGS_AND_SAFETY_PRECAUTIONS": "Segnalazioni e Precauzioni di sicurezza",
+    "WITHOUT_START_STOP": "senza Start-Stop",
+    "WITH_START_STOP": "con Start-Stop",
+    "EXIDE": "Garantie und Gewährleistung Exide"
+  },
+  "BULBS": {
+    "ADDITIONAL_LINK_1": "Quali lampadine?",
+    "BULBS": "Lampadina",
+    "CODE": "ECE Codice e immagine",
+    "SUPPLIER": "Produttore",
+    "VOLTAGE": "Volt",
+    "WATT": "Watt"
+  },
+  "CAR_INFORMATION": {
+    "CHANGE_VEHICLES": "Modificare il auto"
+  },
+  "CATEGORY": {
+    "BUTTON": {
+      "RESET_FILTER": "Ripristinare filtro"
+    },
+    "SEARCH": {
+      "TEXT_HOLDER": "Categorie"
+    },
+    "TAB": {
+      "ALL_PARTS": "Tutti gli articoli",
+      "SERVICE": "Servizio"
+    }
+  },
+  "CLASSIC_CATEGORIES": {
+    "STEP_1_TITLE": "Passo 1: Selezionare Categorie",
+    "STEP_2_TITLE": "Fase 2: La vostra scelta"
+  },
+  "COMMON_LABEL": {
+    "ABORT": "Annullare",
+    "ABORT_STOP": "Annullare",
+    "ACCEPT": "Confermare",
+    "ACCESSORIES": "Accessori",
+    "ACCESSORIES_LIST": "Elenco accessori",
+    "ACCESSORIES_GROUPS_HINT": "È stato trovato un gran numero di accessori per diversi veicoli. Per restringere i risultati, seleziona un veicolo nella scheda \"Uso\" nella sezione \"Dettagli\".",
+    "ACTIVE": "Aktiv",
+    "ADDITIONAL_ADDRESS": "Addresszusatz",
+    "ADDRESS": "Indirizzo",
+    "ALL": "Tutti",
+    "AMOUNT": "Quantità",
+    "ARTICLE_NUMBER_LABEL": "Art. no.",
+    "ARTICLE_OF_ORDER": "Articoli della fattura",
+    "AVAILABLE": "Disponibile",
+    "A_MONTH_EARLIER": "un mese prima",
+    "A_MONTH_LATER": "un mese più tardi",
+    "BACK": "Indietro",
+    "BRAKES": "Freni",
+    "BUTTON": {
+      "ABORT": "Annullare",
+      "CONTINUE": "Continuare",
+      "SEND": "Mandare",
+      "TAKE": "Addozione"
+    },
+    "CHOOSE": "Ultimi Venditori Ordini",
+    "CHOOSE_FILE": "Selezionare il file",
+    "OVERRIDE": "Sovrascrivere",
+    "CITY": "Località",
+    "CLOSE": "Chiudere",
+    "COLUMNS": {
+      "SEARCH_METHOD": "Tipo di ricerca",
+      "ARTICLE_NR": "Numero articolo",
+      "ARTICLE_NUMBER": "Codice articolo",
+      "CUSTOMER_NAME": "Cliente",
+      "CUSTOMER_NR": "Cliente no.",
+      "INFO": "Descrizione",
+      "NUMBER": "Quantità",
+      "QUANTITY": "Quantità",
+      "REFERENCE": "Referenza",
+      "SALE_NAME": "Venditore",
+      "SAVING_DATE": "Data di conservazione",
+      "TOTAL": "Totale IVA incl.",
+      "TOTAL_EXCL_VAT": "Totale IVA escl.",
+      "VEHICLE": "Veicolo"
+    },
+    "COLUMN_ENGINE": "Capacità",
+    "COMMENT": "Osservazioni",
+    "COMPANY": "Società",
+    "COMPANY_NAME": "Firmenname",
+    "CONFIRMATION": "Conferma",
+    "CONFIRM_BTN": "Confermare",
+    "CONTACT_INFO": "informazioni di contatto",
+    "CROSS_REFERENCE": "Articoli alternativi",
+    "CUSTOMER": "Cliente",
+    "CUSTOMER_NAME": "Cliente",
+    "CUSTOMER_NUMBER": "No. cliente",
+    "DATE": "Data",
+    "DEAL_OFWEEK": "Offerte della settimana",
+    "DELETE_ALL_ENTRIES": "Elimina tutte le entrate",
+    "DELIVERY_NOTE_NUMBER": "N. della consegna",
+    "DELIVERY_NUMBER": "N. della consegna",
+    "DESCRIPTION": "Descrizione",
+    "DETAILS": "Dettagli",
+    "EMAIL": "E-Mail",
+    "EXPAND": "Estendere",
+    "FAX": "Fax",
+    "FILTER": "Filtro",
+    "FIRST_NAME": "Nome",
+    "FROM_DATE": "del",
+    "GLOBAL_ERROR_CONTENT": "Si prega di contattare il vostro amministratore o help desk.",
+    "GLOBAL_ERROR_TITLE": "Errore tecnico!",
+    "HEIGHT": "Altezza",
+    "IMPORT": "Importare",
+    "INACTIVE": "Inaktiv",
+    "INVOICE": "Fattura",
+    "INVOICE_ARCHIVE": "Fattura Archivio",
+    "INVOICE_NUMBER": "N. della fattura",
+    "INVOICE_OVERVIEW": "Panoramica della fattura",
+    "LANDING_GEAR": "Carrello d'atterraggio",
+    "LAST_NAME": "Cognome",
+    "LAST_WEEK": "Ultima settimana",
+    "LENGTH": "Lunghezza",
+    "LIST": "Lista",
+    "LOADING_MORE": "di più....",
+    "MARK": "Targhette di licenza",
+    "MODEL": "Modello",
+    "NAME": "Nome",
+    "NO": "No",
+    "NO_FILE_CHOSEN": "Nessun file selezionato",
+    "NO_RESULTS_FOUND": "Nessun risultato trovato",
+    "NUMBER": "Numero",
+    "OK": "Ok",
+    "ORDER_NUMBER": "N. d'ordine",
+    "PARTS_LIST": "Elenco delle parti",
+    "PARTS_LIST_HINT": "Parti individuali vedi elenco delle parti",
+    "PAYMENT_TYPE": "Modalità di pagamento",
+    "PERCENT": "Per cento",
+    "PHONE": "Telefono",
+    "PLACE": "Luogo",
+    "PLACE_HOLDERS": {
+      "ARTICLE_NR": "Numero articolo",
+      "CUSTOMER_NAME": "Cliente",
+      "CUSTOMER_NR": "Cliente no.",
+      "INFO": "Descrizione",
+      "NUMBER": "Quantità",
+      "QUANTITY": "Quantità",
+      "REFERENCE": "Referenza",
+      "SALE_NAME": "Venditore",
+      "SAVING_DATE": "Data di conservazione",
+      "TOTAL": "Totale IVA incl.",
+      "TOTAL_EXCL_VAT": "Totale IVA escl.",
+      "VEHICLE": "Veicolo"
+    },
+    "PLEASE_SELECT": "Selezionare",
+    "POSTAL_CODE": "NPA",
+    "POSTCODE": "CAP",
+    "PO_BOX": "Casella postale",
+    "PRICE": {
+      "GROSS_PRICE_AT": "P. cons.",
+      "GROSS_PRICE_CH": "P. cons.",
+      "GROSS_PRICE_OTHER": "P. cons."
+    },
+    "QUICK_ORDER": "Ordine veloce",
+    "REASON": "Base",
+    "REDUCE": "Diminuire",
+    "REMARK": "Osservazioni",
+    "REMARKS": "Commenti",
+    "REMOVE_ALL": "Rimuovi tutto",
+    "RETRY": "Ripetizione",
+    "SALUTATION": "Anrede",
+    "SAVE": "Salvare",
+    "SAVE_AND_CLOSE": "Salvare & Chiudere",
+    "SEARCH_OIL": {
+      "ADDITIONAL_INFORMATION": "Zusatzinformationen",
+      "LUBRICANT_CATALOG": "Catalogue lubrifiants",
+      "MOBILE_PRODUCT_DATA_SHEETS": "Fiches techniques Mobil",
+      "MOBILE_SAFETY_DATA_SHEETS": "Fiches de sécurité Mobil",
+      "WHICH_ENGINE_OIL": "Quelle huile moteur?"
+    },
+    "SELECT": "Selezionare",
+    "SELECT_ALL": "Seleziona tutto",
+    "SEVEN_DAYS": "ultimi 7 giorni",
+    "STATUS": "Stato",
+    "STREET": "Via",
+    "SURNAME": "Cognome",
+    "TAKE": "Prendere in consegna",
+    "THIRTYONE_DAYS": "ultimi 31 giorni",
+    "TODAY": "Oggi",
+    "TOTAL_INCLUDE_VAT": "Totale IVA incl.",
+    "TWO_DAYS": "ultimi 2 giorni",
+    "TYPE": "Tipo",
+    "USER": "Utente",
+    "VEHICLES": "Veicoli",
+    "VIN": "VIN (Numero telaio)",
+    "WEBSITE": "Sito web",
+    "WIDTH": "Larghezza",
+    "YES": "Si",
+    "LOCATIONS": {
+      "PRIMARY": "Primary Location",
+      "SECONDARY": "Secondary Location",
+      "THIRD": "Third Location",
+      "NON_PRIORITY": " Other Location"
+    },
+    "YOU_ARE_OFFLINE": "Ops! Sei offline"
+  },
+  "COMMON_MESSAGE": {
+    "CHANGED_QUANTITY": "Variazione della quantità",
+    "SAVE_UNSUCCESSFULLY": "Salvare fallito!",
+    "SAVE_SUCCESSFULLY": "Salvato con successo!",
+    "REQUIRED_FIELD": "Si prega di compilare questo favore di campo"
+  },
+  "CONDITION": {
+    "AT_THE": "il",
+    "AT_THE_SUFFIX": "",
+    "BILLING_ADDRESS": "Indirizzo di fatturazione",
+    "BILLING_ADDRESS1": "Indirizzo di fatturazione",
+    "BRANCH": "Filiale",
+    "BRANCH_PICKUP": "Filiale da ritirare gli articoli",
+    "COLLECTIVE_DELIVERY": {
+      "COLLECTIVE_DELIVERY1": "Consegna Parziale, urgente - Gli articoli saranno consegnati singolarmente non appena disponibili.",
+      "COLLECTIVE_DELIVERY2": "Consegna completa, non urgente - L' ordine sarà consegnato solo quando tutti gli articoli sono disponibili insieme.",
+      "PICKUP": "Ho bisogno urgentemente della merce",
+      "TITLE": "Consegna partiale, Consegna completa",
+      "TOUR": "Le merci non sono urgentemente necessarie"
+    },
+    "COLLECTIVE_DELIVERY_TITLE": "consegna collettiva",
+    "DEFAULT_INVOICE_TYPE": {
+      "AGREEMENT_INVOICE": "Fatturazione di comune accordo",
+      "SINGLE_INVOICE": "Ritenuta come singola fatturazione",
+      "TITLE": "Fatturazione"
+    },
+    "DELIVERY_ADDRESS": "Indirizzo di consegna",
+    "DELIVERY_ADDRESS1": "Indirizzo di consegna",
+    "DELIVERY_TYPE": {
+      "COUNTER": "Cliente nel negozio (KSL)",
+      "PICKUP": "Ritiro articoli nella filiale",
+      "TITLE": "Consegna",
+      "TOUR": "Consegna secondo il programma del tour",
+      "COURIER": "Courier"
+    },
+    "DELIVERY_TYPE_PICKUP": "Tipo di consegna: Ritiro in filiale",
+    "DELIVERY_TYPE_TOUR": "Tipo di consegna: Giro",
+    "EXPAND": "Estendere",
+    "INVOICE_TYPE": {
+      "ACCUMULATIVE_INVOICE": "Fatturazione di comune accordo",
+      "ALL": "Fallbackprofil",
+      "DAILY_INVOICE": "Fatturazione di comune accordo",
+      "DAILY_INVOICE_WITH_CREDIT_SEPARATION": "Tagesfaktura mit Gutschriftstrennung",
+      "DEFAULT": "!!Nicht löschen!! Fallback mit Zuweisung auf Alle",
+      "MONTHLY_INVOICE": "Fatturazione di comune accordo",
+      "MONTHLY_INVOICE_DAILY_CREDIT": "Monatsfaktura mit täglicher Gutschrift",
+      "MONTHLY_INVOICE_WEEKLY_CREDIT_SEPARATION": "Monatsfaktura mit wöchentlicher Gutschrift",
+      "MONTHLY_INVOICE_WITH_CREDIT_SEPARATION": "Monatsfaktura mit Gutschriftstrennung",
+      "SINGLE_INVOICE": "Ritenuta come singola fatturazione",
+      "SINGLE_INVOICE_WITH_CREDIT_SEPARATION": "Fatturazione per ordine con separazione delle note di credito",
+      "TITLE": "Fatturazione",
+      "TWO_WEEKLY_INVOICE": "Fatturazione di comune accordo",
+      "TWO_WEEKLY_INVOICE_DAILY_CREDIT": "2 Wochen Faktura mit täglicher Gutschrift",
+      "TWO_WEEKLY_INVOICE_WITH_CREDIT_SEPARATION": "2 Wochen Faktura mit Gutschriftstrennung",
+      "WEEKLY_INVOICE": "Fatturazione di comune accordo",
+      "WEEKLY_INVOICE_DAILY_CREDIT": "Wochenfaktura mit täglicher Gutschrift",
+      "WEEKLY_INVOICE_SINGLE_CREDIT": "Wochenfaktura mit Einzelgutschrift wöchentlich",
+      "WEEKLY_INVOICE_WITH_CREDIT_SEPARATION": "Wochenfaktura mit Gutschriftstrennung"
+    },
+    "PARTIAL_DELIVERY_TITLE": "consegna parziale",
+    "PAYMENT_METHOD": {
+      "BANK_TRANSFER": "EN_Bank transfer",
+      "CARD": "Kartenzahlung",
+      "CASH": "Pagamento in contanti",
+      "CREDIT": "Fattura",
+      "DIRECT_INVOICE": "Sofortrechnung",
+      "TITLE": "Modalità di pagamento",
+      "WHOLESALE": "Invoice"
+    },
+    "PICKUP_TIME": "In caso di {{param}}, tutto è pronto",
+    "FC_PICKUP_TIME": "Tutto è pronto",
+    "PLEASE_SELECT_VALID_BRANCH": "Si prega di selezionare una filiale valida!",
+    "REDUCE": "Diminuire",
+    "SHIPPING_PAYMENT": "Condizioni di consegna e pagamento",
+    "TOUR_TIME": "In caso di {{param}}, consegna",
+    "FC_TOUR_TIME": "Consegna",
+    "WITH_TOUR": "Con il giro",
+    "FC_DELIVERY_PROFILE": "Condizioni di consegna",
+    "DELIVERY_TEXT_TOUR_WITH_TIME": "Tutti gli articoli in pronta consegna il {{arrivalDate}} alle {{arrivalTime}}",
+    "DELIVERY_TEXT_PICKUP_WITH_TIME": "Tutti gli articoli pronti per il ritiro il {{arrivalDate}} alle {{arrivalTime}}",
+    "DELIVERY_TEXT_TOUR_WITHOUT_TIME": "Tutti gli articoli in pronta consegna il: {{arrivalValue}}",
+    "DELIVERY_TEXT_PICKUP_WITHOUT_TIME": "Tutti gli articoli pronti per il ritiro il: {{arrivalValue}}"
+  },
+  "COUPON": {
+    "ERROR": {
+      "COUPON_LIMIT": "Il limite di coupon {{MAX_ORDER_AMOUNT}} è stato raggiunto",
+      "EXPIRED": "Purtroppo il coupon non è più valido.",
+      "FULLY_USED": "Il coupon è già stato riscuotato una volta.",
+      "INVALID_FOR_AFFI": "Il coupon non pu? essere utilizzato in combinazione con questi articoli.",
+      "INVALID_FOR_SHOP": "Coupon non è valido in questo e-shop.",
+      "LIMIT_USED": "Il coupon pu? essere utilizzato soltanto una volta.",
+      "NOT_FOUND": "Coupon non valido. Verificare e immettere di nuovo.",
+      "TOTAL_MINIMUM": "Il coupon pu? essere riscuotato soltanto per un valore di ordine più alto di {{MIN_ORDER_AMOUNT}}."
+    },
+    "SUCCESS": "Coupon valido",
+    "TITLE": "Coupon"
+  },
+  "CUSTOMER_INFO": {
+    "MESSAGES": {
+      "CUSTOMER_INACTIVE": "Questo cliente non deve essere registrato. Si prega di contattare la propria filiale.",
+      "CUSTOMER_NOT_BELONG_TO_AFFILIATE": "This customer does not belong to affiliate!",
+      "INTERAL_SERVER_ERROR": "Errore interno del server!",
+      "INVALID_AFFILIATE": "La Società non è valida!",
+      "INVALID_CUSTOMER": "Il numero del cliente non è valido!",
+      "INVALID_POST_CODE": "Il codice postale non è valido!",
+      "INVALID_USERNAME_IN_CUSTOMER": "Questo nome utente esiste già per questo cliente!",
+      "OTHERS": "Questo cliente manca dei dati obbligatori all'ERP e quindi non può essere usato nel web shop!",
+      "TECHNICAL": "Errore tecnico :"
+    }
+  },
+  "CUSTOM_PRICE": {
+    "OEP": "Premio del marchio",
+    "UVPE": "Prezzo di mercato"
+  },
+  "DMS": {
+    "ERROR": {
+      "EXPORT_FAILED": "Failed to export return basket!",
+      "FAILED_TO_ADD_OFFER": "Failed to add offer U7={{param}}",
+      "NOT_FOUND_ARTICLE_NUMBERS": "Purtoppo non abbiamo trovato il articolo. Si prega di contattare la filiale per favore.",
+      "OFFER_FAILED": "Offerta non accettata!",
+      "SUBMIT_FAILED": "Si è verificato un errore nel tentativo di inviare il cestino."
+    },
+    "EXPORT": {
+      "TAKE": "Prendere"
+    },
+    "LABOUR": {
+      "WORKING_HOURS_TITLE": "Orario di lavoro"
+    },
+    "MESSAGE": {
+      "RETRY": "Si è verificato un errore nel tentativo di inviare il cestino. Si prega di riprovare!"
+    },
+    "OFFER_NOT_SUPPORTED": "Modulo di offerta non attivo. Per favore contactate la vostra succursale.",
+    "TYPE": {
+      "OFFER": "Auftrag",
+      "ORDER": "Order"
+    }
+  },
+  "ERROR_500": "Errore interno del server",
+  "ERROR_MESSAGE": {
+    "SYSTEM_ERROR": "Vogliate scusarci per l'interruzione per favore provate di nuovo un po più tardi"
+  },
+  "FAVORITE": {
+    "FAVORITES": "Favoriti",
+    "REMOVE": "Rimuovi",
+    "COMMENT": "Commento (opzionale)",
+    "ADD_FAVORITE": "Aggiungi favorito",
+    "EDIT_FAVORITE": "Modifica favorito"
+  },
+  "FEEDBACK": {
+    "ATTACHMENT": "Appendici",
+    "CUSTOMER_CONTACT": "Contatto clienti",
+    "CUSTOMER_FEEDBACK": "Feedback del cliente",
+    "FEEDBACK_THEME": "Feedback argomento",
+    "IS_EXCEED_LIMITED_FILES_SIZE": "Non sono ammessi appendici di dimensioni superiori a 5 MByte!",
+    "MENU_TITLE": "Feedback, Problema, Errore",
+    "REQUIRED_FIELD": "Si prega di compilare questo favore di campo",
+    "SALES_DATA": "Dati del venditore",
+    "SALES_FEEDBACK": "Feedback per i venditori",
+    "SCREEN_SHOT_PASTE_HINT": "Uno screenshot può essere inserito direttamente dagli clipboard nel testo di feedback.",
+    "SOURCE": {
+      "SALES_NOT_ON_BEHALF": "Webshop della vendita",
+      "SALES_ON_BEHALF": "Webshop del cliente",
+      "TITLE": "Fonte di errore"
+    },
+    "SUCCESSFUL_MESSAGE": "Grazie mille per i vostri feedback.",
+    "SUCCESSFUL_MESSAGE_WITH_EMAIL": "Grazie mille per i vostri feedback. Abbiamo inviato una conferma a {{userEmail}}.",
+    "TECHNICAL_DATA": {
+      "ARTICLE_RESULTS": "Risultati dell'articolo corrente",
+      "ARTICLE_SEARCH": "Ricerca articoli",
+      "FREE_TEXT_SEARCH": "Ricerca a testo libero",
+      "OFFER_NUMBER": "Numero dell'offerta corrente",
+      "SHOPPING_CART": "Cestino della spesa",
+      "USER_SETTING": "Impostazioni utente",
+      "VEHICLE": "Dati attuali del veicolo",
+      "VEHICLE_SEARCH": "Ricerca veicoli",
+      "WEBSITE": "Nome della pagina"
+    },
+    "TECHNICAL_DATA_TITLE": "Dati tecnici",
+    "THEME": "Argomento",
+    "TOPICS": {
+      "BONUS_MILES_PROGRAM": "Programma bonus/miles",
+      "EASE_OF_USE": "Intuitività d'uso",
+      "LICENSING": "Licenze (HaynesPro, VIN, ecc.)",
+      "MISSING_WRONG_DATA": "Dati errati/mancanti (veicolo, articoli, assortimento, ecc.)",
+      "ORDERS_AVAILABILITY": "Ordini, Disponibilità",
+      "OTHER": "Altro...",
+      "PRICING": "Prezzi",
+      "PRICING_CARPARTS": "Prezzi autovetture (Carparts)",
+      "PRICING_IS": "Prezzi Workshop Equipment (IS)",
+      "PRICING_MATIK": "Prezzi veicoli commerciali (Matik)",
+      "PRICING_WHEELS": "Prezzi dei pneumatici (Wheels)",
+      "PRICING_WSP": "Prezzi articoli indipendenti dal veicolo (WSP)",
+      "PROFILE_SETTINGS": "Profilo, Configurazioni",
+      "SYSTEM_BROWSER_INTERFACES": "Sistema, Browser, Interfaccia"
+    },
+    "USER_DATA": {
+      "BRANCH": "Ramo",
+      "CUSTOMER": "Cliente",
+      "EMAIL": "E-mail",
+      "PHONE": "Telefono",
+      "SALES": "Venditore"
+    },
+    "YOUR_DATA": "Dati del cliente",
+    "YOUR_FEEDBACK": "Messaggio di feedback"
+  },
+  "FINAL_CUSTOMER": {
+    "ADD_NEW_CUSTOMER": "Aggiungere nuovo cliente",
+    "CREATE_CUSTOMER": "Nuovo cliente",
+    "CREATE_FINAL_USER": "Nuovo utente",
+    "CUSTOMER_COULD_NOT_DELETE": "Il cliente non può essere eliminato! Si prega di rimuovere tutti gli ordini nuovi e aperti e poi riprovare.",
+    "DELETE_CUSTOMER_CONFIRM": "Löschen <strong>{{param}}</strong> ?",
+    "DELETE_MESSAGE": "Vuoi davvero cancellare questo cliente?",
+    "DELETE_FINAL_USER_MESSAGE": "Vuoi davvero cancellare questo utente?",
+    "FINAL_USER_ERROR": {
+      "DUPLICATED_USER": "Der Benutzername ist bereits vergeben."
+    },
+    "TYPE": {
+      "ONLINE": "EH Cliente",
+      "PASSANT": "Passante"
+    }
+  },
+  "FOOTER": {
+    "COMPANY_INFO_DERENDINGER": "Derendinger SA, Svizzera - Un'impresa di Swiss Automotive Group",
+    "COMPANY_INFO_DERENDINGER_AT": "SAG Austria Handels GmbH, Österreich - Un'impresa di Swiss Automotive Group",
+    "COMPANY_INFO_MATIK": "SAG Austria Handels GmbH, Austria - Un'impresa di Swiss Automotive Group",
+    "COMPANY_INFO_MCH": "Matik SA, Svizzera - Un'impresa di Swiss Automotive Group",
+    "COMPANY_INFO_RBE": "Remco Belgium NV - Lid van de Swiss Automotive Group",
+    "COMPANY_INFO_TECHNOMAG": "Technomag SA, Svizzera - Un'impresa di Swiss Automotive Group",
+    "COMPANY_INFO_WBB": "Walchli + Bollier AG",
+    "DATA_PROTECTION": {
+      "LINK": {
+        "EH_CH": "https://www.waelchli-bollier.ch/fr/footer-menu/Protection-donnees.html"
+      },
+      "TITLE": "Tutela della privacy"
+    },
+    "DISCLAIMER": {
+      "LINK": {
+        "EH_CH": "https://www.waelchli-bollier.ch/fr/footer-menu/disclaimer.html"
+      },
+      "TITLE": "Esclusione di responsabilità"
+    },
+    "HOTLINE": "Live Help",
+    "TERM_OF_SERVICE": {
+      "LINK": {
+        "DERENDINGER_AT": "https://s3.exellio.de/connect_media/derendinger-at/pdfs/derendinger-at-agb.pdf",
+        "DERENDINGER_CH": "https://www.derendinger.ch/_Resources/Persistent/4f97af86a46b2a62f7b711af482fd011b2315abb/AGB_Derendinger%20AG_I.pdf",
+        "EH_CH": "https://www.waelchli-bollier.ch/_Resources/Persistent/27cc6d4fc16c5e96129986d63adf8405f3ae846d/AGB_Waelchli-Bollier%20AG_F.pdf",
+        "MATIK_AT": "https://s3.exellio.de/connect_media/matik-at/pdfs/Matik_AGB.pdf",
+        "MATIK_CH": "https://www.matik.ch/_Resources/Persistent/325f980c5547cf075f7f148df98a4fcd895a1aa4/AGB_Matik%20AG_I.pdf",
+        "REMCO": "https://shop.remco.be",
+        "TECHNOMAG": "https://www.technomag.ch/_Resources/Persistent/19ff3403406cae916b699f429efd1ca7b5b986bd/AGB_Technomag%20AG_I.pdf",
+        "WBB": "https://www.waelchli-bollier.ch/_Resources/Persistent/47db8fd65d8ee593f032f13212c1a913ec0979df/AGB_Waelchli-Bollier%20AG_I.pdf",
+        "CZ": "https://s3.exellio.de/connect_media/stahlgruber-cz/pdfs/VODP_CZ.pdf"
+      },
+      "TITLE": "Condizioni generali"
+    }
+  },
+  "FORGOT_PASSWORD": {
+    "CODE_IN_EMAIL": "Abbiamo inviato un codice al vostro indirizzo e-mail.",
+    "CODE_PLACEHOLDER": "Codice inviato al vostro indirizzo e-mail",
+    "CONFIRM_IDENDITY": "Confermare la vostra identità",
+    "CONTINUE": "Continuare",
+    "ERROR_MESSAGE": {
+      "EMAIL_INPUT_REQUIRED": "Inserisca il suo indirizzo e-mail",
+      "INPUT_REQUIRED": "Inserisca il proprio nome utente o e-mail",
+      "MULTIPLE_MAIL_ADDRESSES": "Per questo indirizzo e-mail esiste più di un account utente. Utilizzare il nome utente.",
+      "NOT_AUTHORIZED_USER": "Non ha un autorizzazione per questa pagina",
+      "NOT_FOUND_USER": "Nome utente o e-mail non valido",
+      "SEND_MAIL_FAILED": "Invio via e-mail non riuscito",
+      "USERNAME_INPUT_REQUIRED": "Inserisca il suo nome utente"
+    },
+    "INFO_MESSAGE": {
+      "PASSWORD_RETRIEVED_SUCCESSFUL": "Controlla la tua casella di posta elettronica per ricevere la nuova password."
+    },
+    "INPUT_CODE": "Inserire il codice",
+    "INVALID_CODE": "Codice non valido…",
+    "LABEL": {
+      "EMAIL": "Indirizzo e-mail",
+      "FORGOT_PASSWORD_BUTTON": "Password dimenticata",
+      "NEW_REGISTER": "Registrazione",
+      "OR": "oppure"
+    },
+    "TOKEN_EXPIRED": "Der Code ist abgelaufen"
+  },
+  "GTMOTIVE": {
+    "LABEL": {
+      "CANCEL": "Annullare",
+      "CONTINUE": "Continuare",
+      "DATE_OF_MANUFACTURE": "Data di produzione",
+      "ENTER_VIN": "Inserire VIN",
+      "EQUIPMENT_INFORMATION": "Informazioni sull'attrezzatura",
+      "EQUIPMENT_OPTIONS": "Attrezzatura: Opzioni",
+      "EQUIPMENT_OTHER_INFO": "Attrezzatura: Altre informazioni",
+      "MULTI_PARTS": "Parti alternative",
+      "PARTS_TREE": "Ricerca ricambi",
+      "VEHICLE_BOARD_NAVIGATION": "Panoramica del veicolo",
+      "VEHICLE_COMPOSITION": "Ricerca grafica"
+    },
+    "MESSAGE": {
+      "INCOMPATIBILITY_CASE": "Le opzioni non sono compatibili. Per favore Correggi.",
+      "NON_MATCHED_CATALOGUE": "Le seguenti parti non sono state identificate nel catalogo:",
+      "WARNING_USE_VIN": "Si consiglia l' uso del numero telaio (VIN) per la ricerca grafica."
+    }
+  },
+  "GT_MORE_INFO": {
+    "DESCRIPTION_HEADER": "Descrizione",
+    "MANUFACTURER_PARTS": "Componenti del produttore",
+    "NORMAUTO_INTRODUCE": "Servizio da Normauto OE-Teile AG",
+    "OE_NUMBER_HEADER": "OE No.",
+    "SEND_OFFER_ORDER": "Per queste parti vorrei ricevere un' offerta da Normauto",
+    "TITLE": "I seguenti componenti non sono stati trovati nel nostro assortimento:",
+    "TITLE_NORMAUTO": "I seguenti componenti sono disponibili presso il nostro partner Normauto:"
+  },
+  "HAPPY_POINT": {
+    "TERM": "Fare clic su OK per accettare i termini e le condizioni del negozio di Happy Bonus Shop.",
+    "TITLE": "Ordinare adesso online e raccogliere HappyPoints. Ottenere fantastici premi. Iscriversi ora."
+  },
+  "HAYNES_PRO": {
+    "ERROR": {
+      "NO_LICENSE": "Purtroppo non avete nessuna licenza per HaynesPro. Si prega di contattare la filiale.",
+      "REQUEST_PROCCESS_MESG": "La sua domanda sarà trattata e la ricontatteremo.",
+      "REQUEST_TRIAL_LICENSE": "Richieda ora una licenza demo di 30 giorni!",
+      "REQUEST_TRIAL_LICENSE_MESG": "Purtroppo non avete nessuna licenza per HaynesPro."
+    },
+    "EXPORT_TO_WEBSHOP": "Aggiungi al webshop",
+    "SELECT_OPTION": {
+      "ADJUSTMENT": "Dati di regolazione",
+      "DIAGNOSIS": "Diagnosis",
+      "DRAWINGS": "Disegni tecnici",
+      "ELECTRONICS": "Elettronica",
+      "FUSES": "fusibili e relè",
+      "LUBRICANTS": "Lubrificanti",
+      "MAINTENANCE": "Manutenzione",
+      "OVERVIEW": "Visione generale",
+      "RECALLS": "Richiami​",
+      "REPAIR_TIMES": "Tempi di riparazione",
+      "SMARTCASE": "SmartCase",
+      "SMARTFIX": "Bollettini tecnici di servizio"
+    },
+    "SELECT_SUBJECT": "Selezionare soggetto"
+  },
+  "HEADER": {
+    "INFORMATION": "Informazioni",
+    "PROMOTIONS": "Promozioni",
+    "SHOPPING_BASKET": "Carrello",
+    "WELCOME": "Buongiorno"
+  },
+  "HOME": {
+    "COVERING_FRONT": "Guarnizioni dei freni (Anteriore)"
+  },
+  "INCENTIVE": {
+    "MILES_DESCRIPTION": "Incentive Miles 2018. Dal 1.2.2018 fino al 30.11.2018"
+  },
+  "INFORMATIONS_DATA": {
+    "THULE_LINK": "Guida all’acquisto Thule"
+  },
+  "INFORMATIONS_DATA_DE": {
+    "AT_LINK_1": "Sortimentsübersicht",
+    "AT_LINK_2": "Motorradkatalog",
+    "AT_LINK_3": "Frostschutz Verwendungsübersicht",
+    "AT_LINK_4": "Schulungsprogramm Techpool",
+    "AT_LINK_5": "Quick Brake Bremsenzubehör",
+    "AT_LINK_6": "QWP Katalog",
+    "DD_LINK_1": "Technische Informationen für Ferodo Bremsteile",
+    "DD_LINK_10": "Castrol Ölwegweiser",
+    "DD_LINK_11": "VARTA Business Portal",
+    "DD_LINK_2": "Katalog Mahle Filter",
+    "DD_LINK_3": "Produktfinder NGK Kerzen",
+    "DD_LINK_4": "Osram Fahrzeuglampen Finder",
+    "DD_LINK_5": "Kaufhilfe Thule",
+    "DD_LINK_6": "Werkzeug-Katalog Beta",
+    "DD_LINK_7": "Werkzeug-Katalog Hazet",
+    "DD_LINK_8": "Werkzeug-Katalog SW-Stahl",
+    "DD_LINK_9": "Eni Ölwegweiser",
+    "MCH_LINK_1": "BPW Bergische Achsen Ersatzteile",
+    "MCH_LINK_2": "SAF-Holland Ersatzteile",
+    "MCH_LINK_3": "HACO Tail Lift Parts - Deutsch",
+    "MCH_LINK_4": "Proplast Beleuchtung",
+    "MCH_LINK_5": "Aspöck Beleuchtung",
+    "MCH_LINK_6": "Valeo Thermal Bus Systeme",
+    "MCH_LINK_7": "Petec Verbindungstechnik",
+    "MCH_LINK_8": "KS Tools Deutsch",
+    "SNR_LINK": "SNR Diagnose & Empfehlungen Radlager",
+    "SNR_LINK2": "SNR ASB Technologie",
+    "TM_LINK_1": "Technische Informationen für Ferodo Bremsteile",
+    "TM_LINK_2": "Katalog Mann-Filter",
+    "TM_LINK_3": "Produktfinder NGK Kerzen",
+    "TM_LINK_4": "Osram Fahrzeuglampen Finder",
+    "TM_LINK_5": "Kaufhilfe Thule",
+    "TM_LINK_6": "Werkzeug-Katalog Facom",
+    "TM_LINK_7": "Werkzeug-Katalog Expert",
+    "TM_LINK_8": "Werkzeug-Katalog SW-Stahl",
+    "TM_LINK_9": "Mobil Ölwegweiser",
+    "WBB_LINK_1": "Katalog Thule",
+    "WBB_LINK_2": "Preisliste Thule",
+    "WBB_LINK_3": "ARAL Ölwegweiser",
+    "WBB_LINK_4": "ARAL Oilfinder",
+    "CTL_LINK_1": "Hauptkatalog Alko",
+    "CTL_LINK_2": "Bauteilkatalog Trailertechnik Knott",
+    "CTL_LINK_3": "Ersatzteilkatalog Trailertechnik Knott",
+    "CTL_LINK_4": "Verladerampen Knott",
+    "CTL_LINK_5": "SpanSet Katalog DE",
+    "AT_LINK_4_2": "Schulungsprogramm"
+  },
+  "INFORMATIONS_DATA_FR": {
+    "DD_LINK_1": "Informations techniques pour les pièces de frein Ferodo",
+    "DD_LINK_10": "Sélecteur de lubrifiants Castrol",
+    "DD_LINK_11": "VARTA Portail Professionnel",
+    "DD_LINK_2": "Catalogue filtre Mahle",
+    "DD_LINK_3": "Sélecteur de bougies NGK",
+    "DD_LINK_4": "Sélecteur de lampes Osram pour véhicules",
+    "DD_LINK_5": "Guide d’achat Thule",
+    "DD_LINK_6": "Catalogue outillage Beta",
+    "DD_LINK_7": "Catalogue outillage Hazet",
+    "DD_LINK_8": "Catalogue outillage SW-Stahl",
+    "DD_LINK_9": "Sélecteur de lubrifiants Eni",
+    "MCH_LINK_1": "BPW Bergische Achsen Pièces détachées",
+    "MCH_LINK_2": "SAF-Holland Pièces détachées",
+    "MCH_LINK_3": "HACO Tail Lift Parts - Français",
+    "MCH_LINK_8": "KS Tools Français",
+    "SNR_LINK": "SNR Analyses & préconistations gamme roue",
+    "SNR_LINK2": "SNR Technologie ASB",
+    "TM_LINK_1": "Informations techniques pour les pièces de frein Ferodo",
+    "TM_LINK_2": "Catalogue Mann-Filter",
+    "TM_LINK_3": "Sélecteur de bougies NGK",
+    "TM_LINK_4": "Sélecteur de lampes Osram pour véhicules",
+    "TM_LINK_5": "Guide d’achat Thule",
+    "TM_LINK_6": "Catalogue outillage Facom",
+    "TM_LINK_7": "Catalogue outillage Expert",
+    "TM_LINK_8": "Catalogue outillage SW-Stahl",
+    "TM_LINK_9": "Sélecteur de lubrifiants Mobil",
+    "WBB_LINK_1": "Catalogue Thule",
+    "WBB_LINK_2": "List de prix Thule",
+    "CTL_LINK_5": "Catalogue SpanSet FR"
+  },
+  "INFORMATIONS_DATA_IT": {
+    "DD_LINK_1": "Supporto tecnico per i componenti dei freni Ferodo",
+    "DD_LINK_10": "Guida per lubrificanti Castrol",
+    "DD_LINK_2": "",
+    "DD_LINK_3": "Guida per candele NGK",
+    "DD_LINK_4": "Guida lampade sostitutive Osram per veicoli",
+    "DD_LINK_5": "Guida all’acquisto Thule",
+    "DD_LINK_6": "Catalogo utensili Beta",
+    "DD_LINK_7": "",
+    "DD_LINK_8": "",
+    "DD_LINK_9": "Guida per lubrificanti Eni",
+    "FERODO_VIDEO": "Ferodo - Video Pastiglie direzionali",
+    "MCH_LINK_3": "HACO Tail Lift Parts - Italiano",
+    "MCH_LINK_8": "KS Tools Italiano",
+    "SNR_LINK": "SNR Analisi & raccomandazioni gamma routa",
+    "SNR_LINK2": "SNR Technologie ASB",
+    "TM_LINK_1": "Supporto tecnico per i componenti dei freni Ferodo",
+    "TM_LINK_2": "Catalogo Mann-Filter",
+    "TM_LINK_3": "Guida per candele NGK",
+    "TM_LINK_4": "Guida lampade sostitutive Osram per veicoli",
+    "TM_LINK_5": "Guida all’acquisto Thule",
+    "TM_LINK_6": "Catalogo utensili Facom",
+    "TM_LINK_7": "Catalogo utensili Expert",
+    "TM_LINK_8": "",
+    "TM_LINK_9": "Guida per lubrificanti Mobil",
+    "WBB_LINK_1": "Catalogo Thule",
+    "WBB_LINK_2": "Listino prezzi Thule"
+  },
+  "INVOICE": {
+    "ARTICLE_HAS_NO_NUMBER_MESSAGE": "Non ci sono informazioni sull'articolo per questa fattura.",
+    "INVALID_ARTICLE_TO_ADD_MESSAGE": "Questo documento di fatturazione contiene uno o più articoli che non è stato possibile aggiungere al carrello.",
+    "NO_RESULTS_FOUND_MESSAGE": "Nessuna fattura soddisfa i tuoi criteri! Si prega di modificare la ricerca. Si prega di notare che prima deve essere selezionato un intervallo di date valido.",
+    "GROSS_PRICE": "Importo"
+  },
+  "IS_DISPLAY": {
+    "FALSE": "No",
+    "TRUE": "Si"
+  },
+  "LEGAL_TERM": {
+    "AGREEMENT": "I have read and I agree to the terms & conditions",
+    "DAYS_LEFT_INFO": "You have {{value}} days left to accept!",
+    "ERROR_MESSAGE": {
+      "NOT_ACCEPTED": "All terms & conditions must be accepted"
+    },
+    "HEADER": {
+      "STATUS": "Status",
+      "DAYS_LEFT": "Days left"
+    },
+    "PRINTABLE_VERSION": "Printable version",
+    "STATUS": {
+      "ACCEPTED": "Accepted",
+      "NOT_ACCEPTED": "Not Accepted"
+    },
+    "TITLE": "Legal terms and conditions"
+  },
+  "LOGIN": {
+    "BUTTON": {
+      "LOGIN": "Connettersi"
+    },
+    "ERROR_MESSAGE": {
+      "BLOCKED_CUSTOMER": "The account has been blocked. Please contact your local branch",
+      "INVALID_CREDENTIALS": "La sua registrazione non è corretta! Verifichi di aver inserito correttamente il nome utente, la password e il nome della ditta.",
+      "NO_CREDENTIALS": "La sua registrazione non è completa! Inserisca il suo nome utente e password.",
+      "SYSTEM_ERROR": "Ci scusi l'interruzione per favore e vogliate provare di nuovo un po più tardi",
+      "USER_IS_NOT_ACTIVED": "Il cliente è bloccato! Si prega di contattare la filiale.",
+      "WHOLESALER_PERMISSION_ACCESS_DENIED": "Il permesso del grossista è disattivata!"
+    },
+    "LABEL": {
+      "FORGOT_PASSWORD": "Ha dimenticato la password?",
+      "LOGIN": "Connettersi",
+      "PASSWORD": "Codice utente",
+      "REGISTRATION": "Ricerca",
+      "SHOW": "Mostrare",
+      "SSO": "Registrazione Venditore",
+      "USER_NAME": "Nome utente"
+    }
+  },
+  "MENU": {
+    "EXTERNAL_LINKS": {
+      "BIG_POINTS": "<b>Big</b> Points",
+      "DIGITAL_CATALOG": "Digital Catalog",
+      "HAPPY_POINTS_REGISTRATION": "Happy Points Registrazione",
+      "HAPPY_POINTS_SHOP": "Happy Points Shop"
+    },
+    "HINT": "Tip",
+    "LICENSE_SPECIFICATIONS": "Licenza dati tecnichi",
+    "LOG_OUT": "Uscire dalla sessione",
+    "MANAGE_CUSTOMERS": "Gestire i clienti",
+    "MY_FAVORITES": "I miei preferiti",
+    "MY_ORDERS": "Ultimi ordini",
+    "PRICE_FILE": "Listino prezzi (Excel)",
+    "PROFILE": "Profilo",
+    "RETURN": "Ritorni",
+    "SETTINGS": "Impostazioni",
+    "USER_ADMINISTRATION_TAB": "Amministrazione utenti",
+    "VIEW_INVOICES": "Indicare fatture",
+    "VIEW_ORDER": "Indicare ordine"
+  },
+  "MESSAGES": {
+    "ADDED_SUCCESSFULLY": "Aggiunto con successo!",
+    "GENERAL_ERROR": "imperfezione",
+    "NO_RESULTS_FOUND": "Nessun risultati trovati",
+    "PRICE_FILE_NOT_FOUND": "Nessun listino prezzi disponibile",
+    "SECTION_EXPIRED": "La sessione attuale è scaduta!",
+    "SERVER_ERROR": "Server error!",
+    "VERSION_CHECKER_INFORM": "C' è una nuova versione!<br>Il sistema viene ricaricato ed è di nuovo disponibile."
+  },
+  "MY_DATE_RANGE_PICKER": {
+    "DAYS": {
+      "FRI": "Ven",
+      "MON": "Lun",
+      "SAT": "Sab",
+      "SUN": "Dom",
+      "THU": "Gio",
+      "TUE": "Mar",
+      "WED": "Mer"
+    },
+    "MONTHS": {
+      "APR": "Apr",
+      "AUG": "Ago",
+      "DEC": "Dic",
+      "FEB": "Feb",
+      "JAN": "Gen",
+      "JUL": "Lug",
+      "JUN": "Giu",
+      "MAR": "Mar",
+      "MAY": "Mag",
+      "NOV": "Nov",
+      "OCT": "Ott",
+      "SEP": "Set"
+    },
+    "SELECT_BEGIN_DATE_TEXT": "Data dal",
+    "SELECT_END_DATE_TEXT": "Data al"
+  },
+  "OCI": {
+    "EXPORT_TO_SAP": "Déplacer les informations d'article vers SAP",
+    "TRANSFER": "Transférer"
+  },
+  "OFFERS": {
+    "DELETE_OFFER_MESSAGE": "Vuoi cancellare questa offerta <strong>{{param}}</strong>?",
+    "DELETE_UNSUCCESSFULLY": "Cancellare fallito!",
+    "DISCOUNT": {
+      "ADDITION_AS_AMOUNT": "Sovrapprezzo come importo",
+      "ADDITION_AS_AN_AMOUNT_ON_ARTICLES": "Sovrapprezzo come importo sugli articoli propri",
+      "ADDITION_AS_AN_AMOUNT_ON_WORKS": "Sovrapprezzo come importo su tutti i posti di lavoro",
+      "ADDITION_IN_PERCENT": "Sovrapprezzo in percentuale",
+      "ADDITION_IN_PERCENT_ON_ARTICLES": "Sovrapprezzo in percentuale sugli articoli propri",
+      "ADDITION_IN_PERCENT_ON_WORKS": "Sovrapprezzo in percentuale su tutti i posti di lavoro",
+      "ADD_DISCOUNTS_SURCHARGES": "Aggiungi sconti e supplementi",
+      "DISCOUNT_AS_AMOUNT": "Riduzione come importo",
+      "DISCOUNT_AS_AN_AMOUNT_ON_ARTICLES": "Riduzione come importo sugli articoli propri",
+      "DISCOUNT_AS_AN_AMOUNT_ON_WORKS": "Riduzione come importo su tutti i posti di lavoro",
+      "DISCOUNT_IN_PERCENT": "Riduzione in percentuale",
+      "DISCOUNT_IN_PERCENT_ON_ARTICLES": "Riduzione in percentuale sugli articoli propri",
+      "DISCOUNT_IN_PERCENT_ON_WORKS": "Riduzione in percentuale su tutti i posti di lavoro",
+      "INVALID_AMOUNT": "Importo errato!",
+      "INVALID_PERCENT": "Valore percentuale errato",
+      "ON_ALL_OWN_ARTICLE": "Per tutti gli articoli propri",
+      "ON_ALL_OWN_WORK": "Per tutti gli lavori propri"
+    },
+    "INVALID_AMOUNT": "Importo errato!",
+    "INVALID_NUMBER": "Numero non valido!",
+    "INVALID_PRICE": "Prezzo errato!",
+    "MANAGE_CUSTOMERS": "Gestire cliente",
+    "MANAGE_OFFERS": "Gestire offerte",
+    "MANAGE_YOUR_ARTICLES": "Gestire articoli propri",
+    "MANAGE_YOUR_OWN_WORK": "Gestire proprio lavoro",
+    "NEW_CUSTOMER": "Inserisci un nuovo cliente",
+    "NEW_OFFER": "Nuova offerta",
+    "OFFER_CUSTOMER": {
+      "ADDRESS": "Indirizzo",
+      "CONTACT_INFO": "Informazioni di contatto",
+      "DELETE_MESSAGE": "Vuoi cancellare questo cliente <strong>{{param}}</strong> ?",
+      "EDIT_CUSTOMER_TITLE": "Editare cliente",
+      "NAME": "Nome",
+      "NEW_CUSTOMER_TITLE": "Neuer Kunde hinzufügen",
+      "NO": "No",
+      "YES": "Si"
+    },
+    "OFFER_DETAIL": {
+      "CONFIRM_SAVE_CHANGES": "Volete salvare le modifiche?",
+      "DATE": "Dattero",
+      "DELIVERY_DATE": "Periodo di consegna",
+      "DETAIL": "Dettagli",
+      "OFFER_ITEM": {
+        "ARTICLE": "Articoli",
+        "ARTICLE_WITH_VEHICLE": "Articolo con veicolo",
+        "ARTICLE_WTHOUT_CATEGORY": "Divers",
+        "ARTICLE_WTHOUT_VEHICLE": "Articolo senza veicolo",
+        "BACK": "Indietro",
+        "DESCRIPTION": "Descrizione",
+        "MORE_ITEMS_FOR_VEHICLE": "Altri articoli per questo veicolo",
+        "ORDER": "Ordinare",
+        "OWN_ARTICLES": "Articoli propri",
+        "OWN_WORK": "Lavoro proprio",
+        "PRICE": "Prezzo",
+        "PRINT_INVOICE": "Stampare come fattura",
+        "QUANTITY": "Quantità",
+        "SAVE": "Salvare",
+        "SURCHARGES_DISCOUNT": "Sconti, Supplementi",
+        "TOTAL": "Totale",
+        "TOTAL_OFFER_WITHOUT_VAT": "Totale offerta, IVA escl.",
+        "TOTAL_OFFER_WITH_VAT": "Totale offerta, IVA incl.",
+        "VAT": "MwSt",
+        "VIEW_TO_ADD": "Mostra i orari di lavoro",
+        "WORK": "Lavori",
+        "WORKING_TO_ADD": "Aggiungere orario di lavoro"
+      },
+      "OFFER_NUMBER": "Numero",
+      "OFFER_STATUS": {
+        "ALL": "Tutti",
+        "MANUALLY_ORDERED": "ORDINATA MANUALMENTE",
+        "OPEN": "IN ATESSA",
+        "ORDERED": "ORDINATA"
+      },
+      "REMARKS": "Commenti",
+      "STATUS": "Stato",
+      "TITLE": "Modificare offerta"
+    },
+    "OVERVIEW_OF_ALL_CUSTOMERS": "Panoramica di tutti i clienti",
+    "OVERVIEW_OF_ALL_OFFERS": "Panoramica di tutte le offerte",
+    "OWN_ARTICLE": {
+      "CAPTURE_NEW_ARTICLE": "Registrare nuovo articolo",
+      "CREATE_NEW_ARTICLE": "Aggiungere nuovo articolo",
+      "EDIT_ARTICLE": "Modificare articolo",
+      "MESSAGE": {
+        "DELETE_CONFIRM": "Vuole cancellare l'articolo <strong>{{param}}</strong> ?",
+        "NOT_FOUND_ARTICLES": "Nessun propri articoli trovati"
+      },
+      "OVERVIEW_OF_ALL_ARTICLE": "Panoramica di tutti gli articoli propri"
+    },
+    "OWN_WORK": {
+      "CAPTURE_NEW_WORK": "Registrare nuovo lavoro",
+      "CREATE_NEW_WORK": "Creare il lavoro proprio",
+      "EDIT_WORK": "Modificare lavoro proprio",
+      "MESSAGE": {
+        "DELETE_CONFIRM": "Vuole cancellare il lavoro <strong>{{param}}</strong> ?",
+        "NOT_FOUND_WORKS": "Nessun lavoro proprio trovato"
+      },
+      "OVERVIEW_OF_ALL_WORK": "Panoramica di tutti i lavori propri"
+    },
+    "SAVE_UNSUCCESSFULLY": "Salvare fallito!",
+    "SELECT_CUSTOMER": "Seleziona cliente",
+    "SELECT_YOUR_OWN_ARTICLE": "Seleziona il tuo articolo",
+    "SELECT_YOUR_OWN_WORK": "Selezionare il proprio lavoro"
+  },
+  "OIL": {
+    "AGGREGATE": "Aggregato",
+    "ALL": "Tutto",
+    "APPROVED": "Autorizzare",
+    "BOTTLE_SIZE": "Dimensioni di imballaggio",
+    "OIL": "Lubrificante",
+    "SPECIFICATION": "Specificazione",
+    "VEHICLE": "Tipo di veicolo",
+    "VISCOSITY": "Viscosità",
+    "BRAND": "Produttore"
+  },
+  "OLYSLAGER": {
+    "APP_NOTE": "Nota applicativa",
+    "DESCRIPTION": "Per favore selezionare:",
+    "FILL_QUANTITY": "Quantità di riempimento",
+    "MESSAGE": {
+      "API_ERROR": "Nessuna informazione sull'olio per questo veicolo",
+      "NOT_FOUND_VEHICLES": "Purtoppo non abbiamo trovato articoli per il veicolo selezionato. Si prega di contattare la filiale per favore"
+    },
+    "TITLE": "Lista veicoli",
+    "USE_INTERVAL": "Quantità di riempimento/uso/intervallo"
+  },
+  "ORDER": {
+    "ERROR": {
+      "AX_INVALID_COMPANY": "La società è sbagliata!",
+      "AX_INVALID_DATA": "L'ordine di acquisto viola una o più regole di convalida! Si prega di controllare i dati inseriti.",
+      "AX_TIMEOUT": "Ordine fallito (TIMEOUT ERROR)! <br> Si prega di controllare l'ordine in AX.",
+      "CREATE_OFFER_FAILED": "AX offerta non può essere creata.",
+      "EMAIL_FAILED": "Non è riuscito a inviare e-mail!",
+      "OFFER_FAILED": "Offerta non accettata!",
+      "ORDER_FAILED": "Ordine non possibile! Si prega di contattare la propria filiale.",
+      "TIMEOUT": "Ordine fallito (TIMEOUT ERROR)! Si prega di controllare l'ordine in SAGsys.",
+      "TRANSFER_FAILED": "Trasferimento del carrello non riuscito!",
+      "TRANSFER_ONLY_TIMEOUT_FAILED": "Il completamento dell'ordine non ha potuto essere confermato. Per favore chiamate la vostra filiale per verificare l'ordine.",
+      "TRANSFER_TIMEOUT_AND_OTHER_FAILED": "Trasferimento del carrello parzialmente non riuscito. Il completamento dell'ordine non ha potuto essere confermato. Per favore chiamate la vostra filiale per verificare l'ordine."
+    },
+    "TYPE": {
+      "ABS": "ABS",
+      "ALL": "Tutti",
+      "COUNTER": "KSL",
+      "ORDER": "Ordine",
+      "STD": "STD",
+      "KSO_AUT": "Ordine (N)"
+    },
+    "WARNING": {
+      "INVALID_COUPON": "Purtroppo non siamo in grado di riscattare il buono per questo ordine. Contattate la vostra filiale.",
+      "TRANSFER_PARTIALLY_FAILED": "Attenzione! Alcuni articoli non possono essere ordinati. Controlla il carrello e chiama la filiale.",
+      "TRANSFER_PARTIALLY_TIMEOUT_FAILED": "Si prega di notare! Per alcuni articoli non è stato possibile confermare il completamento dell'ordine. Si prega di controllare le seguenti voci in \"Ultimi ordini\".",
+      "TRANSFER_PARTIALLY_TIMEOUT_FAILED_SUFFIX": "Per favore chiamate la vostra filiale per qualsiasi domanda."
+    }
+  },
+  "ORDER_CONFIRMATION": {
+    "COUNTER": {
+      "BARCODE_ITEMS": "Con questo codice a barre si possono prelevare gli articoli da scaffale",
+      "HEADER": "Trasmissione di un ordine per i clienti nel negozio",
+      "ORDER_NR": "Il vostro numero d'ordine"
+    },
+    "REFERENCE": "La sue referenza"
+  },
+  "ORDER_DASHBOARD": {
+    "CART_NR": "Carrello / no. ordine",
+    "COMPANY_TYPE": "Tipo di societa",
+    "CONFIRMATION": {
+      "CONFIRM_ADD_TO_BASKET": "Salva & chiudi carrello",
+      "CONFIRM_BTN_ADD_TO_BASKET": "Ordinare",
+      "CONFIRM_DELETE_ORDER": "L'ordine sarà cancellato"
+    },
+    "CONTACT_INFO": "informazioni di contatto",
+    "CUSTOMER": "Cliente",
+    "DELETE": "Cancellare",
+    "GOODS_RECEIVER": "Ricevitore merci",
+    "MY_CUSTOMERS_ORDERS": "Ordini dei miei clienti",
+    "NEW_ORDERS": "Nuovi ordini per i clienti",
+    "ORDERED": "Ordinato",
+    "ORDER_DATE_TIME": "Data di ordine",
+    "ORDER_LIST_NOT_FOUND": "No records found.",
+    "ORDER_REF": {
+      "CUSTOMER_MESSAGE": "Messaggio cliente",
+      "CUSTOMER_POSITION_REF": "Pos. riferimento cliente",
+      "CUSTOMER_REF": "Riferimento cliente"
+    },
+    "REMOVE_CUSTOMER": "Rimuovi cliente",
+    "SELECT_CUSTOMER": "Seleziona cliente",
+    "TOTAL": "Totale p. cons.",
+    "TOTAL_NETTO": "Cliente finale totale netto",
+    "TOTAL_ORDER": "Total: {{total}} ordini",
+    "VEHICLE_ARTICLE": "Veicoli/ Articoli"
+  },
+  "ORDER_HISTORY": {
+    "ADDING_FAILED": "Aggiungere non funziona!",
+    "ADDING_SUCCESSFULLY": "Die Artikel wurden dem Warenkorb hinzugefügt.",
+    "ARTICLE": "Articolo",
+    "COLUMNS": {
+      "ORDER_NUMBER": "Numero d'ordine",
+      "STATUS": "Status",
+      "TYPE": "Typ"
+    },
+    "ERROR": {
+      "ERROR_HAPPENED": "Storia ordine non trovato!"
+    },
+    "LABEL": "Carrelli salvati",
+    "ORDER_LIST": "Ordini",
+    "PLACE_HOLDERS": {
+      "ORDER_NUMBER": "Numero d'ordine"
+    }
+  },
+  "PAGE_TITLE": {
+    "ARTICLE_SEARCH_LIST": "Lista della spesa",
+    "BATTERY": "Batterie",
+    "BULBS": "Lampade",
+    "HOME": "Veicoli, articoli",
+    "INFORMATION": "Informazioni",
+    "OFFERS": "Offerte",
+    "OIL": "Olio",
+    "OUTLET_SHOP": "Negozio outlet",
+    "PROMOTIONS": "Promozioni",
+    "TYPRES": "Pneumatici",
+    "UNIVERSAL_PART": "Parti universali",
+    "RENT_TOOLS": "Affitto di strumenti"
+  },
+  "PAGINATION": {
+    "NEXT": "Il prossimo",
+    "PREVIOUS": "Precedente"
+  },
+  "PERMISSION": {
+    "BATTERY": "Batteria",
+    "BULB": "Lampade",
+    "DMS": "DMS",
+    "HAYNESPRO": "HaynesPro",
+    "HOME": "Veicoli, articoli",
+    "OCI": "OCI",
+    "OFFER": "Offerte",
+    "OIL": "Olio",
+    "TYRE": "Pneumatici",
+    "VIN": "VIN",
+    "UNIPARTS": "Parti universali",
+    "MOTO": "Moto"
+  },
+  "PROMOTIONS_DATA": {
+    "AT_LINK_1": "Focus",
+    "AT_LINK_2": "Monatsaktionen",
+    "DD_LINK_1": "Aktionen",
+    "DD_LINK_1_TYRES": "Aktionen Reifen",
+    "DD_LINK_2": "Promotions",
+    "DD_LINK_2_TYRES": "Promotions Pneus",
+    "DD_LINK_3": "Promozioni",
+    "DD_LINK_3_TYRES": "Promozioni Pneumatici",
+    "MT_LINK_1": "Matik Attuale",
+    "TM_LINK_1": "Aktionen",
+    "TM_LINK_1_TYRES": "Aktionen Reifen",
+    "TM_LINK_2": "Actions",
+    "TM_LINK_2_TYRES": "Promotions Pneus",
+    "TM_LINK_3": "Actions",
+    "TM_LINK_3_TYRES": "Promozioni Pneumatici",
+    "CZ_LINK_1": "IT_Sathlgruber Hity",
+    "CZ_LINK_2": "IT_Pordejní Akce"
+  },
+  "QUICK_CLICK": {
+    "ARTICLES_DISPLAY": "Indicare articoli",
+    "FOLD": "Mostra meno",
+    "UNFOLD": "Mostra più"
+  },
+  "RECOMMENDATIONS": {
+    "DISC_BRAKE_SET_ACCESSORIES": "Disco freno set + accessori"
+  },
+  "REGISTER": {
+    "ADDITIONAL_LINK_TO_CONTACT": "Cliccate qui per favore se non avete ancora un numero cliente.",
+    "CONTACT": {
+      "SUCCESS_MESSAGE": "Grazie per l'interesse per il nostro shop online. La vostra richiesta è stata inviata e vi contatteremo il prima possibile.",
+      "TEXT": "Questo shop online è destinato esclusivamente alla rivendita. Purtroppo non possiamo considerare persone private."
+    },
+    "CUSTOMER_NUMBER": "Numero cliente",
+    "DESCRIPTION": "Descrizione",
+    "FAX_NUMBER": "Fax",
+    "HOMEPAGE": "Pagina web",
+    "INTRODUCTION_1": "Questo e-shop è pensato esclusivamente per la rivendita. Purtroppo non possono essere considerati clienti privati.",
+    "INTRODUCTION_2": "Info: Per registrarsi dovete prima identificarvi con il vostro numero cliente e il codice postale del vostro indirizzo principale. È quindi possibile creare un nuovo account utente per il e-shop.",
+    "MESSAGES": {
+      "CREATE_MDM_CUSTOMER_FAILED": "Non è possibile creare un cliente MDM!",
+      "CREATE_MDM_USER_FAILED": "Non è possibile creare un utente MDM!",
+      "CUSTOMER_INACTIVE": "Questo cliente non deve essere registrato. Si prega di contattare la propria filiale.",
+      "CUSTOMER_NOT_BELONG_TO_AFFILIATE": "This customer does not belong to affiliate!",
+      "INTERNAL_ERROR": "Errore interno del server!",
+      "INVALID_ADMIN_ROLE": "Il ruolo di amministratore non è valido!",
+      "INVALID_AFFILIATE": "La Società non è valida!",
+      "INVALID_COMPANY_NAME": "Il nome dell' organizzazione non è valido!",
+      "INVALID_CUSTOMER": "Il numero del cliente non è valido!",
+      "INVALID_DELIVERY_METHOD": "Il tipo di consegna non è valido!",
+      "INVALID_EMAIL": "La e-mail non è valida!",
+      "INVALID_GROUP": "Il gruppo non è valido!",
+      "INVALID_ORGANISATION_TYPE": "La categoria organizzativa non è valida!",
+      "INVALID_POST_CODE": "Il codice postale non è valido!",
+      "INVALID_SALUTATION": "Il Salutazione non è valida!",
+      "INVALID_SUR_NAME": "Il cognome non è valido!",
+      "INVALID_USERNAME_IN_AFFILIATE": "Questo nome utente non è consentito perché esiste già in questa società.",
+      "INVALID_USERNAME_IN_CUSTOMER": "Questo nome utente esiste già per questo cliente!",
+      "INVALID_CUSTOMER_ALREADY_REGISTERED" : "Cliente già registrato",
+      "INVALID_USER_NAME": "Il nome utente non è valido!",
+      "INVALID_USER_ROLE": "Il ruolo utente non è valido!",
+      "MESSAGE_SUCCESS": "Il nuovo amministratore utente è stato creato con successo."
+    },
+    "OPTIONAL_ADDRESS": "Indirizzo aggiuntivo",
+    "REGISTRY": "Registrare",
+    "USERNAME": "Nome utente",
+    "CREATE_ON_BEHALF_ONLY" : "Cliente offline"
+  },
+  "RETURN_ARTICLE_BASKET": {
+    "CONTAIN_DEPOSIT_WARNING": "Questo articolo contiene un deposito per la parte vecchia. Quando si restituisce il vecchio pezzo, selezionare il motivo della restituzione \"8 - pezzo vecchio\"!",
+    "CREATE_SELECTED_RETURNS": "Creare i ritorni selezionati",
+    "ERRORS": {
+      "AX_TIMEOUT": "Rimborso della restituzione fallito (TIMEOUT ERROR)! <br> Si prega di controllare i resi in AX.",
+      "INVALID_RETURN_QUANTITY": "Numero di restituzione non valido! Sono ammessi solo valori compresi tra 1 e la quantità di reso rimanente.",
+      "SUBMIT": "Questi ritorni non hanno potuto essere trasmessi! Per favore, controlla i vostri dati."
+    },
+    "MULTIPLE_PIECES_WARNING": "Sono stati acquistati diversi pezzi di questo articolo. Controllare la quantità restituita!",
+    "PAYMENT_TERM": "condizioni di pagamento",
+    "PAYMENT_TERM_DESC": "I <strong>{{value}}</strong> dei ritorni devono essere sempre le stesse di quelle dell'ordine.",
+    "PRINT_RETURN_CONFIRMATION": "Stampa una conferma di ritorno",
+    "QUARANTINE_REASON": "Motivo di quarantena (max. 60 caratteri)",
+    "REFUND": "Rimborsare",
+    "RETURN_CONDITION": {
+      "REASON_LIST": {
+        "AIS_RETOUR": "9 - Ritorno AIS",
+        "ALTERNATIVE": "8 - Parte usata",
+        "DEFECT": "1 - Difettoso",
+        "FALSE_ARTICLE": "3 - Articolo errato",
+        "INCORRECT_FEED_LINE": "2 - Attribuzione errata",
+        "NOT_USED": "6 - Non usato",
+        "SELECTION": "5 - Fornitura a scelta",
+        "SUPPLIER_CALLBACK": "7 - Richiamo del fornitore",
+        "WRONG_AMOUNT": "4 - Quantità errata",
+        "REPAIR": "10-Riparazione"
+      },
+      "TITLE": "Politica di ritorno"
+    },
+    "RETURN_CONFIRMATION": {
+      "INFO": "Abbiamo ricevuto questi ritorni e li elaboreremo il prima possibile.",
+      "QUARANTINE_ORDER": "I vostri ritorni in quarantena sono:",
+      "RETURN_ORDER": "I vostri ordini di restituzione sono:",
+      "TITLE": "Ritorni registrati",
+      "MESSAGE": "Volete restituire solo <b>parti usate</b>?",
+      "SELECT_ANOTHER_REASON": "Si prega di selezionare un altro motivo per la restituzione."
+    },
+    "RETURN_REASON_TITLE": "Motivo del ritorno",
+    "TABLE_COLUMNS": {
+      "AMOUNT": "Quantità",
+      "ASSIGNMENT": "Ordnie",
+      "CASH_DISCOUNT": "Sconto",
+      "DEADLINE": "Durata",
+      "ID": "ID",
+      "KEYWORD": "Parola chiave",
+      "NAME": "Designazione",
+      "NUMBER": "Numero",
+      "PAYMENT": "Pagamento",
+      "QUARANTINE": "Quarantena",
+      "REST": "Resto",
+      "STORAGE_LOCATION": "Luogo",
+      "TYPE": "tipo",
+      "DESCRIPTION": "Designazione "
+    },
+    "TABLE_TITLE": "Creare ritorni"
+  },
+  "SEARCH": {
+    "ADD_TO_CART": "Aggiungere al carrello",
+    "ALL": "Tutto",
+    "ARTICLE_DESC": "Descrizione articolo",
+    "ARTICLE_FULLTEXT": "Ricerca per testo integrale",
+    "ARTICLE_HISTORY_TITLE": "Recenti ricerche",
+    "ARTICLE_TIPS": "Testi di riferimento N° d'articolo./ OE",
+    "BRAKES": "Freni",
+    "BUYVIN": "Comprare un pacchetto VIN",
+    "CHOOSE": "Ultimi Venditori Ordini",
+    "COLUMN_BODY": "Carrozzeria",
+    "COLUMN_CYLINDER": "Cilindro",
+    "COLUMN_DRIVE_TYPE": "Trazione",
+    "COLUMN_ENGINE": "Capacità",
+    "COLUMN_FUEL": "Carburante",
+    "COLUMN_MOTOR": "Motore",
+    "COLUMN_NAME": "Nome",
+    "COLUMN_POWER": "Potenza",
+    "COLUM_PERIOD": "Periodo (anno)",
+    "DATA": "Dati",
+    "DEAL_OFWEEK": "Offerte della settimana",
+    "ENGINE_PARTS": "Parti del motore",
+    "ERROR_MESSAGE": {
+      "ARTICLE_NOT_FOUND": "L'articolo non si trova.",
+      "EXCEED_30_DAYS": "Una differenza di oltre 30 giorni non è possibile",
+      "EXCEED_31_DAYS": "Una differenza di oltre 31 giorni non è possibile",
+      "FROM_DATE_CHANGED": "La \"Data dal\" è stata adeguata a un periodo di 31 giorni",
+      "HAS_VALUES": "Sia un HSN e TSN devono essere inseriti.",
+      "INVALID_RETURN_ARTICLE": "Il mandante non è valido!",
+      "INVALID_VIN": "Vin sconosciuto. Inserire nuovamente il VIN.",
+      "MAKE_MODEL_TYPE_REQUIRED": "Si prega di selezionare marca/modello/tipo",
+      "NOT_FOUND": "Nessun risultato corrisponde alla sua scelta. Verifichi la sua richiesta",
+      "PERMISSION": "Non dispone dell'autorizzazione per eseguire questa azione.",
+      "REQUIRED_FIELD": "Si prega di compilare questo favore di campo",
+      "TO_DATE_CHANGED": "La \"Data al\" è stata adeguata a un periodo di 31 giorni",
+      "UNSUPPORTED": "Questa funzione di ricerca non è supportata",
+      "VEHICLE_NOT_FOUND": "Nessun veicolo trovato con questo riferimento!",
+      "VEHICLE_NOT_MATCHED": "Nessun veicolo trovato corrispondente.",
+      "SELECT_CATEGORIES_ON_LEFT": "Si prega di selezionare dalle categorie sulla sinistra."
+    },
+    "FILTER": "Filtri",
+    "FILTER_NAME_TITLE": "Ricerca con caratteri jolly: (*) corrisponde a uno o più caratteri, ad esempio \"veh*\" trova \"veicolo\"",
+    "HISTORY_TIPS": "Veicoli precedentemente ricercati",
+    "HOVER_TITLES": {
+      "VEHICLES": "Ricercate per: Numero del certificato tipo (Svizzera), targhette di licenza (Svizzera), codice nazionale (Austria), KBA(DE), TypeMine(FR)",
+      "VEHICLES_DESC": "Ricercate per: Marca, modello, tipo, tipo di carrozzeria, carburante, cilindrata, codice motore, kW, PS, azionamento o qualsiasi combinazione di questi dati oppure per qualsiasi combinazione di questi dati.",
+      "VEHICLES_DESC_HELP": "Caratteri jolly (*) corrisponde a uno o più caratteri, ad esempio \"veh*\" trova \"veicolo\"",
+      "VIN_20": "Ricercate per: VIN / numero di telaio.",
+      "YEAR": "Ricercate per anno: AAAA, MM-AAAA oppure MM/AAAA"
+    },
+    "HSN": "HSN",
+    "KILOMETER": "Chilometraggio",
+    "KW_PS": "KW/PS",
+    "LANDING_GEAR": "Carrello d'atterraggio",
+    "MAINTENANCE": "Manutenzione",
+    "MARK": "Targhette di licenza",
+    "MOTOCODE_DESC": "Codice motore, Codice Fabbrica",
+    "MULTIPLE_VEHICLES_DESCRIPTION": "Scegliere i veicoli",
+    "MULTIPLE_VEHICLES_TITLE": "Lista di veicoli",
+    "MYFAVORITES": "I miei preferiti",
+    "NATIONAL_CODE": "Matricola",
+    "NO_ARTICLE_SEARCH_FOUND": "Nessuna voce trovata",
+    "NO_RESULTS_FOUND": "Nessun risultato trovato",
+    "NO_VEHICLE_SEARCH_FOUND": "Non sono stati trovati veicoli",
+    "OR": "oppure",
+    "PART_SEARCH": "Ricerca articoli",
+    "QUICK_ORDER": "Ordine veloce",
+    "REMOVE": "Cancellare",
+    "SEARCH_BUTTON": "Ricerca",
+    "SEARCH_OIL": {
+      "ADDITIONAL_INFORMATION": "Informazioni supplementari",
+      "LUBRICANT_CATALOG": "Catalogo olio per motori",
+      "MOBILE_PRODUCT_DATA_SHEETS": "Schede tecniche Mobil",
+      "MOBILE_SAFETY_DATA_SHEETS": "Schede di sicurezza Mobil",
+      "WHICH_ENGINE_OIL": "Quale olio motore?"
+    },
+    "SEARCH_TYRES": {
+      "ACCESSORIES": "Accessori",
+      "ADDITIONAL_INFORMATION": "Ulteriori informazioni",
+      "COMPARISON_TATBLE": "Tabella di comparazione",
+      "CROSS_SECTION": "Sezione tras.",
+      "DIAMETER": "Diametro",
+      "FZ_CATEGORY": "Categoria veicolo",
+      "INPUT_EXAMPLE": "Esempio di ingresso",
+      "LOAD_INDEX": "Indice di carico",
+      "MANUFACTURER": "Produttore",
+      "MATCH_CODE": "Codice corrispondente",
+      "MATURITY_INDEX": "Indice di carico",
+      "MOTORBIKES": "Moto",
+      "MOTOR_CATEGORY": "Categoria",
+      "POTS_AND_PANS": "Set di aluto",
+      "REPAIR_MATERIAL": "Materiale per la riparazione",
+      "RESET": "Cancellare",
+      "RIM": "Cerchioni",
+      "RUNFLAT": "Runflat",
+      "SEASON": "Stagione",
+      "SHOW_ALL_ARTICLES": "Mostrare tutti gli articoli",
+      "SPEED_CATEGORIES": "Indice di velocita",
+      "SPEED_INDEX": "Indice di velocità",
+      "SPIKE": "Spike",
+      "TYRES": "Estivi/Commercial",
+      "TYRE_LABEL": "Etichetta pneumatica UE",
+      "TYRE_SAFETY_NOTES": "Avvertenze tecniche",
+      "TYRE_SEGMENT": "Categoria di pneumatici",
+      "TYRE_TECHNICAL_TERMS": "Termini tecnici riguardano i pneumatici",
+      "WHEELS": "Accessori",
+      "WIDTH": "Larghezza",
+      "MATCH_CODE_ARTICLE_OVER_LIMIT": "Più di 300 risultati. Si prega di utilizzare uno dei filtri sopra elencati (ad es. marca) per limitare i risultati."
+    },
+    "SEARCH_VIN": {
+      "CONTINUE_WITHOUT_VIN": "Continuare senza VIN",
+      "VIN_POPUP_TITLE": "Inserire VIN (numero telaio)",
+      "VIN_VALUE": "VIN (numero telaio)"
+    },
+    "SELECT": "Selezionare",
+    "SELECT_VEHICLE": "Scegliere i veicoli",
+    "SUGGESTION": "Questo le potrebbe anche interessare",
+    "TSN": "TSN",
+    "TYPECERTIFICATE": "Nationaler Code",
+    "VEHICLES": "tipo di certificato (CH), targa (CH), codice nazionale (AT), etc...",
+    "VEHICLES_DESC": "Descrizione del veicolo",
+    "VEHICLE_HINT": "Ricerca di un veicolo utilizzando uno dei campi di sotto.",
+    "VEHICLE_HISTORY_TITLE": "Recenti ricerche di veicoli",
+    "VEHICLE_HISTORY_SHOW_MOTO_ONLY": "Solo moto",
+    "VEHICLE_SEARCH_TITLE": "Ricerca veicolo",
+    "VEHICLE_SEARCH_TITLE_MORE_INFO": "Auto/VCL",
+    "VEHICLE_SEARCH_TITLE_MOTO_MORE_INFO": "Motociclette",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB": "Codice/Termine di ricerca",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB_AT": "Selezione dei marchi/Codice",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_WITH_SELECT_MAKE_TAB": "Selezione dei marchi",
+    "VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB": "Marca/Modello/Tipo",
+    "VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB_CH": "Ricerca avanzata dei veicoli",
+    "VIN": "VIN (Numero telaio)",
+    "VIN_20": "VIN / numero di telaio.",
+    "VIN_CALLS": "Richiesta VIN rimanenti",
+    "VIN_ERROR_MSG": {
+      "ACCESS_LIMIT_EXCEEDED": "Errore tecnico {33}!",
+      "AUTHENTICATION_ERROR": "Errore tecnico {3}!",
+      "DATA_ERROR": "Errore dati",
+      "IMPOSSIBLE_TO_OBTAIN_LABOUR_TIME": "Dati errati, incompleti o sconosciuti {14}!",
+      "INACTIVE_USER": "Errore tecnico {31}!",
+      "INCOMPATIBLE_EQUIPMENT_FOR_TYPE_ITEM": "Dati errati, incompleti o sconosciuti {24}!",
+      "INCOMPATIBLE_EQUIPMENT_FOR_TYPE_RANK": "Dati errati, incompleti o sconosciuti {23}!",
+      "INCOMPATIBLE_MAINTENANCE_PART_CODES": "Dati errati, incompleti o sconosciuti {38}!",
+      "INTERNAL_ERROR": "Errore tecnico {6}!",
+      "INVALID_EQUIPMENT_ITEM": "Dati errati, incompleti o sconosciuti {12}!",
+      "INVALID_FAMILY_IN_EQUIPMENT_RANK_LIST": "Dati errati, incompleti o sconosciuti {16}!",
+      "INVALID_MAINTENANCE_PART_CODE": "Dati errati, incompleti o sconosciuti {25}!",
+      "INVALID_MANUFACTURER_OPERATION_CODE": "Dati errati, incompleti o sconosciuti {13}!",
+      "INVALID_MODEL_CODE": "Dati errati, incompleti o sconosciuti {7}!",
+      "INVALID_OPERATION_TYPE": "Dati errati, incompleti o sconosciuti {15}!",
+      "INVALID_PART_CODE": "Dati errati, incompleti o sconosciuti {18}!",
+      "INVALID_PART_CODE_FOR_THIS_METHOD": "Dati errati, incompleti o sconosciuti {39}!",
+      "INVALID_PART_CODE_IN_MODEL": "Dati errati, incompleti o sconosciuti {19}!",
+      "INVALID_RANGE_VALUE_1": "Dati errati, incompleti o sconosciuti {70}!",
+      "INVALID_RANGE_VALUE_2": "Dati errati, incompleti o sconosciuti {71}!",
+      "INVALID_REFERENCE": "Dati errati, incompleti o sconosciuti {32}!",
+      "INVALID_USER": "Errore tecnico {5}!",
+      "INVALID_USER_CODE": "Errore tecnico {4}!",
+      "INVALID_VIN_FORMAT": "VIN errore {8}! Si prega di controllare il numero di telaio e inserirlo nuovamente.",
+      "MODEL_IDENTIFICATION_REQUIRED": "Dati errati, incompleti o sconosciuti {11}!",
+      "MULTIPLE_UMC_DECODED": "Dati errati, incompleti o sconosciuti {10}!",
+      "NOT_FOUND_VEHICLE": "Keine Passende Fahrzeug gefunden",
+      "NO_MODEL_CODE": "Dati errati, incompleti o sconosciuti {69}!",
+      "NO_RELATIONSHIP_FOUND_BETWEEN_FAMILY_AND_MODEL": "Dati errati, incompleti o sconosciuti {17}!",
+      "NO_RESULT_FOUND": "Nessun risultato trovato {21}!",
+      "NO_VALID_MODEL_CODE_DECODED_FROM_VIN": "VIN errore {9}! Si prega di controllare il numero di telaio e inserirlo nuovamente.",
+      "OPERATION_CODE_DOES_NOT_EXIST_FOR_UMC": "Dati errati, incompleti o sconosciuti {22}!",
+      "OPERATION_TYPE_NOT_VALID_FOR_PART_CODE": "Dati errati, incompleti o sconosciuti {20}!",
+      "SYSTEM_ERROR": "Errore sistema",
+      "UNKNOWN": "Errore sconosciuto",
+      "USER_UNKNOWN": "Utente sconosciuto",
+      "VIN ALREADY EXISTS": "VIN erreur {40}! Veuillez vérifier le numéro de châssis et le saisir à nouveau.",
+      "VIN DOES NOT EXIST": "Vin n'existe pas {41}!",
+      "VIN_ERROR": "VIN errore! Si prega di controllare il numero di telaio e inserirlo nuovamente.",
+      "VIN_INVALID": "Numero telaio (VIN) sbagliato! Si prega di controllare il numero di telaio e inserirlo nuovamente.",
+      "VIN_UNKNOWN": "VIN sconosciuto! Si prega di controllare il numero di telaio e inserirlo nuovamente.",
+      "VIN_UNSUPPORTED": "Il servizio VIN non è disponibile! Si prega di utilizzare un altro metodo di ricerca del veicolo.",
+      "XML_FORMAT_ERROR": "Errore tecnico {2}!"
+    },
+    "VIN_INFORM_MESSAGE": "Offriamo un servizio di convalida per garantire il pezzo giusto per questo veicolo. Per la convalida, inserire il numero di telaio (VIN):",
+    "VIN_MODE": {
+      "STANDARD": "Standard",
+      "PREMIUM": "Premium"
+    },
+    "WORKSHOP_GROUPS": "Gruppi officina",
+    "YEAR": "Anno",
+    "YEAR_ERROR_HINT": "AAAA, MM/AAAA, MM/AAAA"
+  },
+  "SEARCH_RESULT": {
+    "BACK": "Indietro",
+    "DISC_BRAKE_SET_ACCESSORIES": "Disco freno set + accessori",
+    "GO_TO_HAYNESPRO": "Andare a HaynesPro",
+    "HAYNESPRO_TD_WORKSHOP": "HaynesPro",
+    "HIDE_ADDTIONAL": "Mostra meno",
+    "LIQUIDATION": "Vendita",
+    "LOAD_MORE": "Indicare più",
+    "NEXT": "Proseguire con l'ordine",
+    "ORDER_NEXT": "Ordinare ora",
+    "SHOW_MORE_ADDTIONAL": "mostra più marche"
+  },
+  "SEARCH_TYPE": {
+    "ALL": "Tutti",
+    "ARTICLES": "Articoli",
+    "BARCODE": "Fast Scan",
+    "BARCODE_NOT_FOUND_MS": "Il codice a barre {{barcode}} non è noto! Si prega di utilizzare la ricerca articoli.",
+    "BATTERIES": "Batteries",
+    "MSG_DISPLAY": "Indicare",
+    "MSG_NO_RECORDS": "Nessun risultato",
+    "MSG_RECORDS_FOUND": "Risultati trovati",
+    "NO_RETURN_ARTICLE_FOUND": "Per questo ingresso non è stato trovato nessun articolo! Si prega di inserire un'etichetta di trasporto valida, il numero d'ordine, il numero della bolla di consegna o il numero della fattura.",
+    "RETURN": "Ritorni",
+    "RETURN_QUANTITY_IS_ZERO": "Non sono trovati articoli che hanno una quantità di ritorno!",
+    "SEARCH_LABLE": "Ricerca per testo integrale: articoli, veicoli, ecc.",
+    "VEHICLES": "Veicoli",
+    "PRODUCT_CATEGORY": "Categoria di prodotto"
+  },
+  "SERVICE": {
+    "REAR": {
+      "BRAKE_HOSES": "Tubi freno",
+      "CALIPER_ACCESSORIES": "Pinza + Accessori",
+      "DISC_ACCESSORIES": "Disc + Accessori",
+      "DISC_BRAKE_SET_ACCESSORIES": "Disco freno set + accessori",
+      "SELECT_ALL": "Seleziona tutto"
+    }
+  },
+  "SETTINGS": {
+    "DELIVERY_PROFILE": "Profilo di consegna",
+    "CANCEL": "Rimborso",
+    "CONFIG": "Impostazioni",
+    "DELETE": "Eliminare",
+    "DELETE_CONFIRM_MESSAGE": "Vuoi davvero cancellare questo utente <strong>{{value}}</strong> ?",
+    "DELETE_DVSE_EXTERNAL": "Delete DVSE external user",
+    "FINAL_CUSTOMER_USER_MANAGEMENT_TAB": "Final User Management",
+    "FINAL_USER_ORDER": {
+      "FILTER": {
+        "ALL": "Tutto",
+        "NEW": "Ordine trasmesso",
+        "OPEN": "Ordine trasmesso",
+        "ORDERED": "Ordinato"
+      }
+    },
+    "FINAL_USER_ORDER_TAB": "Ultimi ordini",
+    "FIRSTNAME": "Cognome",
+    "INVOICE_ARCHIVE_TAB": "Fattura Archivio",
+    "MANAGE_CUSTOMERS_TAB": "Gestire i clienti",
+    "MESSAGE_FAILURE": "Salvare fallito!",
+    "MESSAGE_SUCCESSFUL": "Salvato con successo",
+    "MY_FAVORITE_TAB": "I miei preferiti",
+    "MY_ORDER": {
+      "ADD_TO_BASKET_SUCCESSFULLY": "Gli articoli sono stati aggiunti al carrello.",
+      "DETAIL": {
+        "AROUND": "alle",
+        "HEADER": {
+          "ARTICLE_NUMBER": "Codice articolo",
+          "DELIVERY_INFORMATION": "Informazioni di consegna",
+          "GROSS_PRICE": "Lordo",
+          "IMAGE": "Immagine",
+          "MANUFACTURER": "Fabbricante",
+          "QUANTITY": "Quantità",
+          "REFERENCE": "Il tuo punto di riferimento",
+          "UVPE_PRICE": "Bruttopreis per pezzo",
+          "VEHICLE": "Veicolo"
+        },
+        "ORDER_DATE": "Data dell'ordine",
+        "ORDER_DETAILS": "Dettagli ordine",
+        "ORDER_NUMBER": "Numero d'ordine"
+      },
+      "DUMMY": {
+        "ORDER_STATUS": "Ordine trasmesso"
+      },
+      "ERP_SYSTEM": "System",
+      "ESHOP": "eShop",
+      "FILTER": {
+        "DATE_FROM": "Data da",
+        "DATE_TO": "Data al",
+        "FILTER_ALL_COLUMNS": "Filtra tutte le colonne",
+        "ORDER_STATUS": "Stato ordine",
+        "USER_NAME": "Utente"
+      },
+      "HEADER": {
+        "CUSTOMER_NAME": "Cliente",
+        "ORDER_DATE": "Data di ordine",
+        "ORDER_NUMBER": "Carrello / no. ordine",
+        "ORDER_STATUS": "Stato ordine",
+        "ORDER_TYPE": "Tipo di ordine",
+        "SOURCE": "Source",
+        "USERNAME": "Nome utente",
+        "VEHICLE": "Veicoli"
+      },
+      "STATUS": {
+        "ALL": "Tutto",
+        "BACKORDER": "In Sospeso",
+        "CANCELLED": "Annullato",
+        "DELIVERED": "Inviato",
+        "INVOICED": "Ordine completamente fatturato",
+        "NONE": "Nessuno",
+        "PENDING": "Pendente"
+      }
+    },
+    "ORDER_HISTORY_TAB": "Ultimi ordini",
+    "PROFILE": {
+      "HOURLY_RATE": "Tariffa oraria",
+      "INVALID_EMAIL": "La e-mail non è valida",
+      "INVALID_HOURLY_RATE": "Tariffa oraria non valida",
+      "INVALID_MANDATORY_FIELDS": "Salvare non è possibile! Si prega di compilare tutti i campi obbligatori segnalati con un asterisco.",
+      "INVALID_USERNAME": "Nome utente non valido. La lunghezza deve essere tra {{{min}} e {{max}}} caratteri",
+      "LANGUAGE": {
+        "LANG_DE": "Tedesco",
+        "LANG_FR": "Francese",
+        "LANG_IT": "Italiano",
+        "LANG_EN": "IT_English",
+        "LANG_SR": "IT_Latin Serbia",
+        "TEXT": "Lingua"
+      },
+      "LICENSE": "Licenza dati tecnici",
+      "LICENSE_LABEL": "Lorem ipsum dolor sit amet, consectetur adipiscing elit:",
+      "MESSAGE_SUCCESSFUL": "Salvato con successo",
+      "PASSWORD_CHANGE": {
+        "CONFIRM_PASSWORD": "Confermare password",
+        "INVALID": "Password non valida. La password deve essere compresa tra 8 e 14 caratteri e contenere almeno una lettera (a-z o A-Z) e numeri (0-9).",
+        "MIN_LENGTH": "Almeno {{param}} caratteri",
+        "NEW_PASSWORD": "Nuovo password",
+        "NOT_MATCH": "Le password non corrispondono",
+        "OLD_PASSWORD": "Vecchia password",
+        "TITLE": "Modificare la password",
+        "WRONG_FORMAT_PASSWORD": "Password errata",
+        "WRONG_OLD_PASSWORD": "Vecchia password errata."
+      },
+      "REMAINING_VIN": "Richiesta VIN rimanenti",
+      "REQUIRED_FIELD": "Si prega di compilare questo favore di campo",
+      "SALUTATION": {
+        "ALL": "Tutti",
+        "GENERAL_SALUTATION_COMPANY": "Ditta",
+        "GENERAL_SALUTATION_FEMALE": "Signora",
+        "GENERAL_SALUTATION_MALE": "Signor",
+        "SALUTATION_DR": "Dr.",
+        "SALUTATION_I": "I",
+        "SALUTATION_II": "II",
+        "SALUTATION_III": "III",
+        "SALUTATION_JR": "Jr.",
+        "SALUTATION_MADAM": "Frau",
+        "SALUTATION_MISS": "Miss",
+        "SALUTATION_MR": "Signor",
+        "SALUTATION_MRS": "Signora",
+        "SALUTATION_MS": "Signora",
+        "SALUTATION_OTHER": "Oltre",
+        "SALUTATION_PROF": "Prof.",
+        "SALUTATION_SIR": "Herr",
+        "SALUTATION_SR": "Sr.",
+        "TEXT": "Appellativo"
+      },
+      "SAVE": "Salvare",
+      "TYPE": {
+        "ALL": "Tutti",
+        "FINAL_NORMAL_USER": "Utente",
+        "FINAL_USER_ADMIN": "Amministratore utente",
+        "GROUP_ADMIN": "Amministratore gruppo",
+        "MARKETING_ASSISTANT": "Marketing",
+        "NORMAL_USER": "Utente",
+        "SALES_ASSISTANT": "Vendità",
+        "SYSTEM_ADMIN": "Amministratore sistema",
+        "TEXT": "Tipo",
+        "USER_ADMIN": "Amministratore utente"
+      },
+      "USER_NAME": "Nome utente",
+      "VIN_CALLS": "Richiesta VIN"
+    },
+    "PROFILE_TAB": "Profilo",
+    "ROLE": "Funzione",
+    "SALUTATION": "Appellativo",
+    "SETTING": {
+      "ADDRESS": "Fischermättelistrasse 6 3000 Bern 5",
+      "ADDRESS_SETTINGS": "Modificare indirizzo della ditta",
+      "BILLS": "Visualizzare fattura",
+      "BILL_SHOW": "Mostrare",
+      "CATEGORY_VIEW_MODE": {
+        "CLASSIC": "Modo Ricerca Classico",
+        "TEXT": "Modo di Rricerca Categorie",
+        "TREE": "Modo di ricerca albero"
+      },
+      "DEFAULT_SETTINGS": "Impiego standard per tutti il utenti",
+      "DEFAUL_SETTING": "Impiego standard",
+      "EMAIL_CONFIRMATION": "Inviare conferma e-mail",
+      "EXPAND": "Estendere",
+      "NET_PRICE": "Visualizzare prezzi netti",
+      "NET_PRICE_EMAIL": "Mostra prezzo netto nella conferma e-mail",
+      "OFFER": {
+        "FOOTER_TEXT": {
+          "TITLE": "Piè di pagine per offerta"
+        },
+        "FORMAT_ALIGN": {
+          "LEFT": "Giustificato a sinistra",
+          "RIGHT": "Giustificato a destra",
+          "TITLE": "Formato lettera"
+        },
+        "GENERAL_CROSSING": {
+          "TITLE": "GeneralGrossing"
+        },
+        "PRINT_VENDOR_ADDR": {
+          "FALSE": "No",
+          "TITLE": "Mostrare indirizzo della ditta in offerta",
+          "TRUE": "Si"
+        }
+      },
+      "PAYMENT_DELIVERY": "Pagamento e consegna",
+      "PRICE_DISPLAY": {
+        "LABEL": "Standard per la raccomandazione dei prezzi nel listino articoli, nel carrello e nelle offerte",
+        "OEP_UVPE_GROSS": "OEP > UVPE > Lordo",
+        "TIP_LABEL": "Efficace solo dopo il rinnovo del login.",
+        "UVPE_OEP_GROSS": "UVPE > OEP > Lordo"
+      },
+      "REDUCE": "Diminuire",
+      "SHOW_DISCOUNT": "Mostra Sconto",
+      "SINGLE_SELECT_MODE": "Modalità con un solo clic",
+      "USER_SETTINGS": "Impostazioni utente",
+      "ELECTRONIC_INVOICE": "Fattura elettronica (PDF via e-mail)",
+      "REQUEST_BUTTON": "Richiesta / Modifica",
+      "INVOICE_MODAL": {
+        "TITLE": "Richiesta / modifica della fattura elettronica (PDF via e-mail)",
+        "EMAIL_LABEL": "Indirizzo e-mail destinatario della fattura",
+        "RE_SEND_CODE": "Reinvia il codice",
+        "SUBMITTED_SUCCESSFUL_MSG": "Abbiamo inviato la sua richiesta al nostro servizio clienti. Riceverete una conferma della richiesta all'indirizzo e-mail dal quale avete appena scritto. Vi informiamo che potrebbero essere necessari alcuni giorni prima che il cambiamento sia attivo."
+      }
+    },
+    "TITLE": "Il mio Conto",
+    "USER_ADMINISTRATION_TAB": "Gestione utenti",
+    "USER_MANAGEMENT": {
+      "CREATE_PROFILE": "Creare conto",
+      "GARAGE_NAME": "Nome utente",
+      "MESSAGE": {
+        "DELETE_SUCCESFULLY": "Questo utente è stato rimosso con successo.",
+        "DELETE_UNSUCCESFULLY": "Questo utente non può essere rimosso!",
+        "NOT_FOUND_EXTERNAL_CUSTOMER": "Questo cliente non è più valido nel sistema MDM! Si prega di contattare il vostro amministratore.",
+        "NOT_FOUND_EXTERNAL_USER": "L'utente selezionato non ha un nome utente nel DVSE ! Si prega di contattare il vostro amministratore."
+      },
+      "PROFILE_NAME": "Conto di",
+      "ROLE": {
+        "ADMIN": "Admin",
+        "ASSISTANT": "Assistente",
+        "NORMAL_USER": "Utente",
+        "ROLE_NAME": "Funzione",
+        "USER_ADMIN": "Admin",
+        "SALES_ASSISTANT": "Vendità"
+      },
+      "TABLE_COLUMNS": {
+        "FIRST_NAME": "Vorname",
+        "LAST_NAME": "Nachname",
+        "ROLE_NAME": "Funzione",
+        "SALUTATION": "Appellativo",
+        "USER_NAME": "Nome utente"
+      },
+      "TABLE_FILTER": {
+        "FILTER_ALL_COLUMNS": "Tutte le colonne"
+      }
+    },
+    "USER_NAME": "Titolo",
+    "VIEW_INVOICES_TAB": "Mostra fatture",
+    "VIEW_ORDER_TAB": "Mostra ordini fatti",
+    "MARGIN_GROUP": "Gruppo Margin",
+    "GROUP": "Gruppo"
+  },
+  "SHOPPING_BASKET": {
+    "ADD_TO_EXISTING_OFFER": "Aggiungere elementi a un preventivo esistente ({{value}})",
+    "ADD_TO_NEW_OFFER": "Aggiungere elementi a un nuovo preventivo",
+    "ARTICLE_DESCRIPTION": "Descrizione del prodotto",
+    "ARTICLE_LIST_EXPORT": "Lista della spesa",
+    "ARTICLE_LIST_EXPORT_FILE_NAME": "Lista_della_spesa",
+    "ARTICLE_NUMBER": "Codice articolo",
+    "BACK": "Indietro",
+    "BASKET_FILE": "Angebot",
+    "BILLING_ADDRESS": "Indirizzo di fatturazione",
+    "BRANCH_REQUIRED": "Si prega di selezionare una filiale valida per ritirare gli articoli.",
+    "BTN_CONTINUE": "Avanti",
+    "CART_TOTAL": "Carrello prezzo totale",
+    "COLLAPSE": "Diminuire",
+    "CONFIRMATION": "Conferma",
+    "CONFIRM_SAVE_CHANGES": "Volete salvare le modifiche?",
+    "COUNTER_MESSAGE": "Questo carrello contiene articoli che non sono disponibili nella propria posizione di archiviazione. <br> Si prega di rimuovere gli articoli non disponibili o ordinare il carrello come di consueto.",
+    "COUPON_CODE": "Codice di promozione:",
+    "CREATE_AX_OFFER": "Offerta in AX",
+    "CREDITE_LIMIT_REMOVE_ITEM": "Si prega di rimuovere gli articoli dal carrello della spesa o modificare i termini di pagamento o elaborare l' ordine in AX.",
+    "CREDIT_LIMIT": "Limite di credito superato!",
+    "CREDIT_MESSAGE": {
+      "CREDIT": "Per gli ordini contro fattura il limite di credito disponibile <span class=' text-nowrap' >{{credit}}</span> non deve essere superato.",
+      "ADDITIONAL_CREDIT": "Per gli ordini contro fattura il limite di credito disponibile <span class=' text-nowrap' >{{additionalCredit}}</span> non deve essere superato.",
+      "DIRECT_INVOICE": "In caso di pagamento immediato, il limite di credito disponibile <span class=' text-nowrap' >{{credit}}</span> può essere superato solo da <span class=' text-nowrap' >{{additionalCredit}}</span>."
+    },
+    "CSV_FILE": "Documento CSV",
+    "DELIVERY_ADDRESS": "Indirizzo di consegna",
+    "DELIVERY_MESSAGE": "Il suo messaggio alla filiale. Con l'inserzione di un messaggio potranno esserci dei ritardi di consegna",
+    "DEPOT_TEXT": "Deposito",
+    "DVSE": {
+      "CONTACT_BRANCH": "Si prega di contattare la filiale",
+      "ORDER_VIA_PHONE": "Gli articoli possono essere ordinati solo telefonicamente"
+    },
+    "EMPTY": "Il vostro carrello è vuoto!",
+    "EMPTY_VEHICLE_TITLE": "Altri articoli",
+    "ERROR_MESSAGE_EXTENDED": "Purtroppo, non possiamo consegnare tutti gli articoli. Si prega di adattare le quantità nel carrello o contattare il vostro ufficio locale.",
+    "EXCEL_FILE": "Documento Excel",
+    "EXCLUDE_VAT": "IVA escl.",
+    "EXPAND": "Estendere",
+    "EXPORT": "Esportare",
+    "EXPORTING_HEADING": "Viene esportato",
+    "EXPORT_HEADER": {
+      "GROSS_PRICE": "P. cons.",
+      "GROSS_PRICE_TYPE": "Tipo di p. cons.",
+      "NET_PRICE": "Prezzo netto per pezzo",
+      "UVPE_PRICE": "Prezzo lordo per pezzo"
+    },
+    "EXPORT_OPTIONS": {
+      "LEGACY": "Legacy",
+      "NEW": "Neu (con tipo di p. cons.)"
+    },
+    "ITEM": "Articolo",
+    "ITEM_REFERENCE": "La sua referenza d'articolo",
+    "MAKE_ORDER": "Ordinare",
+    "MESSAGES": "Vogliate scegliere il formato del documento",
+    "MWST": "IVA",
+    "ORDER": "Ordine",
+    "ORDER_COMPLETE": "Ordine completato",
+    "ORDER_CONDITION": {
+      "AUTO_CHANGE_TO_PICKUP_MESG": "Impostato automaticamente per il ritiro perche' Bar and Tour e' proibito."
+    },
+    "ORDER_NUMBER": "Numero d'ordine",
+    "PAYMENT_CONTENT": "Condizioni per la consegna e pagamento",
+    "PAYMENT_LABEL": "Condizioni per la consegna e pagamento",
+    "PFAND_TEXT": "Pfand",
+    "RECYCLING_TEXT": "Tassa anticipata di riciclaggio",
+    "REFERENCE": "La sua referenza",
+    "REFERENCE_MAX_200_LENGTH": "massimi 200 caratteri",
+    "REFERENCE_MAX_60_LENGTH": "massimi 60 caratteri",
+    "REFERENCE_MAX_20_LENGTH": "massimi 20 caratteri",
+    "SHOPPING": "Carrello",
+    "SHORT_CSV_EXPORT": "Lista articoli",
+    "SHORT_CSV_FILE_NAME": "Lista_articoli",
+    "SUB_TOTAL": "Carrello prezzo parziale",
+    "THULE_NOT_FOUND_PARTS": "Zur Zeit, wir sind nicht in der Lage zu finden Ref: {{ids}}. Bitte kontaktieren Sie Ihre Filiale.",
+    "TOTAL": "Totale",
+    "TOTAL_EXCLUDE_VAT": "Totale IVA escl.",
+    "TOTAL_INCLUDE_VAT": "Totale IVA incl.",
+    "TRANSACTION_NUMBER": "Numero transazione",
+    "TXT_TRANSFER_BASKET": "Modifica in AX",
+    "UPDATE_AVAIL_MESSAGE": "La disponibilità degli articoli è cambiata a causa del time-out.",
+    "VOC_TEXT": "Tassa VOC (Composti organici volatili)",
+    "VOC_TEXT_SHORT": "Tassa VOC",
+    "VRG_TEXT": "Tassa di riciclaggio anticipata",
+    "VRG_TEXT_SHORT": "TRA",
+    "WORD_FILE": "Documento Word",
+    "REQUEST_QUANTITY_NOT_AVAIL_AT_PRIMARY_LOCATION": "Die angeforderte Menge ist an den Hauptstandorten nicht verfügbar. Für zusätzliche Mengen überprüfen Sie bitte die Informationen pro Artikel unten."
+  },
+  "SHOPPING_ORDER": {
+    "CONFIRMATION": {
+      "ADDITIONAL_MESG": {
+        "ABS": "I documenti per questo ordine vengono stampati automaticamente.",
+        "STD": "Si prega di stampare manualmente le ricevute non appena il cliente ritira la merce nel negozio."
+      },
+      "TXT_ORDER_MESSAGE": "Abbiamo ricevuto il suo ordine e procederemo il più rapidamente possibile.",
+      "TXT_ORDER_NUMBER": "Il vostro(i) numero(i) d'ordine",
+      "TXT_ORDER_TRANSACTION": "La transazione è"
+    },
+    "MODAL": {
+      "ACCEPT": "Accettato",
+      "NOT_ACCEPT": "Non accettato",
+      "TITLE": "Disponibilità è cambiata"
+    },
+    "TXT_ORDER_SUCCESS": "Ordine concluso"
+  },
+  "TIMEOUT": {
+    "AUTOMATIC_LOGOUT": "Uscire dalla sessione automaticamente",
+    "REGISTER_AGAIN": "Registrare nuovamente",
+    "SERVER_REQUEST": "Il server non risponde. Vi prego di tentare ancora una volta."
+  },
+  "TYRE": {
+    "ALL": "Tutti",
+    "FZ_CATEGORIES": {
+      "FOUR_X_FOUR": "4 x 4",
+      "LNFZ": "LCV",
+      "PKW": "Auto"
+    },
+    "MOTOR_CATEGORIES": {
+      "ALL": "Tutti pneumatici da moto",
+      "OFFROAD": "ATV",
+      "RENNREIFEN": "Gare di corsa",
+      "ROLLER": "Scooter",
+      "STRASSENREIFEN": "Strada"
+    },
+    "SEASONS": {
+      "ALL_YEAR": "Pneumatici per tutto l'anno",
+      "SPRING": "Pneumatici a molla",
+      "SUMMER": "Pneumatici estivi",
+      "WINTER": "Pneumatici invernali"
+    },
+    "TYRE_SEGMENTS": {
+      "BUDGET": "Budget",
+      "ECO": "Eco",
+      "PREMIUM": "Premium",
+      "KUMHO": "KUMHO",
+      "PIREL": "PIREL",
+      "MICHE" : "MICHE"
+    }
+  },
+  "VEHICLE_FILTER": {
+    "APPROVAL": "Typengenehmigung",
+    "BODY": "Carrozzeria",
+    "BODY_TYPE": "Karosserieart",
+    "BRAND": "Marca",
+    "BUILD_YEAR": "Jahrgang",
+    "CAPACITY_ENGINE": "Hubraum",
+    "CATALYST_CONVERTER_TYPE": "Katalysator Art",
+    "CYLINDER": "Zylinder",
+    "DOORS": "Türen",
+    "DRIVE_TYPE": "Antriebsart",
+    "ENGINE_CODE": "Motor",
+    "FUEL": "Carburante",
+    "FUEL_SUPPLY": "Kraftstoffaufbereitung",
+    "FUEL_TYPE": "Treibstoff",
+    "MODEL": "Modello",
+    "POWER": "Potenza",
+    "POWER_HP": "PS",
+    "POWER_KW": "KW",
+    "TITLE": "Marca/Modello",
+    "TYPE": "Tipo",
+    "VALVES": "Ventile",
+    "MB": "Motociclette",
+    "PC": "Auto/VCL",
+    "ROAD": "Road",
+    "MX": "MX",
+    "SCOOTER": "Scooter",
+    "ATV": "ATV",
+    "CUBIC_CAPACITY": "Spostamento",
+    "MOTORBIKE_SHOP_LINK": "Motociclette",
+    "ADVANCE_VEHICLE_SEARCH_LINK": "Erweiterte Suche"
+  },
+  "WORKSHOP_GROUPS": {
+    "PADS": "Guarnizioni freni",
+    "SHOCK_ABSORBER": "Ammortizzatori"
+  },
+  "file": {
+    "comment": "This file needs to be reviewed for its vocabulary and grammar before going to production!!! All the translation in this file is not assured."
+  },
+  "HISTORY_MODE": {
+    "OWN_HISTORY" : "Le mie ricerche recenti"
+  },
+  "OPENING_DAY": {
+    "CREATE_OPENING_DAY_LABEL": "+ Nuovo Calendario",
+    "DELETE_CONFIRM": "Volete davvero cancellare questa voce del calendario ",
+    "DELETE_SUCCESSFULLY": "Questo calendario è stato rimosso con successo.",
+    "DELETE_TITLE": "Cancellare",
+    "DUPLICATED_OPENING_DAYS": "La data di una voce del calendario deve essere unica.",
+    "FILTER_DATE": {
+      "2_DAYS": "ultimi 2 giorni",
+      "31_DAYS": "ultimi 31 giorni",
+      "7_DAYS": "ultimi 7 giorni",
+      "FROM": "Data da",
+      "TO": "Data al",
+      "TODAY": "Oggi"
+    },
+    "IMPORT_CALENDAR_FILE": "Importa Calendario (CSV)",
+    "IMPORT_DUPLICATED_OPENING_DAYS": "Esiste già un calendario per l'anno del calendario importato. <br /> Volete sovrascrivere il calendario precedente?",
+    "IMPORT_TITLE": "Importa Calendario (CSV)",
+    "NON_WORKING_DAY": "Giorno di riposo",
+    "OPENING_DAY_COLUMNS": {
+      "DATE": "Data",
+      "DAY_TYPE": "Tipo di Giorno",
+      "EXCEPT_AFFILIATE": "Affiliato",
+      "EXCEPT_BRANCH_ID": "Filiale",
+      "EXCEPT_DAY_TYPE": "Tipo di Giorno",
+      "EXCEPT_DELIVERY_ADDRESS_ID": "ID Indirizzo di Consegna",
+      "LAND": "Paese"
+    },
+    "OPENING_DAY_FORM": {
+      "AFFILIATE": "Affiliato",
+      "BRANCH_CODE_LABEL": "Codice di Filiale",
+      "BRANCH_NUMBER_LABEL": "Filiale",
+      "DATE": "Data",
+      "DAY_TYPE": "Tipo di Giorno",
+      "EXCEPTIONS": "Eccezione",
+      "HINT": "** Deve essere specificato il \"filiale\" o l'\"ID dell'indirizzo di consegna\".",
+      "LAND": "Paese",
+      "ONLY_NUMBER": "Bitte eine Zahl eingeben",
+      "SHIPPING_ADDRESS_ID": "ID Indirizzo di Consegna",
+      "TITLE": "Modifica la voce del calendario del giorno di apertura",
+      "LAND_SHORT_CODE": {
+        "CH": "Svizzera",
+        "AT": "Austria",
+        "CZ": "Repubblica Ceca",
+        "RS": "Serbia"
+      }
+    },
+    "OPENING_DAY_MENU_TITLE": "ID Indirizzo di Consegna",
+    "OPENING_DAY_TITLE": "Calendario dei giorni di apertura",
+    "PUBLIC_HOLIDAY": "Vacanze",
+    "WORKING_DAY": "Giorno di lavoro",
+    "NOT_UPLOAD_SUCCESSFULLY": "Importazione fallita!"
+  },
+  "WSS": {
+    "TOUR_MANAGE" : "Gestire i tour",
+    "DISCOUNT_MANAGE": "Gestire i margini",
+    "EDIT_TOUR": "Modifica tour",
+    "DELETE_TOUR": "Volete davvero cancellare questo tour <strong>{{name}}</strong> ?",
+    "UNABLE_DELETE_ASSIGNED_TOUR": "Il tour è in uso e non può essere cancellato.",
+    "TOUR_NAME": "Nom del tour",
+    "NEW_TOUR": "Nuovo tour",
+    "TIME": "Orari di partenza",
+    "TITLE": "Amministrazione del grossista",
+    "EDIT_CUSTOMER_TITLE": "Modifica cliente",
+    "CREATE_DUPLICATE_TOUR": "Il nome di un tour deve essere unico.",
+    "WHOLESALER_DELIVERY_SETTINGS": {
+        "WHOLESALER_DELIVERY_TYPE": "Consegna",
+        "PICKUP": "Ritiro articoli nella filiale",
+        "TOUR": "Consegna secondo il programma del tour"
+    },
+    "DOWNLOAD_TEMPLATE": "Scarica il modello CSV",
+    "IMPORT_EXPORT": "Importare/Esportare (CSV)",
+    "UPLOAD_SUCCESSFULLY": "Importato con successo."
+  },
+  "BRANCHES": {
+    "BRANCH_DETAIL_FORM": {
+      "ADDITIONAL_ADDRESS_LABEL": "Adresszusatz",
+      "ADDRESS_LABEL": "Adresse",
+      "BRANCH_CODE_LABEL": "Filiale Code",
+      "BRANCH_NUMBER_LABEL": "Filiale Nr.",
+      "CLOSING_HOUR_LABEL": "Aperto alle",
+      "CREATE_COMMON_ERROR_MESSAGE": "Speichern fehlgeschlagen!",
+      "CREATE_DUPLICATION_ERROR_MESSAGE": "Il nome e il codice di una filiale devono essere unici.",
+      "CREATE_SUCCESS_MESSAGE": "Erfolgreich hinzugefügt!",
+      "EMAIL_LABEL": "Email",
+      "FAX_LABEL": "Fax",
+      "KSL_LABEL": "KSL",
+      "LAND_CODE_LABEL": "Land Code",
+      "LAND_LABEL": "Land",
+      "NOON_CLOSING_HOUR_LABEL": "Pausa pranzo alle",
+      "NOON_OPENING_HOUR_LABEL": "Pausa pranzo dalle",
+      "OPENING_HOUR_LABEL": "Aperto dalle",
+      "ORG_ID_LABEL": "ORG ID",
+      "PLACE_LABEL": "Ort",
+      "PLZ_LABEL": "PLZ",
+      "REGION_ID_LABEL": "Region ID",
+      "TELEPHONE_LABEL": "Telefon",
+      "TITLE": "Modificare filiale, orari di apertura",
+      "UPDATE_SUCCESS_MESSAGE": "Erfolgreich gespeichert.",
+      "URL_LABEL": "URL",
+      "MISSING_OPENING_TIME": "Per almeno un giorno della settimana, devono essere specificati gli orari di apertura validi."
+    },
+    "BRANCH_LIST_COLUMNS": {
+      "CLOSING": "Aperto alle",
+      "CODE": "Filiale Code",
+      "ID": "Filiale Nr.",
+      "NOON_CLOSING": "Pranzo alle",
+      "NOON_OPENING": "Pranzo dalle",
+      "OPENING": "Aperto dalle"
+    },
+    "BRANCH_LIST_MENU_TITLE": "Filiali, orari di apertura",
+    "CREATE_BRANCH": "Nuovo filiale",
+    "DELETE_BRANCH": "Delete branch",
+    "DELETE_CONFIRM": "Vuoi davvero cancellare questo filiale: ",
+    "DELETE_FAIL": "Delete fail",
+    "UNABLE_DELETE_ASSIGNED_BRANCH": "Il filiale è in uso e non può essere cancellato.",
+    "DELETE_SUCCESSFUL": "Filiale erfolgreich entfernt.",
+    "EMPTY_BRANCH_LIST": "Keine Ergebnisse gefunden",
+    "ERRORS": {
+      "INVALID_BRANCH_NUMBER": "Filiale ist nicht gültig",
+      "INVALID_ORG_ID": "ORG ID ist nicht gültig",
+      "INVALID_TIME_VALUE": "Falsche Zeiten eingegeben!",
+      "INVALID_URL": "URL ist nicht gültig",
+      "REQUIRED_ERROR_MESSAGE": "Bitte geben Sie die erforderlichen Daten ein."
+    }
+  },
+  "DELIVERY_PROFILE": {
+    "NEW_PROFILE": "Nuovo profilo",
+    "PROFILE_NAME": "Nome del profilo",
+    "DELETE_PROFILE_TITLE": "IT_Delete profile",
+    "DELETE_PROFILE_CONFIRM": "Volete davvero cancellare questo profilo di consegna <strong>{{name}}</strong> ?",
+    "UNABLE_DELETE_ASSIGNED_PROFILE": "Il profilo di consegna è in uso e non può essere cancellato.",
+    "DELIVERY_PROFILE": "Profilo di consegna",
+    "SUPPLIER_TOUR": "Fornitore: Tour",
+    "FC_DELIVERY_PICKUP": "Cliente: Consegna / Pickup",
+    "TOURS": "Tour",
+    "TOUR": "Tour",
+    "PROFILE_DESC" : "Descrizione del profilo",
+    "BRANCH_CODE": "Filiale",
+    "EDIT_PROFILE": "Modifica profilo di consegna",
+    "EDIT_TOUR": "Modifica profilo di consegna / assegnazione del tour",
+    "NEW_PROFILE_TOUR": "Nuovo profilo di consegna e assegnazione del tour",
+    "TOUR_ASSIGN_COLUMN" : {
+        "DAY": "Giorno",
+        "SUPPLIER_DEPARTURE_TIME": "Fornitore Orario di partenza del tour",
+        "OVERNIGHT": "Pernottamento",
+        "WSS_DEPARTURE_TIME": "Orario di partenza del tour",
+        "DURATION": "Durata fino al pickup",
+        "TOUR_ASSIGNMENT": "Assegnare tour"
+    },
+    "FORM_MESSAGE": {
+        "INVALID_WSS_TOUR": "Il profilo di consegna deve avere almeno una delle seguenti caratteristiche specificate in \"Cliente: Consegna / Pickup\":  \"Tour\" o \"Durata fino al pickup\"",
+        "INVALID_WSS_TOUR_TIME": "\"Durata fino al pickup\" deve essere vuoto o altrimenti maggiore di 00:00."
+
+    },
+    "DELETE_TOUR_TITLE": "IT_Delete tour",
+    "DELETE_TOUR_CONFIRM": "Volete davvero cancellare questa assegnazione del tour <strong>{{time}}</strong> ?",
+    "DUPLICATE_DELIVERY_PROFILE_NAME": "Il nome di un profilo di consegna deve essere unico.",
+    "DUPLICATE_ASSIGNMENT_TOUR": " La combinazione del giorno del tour del fornitore e ora di partenza del tour deve essere unica."
+  },
+  "DAY_IN_WEEK": {
+    "FRI": "Venerdì",
+    "MON": "Lunedì",
+    "SAT": "Sabato",
+    "SUN": "Domenica",
+    "THU": "Giovedì",
+    "TUE": "Martedì",
+    "WED": "Mercoledì",
+    "ALL": "Tous"
+  },
+  "MARGIN_MANAGE": {
+    "ARTICLE_GROUP_MGT": "Gruppi di articoli",
+    "BRANDS": "Marchi",
+    "BRAND": "Marca",
+    "DELETE_BRAND": {
+      "MSG": "Volete davvero cancellare questa definizione di margine del marca <strong>{{name}}</strong> ?"
+    },
+    "NEW_BRAND": "Nuova marca",
+    "MARGIN": "Margin",
+    "EDIT_BRAND": "Modifica Marca - Margini",
+    "ERROR_MSG": {
+      "DUPLICATED_MARGIN_BRAND": "Esiste già una definizione di margine con il marchio <strong>{{name}}</strong>",
+      "MARGIN_VALUE_RANGE": "Un margine deve essere compreso tra 0 e 99,9",
+      "DUPLICATED_MARGIN_ARTICLE_GROUP": "Questa definizione del margine del gruppo di articoli esiste già:: <strong>{{sagArticleGroup}} - {{customArticleGroup}}</strong>",
+      "INVALID_INDEX_ARTICLE_GROUP": "IT_This margin article group with parent leaf id <strong>{{leafId}}</strong> not existed"
+    },
+    "ARTICLE_GROUP": "Gruppo di art.",
+    "ARTICLE_GROUP_EXPORT_TYPE" : {
+        "SAG_ARTICLE_GROUP": "Scarica il modello CSV (+ tutti i gruppi di articoli)",
+        "MARGIN_SAG_ARTICLE_GROUP": "Esportare (definizioni di margine + tutti i gruppi di articoli)",
+        "MARGIN_DEF": "Esportare (solo definizioni di margine)"
+    },
+    "ARTICLE_GROUP_DES": "Gruppo di art. Descrizione",
+    "YOUR_ARTICLE_GROUP": "Il tuo Gruppo di art.",
+    "GH_ARTICLE_GROUP_COL": "Il tuo Gruppo di art.",
+    "GH_ARTICLE_GROUP_DES_COL": "Il tuo Gruppo di art. Descrizione",
+    "MARGINS": "Margini",
+    "SUPPLIER_ARTICLE_GROUP": "Fornitore: Gruppo di articoli",
+    "EDIT_ARTICL_GROUP": "Modifica Gruppo di articoli - Margini",
+    "DELETE_ART_GROUP": "Volete davvero cancellare questa definizione di margine del gruppo di articoli <strong>{{sagArticleGroup}} - {{customArticleGroup}}</strong> ?",
+    "NEW_ART_GRP": "Nuovo gruppo di articoli",
+    "GH_ARTICLE_GROUP": "Il tuo Gruppo di articoli",
+    "ARTICLE_GROUPS": "Gruppi di art.",
+    "ARTICLE_GROUPS_EXPORT": "Gruppi di articoli",
+    "NETTO_CONFIRM": "Stai per cambiare la visualizzazione del prezzo netto per tutti i tuoi clienti. Sei sicuro di voler fare questo cambiamento?",
+    "DEFAULT_MARGIN_NOT_SETUP": "Per attivare i prezzi netti, devono essere definiti i margini predefiniti dei gruppi di articoli e i margini predefiniti delle marche."
+  },
+  "WSP" : {
+    "TABELLO_INFO": "IT_Reinigungsmittel Tabelle",
+    "CATEGORY_NOT_FOUND": "Questa categoria non esiste più."
+  },
+  "PDP": {
+    "PRICE_INFO_PER_PIECE": "Informazioni sul prezzo (per pezzo)",
+    "INCLUDE_VAT": "IVA incl.",
+    "EXCLUDE_VAT": "IVA escl.",
+    "PROMOTION": "Promozione",
+    "PROMOTION_PRICE": "Prezzo promozionale",
+    "GROSS_PRICE": "Prezzo lordo",
+    "NET_PRICE": "Prezzo netto",
+    "NOT_REFERENCED": "Non referenziato"
+  },
+  "MESSAGE_SEARCH_NOT_FOUND": {
+    "ORDER_HISTORY": "Nessun ordine trovato!",
+    "USER_MANAGEMENT": "Nessun utente trovato!",
+    "SUB_ORDERS": "Nessun ordine trovato!"
+  },
+  "SHOW_TOUR_PLAN": "Mostra il piano del tour",
+  "TOUR_TITLE": "Tour",
+  "BROWSER_RECOMMENDATION": {
+    "TITLE": "Avviso importante per gli utenti di Internet Explorer (IE) 11!",
+    "FIRST_DESCRIPTION": "Attualmente state utilizzando un browser obsoleto che non sarà più utilizzabile dopo il 01.01.2023 per motivi di sicurezza e di supporto.",
+    "SECOND_DESCRIPTION": "La preghiamo pertanto di utilizzare al più presto un browser internet aggiornato, ad esempio Microsoft Edge, Google Chrome, Mozilla Firefox."
+  },
+  "ADVANCE_VEHICLE_SEARCH": {
+    "HEADER": "Ricerca avanzata dei veicoli",
+    "TOP_MAKES_HEADER": "Marche popolari",
+    "ALL_MAKES_HEADER": "Tutti Marchi",
+    "MAKES": "Marchi",
+    "MODELS": "Modelli",
+    "MODEL_SERIES": "Serie di modelli",
+    "MODEL_YEAR": "Anno",
+    "FILTER_BY_YEAR": "Filtrare per anno",
+    "QUICK_SELECTION": "Selezione rapida dei modelli",
+    "SEARCH": {
+      "COLUMN_TYPE": "Tipo",
+      "COLUMN_YEAR": "Anno"
+    }
+  },
+  "RETURN_ORDER":{
+    "MESSAGE_HEADER":"I ritorni vengono creati ed elaborati.<br />Questo può richiedere un po' di tempo.",
+    "MESSAGE_BODY":"Se non si vuole aspettare, l'elaborazione può essere completata anche in background. Potrete quindi continuare a lavorare nel shop e sarete avvisati via e-mail.",
+    "MESSAGE_FOOTER":"<strong>Attenzione</strong>: gli ordini di reso AX possono essere modificati solo a lavorazione ultimata!",
+    "PROCESSING_IN_BACKGROUND":"Elaborazione in background",
+    "BATCH_JOB_ERROR_MESSAGE": "Il rimborso dei resi è fallito (Batch Job ID: {{batchJobId}}) ",
+    "BATCH_JOB_ERROR_TITLE": "Errore - Restituzione non riuscita",
+    "PROCESSING_IN_BACKGROUND_TIMEOUT_TITLE":"Avviso - Richiesta di stato attualmente non possibile",
+    "PROCESSING_IN_BACKGROUND_TIMEOUT": "Timeout per la richiesta di stato (ID lavoro batch: {{batchJobId}}). Lo stato dei lavori di restituzione viene comunicato via e-mail.",
+    "PROCESSING_IN_BACKGROUND_RETRY_ERROR_TITLE":"Avviso - Timeout",
+    "PROCESSING_IN_BACKGROUND_RETRY_ERROR": "Non è stato possibile completare il rimborso dei resi (Batch Job ID: {{batchJobId}}). Si prega di controllare i resi in AX.",
+    "MESSAGE_ERROR_FROM_API": "Il rimborso dei resi è fallito ({{errorMessage}})!",
+    "ORDER_WARNING_TITLE": "Avviso - L'interrogazione dei numeri d'ordine di ritorno non è attualmente possibile",
+    "ORDER_WARNING_MESSAGE": "Il rimborso dei resi è andato a buon fine. Ma il recupero dei numeri d'ordine dei resi non è riuscito (Batch Job ID: {{batchJobId}}). Si prega di controllare i resi in AX."
+  },
+  "PAGE_NOT_FOUND": "Pagina non trovata! Fare clic sull'URL sottostante per tornare alla pagina iniziale.",
+  "HOME_PAGE": "Pagina iniziale",
+  "RANGE_CHECKBOX": "Selezionare un intervallo"
+}

@@ -1,0 +1,9 @@
+<div class="modal-header">
+    <h4> {{videoTitle | translate}} </h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <video width="100%" controls #video>
+        <source [src]="url" type="video/mp4" autoplay="true">
+    </video>
+</div>

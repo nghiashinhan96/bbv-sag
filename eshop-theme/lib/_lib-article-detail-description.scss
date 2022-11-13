@@ -1,0 +1,65 @@
+sag-article-detail-description {
+    width: 100%;
+    
+    .part-detail-description {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+
+        .part-detail-description-title {
+            width: auto;
+        }
+
+        .part-detail-description-title > div {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            .part-name {
+                font-weight: bold;
+            }
+        }
+
+        .part-detail-artnr-wrapper {
+            display: flex;
+            flex: 1 0 auto;
+        }
+
+        .part-detail-description-title.order-history-type > div {
+            white-space: initial;
+            overflow: initial;
+            text-overflow: initial;
+            word-break: break-word;
+        }
+
+        .part-detail-artnr-wrapper.order-history-type {
+            max-width: 100%;
+        }
+
+        .part-detail-description-art {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 0.25rem;
+            span {
+                white-space: nowrap;
+                display: block;
+            }
+
+            &.text-ellipsis {
+                span {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+
+    .promotion-banner {
+        font-weight: bold;
+        color: white;
+        background-color: #ee0000;
+        font-size: 11px;
+        max-width: 70px;
+    }
+}
+

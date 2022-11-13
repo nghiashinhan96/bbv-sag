@@ -1,0 +1,106 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "sag-auth": [
+        "dist/sag-auth"
+      ],
+      "sag-auth/*": [
+        "dist/sag-auth/*"
+      ],
+      "sag-common": [
+        "dist/sag-common"
+      ],
+      "sag-common/*": [
+        "dist/sag-common/*"
+      ],
+      "sag-currency": [
+        "dist/sag-currency"
+      ],
+      "sag-currency/*": [
+        "dist/sag-currency/*"
+      ],
+      "sag-gtmotive": [
+        "dist/sag-gtmotive"
+      ],
+      "sag-gtmotive/*": [
+        "dist/sag-gtmotive/*"
+      ],
+      "sag-article-detail": [
+        "dist/sag-article-detail"
+      ],
+      "sag-article-detail/*": [
+        "dist/sag-article-detail/*"
+      ],
+      "sag-article-list": [
+        "dist/sag-article-list"
+      ],
+      "sag-article-list/*": [
+        "dist/sag-article-list/*"
+      ],
+      "sag-haynespro": [
+        "dist/sag-haynespro"
+      ],
+      "sag-haynespro/*": [
+        "dist/sag-haynespro/*"
+      ],
+      "sag-in-context": [
+        "dist/sag-in-context"
+      ],
+      "sag-in-context/*": [
+        "dist/sag-in-context/*"
+      ],
+      "sag-custom-pricing": [
+        "dist/sag-custom-pricing"
+      ],
+      "sag-custom-pricing/*": [
+        "dist/sag-custom-pricing/*"
+      ],
+      "sag-article-search": [
+        "dist/sag-article-search"
+      ],
+      "sag-article-search/*": [
+        "dist/sag-article-search/*"
+      ],
+      "sag-vehicle-list": [
+        "dist/sag-vehicle-list"
+      ],
+      "sag-vehicle-list/*": [
+        "dist/sag-vehicle-list/*"
+      ],
+      "sag-table": [
+        "dist/sag-table"
+      ],
+      "sag-table/*": [
+        "dist/sag-table/*"
+      ],
+      "sag-thule": [
+        "dist/sag-thule"
+      ],
+      "sag-thule/*": [
+        "dist/sag-thule/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

@@ -1,0 +1,10 @@
+<div class="connect-filter-card mb-3">
+    <section class="title">{{'WSP.TABELLO_INFO' | translate }}</section>
+    <div class="d-flex flex-column px-2 py-2">
+        <ng-container *ngFor="let link of links; let i=index">
+            <a href="{{link.url}}" class="mb-1">
+                {{link.text}}
+            </a>
+        </ng-container>
+    </div>
+</div>

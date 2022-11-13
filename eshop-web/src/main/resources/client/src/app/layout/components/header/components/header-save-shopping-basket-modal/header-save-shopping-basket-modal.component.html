@@ -1,0 +1,7 @@
+<div class="modal-header">
+  <h4>{{'BASKET_HISTORY.SAVE_SHOPPING_BASKET' | translate}}</h4>
+  <a href="javascript:void(0)"><i class="fa fa-times-circle close" (click)="bsModalRef.hide()"></i></a>
+</div>
+<div class="modal-body">
+  <connect-save-basket (savedEmitter)="onSaveAndClearShoppingBasket()" [context]="appContextService.shoppingBasketContext"></connect-save-basket>
+</div>

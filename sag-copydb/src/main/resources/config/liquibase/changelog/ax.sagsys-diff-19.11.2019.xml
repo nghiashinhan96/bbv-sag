@@ -1,0 +1,366 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:appdba="http://www.datical.net/xml/ns/appdba" xmlns:datical="http://www.datical.net/xml/ns/datical" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+	<changeSet author="CONNECT_APP" id="1574133934722-3">
+        <createTable tableName="ESHOP_CLIENT">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK__ESHOP_CL__3214EC2750ACC0EC"/>
+            </column>
+            <column name="CLIENT_NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CLIENT_SECRET" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RESOURCE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-21">
+        <createTable tableName="CLIENT_ROLE">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="PK__CLIENT_R__3214EC275607FACC"/>
+            </column>
+            <column name="CLIENT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-22">
+        <createTable tableName="COLLECTION_RELATION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK_COLLECTION_RELATION"/>
+            </column>
+            <column name="COLLECTION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORGANISATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF__COLLECTIO__IS_AC__17ED6F58" defaultValueNumeric="1" name="IS_ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="ADD_COL_ESHOP_CART_ITEM_SHOPTYPE">
+	    <addColumn tableName="ESHOP_CART_ITEM">
+	    	<column defaultValueComputed="NULL" defaultValueConstraintName="DF__ESHOP_CAR__SHOPT__1DA648AE" name="SHOPTYPE" type="varchar(50)"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="1574133934722-51">
+        <createTable tableName="ORGANISATION_COLLECTION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK_ORGANISATION_COLLECTION"/>
+            </column>
+            <column name="NAME" type="varchar(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AFFILIATE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column name="SHORTNAME" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-57">
+        <createTable tableName="FINAL_CUSTOMER_ORDER">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="PK__FINAL_CU__3214EC278E91038A"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORG_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REFERENCE" type="varchar(254)"/>
+            <column name="BRANCH_REMARK" type="varchar(254)"/>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF__FINAL_CUST__DATE__099F5001" name="DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TOTAL_GROSS_PRICE" type="decimal(18, 10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="ADD_COL_ORDER_HISTORY_FINAL_CUSTOMER_ORDER_ID">
+	    <addColumn tableName="ORDER_HISTORY">
+	    	<column name="FINAL_CUSTOMER_ORDER_ID" type="bigint"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_COL_ORDER_HISTORY_GOODS_RECEIVER_ID">
+	    <addColumn tableName="ORDER_HISTORY">
+	    	<column name="GOODS_RECEIVER_ID" type="bigint"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="1574133934722-78">
+        <createTable tableName="ESHOP_CLIENT_RESOURCE">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK__ESHOP_CL__3214EC274773A928"/>
+            </column>
+            <column name="NAME" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-83">
+        <createTable tableName="ORG_COLLECTION_SETTINGS">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK_ORG_COLLECTION_SETTINGS"/>
+            </column>
+            <column name="COLLECTION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_KEY" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_VALUE" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-87">
+        <createTable tableName="COLLECTION_PERMISSION">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COLLECTION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ESHOP_PERMISSION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-116">
+        <createTable tableName="FINAL_CUSTOMER_ORDER_ITEM">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FINAL_CUSTOMER_ORDER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEHICLE_ID" type="varchar(20)"/>
+            <column name="ARTICLE_ID" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="QUANTITY" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VEHICLE_DESC" type="varchar(255)"/>
+            <column name="ARTICLE_DESC" type="varchar(255)"/>
+            <column name="TYPE" type="varchar(50)"/>
+            <column name="GEN_ART_DESCRIPTION" type="varchar(255)"/>
+            <column name="SUPPLIER" type="varchar(255)"/>
+            <column name="BRAND" type="varchar(255)"/>
+            <column name="PRODUCT_ADDON" type="varchar(255)"/>
+            <column name="IMAGES" type="varchar(MAX)"/>
+            <column name="REFERENCE" type="varchar(255)"/>
+            <column name="GROSS_PRICE" type="decimal(18, 10)"/>
+            <column name="NET_PRICE" type="decimal(18, 10)"/>
+            <column name="SALES_QUANTITY" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-117">
+        <createTable tableName="FINAL_CUSTOMER_PROPERTY">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ORG_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SETTING_KEY" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUE" type="varchar(254)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-128">
+        <createView fullDefinition="true" viewName="V_ESHOP_CLIENT">-- ITER_99_V_ESHOP_CLIENT_VIEW
+CREATE VIEW [V_ESHOP_CLIENT] AS
+SELECT ec.ID AS ID,
+ec.CLIENT_NAME AS CLIENT_NAME,
+ec.CLIENT_SECRET AS CLIENT_SECRET,
+ecr.NAME AS RESOURCE_ID,
+STUFF(
+(
+SELECT CAST(',' AS varchar(max)) + er.NAME
+FROM ESHOP_ROLE er
+INNER JOIN CLIENT_ROLE cr ON cr.ROLE_ID = er.ID
+WHERE cr.CLIENT_ID = ec.ID
+FOR XML PATH(''), TYPE
+).value('.', 'varchar(max)'), 1, 1, '') AS CLIENT_ROLES
+FROM ESHOP_CLIENT ec
+LEFT JOIN ESHOP_CLIENT_RESOURCE ecr ON ecr.ID = ec.RESOURCE_ID
+WHERE ec.ACTIVE = 1 AND ecr.ACTIVE = 1</createView>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-137">
+        <createView fullDefinition="false" viewName="V_COLLECTION_SEARCH">SELECT temp.NAME COLLECTION_NAME,
+    temp.SHORTNAME AFFILIATE,
+    STUFF(
+    (SELECT CAST(', ' AS varchar(max)) + L.ORG_CODE
+    FROM ORGANISATION as L
+    WHERE L.ID in (
+    SELECT top 5 LR.ORGANISATION_ID FROM COLLECTION_RELATION LR
+    JOIN ORGANISATION oga on oga.ID = LR.ORGANISATION_ID
+    JOIN ORGANISATION_TYPE ota on oga.ORGTYPE_ID = ota.ID
+    WHERE LR.COLLECTION_ID = temp.ID AND ota.[LEVEL]= 3)
+    FOR XML PATH(''), TYPE
+    )
+    .value('.', 'varchar(max)'),1, 1,'') AS CUSTOMER_NR,
+    temp.COLLECTION_SHORT_NAME COLLECTION_SHORT_NAME
+    FROM (
+    SELECT DISTINCT orgColl.ID, orgColl.NAME, aff.SHORTNAME, orgColl.SHORTNAME
+    COLLECTION_SHORT_NAME from
+    ORGANISATION_COLLECTION orgColl
+    join ORGANISATION aff on aff.ID = orgColl.AFFILIATE_ID
+    where aff.SHORTNAME != 'sag'
+    ) AS temp</createView>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-138">
+        <createView fullDefinition="true" viewName="V_FINAL_CUSTOMER">-- ITER_109_ALTER_VIEW_V_FINAL_CUSTOMER_ADD_STATUS_AND_HAS_IN_PROGRESS_ORDERS_FIELDS
+CREATE VIEW [dbo].[V_FINAL_CUSTOMER] AS
+      SELECT
+      ORG.ID AS ORG_ID,
+      ORG.NAME AS NAME,
+      ORG.DESCRIPTION AS DESCRIPTION,
+      ORG.PARENT_ID AS PARENT_ORG_ID,
+      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP
+      WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY = 'TYPE' FOR XML
+      PATH(''), TYPE).value('.', 'varchar(max)'), 1, 1, '') AS
+      FINAL_CUSTOMER_TYPE,
+      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP
+      WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY IN ('STREET', 'POSTCODE', 'PLACE') ORDER BY 
+      (CASE FP.SETTING_KEY  WHEN 'STREET' THEN 1 WHEN 'POSTCODE' THEN 2 WHEN 'PLACE' THEN 3 END) ASC FOR XML PATH(''),
+      TYPE).value('.', 'varchar(max)'), 1, 1, '') AS ADDRESS_INFO,
+      STUFF((SELECT CAST(' ' AS varchar(max)) + FP.VALUE FROM
+      FINAL_CUSTOMER_PROPERTY FP WHERE FP.ORG_ID = ORG.ID AND
+      FP.SETTING_KEY IN ('SURNAME', 'FIRSTNAME')  ORDER BY 
+      (CASE FP.SETTING_KEY  WHEN 'SURNAME' THEN 1 WHEN 'FIRSTNAME' THEN 2 END) ASC FOR XML PATH(''),
+      TYPE).value('.', 'varchar(max)'), 1, 1, '') AS CONTACT_INFO,
+	  (SELECT FP.VALUE FROM FINAL_CUSTOMER_PROPERTY FP WHERE FP.ORG_ID = ORG.ID AND FP.SETTING_KEY = 'STATUS') AS STATUS,
+	  (SELECT CASE WHEN COUNT(FO.ID) &gt; 0 THEN '1' ELSE '0' END FROM FINAL_CUSTOMER_ORDER FO WHERE FO.ORG_ID = ORG.ID AND FO.STATUS IN('NEW','OPEN')) AS HAS_IN_PROGRESS_ORDERS
+      FROM [dbo].ORGANISATION ORG
+      INNER JOIN [dbo].ORGANISATION_TYPE ORG_TYPE ON ORG.ORGTYPE_ID =
+      ORG_TYPE.ID
+      WHERE ORG_TYPE.NAME = 'FINAL_CUSTOMER';</createView>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-152">
+        <addUniqueConstraint columnNames="COLLECTION_ID, ORGANISATION_ID" constraintName="UK_COLLECTION_RELATION" tableName="COLLECTION_RELATION"/>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-159">
+        <createView fullDefinition="true" viewName="V_FINAL_CUSTOMER_ORDER">-- ITER_104_ADD_VIEW_V_FINAL_CUSTOMER_ORDER
+CREATE VIEW [dbo].[V_FINAL_CUSTOMER_ORDER] AS
+SELECT DISTINCT
+  FO.DATE,
+  FO.ID AS ID,
+  O.NAME AS COMPANY_NAME,
+  (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='ADDRESS_1') AS ADDRESS,
+  (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='POSTCODE') AS POSTCODE,
+  (SELECT VALUE FROM FINAL_CUSTOMER_PROPERTY WHERE ORG_ID = FO.ORG_ID and SETTING_KEY='CUSTOMER_NUMBER') AS CUSTOMER_NUMBER,
+  (SELECT
+	STUFF((SELECT ';' + t2.VEHICLE_DESC
+		FROM FINAL_CUSTOMER_ORDER_ITEM t2
+		WHERE t1.ID = t2.FINAL_CUSTOMER_ORDER_ID
+		AND t2.VEHICLE_DESC IS NOT NULL AND t2.VEHICLE_DESC &lt;&gt; ''
+		FOR XML PATH('')), 1, 1, '')
+	FROM FINAL_CUSTOMER_ORDER t1
+	WHERE ID = FO.ID
+	GROUP BY ID) AS VEHICLE_DESCS,
+  (SELECT TOP(1) ARTICLE_DESC FROM FINAL_CUSTOMER_ORDER_ITEM WHERE FINAL_CUSTOMER_ORDER_ID = FO.ID) AS ARTICLE_DESC,
+  (SELECT USERNAME FROM ESHOP_USER WHERE ID = FO.USER_ID) AS USERNAME,
+  FO.STATUS,
+  FO.ORG_ID,
+  FO.TOTAL_GROSS_PRICE
+FROM
+  FINAL_CUSTOMER_ORDER FO
+  LEFT JOIN FINAL_CUSTOMER_PROPERTY FP
+  ON FP.ORG_ID = FO.ORG_ID
+  AND (FP.SETTING_KEY = 'ADDRESS_1' OR FP.SETTING_KEY = 'POSTCODE' OR FP.SETTING_KEY = 'CUSTOMER_NUMBER')
+  LEFT JOIN ORGANISATION O ON O.ID=FO.ORG_ID
+  WHERE status &lt;&gt; 'DELETED'</createView>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-161">
+        <createView fullDefinition="false" viewName="V_VIRTUAL_USER">SELECT
+    U.ID,
+    U.USERNAME,
+	U.ORIGINAL_USER_ID,
+	U.SETTING,
+	U.TYPE,
+	L.FIRST_LOGIN_DATE
+FROM
+    ESHOP_USER U
+    JOIN LOGIN L ON L.USER_ID = U.ID
+WHERE
+	U.TYPE = 'VIRTUAL_DMS' OR U.TYPE = 'VIRTUAL_OCI'</createView>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-183">
+        <createIndex indexName="IDX_COL_SHORTNAME" tableName="ORGANISATION_COLLECTION">
+            <column name="SHORTNAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-185">
+        <createIndex indexName="IDX_ORGANISATION_ORG_CODE" tableName="ORGANISATION">
+            <column name="ORG_CODE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-190">
+        <createView fullDefinition="true" viewName="V_FINAL_CUSTOMER_ORDER_STATUS">-- ITER_104_ADD_VIEW_V_FINAL_CUSTOMER_ORDER_STATUS
+CREATE VIEW [dbo].[V_FINAL_CUSTOMER_ORDER_STATUS] AS
+SELECT DISTINCT
+  O.ID AS ORG_ID,
+  PARENT.ORG_CODE,
+  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='OPEN') AS 'OPEN_ORDER',
+  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='NEW') AS 'NEW_ORDER',
+  (SELECT COUNT(*) FROM FINAL_CUSTOMER_ORDER WHERE ORG_ID = O.ID AND STATUS='PLACED') AS 'PLACED_ORDER'
+FROM
+  ORGANISATION O
+  LEFT JOIN ORGANISATION PARENT ON O.PARENT_ID = PARENT.ID
+  LEFT JOIN FINAL_CUSTOMER_ORDER FO ON FO.ORG_ID = O.ID
+  WHERE O.ORG_CODE is null</createView>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-210">
+        <createIndex indexName="IDX_ORDER_HISTORY_FINAL_CUSTOMER_ORDER_ID" tableName="ORDER_HISTORY">
+            <column name="FINAL_CUSTOMER_ORDER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-211">
+        <createIndex indexName="IDX_ORDER_HISTORY_GOODS_RECEIVER_ID" tableName="ORDER_HISTORY">
+            <column name="GOODS_RECEIVER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-219">
+        <addForeignKeyConstraint baseColumnNames="COLLECTION_ID" baseTableName="ORG_COLLECTION_SETTINGS" constraintName="FK_COLLECTION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION_COLLECTION" validate="true"/>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-246">
+        <addForeignKeyConstraint baseColumnNames="FINAL_CUSTOMER_ORDER_ID" baseTableName="FINAL_CUSTOMER_ORDER_ITEM" constraintName="FK_FINAL_CUSTOMER_ORDER_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="FINAL_CUSTOMER_ORDER" validate="true"/>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-256">
+        <addForeignKeyConstraint baseColumnNames="COLLECTION_ID" baseTableName="COLLECTION_RELATION" constraintName="FK_COLLECTION_RELATION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION_COLLECTION" validate="true"/>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-257">
+        <addForeignKeyConstraint baseColumnNames="ORGANISATION_ID" baseTableName="COLLECTION_RELATION" constraintName="FK_CUSTOMER_RELATION_ID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="1574133934722-269">
+        <addForeignKeyConstraint baseColumnNames="AFFILIATE_ID" baseTableName="ORGANISATION_COLLECTION" constraintName="FK__ORGANISATION_COLLECTION__ORGANISATION" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID" referencedTableName="ORGANISATION" validate="true"/>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="DROP_FK_COUPON_USE_LOG_CUSTOMER_NR">
+    	<dropForeignKeyConstraint baseTableName="COUPON_USE_LOG" constraintName="FK_COUPON_USE_LOG_CUSTOMER_NR"/>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="DROP_UK_chd15mrfx7slue9vae2rvjs0i_ORG_CODE">
+        <dropUniqueConstraint constraintName="UK_chd15mrfx7slue9vae2rvjs0i" tableName="ORGANISATION" uniqueColumns="ORG_CODE"/>
+    </changeSet>
+</databaseChangeLog>

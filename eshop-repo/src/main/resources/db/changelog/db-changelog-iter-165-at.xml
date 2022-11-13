@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_165_UPDATE_DEFAULT_SETTING_BRAND_PRIORITY_AVAIL_AT">
+    <sql>
+      DELETE FROM ORG_COLLECTION_SETTINGS where setting_key = 'c4s_brand_priority_avail_filter'
+      DELETE FROM ORG_COLLECTION_SETTINGS where setting_key = 'customer_brand_priority_avail_filter'
+      DECLARE @mat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'matik-at')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@mat_collection_id,'customer_brand_priority_avail_filter', '000')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@mat_collection_id,'c4s_brand_priority_avail_filter', '000')
+      
+      DECLARE @dat_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'derendinger-at')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@dat_collection_id,'customer_brand_priority_avail_filter', '000')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@dat_collection_id,'c4s_brand_priority_avail_filter', '000')
+	</sql>
+  </changeSet>
+
+</databaseChangeLog>

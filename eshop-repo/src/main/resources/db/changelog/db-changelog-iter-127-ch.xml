@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_127_INSERT_OIL_PERMISSION_FOR_MATIKCH">
+        <sql>
+           -- ALREADY EXECUTED FOR PRE AND PRO, PLEASE DO NOT RUN IT ANY MORE
+           INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+           SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+           JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+           JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+           WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='matik-ch' AND p.PERMISSION = 'OIL'
+        </sql>
+    </changeSet>
+</databaseChangeLog>

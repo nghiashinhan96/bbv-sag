@@ -1,0 +1,47 @@
+spring.profiles: db-sb
+spring.profiles.include: db-connection
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://${app.db.jdbc-url};databaseName=wint-sb;applicationName=ConnectRestServer
+      username: ${app.db.username}
+      password: ${app.db.password}
+      idle-timeout: 10000
+      minimum-idle: 1
+      maximum-pool-size: 20
+      pool-name: restatax_pool
+      connection-timeout: 10000
+      max-lifetime: 30000
+      register-mbeans: true
+      allow-pool-suspension: true
+      leak-detection-threshold: 30000
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    hibernate:
+      jdbc.batch_size: 100
+      order_inserts: true
+  hz:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://${app.db.jdbc-url};databaseName=wint-sb;applicationName=ConnectHazelcastBackup
+      username: ${app.db.username}
+      password: ${app.db.password}
+      idle-timeout: 10000
+      minimum-idle: 1
+      maximum-pool-size: 20
+      pool-name: hzbackup_pool
+      connection-timeout: 10000
+      max-lifetime: 30000
+      register-mbeans: true
+      allow-pool-suspension: true
+      leak-detection-threshold: 30000

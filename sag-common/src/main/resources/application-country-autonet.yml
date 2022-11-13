@@ -1,0 +1,47 @@
+spring.profiles: country-autonet
+
+country:
+  code: ro
+  supported_iso3_countries:
+    - AUT
+    - CHE
+    - ROU
+    - HUN
+    - SVK
+    - SVN
+  hashtype: BLCK_VAR
+  languages:
+    - DE
+    - FR
+    - IT
+    - RO
+    - HU
+    - SK
+    - EN
+    - SL
+    - BG
+  exclude_countries:
+  attached_article:
+    depot: false
+    recycle: false
+    vrg: false
+    voc: false
+  config:
+    erp-type: TOP_MOTIVE
+    user-loader-mode: DEFAULT
+    enable-shopping-cart-map-store: false
+    enable-local-stock-availability-preferring: false    
+    enable-price-discount-promotion: false
+    es-external-article-service: autonet
+    category-converter: autonet
+    oauth2-external-authenticator: autonet
+    currency:
+    default-language: de
+    register-customer-user-setting:
+      customer-setting:
+        session-timeout-seconds: 3600
+        net-price-view: false
+        net-price-confirm: false
+      user-setting:
+        language: de
+    sortingOilVehicleInDesc: true

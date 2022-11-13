@@ -1,0 +1,23 @@
+.tile-list {
+    // position: absolute;
+    // animation: left 500ms;
+
+    .w-33 {
+        width: calc(33.3% - 13px + 4.5px);
+    }
+
+    .tile-item {
+        &:nth-child(3n) {
+            margin-right: 0 !important;
+        }
+    }
+}
+
+@keyframes left {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}

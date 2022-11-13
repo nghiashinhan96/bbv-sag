@@ -1,0 +1,104 @@
+.sag-article-filter {
+    border: 1px solid $thin-grey;
+
+    .title {
+        background-color: $primary;
+        color: #fff;
+        padding: $half-spacer;
+        height: $panel-height;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+
+    .reset {
+        padding: $half-spacer;
+        height: $panel-height;
+        display: flex;
+        align-items: center;
+        background-color: $light-grey;
+
+        &:hover {
+            color: $primary;
+        }
+
+        &:disabled {
+            pointer-events: none;
+            opacity: 0.5;
+            color: $dark-grey;
+        }
+    }
+
+    .category-name {
+        padding: $half-spacer;
+        height: $panel-height;
+        background-color: $light-grey;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .filter-container {
+        margin: 0 0 0 1rem;
+        min-height: 40rem;
+        height: calc(100vh - 220px);
+    }
+
+    .category-name-layout {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .merkmale-brand-filter-container {
+        .list-group {
+            max-height: 200px;
+            overflow: auto;
+        }
+        .brand-filter-title {
+            background-color: $light-grey;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: $half-spacer;
+            height: $panel-height;
+            align-items: center;
+        }
+    }
+}
+
+.show-more-multi-filter {
+    background-color: #e0e0e0;
+}
+
+.show-more-section {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.merkmale-filter-bagde {
+    padding: $half-spacer;
+    height: $panel-height;
+    background-color: $light-grey;
+    display: flex;
+    align-items: center;
+    border: 1px solid $thin-grey;
+    border-top: 0;
+    .bagde-clear-title {
+        margin-right: $spacer;
+    }
+
+    .badge-secondary {
+        background-color: $grey;
+        font-size: $font-small;
+        margin-right: $half-spacer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bagde-clear-all {
+        margin-left: $half-spacer;
+    }
+}

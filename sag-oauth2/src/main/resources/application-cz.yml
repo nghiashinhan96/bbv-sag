@@ -1,0 +1,20 @@
+# ************************************************************************
+# This is the AT configuration of OAuth2 application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Liquibase - 
+# - Caching - 
+# - Country Code - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  stakis-erp-pre, 
+  db-cz, 
+  elasticsearch-dev2,
+  no-liquibase, 
+  cache-dev, 
+  country-cz
+

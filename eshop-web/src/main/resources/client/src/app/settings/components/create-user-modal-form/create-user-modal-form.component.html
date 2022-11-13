@@ -1,0 +1,115 @@
+<div class="modal-header">
+    <h4>{{ 'SETTINGS.USER_MANAGEMENT.CREATE_PROFILE' | translate }}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+
+<div class="modal-body">
+    <tabset>
+        <tab class="border-left border-right border-bottom p-4" heading="{{ 'SETTINGS.PROFILE_TAB' | translate }}">
+            <form novalidate [formGroup]="accountDetailForm" (ngSubmit)="onSubmit()">
+                <div class="modal-body">
+                    <h6 class="card-title font-weight-bold">
+                        <label>{{'COMMON_LABEL.COMPANY'|translate}}:</label>
+                        <span class="text-primary ml-2">{{companyInformation}}</span>
+                    </h6>
+                    <h6 class="card-title font-weight-bold">
+                        <label>{{'AX_CONNECTION.BRANCH_NAME'|translate}}:</label>
+                        <span class="text-primary ml-2">{{branchInformation}}</span>
+                    </h6>
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label>{{'SETTINGS.PROFILE.USER_NAME'| translate}}*</label>
+                            <input formControlName="userName" type="text" class="form-control" placeholder="daniel.birchler">
+                            <connect-control-messages [control]="accountDetailForm.get('userName')"></connect-control-messages>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="s-anrede">{{'SETTINGS.PROFILE.SALUTATION.TEXT'| translate}}</label>
+                            <ng-select
+                                [searchable]="salutations?.length > 10"
+                                bindValue="id"
+                                bindLabel="code"
+                                [items]="salutations"
+                                [clearable]="false"
+                                formControlName="salutationIds">
+                                <ng-template ng-label-tmp let-item="item">
+                                    {{ 'SETTINGS.PROFILE.SALUTATION.' + item.code | translate }}
+                                </ng-template>
+                                <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                                    {{ 'SETTINGS.PROFILE.SALUTATION.' + item.code | translate }}
+                                </ng-template>
+                            </ng-select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>{{'COMMON_LABEL.SURNAME'| translate}}*</label>
+                            <input formControlName="surName" type="text" class="form-control" placeholder="Daniel">
+                            <connect-control-messages [control]="accountDetailForm.get('surName')"></connect-control-messages>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>{{'COMMON_LABEL.FIRST_NAME'| translate}}*</label>
+                            <input formControlName="firstName" type="text" class="form-control" placeholder="Birchler">
+                            <connect-control-messages [control]="accountDetailForm.get('firstName')"></connect-control-messages>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label>{{'COMMON_LABEL.EMAIL'| translate}}*</label>
+                            <input formControlName="email" type="email" class="form-control" placeholder="Birchler@bbv.com">
+                            <connect-control-messages [control]="accountDetailForm.get('email')"></connect-control-messages>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>{{'COMMON_LABEL.PHONE'| translate}}</label>
+                            <input formControlName="phoneNumber" type="text" class="form-control" placeholder="+44 123 456 789">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="t-sprache">{{'SETTINGS.PROFILE.LANGUAGE.TEXT'| translate}}</label>
+                            <ng-select
+                                [searchable]="languages?.length > 10"
+                                bindValue="id"
+                                bindLabel="langcode"
+                                [items]="languages"
+                                [clearable]="false"
+                                formControlName="languageId">
+                                <ng-template ng-label-tmp let-item="item">
+                                    {{ 'SETTINGS.PROFILE.LANGUAGE.' + item.langcode | translate }}
+                                </ng-template>
+                                <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                                    {{ 'SETTINGS.PROFILE.LANGUAGE.' + item.langcode | translate }}
+                                </ng-template>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="t-typ">{{'SETTINGS.PROFILE.TYPE.TEXT'| translate}}</label>
+                            <ng-select
+                                [searchable]="types?.length > 10"
+                                bindValue="id"
+                                bindLabel="name"
+                                [items]="types"
+                                [clearable]="false" formControlName="typeId">
+                                <ng-template ng-label-tmp let-item="item">
+                                    {{ 'SETTINGS.PROFILE.TYPE.' + item.name | translate }}
+                                </ng-template>
+                                <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                                    {{ 'SETTINGS.PROFILE.TYPE.' + item.name | translate }}
+                                </ng-template>
+                            </ng-select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>{{'SETTINGS.PROFILE.HOURLY_RATE'| translate}}</label>
+                            <input formControlName="hourlyRate" [libNumeric] class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <sag-common-message *ngIf="notifyMessage" [data]="notifyMessage"></sag-common-message>
+                <p class="text-center">
+                    <sag-common-save-button [disabled]="accountDetailForm.invalid" [loading]="isUpdating" (save)="onSubmit($event)">
+                    </sag-common-save-button>
+                </p>
+            </form>
+        </tab>
+    </tabset>
+</div>

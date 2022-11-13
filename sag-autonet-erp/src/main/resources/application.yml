@@ -1,0 +1,2 @@
+spring.profiles.active: autonet-erp-pre, executor-pool-test, no-liquibase, country-autonet, logging-default
+

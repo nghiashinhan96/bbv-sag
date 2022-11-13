@@ -1,0 +1,18 @@
+<div class="labour-haynespro no-offset" *ngFor="let item of labourModel; let i = index">
+    <div class="col px-0 col-product">
+        {{item.name}}
+    </div>
+    <div class="col px-0 col-quantity">
+        {{item.time}}
+    </div>
+    <div class="col px-0 col-gross-price">
+        <div *ngIf="currentStateVatConfirm">{{item.labourRateWithVat}}</div>
+        <div *ngIf="!currentStateVatConfirm">{{item.labourRate}}</div>
+    </div>
+    <div class="col px-0 col-article-price">
+        {{item.labourRateWithTime}}
+    </div>
+    <div class="col px-0 col-delete">
+        <i id="icon-deleteArticle" class="fa fa-trash" aria-hidden="true" (click)="deleteLabourTimeRecord(i, item)"></i>
+    </div>
+</div>

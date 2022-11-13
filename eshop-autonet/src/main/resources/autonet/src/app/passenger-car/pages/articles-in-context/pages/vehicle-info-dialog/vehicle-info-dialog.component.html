@@ -1,0 +1,83 @@
+<div class="modal-header">
+    <h4>&nbsp;</h4>
+    <a href="javascript:void(0)" class="close-icon"><i class="fa fa-times-circle close" (click)="bsModalRef.hide()"></i></a>
+</div>
+<div class="modal-body">
+    <ul class="list-group list-group-flush list-group-full">
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_brand">
+            <strong>{{'VEHICLE_FILTER.BRAND' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_brand}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_model">
+            <strong>{{'VEHICLE_FILTER.MODEL' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_model}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_name">
+            <strong>{{'VEHICLE_FILTER.TYPE' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_name}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start"
+            *ngIf="vehicle?.vehicle_built_year_from || vehicle?.vehicle_built_year_till">
+            <strong>{{'VEHICLE_FILTER.BUILD_YEAR' | translate}}</strong>
+            <div class="text-right">
+                <span
+                    *ngIf="vehicle?.vehicle_built_year_from">{{vehicle.vehicle_built_year_from | vehicleInfoYear}} </span>
+                <span *ngIf="vehicle?.vehicle_built_year_till">-
+                    {{vehicle.vehicle_built_year_till | vehicleInfoYear}}</span>
+            </div>
+        </li>
+        <div class="divider divider--line"></div>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_body_type">
+            <strong>{{'VEHICLE_FILTER.BODY_TYPE' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_body_type}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_drive_type">
+            <strong>{{'VEHICLE_FILTER.DRIVE_TYPE' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_drive_type}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_doors">
+            <strong>{{'VEHICLE_FILTER.DOORS' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_doors}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_fuel_type">
+            <strong>{{'VEHICLE_FILTER.FUEL_TYPE' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_fuel_type}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start"
+            *ngIf="vehicle?.vehicle_power_hp || vehicle?.vehicle_power_kw">
+            <strong>{{'VEHICLE_FILTER.POWER_HP' | translate}} / {{'VEHICLE_FILTER.POWER_KW' | translate}}</strong>
+            <div class="text-right">
+                <span *ngIf="vehicle?.vehicle_power_hp">{{vehicle.vehicle_power_hp}} </span>
+                <span *ngIf="vehicle?.vehicle_power_kw">/ {{vehicle.vehicle_power_kw}}</span>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start"
+            *ngIf="vehicle?.vehicle_capacity_cc_tech || vehicle?.vehicle_engine">
+            <strong>{{'VEHICLE_FILTER.CAPACITY_ENGINE' | translate}}</strong>
+            <div class="text-right">
+                <span *ngIf="vehicle?.vehicle_capacity_cc_tech">{{vehicle.vehicle_capacity_cc_tech}}ccm </span>
+                <span *ngIf="vehicle?.vehicle_engine">/ {{vehicle.vehicle_engine}}l</span>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_zylinder">
+            <strong>{{'VEHICLE_FILTER.CYLINDER' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_zylinder}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_valves">
+            <strong>{{'VEHICLE_FILTER.VALVES' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_valves}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_fuel_mixture_formation">
+            <strong>{{'VEHICLE_FILTER.FUEL_SUPPLY' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_fuel_mixture_formation}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_catalyst_converter_type">
+            <strong>{{'VEHICLE_FILTER.CATALYST_CONVERTER_TYPE' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_catalyst_converter_type}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngIf="vehicle?.vehicle_engine_code">
+            <strong>{{'VEHICLE_FILTER.ENGINE_CODE' | translate}}</strong>
+            <span class="text-right">{{vehicle.vehicle_engine_code}}</span>
+        </li>
+    </ul>
+</div>

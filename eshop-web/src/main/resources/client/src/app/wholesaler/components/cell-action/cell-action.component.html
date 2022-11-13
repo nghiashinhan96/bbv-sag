@@ -1,0 +1,6 @@
+<div class="margin-icon d-flex justify-content-between">
+    <i class="fa fa-edit pointer" [class.mr-2]="row_data?.mapped" (click)="editItem()"></i>
+    <ng-container *ngIf="row_data?.mapped || !row_data.hasChild">
+        <i class="fa fa-trash pointer" (click)="deleteItem()"></i>
+    </ng-container>
+</div>

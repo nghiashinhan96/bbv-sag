@@ -1,0 +1,26 @@
+<ng-container *ngIf="(isPDP || isFinalCustomer); else grossPriceRef">
+    <ng-container *ngIf="isShowVat; else grossPriceRef">
+        <div *ngIf="article?.getGrossPrice(); else artWithoutPrice" class="text-right">
+            {{ article?.getGrossPrice() | sagCurrency }}
+        </div>
+        <ng-container *ngIf="article?.getGrossPriceWithVat()">
+            <div class="text-right">
+                ({{ article?.getGrossPriceWithVat() | sagCurrency }})
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+<ng-template #grossPriceRef>
+    <div class="text-right" *ngIf="grossPrice; else artWithoutPrice">
+        {{ grossPrice | sagCurrency}}
+    </div>
+</ng-template>
+
+<sag-custom-pricing-item-actions [editable]="editable" [article]="article" [priceType]="priceType">
+</sag-custom-pricing-item-actions>
+
+<ng-template #artWithoutPrice>
+    <span class="text-small text-right d-block" id="col-artWithoutPrice-{{article?.artnr}}">
+        {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}</span>
+</ng-template>

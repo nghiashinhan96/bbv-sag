@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_190_INSERT_RETURN_REASON_CODE_FOR_CZAX10">
+        <sql>
+            INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('DEFECT', 'Defect', '1', 0)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('INCORRECT_FEED_LINE', 'Incorrect Feed Line', '2', 0)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('FALSE_ARTICLE', 'False Article', '3', 0)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('WRONG_AMOUNT', 'Wrong Amount', '4', 0)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('SELECTION', 'Selection', '5', 0)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('NOT_USED', 'Not Used', '6', 1)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('SUPPLIER_CALLBACK', 'Supplier Callback', '7', 0)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('ALTERNATIVE', 'Alternative', '8', 0)
+			INSERT INTO RETURN_ORDER_REASON (CODE, NAME, AX_CODE, IS_DEFAULT) VALUES('AIS_RETOUR', 'AIS Retour', '9', 0)
+
+        </sql>
+    </changeSet>
+
+  
+</databaseChangeLog>

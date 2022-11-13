@@ -1,0 +1,52 @@
+spring.profiles: db-test
+spring.profiles.include: db-connection-test
+
+# MSSQL database configuration
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    # connection pool configuration
+    hikari:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://sag-ppd-cdb-021.sag.services;databaseName=econnectAxIT;applicationName=ConnectRestServer
+      username: umblocal
+      password: bbv20022017bbv%
+      idle-timeout: ${app.db.idle-timeout}
+      minimum-idle: ${app.db.minimum-idle}
+      maximum-pool-size: ${app.db.maximum-pool-size}
+      pool-name: restatax_pool
+      connection-timeout: ${app.db.connection-timeout}
+      max-lifetime: ${app.db.max-lifetime}
+      leak-detection-threshold: ${app.db.leak-detection-threshold}
+      register-mbeans: true
+      allow-pool-suspension: true
+  # Hazelcast Spring Hikari JDBC connection pool configuration
+  hz:
+    type: com.zaxxer.hikari.HikariDataSource
+    # connection pool configuration
+    hikari:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://sag-ppd-cdb-021.sag.services;databaseName=econnectAxIT;applicationName=ConnectHazelcastBackup
+      username: umblocal
+      password: bbv20022017bbv%
+      idle-timeout: ${app.db.idle-timeout}
+      minimum-idle: ${app.db.minimum-idle}
+      maximum-pool-size: ${app.db.hz-maximum-pool-size}
+      pool-name: hzbackup_pool
+      connection-timeout: ${app.db.connection-timeout}
+      max-lifetime: ${app.db.max-lifetime}
+      register-mbeans: true
+      allow-pool-suspension: true
+      leak-detection-threshold: ${app.db.leak-detection-threshold}
+  # Hibernate properties
+  jpa:
+    show-sql: ${app.db.show-sql}
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        physical_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit_naming_strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    hibernate:
+      jdbc.batch_size: 100
+      order_inserts: true

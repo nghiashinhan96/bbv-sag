@@ -1,0 +1,23 @@
+<div>
+    <connect-opening-day-date-filter (searchEvent)="searchWithDateRange($event)"
+        (searchWithSelectedDay)="searchWithSelectedDay($event)"
+        (searchWithPredefinedRange)="searchWithPredefinedRange($event)" class="w-100"></connect-opening-day-date-filter>
+</div>
+<div>
+    <connect-opening-day-list [workingCodes]="workingCodes" [openingDayList]="openingDayList" [itemsPerPage]="itemsPerPage"
+        [totalElements]="totalElements" [resetFilterEvent]="resetFilterEvent.asObservable()"
+        (filterWorkingCode)="filterWithWorkingCode($event)" (filterTyping)="filterTyping($event)"
+        (sortEvent)="sortWith($event)" (pageEvent)="goToPage($event)" (delete)="deleteOpeningDayItem($event)"
+        (update)="openCreateModal($event)"
+        (tableSearch)="searchTableData($event)">
+    </connect-opening-day-list>
+</div>
+<div class="col-12 create-btn-container">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#opening-day-imported-modal"
+        (click)="openUploadModal()">
+        {{ 'OPENING_DAY.IMPORT_CALENDAR_FILE' | translate }}
+    </button>
+    <button class="btn btn-primary opening-day-create-btn ml-1" (click)="openCreateModal()">
+        {{ 'OPENING_DAY.CREATE_OPENING_DAY_LABEL' | translate }}
+    </button>
+</div>

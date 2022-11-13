@@ -1,0 +1,14 @@
+iframe{
+    width: 100%;
+    padding-top: 36px;
+    height: 100vh;
+    display: flex;
+    &.add-cart{
+        height: 620px;
+        padding-top: 0;
+    }
+
+    &.error-frame{
+        padding-top: 0;
+    }
+}

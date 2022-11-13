@@ -1,0 +1,33 @@
+<ng-container *ngIf="!hideSearchBox">
+    <sag-article-list-category-tree-search
+        [vehicleId]="vehicle"
+        [searchProductCategory]="searchProductCategory"
+        (handleCategorySearch)="handleCategorySearch.emit($event)">
+    </sag-article-list-category-tree-search>
+    <div class="divider"></div>
+</ng-container>
+<div class="card">
+    <div class="card-header">
+        {{ mainLabel | translate}}
+    </div>
+    <div class="card-body">
+        <ng-container *ngIf="categories$ | async as categories;else errorRef">
+            <div class="nav nav-reset" *ngIf="hasResetFilter">
+                <a href="javascript:void(0)" (click)="resetTree()"
+                    [class.disabled]="!isSelected">{{'CATEGORY.BUTTON.RESET_FILTER' | translate}}</a>
+            </div>
+            <ul class="nav flex-column">
+                <li *ngFor="let cate of categories" class="nav-item nav-item_first"
+                    [ngClass]="{'expanded' : cate.show,'collapsed' : !cate.show}">
+                    <sag-article-list-category-tree-item [category]="cate" [isSingleLink]="isSingleLink">
+                    </sag-article-list-category-tree-item>
+                </li>
+            </ul>
+        </ng-container>
+    </div>
+</div>
+<ng-template #errorRef>
+    <div class="alert alert-danger mb-0" *ngIf="!!errorMessage">
+        {{errorMessage | translate}}
+    </div>
+</ng-template>

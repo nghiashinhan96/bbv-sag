@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h4>{{'ARTICLE_SEARCH_LIST.TITLE' | translate }}</h4>
+    <a href="javascript:void(0)" (click)="onClose()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <connect-article-list-search [isSubBasket]="true"></connect-article-list-search>
+    <div class="text-right">
+        <button class="btn btn-primary" (click)="onClose()">
+            {{ 'COMMON_LABEL.BUTTON.TAKE' | translate }}
+        </button>
+    </div>
+</div>

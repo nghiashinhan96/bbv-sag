@@ -1,0 +1,124 @@
+$primary: var(--primary);
+$primary-font: var(--primary-color);
+$primary-mtk: #6087a0;
+$secondary: #666666;
+
+$grey: #666666;
+$accent-grey: #cccccc;
+$dark-grey: rgba(0, 0, 0, 0.65);
+$light-grey: rgba(0, 0, 0, 0.03); // background color
+$thin-grey: rgba(0, 0, 0, 0.125); // border-color
+$message-color-danger: #a94442;
+$pdf-color: #ca1212;
+
+$text-color: #333;
+$text-disable-color: #333333;
+$text-color-inversed: white;
+$logo: var(--logo);
+$saleLogo: var(--saleLogo);
+$background: var(--background);
+$primaryBackground: var(--primary-background);
+$preloadBackground: var(--preload-background);
+$background-color: white;
+$preload: var(--pre-loader);
+$orange: #f6a60c;
+$input-focus-border-color: #66afe9;
+
+// $body-bg: red;
+$font-back-link: 1.25rem;
+$font-small: 0.875rem;
+$font-extra-small: 0.75rem;
+$font-icon: 1.4rem;
+$font-icon-small: 1rem; // size of secondary icon
+$font-weight-light: 400;
+$font-weight: 500;
+
+$spacer: 1rem;
+$half-spacer: $spacer * 0.5;
+$quarter-spacer: $half-spacer * 0.5;
+$double-spacer: $spacer * 2;
+$panel-height: 2.5rem;
+/** Layout **/
+$content-width: 1125px;
+$footer-color: var(--footer-color);
+$footer-backgroud-color: var(--footer-backgroud-color);
+$footer-height: 72px;
+$header-height: 82px;
+$min-screen-width: 1140px;
+/** End Layout **/
+
+// Part detail column sizes:
+$part-description-width: 215px;
+$part-brand-width: 70px;
+$part-img-width: 60px;
+$part-pos-width: 85px;
+$part-pos-extend-width: 130px;
+$part-promo-width: 50px;
+$part-de-amount-width: 55px;
+$part-avail-width: 120px;
+$part-gross-width: 105px;
+$part-net-width: 65px;
+$part-quality-width: 80px;
+$part-total-width: 60px;
+$part-col-offset-left: 6px;
+$part-inner-space: 10px;
+$part-controler: 70px;
+
+$part-with-filter-no-avail-width: 135px;
+
+// cz custom
+$part-brand-width-cz: 65px;
+$part-gross-width-cz: 90px;
+$part-net-width-cz: 75px;
+$basket-part-de-amount-width-cz: 55px;
+$order-description-width-cz: 355px;
+$order-net-price-width-cz: 115px;
+
+// Shopping detail column sizes:
+$basket-description-width: 250px;
+$basket-part-brand-width: 70px;
+$basket-part-img-width: 60px;
+$basket-part-pos-width: 150px;
+$basket-part-promo-width: 140px;
+$basket-part-de-amount-width: 50px;
+$basket-part-avail-width: 120px;
+$basket-part-gross-width: 105px;
+$basket-part-net-width: 100px;
+$basket-part-quality-width: 100px;
+$basket-part-total-width: 100px;
+$basket-part-col-offset-left: 8px;
+
+// Shopping order detail column sizes:
+$order-description-width: 220px;
+$order-tour-width: 120px;
+$order-quantity-width: 80px;
+$order-gross-price-width: 112px;
+$order-net-price-width: 62px;
+$order-total-price-width: 90px;
+
+// Part extra columns
+$part-remove-width: 30px;
+$part-check-width: 30px;
+
+$part-amount-per-location-width: 75px;
+$part-location-width: 100px;
+
+$order-amount-per-location-width: 150px;
+$order-location-width: 200px;
+$order-gross-price-width-sb: 120px;
+$order-net-price-width-sb: 80px;
+$order-total-price-width-sb: 100px;
+
+$part-order-description-width-sb: 30%;
+$part-order-delivery-width-sb: 25%;
+$part-order-quantity-width-sb: 20%;
+$part-order-delivery-warehouse-width-sb: 25%;
+$part-description-width-sb: 205px;
+$part-pos-width-sb: 75px;
+$part-de-amount-width-sb: 50px;
+$system-msg-height: var(--msg-height);
+
+// sb custom
+$basket-part-pos-width-sb: 100px;
+$basket-part-amount-per-location-width-sb: 100px;
+$basket-part-location-width-sb: 150px;

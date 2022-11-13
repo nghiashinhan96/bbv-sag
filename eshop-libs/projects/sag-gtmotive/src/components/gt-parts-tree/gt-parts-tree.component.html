@@ -1,0 +1,36 @@
+<div class="row" *ngIf="partsTree?.length">
+    <div class="col-3">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" #inputSearchText (input)="onSearchTextChange($event)">
+            <div class="input-group-append">
+                <button class="btn btn-primary rounded-0 py-0" type="button" [disabled]="!inputSearchText.value">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="searchErrorMessage" class="col-12 mt-20">
+        <div class="alert alert-warning ">{{searchErrorMessage | translate}}</div>
+    </div>
+</div>
+<div class="d-flex">
+    <div class="px-3" *ngFor="let col of separatedColumn">
+        <div *ngFor="let funcGroup of col; let itemIndex = index">
+            <a href="javascript:void(0)" class="text-body" [class.collapsed]="!funcGroup.open" (click)="setCollapseState(funcGroup)">
+                <i class="fa mr-2" [ngClass]="{'fa-minus': funcGroup.open, 'fa-plus': !funcGroup.open}"></i>
+                <span class="font-weight-normal" [innerHTML]="funcGroup.functionalGroupDescription"></span>
+            </a>
+            <div class="collapse ml-3" [class.show]="funcGroup.open" *ngIf="funcGroup.parts.length">
+                <div class="part-item" *ngFor="let part of funcGroup.parts">
+                    <div class="px-2" [class.selected]="part.selected">
+                        <a href="javascript:void(0)" class="text-body"
+                            (click)="handlePickPartOnTree(funcGroup.functionalGroup, part.partCode)">
+                            <i class="fa fa-angle-right"></i>
+                            <span class="" [innerHTML]="part.partDescription"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

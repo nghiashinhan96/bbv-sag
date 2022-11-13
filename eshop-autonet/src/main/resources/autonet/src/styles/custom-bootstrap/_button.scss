@@ -1,0 +1,28 @@
+.btn {
+    border-radius: 10px;
+    border-width: 0.15rem;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+.btn-primary,
+.btn-secondary {
+    min-width: 120px;
+}
+
+.btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+
+    &.disabled,
+    &:disabled,
+    &:hover,
+    &:active,
+    &:focus,
+    &:visited {
+        box-shadow: none !important;
+        background-color: $white !important;
+        border-color: $primary !important;
+        color: $primary !important;
+    }
+}

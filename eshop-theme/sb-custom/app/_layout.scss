@@ -1,0 +1,17 @@
+.wt-sb {
+    nav.navbar {
+        &.header {
+            .navbar-nav {
+                li.nav-item {
+                    &.connect-header-search-nav-item {
+                        padding-left: 0;
+                    }
+    
+                    &.connect-header-settings-nav-item {
+                        margin-left: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

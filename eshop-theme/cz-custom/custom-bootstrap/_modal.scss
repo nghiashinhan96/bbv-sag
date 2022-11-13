@@ -1,0 +1,23 @@
+.st-cz, .eh-cz, .ax-cz, .eh-ax-cz {
+    .modal-timeout {
+        .modal-body {
+            white-space: nowrap;
+        }
+    }
+
+    connect-margin-brand-form-modal {
+        .brand-search-inner {
+            div {
+                &:nth-child(1) {
+                    flex: 0 0 75% !important;
+                    max-width: 75% !important;
+                }
+
+                &:nth-child(2) {
+                    flex: 0 0 25% !important;
+                    max-width: 25% !important;
+                }
+            }
+        }
+    }
+}

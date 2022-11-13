@@ -1,0 +1,103 @@
+<connect-customer-info></connect-customer-info>
+<h4 class="title">{{ 'RETURN_ARTICLE_BASKET.TABLE_TITLE' | translate }}</h4>
+<sag-common-message [data]="messenger" *ngIf="messenger"></sag-common-message>
+<sag-table [firstlySearch]="false" [mode]="'offline'" [columns]="columns"
+    notFoundText="{{'BASKET_HISTORY.NO_BASKET_HISTORIES_FOUND' | translate}}" [rows]="rows"
+    [showNotFoundOnFirstLoad]="false">
+</sag-table>
+<ng-container *ngIf="rows && rows.length > 0">
+    <div class="card mb-4 shopping-basket-condition">
+        <div class="card-header">
+            <connect-expanded [title]="'RETURN_ARTICLE_BASKET.RETURN_CONDITION.TITLE'" [(expand)]="conditionExpanded"
+                size="sm">
+            </connect-expanded>
+        </div>
+        <div class="card-body" *ngIf="conditionExpanded">
+            <p
+                [innerHTML]="'RETURN_ARTICLE_BASKET.PAYMENT_TERM_DESC' | translate: {value: ('RETURN_ARTICLE_BASKET.PAYMENT_TERM' | translate) }">
+            </p>
+            <div class="row">
+                <div class="col-6 align-self-end">
+                    <label class="checkbox">
+                        <input type="checkbox" [(ngModel)]="isPrintConfirmChecked">
+                        <span><strong>{{'RETURN_ARTICLE_BASKET.PRINT_RETURN_CONFIRMATION' | translate }}</strong></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <connect-action icon="fa-chevron-right" text="RETURN_ARTICLE_BASKET.REFUND"
+            (isClicked)="submitReturnBasket($event)">
+        </connect-action>
+    </div>
+</ng-container>
+<ng-template #controlHeaderRef>
+    <div class="control">
+        <a class="btn-icon" href="javascript:void(0)" (click)="onDeleteAllRecord()">
+            <i class="fa fa-trash"></i>
+        </a>
+        <input type="checkbox" [(ngModel)]="isAllSelected" (ngModelChange)="onAllArticleCheck($event)">
+    </div>
+</ng-template>
+<ng-template #controlCellRef let-row="row">
+    <div class="control">
+        <a class="btn-icon" href="javascript:void(0)" (click)="onDeleteARecord(row)">
+            <i class="fa fa-trash"></i>
+        </a>
+        <input type="checkbox" [(ngModel)]="row.checked" (ngModelChange)="onCheckArticle()">
+    </div>
+</ng-template>
+<ng-template let-row="row" #quantityRef>
+    <sag-currency-amount-input [(amountNumber)]="row.returnQuantity" [salesQuantity]="1" [qtyMultiple]="1"
+        [max]="row.maxReturnQuantity" (amountNumberChange)="updateRows()" [mode]="inputHorizontalMode">
+    </sag-currency-amount-input>
+</ng-template>
+<ng-template let-row="row" #quantityWarningRef>
+    <a *ngIf="row.maxReturnQuantity > 1" class="btn-icon warning-icon ml-1 p-0" href="javascript:void(0)" title="{{'RETURN_ARTICLE_BASKET.MULTIPLE_PIECES_WARNING' | translate}}">
+        <i class="fa fa-exclamation-circle"></i>
+    </a>
+</ng-template>
+<ng-template #quarantaneRef let-row="row">
+    <div class="quarantane-control">
+        <div class="editor" #editor>
+            <input class="form-control" maxLength="60" placeholder="{{ 'RETURN_ARTICLE_BASKET.QUARANTINE_REASON' | translate }}">
+            <div class="editor-control">
+                <a class="btn-icon ml-2" href="javascript:void(0)" (click)="closeEditor(editor, row)">
+                    <i class="fa fa-times"></i>
+                </a>
+                <a class="btn-icon" href="javascript:void(0)" (click)="updateEditor(editor, row)">
+                    <i class="fa fa-check"></i>
+                </a>
+            </div>
+        </div>
+        <input type="checkbox" [(ngModel)]="row.isQuarantined" (ngModelChange)="enableEditor($event, editor, row)">
+        <a class="btn-icon" href="javascript:void(0)" [class.disabled]="!row.isQuarantined"
+            (click)="showEditor(editor, row)">
+            <i class="fa fa-edit"></i>
+        </a>
+    </div>
+</ng-template>
+<ng-template let-row="row" #returnReasonRef>
+    <div [class.invalid]="submitted && !row.returnReason">
+        <ng-select
+            [placeholder]="'COMMON_LABEL.PLEASE_SELECT' | translate"
+            [(ngModel)]="row.returnReason"
+            [items]="reasonList"
+            [clearable]="false"
+            bindValue="value"
+            [searchable]="reasonList?.length > 10">
+            <ng-template ng-label-tmp let-item="item">
+                {{ item.label | translate }}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item">
+                <div class="d-flex align-items-center mr-3">{{ item.label | translate }}</div>
+            </ng-template>
+        </ng-select>
+    </div>
+</ng-template>
+<ng-template let-row="row" #returnReasonWarningRef>
+    <a *ngIf="row.hasDepotReturnArticle && enhancedUsedPartsReturnProcEnabled" class="btn-icon warning-icon ml-1 p-0" href="javascript:void(0)" title="{{'RETURN_ARTICLE_BASKET.CONTAIN_DEPOSIT_WARNING' | translate}}">
+        <i class="fa fa-exclamation-circle"></i>
+    </a>
+</ng-template>

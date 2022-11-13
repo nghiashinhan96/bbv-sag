@@ -1,0 +1,16 @@
+<div class="input-group {{size}}" [formGroup]="parentForm">
+    <input type="text" class="form-control time-dispayed" formControlName="{{controlName}}" value="{{timer | hoursMinute}}" [popover]="popTemplate"
+        placement="bottom" [outsideClick]="true" #timerInput containerClass="timer-popup {{size}}"
+        readonly="readonly" />
+    <div class="input-group-addon" (click)="timerInput.click()">
+        <i class="fa fa-clock-o"></i>
+    </div>
+</div>
+<ng-template #popTemplate>
+    <div [formGroup]="timeForm">
+        <timepicker #timepicker class="time-picker" formControlName="time"></timepicker>
+        <div class="lead text-center" *ngIf="!!timer">
+            <a href="javascript:void(0)" (click)="onReset()">reset</a>
+        </div>
+    </div>
+</ng-template>

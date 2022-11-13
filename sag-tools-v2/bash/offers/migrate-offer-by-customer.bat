@@ -1,0 +1,1 @@
+java -jar ../batchs/sag-tools-1.0-SNAPSHOT.jar --spring.batch.job.names=MigrateFullOfferByCustomer --sag.migration.customer.numbers=168839 --spring.profiles.include=target-ch-umbpre,source-ebl,source-no-sagsys,source-mdm,source-ax-pre,source-es-umbpre

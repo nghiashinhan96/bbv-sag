@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_195_DISABLED_UNIPARTS_FOR_SALE_USERS">
+    <sql>
+     UPDATE GROUP_PERMISSION set ALLOWED = 0 WHERE 
+			GROUP_ID IN (select GROUP_ID from GROUP_ROLE where ROLE_ID IN (SELECT ID from ESHOP_ROLE where NAME ='SALES_ASSISTANT')) 
+		AND PERM_ID = (SELECT ID from ESHOP_PERMISSION where PERMISSION ='UNIPARTS')
+		AND ALLOWED =1;
+    </sql>
+  </changeSet>
+</databaseChangeLog>

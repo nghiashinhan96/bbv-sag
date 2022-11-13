@@ -1,0 +1,4 @@
+spring.profiles: logging-ch-prod-cloud
+
+logging:
+  config: classpath:log4j2-ch-prod-cloud.xml

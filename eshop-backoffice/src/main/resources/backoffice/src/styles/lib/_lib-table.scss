@@ -1,0 +1,32 @@
+.table {
+    .header {
+        background-color: $brand-color !important;
+    }
+
+    .filter {
+        td.disabled {
+            // disbaled input
+            > input {
+                pointer-events: none;
+                opacity: 0.5;
+                cursor: default;
+            }
+        }
+    }
+
+    th.sortable {
+        cursor: pointer;
+    }
+    
+    tbody {
+        .alert-row {
+            background-color: $background-color !important;
+
+            .alert-warning {
+                background-color: $light-blue;
+                border-color: $light-blue;
+                color: $brand-color;
+            }
+        }
+    }
+}

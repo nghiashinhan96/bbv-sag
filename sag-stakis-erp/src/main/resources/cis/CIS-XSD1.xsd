@@ -1,0 +1,2447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="DVSE.WebApp.CISService" elementFormDefault="qualified" targetNamespace="DVSE.WebApp.CISService">
+   <xs:import schemaLocation="CIS-XSD2.xsd" namespace="http://schemas.datacontract.org/2004/07/" />
+   <xs:complexType name="GetSessionRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="password" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="clientId" type="xs:int" />
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetSessionRequestBody" nillable="true" type="tns:GetSessionRequestBody" />
+   <xs:element name="GetSession" nillable="true" type="tns:GetSessionRequestBody" />
+   <xs:complexType name="GetSessionResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetSessionResult" nillable="true" type="tns:OutSession">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetSessionResponseBody" nillable="true" type="tns:GetSessionResponseBody" />
+   <xs:complexType name="OutSession">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutSession" nillable="true" type="tns:OutSession" />
+   <xs:complexType name="BaseResponse">
+      <xs:sequence>
+         <xs:element name="StateId" type="xs:int" />
+         <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="BaseResponse" nillable="true" type="tns:BaseResponse" />
+   <xs:complexType name="OutCustomers">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:ArrayOfCustomer">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="CurrentPage" type="xs:int" />
+               <xs:element name="TotalItems" type="xs:int" />
+               <xs:element name="PageSize" type="xs:int" />
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutCustomers" nillable="true" type="tns:OutCustomers" />
+   <xs:complexType name="ArrayOfCustomer">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+   <xs:complexType name="Customer">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseCustomer">
+            <xs:sequence />
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="Customer" nillable="true" type="tns:Customer" />
+   <xs:complexType name="BaseCustomer">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddress">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ElectronicAddresses" nillable="true" type="tns:ArrayOfElectronicAddress">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Rating" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="State" nillable="true" type="tns:CustomerState">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="BaseCustomer" nillable="true" type="tns:BaseCustomer" />
+   <xs:complexType name="ArrayOfAddress">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress" />
+   <xs:complexType name="Address">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="StreetExt" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ZIP" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="City" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="District" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PostOfficeBox" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="AlternativeRecipient" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Address" nillable="true" type="tns:Address" />
+   <xs:complexType name="ArrayOfElectronicAddress">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="ElectronicAddress" nillable="true" type="tns:ElectronicAddress" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfElectronicAddress" nillable="true" type="tns:ArrayOfElectronicAddress" />
+   <xs:complexType name="ElectronicAddress">
+      <xs:sequence>
+         <xs:element name="Type" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ElectronicAddress" nillable="true" type="tns:ElectronicAddress" />
+   <xs:complexType name="CustomerState">
+      <xs:sequence>
+         <xs:element name="State" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CustomerState" nillable="true" type="tns:CustomerState" />
+   <xs:complexType name="CustomerDetails">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseCustomer">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="ConceptCustomer" nillable="true" type="tns:ArrayOfConceptCustomer">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="CustomerGroup" nillable="true" type="xs:string">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ArrayOfContact">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Account" nillable="true" type="tns:Account">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="TourInfo" nillable="true" type="xs:string">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="DispatchTypeList" nillable="true" type="tns:DispatchTypeList">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="CooperationGroup" nillable="true" type="xs:string">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="ErpCredentials" nillable="true" type="tns:ArrayOfErpCredential">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="ForeignCustomer" type="xs:boolean" />
+               <xs:element minOccurs="0" name="Notes" nillable="true" type="tns:ArrayOfNote">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="SalesOutletList" nillable="true" type="tns:SalesOutletList">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="CustomerItems" nillable="true" type="tns:ArrayOfCustomerItem">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="CustomerDetails" nillable="true" type="tns:CustomerDetails" />
+   <xs:complexType name="ArrayOfConceptCustomer">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="ConceptCustomer" nillable="true" type="tns:ConceptCustomer" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfConceptCustomer" nillable="true" type="tns:ArrayOfConceptCustomer" />
+   <xs:complexType name="ConceptCustomer">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IconUrl" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="UrlText" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ConceptCustomer" nillable="true" type="tns:ConceptCustomer" />
+   <xs:complexType name="ArrayOfContact">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfContact" nillable="true" type="tns:ArrayOfContact" />
+   <xs:complexType name="Contact">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ContactDescription" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="JobDescription" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ElectronicAddresses" nillable="true" type="tns:ArrayOfElectronicAddress">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Contact" nillable="true" type="tns:Contact" />
+   <xs:complexType name="Account">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CreditLimit" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="BalanceDue" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="UsedCreditLimit" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="BillingType" nillable="true" type="tns:BillingType">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="MonetaryValueList" nillable="true" type="tns:ArrayOfMonetaryValue">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Account" nillable="true" type="tns:Account" />
+   <xs:complexType name="BillingType">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="BillingType" nillable="true" type="tns:BillingType" />
+   <xs:complexType name="ArrayOfMonetaryValue">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="MonetaryValue" nillable="true" type="tns:MonetaryValue" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfMonetaryValue" nillable="true" type="tns:ArrayOfMonetaryValue" />
+   <xs:complexType name="MonetaryValue">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Value" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="GroupId" type="xs:int" />
+         <xs:element name="SortId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="MonetaryValue" nillable="true" type="tns:MonetaryValue" />
+   <xs:complexType name="DispatchTypeList">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Default" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DispatchTypes" nillable="true" type="tns:ArrayOfDispatchType">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="DispatchTypeList" nillable="true" type="tns:DispatchTypeList" />
+   <xs:complexType name="ArrayOfDispatchType">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="DispatchType" nillable="true" type="tns:DispatchType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfDispatchType" nillable="true" type="tns:ArrayOfDispatchType" />
+   <xs:complexType name="DispatchType">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Price" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="DispatchType" nillable="true" type="tns:DispatchType" />
+   <xs:complexType name="ArrayOfErpCredential">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="ErpCredential" nillable="true" type="tns:ErpCredential" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfErpCredential" nillable="true" type="tns:ArrayOfErpCredential" />
+   <xs:complexType name="ErpCredential">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ErpUsername" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ErpPassword" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ErpCustomerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ErpCustomerId2" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ErpCustomerId3" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ErpCredential" nillable="true" type="tns:ErpCredential" />
+   <xs:complexType name="ArrayOfNote">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="tns:Note" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfNote" nillable="true" type="tns:ArrayOfNote" />
+   <xs:complexType name="Note">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="IconUrl" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="UrlText" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Note" nillable="true" type="tns:Note" />
+   <xs:complexType name="SalesOutletList">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Default" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SalesOutlets" nillable="true" type="tns:ArrayOfSalesOutlet">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SalesOutletList" nillable="true" type="tns:SalesOutletList" />
+   <xs:complexType name="ArrayOfSalesOutlet">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="SalesOutlet" nillable="true" type="tns:SalesOutlet" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfSalesOutlet" nillable="true" type="tns:ArrayOfSalesOutlet" />
+   <xs:complexType name="SalesOutlet">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ArrayOfContact">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Notes" nillable="true" type="tns:ArrayOfNote">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="LastOrderDateTime" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SalesOutlet" nillable="true" type="tns:SalesOutlet" />
+   <xs:complexType name="ArrayOfCustomerItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerItem" nillable="true" type="tns:CustomerItem" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfCustomerItem" nillable="true" type="tns:ArrayOfCustomerItem" />
+   <xs:complexType name="CustomerItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Values" nillable="true" type="tns:ArrayOfString">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="CustomerItem" nillable="true" type="tns:CustomerItem" />
+   <xs:complexType name="ArrayOfString">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+   <xs:complexType name="OutCustomer">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:CustomerDetails">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutCustomer" nillable="true" type="tns:OutCustomer" />
+   <xs:complexType name="OutVoucherTypes">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="VoucherTypes" nillable="true" type="tns:ArrayOfVoucherType">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutVoucherTypes" nillable="true" type="tns:OutVoucherTypes" />
+   <xs:complexType name="ArrayOfVoucherType">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="VoucherType" nillable="true" type="tns:VoucherType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfVoucherType" nillable="true" type="tns:ArrayOfVoucherType" />
+   <xs:complexType name="VoucherType">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="IconId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="VoucherType" nillable="true" type="tns:VoucherType" />
+   <xs:complexType name="OutVouchers">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Vouchers" nillable="true" type="tns:ArrayOfVoucher">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="TotalGross" type="xs:decimal" />
+               <xs:element name="TotalNet" type="xs:decimal" />
+               <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="CurrentPage" type="xs:int" />
+               <xs:element name="TotalItems" type="xs:int" />
+               <xs:element name="PageSize" type="xs:int" />
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutVouchers" nillable="true" type="tns:OutVouchers" />
+   <xs:complexType name="ArrayOfVoucher">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Voucher" nillable="true" type="tns:Voucher" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfVoucher" nillable="true" type="tns:ArrayOfVoucher" />
+   <xs:complexType name="Voucher">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VoucherType" nillable="true" type="tns:VoucherType">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Date" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ArrayOfContact">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DeliveryAddress" nillable="true" type="tns:Address">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="InvoiceAddress" nillable="true" type="tns:Address">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ItemsCount" type="xs:int" />
+         <xs:element name="TotalGross" type="xs:decimal" />
+         <xs:element name="TotalNet" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="HasConnectedVouchers" type="xs:boolean" />
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PaymentInformation" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DeliveryType" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VoucherSummaryItems" nillable="true" type="tns:ArrayOfVoucherSummaryItem">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Salespoint" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VoucherDescription" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Tour" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Voucher" nillable="true" type="tns:Voucher" />
+   <xs:complexType name="ArrayOfVoucherSummaryItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="VoucherSummaryItem" nillable="true" type="tns:VoucherSummaryItem" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfVoucherSummaryItem" nillable="true" type="tns:ArrayOfVoucherSummaryItem" />
+   <xs:complexType name="VoucherSummaryItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VoucherId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Value" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="VoucherSummaryItem" nillable="true" type="tns:VoucherSummaryItem" />
+   <xs:complexType name="OutVoucherDetails">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="VoucherItems" nillable="true" type="tns:ArrayOfVoucherItem">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="CurrentPage" type="xs:int" />
+               <xs:element name="TotalItems" type="xs:int" />
+               <xs:element name="PageSize" type="xs:int" />
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutVoucherDetails" nillable="true" type="tns:OutVoucherDetails" />
+   <xs:complexType name="ArrayOfVoucherItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="VoucherItem" nillable="true" type="tns:VoucherItem" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfVoucherItem" nillable="true" type="tns:ArrayOfVoucherItem" />
+   <xs:complexType name="VoucherItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="VoucherId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="OrderNo" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="OrderDate" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="GenericArticle" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="GenericArticleId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="WholesalerArticleNumber" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SupplierArticleNumber" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SupplierId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ArticleDescription" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Quantity" type="xs:decimal" />
+         <xs:element minOccurs="0" name="QuantityUnit" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Discount" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Prices" nillable="true" type="tns:ArrayOfPrice">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="TotalGross" type="xs:decimal" />
+         <xs:element name="TotalNet" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Taxes" nillable="true" type="tns:ArrayOfTax">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ShippingMode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PlateId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="KTypeId" nillable="true" type="xs:long" />
+         <xs:element name="VehicleType" nillable="true" type="xs:int" />
+         <xs:element minOccurs="0" name="VehicleInfo" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="CanReturn" type="xs:boolean" />
+         <xs:element minOccurs="0" name="ReturnState" nillable="true" type="tns:State">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ReturnQuantity" type="xs:int" />
+         <xs:element minOccurs="0" name="ReturnReason" nillable="true" type="tns:ReturnReason">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="ReturnInfo" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="HasConnectedVouchers" type="xs:boolean" />
+         <xs:element minOccurs="0" name="BackOrderQuantity" type="xs:decimal" />
+         <xs:element minOccurs="0" name="ComplaintDate" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="VoucherItem" nillable="true" type="tns:VoucherItem" />
+   <xs:complexType name="ArrayOfPrice">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Price" nillable="true" type="tns:Price" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfPrice" nillable="true" type="tns:ArrayOfPrice" />
+   <xs:complexType name="Price">
+      <xs:sequence>
+         <xs:element name="PriceType" type="xs:int" />
+         <xs:element name="Value" type="xs:decimal" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Price" nillable="true" type="tns:Price" />
+   <xs:complexType name="ArrayOfTax">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Tax" nillable="true" type="tns:Tax" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfTax" nillable="true" type="tns:ArrayOfTax" />
+   <xs:complexType name="Tax">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Value" type="xs:decimal" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Tax" nillable="true" type="tns:Tax" />
+   <xs:complexType name="State">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="State" nillable="true" type="tns:State" />
+   <xs:complexType name="ReturnReason">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ReturnReason" nillable="true" type="tns:ReturnReason" />
+   <xs:complexType name="OutReturnItemOptions">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="ReturnStates" nillable="true" type="tns:ArrayOfState">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="ReturnReasons" nillable="true" type="tns:ArrayOfReturnReason">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutReturnItemOptions" nillable="true" type="tns:OutReturnItemOptions" />
+   <xs:complexType name="ArrayOfState">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="State" nillable="true" type="tns:State" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfState" nillable="true" type="tns:ArrayOfState" />
+   <xs:complexType name="ArrayOfReturnReason">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnReason" nillable="true" type="tns:ReturnReason" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfReturnReason" nillable="true" type="tns:ArrayOfReturnReason" />
+   <xs:complexType name="OutQueryTypes">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="QueryTypes" nillable="true" type="tns:ArrayOfQueryType">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutQueryTypes" nillable="true" type="tns:OutQueryTypes" />
+   <xs:complexType name="ArrayOfQueryType">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="QueryType" nillable="true" type="tns:QueryType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfQueryType" nillable="true" type="tns:ArrayOfQueryType" />
+   <xs:complexType name="QueryType">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="QueryType" nillable="true" type="tns:QueryType" />
+   <xs:complexType name="OutInvoices">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Invoices" nillable="true" type="tns:ArrayOfInvoice">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="States" nillable="true" type="tns:ArrayOfState">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="CurrentPage" type="xs:int" />
+               <xs:element name="TotalItems" type="xs:int" />
+               <xs:element name="PageSize" type="xs:int" />
+               <xs:element name="TotalInvoiced" type="xs:decimal" />
+               <xs:element name="TotalPaid" type="xs:decimal" />
+               <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutInvoices" nillable="true" type="tns:OutInvoices" />
+   <xs:complexType name="ArrayOfInvoice">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Invoice" nillable="true" type="tns:Invoice" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfInvoice" nillable="true" type="tns:ArrayOfInvoice" />
+   <xs:complexType name="Invoice">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="State" nillable="true" type="tns:State">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="DateOfInvoice" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="DueDate" type="xs:dateTime" />
+         <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ArrayOfContact">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DeliveryAddress" nillable="true" type="tns:Address">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="InvoiceAddress" nillable="true" type="tns:Address">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="HasConnectedVouchers" type="xs:boolean" />
+         <xs:element name="AmountInvoice" type="xs:decimal" />
+         <xs:element name="AmountPaid" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="PaymentType" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DeliveryType" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Installments" nillable="true" type="tns:ArrayOfInstallment">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="ItemsCount" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+   <xs:complexType name="ArrayOfInstallment">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Installment" nillable="true" type="tns:Installment" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfInstallment" nillable="true" type="tns:ArrayOfInstallment" />
+   <xs:complexType name="Installment">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="DueDate" type="xs:dateTime" />
+         <xs:element name="AmountInvoice" type="xs:decimal" />
+         <xs:element name="AmountPaid" type="xs:decimal" />
+         <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Installment" nillable="true" type="tns:Installment" />
+   <xs:complexType name="OutSalesInformation">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="SaleTypes" nillable="true" type="tns:ArrayOfSaleType">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="Intervals" nillable="true" type="tns:ArrayOfInt">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element minOccurs="0" name="DisplayModes" nillable="true" type="tns:ArrayOfInt">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="DefaultInterval" type="xs:int" />
+               <xs:element name="DefaultDisplayMode" type="xs:int" />
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutSalesInformation" nillable="true" type="tns:OutSalesInformation" />
+   <xs:complexType name="ArrayOfSaleType">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="SaleType" nillable="true" type="tns:SaleType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfSaleType" nillable="true" type="tns:ArrayOfSaleType" />
+   <xs:complexType name="SaleType">
+      <xs:sequence>
+         <xs:element name="Id" type="xs:int" />
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="SaleSubTypes" nillable="true" type="tns:ArrayOfSaleSubType">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SaleType" nillable="true" type="tns:SaleType" />
+   <xs:complexType name="ArrayOfSaleSubType">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="SaleSubType" nillable="true" type="tns:SaleSubType" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfSaleSubType" nillable="true" type="tns:ArrayOfSaleSubType" />
+   <xs:complexType name="SaleSubType">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="IsDefault" type="xs:boolean" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="SaleSubType" nillable="true" type="tns:SaleSubType" />
+   <xs:complexType name="ArrayOfInt">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfInt" nillable="true" type="tns:ArrayOfInt" />
+   <xs:complexType name="OutSales">
+      <xs:complexContent mixed="false">
+         <xs:extension base="tns:BaseResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="Sales" nillable="true" type="tns:ArrayOfSale">
+                  <xs:annotation>
+                     <xs:appinfo>
+                        <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="OutSales" nillable="true" type="tns:OutSales" />
+   <xs:complexType name="ArrayOfSale">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="Sale" nillable="true" type="tns:Sale" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfSale" nillable="true" type="tns:ArrayOfSale" />
+   <xs:complexType name="Sale">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Value" type="xs:decimal" />
+         <xs:element minOccurs="0" name="SaleSubType" nillable="true" type="tns:SaleSubType">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Date" type="xs:dateTime" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Sale" nillable="true" type="tns:Sale" />
+   <xs:element name="GetSessionResponse" nillable="true" type="tns:GetSessionResponseBody" />
+   <xs:complexType name="GetCustomersRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="query" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="queryTypeId" type="xs:int" />
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+         <xs:element minOccurs="0" name="pageId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetCustomersRequestBody" nillable="true" type="tns:GetCustomersRequestBody" />
+   <xs:element name="GetCustomers" nillable="true" type="tns:GetCustomersRequestBody" />
+   <xs:complexType name="GetCustomersResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetCustomersResult" nillable="true" type="tns:OutCustomers">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetCustomersResponseBody" nillable="true" type="tns:GetCustomersResponseBody" />
+   <xs:element name="GetCustomersResponse" nillable="true" type="tns:GetCustomersResponseBody" />
+   <xs:complexType name="GetCustomerRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetCustomerRequestBody" nillable="true" type="tns:GetCustomerRequestBody" />
+   <xs:element name="GetCustomer" nillable="true" type="tns:GetCustomerRequestBody" />
+   <xs:complexType name="GetCustomerResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetCustomerResult" nillable="true" type="tns:OutCustomer">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetCustomerResponseBody" nillable="true" type="tns:GetCustomerResponseBody" />
+   <xs:element name="GetCustomerResponse" nillable="true" type="tns:GetCustomerResponseBody" />
+   <xs:complexType name="GetVoucherTypesRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetVoucherTypesRequestBody" nillable="true" type="tns:GetVoucherTypesRequestBody" />
+   <xs:element name="GetVoucherTypes" nillable="true" type="tns:GetVoucherTypesRequestBody" />
+   <xs:complexType name="GetVoucherTypesResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetVoucherTypesResult" nillable="true" type="tns:OutVoucherTypes">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetVoucherTypesResponseBody" nillable="true" type="tns:GetVoucherTypesResponseBody" />
+   <xs:element name="GetVoucherTypesResponse" nillable="true" type="tns:GetVoucherTypesResponseBody" />
+   <xs:complexType name="GetVouchersRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="filter" nillable="true" type="tns:Filter">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="voucherTypeId" type="xs:int" />
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+         <xs:element minOccurs="0" name="pageId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetVouchersRequestBody" nillable="true" type="tns:GetVouchersRequestBody" />
+   <xs:complexType name="Filter">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="Query" nillable="true" type="tns:QueryType">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="QueryValue" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DateFrom" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="DateTo" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Filter" nillable="true" type="tns:Filter" />
+   <xs:element name="GetVouchers" nillable="true" type="tns:GetVouchersRequestBody" />
+   <xs:complexType name="GetVouchersResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetVouchersResult" nillable="true" type="tns:OutVouchers">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetVouchersResponseBody" nillable="true" type="tns:GetVouchersResponseBody" />
+   <xs:element name="GetVouchersResponse" nillable="true" type="tns:GetVouchersResponseBody" />
+   <xs:complexType name="GetVoucherDetailsRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="voucherId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="voucherTypeId" type="xs:int" />
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+         <xs:element minOccurs="0" name="pageId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetVoucherDetailsRequestBody" nillable="true" type="tns:GetVoucherDetailsRequestBody" />
+   <xs:element name="GetVoucherDetails" nillable="true" type="tns:GetVoucherDetailsRequestBody" />
+   <xs:complexType name="GetVoucherDetailsResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetVoucherDetailsResult" nillable="true" type="tns:OutVoucherDetails">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetVoucherDetailsResponseBody" nillable="true" type="tns:GetVoucherDetailsResponseBody" />
+   <xs:element name="GetVoucherDetailsResponse" nillable="true" type="tns:GetVoucherDetailsResponseBody" />
+   <xs:complexType name="GetReturnItemOptionsRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetReturnItemOptionsRequestBody" nillable="true" type="tns:GetReturnItemOptionsRequestBody" />
+   <xs:element name="GetReturnItemOptions" nillable="true" type="tns:GetReturnItemOptionsRequestBody" />
+   <xs:complexType name="GetReturnItemOptionsResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetReturnItemOptionsResult" nillable="true" type="tns:OutReturnItemOptions">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetReturnItemOptionsResponseBody" nillable="true" type="tns:GetReturnItemOptionsResponseBody" />
+   <xs:element name="GetReturnItemOptionsResponse" nillable="true" type="tns:GetReturnItemOptionsResponseBody" />
+   <xs:complexType name="ReturnItemsRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="returnableItems" nillable="true" type="tns:ArrayOfReturnItem">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ReturnItemsRequestBody" nillable="true" type="tns:ReturnItemsRequestBody" />
+   <xs:complexType name="ArrayOfReturnItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnItem" nillable="true" type="tns:ReturnItem" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ArrayOfReturnItem" nillable="true" type="tns:ArrayOfReturnItem" />
+   <xs:complexType name="ReturnItem">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="VoucherItemId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="Quantity" type="xs:int" />
+         <xs:element name="ReasonId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ReturnItem" nillable="true" type="tns:ReturnItem" />
+   <xs:element name="ReturnItems" nillable="true" type="tns:ReturnItemsRequestBody" />
+   <xs:complexType name="ReturnItemsResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ReturnItemsResult" nillable="true" type="tns:BaseResponse">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ReturnItemsResponseBody" nillable="true" type="tns:ReturnItemsResponseBody" />
+   <xs:element name="ReturnItemsResponse" nillable="true" type="tns:ReturnItemsResponseBody" />
+   <xs:complexType name="ResetVoucherItemsCanReturnPropertyRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="voucherId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ResetVoucherItemsCanReturnPropertyRequestBody" nillable="true" type="tns:ResetVoucherItemsCanReturnPropertyRequestBody" />
+   <xs:element name="ResetVoucherItemsCanReturnProperty" nillable="true" type="tns:ResetVoucherItemsCanReturnPropertyRequestBody" />
+   <xs:complexType name="ResetVoucherItemsCanReturnPropertyResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="ResetVoucherItemsCanReturnPropertyResult" nillable="true" type="tns:BaseResponse">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="ResetVoucherItemsCanReturnPropertyResponseBody" nillable="true" type="tns:ResetVoucherItemsCanReturnPropertyResponseBody" />
+   <xs:element name="ResetVoucherItemsCanReturnPropertyResponse" nillable="true" type="tns:ResetVoucherItemsCanReturnPropertyResponseBody" />
+   <xs:complexType name="GetConnectedVouchersRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="parentId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="connectionType" type="xs:int" />
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+         <xs:element minOccurs="0" name="pageId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetConnectedVouchersRequestBody" nillable="true" type="tns:GetConnectedVouchersRequestBody" />
+   <xs:element name="GetConnectedVouchers" nillable="true" type="tns:GetConnectedVouchersRequestBody" />
+   <xs:complexType name="GetConnectedVouchersResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetConnectedVouchersResult" nillable="true" type="tns:OutVouchers">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetConnectedVouchersResponseBody" nillable="true" type="tns:GetConnectedVouchersResponseBody" />
+   <xs:element name="GetConnectedVouchersResponse" nillable="true" type="tns:GetConnectedVouchersResponseBody" />
+   <xs:complexType name="GetQueryTypesCustomerRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetQueryTypesCustomerRequestBody" nillable="true" type="tns:GetQueryTypesCustomerRequestBody" />
+   <xs:element name="GetQueryTypesCustomer" nillable="true" type="tns:GetQueryTypesCustomerRequestBody" />
+   <xs:complexType name="GetQueryTypesCustomerResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetQueryTypesCustomerResult" nillable="true" type="tns:OutQueryTypes">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetQueryTypesCustomerResponseBody" nillable="true" type="tns:GetQueryTypesCustomerResponseBody" />
+   <xs:element name="GetQueryTypesCustomerResponse" nillable="true" type="tns:GetQueryTypesCustomerResponseBody" />
+   <xs:complexType name="GetQueryTypesVoucherRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetQueryTypesVoucherRequestBody" nillable="true" type="tns:GetQueryTypesVoucherRequestBody" />
+   <xs:element name="GetQueryTypesVoucher" nillable="true" type="tns:GetQueryTypesVoucherRequestBody" />
+   <xs:complexType name="GetQueryTypesVoucherResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetQueryTypesVoucherResult" nillable="true" type="tns:OutQueryTypes">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetQueryTypesVoucherResponseBody" nillable="true" type="tns:GetQueryTypesVoucherResponseBody" />
+   <xs:element name="GetQueryTypesVoucherResponse" nillable="true" type="tns:GetQueryTypesVoucherResponseBody" />
+   <xs:complexType name="GetInvoicesRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="filter" nillable="true" type="tns:Filter">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+         <xs:element minOccurs="0" name="pageId" type="xs:int" />
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetInvoicesRequestBody" nillable="true" type="tns:GetInvoicesRequestBody" />
+   <xs:element name="GetInvoices" nillable="true" type="tns:GetInvoicesRequestBody" />
+   <xs:complexType name="GetInvoicesResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetInvoicesResult" nillable="true" type="tns:OutInvoices">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetInvoicesResponseBody" nillable="true" type="tns:GetInvoicesResponseBody" />
+   <xs:element name="GetInvoicesResponse" nillable="true" type="tns:GetInvoicesResponseBody" />
+   <xs:complexType name="GetSalesInformationRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetSalesInformationRequestBody" nillable="true" type="tns:GetSalesInformationRequestBody" />
+   <xs:element name="GetSalesInformation" nillable="true" type="tns:GetSalesInformationRequestBody" />
+   <xs:complexType name="GetSalesInformationResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetSalesInformationResult" nillable="true" type="tns:OutSalesInformation">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetSalesInformationResponseBody" nillable="true" type="tns:GetSalesInformationResponseBody" />
+   <xs:element name="GetSalesInformationResponse" nillable="true" type="tns:GetSalesInformationResponseBody" />
+   <xs:complexType name="GetSalesRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="dateFrom" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="dateTo" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetSalesRequestBody" nillable="true" type="tns:GetSalesRequestBody" />
+   <xs:element name="GetSales" nillable="true" type="tns:GetSalesRequestBody" />
+   <xs:complexType name="GetSalesResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetSalesResult" nillable="true" type="tns:OutSales">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetSalesResponseBody" nillable="true" type="tns:GetSalesResponseBody" />
+   <xs:element name="GetSalesResponse" nillable="true" type="tns:GetSalesResponseBody" />
+   <xs:complexType name="GetEnabledFunctionsRequestBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0" name="language" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetEnabledFunctionsRequestBody" nillable="true" type="tns:GetEnabledFunctionsRequestBody" />
+   <xs:element name="GetEnabledFunctions" nillable="true" type="tns:GetEnabledFunctionsRequestBody" />
+   <xs:complexType name="GetEnabledFunctionsResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetEnabledFunctionsResult" nillable="true" type="tns:ArrayOfString">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetEnabledFunctionsResponseBody" nillable="true" type="tns:GetEnabledFunctionsResponseBody" />
+   <xs:element name="GetEnabledFunctionsResponse" nillable="true" type="tns:GetEnabledFunctionsResponseBody" />
+   <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" name="GetVersion" nillable="true" type="q1:GetVersionRequestBody" />
+   <xs:complexType name="GetVersionResponseBody">
+      <xs:sequence>
+         <xs:element minOccurs="0" name="GetVersionResult" nillable="true" type="xs:string">
+            <xs:annotation>
+               <xs:appinfo>
+                  <DefaultValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/" EmitDefaultValue="false" />
+               </xs:appinfo>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GetVersionResponseBody" nillable="true" type="tns:GetVersionResponseBody" />
+   <xs:element name="GetVersionResponse" nillable="true" type="tns:GetVersionResponseBody" />
+</xs:schema>

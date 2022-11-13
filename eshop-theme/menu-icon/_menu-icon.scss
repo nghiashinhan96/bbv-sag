@@ -1,0 +1,234 @@
+@import "variables";
+
+@font-face {
+    font-family: '#{$icomoon-font-family}';
+    src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?d1pbym') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?d1pbym') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?d1pbym##{$icomoon-font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+i.sag-icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: '#{$icomoon-font-family}' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 26px;
+
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+}
+
+.icon-15 {
+    &:before {
+        content: $sag-15;
+    }
+}
+
+.icon-106 {
+    &:before {
+        content: $sag-106;
+    }
+}
+
+.icon-auto-service {
+    &:before {
+        content: $sag-auto-service;
+    }
+}
+
+.icon-badge {
+    &:before {
+        content: $sag-badge;
+    }
+}
+
+.icon-battery {
+    &:before {
+        content: $sag-battery;
+    }
+}
+
+.icon-brake {
+    &:before {
+        content: $sag-brake;
+    }
+}
+
+.icon-car {
+    width: 3rem !important;
+    height: 2.8rem !important;
+    font-size: 3rem !important;
+
+    &:before {
+        content: $sag-car;
+    }
+}
+
+.icon-info {
+    &:before {
+        content: $sag-info;
+    }
+}
+
+.icon-liftcar {
+    &:before {
+        content: $sag-liftcar;
+    }
+}
+
+.icon-motobike {
+    &:before {
+        content: $sag-motobike;
+    }
+}
+
+.icon-offers {
+    &:before {
+        content: $sag-offers;
+    }
+}
+
+.icon-roofbox {
+    &:before {
+        content: $sag-roofbox;
+    }
+}
+
+.icon-rtf {
+    &:before {
+        content: $sag-rtf;
+    }
+}
+
+.icon-special-offer {
+    &:before {
+        content: $sag-special-offer;
+    }
+}
+
+.icon-spray-bottle {
+    &:before {
+        content: $sag-spray-bottle;
+    }
+}
+
+.icon-tools {
+    &:before {
+        content: $sag-tools;
+    }
+}
+
+.icon-truck {
+    width: 2.6rem !important;
+    height: 2.4rem !important;
+    font-size: 2.6rem !important;
+
+    &:before {
+        content: $sag-truck;
+    }
+}
+
+.icon-tyre {
+    &:before {
+        content: $sag-tyre;
+    }
+}
+
+.icon-cz-battery {
+    &:before {
+        content: $cz-battery;
+    }
+}
+
+.icon-cz-uni-cat {
+    &:before {
+        content: $cz-uni-cat;
+    }
+}
+
+.icon-cz-sag-info {
+    &:before {
+        content: $cz-sag-info;
+    }
+}
+
+.icon-cz-import {
+    &:before {
+        content: $cz-import;
+    }
+}
+
+.icon-cz-default {
+    &:before {
+        content: $cz-default;
+    }
+}
+
+.icon-cz-bulb {
+    &:before {
+        content: $cz-bulb;
+    }
+}
+
+.icon-outletbox {
+    &:before {
+        content: $sag-outletbox;
+    }
+}
+
+.icon-universal-part {
+    &:before {
+        content: $sag-universal-part;
+    }
+}
+
+.icon-cz-webcat {
+    &:before {
+        content: $cz-webcat;
+    }
+}
+
+.icon-rent-tools {
+    &:before {
+        content: $sag-rent-tools;
+    }
+}
+
+.icon-ch-motorbike {
+    height: 30px !important;
+    font-size: 30px !important;
+    &:before {
+        content: $sag-ch-motorbike;
+    }
+}
+
+.icon-ch-lv {
+    height: 30px !important;
+    font-size: 30px !important;
+    &:before {
+        content: $sag-ch-lv;
+    }
+}
+
+.icon-cz-motorbike {
+    &:before {
+        content: $sag-cz-motorbike;
+    }
+}
+
+.icon-cz-lv {
+    &:before {
+        content: $sag-cz-lv;
+    }
+}

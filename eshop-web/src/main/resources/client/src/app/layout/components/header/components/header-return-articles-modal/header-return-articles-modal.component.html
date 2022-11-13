@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4>{{'RETURN_ARTICLE_BASKET.TABLE_TITLE' | translate}} - {{term}}</h4>
+    <a href="javascript:void(0)"><i class="fa fa-times-circle close" (click)="bsModalRef.hide()"></i></a>
+</div>
+<div class="modal-body">
+    <sag-table [firstlySearch]="false" [selectable]="!rowsSelected" [columns]="columns"
+    notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}" [rows]="articles"
+    [showNotFoundOnFirstLoad]="false" (selectRow)="onClickArticle($event)"></sag-table>
+</div>
+<div class="modal-footer">
+    <button [disabled]="!rowsSelected" type="button" class="btn btn-primary" (click)="submit()">{{'RETURN_ARTICLE_BASKET.CREATE_SELECTED_RETURNS' | translate }}</button>
+</div>
+<ng-template #colCheckbox let-row="row">
+    <input class="mt-0" type="checkbox" name="selected-person" (click)="$event.stopPropagation()" (change)="onCheckArticle($event, row)"
+        [checked]="row.selected">
+</ng-template>

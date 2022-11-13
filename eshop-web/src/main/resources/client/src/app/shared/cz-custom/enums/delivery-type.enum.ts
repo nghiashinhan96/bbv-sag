@@ -1,0 +1,4 @@
+export enum CZ_DELIVERY_TYPE {
+    TOUR = 'ROZVOZ STAHLGRUBER',
+    PICKUP = 'OSOBNÍ ODBĚR NA POBOČCE'
+}

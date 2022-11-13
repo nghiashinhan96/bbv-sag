@@ -1,0 +1,32 @@
+a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+        color: $primary;
+        text-decoration: none;
+    }
+
+    &.disabled,
+    &[disabled] {
+        color: $grey;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    i.fa-angle-right {
+        padding-right: 0.25rem;
+    }
+    &.bold,
+    .bold {
+        font-weight: 500;
+    }
+
+    &.inversed {
+        color: $text-color;
+        &:hover {
+            color: $primary;
+            text-decoration: none;
+        }
+    }
+}

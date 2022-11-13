@@ -1,0 +1,51 @@
+<div class="slider-bar-chart-container">
+    <div class="chart">
+        <canvas class="bar-chart"
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [chartType]="barChartType"
+        >
+        </canvas>
+    </div>
+    <div class="custom-slider">
+        <ngx-slider
+            [(value)]="lowerValue"
+            [(highValue)]="highValue"
+            [options]="options"
+            (valueChange)="onSliderValueChange($event)"
+            (highValueChange)="onSliderValueChange($event)"
+            (userChangeEnd)="onSliderUserChange($event)"
+        >
+        </ngx-slider> 
+    </div>
+    <div class="range-input-wrapper">
+        <div class="range-input">
+            <ng-select #lowerInput class="ng-select-filter" [ngModel]="lowerValue" [items]="lowerInputItems"
+                (change)="onLowerInputChange($event)" [clearable]="false" data-automation="slider-lower-input">
+                <ng-template ng-label-tmp let-item="item">
+                    <div class="range-input-value-container">
+                        <a href="javascript:void(0)" *ngIf="lowerValue !== options.floor" class="reset-link" (click)="onResetIconClick($event)">
+                            <i class="fa fa-undo reset-link-icon"></i>
+                        </a>
+                        <span class="range-input-value">{{ item }}</span>
+                    </div>
+                </ng-template>
+            </ng-select>
+        </div>
+        <div class="range-input">
+            <ng-select #highInput class="ng-select-filter" [ngModel]="highValue" [items]="highInputItems"
+                (change)="onHighInputChange($event)" [clearable]="false" data-automation="slider-high-input">
+                <ng-template ng-label-tmp let-item="item">
+                    <div class="range-input-value-container">
+                        <a href="javascript:void(0)" *ngIf="highValue !== options.ceil" class="reset-link" (click)="onResetIconClick($event, true)">
+                            <i class="fa fa-undo reset-link-icon"></i>
+                        </a>
+                        <span class="range-input-value">{{ item }}</span>
+                    </div>
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+</div>

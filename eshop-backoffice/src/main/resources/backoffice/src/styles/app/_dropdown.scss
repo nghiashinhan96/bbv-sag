@@ -1,0 +1,88 @@
+ng-select.sag-select {
+    position: relative;
+
+    .toggle {
+        display: none;
+    }
+
+    select-dropdown {
+        > div {
+            z-index: 9;
+
+            .options {
+                max-height: 300px;
+
+                ul {
+                    li {
+                        color: #444;
+                        font-size: 12px;
+                        line-height: 1.2;
+                        font-family: Arial;
+                        font-weight: bold;
+                        padding: 5px;
+
+                        &.highlighted,
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .highlighted,
+        .selected.highlighted {
+            background-color: $brand-color;
+        }
+    }
+
+    > div {
+        border: none;
+
+        > div.single {
+            display: flex;
+            height: 34px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 3px;
+
+            &:before {
+                font: normal normal normal 12px/1 FontAwesome;
+                content: '\f107';
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 1;
+                width: 28px;
+                height: 34px;
+                line-height: 34px;
+                background-color: #555;
+                color: #fff;
+                text-align: center;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+
+            > div.value {
+                padding: 0 28px 0 5px;
+                font-weight: bold;
+            }
+
+            > div.value,
+            > div.placeholder {
+                height: 34px;
+                line-height: 34px;
+            }
+        }
+    }
+
+    &[append='body'] {
+        select-dropdown div.below {
+            width: auto !important;
+            ul > li {
+                white-space: nowrap !important;
+            }
+        }
+    }
+}

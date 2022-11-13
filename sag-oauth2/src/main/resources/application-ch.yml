@@ -1,0 +1,21 @@
+# ************************************************************************
+# This is the CH configuration of OAuth2 application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Liquibase - 
+# - Caching - 
+# - Country Code - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  ax-pre-cloud, 
+  db-ch, 
+  elasticsearch-dev,
+  no-liquibase, 
+  cache-dev, 
+  country-ch
+
+spring.banner.location: classpath:banner/banner_ch.txt

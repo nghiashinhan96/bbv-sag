@@ -1,0 +1,249 @@
+<div class="card panel panel-primary mb-4">
+    <div class="card-header">
+        <connect-expanded [title]="'MESSAGE.EDIT_MESSAGE'" [(expand)]="isFormEditExpand">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isFormEditExpand && formEditMess">
+        <form class="form-horizontal" [formGroup]="formEditMess">
+            <div class="form-group row">
+                <div class="col-12">
+                    <p><label>{{'MESSAGE.MESSAGE_TITILE' | translate}} *</label></p>
+                </div>
+                <div class="col-12">
+                    <input type="text" class="form-control" maxlength="200" formControlName="title">
+                </div>
+            </div>
+            <div *ngIf="!title && attemptedSubmit" class="alert alert-danger">
+                {{'MESSAGE.THIS_FIELD_IS_REQUIRED' | translate}}
+            </div>
+            <br>
+            <div class="form-group ms-content row" *ngIf="languages.length">
+                <div class="col-12">
+                    <p><label>{{'MESSAGE.MESSAGE_CONTENT' | translate}} *</label></p>
+                </div>
+                <div class="col-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" *ngFor="let lang of languages" class="nav-item">
+                            <a href="javascript:void(0)" [attr.aria-controls]="'language-'+lang.langIso" role="tab"
+                                data-toggle="tab" (click)="initAutoFocus(lang.langIso)"
+                                [class]="lang.langIso==currentEditorLang ? 'nav-link active' : 'nav-link' ">
+                                {{'MESSAGE.'+ lang.langIso | translate}}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div *ngFor="let lang of languages"
+                            [class]="lang.langIso==currentEditorLang ? 'tab-pane active' : 'tab-pane' " role="tabpanel"
+                            id="language-{{lang.langIso}}">
+                            <md-editor class="custom-editor" name="content" mode="editor"
+                                [formControlName]="lang.langIso" required [options]="markdownOptions">
+                            </md-editor>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isInvalidLanguages && attemptedSubmit" class="alert alert-danger">
+                {{'MESSAGE.MESSAGE_CONTENT_IS_REQUIRED_FOR_ALL_LANGUAGE' | translate}}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="card panel panel-primary mb-4">
+    <div class="card-header">
+        <connect-expanded [title]="'MESSAGE.MESSAGE_SETTING'" [(expand)]="isFormSettingExpand">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isFormSettingExpand && formSettingMess">
+        <form class="form-horizontal" [formGroup]="formSettingMess">
+            <h5>{{'MESSAGE.SYSTEM' | translate}}</h5>
+            <hr>
+            <div class="form-group row">
+                <label for="active-checkbox" class="col-3 control-label">{{'MESSAGE.ENABLE' | translate}}</label>
+                <div class="col-4">
+                    <input type="checkbox" formControlName="active" name="active-checkbox">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="active-checkbox" class="col-3 control-label">{{'MESSAGE.SSO_TRAINING' | translate}}</label>
+                <div class="col-4">
+                    <input type="checkbox" formControlName="ssoTraining" name="active-checkbox">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.SCOPE_LOCATION' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="locationTypes"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="locationTypeId"
+                        bindLabel="label" bindValue="value" (close)="selectLocationType()" [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="isSelectedAffiliateAsLocationType">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.AFFILIATE' | translate}}
+                </label>
+                <section class="col-4 affiliate-checkbox">
+                    <div *ngFor="let affiliate of supportedAffiliatesSelectCtrs.controls; let i = index">
+                        <div class="form-group row">
+                            <div class="col-1">
+                                <input type="checkbox" [formControl]="affiliate"
+                                    (change)="onChangeSupportedAffiliates($event,supportedAffiliates[i])" />
+                            </div>
+                            <label class="col-8">{{supportedAffiliates[i].label}}</label>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <div class="form-group row" *ngIf="isSelectedCustomerAsLocationType">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.CUSTOMER_NUMBER' | translate}} *
+                </label>
+                <div class="col-4">
+                    <input type="text" boNumberField maxlength="10" class="form-control" formControlName="customerNr">
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="isInvalidCustomerNr && attemptedSubmit">
+                <div class="col-3"></div>
+                <div class="col-4">
+                    <div class="alert alert-danger">
+                        {{'MESSAGE.THIS_FIELD_IS_REQUIRED' | translate}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.USER_ROLE' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="roleTypes"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="roleTypeId"
+                        bindLabel="label" bindValue="value" (change)="selectUserRoleType()" [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="isSelectedRoleHasMoreThanOneGroup">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.USER_TYPE' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="userGroups"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="accessRightId"
+                        bindLabel="label" bindValue="value" (close)="selectAccessRightId()" [clearable]=" false">
+                    </ng-select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="dateValidFrom" class="col-3 control-label">{{'MESSAGE.START_DATE' | translate}}</label>
+                <div class="col-4">
+                    <div class="input-group">
+                        <input class="form-control" angular-mydatepicker name="dateFrom"
+                            [options]="datePickerFromSetting" #dpFrom="angular-mydatepicker" formControlName="dateFrom"
+                            [locale]="locale"
+                            (dateChanged)="onDateFromChanged($event)" (click)="dpFrom.toggleCalendar()"
+                            autocomplete="off" />
+                        <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dateValidTo" class="col-3 control-label">{{'MESSAGE.END_DATE' | translate}}</label>
+                <div class="col-4">
+                    <div class="input-group">
+                        <input class="form-control" angular-mydatepicker name="dateTo" [options]="datePickerToSetting"
+                            #dpTo="angular-mydatepicker" formControlName="dateTo"
+                            [locale]="locale"
+                            (dateChanged)="onDateToChanged($event)" (click)="dpTo.toggleCalendar()"
+                            autocomplete="off" />
+                        <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h5 class="interface-title">{{'MESSAGE.INTERFACE'|translate}}</h5>
+            <hr>
+            <!-- style start   -->
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.TYPE' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="styles"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="styleId"
+                        bindLabel="label" bindValue="value" (close)="selectStyleId()" [clearable]=" false"></ng-select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.METHOD' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="visibilities"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="visibilityId"
+                        bindLabel="label" bindValue="value" (close)="selectVisibilities()" [clearable]=" false">
+                    </ng-select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.BLOCK_TYPE' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="types"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="typeId"
+                        bindLabel="label" bindValue="value" (close)="selectTypeId()" [clearable]=" false"></ng-select>
+                </div>
+            </div>
+
+            <div class="form-group row" *ngIf="isSelectedPanelAsBlockType">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.PAGE' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="areas"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="areaId"
+                        bindLabel="label" bindValue="value" (change)="selectArea()" [clearable]=" false"></ng-select>
+                </div>
+            </div>
+
+            <div class="form-group row" *ngIf="isSelectedPanelAsBlockType && isSelectedAreaHasMoreThanOneSubArea">
+                <label class="col-3 control-label">
+                    {{'MESSAGE.POSITION' | translate}}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="subAreas"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="subAreaId"
+                        bindLabel="label" bindValue="value" (close)="selectSubArea()" [clearable]=" false"></ng-select>
+                </div>
+            </div>
+
+            <notification [notifier]="messageNotifier"></notification>
+        </form>
+    </div>
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group row">
+        <div class="col-12">
+            <button class=" btn btn-default pull-left btn-back"
+                (click)="backToMessageListPage()">
+                <i class="fa fa-arrow-left left"></i> {{'COMMON.BUTTON.BACK' | translate}}</button>
+            <button class=" btn btn-primary pull-right btn-save"
+                (click)="createMessagse()"><i class="fa fa-save"></i> {{'COMMON.BUTTON.SAVE' | translate}}</button>
+        </div>
+    </div>
+</div>

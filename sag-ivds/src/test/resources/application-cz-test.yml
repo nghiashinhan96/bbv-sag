@@ -1,0 +1,24 @@
+spring.profiles.include: 
+  stakis-erp-pre,
+  incentive-dev,
+  hp-normal-cz,
+  hpback-cz-dev,
+  plate,
+  gtmotive-cz-dev,
+  mdm-pre,
+  oates-pre-ch,
+  mail-dev,
+  elasticsearch-pre,
+  db-cz-pre,
+  cache-dev-test,
+  executor-pool-test,
+  connect,
+  no-liquibase,
+  country-cz,
+  no-proxy,
+  thule-pre
+
+logging:
+  level:
+    org.elasticsearch.bootstrap: ERROR
+    com.sagag.services.ivds: DEBUG

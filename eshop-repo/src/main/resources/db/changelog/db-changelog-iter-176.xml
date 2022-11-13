@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_176_ALTER_WSS_MARGINS_ARTICLE_GROUP_SCHEMA">
+    <sql>
+    	DROP TABLE IF EXISTS WSS_CUSTOMER_ARTICLE_GROUP
+    	
+    	IF NOT EXISTS
+		(
+			SELECT COLUMN_NAME
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = 'WSS_MARGINS_ARTICLE_GROUP'
+				AND COLUMN_NAME = 'CUSTOMER_ART_GROUP_ID'
+		)
+		ALTER TABLE WSS_MARGINS_ARTICLE_GROUP ADD CUSTOMER_ART_GROUP_ID varchar(255);
+    	
+    	IF NOT EXISTS
+		(
+			SELECT COLUMN_NAME
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = 'WSS_MARGINS_ARTICLE_GROUP'
+				AND COLUMN_NAME = 'IS_MAPPED'
+		)
+     	ALTER TABLE WSS_MARGINS_ARTICLE_GROUP ADD IS_MAPPED bit NOT NULL DEFAULT 0
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_176_ADD_LEAF_ID_WSS_MARGINS_ARTICLE_GROUP_SCHEMA">
+    <sql>
+     	ALTER TABLE WSS_MARGINS_ARTICLE_GROUP ADD LEAF_ID varchar(255)
+     	
+     	ALTER TABLE WSS_MARGINS_ARTICLE_GROUP ADD PARENT_LEAF_ID varchar(255)
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_176_ADD_DEFAULT_FLAG_WSS_MARGINS_ARTICLE_GROUP_SCHEMA">
+    <sql>
+    	IF NOT EXISTS
+		(
+			SELECT COLUMN_NAME
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = 'WSS_MARGINS_ARTICLE_GROUP'
+				AND COLUMN_NAME = 'IS_DEFAULT'
+		)
+		ALTER TABLE WSS_MARGINS_ARTICLE_GROUP ADD IS_DEFAULT bit NOT NULL DEFAULT 0
+    </sql>
+  </changeSet>
+  
+</databaseChangeLog>

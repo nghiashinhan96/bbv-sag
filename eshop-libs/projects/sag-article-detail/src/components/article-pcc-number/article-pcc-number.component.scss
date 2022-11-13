@@ -1,0 +1,17 @@
+.article-pcc-number {
+    padding: 2px 0;
+    font-size: 12px;
+
+    &__label {
+        font-style: italic;
+    }
+
+    &.text-truncate {
+        .article-pcc-number__data {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+    }
+}

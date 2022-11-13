@@ -1,0 +1,24 @@
+<ng-container *ngIf="isPDP; else defaultPriceRef">
+    <sag-article-avail-popup-price-pdp [article]="article" [userSetting]="userSetting" [basketType]="basketType"
+        [currency]="currency" [affiliateCode]="affiliateCode"
+        [currentStateVatConfirm]="currentStateVatConfirm"
+        >
+    </sag-article-avail-popup-price-pdp>
+</ng-container>
+
+<ng-template #defaultPriceRef>
+    <div class="price-info" *ngIf="!isFinalCustomer, else fcPrice">
+        <sag-article-avail-popup-price-default [article]="article" [basketType]="basketType" [userSetting]="userSetting"
+            [currency]="currency" [affiliateCode]="affiliateCode"
+            [currentStateVatConfirm]="currentStateVatConfirm"
+            >
+        </sag-article-avail-popup-price-default>
+    </div>
+</ng-template>
+
+<ng-template #fcPrice>
+    <sag-article-avail-popup-price-final [article]="article" [userSetting]="userSetting" [currency]="currency" [affiliateCode]="affiliateCode"
+    [currentStateVatConfirm]="currentStateVatConfirm"
+    >
+    </sag-article-avail-popup-price-final>
+</ng-template>

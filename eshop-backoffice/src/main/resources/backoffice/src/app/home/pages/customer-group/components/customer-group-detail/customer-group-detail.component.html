@@ -1,0 +1,114 @@
+<div class="panel panel-primary card mb-4">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{ "HOME.LABEL.AFFILIATE_SEARCH.AFFILIATE_INFO" | translate }}
+        </h3>
+    </div>
+    <ng-container *ngIf="customerGroupDetail$ | async as customerGroupDetail">
+        <form [formGroup]="customerGroupDetailForm" class="panel-body">
+            <div class="form-group row">
+                <label class="col-3 control-label mandatory">
+                    {{"CUSTOMER_GROUP.NAME" | translate}}
+                </label>
+                <div class="col-5">
+                    <input class="form-control" formControlName="name" type="text" maxlength="150" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{"CUSTOMER_GROUP.TABLE_RESULT.AFFILIATE" | translate}}</label>
+                <div class="col-5">
+                    <ng-select class="sag-select" name="affiliate" [items]="affiliates" bindValue="value"
+                        notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" formControlName="affiliateShortName"
+                        bindLabel="label" bindValue="value"
+                        [clearable]="false"></ng-select>
+                </div>
+            </div>
+            <ng-container [formGroup]="settings" *ngIf="customerGroupDetailForm.get('affiliateShortName')?.value">
+                <div class="form-group row">
+                    <label class="col-3 control-label mandatory">
+                        {{"CUSTOMER_GROUP.TITLE" | translate}}
+                    </label>
+                    <div class="col-5">
+                        <input class="form-control" formControlName="title" type="text" maxlength="150" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{"CUSTOMER_GROUP.LOGO" | translate}}
+                    </label>
+                    <div class="col-5">
+                        <div class="logo"
+                            [ngClass]="{'height-auto':(!!newLogo || !!settings.get('logo_image').value) && !inProgressImg}">
+                            <div class="controls" *ngIf="!!newLogo || !!settings.get('logo_image').value">
+                                <button class="btn btn-primary mr-2" (click)="uploadImage()">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="btn btn-danger" (click)="removeLogoHandler()">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                            <ng-container *ngIf="!!newLogo || !!settings.get('logo_image').value;else noImg">
+                                <img src="{{ newLogo }}" *ngIf="!!newLogo; else logo" class="logo-image" />
+                                <ng-template #logo>
+                                    <img src="{{ settings.get('logo_image')?.value }}" class="logo-image"
+                                        *ngIf="!inProgressImg" />
+                                    <label class="no-image" *ngIf="inProgressImg">
+                                        Processing...
+                                    </label>
+                                </ng-template>
+                            </ng-container>
+                            <ng-template #noImg>
+                                <label class="no-image" (click)="uploadImage()">
+                                    <i class="fa fa-upload"></i>
+                                    {{ "CUSTOMER_GROUP.UPLOAD_LOGO_TITLE" | translate }}
+                                </label>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row mt-40">
+                    <div class="col-12">
+                        <label>
+                            {{ "CUSTOMER_GROUP.STANDARD_PERMISSIONS" | translate }}
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <ng-container *ngFor="let permission of permissions.controls">
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="form-group row" [formGroup]="permission">
+                                <label class="col-6 control-label permission-label">
+                                    {{ permission.get("permission").value }}
+                                </label>
+                                <div class="col-6">
+                                    <input type="checkbox" formControlName="enable" />
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <div class="row mt-10" *ngIf="notifier">
+                <div class="col-12">
+                    <notification [notifier]="notifier"></notification>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-default pull-left" type="button" (click)="backToList()">
+                    <i class="fa fa-arrow-left left"></i>
+                    {{ "COMMON.BUTTON.BACK" | translate }}
+                </button>
+                <button class="btn btn-primary pull-right" type="button" (click)="createNewGroup()"
+                    [disabled]="customerGroupDetailForm.invalid">
+                    <i class="fa fa-save"></i>
+                    {{ "COMMON.BUTTON.SAVE" | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

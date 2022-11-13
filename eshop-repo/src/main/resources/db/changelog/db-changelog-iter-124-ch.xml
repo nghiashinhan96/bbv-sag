@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_124_INSERT_PAYMENT_ADDITIONAL_CREDIT_FOR_CH">
+        <sql>
+            INSERT INTO [dbo].[ORG_COLLECTION_SETTINGS] (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+            SELECT oc.ID, 'payment_additional_credit_direct_invoice', '10000' FROM ORGANISATION_COLLECTION oc
+            JOIN ORGANISATION o ON o.ID = oc.AFFILIATE_ID
+            WHERE o.SHORTNAME in ('derendinger-ch', 'technomag', 'wbb', 'matik-ch')
+            AND oc.ID not in (SELECT COLLECTION_ID FROM ORG_COLLECTION_SETTINGS WHERE SETTING_KEY= 'payment_additional_credit_direct_invoice')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

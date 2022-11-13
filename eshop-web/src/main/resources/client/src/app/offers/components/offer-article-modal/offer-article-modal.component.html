@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 *ngIf="isArticle">{{ 'OFFERS.SELECT_YOUR_OWN_ARTICLE' | translate}}</h4>
+    <h4 *ngIf="!isArticle">{{ 'OFFERS.SELECT_YOUR_OWN_WORK' | translate}}</h4>
+    <a href="javascript:void(0)" (click)="modalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body" [attr.data-automation]="'offer-detail-'+(isArticle ? 'article' : 'work')+'-modal-body'">
+    <div class="block-content">
+        <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+            [notFoundText]="warningMessage">
+        </sag-table>
+    </div>
+</div>
+<div class="modal-footer d-flex justify-content-between px-3" [attr.data-automation]="'offer-detail-'+(isArticle ? 'article' : 'work')+'-modal-footer'">
+    <div class="ml-3">
+        <button class="btn btn-primary" (click)="modalRef.hide()">{{'COMMON_LABEL.ABORT_STOP' | translate}}</button>
+    </div>
+    <div class="mr-3">
+        <button class="btn btn-primary mr-2" (click)="showCreatingPersonModal()">
+            <i class="fa fa-plus"></i>
+            {{(isArticle ? 'OFFERS.OWN_ARTICLE.CAPTURE_NEW_ARTICLE' : 'OFFERS.OWN_WORK.CAPTURE_NEW_WORK') | translate}}
+        </button>
+        <button class="btn btn-primary" *ngIf="selectedArticles.length > 0" (click)="takeArticlesForOffer()">
+            {{'COMMON_LABEL.TAKE' | translate}}
+        </button>
+    </div>
+</div>
+
+<ng-template #colCheckboxAll>
+    <input class="mt-0" type="checkbox" name="selected-person-all" (change)="selectAllArticles($event)"
+        [checked]="isAllArticlesSelected()">
+</ng-template>
+<ng-template #colCheckbox let-row="row">
+    <input class="mt-0" type="checkbox" name="selected-person" (change)="selectArticle($event, row)"
+        [checked]="isArticleSelected(row)">
+</ng-template>

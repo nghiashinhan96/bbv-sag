@@ -1,0 +1,59 @@
+connect-home {
+    .col-home-left {
+        padding-right: 10px;
+    }
+
+    .col-home-right {
+        padding-left: 30px;
+    }
+
+    connect-article-search {
+        .card-body {
+            padding: 10px !important;
+        }
+
+    }
+
+    connect-vehicle-history {
+        .card {
+            min-height: 150px !important;
+        }
+
+        .card-header {
+            margin-bottom: 14px !important;
+        }
+    }
+
+    connect-vehicle-search {
+        .collapsed-icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 25px;
+            cursor: pointer;
+            transition: all 300ms;
+            color: $primary;
+        }
+    }
+
+    input.form-control {
+        box-shadow: none;
+        padding: 5px 10px;
+        color: #333;
+        width: 100%;
+        border: 1px solid #ccc;
+        height: 34px;
+        font-size: 13px;
+        font-weight: 400;
+        border-radius: 0;
+
+        & + i.inner-tooltip {
+            height: 34px;
+            line-height: 34px;
+        }
+    }
+
+    .mb-3 {
+        margin-bottom: 20px !important
+    }
+}

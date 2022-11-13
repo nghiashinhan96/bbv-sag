@@ -1,0 +1,14 @@
+.has-icon {
+    display: flex;
+    align-items: center;
+
+    .icon {
+        margin-right: 0.65rem;
+    }
+}
+
+.message-container {
+    .message:not(:first-child) {
+        margin-top: $half-spacer;
+    }
+}

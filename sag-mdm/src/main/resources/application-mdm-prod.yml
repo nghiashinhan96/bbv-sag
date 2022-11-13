@@ -1,0 +1,17 @@
+spring.profiles: mdm-prod
+
+external:
+  webservice:
+    dvse:
+      uri: https://mdm.carparts-cat.com/service.svc?wsdl
+      mdm_username: sag_wsvc
+      mdm_password: qcswlGg7Qvb
+      catalog_uri: https://web2.carparts-cat.com/loginh.aspx?SID=
+      template_customer_id_map:
+        derendinger-at: 649556
+        matik-at: 699618
+        matik-ch: 742567
+      catalog_id_map:
+        derendinger-at: 435001
+        matik-at: 435001
+        matik-ch: 443001

@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="CONNECT_APP"
+		id="ITER_208_ENABLE_OIL_SHOP_FOR_ST_CZ">
+		<sql>
+			DECLARE @oilPerId int = (SELECT ID FROM dbo.ESHOP_PERMISSION WHERE PERMISSION = 'OIL')
+			IF (@oilPerId IS NOT NULL)
+			    BEGIN
+					INSERT INTO dbo.COLLECTION_PERMISSION(COLLECTION_ID, ESHOP_PERMISSION_ID)
+					SELECT ID, @oilPerId FROM dbo.ORGANISATION_COLLECTION  WHERE ID NOT IN (SELECT COLLECTION_ID FROM dbo.COLLECTION_PERMISSION WHERE ESHOP_PERMISSION_ID = @oilPerId)
+				    
+				    INSERT INTO dbo.GROUP_PERMISSION(GROUP_ID, PERM_ID, ALLOWED)
+				    SELECT ID, @oilPerId, '1' FROM dbo.ESHOP_GROUP WHERE ID NOT IN(SELECT GROUP_ID FROM dbo.GROUP_PERMISSION WHERE PERM_ID = @oilPerId)
+				    
+				    UPDATE dbo.GROUP_PERMISSION set ALLOWED = 1 WHERE PERM_ID = @oilPerId and ALLOWED = 0
+				END
+		</sql>
+	</changeSet>
+</databaseChangeLog>

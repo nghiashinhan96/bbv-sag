@@ -1,0 +1,14 @@
+label.checkbox {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+
+    input {
+        margin-right: 0.25rem;
+        margin-top: 0.12rem;
+    }
+
+    span {
+        word-break: break-all;
+    }
+}

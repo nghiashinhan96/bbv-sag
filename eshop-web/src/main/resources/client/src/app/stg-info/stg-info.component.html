@@ -1,0 +1,8 @@
+<div class="stginfo-section" #stginfoSection>
+    <button class="btn-text btn-hide-footer" (click)="toogleFooter()">
+        <i class="fa" [ngClass]="footerIsShowed ? 'fa-angle-down' : 'fa-angle-up'"></i>
+    </button>
+    <div class="stginfo-inner">
+        <iframe #stginfoIframe></iframe>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+{
+  "id": "e0a6b3e2899fe9f45324e81c83abf246",
+  "criteria": [
+    {
+      "cvp": "Verbund",
+      "cid": "9001"
+    },
+    {
+      "cvp": "blau",
+      "cid": "9003"
+    },
+    {
+      "cvp": "Bandfilter blau",
+      "cid": "9003"
+    }
+  ],
+  "refs": [
+    {
+      "id_source": "atr",
+      "artnr": "5001100420",
+      "id_pim": "1000000003755619694",
+      "id_dlnr": "5010",
+      "supplier": "SEKURIT",
+      "id_autonet": "5001100420 SG",
+      "artid": "e0a6b3e2899fe9f45324e81c83abf246",
+      "artnr_display": "5001100420",
+      "gaID": "1191",
+      "genArtTxts": null,
+      "partImage": null,
+      "partDesc": null,
+      "brandImage": null,
+      "amountNumber": null,
+      "availableIcon": null,
+      "characteristics": null,
+      "partBigImage": null,
+      "content": null,
+      "productDesc": null,
+      "usage": null,
+      "safety": null,
+      "favourite": null,
+      "isNew": null,
+      "available": false,
+      "availability": null,
+      "article": null,
+      "price": null
+    }
+  ],
+  "parts": [
+    
+  ],
+  "info": [
+    {
+      "id_info": "1886",
+      "info_type": "1",
+      "info_txt_de": "MITSUBISHI PAJERO JEEP WINDSCHUTZSCHEIBE BJ 82-90"
+    }
+  ]
+}

@@ -1,0 +1,1622 @@
+{
+  "content": [
+    {
+      "id": "bc05b2db10f74e54167382bb6feaf4a1",
+      "criteria": [
+        {
+          "cvp": "H21W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        },
+        {
+          "cvp": "21",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "BAY9s",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "64136",
+          "id_pim": "1000000013183703731",
+          "id_dlnr": "67",
+          "supplier": "OSRAM",
+          "id_autonet": "64136",
+          "artid": "bc05b2db10f74e54167382bb6feaf4a1",
+          "artnr_display": "64136",
+          "gaID": "3854",
+          "genArtTxts": [
+            {
+              "gaid": "3854",
+              "gatxtdech": "Glühlampe, Tagfahrleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000000193077874,
+            "leadingArticleId": 1000000000193175723,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000000193077874,
+            "price": {
+              "grossPrice": 14.5,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 7.25,
+              "discountPrice": 7.25,
+              "discountInPercent": 50,
+              "vatInPercent": 8,
+              "totalGrossPrice": 14.5,
+              "totalNetPrice": 7.25,
+              "totalDiscountPrice": 7.25,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "3229",
+          "pnrn": "HSA101-1R00E",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "cb632e6fa3789ac797bf119ce0c08dbe",
+      "criteria": [
+        {
+          "cvp": "W16W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        },
+        {
+          "cvp": "16",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "W2,1x9,5d",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "921",
+          "id_pim": "1000000013183702782",
+          "id_dlnr": "67",
+          "supplier": "OSRAM",
+          "id_autonet": "921",
+          "artid": "cb632e6fa3789ac797bf119ce0c08dbe",
+          "artnr_display": "921",
+          "gaID": "3854",
+          "genArtTxts": [
+            {
+              "gaid": "3854",
+              "gatxtdech": "Glühlampe, Tagfahrleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000000723969564,
+            "leadingArticleId": 1000000000723969563,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000000723969564,
+            "price": {
+              "grossPrice": 3.4,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 1.7,
+              "discountPrice": 1.7,
+              "discountInPercent": 50,
+              "vatInPercent": 8,
+              "totalGrossPrice": 3.4,
+              "totalNetPrice": 1.7,
+              "totalDiscountPrice": 1.7,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "2743",
+          "pnrn": "13228645020",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "dacdbc48678cba6ab1377adf362c6d81",
+      "criteria": [
+        {
+          "cvp": "44",
+          "cid": "220",
+          "cndech": "Bohrung-Ø [mm]"
+        },
+        {
+          "cvp": "Faustsattel",
+          "cid": "262",
+          "cndech": "Bremssattelausführung"
+        },
+        {
+          "cvp": "ohne Halter",
+          "cid": "596",
+          "cndech": "Ergänzungsartikel/Ergänzende Info"
+        },
+        {
+          "cvp": "Austauschteil",
+          "cid": "591",
+          "cndech": "Austauschteil"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "RX449817A0",
+          "id_pim": "1000000024024396105",
+          "id_dlnr": "54",
+          "supplier": "FTE",
+          "id_autonet": "",
+          "artid": "dacdbc48678cba6ab1377adf362c6d81",
+          "artnr_display": "RX449817A0",
+          "gaID": "78",
+          "genArtTxts": [
+            {
+              "gaid": "78",
+              "gatxtdech": "Bremssattel"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000020230796014,
+            "leadingArticleId": 1000000020230793404,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T11:30:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000020230796014,
+            "price": {
+              "grossPrice": 341.94,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 222.261,
+              "discountPrice": 119.679,
+              "discountInPercent": 35,
+              "vatInPercent": 8,
+              "totalGrossPrice": 341.94,
+              "totalNetPrice": 222.261,
+              "totalDiscountPrice": 119.679,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "2743",
+          "pnrn": "1301213372",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "16",
+          "pnrn": "34 21 6 769 101",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8AC 355 386-051",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "503",
+          "pnrn": "11.9441-9957.2",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "503",
+          "pnrn": "220827",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "530",
+          "pnrn": "0 986 134 084",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "539",
+          "pnrn": "38131700",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "798",
+          "pnrn": "BHS1305E",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "1242",
+          "pnrn": "8170 344094",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "1762",
+          "pnrn": "344094",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2044",
+          "pnrn": "2115205",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2142",
+          "pnrn": "DC74094",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2408",
+          "pnrn": "423091",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2505",
+          "pnrn": "86-1982",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2592",
+          "pnrn": "CA2664",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2619",
+          "pnrn": "8AC 355 386-051",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2719",
+          "pnrn": "344094",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3351",
+          "pnrn": "133112801",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "2456534eb220e8467e6996b5395083dd",
+      "criteria": [
+        {
+          "cvp": "ATE",
+          "cid": "122",
+          "cndech": "Herstellereinschränkung"
+        },
+        {
+          "cvp": "Faustsattel",
+          "cid": "262",
+          "cndech": "Bremssattelausführung"
+        },
+        {
+          "cvp": "Gußeisen",
+          "cid": "468",
+          "cndech": "Material"
+        },
+        {
+          "cvp": "44",
+          "cid": "200",
+          "cndech": "Durchmesser [mm]"
+        },
+        {
+          "cvp": "BHS1305E",
+          "cid": "1564",
+          "cndech": "paarige Artikelnummer"
+        },
+        {
+          "cvp": "Austauschteil",
+          "cid": "591",
+          "cndech": "Austauschteil"
+        },
+        {
+          "cvp": "Technische Daten beachten",
+          "cid": "585",
+          "cndech": "Technische Daten beachten"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "BHS1306E",
+          "id_pim": "1000000020230801286",
+          "id_dlnr": "161",
+          "supplier": "TRW",
+          "id_autonet": "BHS1306E",
+          "artid": "2456534eb220e8467e6996b5395083dd",
+          "artnr_display": "BHS1306E",
+          "gaID": "78",
+          "genArtTxts": [
+            {
+              "gaid": "78",
+              "gatxtdech": "Bremssattel"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000020230802095,
+            "leadingArticleId": 1000000020230801286,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": true,
+              "immediateDelivery": false,
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000020230802095,
+            "price": {
+              "grossPrice": 341.94,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 222.261,
+              "discountPrice": 119.679,
+              "discountInPercent": 35,
+              "vatInPercent": 8,
+              "totalGrossPrice": 341.94,
+              "totalNetPrice": 222.261,
+              "totalDiscountPrice": 119.679,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "3301",
+          "pnrn": "4192810000",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "16",
+          "pnrn": "34216769102",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "501",
+          "pnrn": "404095",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8AC355386061",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "503",
+          "pnrn": "11944199582",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "530",
+          "pnrn": "0986135084",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "539",
+          "pnrn": "38131800",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "548",
+          "pnrn": "694964J",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "549",
+          "pnrn": "694964B",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "875",
+          "pnrn": "F06179",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "876",
+          "pnrn": "FCL694964",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "878",
+          "pnrn": "RX449818A0",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "1242",
+          "pnrn": "8170344095",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "1762",
+          "pnrn": "344095",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2044",
+          "pnrn": "2115206",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2142",
+          "pnrn": "DC74095",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2408",
+          "pnrn": "423092",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2505",
+          "pnrn": "871982000",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2592",
+          "pnrn": "CA2664R",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2702",
+          "pnrn": "71071306",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2719",
+          "pnrn": "344095",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3301",
+          "pnrn": "4292810000",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "a01e2ba9529eeba7cd18e2a325ce3df3",
+      "criteria": [
+        {
+          "cvp": "W16W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        },
+        {
+          "cvp": "16",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "W2,1x9,5d",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "92102B",
+          "id_pim": "1000000019891006470",
+          "id_dlnr": "67",
+          "supplier": "OSRAM",
+          "id_autonet": "",
+          "artid": "a01e2ba9529eeba7cd18e2a325ce3df3",
+          "artnr_display": "921-02B",
+          "gaID": "3854",
+          "genArtTxts": [
+            {
+              "gaid": "3854",
+              "gatxtdech": "Glühlampe, Tagfahrleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000019891006469,
+            "leadingArticleId": 1000000019891006470,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000019891006469,
+            "price": {
+              "grossPrice": 6.8,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 3.4,
+              "discountPrice": 3.4,
+              "discountInPercent": 50,
+              "vatInPercent": 8,
+              "totalGrossPrice": 6.8,
+              "totalNetPrice": 3.4,
+              "totalDiscountPrice": 3.4,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "93",
+          "pnrn": "5010491693",
+          "ptype": "OEM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "8faa2abef2536a2a63465f5ee86e501f",
+      "criteria": [
+        {
+          "cvp": "W5W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "5",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "W2,1x9,5 d",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "8GP003594121",
+          "id_pim": "1000000017994583552",
+          "id_dlnr": "2",
+          "supplier": "HELLA",
+          "id_autonet": "8GP 003 594-121",
+          "artid": "8faa2abef2536a2a63465f5ee86e501f",
+          "artnr_display": "8GP 003 594-121",
+          "gaID": "3193",
+          "genArtTxts": [
+            {
+              "gaid": "3193",
+              "gatxtdech": "Glühlampe, Blink-/Begrenzungsleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000009231629424,
+            "leadingArticleId": 1000000013027676317,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000009231629424,
+            "price": {
+              "grossPrice": 1.3,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 0.65,
+              "discountPrice": 0.65,
+              "discountInPercent": 50,
+              "vatInPercent": 8,
+              "totalGrossPrice": 1.3,
+              "totalNetPrice": 0.65,
+              "totalDiscountPrice": 0.65,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        null,
+        {
+          "brandid": "16",
+          "pnrn": "07 11 9 978 373",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "16",
+          "pnrn": "9 978 373",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "24",
+          "pnrn": "135 4854",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "59",
+          "pnrn": "7.581.175.000.0",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "74",
+          "pnrn": "0002481V002L044",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "74",
+          "pnrn": "A 0002481V002L044",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "77",
+          "pnrn": "MR910391",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "77",
+          "pnrn": "SMR910391",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "77",
+          "pnrn": "Z1719121",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "003 594-121",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "003 594-122",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "003 594-125",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "003 594-127",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "003 594-128",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "003 594-545",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "003 594-547",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8GP 003 594-122",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8GP 003 594-125",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8GP 003 594-127",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8GP 003 594-128",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8GP 003 594-545",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "8GP 003 594-547",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "511",
+          "pnrn": "612050",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "521",
+          "pnrn": "032211",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "530",
+          "pnrn": "1 987 302 206",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "530",
+          "pnrn": "12V 5W W5W",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "635",
+          "pnrn": "89 901 175",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "646",
+          "pnrn": "2825",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "648",
+          "pnrn": "021.6252",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "648",
+          "pnrn": "12961",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "654",
+          "pnrn": "5307",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "750",
+          "pnrn": "021 576 50",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "752",
+          "pnrn": "3 907 271 M1",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "752",
+          "pnrn": "D 450 813 00",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "798",
+          "pnrn": "LLB501",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "976",
+          "pnrn": "56511",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "1013",
+          "pnrn": "G2172100800",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "1084",
+          "pnrn": "84058228",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "1500",
+          "pnrn": "6501220295",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "1500",
+          "pnrn": "6501220299",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "1606",
+          "pnrn": "720 162 1",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2170",
+          "pnrn": "1209410",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "2170",
+          "pnrn": "1209410-00",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "2172",
+          "pnrn": "01562",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "2218",
+          "pnrn": "0303864/0",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "2257",
+          "pnrn": "5221",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2278",
+          "pnrn": "V99-84-0001",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "2383",
+          "pnrn": "51169750",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "2635",
+          "pnrn": "050756",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "2635",
+          "pnrn": "T050756",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "2668",
+          "pnrn": "671746.000",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3406",
+          "pnrn": "01732-011",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3406",
+          "pnrn": "1732",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3428",
+          "pnrn": "17177",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3428",
+          "pnrn": "47501",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3456",
+          "pnrn": "R501",
+          "ptype": "IAM"
+        }
+      ],
+      "info": [
+        {
+          "id_info": "M00178",
+          "info_type": "1",
+          "info_txt_de": "8GP 003 594-261 12V5W W5W Blue Light nur paarweise austauschen 8GP 003 594-263 12V5W W5W Blue Light nur paarweise austauschen, 2 Stück in Blisterverpackung"
+        }
+      ]
+    },
+    {
+      "id": "77d7427cb431137707cbe9c6da484527",
+      "criteria": [
+        {
+          "cvp": "W5W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        },
+        {
+          "cvp": "5",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "W2,1x9,5d",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "2825",
+          "id_pim": "1000000013183703212",
+          "id_dlnr": "67",
+          "supplier": "OSRAM",
+          "id_autonet": "2825",
+          "artid": "77d7427cb431137707cbe9c6da484527",
+          "artnr_display": "2825",
+          "gaID": "3484",
+          "genArtTxts": [
+            {
+              "gaid": "3484",
+              "gatxtdech": "Glühlampe, Leseleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000000193077786,
+            "leadingArticleId": 1000000000193175672,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000000193077786,
+            "price": {
+              "grossPrice": 1.75,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 0.875,
+              "discountPrice": 0.875,
+              "discountInPercent": 50,
+              "vatInPercent": 8,
+              "totalGrossPrice": 1.75,
+              "totalNetPrice": 0.875,
+              "totalDiscountPrice": 0.875,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "964",
+          "pnrn": "3045706",
+          "ptype": "OEM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "3254e6cfa79683151bb228de5d7ae5ef",
+      "criteria": [
+        {
+          "cvp": "P21W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "21",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "BA 15 s",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "8GA002073271",
+          "id_pim": "1000000013027673959",
+          "id_dlnr": "2",
+          "supplier": "HELLA",
+          "id_autonet": "8GA 002 073-271",
+          "artid": "3254e6cfa79683151bb228de5d7ae5ef",
+          "artnr_display": "8GA 002 073-271",
+          "gaID": "3853",
+          "genArtTxts": [
+            {
+              "gaid": "3853",
+              "gatxtdech": "Glühlampe, Tagfahrleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000013027673958,
+            "leadingArticleId": 1000000013027673959,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000013027673958,
+            "price": {
+              "grossPrice": 1.68,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 0.84,
+              "discountPrice": 0.84,
+              "discountInPercent": 50,
+              "vatInPercent": 8,
+              "totalGrossPrice": 1.68,
+              "totalNetPrice": 0.84,
+              "totalDiscountPrice": 0.84,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "3456",
+          "pnrn": "R290",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "24",
+          "pnrn": "152 5168",
+          "ptype": "OEM"
+        },
+        {
+          "brandid": "502",
+          "pnrn": "002 073-271",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "646",
+          "pnrn": "7506L",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "648",
+          "pnrn": "12498LL",
+          "ptype": "IAM"
+        },
+        {
+          "brandid": "3406",
+          "pnrn": "40381-011",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "899db71bdd47a176d0506994dd99a881",
+      "criteria": [
+        {
+          "cvp": "PY21W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        },
+        {
+          "cvp": "21",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "BAU15s",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "7507DC02B",
+          "id_pim": "1000000016859250144",
+          "id_dlnr": "67",
+          "supplier": "OSRAM",
+          "id_autonet": "",
+          "artid": "899db71bdd47a176d0506994dd99a881",
+          "artnr_display": "7507DC-02B",
+          "gaID": "2784",
+          "genArtTxts": [
+            {
+              "gaid": "2784",
+              "gatxtdech": "Glühlampe, Rückfahrleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000016859250145,
+            "leadingArticleId": 1000000016859250144,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000016859250145,
+            "price": {
+              "grossPrice": 20.9,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 14.63,
+              "discountPrice": 6.27,
+              "discountInPercent": 30,
+              "vatInPercent": 8,
+              "totalGrossPrice": 20.9,
+              "totalNetPrice": 14.63,
+              "totalDiscountPrice": 6.27,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "3063",
+          "pnrn": "ADH 23058",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    },
+    {
+      "id": "b4e51df0c785881ec15993fb0ef9595d",
+      "criteria": [
+        {
+          "cvp": "P21W",
+          "cid": "437",
+          "cndech": "Lampenart"
+        },
+        {
+          "cvp": "12",
+          "cid": "6",
+          "cndech": "Meßfunktionen"
+        },
+        {
+          "cvp": "21",
+          "cid": "53",
+          "cndech": "Nennleistung [W]"
+        },
+        {
+          "cvp": "BA15s",
+          "cid": "919",
+          "cndech": "Sockelausführung"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "tecdoc",
+          "artnr": "750602B",
+          "id_pim": "1000000012315391307",
+          "id_dlnr": "67",
+          "supplier": "OSRAM",
+          "id_autonet": "7506-02B",
+          "artid": "b4e51df0c785881ec15993fb0ef9595d",
+          "artnr_display": "7506-02B",
+          "gaID": "3854",
+          "genArtTxts": [
+            {
+              "gaid": "3854",
+              "gatxtdech": "Glühlampe, Tagfahrleuchte"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000012315391271,
+            "leadingArticleId": 1000000012315391307,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-11T05:45:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000012315391271,
+            "price": {
+              "grossPrice": 3.3,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 2.31,
+              "discountPrice": 0.99,
+              "discountInPercent": 30,
+              "vatInPercent": 8,
+              "totalGrossPrice": 3.3,
+              "totalNetPrice": 2.31,
+              "totalDiscountPrice": 0.99,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [
+        {
+          "brandid": "516",
+          "pnrn": "22-171443",
+          "ptype": "IAM"
+        }
+      ],
+      "info": []
+    }
+  ],
+  "last": false,
+  "totalElements": 29,
+  "totalPages": 3,
+  "size": 10,
+  "number": 0,
+  "sort": null,
+  "numberOfElements": 10,
+  "first": true
+}

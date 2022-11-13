@@ -1,0 +1,54 @@
+# ************************************************************************
+# This is the AT configuration of Admin application for testing mode.
+# 
+# Required Common configuration:
+# - Application common configuration -
+# - Country Code - 
+# - Database -
+# - Elasticsearch - 
+# - ERP - 
+# - Caching - 
+# - Mail service - 
+# - Thread Executor Pool - 
+# - Authorization -
+# - MDM for creating DVSE user -
+# - Media Server -
+# - Proxy -
+# - Logging - 
+# - Java Melody Monitoring - 
+# - Actuator Healthcheck - 
+# - Liquibase - 
+#
+# ************************************************************************
+spring.profiles.include:
+  sagadmin,
+  ax-pre-cloud,
+  mdm-prod,
+  mail-prod,
+  elasticsearch-pre,
+  db-pre,
+  executor-pool-pre,
+  no-liquibase,
+  logging-at-umbpre,
+  actuator,
+  cache-pre,
+  country-at,
+  no-proxy,
+  media-server,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_at.txt
+
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      # host: https://preconnect.sag.services/auth-server-ax
+      host: http://localhost:8080/auth-server-ax
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+

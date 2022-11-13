@@ -1,0 +1,17 @@
+spring.profiles: sagrest
+
+endpoints.jmx.domain: restatax
+app.name: sagrest
+server.port: 9001
+
+# Default Spring Hikari JDBC connection pool configuration
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB

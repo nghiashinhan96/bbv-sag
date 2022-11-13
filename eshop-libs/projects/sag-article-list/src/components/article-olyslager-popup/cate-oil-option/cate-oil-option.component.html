@@ -1,0 +1,7 @@
+<ng-container *ngFor="let choice of selectedOil; let i = index">
+    <div class="list-group-item-sub" [style.padding-left]="( i + 1)* 20 + 'px'" *ngIf="choice.option.length > 0">
+        <strong>{{choice.displayName}}</strong>
+        <ng-select [items]="choice.option" (change)="onSelect($event, i)" bindValue="value" bindLabel="displayValue"
+            [searchable]="false" [clearable]="false"></ng-select>
+    </div>
+</ng-container>

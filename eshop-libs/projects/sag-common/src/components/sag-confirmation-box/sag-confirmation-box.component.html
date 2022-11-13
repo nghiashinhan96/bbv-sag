@@ -1,0 +1,21 @@
+<div *ngIf="title || showCloseButton" class="modal-header">
+    <h4 *ngIf="title">
+        <i *ngIf="showHeaderIcon" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        {{ title | translate }}
+    </h4>
+    <a *ngIf="showCloseButton" href="javascript:void(0)" (click)="onCancel()"> <i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body" *ngIf="message">
+    <div [class.has-icon]="bodyIcon">
+        <span class="icon" *ngIf="bodyIcon">
+            <i class="fa {{bodyIcon}}"></i>
+        </span>
+        <p class="m-0" [innerHTML]="message | translate: (messageParams | safe:'text')"></p>
+    </div>
+    <sag-common-message *ngIf="result" [data]="result"></sag-common-message>
+</div>
+<div class="modal-footer border-0">
+    <button *ngIf="showCancelButton" type="button" class="btn btn-outline-dark mr-2" aria-label="Close" data-dismiss="modal"
+        (click)="onCancel()">{{ cancelButton | translate }}</button>
+    <button type="button" class="btn btn-primary min-width-auto" (click)="confirm()">{{ okButton | translate }}</button>
+</div>

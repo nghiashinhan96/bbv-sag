@@ -1,0 +1,3 @@
+<div *ngIf="notifier" [class]="notifier.status?'alert alert-success':'alert alert-danger'">
+    <div *ngFor="let mess of notifier.messages">{{mess|translate}}</div>
+</div>

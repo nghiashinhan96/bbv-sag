@@ -1,0 +1,71 @@
+# ************************************************************************
+# This is the CZ configuration of RESTful application for Production mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - HaynesPro Endpoint - 
+# - HaynesPro Callback - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - OATS(replace Olyslager) - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - No Proxy For Serbia and CZ we are in Azure - 
+# - Media Server - 
+# - Price File Location - 
+# - Java Melody Monitoring - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  stakis-erp-prod,
+  incentive-prod,
+  hp-prod,
+  gtmotive-cz-prod,
+  mdm-prod,
+  unicat-pro,
+  unicat-callback-prod,
+  oates-prod-cz,
+  mail-prod,
+  elasticsearch-prod,
+  db-prod,
+  executor-pool-prod,
+  no-liquibase,
+  logging-cz-prod,
+  actuator,
+  cache-prod,
+  analytics-prod-cloud,
+  country-cz,
+  no-proxy,
+  media-server,
+  price-file-cz,
+  javamelody,
+  thule-prod,
+  recommend-art-cz-prod
+
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      # host: https://connect.sag.services/auth-server-st
+      host: http://localhost:8080/auth-server-st
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+
+license:
+  vin:
+    minimumOrder: 600

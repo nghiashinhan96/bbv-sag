@@ -1,0 +1,13 @@
+<div>
+    <sag-table mode="online" [columns]="columns" [searchModel]="searchModel" [rows]="tableData" [page]="page"
+        (searchData)="searchTableData($event)" notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}">
+    </sag-table>
+</div>
+
+<ng-template #colActions let-row="row">
+    <span>
+        <button class="btn-icon" (click)="onEditUserDetail(row)">
+            <i class="fa fa-edit"></i>
+        </button>
+    </span>
+</ng-template>

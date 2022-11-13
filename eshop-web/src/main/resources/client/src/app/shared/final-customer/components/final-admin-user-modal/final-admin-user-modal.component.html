@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h4>{{'SETTINGS.PROFILE_TAB'| translate}}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <sag-common-message *ngIf="result" [data]="result"></sag-common-message>
+
+    <ng-container *ngIf="profile">
+        <connect-final-admin-user-password-form [profile]="profile" (save)="onSubmitPassword($event)" *ngIf="userId">
+        </connect-final-admin-user-password-form>
+        <connect-final-admin-user-profile-form [profile]="profile" (save)="onSubmitProfile($event)" [wssOrgId]="wssOrgId">
+        </connect-final-admin-user-profile-form>
+    </ng-container>
+</div>

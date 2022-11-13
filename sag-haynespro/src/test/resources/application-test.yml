@@ -1,0 +1,8 @@
+spring.profiles.include: hp-normal-at, hpback-at-dev, country-at, no-proxy, executor-pool
+
+logging:
+  level:
+    org:
+      springframework:
+        ws: DEBUG
+    com.sagag.services.haynespro: DEBUG

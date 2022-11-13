@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_193_ADD_JSON_EVENT_OF_ESHOP_GLOBAL_SETTING">
+    <sql>
+      INSERT INTO [dbo].[ESHOP_GLOBAL_SETTING] (CODE, DESCRIPTION, ENABLED, SETTING_TYPE)
+      VALUES
+      ('article_results', '', 1, 'JSON_EVENT'),
+      ('wspcatalog', '', 1, 'JSON_EVENT');
+    </sql>
+  </changeSet>
+</databaseChangeLog>

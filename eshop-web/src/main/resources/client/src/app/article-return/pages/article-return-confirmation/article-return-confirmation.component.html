@@ -1,0 +1,41 @@
+<section class="return-order-confirm">
+    <ng-container *ngIf="messageType === RETURN_ORDER_MESSAGE_TYPE.SUCCESS; else errorRef">
+        <div class="return-order-confirm__header">
+            <h3>
+                <i class="fa fa-paper-plane"></i>
+                <span class="ml-2">{{ 'RETURN_ARTICLE_BASKET.RETURN_CONFIRMATION.TITLE' | translate }}</span>
+            </h3>
+        </div>
+        <div class="return-order-confirm__info">
+            <strong>{{ 'RETURN_ARTICLE_BASKET.RETURN_CONFIRMATION.INFO' | translate }}</strong>
+        </div>
+
+        <div class="return-order-confirm__body">
+            <table>
+                <tr *ngIf="batchJobId">
+                    <td class="text">{{ 'RETURN_ARTICLE_BASKET.RETURN_CONFIRMATION.RETURN_ORDER' | translate}}</td>
+                    <td class="value">{{batchJobId}}</td>
+                </tr>
+                <tr *ngIf="nonQuarantineOrderPositions">
+                    <td class="text">{{ 'RETURN_ARTICLE_BASKET.RETURN_CONFIRMATION.RETURN_ORDER' | translate}}</td>
+                    <td class="value" [innerHTML]="nonQuarantineOrderPositions | safe: 'html'"></td>
+                </tr>
+                <tr *ngIf="quarantineOrderPositions">
+                    <td class="text">{{ 'RETURN_ARTICLE_BASKET.RETURN_CONFIRMATION.QUARANTINE_ORDER' | translate}}</td>
+                    <td class="value" [innerHTML]="quarantineOrderPositions | safe: 'html'"></td>
+                </tr>
+            </table>
+        </div>
+    </ng-container>
+    <ng-template  #errorRef>
+        <div class="return-order-confirm__header">
+            <h3>
+                <span *ngIf="!showWarningTitle" class="ml-2">{{ 'RETURN_ORDER.BATCH_JOB_ERROR_TITLE' | translate }}</span>
+                <span *ngIf="showWarningTitle" class="ml-2">{{ 'RETURN_ORDER.ORDER_WARNING_TITLE' | translate }}</span>
+            </h3>
+        </div>
+        <sag-common-message [data]="messenger"></sag-common-message>
+    </ng-template>
+    <button class="btn btn-primary btn-center" routerLink="/home">{{ 'COMMON_LABEL.BUTTON.CONTINUE' |
+        translate}}</button>
+</section>

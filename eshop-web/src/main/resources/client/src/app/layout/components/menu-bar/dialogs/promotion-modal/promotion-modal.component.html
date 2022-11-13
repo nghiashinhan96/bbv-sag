@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h4> {{'HEADER.PROMOTIONS' | translate}} </h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <ul class="list-group list-group-link list-group-full list-group-action">
+        <li class="list-group-item" *ngFor="let link of links">
+            <a target="_blank" href="{{link.url}}">{{ link.label | translate}}</a>
+        </li>
+    </ul>
+</div>

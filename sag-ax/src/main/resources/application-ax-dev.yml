@@ -1,0 +1,17 @@
+spring:
+  profiles: ax-dev
+
+## Supported value for mode: true | false
+backOrder.tourTimeTable: false
+
+# The Ax configuration
+external:
+  webservice:
+    ax:
+      url: https://prebusiness.sag.services/devwebshop
+      tokenPath: https://dev-webshop-service-app.tstapps.sag.services
+      clientId: dad18054-7838-4236-937a-ebf9b0cc309e
+      # only for token refresh
+      clientSecret: lPAi1rFYtzeIv9r1g97vVTRVuyrWXYAqLdFvmZjPBsA=
+      userName: sys-ws-connect-dev@sag-ag.ch
+      password: agenda01

@@ -1,0 +1,37 @@
+<ng-container *ngIf="vehicleId$ | async as vehicleData">
+    <div class="row">
+        <div class="col-12">
+            <autonet-vehicle-info [vehicle]="vehicle" (refresEmiter)="goBack()" (openRequestPriceOffer)="onOpenRequestPriceOffer()"></autonet-vehicle-info>
+            <div _ngcontent-huk-c12="" class="divider"></div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!isRequestOfferMode; else requestOfferRef">
+        <div class="filtering">
+            <sag-custom-favorite-list (onSelectItemEmit)="onSelectFavoriteItem($event)"></sag-custom-favorite-list>
+
+            <sag-article-list-category-tree [vehicleData]="vehicleData">
+            </sag-article-list-category-tree>
+        </div>
+        <div class="result">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['articles']">
+                        {{'ARTICLE.ARTICLE_LIST' | translate}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['quick-click']">
+                        {{'ARTICLE.QUICK_CLICK' | translate}}
+                    </a>
+                </li>
+            </ul>
+            <div class="content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #requestOfferRef>
+    <autonet-frame [url]="requestOfferUrl" [params]="requestOfferParams" *ngIf="!!requestOfferParams" [customClass]="'error-frame'"></autonet-frame>
+</ng-template>

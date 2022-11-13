@@ -1,0 +1,85 @@
+.license-result-wrapper {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        
+        h1 {
+            margin-bottom: 0;
+        }
+
+        .export-license {
+            display: flex;
+            align-items: center;
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            position: relative;
+
+            &_label {
+                line-height: 12px;
+                margin: 0 10px;
+            }
+
+            &_icon-down {
+                height: 16px;
+            }
+
+            &_options {
+                position: absolute;
+                top: 100%;
+                left: 2px;
+                z-index: 1000;
+                float: left;
+                min-width: 100%;
+                padding: .5rem;
+                font-size: 1rem;
+                color: #212529;
+                text-align: left;
+                list-style: none;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 1px solid rgba(0,0,0,.15);
+                border-radius: 0;
+
+                i {
+                    color: var(--primary);
+                }
+
+                .csv,
+                .excel {
+                    display: flex;
+                    align-items: center;
+
+                    & > span {
+                        color: #333;
+                        font-weight: normal;
+                        margin-left: 5px;
+                    }
+
+                    &:last-child {
+                        margin-top: 5px;
+                    }
+
+                    &:hover {
+                        background-color: #f8f9fa;
+                    }
+                }
+
+                .csv i {
+                    position: relative;
+
+                    &::after {
+                        content: "csv";
+                        position: absolute;
+                        bottom: 2px;
+                        left: 2px;
+                        letter-spacing: -1px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        font-family: monospace;
+                    }
+                }
+            }
+        }
+    }
+}

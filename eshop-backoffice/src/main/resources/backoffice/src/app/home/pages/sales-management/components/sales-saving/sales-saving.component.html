@@ -1,0 +1,112 @@
+<div class="panel panel-primary card mb-4">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{pageTitle}}
+        </h3>
+    </div>
+    <div class="panel-body">
+        <form *ngIf="form" novalidate [formGroup]="form" class="panel-body">
+            <div class="form-group row">
+                <label class="col-3 control-label">{{'SALES_MANAGEMENT.PERSONAL_NUMBER' | translate}} *</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" formControlName="personalNumber" maxlength="20">
+                </div>
+            </div>
+            <div class="row" *ngIf="attemptedSubmit && !form.controls.personalNumber.valid">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">
+                        {{'SALES_MANAGEMENT.MESSAGE.INVALID_PERSONAL_NUMBER' | translate}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{'SALES_MANAGEMENT.FIRSTNAME' | translate}} *</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" formControlName="firstName" maxlength="200">
+                </div>
+            </div>
+            <div class="row" *ngIf="attemptedSubmit && !form.controls.firstName.valid">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">{{'SALES_MANAGEMENT.MESSAGE.INVALID_FIRSTNAME' | translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{'SALES_MANAGEMENT.LASTNAME' | translate}} *</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" formControlName="lastName" maxlength="200">
+                </div>
+            </div>
+            <div class="row" *ngIf="attemptedSubmit && !form.controls.lastName.valid">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">{{'SALES_MANAGEMENT.MESSAGE.INVALID_LASTNAME' | translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{'SALES_MANAGEMENT.EMAIL' | translate}} *</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" formControlName="email" maxlength="200">
+                </div>
+            </div>
+            <div class="row" *ngIf="attemptedSubmit && !form.controls.email.valid">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">{{'SALES_MANAGEMENT.MESSAGE.INVALID_EMAIL' | translate}}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="duplicatedEmailMesg">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">{{duplicatedEmailMesg}}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{'SALES_MANAGEMENT.LEGAL_ENTITY_ID_NUMBER' | translate}}</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" formControlName="legalEntityId" maxlength="10">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">{{'SALES_MANAGEMENT.GENDER' | translate}}</label>
+                <div class="col-9">
+                    <ng-select class="sag-select" [items]="genders" formControlName="gender" [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <notification [notifier]="notifier"></notification>
+        </form>
+    </div>
+
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-default pull-left" type="button" (click)="back()">
+                    <i class="fa fa-arrow-left left"></i>
+                    {{'COMMON.BUTTON.BACK' | translate}}
+                </button>
+                <button class=" btn btn-primary pull-right" type="button"
+                        (click)="save(form)">
+                        <i class="fa fa-save"></i>
+                        {{'COMMON.BUTTON.SAVE' | translate}}
+                </button>
+                <button class=" btn btn-default pull-right mr-3"
+                    (click)="reset()">{{'COMMON.BUTTON.RESET' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #confirmModal>
+    <div class="modal-confirm" tabindex="-1" role="dialog">
+        <div class="modal-body">
+            <p class="messages">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {{'COMMON.MESSAGE.CONFIRM_SAVE_CHANGES' | translate}}
+            </p>
+            <div class="modal-btn">
+                <button type="button" class="btn btn-info"
+                    (click)="closeModalAndSaving()">{{'COMMON.BUTTON.YES' | translate}}</button>
+                <button type="button" class="btn btn-default"
+                    (click)="closeModalAndRedirect()">{{'COMMON.BUTTON.NO' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

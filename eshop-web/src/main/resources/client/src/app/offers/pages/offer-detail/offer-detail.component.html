@@ -1,0 +1,276 @@
+<div class="offer-detail" data-automation="offer-detail">
+    <ng-container *ngIf="notifier">
+        <connect-notification [messages]="notifier.messages" [type]="notifier.status">
+        </connect-notification>
+    </ng-container>
+    <div class="d-flex align-items-center justify-content-end mt-5 mb-4">
+        <i class="fa fa-refresh btn-icon"
+            [ngClass]="{'disabled': !offer.offerPositions || offer.offerPositions.length === 0}"
+            (click)="refreshPrice()"></i>
+        <i class="fa fa-file-pdf-o btn-icon mx-3" (click)="exportPdfCurrentOffer()"></i>
+        <i class="ico-file-rtf btn-icon" (click)="exportRtfCurrentOffer()"></i>
+        <i class="fa fa-file-word-o btn-icon" (click)="exportWordCurrentOffer()"></i>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div class="row">
+                <div class="col-6">
+                    <div class="d-flex align-items-center border-bottom py-2">
+                        <h5 class="text-gray m-0 d-flex align-items-center">
+                            <button class="btn btn-outline-light border rounded-1 mr-2" (click)="openPersonModal()" data-automation="offer-detail-add-person">
+                                <i class="fa fa-user text-dark"></i>
+                            </button>
+                            {{ 'COMMON_LABEL.CUSTOMER' | translate }}
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex align-items-center border-bottom py-2 h-100">
+                        <h5 class="text-gray m-0">{{'OFFERS.OFFER_DETAIL.DETAIL' | translate}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6" data-automation="offer-detail-customer-description">
+            <div *ngIf="offer && offer.offerPerson">
+                <div class="mb-2" *ngIf="offer.offerPerson.salutation">
+                    {{'SETTINGS.PROFILE.SALUTATION.' + offer.offerPerson.salutation | translate}}
+                </div>
+                <div class="mb-2" *ngIf="offer.offerPerson.salutation === 'GENERAL_SALUTATION_COMPANY'">
+                    {{offer.offerPerson.companyName}}
+                </div>
+                <div class="mb-2">
+                    {{offer.offerPerson.firstName}}
+                    {{offer.offerPerson.lastName}}
+                </div>
+                <div class="mb-2">{{offer.offerPerson.road}}</div>
+                <div class="mb-2">{{offer.offerPerson.additionalAddress1}}</div>
+                <div class="mb-2">{{offer.offerPerson.additionalAddress2}}</div>
+                <div class="mb-2">{{offer.offerPerson.postCode}}
+                    {{offer.offerPerson.place}}
+                </div>
+                <div class="mb-2 mt-3">{{offer.offerPerson.phone}}</div>
+                <div>{{offer.offerPerson.fax}}</div>
+                <div class="mb-2 mt-3 font-weight-bold">
+                    <a class="text-body" href="mailto:{{offer.offerPerson.email}}"
+                        target="_top">{{offer.offerPerson.email}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row form-group">
+                <label class="col-5" for="offer-info-number">{{'OFFERS.OFFER_DETAIL.OFFER_NUMBER' | translate}}</label>
+                <div class="col-7">
+                    <input class="form-control" type="text"
+                        id="offer-info-number" data-automation="offer-detail-info-number" maxlength="10"
+                        [(ngModel)]="offer.offerNr">
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-5" for="offer-info-date">{{'OFFERS.OFFER_DETAIL.DATE' | translate}}</label>
+                <div class="col-7">
+                    <div class="input-group">
+                        <input class="form-control disabled opacity-100" placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_FROM' | translate}}"
+                            angular-mydatepicker name="dateFrom" [locale]="locale" [options]="dateFromSetting"
+                            #dpFrom="angular-mydatepicker" [(ngModel)]="creatingDate"
+                            data-automation="offer-detail-info-date-from"
+                            (dateChanged)="onDateFromChanged($event)" (click)="dpFrom.toggleCalendar()"
+                            [class.today-disabled]="dateFromDisableToday"/>
+                        <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-5" for="offer-info-delivery-date">
+                    {{'OFFERS.OFFER_DETAIL.DELIVERY_DATE' | translate}}
+                </label>
+                <div class="col-7">
+                    <div class="input-group">
+                        <input class="form-control disabled opacity-100" placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate}}"
+                            angular-mydatepicker name="dateTo" [locale]="locale" [options]="dateToSetting"
+                            #dpTo="angular-mydatepicker" [(ngModel)]="deliveryDate"
+                            data-automation="offer-detail-info-date-to"
+                            (dateChanged)="onDateToChanged($event)" (click)="dpTo.toggleCalendar()"
+                            [class.today-disabled]="dateToDisableToday"/>
+                        <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-5" for="offer-info-comment">{{'OFFERS.OFFER_DETAIL.REMARKS' | translate}}</label>
+                <div class="col-7">
+                    <input class="form-control" type="text" maxlength="256" [(ngModel)]="offer.remark" data-automation="offer-detail-info-comment">
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-5" for="offer-info-status">{{'OFFERS.OFFER_DETAIL.STATUS' | translate}}</label>
+                <div class="col-7">
+                    {{'OFFERS.OFFER_DETAIL.OFFER_STATUS.' + offer?.status | translate}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-header d-flex flex-row text-white font-weight-bold">
+                <div class="col-4 px-3">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.ARTICLE' | translate}}</div>
+                <div class="col-2 px-3">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.QUANTITY' | translate}}</div>
+                <div class="col-2 px-3">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.PRICE' | translate}}</div>
+                <div class="col-1 px-3">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.DESCRIPTION' | translate}}</div>
+                <div class="col-2 px-3 text-right">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.TOTAL' | translate}}</div>
+                <div class="col-1 px-3"></div>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <h5 class="text-gray m-0 d-flex align-items-center">
+                <button class="btn btn-outline-light border rounded-1 mr-2" [routerLink]="['/home']">
+                    <i class="fa fa-plus text-dark"></i>
+                </button>
+                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.ARTICLE_WITH_VEHICLE' | translate}}
+            </h5>
+        </div>
+        <div class="col-12 mt-2">
+            <connect-offer-item [isShowLabourTime]="isShowLabourTime" (eventDeleteItem)="deleteItem($event)"
+                (eventCalculatePrice)="updatePrice($event)" (eventShowDiscount)="openDiscountModalForItem($event)"
+                (emitUpdateLabourTime)="updateLabourTime($event)"
+                [items]="offer.offerPositions | filterOffer : [ITEM_TYPE.VENDOR_ARTICLE, ITEM_TYPE.HAYNESPRO_PROVIDER_WORK]">
+            </connect-offer-item>
+        </div>
+
+        <div class="col-12 mt-3">
+            <h5 class="text-gray m-0 d-flex align-items-center">
+                <button class="btn btn-outline-light border rounded-1 mr-2" [routerLink]="['/home']">
+                    <i class="fa fa-plus text-dark"></i>
+                </button>
+                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.ARTICLE_WTHOUT_VEHICLE' | translate}}
+            </h5>
+        </div>
+        <div class="col-12 mt-2">
+            <connect-offer-item (eventDeleteItem)="deleteItem($event)" (eventCalculatePrice)="updatePrice($event)"
+                (eventShowDiscount)="openDiscountModalForItem($event)"
+                [items]="offer.offerPositions | filterOffer: ITEM_TYPE.VENDOR_ARTICLE_WITHOUT_VEHICLE">
+            </connect-offer-item>
+        </div>
+
+        <div class="col-12 mt-3">
+            <h5 class="text-gray m-0 d-flex align-items-center">
+                <button class="btn btn-outline-light border rounded-1 mr-2" (click)="openArticleModal()"
+                    data-automation="offer-detail-article-modal-add">
+                    <i class="fa fa-plus text-dark"></i>
+                </button>
+                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.OWN_ARTICLES' | translate}}
+            </h5>
+        </div>
+        <div class="col-12 mt-2">
+            <connect-offer-item (eventDeleteItem)="deleteItem($event)" (eventCalculatePrice)="updatePrice($event)"
+                (eventShowDiscount)="openDiscountModalForItem($event)"
+                [items]="offer.offerPositions | filterOffer: ITEM_TYPE.CLIENT_ARTICLE">
+            </connect-offer-item>
+        </div>
+
+        <div class="col-12 mt-3">
+            <h5 class="text-gray m-0 d-flex align-items-center">
+                <button class="btn btn-outline-light border rounded-1 mr-2" (click)="openWorkModal()"
+                    data-automation="offer-detail-work-modal-add">
+                    <i class="fa fa-plus text-dark"></i>
+                </button>
+                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.OWN_WORK' | translate}}
+            </h5>
+        </div>
+        <div class="col-12 mt-2">
+            <connect-offer-item (eventDeleteItem)="deleteItem($event)" (eventCalculatePrice)="updatePrice($event)"
+                (eventShowDiscount)="openDiscountModalForItem($event)"
+                [items]="offer.offerPositions | filterOffer: ITEM_TYPE.CLIENT_WORK">
+            </connect-offer-item>
+        </div>
+
+        <div class="col-12 mt-3">
+            <h5 class="text-gray m-0 d-flex align-items-center">
+                <button class="btn btn-outline-light border rounded-1 mr-2" [disabled]="offer.totalIncludeVat == 0"
+                    (click)="openDiscountModalForOffer()" data-automation="offer-detail-discount-modal-add">
+                    <i class="fa fa-plus text-dark"></i>
+                </button>
+                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.SURCHARGES_DISCOUNT' | translate}}
+            </h5>
+        </div>
+        <div class="col-12 mt-2">
+            <connect-offer-discount-item (eventDeleteItem)="deleteItem($event)"
+                [items]="offer.offerPositions | filterOffer: ITEM_TYPE.REMARK"></connect-offer-discount-item>
+        </div>
+    </div>
+    <div class="row mt-3 mb-5" data-automation="offer-detail-info">
+        <div class="col-6">
+            <h5 class="text-gray">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.TOTAL' | translate}}</h5>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <div class="font-weight-bold">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.ARTICLE' | translate}}</div>
+                            <div>{{offer.totalArticle | sagCurrency}}</div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <div class="font-weight-bold">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.WORK' | translate}}</div>
+                            <div>{{offer.totalWork | sagCurrency}}</div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <div class="font-weight-bold">
+                                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.SURCHARGES_DISCOUNT' | translate}}
+                            </div>
+                            <div>{{offer.totalRemark | sagCurrency}}</div>
+                        </div>
+                    </div>
+                    <div class="mb-3 pt-3 border-top">
+                        <div class="d-flex justify-content-between">
+                            <div class="font-weight-bold">
+                                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.TOTAL_OFFER_WITHOUT_VAT' | translate}}
+                            </div>
+                            <div>{{offer.totalExcludeVat | sagCurrency}}</div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <div class="font-weight-bold">
+                                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.VAT' | translate}}
+                                {{(vatValue?.toFixed(2))}} %
+                            </div>
+                            <div>{{offer.totalVat | sagCurrency}}</div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-top">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="text-dark">
+                                    {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.TOTAL_OFFER_WITH_VAT' | translate}}
+                                </h5>
+                            </div>
+                            <div>
+                                <h5 class="text-dark">{{offer.totalIncludeVat | sagCurrency}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between pt-5 border-top">
+        <div class="d-flex align-items-center">
+            <a class="btn-back" href="javascript:void(0)" (click)="backToPreviousPage()">
+                <i class="fa fa-chevron-left mr-3"></i>
+                <span class="font-weight-bold">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.BACK' | translate}}</span>
+            </a>
+        </div>
+        <div class="d-flex">
+            <button class="btn btn-primary" [disabled]="offer?.status != 'OPEN'" (click)="changeStatus()">
+                {{'OFFERS.OFFER_DETAIL.OFFER_ITEM.PRINT_INVOICE' | translate}}
+            </button>
+            <button class="btn btn-primary mx-3"
+                (click)="orderOffer()">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.ORDER' | translate}}</button>
+            <button class="btn btn-primary"
+                (click)="updateOffer()">{{'OFFERS.OFFER_DETAIL.OFFER_ITEM.SAVE' | translate}}</button>
+        </div>
+    </div>
+</div>

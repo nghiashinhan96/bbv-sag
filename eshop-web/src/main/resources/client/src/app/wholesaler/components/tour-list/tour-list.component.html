@@ -1,0 +1,22 @@
+<sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+    notFoundText="{{ 'SEARCH.NO_RESULTS_FOUND' | translate }}" class="sag-table-content">
+</sag-table>
+
+<div class="w-100 create-btn-container d-flex justify-content-end">
+    <button class="btn btn-primary" (click)="openCreateTour()">
+        <i class="fa fa-plus mr-1"></i> {{ 'WSS.NEW_TOUR' | translate }}
+    </button>
+</div>
+
+<ng-template #colActions let-row="row">
+    <div class="tour-edit d-flex">
+        <i class="fa fa-edit" (click)="openCreateTour(row.id)"></i>
+        <i class="fa fa-trash" (click)="confirmDeleteTour(row)"></i>
+    </div>
+</ng-template>
+
+<ng-template #colTime let-row="row">
+    <div>
+        {{tourService.getDurationTimeFromTour(row)}}
+    </div>
+</ng-template>

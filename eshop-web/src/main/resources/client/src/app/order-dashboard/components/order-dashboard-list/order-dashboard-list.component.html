@@ -1,0 +1,87 @@
+<h5 class="text-primary">{{ 'ORDER_DASHBOARD.TOTAL_ORDER' | translate:{total:totalOrders} }}</h5>
+<div class="mb-3" *ngIf="errorMessage">
+    <sag-common-message [data]="errorMessage"></sag-common-message>
+</div>
+<sag-table [mode]="mode" [columns]="columns" (searchData)="searchTableData($event)" [sort]="sort"
+    [searchModel]="searchModel" [page]="page" [rows]="rows" [firstlySearch]="mode === 'online'"
+    [notFoundText]="'MESSAGE_SEARCH_NOT_FOUND.SUB_ORDERS'">
+</sag-table>
+<ng-template #customerInfoRef let-order='row'>
+    {{order.companyName}}
+    <ng-container *ngIf="order.address">
+        <br>
+        {{order.address}}
+    </ng-container>
+    <ng-container *ngIf="order.postcode">
+        <br>
+        {{order.postcode}}
+    </ng-container>
+    <ng-container *ngIf="order.customerNumber">
+        <br>
+        {{order.customerNumber}}
+    </ng-container>
+</ng-template>
+<ng-template #articleDesc let-order="row">
+    <ng-container *ngIf="order.vehicleDescs">
+        {{order.vehicleDescs}}
+        <br>
+    </ng-container>
+    {{order.articleDesc}}
+</ng-template>
+<ng-template #actionRef let-order="row">
+    <div [class.ordered]="type === ORDERED">
+        <ng-container *ngIf="type === ORDERED">
+            <div class="d-flex align-item-center mr-3">
+                <a class="btn-icon" [routerLink] = "['/order-dashboard', 'ordered', order.id]">
+                    <i class="fa fa-eye"></i>
+                </a>
+            </div>
+        </ng-container>
+
+        <div>
+            <div class="d-flex align-item-center">
+                <a class="btn-icon btn-shopping-basket mr-3" (click)="addToBasket($event, order)">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+                <ng-container *ngIf="type === MY_CUSTOMER_ORDERS">
+                    <a class="btn-icon" (click)="deleteSubOrder($event, order)">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </ng-container>
+            </div>
+            <div class="action-export d-flex align-items-center">
+                <i class="fa fa-file-o" (click)="exportFinalCustomerOrder($event, order, FC_ORDER_EXPORT_TYPE.CSV)"></i>
+                <i class="fa fa-file-excel-o" (click)="exportFinalCustomerOrder($event, order, FC_ORDER_EXPORT_TYPE.EXCEL)"></i>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #dateFilter let-model="row">
+    <div class="input-group date-range-picker">
+        <input class="form-control disabled opacity-100" placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate}}"
+            angular-mydatepicker [options]="dateOption" #dpTo="angular-mydatepicker" readonly
+            (dateChanged)="onFilterDate($event)" [locale]="locale" (click)="dpTo.toggleCalendar()">
+        <div class="input-group-append input-group-clear pointer" (click)="dpTo.clearDate()" *ngIf="dpTo.isDateValid()">
+            <span class="input-group-text">
+                <i class="fa fa-close"></i>
+            </span>
+        </div>
+        <div class="input-group-append input-group-picker pointer" (click)="dpTo.toggleCalendar()">
+            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #totalGrossPriceRef let-row="row">
+    <div>{{ row.totalGrossPrice | sagCurrency }}</div>
+    <div *ngIf="isShowVat && (row.totalGrossPriceWithVat && row.totalGrossPriceWithVat !== 0)">({{ row.totalGrossPriceWithVat | sagCurrency }})</div>
+</ng-template>
+
+<ng-template #totalFCNetPriceRef let-row="row">
+    <div>{{row.totalFinalCustomerNetPrice && row.totalFinalCustomerNetPrice !== 0 ? (row.totalFinalCustomerNetPrice |
+        sagCurrency) : '-'}}</div>
+    <div *ngIf="isShowVat && (row.totalFinalCustomerNetPriceWithVat && row.totalFinalCustomerNetPriceWithVat !== 0)">
+        ({{row.totalFinalCustomerNetPriceWithVat && row.totalFinalCustomerNetPriceWithVat !== 0 ?
+        (row.totalFinalCustomerNetPriceWithVat | sagCurrency) : '-'}})</div>
+</ng-template>

@@ -1,0 +1,30 @@
+spring:
+  target:
+    datasource:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://sag-prd-cdb-021.sag.services;databaseName=econnectAxPCH;applicationName=ConnectRestServer
+      username: umblocal
+      password: 12econnectP34
+      minimum-idle: 1
+      maximum-pool-size: 125
+      pool-name: restatax_pool
+      connection-timeout: 10000
+      max-lifetime: 30000
+      jpa:
+        properties:
+          hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+proxy:
+  host: proxy2.sag-ag.ch
+  port: 8080
+  schema: http
+
+## This is the default value config to make persistent data for dev environment
+default:
+  ## user name: admin
+  userId: 1
+  ## customer nr: 469743
+  organisationId: 6
+  
+csv.branch_opening_hours: /csv/Branches_opening_hour_CH.csv
+es.index.branch: branches_ch

@@ -1,0 +1,66 @@
+<ng-container *ngIf="isSb; else otherAffiliate">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="mb-2 avail-color avail-color-{{defaultLocationDisplay?.location?.state}}"></div>
+        <span>{{indicatorText}}</span>
+    </div>
+</ng-container>
+
+<ng-template #otherAffiliate>
+    <ng-template [ngIf]="isArticle24h">
+        <ng-container *ngTemplateOutlet="noAvailRef"></ng-container>
+    </ng-template>
+    <ng-template [ngIf]="!(isArticle24h)">
+        <ng-container *ngIf="isSofort">
+            <span class="label" [ngStyle]="{'color': getAvailColor(artAvailabilities[0], availDisplayStates.SAME_DAY)}">
+                {{'ARTICLE.DELIVERY_IMMEDIATE' | translate}}
+            </span>
+            <ng-container *ngIf="specialNotes">
+                <div class="avail-note-text" [ngStyle]="{'color': getAvailColor(artAvailabilities[0], availDisplayStates.IN_STOCK)}">
+                    <span [innerHtml]="specialNotes"></span>
+                </div>
+            </ng-container>
+        </ng-container>
+
+        <span *ngIf="!isSofort" [ngStyle]="{'color': getAvailColor(artAvailabilities[0])}">
+            <ng-container
+                *ngIf="artAvailabilities[0]?.formattedCETArrivalDate || artAvailabilities[0]?.formattedCETArrivalTime; else otherCaseRef">
+                <span class="time" [ngStyle]="{'color': getAvailColor(artAvailabilities[0])}">
+                    <span [innerHtml]="getAvailDisplayText(artAvailabilities[0])"></span>
+                </span>
+                <ng-container *ngIf="specialNotes">
+                    <div class="avail-note-text" [ngStyle]="{'color': getAvailColor(artAvailabilities[0], availDisplayStates.IN_STOCK)}">
+                        <span [innerHtml]="specialNotes"></span>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-template #otherCaseRef>
+                <ng-container *ngIf="!isAffiliateCZ9; else defaultIconRef">
+                    <div class="no-avail-dot" [ngStyle]="{'background-color': getAvailColor(artAvailabilities[0], availDisplayStates.NOT_AVAILABLE)}"></div>
+                </ng-container>
+            </ng-template>
+        </span>
+    </ng-template>
+
+    <ng-template #noAvailRef>
+        <ng-container *ngIf="(userSetting?.dropShipmentAvailability || userSetting?.availIcon); else showListAvailText">
+            <ng-container *ngIf="!isAffiliateCZ9; else defaultIconRef">
+                <div class="no-avail-dot" [ngStyle]="{'background-color': getAvailColor(artAvailabilities[0], availDisplayStates.NOT_AVAILABLE)}"></div>
+            </ng-container>
+        </ng-container>
+
+        <ng-template #showListAvailText>
+            <ng-container *ngIf="listAvailTextDisplay === nonAvailableSymbol; else defaultRef">
+                <ng-container *ngIf="!isAffiliateCZ9; else defaultIconRef">
+                    <div class="no-avail-dot" [ngStyle]="{'background-color': getAvailColor(artAvailabilities[0], availDisplayStates.NOT_AVAILABLE)}"></div>
+                </ng-container>
+            </ng-container>
+            <ng-template #defaultRef>
+                <span [innerHtml]="listAvailTextDisplay" [ngStyle]="{'color': getAvailColor(artAvailabilities[0], availDisplayStates.NOT_AVAILABLE)}"></span>
+            </ng-template>
+        </ng-template>
+    </ng-template>
+
+    <ng-template #defaultIconRef>
+        <i class="fa {{nonAvailableSymbol}}"></i>
+    </ng-template>
+</ng-template>

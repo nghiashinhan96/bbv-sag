@@ -1,0 +1,37 @@
+connect-margin-management {
+    @mixin widthBlock($value) {
+        width: $value;
+        max-width: $value;
+    }
+
+    .margin-icon {
+        font-size: 18px;
+        color: #777;
+    }
+
+    .margin-value {
+        &-5 {
+            @include widthBlock(5%);
+        }
+
+        &-10 {
+            @include widthBlock(10%);
+        }
+
+        &-15 {
+            @include widthBlock(15%);
+        }
+
+        &-20 {
+            @include widthBlock(20%);
+        }
+
+        &-30 {
+            @include widthBlock(30%);
+        }
+
+        &-25 {
+            @include widthBlock(25%);
+        }
+    }
+}

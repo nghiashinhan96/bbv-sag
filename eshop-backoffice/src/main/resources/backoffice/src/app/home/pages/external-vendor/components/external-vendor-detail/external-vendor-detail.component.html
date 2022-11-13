@@ -1,0 +1,114 @@
+<div class="panel panel-primary card mb-4">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.TITLE' | translate}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <form [formGroup]="externalVendorForm" novalidate>
+                <div class="form-group row">
+                    <label class="col-3 control-label mandatory">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.COUNTRY' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="sag-select" [items]="countries"
+                            notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="country"
+                            [clearable]="false"></ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.ARTICLE_GROUP' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <input type="text" class="form-control" formControlName="sagArticleGroup">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.BRAND' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="sag-select" [items]="brands"
+                            notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="brandId"
+                            [searchable]="true" [clearable]="false"></ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.ID' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <input type="text" class="form-control" formControlName="vendorId">
+                        <div class="mt-10" *ngIf="vendorId.invalid && (vendorId.dirty || vendorId.touched)">
+                            <notification
+                                [notifier]="{'messages': ['EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.VALIDATION_MESSAGE.MAX_LENGTH'], 'status': false}"
+                                *ngIf="vendorId?.errors?.maxlength">
+                            </notification>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.NAME' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <input type="text" class="form-control" formControlName="vendorName">
+                        <div class="mt-10" *ngIf="name.invalid && (name.dirty || name.touched)">
+                            <notification
+                                [notifier]="{'messages': ['EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.VALIDATION_MESSAGE.MAX_LENGTH'], 'status': false}"
+                                *ngIf="name?.errors?.maxlength"></notification>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label mandatory">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.PRIORITY' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <input type="number" class="form-control" formControlName="vendorPriority">
+                        <div class="mt-10" *ngIf="priority.invalid && (priority.dirty || priority.touched)">
+                            <notification
+                                [notifier]="{'messages': ['EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.VALIDATION_MESSAGE.INVALID_PRIORITY_VALUE'], 'status': false}">
+                            </notification>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label mandatory">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.DELIVERY_PROFILE_NAME' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="sag-select" [items]="profiles"
+                            notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="deliveryProfileId"
+                            [clearable]="false"></ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label mandatory">
+                        {{'EXTERNAL_VENDOR.EXTERNAL_VENDOR_DETAIL.FORM.AVAILABILITY_TYPE' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="sag-select" [items]="availTypes"
+                            notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="availabilityTypeId"
+                            [clearable]="false"></ng-select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12" *ngIf="notifier">
+            <notification [notifier]="notifier"></notification>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <button type="button" class="btn btn-default" (click)="onBack()">
+            <i class="fa fa-arrow-left"></i>
+            {{ 'COMMON.BUTTON.BACK' | translate }}
+        </button>
+        <button type="button" class="btn btn-primary save-btn" (click)="onSubmit()"
+            [disabled]="externalVendorForm.invalid">
+            <i class="fa fa-save"></i>
+            {{ 'COMMON.BUTTON.SAVE' | translate }}
+        </button>
+    </div>
+</div>

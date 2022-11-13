@@ -1,0 +1,96 @@
+<div class="modal-header">
+    <h4>{{ "OPENING_DAY.OPENING_DAY_FORM.TITLE" | translate }}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <sag-common-message *ngIf="noticeMessage" [data]="noticeMessage">
+    </sag-common-message>
+    <div class="form-horizontal" *ngIf="openingDayForm">
+        <form [formGroup]="openingDayForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'OPENING_DAY.OPENING_DAY_FORM.DATE' | translate}} *
+                </label>
+                <div class="col-3">
+                    <div class="input-group">
+                        <input class="form-control" angular-mydatepicker name="date-from" [locale]="locale"
+                            [options]="datePickerCommonSetting" #dpFrom="angular-mydatepicker"
+                            formControlName="fromDate" (click)="dpFrom.toggleCalendar()" autocomplete="off" />
+                        <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'OPENING_DAY.OPENING_DAY_FORM.LAND' | translate}}*
+                </label>
+                <div class="col-9">
+                    <ng-select class="sag-select" [items]="countries"
+                        notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}" formControlName="country"
+                        (close)="onSelectCountry()" bindLabel="label" bindValue="value" [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{'OPENING_DAY.OPENING_DAY_FORM.DAY_TYPE' | translate}}*
+                </label>
+                <div class="col-9">
+                    <ng-select class="sag-select" [items]="workingCodes"
+                        notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}" formControlName="workingCode"
+                        bindLabel="label" bindValue="value" [clearable]="false" (close)="onSelectedWorkingCode()">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row mt-40">
+                <label class="col-3 control-label">
+                    {{'OPENING_DAY.OPENING_DAY_FORM.EXCEPTIONS' | translate}}
+                </label>
+                <div class="col-3 exception-checkbox-container">
+                    <input type="checkbox" formControlName="exceptionCheckbox" (change)="toggleException($event)">
+                </div>
+            </div>
+            <div formGroupName="exceptionGroup">
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'OPENING_DAY.OPENING_DAY_FORM.DAY_TYPE' | translate}}*
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="sag-select" [items]="workingCodes"
+                            notFoundText="{{'OPENING_DAY.EMPTY_LIST' | translate}}"
+                            formControlName="exceptionWorkingCode" bindLabel="label" bindValue="value"
+                            [clearable]="false" (close)="onSelectedExceptionWorkingCode($event)"></ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'OPENING_DAY.OPENING_DAY_FORM.BRANCH_NUMBER_LABEL' | translate}}*
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="multiple-select-input" [items]="branches"
+                            notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}"
+                            formControlName="branchNumber" [multiple]="true" [clearable]="true" bindLabel="label"
+                            (clear)="onClearBranchs()" bindValue="value" (add)="onSelectedBranch($event)"
+                            (remove)="onDeselectBranch($event)">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'OPENING_DAY.OPENING_DAY_FORM.BRANCH_CODE_LABEL' | translate}}
+                    </label>
+                    <div class="col-9">
+                        <input type="text" class="form-control" formControlName="branchCode" [readOnly]="true">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex">
+                <button class="btn btn-primary align-self-end" type="submit" [disabled]="openingDayForm.invalid">
+                    {{ 'COMMON_LABEL.SAVE' | translate }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<table class="table">
+    <thead>
+        <tr class="header">
+            <ng-container *ngIf="columns && columns.length > 0">
+                <ng-container *ngFor="let col of columns">
+                    <th class="thead" [ngClass]="col.name" [class.center]="col?.isCenterText"
+                        [sagCommonSortable]="col?.key" [(sort)]="sort" (sortChange)="sortData($event)">{{ col?.text |
+                        translate}}</th>
+                </ng-container>
+            </ng-container>
+        </tr>
+        <tr class="filter">
+            <ng-container *ngIf="columns && columns.length > 0">
+                <ng-container *ngFor="let col of columns">
+                    <ng-container *ngIf="col?.name !== 'name'; else columnName">
+                        <td class="tcol" [ngClass]="col?.name" [class.select]="col?.isFilter">
+                            <ng-container *ngIf="col?.isFilter">
+                                <ng-select [items]="col?.options" bindLabel="label" bindValue="value"
+                                    class="ng-select-filter" [(ngModel)]="searchModel?.filtering[col?.keyPayload]"
+                                    notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}"
+                                    loadingText="{{'SEARCH.LOADING' | translate}}" (change)="optionSelected()"
+                                    [clearable]="false" [searchable]="col?.options?.length > 10 || col?.name === 'type'">
+                                </ng-select>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-template #columnName>
+                        <td class="tcol name" [ngClass]="col?.name">
+                            <input class="form-control" [(ngModel)]="searchModel?.filtering[col?.keyPayload]"
+                                (ngModelChange)="filterFullName()" clearAllText="false"
+                                title="{{'SEARCH.FILTER_NAME_TITLE' | translate}}">
+                            <div class="tooltip-btn" popover="{{'SEARCH.FILTER_NAME_TITLE' | translate}}"
+                                triggers="mouseenter:mouseleave">
+                                <i class="fa fa-question-circle"></i>
+                            </div>
+                            <ng-template #namePopTemplate>
+                                <div>{{'SEARCH.FILTER_NAME_TITLE' | translate}}</div>
+                            </ng-template>
+                        </td>
+                    </ng-template>
+                </ng-container>
+            </ng-container>
+        </tr>
+    </thead>
+    <ng-container *ngIf="result && result.length > 0">
+        <tbody #scroller (scroll)="fetchMoreVehicles($event)">
+            <tr *ngFor="let item of result; let i = index" class="content">
+                <ng-container *ngIf="columns && columns.length > 0">
+                    <ng-container *ngFor="let col of columns">
+                        <ng-container *ngIf="col?.name === 'name' || col?.name === 'type'; else kwColumn">
+                            <td (click)="navigateToListPart(item)" [title]="col?.keyHintTitle ? item[col?.keyHintTitle] : item[col?.keyData]" class="tcol" [ngClass]="'col-' + col?.name + ' ' + col?.name">
+                                <a href="javascript:void(0)">
+                                    {{item[col?.keyData]}}
+                                </a>
+                            </td>
+                        </ng-container>
+                        <ng-template #kwColumn>
+                            <ng-container *ngIf="col?.name === 'kw'; else normalColumn">
+                                <td class="tcol center" [ngClass]="col?.name">
+                                    <a href="javascript:void(0)"
+                                        (click)="filteringData(col?.keyPayload, item?.vehicle_power_kw + '/' + item?.vehicle_power_hp)"
+                                        [title]="item?.vehicle_power_kw + '/' + item?.vehicle_power_hp">{{item?.vehicle_power_kw
+                                        + '/' + item?.vehicle_power_hp}}
+                                    </a>
+                                </td>
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #normalColumn>
+                            <td class="tcol center" [ngClass]="col?.name">
+                                <ng-container *ngIf="!col?.isFilter; else linkFilter">
+                                    {{item[col?.keyData]}}
+                                </ng-container>
+                                <ng-template #linkFilter>
+                                    <a href="javascript:void(0)"
+                                        (click)="filteringData(col?.keyPayload, item[col?.keyData])"
+                                        [title]="item[col?.keyData]">{{item[col?.keyData]}}
+                                        <ng-container *ngIf="!col?.isFilter">item[col?.keyData]</ng-container>
+                                    </a>
+                                </ng-template>
+                            </td>
+                        </ng-template>
+                    </ng-container>
+                </ng-container>
+            </tr>
+            <tr *ngIf="isFetching">
+                <td colspan="9" class="fetch-more">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </td>
+            </tr>
+        </tbody>
+    </ng-container>
+</table>

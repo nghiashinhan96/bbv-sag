@@ -1,0 +1,18 @@
+spring.profiles.include: 
+  autonet-erp-pre,
+  mail-dev,
+  elasticsearch-autonet-umbpre,
+  db-autonet-test,
+  executor-pool,
+  no-liquibase,
+  country-autonet
+
+server:
+  port: 9002
+  sessionTimeout: 30
+logging:
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG
+    org.elasticsearch.bootstrap: ERROR
+

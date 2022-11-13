@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP" id="ITER_190_INSERT_PERMISSION_DEFAULT_FOR_UNIPARTS">
+		<sql>
+            <!--ESHOP_PERMISSION-->
+            BEGIN
+            IF NOT EXISTS (SELECT * FROM ESHOP_PERMISSION WHERE PERMISSION_KEY ='UNIPARTS')
+                BEGIN
+                    INSERT INTO ESHOP_PERMISSION(PERMISSION,DESCRIPTION,CREATED_BY,PERMISSION_KEY)
+                    VALUES('UNIPARTS', 'Permission to work with Universal Parts', '1', 'UNIPARTS')
+                END
+            
+            <!--ESHOP_PERMISSION-->
+            
+            DECLARE @permPartsID VARCHAR(10) = (SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION_KEY= 'UNIPARTS')
+            IF @permPartsID &lt;&gt; ''
+                BEGIN
+                    <!--COLLECTION_PERMISSION-->
+                    INSERT INTO COLLECTION_PERMISSION(COLLECTION_ID, ESHOP_PERMISSION_ID)
+                    SELECT ID, @permPartsID FROM ORGANISATION_COLLECTION oc
+                    <!--COLLECTION_PERMISSION-->
+
+                    <!--GROUP_PERMISSION-->
+                    INSERT INTO GROUP_PERMISSION(GROUP_ID , PERM_ID, ALLOWED)
+                    SELECT GROUP_ID, @permPartsID, '1' FROM GROUP_PERMISSION gp GROUP BY GROUP_ID ORDER BY GROUP_ID
+                    <!--GROUP_PERMISSION-->
+                END
+            
+
+            <!--ESHOP_FUNCTION-->           
+            IF NOT EXISTS (SELECT * FROM ESHOP_FUNCTION WHERE FUNCTION_NAME ='UNIPARTS_URL_ACCESS')
+                BEGIN
+                    INSERT INTO ESHOP_FUNCTION ( FUNCTION_NAME, DESCRIPTION, RELATIVE_URL)
+                    VALUES( N'UNIPARTS_URL_ACCESS', N'Function to work with UniversalParts search API', N'/wsp')
+                END
+            <!--ESHOP_FUNCTION-->
+
+            <!--PERM_FUNCTION-->
+            DECLARE  @funcPartsID VARCHAR(10)= (SELECT ID FROM ESHOP_FUNCTION WHERE FUNCTION_NAME= 'UNIPARTS_URL_ACCESS')
+			IF (@permPartsID &lt;&gt; '' AND @funcPartsID &lt;&gt; '')
+                BEGIN
+                    INSERT INTO PERM_FUNCTION (PERM_ID, FUNCTION_ID)
+                    VALUES( @permPartsID, @funcPartsID)
+                END
+            END
+            <!--PERM_FUNCTION-->
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

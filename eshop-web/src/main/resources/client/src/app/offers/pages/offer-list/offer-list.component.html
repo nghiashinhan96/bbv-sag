@@ -1,0 +1,28 @@
+<div class="mt-3 offers-table">
+    <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+        [notFoundText]="notFoundText">
+    </sag-table>
+</div>
+<div class="border-top mt-3 pt-3 text-right">
+    <button class="btn btn-primary ml-auto" (click)="createOffer()">
+        <i class="fa fa-plus mr-2"></i>
+        {{'OFFERS.NEW_OFFER' | translate}}
+    </button>
+</div>
+<ng-template #colVehicleDescs let-row="row">
+    <div *ngFor="let item of row.vehicleDescs">
+        {{item}}
+    </div>
+</ng-template>
+<ng-template #colStatus let-row="row">
+    {{'OFFERS.OFFER_DETAIL.OFFER_STATUS.' + row.status | translate}}
+</ng-template>
+<ng-template #colActions let-row="row">
+    <div class="d-flex align-items-center">
+        <i class="fa fa-file-word-o btn-icon mr-2" (click)="exportWordOffer(row)"></i>
+        <i class="ico-file-rtf btn-icon mr-2" (click)="exportRtfOffer(row)"></i>
+        <i class="fa fa-file-pdf-o btn-icon mr-2" (click)="exportPdfOffer(row)"></i>
+        <i class="fa fa-edit btn-icon mr-2" [routerLink]="['/offers/edit', row.id]"></i>
+        <i class="fa fa-trash btn-icon" (click)="deleteOffer(row)"></i>
+    </div>
+</ng-template>

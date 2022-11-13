@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_216_ADD_AVAIL_STATE_SETTING_ORG_COLLECTION_SETTINGS_AT_CH">
+    <sql>
+		DECLARE @collectionIdTable TABLE(id int)
+		INSERT INTO @collectionIdTable 
+			SELECT ID FROM ORGANISATION_COLLECTION oc WHERE oc.SHORTNAME &lt;&gt; 'sag'
+		
+		DECLARE @collectionId int
+		DECLARE @settingKey nvarchar(max) = N'availability_display'
+		DECLARE @notOrderable varchar(MAX) = 'NOT_ORDERABLE'
+		DECLARE @panelTitleNotOrderable varchar(MAX) = 'Not Orderable'
+		DECLARE @colorNotOrderable varchar(MAX) = '#000000'
+		
+		DECLARE @listAvailText_notOrderable_it varchar(MAX) = 'Non ordinabile'
+		DECLARE @listAvailText_notOrderable_de varchar(MAX) = 'Nicht bestellbar'
+		DECLARE @listAvailText_notOrderable_fr varchar(MAX) = 'Non commandable'
+		
+		DECLARE @defaultDisplayOption varchar(MAX) = 'DISPLAY_TEXT'
+		DECLARE CollectionCursor CURSOR FOR SELECT ID from @collectionIdTable
+		OPEN collectionCursor
+		FETCH NEXT FROM CollectionCursor INTO @collectionId
+		WHILE @@FETCH_STATUS = 0 
+			BEGIN
+				DECLARE @exisingAvailDidplaySetting nvarchar(MAX) = (SELECT SETTING_VALUE FROM dbo.ORG_COLLECTION_SETTINGS where 
+						COLLECTION_ID=@collectionId AND SETTING_KEY=@settingKey)
+				if @exisingAvailDidplaySetting NOT LIKE '%'+@notOrderable+'%'
+				BEGIN 
+					DECLARE @singleLanguageTemplate varchar(MAX)= N'{"langIso":"{{langIso}}","content":"{{content}}"}'
+					DECLARE @multipleLanguageTemplate varchar(MAX)= N'[]'
+					DECLARE @it_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+								'$.langIso', 'it'), 
+								'$.content', @listAvailText_notOrderable_it)
+					DECLARE @de_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+								'$.langIso', 'de'), 
+								'$.content', @listAvailText_notOrderable_de)
+					DECLARE @fr_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+								'$.langIso', 'fr'), 
+								'$.content', @listAvailText_notOrderable_fr)
+					DECLARE @listAvailText_notOrderable_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(@multipleLanguageTemplate, 
+								'append $', JSON_QUERY(@it_json)),
+								'append $', JSON_QUERY(@de_json)),
+								'append $', JSON_QUERY(@fr_json))
+
+					DECLARE @availTypeTemplate varchar(MAX)= N'{"availState":"{{avail_state}}","detailAvailText":[],"listAvailText":[],"title":"{{title}}}","description":"{{description}}","color":"{{color}}","confirmColor":"{{confirmColor}}","displayOption":"{{option}}"}'
+					DECLARE @notOrderableJson varchar(MAX) = JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(@availTypeTemplate,
+								'$.availState', @notOrderable),
+								'$.detailAvailText', NULL),
+								'$.listAvailText', JSON_QUERY(@listAvailText_notOrderable_json)),
+								'$.title', @panelTitleNotOrderable),
+								'$.description', NULL),
+								'$.color', @colorNotOrderable),
+								'$.confirmColor', NULL),
+								'$.displayOption', @defaultDisplayOption)
+											
+					DECLARE @updatedAvailDisplaySetting nvarchar(MAX) = JSON_MODIFY(@exisingAvailDidplaySetting, 'append $', JSON_QUERY(@notOrderableJson))
+					UPDATE dbo.ORG_COLLECTION_SETTINGS SET SETTING_VALUE = @updatedAvailDisplaySetting WHERE 
+						COLLECTION_ID = @collectionId AND SETTING_KEY =@settingKey
+				END
+				FETCH NEXT FROM CollectionCursor INTO @collectionId
+			END
+		CLOSE CollectionCursor
+		DEALLOCATE CollectionCursor
+
+	</sql>
+  </changeSet>
+</databaseChangeLog>

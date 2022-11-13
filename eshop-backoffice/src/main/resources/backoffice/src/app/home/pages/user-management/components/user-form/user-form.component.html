@@ -1,0 +1,93 @@
+<div class="profile-pane">
+    <notification [notifier]="notifier"></notification>
+    <form novalidate [formGroup]="profileForm" (ngSubmit)="onSave()" class="sag-profile bootstrap-10">
+        <div class="row">
+            <div class="form-group col-12">
+                <label>{{ "COMMON.LABEL.COMPANY" | translate }}:</label>
+                <span class="text-primary company-name" *ngIf="model.companyName">
+                    {{model.companyName + " - " + model.customerNumber}}
+                </span>
+            </div>
+            <div class="form-group col-12">
+                <label>{{ "COMMON.LABEL.BRANCH_NAME" | translate }}:</label>
+                <span class="text-primary company-name">
+                    {{model.defaultBranchId ? model.defaultBranchId + " - ": model.defaultBranchId}}
+                    {{ model.defaultBranchName }}
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4">
+                <label>{{ "USER_MANAGEMENT.USER_DETAIL.USERNAME" | translate }}*</label>
+                <input formControlName="userName" type="text" name="benutzername" class="form-control"
+                    placeholder="daniel.birchler" />
+                <control-messages [control]="profileForm.controls.userName"></control-messages>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4">
+                <label>{{"USER_MANAGEMENT.USER_DETAIL.SALUTATION" | translate}}</label>
+                <ng-select class="sag-select" name="salutation" [items]="salutationOptions"
+                    notFoundText="{{'USER_MANAGEMENT.USER_DETAIL.MESSAGE_PROFILE.MESSAGE_NO_RESULTS_FOUND'| translate}}"
+                    formControlName="salutationId" [clearable]="false"></ng-select>
+            </div>
+            <div class="form-group col-4">
+                <label>{{ "USER_MANAGEMENT.USER_DETAIL.LASTNAME" | translate }}*</label>
+                <input formControlName="surName" type="text" name="t-nachname" class="form-control"
+                    placeholder="Daniel" />
+                <control-messages [control]="profileForm.controls.surName"></control-messages>
+            </div>
+            <div class="form-group col-4">
+                <label>{{ "USER_MANAGEMENT.USER_DETAIL.FIRSTNAME" | translate }}*</label>
+                <input formControlName="firstName" type="text" name="t-vorname" class="form-control"
+                    placeholder="Birchler" />
+                <control-messages [control]="profileForm.controls.firstName"></control-messages>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4">
+                <label>{{ "USER_MANAGEMENT.USER_DETAIL.EMAIL" | translate }}*</label>
+                <input formControlName="email" type="text" name="t-email" class="form-control"
+                    placeholder="Birchler@bbv.com" />
+                <control-messages [control]="profileForm.controls.email"></control-messages>
+            </div>
+            <div class="form-group col-4">
+                <label for="t-telefon">
+                    {{"USER_MANAGEMENT.USER_DETAIL.TELEPHONE" | translate}}
+                </label>
+                <input formControlName="phoneNumber" type="text" name="t-telefon" class="form-control"
+                    placeholder="+44 123 456 789" />
+            </div>
+            <div class="form-group col-4">
+                <label>{{ "USER_MANAGEMENT.USER_DETAIL.LANGUAGE" | translate }}</label>
+                <ng-select class="sag-select" name="language" [items]="languageOptions"
+                    notFoundText="{{'USER_MANAGEMENT.USER_DETAIL.MESSAGE_PROFILE.MESSAGE_NO_RESULTS_FOUND' | translate}}"
+                    formControlName="languageId" [clearable]="false"></ng-select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-4">
+                <label>{{ "USER_MANAGEMENT.USER_DETAIL.TYPE" | translate }}</label>
+                <ng-select class="sag-select" name="typeOptions" [items]="typeOptions"
+                    notFoundText="{{'USER_MANAGEMENT.USER_DETAIL.MESSAGE_PROFILE.MESSAGE_NO_RESULTS_FOUND'| translate}}"
+                    formControlName="typeId" [clearable]="false"></ng-select>
+            </div>
+            <div class="form-group col-4">
+                <label>{{"USER_MANAGEMENT.USER_DETAIL.HOURLY_RATE" | translate}}</label>
+                <input placeholder="0.00" formControlName="hourlyRate" [appDecimalNumber] type="text"
+                    name="t-hourly-rate" class="form-control" />
+                <control-messages [control]="profileForm.controls.hourlyRate"></control-messages>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <notification [notifier]="accountNotifier"></notification>
+            </div>
+        </div>
+        <p class="text-center">
+            <button type="submit" class="btn btn-primary btn-center" [disabled]="formDisable">
+                {{ "USER_MANAGEMENT.USER_DETAIL.SAVE" | translate }}
+            </button>
+        </p>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4>{{'OFFERS.SELECT_CUSTOMER' | translate}}</h4>
+    <a href="javascript:void(0)" (click)="modalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body" data-automation="offer-person-modal-body">
+    <div class="block-content">
+        <sag-table mode="online" [columns]="columns" (searchData)="searchOfferPersons($event)"
+            [notFoundText]="warningMessage"></sag-table>
+    </div>
+    <div class="btn-section">
+            <sag-common-message *ngIf="successMessage" [size2x]="false" customClass="justify-content-end" [message]="'MESSAGES.ADDED_SUCCESSFULLY'" type="SUCCESS" [icon]="'fa-check-circle-o'"></sag-common-message>
+    </div>
+</div>
+<div class="modal-footer justify-content-between" data-automation="offer-person-modal-footer">
+    <button class="btn btn-primary" (click)="modalRef.hide()">{{'COMMON_LABEL.ABORT' | translate}}</button>
+    <div class="ml-auto d-flex">
+        <button class="btn btn-primary mr-2" (click)="showCreatingPersonModal()"><i
+                class="fa fa-plus mr-2"></i>{{'OFFERS.NEW_CUSTOMER' | translate}}</button>
+        <button class="btn btn-primary" [disabled]="!selectedPersonId"
+            (click)="getSelectedPerson()">{{'COMMON_LABEL.TAKE' | translate}}</button>
+    </div>
+</div>
+<ng-template #colRadio let-row="row">
+    <input class="mt-0" type="radio" name="selected-person" (click)="getSelectedPersonId(row.id)" data-automation="offer-person-modal-radio">
+</ng-template>
+<ng-template #colName let-row="row">
+    {{ row.salutation === 'GENERAL_SALUTATION_COMPANY' ? row.companyName : row.firstName + ' ' + row.lastName }}
+</ng-template>
+<ng-template #colAddress let-row="row">
+    <div class="single-line">{{ row.road }}</div>
+    <div>{{ row.postCode + ' ' + row.place }}</div>
+</ng-template>
+<ng-template #colContact let-row="row">
+    <div class="single-line">{{ row.phone }}</div>
+    <div class="single-line">{{ row.fax }}</div>
+    <div>{{ row.email }}</div>
+</ng-template>

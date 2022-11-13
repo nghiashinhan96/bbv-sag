@@ -1,0 +1,74 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_168_ADD_WSS_MARGINS_SCHEMA">
+    <sql>
+    	DROP TABLE IF EXISTS WSS_MARGINS_ARTICLE_GROUP
+      
+		CREATE TABLE WSS_MARGINS_ARTICLE_GROUP ( 
+		ID int IDENTITY(1, 1) NOT NULL,
+		ORG_ID int NOT NULL,
+		CUSTOMER_ART_GROUP_ID varchar(255),
+		PARENT_ID int,
+		GROUP_LEVEL int,
+		MARGIN_1 decimal(19, 2),
+		MARGIN_2 decimal(19, 2),
+		MARGIN_3 decimal(19, 2),
+		MARGIN_4 decimal(19, 2),
+		MARGIN_5 decimal(19, 2),
+		MARGIN_6 decimal(19, 2),
+		MARGIN_7 decimal(19, 2))
+		
+		DROP TABLE IF EXISTS WSS_CUSTOMER_ARTICLE_GROUP
+		      
+		CREATE TABLE WSS_CUSTOMER_ARTICLE_GROUP ( 
+		ID int IDENTITY(1, 1) NOT NULL,
+		WSS_ARTICLE_GROUP_ID int NOT NULL,
+		LANGUAGE varchar(10),
+		CUSTOMER_ART_GROUP_TEXT varchar(255))
+		  
+		DROP TABLE IF EXISTS WSS_MARGINS_BRAND
+		  
+		CREATE TABLE WSS_MARGINS_BRAND (
+		ID int IDENTITY(1,1) NOT NULL,
+		ORG_ID int NOT NULL,
+		BRAND_ID int NOT NULL,
+		BRAND_NAME varchar(255) NOT NULL,
+		MARGIN_1 decimal(19,2),
+		MARGIN_2 decimal(19,2),
+		MARGIN_3 decimal(19,2),
+		MARGIN_4 decimal(19,2),
+		MARGIN_5 decimal(19,2),
+		MARGIN_6 decimal(19,2),
+		MARGIN_7 decimal(19,2))
+		  
+		ALTER TABLE CUSTOMER_SETTINGS ADD WSS_SHOW_NET_PRICE bit NOT NULL DEFAULT 0
+		
+		ALTER TABLE CUSTOMER_SETTINGS ADD WSS_MARGIN_GROUP int
+	</sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_168_UPDATE_WSS_MARGINS_SCHEMA">
+	<sql>
+		ALTER TABLE WSS_MARGINS_ARTICLE_GROUP DROP COLUMN CUSTOMER_ART_GROUP_ID
+		
+		ALTER TABLE WSS_MARGINS_ARTICLE_GROUP ADD SAG_ART_GROUP_ID varchar(255)
+	</sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_168_ADD_SAG_ART_GROUP_TEXT_WSS_MARGINS_ARTICLE_GROUP">
+	<sql>
+		IF NOT EXISTS
+		(
+			SELECT COLUMN_NAME
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_NAME = 'WSS_MARGINS_ARTICLE_GROUP'
+				AND COLUMN_NAME = 'SAG_ART_GROUP_TEXT'
+		)
+		ALTER TABLE WSS_MARGINS_ARTICLE_GROUP ADD SAG_ART_GROUP_TEXT varchar(255)
+	</sql>
+  </changeSet>
+</databaseChangeLog>

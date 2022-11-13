@@ -1,0 +1,117 @@
+<div>
+    <tabset>
+        <tab heading="{{'BULBS.BULBS' | translate}}" class="p-3 border-left border-right border-bottom" id="app-bulb-tab">
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'BULBS.CODE' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.code"
+                        [items]="data.content.codes"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="bulb-dropdown-code">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex align-items-center mr-3">{{ item.label | translate }}</div>
+                                <div class="" *ngIf="item.img">
+                                    <img [src]="item.img" />
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'BULBS.VOLTAGE' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.voltage"
+                        [items]="data.content.voltages"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="bulb-dropdown-voltage">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'BULBS.WATT' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.watt"
+                        [items]="data.content.watts"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="bulb-dropdown-watt">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="label">{{'BULBS.SUPPLIER' | translate}}</span>
+                </div>
+                <div class="col-6">
+                    <ng-select
+                        class="ng-select-filter"
+                        [(ngModel)]="models.supplier"
+                        [items]="data.content.suppliers"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="bulb-dropdown-supplier">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="my-3 border-bottom"></div>
+            <div class="py-2">
+                <div class="row">
+                    <div class="col-12 form-group d-flex justify-content-between">
+                        <button class="btn btn-secondary min-width-90-px"
+                            (click)="onReset()" data-automation="bulb-button-reset">{{'SEARCH.SEARCH_TYRES.RESET' | translate}}</button>
+                        <sag-common-save-button
+                            [disabled]="!data.viewArticles"
+                            [loading]="loading"
+                            [hideTextOnLoading]="true"
+                            [css]="'btn-primary'"
+                            [text]="('SEARCH.SEARCH_TYRES.SHOW_ALL_ARTICLES' | translate) + ' [ ' + (data.totalElements || 0) + ' ]'"
+                            (save)="onSearch()"
+                            name="bulb-button-search">
+                        </sag-common-save-button>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-secondary min-width-90-px" data-automation="bulb-button-go-back"
+                            [routerLink]="['/home']">{{'SEARCH_RESULT.BACK' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </tab>
+    </tabset>
+</div>

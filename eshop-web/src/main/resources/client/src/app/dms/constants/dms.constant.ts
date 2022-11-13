@@ -1,0 +1,30 @@
+export class DmsConstant {
+    public static readonly DMS_INFO = 'dmsInfo';
+    public static readonly DMS_ERROR_KEY = 'dms_error';
+    public static readonly PARAM_ORIGIN: string = 'U';
+    public static readonly PARAM_USERNAME: string = 'K';
+    public static readonly PARAM_PASSWORD: string = 'P';
+    public static readonly PARAM_BASEPATH: string = 'DA';
+    public static readonly PARAM_FILENAME: string = 'D';
+    public static readonly PARAM_SEARCH: string = 'P1';
+    public static readonly PARAM_VEHICLE: string = 'P2';
+    public static readonly PARAM_TYPENSCHEIN: string = 'P3';
+    public static readonly PARAM_REQUEST_TYPE: string = 'A';
+    public static readonly REQUEST_TYPE_ORDER = 'A';
+    public static readonly REQUEST_TYPE_OFFER = 'O';
+    public static readonly PARAM_QUICK_ORDER: string = 'P4';
+    public static readonly PARAM_ARTICLE_NUMBERS: string = 'P5';
+    public static readonly PARAM_ARTICLE_QUANTITIES: string = 'P6';
+    public static readonly PARAM_ITEM_DELIMETER = ';';
+    public static readonly PARAM_OFFER_ID: string = 'U7';
+    public static readonly PARAM_VIN: string = 'P7';
+    public static readonly PARAM_KM_SERVICE_PLAN: string = 'P8';
+    public static readonly PARAM_VERSION: string = 'V';
+    public static readonly PARAM_ORDER_NUMBER: string = 'R';
+    public static readonly VERSION_3: string = '3.0';
+    public static readonly PARAM_TOKEN: string = 'T';
+    public static readonly PARAM_HOOK_URL: string = 'HOOK_URL';
+    public static readonly LABOUR_TIME_PREFIX: string = 'WNRITEM---';
+    public static readonly CMD_ORDER = 'CMD:ORDER';
+    public static readonly CMD_OFFER = 'CMD:OFFER';
+}

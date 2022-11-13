@@ -1,0 +1,21 @@
+.connect-good-receiver {
+    .header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 0.5rem;
+
+        .btn-icon {
+            background-color: gray;
+            border-radius: 4px;
+            width: 22px;
+            height: 22px;
+            font-weight: bold;
+            color: white;
+        }
+    }
+
+    .body {
+        line-height: 1.6;
+    }
+}

@@ -1,0 +1,18 @@
+spring.profiles: cache-dev-test
+
+app:
+  cache:
+    managementCenter:
+      enabled: false
+      update-interval: 3
+      url: 
+    tcpConfig:
+      enabled: true
+      members:
+        - 127.0.0.1
+    query:
+      pool-size: 10
+      queue-capacity: 100
+    cart:
+      write-delay-seconds: 20
+      write-batch-size: 200

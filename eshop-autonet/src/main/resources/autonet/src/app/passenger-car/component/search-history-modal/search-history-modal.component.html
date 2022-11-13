@@ -1,0 +1,116 @@
+<div class="modal-header">
+    <h3> {{title | translate}} </h3>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit()" class="search-history-filter mb-2">
+        <div class="row mr-1">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 pr-0">
+                        <label
+                            class="label font-weight-bold">{{ 'COMMON_LABEL.DATE_FROM' | translate }}</label>
+                        <div class="input-group">
+                            <i class="fa fa-caret-left pointer" (click)="moveBackOneMonth()"></i>
+                            <input class="form-control disabled opacity-100"
+                                placeholder="{{'COMMON_LABEL.DATE_FROM' | translate}}" [locale]="locale"
+                                angular-mydatepicker formControlName="dateFrom" [options]="dateFromOption"
+                                #dpFrom="angular-mydatepicker" />
+                            <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                            <i class="fa fa-caret-right pointer" (click)="moveForwardOneMonth()"></i>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label
+                            class="label font-weight-bold">{{ 'COMMON_LABEL.DATE_TO' | translate }}</label>
+                        <div class="input-group">
+                            <input class="form-control disabled opacity-100"
+                                placeholder="{{'COMMON_LABEL.DATE_TO' | translate}}" [locale]="locale"
+                                angular-mydatepicker formControlName="dateTo" [options]="dateToOption"
+                                #dpTo="angular-mydatepicker" />
+                            <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="label font-weight-bold">&nbsp;</label>
+                        <button class="btn btn-primary w-100" type="submit">{{ 'SEARCH.SEARCH_BUTTON' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="date-range-option">
+                <label class="label font-weight-bold">&nbsp;</label>
+                <div class="position-relative">
+                    <ng-select [searchable]="false" bindValue="id" [items]="dateRangeOptions"
+                        formControlName="dateRangeSearch" [clearable]="false">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.code | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.code | translate }}
+                        </ng-template>
+                    </ng-select>
+                    <div class="input-group date-picker">
+                        <input class="form-control disabled" [ngStyle]="{'opacity': isShownDatePicker ? '1' : '0'}"
+                            placeholder="{{'COMMON_LABEL.DATE_TO' | translate}}" angular-mydatepicker
+                            name="datePicker" formControlName="datePicker" [options]="dateToOption"
+                            #dpRange="angular-mydatepicker" />
+                        <div class="input-group-append pointer" (click)="dpRange.toggleCalendar()">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ml-auto">
+                <label class="label font-weight-bold">&nbsp;</label>
+                <ng-select [searchable]="false" bindValue="id" [items]="filterModeOptions"
+                    formControlName="filterMode" [clearable]="false" style="width: 220px;">
+                    <ng-template ng-label-tmp let-item="item">
+                        {{ item.code | translate }}
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index">
+                        {{ item.code | translate }}
+                    </ng-template>
+                </ng-select>
+            </div>
+        </div>
+    </form>
+    <sag-table [mode]="'online'" [columns]="columns" (searchData)="searchTableData($event)"
+        notFoundText="{{notFoundMessage | translate}}" [selectable]="true"
+        (selectRow)="onSelectHistoryItem($event)"></sag-table>
+</div>
+
+<ng-template #nameRef let-row="row">
+    <div *ngIf="row.createdBySales">
+        {{'COMMON_LABEL.COLUMNS.SALE_NAME' | translate}}
+    </div>
+    <div *ngIf="!row.createdBySales">
+        {{row.fullName}}
+    </div>
+</ng-template>
+
+<ng-template #articleSearchMethod let-row="row">
+    <ng-container *ngIf="row.searchMethod === 'SEARCH.ARTICLE_DESC'; else defaultMethod">
+        {{'SEARCH.ARTICLE_DESC_AUT' | translate}}
+    </ng-container>
+    <ng-template #defaultMethod>
+        {{row.searchMethod}}
+    </ng-template>
+</ng-template>
+
+<ng-template #articleSearchTermDisplay let-row="row">
+    <div class="text-ellipsis" [title]="row.searchTermDisplayTxt" [innerHTML]="row.searchTermDisplay"></div>
+</ng-template>
+
+<ng-template #vehicleSearchTerm let-row="row">
+    <div class="text-ellipsis" [title]="row.searchTerm">{{row.searchTerm}}</div>
+</ng-template>
+
+<ng-template #vehicleName let-row="row">
+    <div class="text-ellipsis" [title]="row.vehicleName">{{row.vehicleName}}</div>
+</ng-template>

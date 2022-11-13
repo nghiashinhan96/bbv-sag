@@ -1,0 +1,5 @@
+spring.profiles.active: db-at, country-at
+
+logging:
+  level:
+    com.sagag.eshop.repo: DEBUG

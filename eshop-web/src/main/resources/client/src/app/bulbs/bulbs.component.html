@@ -1,0 +1,24 @@
+<section class="row">
+    <section class="col-6">
+        <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_1'"></connect-system-message>
+        <connect-bulb-filters [data]="data" [models]="models" [loading]="!bulbsIsUpdated"
+            (updateFilter)="updateFilters($event)" (resetFilter)="resetFilter()" (search)="viewArticles($event)">
+        </connect-bulb-filters>
+    </section>
+    <section class="col-6 d-flex justify-content-end">
+        <div class="bulbs-ads">
+            <sag-common-adserver
+                [zid]="8"
+                [sitearea]="'MAIN_BULBS_AREA'"
+                [custom1]="adsTargetName"
+                (adsClickedEmitter)="sendAdsClick()">
+            </sag-common-adserver>
+            <connect-additional-info
+                [title]="'SEARCH.SEARCH_TYRES.ADDITIONAL_INFORMATION'"
+                [links]="additionalInfo">
+            </connect-additional-info>
+            <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_2'"></connect-system-message>
+            <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_3'"></connect-system-message>
+        </div>
+    </section>
+</section>

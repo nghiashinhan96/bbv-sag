@@ -1,0 +1,144 @@
+<nav class="navbar navbar-light menu-bar" *ngIf="user$| async as user">
+    <ul class="navbar-nav" #navbar>
+        <li class="nav-item" style="position: relative;">
+            <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']"
+                data-automation="menu-bar-home">
+                <i *ngIf="!isCzBased && !isSb && !isCH" class="sag-icon" [class.icon-car]="isMatikAtCustomer" [class.icon-brake]="!isMatikAtCustomer"></i>
+                <i *ngIf="isSb" class="sag-icon icon-cz-default"></i>
+                <i *ngIf="isCzBased" class="sag-icon icon-cz-lv"></i>
+                <i *ngIf="isCH" class="sag-icon icon-ch-lv"></i>
+            </a>
+        </li>
+        <ng-container *ngIf="user.normalUser && isAffiliateApplyMotorbikeShop">
+            <li class="nav-item" [connectEnabled]="MOTORBIKE_PERMISSION_CODE.MOTO">
+                <a class="nav-link" [routerLink]="['/moto']" [routerLinkActive]="['active']"
+                    data-automation="menu-bar-motorbike-shop">
+                    <i *ngIf="!isCzBased && !isCH" class="sag-icon icon-motobike"></i>
+                    <i *ngIf="isCzBased" class="sag-icon icon-cz-motorbike"></i>
+                    <i *ngIf="isCH" class="sag-icon icon-ch-motorbike"></i>
+                </a>
+            </li>
+        </ng-container>
+        <ng-container *ngIf="user.normalUser">
+            <li class="nav-item" title="{{'PAGE_TITLE.TYPRES' | translate}}" connectEnabled="TYRE">
+                <a class="nav-link" [routerLink]="['/tyres']" [routerLinkActive]="['active']"
+                    data-automation="menu-bar-tyres">
+                    <i class="sag-icon icon-tyre"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="hasDvsePermission">
+            <li class="nav-item" *sagCommonShowHideByAff="[axcz,ehcz,ehaxcz];show:false">
+                <a class="nav-link" [routerLink]="['/dvse']" [routerLinkActive]="['active']" data-automation="menu-bar-dvse">
+                    <i class="sag-icon icon-truck"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="user.normalUser && hasWSPPermission">
+            <li class="nav-item" title="{{'PAGE_TITLE.UNIVERSAL_PART' | translate}}" connectEnabled="UNIPARTS">
+                <a class="nav-link" [routerLink]="['/wsp']" [routerLinkActive]="['active']"
+                    data-automation="menu-bar-universal">
+                    <i class="sag-icon icon-universal-part"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="isCz9">
+            <li class="nav-item unicat">
+                <a class="nav-link" [routerLink]="['/unicat']" [routerLinkActive]="['active']">
+                    <i class="sag-icon icon-cz-uni-cat"></i>
+                </a>
+            </li>
+        </ng-container>
+        <li class="nav-item" *ngIf="user.normalUser">
+            <a class="nav-link" title="{{'PAGE_TITLE.ARTICLE_SEARCH_LIST' | translate}}"
+                [routerLink]="['/article-list']" [routerLinkActive]="['active']" data-automation="menu-bar-search">
+                <i class="sag-icon icon-cz-import"></i>
+            </a>
+        </li>
+        <ng-container *ngIf="user.normalUser">
+            <li class="nav-item" title="{{'PAGE_TITLE.BATTERY' | translate}}" connectEnabled="BATTERY">
+                <a class="nav-link" [routerLink]="['/batteries']" [routerLinkActive]="['active']"
+                    data-automation="menu-bar-battery">
+                    <i *ngIf="!isCzBased" class="sag-icon icon-battery"></i>
+                    <i *ngIf="isCzBased" class="sag-icon icon-cz-battery"></i>
+                </a>
+            </li>
+        </ng-container>
+        <ng-container *ngIf="user.normalUser">
+            <li class="nav-item" title="{{'PAGE_TITLE.BULBS' | translate}}" connectEnabled="BULB">
+                <a class="nav-link" [routerLink]="['/bulbs']" [routerLinkActive]="['active']"
+                    data-automation="menu-bar-bulbs">
+                    <i *ngIf="!isCzBased" class="fa fa-lightbulb-o"></i>
+                    <i *ngIf="isCzBased" class="sag-icon icon-cz-bulb"></i>
+                </a>
+            </li>
+        </ng-container>
+        <ng-container *ngIf="user.normalUser">
+            <li class="nav-item" title="{{'PAGE_TITLE.OIL' | translate}}" connectEnabled="OIL">
+                <a class="nav-link" [routerLink]="['/oil']" [routerLinkActive]="['active']"
+                    data-automation="menu-bar-oil">
+                    <i class="sag-icon icon-106"></i>
+                </a>
+            </li>
+        </ng-container>
+        <ng-container *ngIf="!user.salesUser && !user.isSalesOnBeHalf">
+            <li class="nav-item" title="{{'PAGE_TITLE.OFFERS' | translate}}" *sagCommonShowHideByAff="[cz,ehcz,ehaxcz];show:false" connectEnabled="OFFER">
+                <a class="nav-link" [routerLink]="['/offers']" [routerLinkActive]="['active']" data-automation="menu-bar-offer">
+                    <i class="sag-icon icon-offers"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="!isCzBased">
+            <li class="nav-item" title="{{'PAGE_TITLE.PROMOTIONS' | translate}}" connectEnabled="SHOW_PROMOTION">
+                <a class="nav-link" href="javascript:void(0)"
+                    (click)="showPromotion()" data-automation="menu-bar-promotion">
+                    <i class="sag-icon icon-special-offer"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="!isCzBased">
+            <li class="nav-item" title="{{'PAGE_TITLE.INFORMATION' | translate}}">
+                <a class="nav-link" href="javascript:void(0)" (click)="showInfo()" data-automation="menu-bar-information">
+                    <i class="sag-icon icon-info"></i>
+                </a>
+            </li>
+        </ng-container>
+        <ng-container *sagCommonShowHideByAff="[cz, axcz];show:true">
+            <li class="nav-item stginfo" title="{{'PAGE_TITLE.INFORMATION' | translate}}">
+                <a class="nav-link" (click)="openSGTInfo(FROM_SGT)" [ngClass]="{'active': openSgtFrom == FROM_SGT}" data-automation="menu-bar-stginfo">
+                    <i class="sag-icon icon-cz-sag-info"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="!isCzBased && !isEh && !isSb && !isAT">
+            <li class="nav-item" title="{{'PAGE_TITLE.OUTLET_SHOP' | translate}}" data-automation="menu-bar-outlet-shop">
+                <a class="nav-link" href="javascript:void(0)" (click)="openOutletBox()" [class.disabled]="!enableOutletBox">
+                    <i class="sag-icon icon-outletbox f-34"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="hasDvsePermission && false">
+            <li class="nav-item" *sagCommonShowHideByAff="[axcz];show:true">
+                <a class="nav-link" [routerLink]="['/dvse']" [routerLinkActive]="['active']" data-automation="menu-bar-dvse">
+                    <i class="sag-icon icon-cz-webcat"></i>
+                </a>
+            </li>
+        </ng-container>
+
+        <ng-container *ngIf="isAT">
+            <li class="nav-item" title="{{ 'PAGE_TITLE.RENT_TOOLS' | translate}}" data-automation="menu-bar-rent-tools">
+                <a class="nav-link" href="javascript:void(0)" (click)="openRentTools($event)">
+                    <i class="sag-icon icon-rent-tools f-34"></i>
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</nav>
+<div style="display:none" #dataForm></div>

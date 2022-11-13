@@ -1,0 +1,14 @@
+<a href="javascript:void(0)" class="nav justify-content-between connect-expand-{{ size }} {{customClass}}"
+    (click)="toggle()">
+    <span class="connect-expand-title">{{ title | translate }}</span>
+    <div>
+        <i class="fa fa-arrow-circle-down connect-expand-ico" *ngIf="!expand"></i>
+        <i class="fa fa-arrow-circle-up connect-expand-ico" *ngIf="expand"></i>
+        <span class="ml-3 connect-expand-action" *ngIf="!expand">
+            {{"COMMON.BUTTON.EXPAND" | translate}}
+        </span>
+        <span class="ml-3 connect-expand-action" *ngIf="expand">
+            {{"COMMON.BUTTON.REDUCE" | translate}}
+        </span>
+    </div>
+</a>

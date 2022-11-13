@@ -1,0 +1,42 @@
+<form [formGroup]="articleSearchForm" (ngSubmit)="onSubmit()">
+    <ng-container *ngIf="errorMsg">
+        <div class="alert alert-danger">{{ errorMsg | translate }}</div>
+    </ng-container>
+    <ng-container *ngIf="customTemplate; else formTempRef">
+        <ng-container
+            *ngTemplateOutlet="customTemplate; context: {form: articleSearchForm, searchFn: onSubmit, focus: exportFocusFn, spinner: {loading: isSearching} };">
+        </ng-container>
+    </ng-container>
+    <ng-template #formTempRef>
+        <div class="row form-group" *ngIf="projectId === PROJECT_ID.CONNECT">
+            <div class="col col-right form-group" *ngIf="isArticleNumberSearch">
+                <input formControlName="articleNumber" class="form-control" data-automation="article-search-number"
+                    (keydown.tab)="onSubmit()" tabindex="{{(isCz || isSb) ? 11 : 7}}"
+                    (focus)="onResetUnfocusInput('articleDescription', articleNumberSearchType, (isCz || isSb) ? 11 : 7)" type="text"
+                    maxlength="50" placeholder="{{'SEARCH.ARTICLE_TIPS' | translate}}">
+            </div>
+            <div class="col col-left form-group">
+                <input formControlName="articleDescription" class="form-control" data-automation="article-search-description"
+                    (keydown.tab)="onSubmit()" tabindex="{{(isCz || isSb) ? 12 : 8}}"
+                    (focus)="onResetUnfocusInput('articleNumber', articleDescSearchType, (isCz || isSb) ? 11 : 8)" type="text" maxlength="50"
+                    placeholder="{{'SEARCH.ARTICLE_DESC' | translate}}">
+            </div>
+        </div>
+        <div class="row form-group" *ngIf="projectId === PROJECT_ID.AUTONET">
+            <div class="col form-group">
+                <input formControlName="articleDescription" class="form-control" data-automation="article-search-description"
+                    (keydown.tab)="onSubmit()" tabindex="8"
+                    (focus)="onResetUnfocusInput('articleNumber', articleDescSearchType, 8)" type="text" maxlength="50"
+                    placeholder="{{'SEARCH.ARTICLE_DESC_AUT' | translate}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex">
+                <button type="submit" class="btn btn-primary ml-auto" [tabindex]="buttonTabIndex" data-automation="article-search-submit">
+                    <span *ngIf="isSearching" class="spinner-border spinner-border-sm" role="status"></span>
+                    <span *ngIf="!isSearching">{{ 'SEARCH.SEARCH_BUTTON' | translate }}</span>
+                </button>
+            </div>
+        </div>
+    </ng-template>
+</form>

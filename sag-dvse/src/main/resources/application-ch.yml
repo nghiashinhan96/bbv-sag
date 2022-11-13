@@ -1,0 +1,23 @@
+# ************************************************************************
+# This is the CH configuration of DVSE(SOAP) application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch
+# - Liquibase - 
+# - Caching -
+# - Country Code - 
+# - MDM for DVSE service - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  ax-pre-cloud, 
+  db-ch, 
+  elasticsearch-dev,
+  no-liquibase, 
+  cache-dev, 
+  country-ch,
+  mdm-prod
+
+spring.banner.location: classpath:banner/banner_ch.txt

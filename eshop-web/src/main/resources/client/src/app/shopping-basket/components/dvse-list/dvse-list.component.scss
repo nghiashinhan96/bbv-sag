@@ -1,0 +1,31 @@
+.dvse-row {
+    display: flex;
+    border-bottom: 1px solid gainsboro;
+
+    .dvse-col {
+        flex: 1;
+        padding: 1rem 1.6rem;
+        min-height: 40px;
+        line-height: 18px;
+
+        .btn-icon {
+            position: relative;
+        }
+
+        &-delete {
+            flex: 0;
+        }
+
+        &-avail {
+            flex: 0 100px;
+            i {
+                color: #f79232;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .dvse-article-name {
+        width: 200px;
+    }
+}

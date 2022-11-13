@@ -1,0 +1,5 @@
+spring.profiles.include: mdm-prod, no-proxy, executor-pool
+
+logging:
+  level:
+    com.sagag.services.mdm: DEBUG

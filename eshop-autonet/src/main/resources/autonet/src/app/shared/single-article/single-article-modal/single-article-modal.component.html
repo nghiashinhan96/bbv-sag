@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3>{{title}}&nbsp;</h3>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body modal-lg">
+    <ng-container *ngIf="article$ | async as article; else noArtRef">
+        <sag-article-detail-single
+            [article]="article"
+            [userSetting]="storage.libUserSetting"
+            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+            (onShowPartsListEmitter)="onShowPartsList($event)"
+            (onShowCrossReferenceEmitter)="onShowCrossReference($event)">
+        </sag-article-detail-single>
+    </ng-container>
+    <ng-template #noArtRef>
+        <ng-container *ngIf="errorMessage">
+            <div class="alert alert-danger">
+                {{errorMessage | translate}}
+            </div>
+        </ng-container>
+    </ng-template>
+</div>

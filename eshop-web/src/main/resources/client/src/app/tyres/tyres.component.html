@@ -1,0 +1,33 @@
+<section class="row">
+    <section class="col-6">
+        <connect-system-message *ngIf="showSystemMessage" [subArea]="'CUSTOMER_HOME_PAGE_1'"></connect-system-message>
+        <tabset #tyresSearch [justified]="true">
+            <tab heading="{{'SEARCH.SEARCH_TYRES.TYRES' | translate}}"
+                id="app-tyre-tab"
+                class="p-3 border-left border-right border-bottom tyres-filters" (selectTab)="keepSelectedTab(PKW_TYRE)">
+                <connect-pkw-tyre-filters></connect-pkw-tyre-filters>
+            </tab>
+            <tab heading="{{'SEARCH.SEARCH_TYRES.MOTORBIKES' | translate}}"
+                id="app-motor-tab"
+                class="p-3 border-left border-right border-bottom tyres-filters" (selectTab)="keepSelectedTab(MOTOR_TYRE)">
+                <connect-motor-tyre-filters></connect-motor-tyre-filters>
+            </tab>
+        </tabset>
+    </section>
+    <section class="col-6 d-flex justify-content-end">
+        <div class="tyres-ads">
+            <sag-common-adserver
+                [zid]="5"
+                [sitearea]="'MAIN_TYRE_AREA'"
+                [custom1]="adsTargetName"
+                (adsClickedEmitter)="sendAdsClick()">
+            </sag-common-adserver>
+            <connect-additional-info
+                [title]="'SEARCH.SEARCH_TYRES.ADDITIONAL_INFORMATION'"
+                [links]="additionalInfo">
+            </connect-additional-info>
+            <connect-system-message *ngIf="showSystemMessage" [subArea]="'CUSTOMER_HOME_PAGE_2'"></connect-system-message>
+            <connect-system-message *ngIf="showSystemMessage" [subArea]="'CUSTOMER_HOME_PAGE_3'"></connect-system-message>
+        </div>
+    </section>
+</section>

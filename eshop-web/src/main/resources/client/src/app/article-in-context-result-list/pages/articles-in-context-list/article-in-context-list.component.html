@@ -1,0 +1,55 @@
+<sag-in-context-article-list
+    [specialInfoTemplateRef]="specialInfoTemplateRef"
+    [memosTemplateRef]="memosTemplateRef"
+    [customAvailTemplateRef]="availTemplateRef"
+    [customAvailPopoverContentTemplateRef]="popoverContentTemplateRef"
+    [priceTemplateRef]="priceTemplateRef"
+    [brandsDataAsync]="articleInContextService.brandsData$"
+    [totalPriceTemplateRef]="totalPriceTemplateRef"
+    (emitBrandFilterData)="emitBrandFilterData($event)"
+    (emitBarFilterData)="emitBarFilterData($event)"
+    [barFilterOptionAsync]="articleInContextService.barFilterData$"
+    (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+    (onShowAccessoriesEmitter)="onShowAccessories($event)"
+    (onShowPartsListEmitter)="onShowPartsList($event)"
+    (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+></sag-in-context-article-list>
+
+<ng-template #specialInfoRef let-article="article">
+    <connect-cz-article-detail-special-info [article]="article" [memos]="article?.memos"></connect-cz-article-detail-special-info>
+</ng-template>
+
+<ng-container *ngIf="isCz || isAffiliateApplyFgasAndDeposit">
+    <ng-template #memosRef let-article="article">
+        <connect-cz-article-detail-memos [memos]="article?.memos" [article]="article"></connect-cz-article-detail-memos>
+    </ng-template>
+</ng-container>
+
+<ng-container *ngIf="isCz">
+    <ng-template #availRef let-availabilities="availabilities" let-popover="popover">
+        <div class="avail-state avail-state-{{availabilities[0]?.availState}}">
+            {{'ARTICLE.AVAILABILITY.' + czAvailState[availabilities[0]?.availState] | translate}}
+        </div>
+    </ng-template>
+
+    <ng-template #popoverContentRef let-article="article" let-currency="currency">
+        <connect-cz-avail-popover-content [article]="article" [currency]="currency"></connect-cz-avail-popover-content>
+    </ng-template>
+
+    <ng-template #priceRef let-article="article" let-popoversChanged="popoversChanged" let-currentStateVatConfirm="currentStateVatConfirm">
+        <div class="part-col part-gross">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.LIST_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm">
+        </connect-cz-article-detail-price>
+        </div>
+        <div class="part-col part-net">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.CUSTOMER_PRICE"
+            [currentStateVatConfirm]="currentStateVatConfirm">
+        </connect-cz-article-detail-price>
+        </div>
+    </ng-template>
+
+    <ng-template #totalPriceRef let-article="article" let-currentStateVatConfirm="currentStateVatConfirm">
+        <connect-cz-article-detail-total-price [article]="article" [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-total-price>
+    </ng-template>
+</ng-container>

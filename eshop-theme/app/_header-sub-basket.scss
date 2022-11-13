@@ -1,0 +1,50 @@
+.sub-basket-container {
+    position: relative;
+    display: block;
+    top: -1px;
+
+    >a {
+        display: block;
+    }
+
+    .spinner {
+        top: -10px;
+        left: 20px;
+        background: transparent;
+        width: auto;
+        height: auto;
+        position: absolute;
+
+        .loader {
+            background-color: white;
+        }
+    }
+
+    .badge {
+        position: absolute;
+        border-radius: 20px;
+        width: 24px;
+        height: 24px;
+        border-width: 3px;
+        top: -10px;
+        left: 16px;
+        color: white;
+        background-color: $primary;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: inherit;
+    }
+
+    .refresh-icon {
+        position: absolute;
+        bottom: -17px;
+        right: -6px;
+        font-size: 16px;
+    }
+
+    .sub-basket-icon {
+        font-size: 30px;
+    }
+}

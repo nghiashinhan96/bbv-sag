@@ -1,0 +1,5 @@
+<sag-auth-verify-code
+    [queryParams]="activatedRoute?.queryParams | async"
+    (gobackForgotPasswordEmitter)="gobackForgotPassword()"
+    (gobackResetPasswordEmitter)="gobackResetPassword()">
+</sag-auth-verify-code>

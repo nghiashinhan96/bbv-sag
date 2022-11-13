@@ -1,0 +1,66 @@
+<h3 class="section-title">{{'DELIVERY_PROFILE.DELIVERY_PROFILE' | translate}}</h3>
+<sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+    notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}">
+</sag-table>
+<div class="row">
+    <div class="col-12 text-right">
+        <button class="btn btn-primary" type="button" (click)="importCSV()">
+            <i class="fa fa-upload"></i>
+            {{'DELIVERY_PROFILE.IMPORT_DELIVERY_BUTTON_LABEL' |  translate}}
+        </button>
+        <button class="btn btn-primary ml-10" type="button" (click)="createDeliveryProfile()">
+            <i class="fa fa-plus"></i>
+            {{'DELIVERY_PROFILE.CREATE_DELIVERY_BUTTON_LABEL' |  translate}}
+        </button>
+    </div>
+</div>
+
+<!-- Filter Header Templates -->
+<ng-template #filterVendorCutOffTime>
+    <backoffice-time-picker [parentForm]="searchForm" [controlName]="'vendorCutOffTime'" [size]="'small'"
+        (changed)="onVendorCutoffTimeChange($event)">
+    </backoffice-time-picker>
+</ng-template>
+
+<ng-template #filterLastDelivery>
+    <backoffice-time-picker [parentForm]="searchForm" [controlName]="'lastDelivery'" [size]="'small'"
+        (changed)="onLastDeliveryTimeChange($event)">
+    </backoffice-time-picker>
+</ng-template>
+
+<ng-template #filterLastestTime>
+    <backoffice-time-picker [parentForm]="searchForm" [controlName]="'lastestTime'" [size]="'small'"
+        (changed)="onLastestTimeChange($event)">
+    </backoffice-time-picker>
+</ng-template>
+
+<ng-template #filterDeliveryDuration>
+    <backoffice-duration-selection [parentForm]="searchForm" [controlName]="'deliveryDuration'" [size]="'small'"
+        (changed)="onDeliveryDurationChange($event)">
+    </backoffice-duration-selection>
+</ng-template>
+
+<!-- Column Template -->
+<ng-template #colVendorCutOffTime let-row="row">
+    {{row.vendorCutOffTime | hoursMinutes}}
+</ng-template>
+
+<ng-template #colLastDelivery let-row="row">
+    {{row.lastDelivery | hoursMinutes}}
+</ng-template>
+
+<ng-template #colLatestTime let-row="row">
+    {{row.latestTime | hoursMinutes}}
+</ng-template>
+
+<ng-template #colDeliveryDuration let-row="row">
+    {{row.deliveryDuration | duration}}
+</ng-template>
+
+<ng-template #colActions let-row="row">
+    <div class="d-flex align-items-left">
+        <button class="btn-icon mr-2" type="button" (click)="goToDetailPage(row.id)"><i class="fa fa-edit"></i></button>
+        <button class="btn-icon" type="button" (click)="deleteProfile(row.id, row.deliveryProfileName)"><i
+                class="fa fa-trash"></i></button>
+    </div>
+</ng-template>

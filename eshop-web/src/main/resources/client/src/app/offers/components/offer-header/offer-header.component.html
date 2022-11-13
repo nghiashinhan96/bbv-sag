@@ -1,0 +1,9 @@
+<div class="position-relative mb-3">
+    <h4 class="position-absolute font-weight-bold pt-1" data-automation="offer-header-info">{{ title | translate }}</h4>
+    <ul class="nav nav-tabs offer-tab" role="tablist" data-automation="offer-header-tabs">
+        <li *ngFor="let tab of tabs; let i = index" class="nav-item" [ngClass]="{'ml-auto': i === 0}">
+            <a class="nav-link" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" data-toggle="tab"
+                [routerLink]="[tab.routerLink]" role="tab" aria-selected="true">{{tab.heading | translate}}</a>
+        </li>
+    </ul>
+</div>

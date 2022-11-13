@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h3>{{root?.artnrDisplay}} - {{'COMMON_LABEL.CROSS_REFERENCE' | translate}}</h3>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body modal-xl">
+    <sag-article-list-header
+        [articleListType]="articleListType"
+        [(articleMode)]="appStorage.articleMode"
+        [userSetting]="appStorage.libUserSetting"
+        [disableSort]="true">
+    </sag-article-list-header>
+    <section class="card card-body p-0 border-0">
+        <sag-article-list-non-group
+            [rootArticles]="data"
+            [moreArticles]="moreData"
+            [hasMoreData]="hasMoreData"
+            [notFoundTempRef]="notFoundTemplate"
+            [articleMode]="appStorage.articleMode"
+            [userSetting]="appStorage.libUserSetting"
+            [enableRequestAvail]="false"
+            [isPartsItem]="true"
+            [vehicle]="vehicle"
+            (showMoreArticleEmitter)="showMoreArticles($event)"
+            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+            (onShowPartsListEmitter)="onShowPartsList($event)"
+            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+            >
+        </sag-article-list-non-group>
+    </section>
+</div>
+
+<ng-template #notFoundTemplate>
+    <section class="alert alert-danger">
+        {{ 'SEARCH.ERROR_MESSAGE.ARTICLE_NOT_FOUND' | translate }}
+    </section>
+</ng-template>

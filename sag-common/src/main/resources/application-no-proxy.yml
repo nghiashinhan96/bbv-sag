@@ -1,0 +1,6 @@
+spring.profiles: no-proxy
+
+proxy:
+  host: 
+  port:
+  schema: 

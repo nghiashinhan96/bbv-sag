@@ -1,0 +1,855 @@
+/* technomag */
+/* deringer */
+/* Matik AT */
+/* template */
+.text-primary-color {
+  color: "{theme_color_1}" !important;
+}
+
+.bg-primary-color {
+  background-color: "{theme_color_1}" !important;
+}
+
+.border-primary-color {
+  border-color: "{theme_color_1}" !important;
+}
+
+.btn {
+  color: white;
+  background-color: "{theme_color_1}";
+}
+
+.btn:hover, .btn:focus {
+  color: "{theme_color_1}";
+  border: 2px solid "{theme_color_1}";
+  background-color: white;
+}
+
+.btn:hover i,
+.btn:hover span, .btn:focus i,
+.btn:focus span {
+  color: "{theme_color_1}";
+}
+
+.btn-export-excel {
+  background-color: "{button_cart_color}";
+}
+
+.btn-export-excel:hover, .btn-export-excel:focus {
+  color: "{button_cart_color}";
+  border-color: 2px solid "{button_cart_color}";
+}
+
+.btn-export-excel:hover i,
+.btn-export-excel:hover span, .btn-export-excel:focus i,
+.btn-export-excel:focus span {
+  color: "{button_cart_color}";
+}
+
+.btn-reset {
+  background-color: #666666;
+}
+
+.btn-reset:hover, .btn-reset:focus {
+  background-color: white;
+}
+
+.btn-reset:hover i,
+.btn-reset:hover span, .btn-reset:focus i,
+.btn-reset:focus span {
+  color: #666666;
+}
+
+.btn-icon:hover {
+  color: "{theme_color_1}";
+}
+
+.btn-search {
+  background-color: #666666 !important;
+}
+
+.btn-search:focus, .btn-search:active, .btn-search:hover {
+  background-color: "{theme_color_1}" !important;
+}
+
+.btn-shopping {
+  color: white;
+  background-color: "{button_cart_color}";
+}
+
+.btn-trash:hover .fa,
+.btn-eye:hover .fa {
+  color: "{theme_color_1}";
+}
+
+.btn-link {
+  color: "{theme_color_1}";
+}
+
+.btn-link.btn-link-back {
+  color: #999999;
+}
+
+/* tabs */
+.nav-tabs li a:hover {
+  color: "{theme_color_1}";
+}
+
+.nav-tabs li.active a {
+  color: "{theme_color_1}";
+}
+
+.nav-tabs li.active a:hover, .nav-tabs li.active a:focus {
+  color: "{theme_color_1}";
+}
+
+.sub-tabs li a {
+  color: "{theme_color_1}";
+}
+
+.sub-tabs li a:hover {
+  color: #333;
+}
+
+.sub-tabs li.active a {
+  color: #333;
+}
+
+.sub-tabs li.active a:hover, .sub-tabs li.active a:focus {
+  color: #333;
+}
+
+/* paging */
+.sag-paging ul li {
+  border-top: 1px solid "{theme_color_1}" !important;
+  border-bottom: 1px solid "{theme_color_1}" !important;
+  border-left: 1px solid "{theme_color_1}" !important;
+}
+
+.sag-paging ul li:last-child {
+  border-right: 1px solid "{theme_color_1}" !important;
+}
+
+.sag-paging ul li.current {
+  background-color: "{theme_color_1}" !important;
+}
+
+/* table */
+.ng-table-custom th,
+.table .thead {
+  background-color: "{theme_color_1}";
+  border-right: 1px solid "{theme_color_1}";
+  border-bottom: 1px solid "{theme_color_1}";
+}
+
+.ui-rangeSlider .ui-rangeSlider-handle {
+  border: 3px solid "{theme_color_1}";
+}
+
+.ui-rangeSlider .ui-rangeSlider-bar {
+  background: "{theme_color_1}";
+}
+
+.ui-rangeSlider .ui-rangeSlider-leftArrow:hover:before {
+  border-right-color: "{theme_color_1}";
+}
+
+.ui-rangeSlider .ui-rangeSlider-rightArrow:hover:before {
+  border-left-color: "{theme_color_1}";
+}
+
+.flexslider.flexslider-carousel .slides > li.flex-active-slide {
+  border-color: "{theme_color_1}";
+}
+
+.flexslider.flexslider-carousel .flex-direction-nav a:before {
+  color: "{theme_color_1}";
+}
+
+.sag-article-filter .title {
+  background-color: "{theme_color_1}";
+}
+
+.sag-additional .additional-list a:hover {
+  color: "{font_color_1}";
+}
+
+.sag-tip-item .btn-text:hover {
+  color: "{font_color_1}";
+}
+
+.sag-vehicle-history .vehicle-history-item .left .fa {
+  color: "{theme_color_1}";
+}
+
+.sag-vehicle-history .vehicle-history-item .left .text {
+  color: "{button_text_color}";
+}
+
+.sag-vehicle-history .vehicle-history-item.small .left .fa {
+  color: "{theme_color_1}";
+}
+
+.popover .popover-title {
+  border-bottom: 1px solid "{theme_color_1}";
+  color: "{font_color_1}";
+}
+
+.tooltip.normal {
+  color: "{availability_status_color_1}";
+}
+
+.tooltip.normal .tooltip-arrow {
+  border-top-color: "{availability_status_color_1}";
+}
+
+.tooltip.normal .tooltip-inner {
+  background-color: "{availability_status_color_1}";
+}
+
+.tooltip.available {
+  color: "{availability_status_color_2}";
+}
+
+.tooltip.available .tooltip-arrow {
+  border-top-color: "{availability_status_color_2}";
+}
+
+.tooltip.available .tooltip-inner {
+  background-color: "{availability_status_color_2}";
+}
+
+.tooltip.not-available {
+  color: "{availability_status_color_3}";
+}
+
+.tooltip.not-available .tooltip-arrow {
+  border-top-color: "{availability_status_color_3}";
+}
+
+.tooltip.not-available .tooltip-inner {
+  background-color: "{availability_status_color_3}";
+}
+
+.info-listed-modal .info-listed a {
+  color: "{theme_color_1}";
+}
+
+.info-listed-modal .info-listed a:hover {
+  color: #000;
+}
+
+.sag-shopping-cart .sag-order-info .order-info-block.shipping-payment ul li .fa {
+  color: "{theme_color_1}";
+}
+
+.sag-search .sag-select-item select-dropdown > div .options ul li.highlighted, .sag-search .sag-select-item select-dropdown > div .options ul li:hover,
+.sag-custom-select select-dropdown > div .options ul li.highlighted,
+.sag-custom-select select-dropdown > div .options ul li:hover {
+  background-color: "{theme_color_1}";
+}
+
+.col-heading,
+.block-heading {
+  border-bottom: 1px solid "{theme_color_1}";
+  color: "{font_color_1}";
+}
+
+.results-box .show-more,
+.results-box .no-records,
+.results-box li a:hover {
+  color: "{theme_color_1}";
+}
+
+.custom-tab .nav-tabs {
+  border-bottom: 1px solid "{font_color_1}";
+}
+
+.custom-tab .nav-tabs li.active a {
+  color: "{font_color_1}" !important;
+}
+
+.amount-block .btn-inner button:hover {
+  background-color: "{theme_color_1}";
+}
+
+.popup-message-modal .modal-header {
+  background: "{theme_color_1}";
+}
+
+.saved-basket-btn .fa-floppy-o {
+  color: "{font_color_1}";
+}
+
+.saved-basket-btn .badge {
+  background-color: "{font_color_1}";
+}
+
+.system-message.banner.primary {
+  background: "{theme_color_1}";
+}
+
+.system-message.banner.info {
+  background: #888888;
+}
+
+.technomag .system-message.banner.primary {
+  background: #555;
+}
+
+.sag-vehicle-history a {
+  color: "{font_color_1}";
+}
+
+.sag-vehicle-history a:hover {
+  color: #777;
+}
+
+.feedback-btn .cls-2 {
+  fill: "{theme_color_1}";
+}
+
+.feedback-btn .cls-2 {
+  fill: "{theme_color_1}";
+}
+
+sag-amount-input .horizontal-incremental-input-container .btn-plus:hover,
+sag-amount-input .horizontal-incremental-input-container .btn-minus:hover {
+  background-color: "{theme_color_1}" !important;
+}
+
+.return-article-basket__header {
+  background-color: "{theme_color_1}";
+  color: #fff;
+}
+
+.tcol .return-reason__edit--input input[type='text']::placeholder {
+  color: "{section_arrow_hover_color}";
+}
+
+.tcol .return-reason__edit button {
+  background-color: "{information_icon_color}";
+}
+
+.tcol .return-reason__edit button:hover {
+  background-color: "{theme_color_1}";
+}
+
+.tcol .edit-quantity button {
+  background-color: "{information_icon_color}";
+}
+
+.tcol .edit-quantity button:hover {
+  background-color: "{theme_color_1}";
+}
+
+.tcol .fa-trash:hover,
+.tcol .fa-edit:hover {
+  color: "{theme_color_1}";
+}
+
+.return-condition__header:hover {
+  color: "{theme_color_2}";
+}
+
+.return-condition__content--dropdown button {
+  background-color: "{information_icon_color}";
+}
+
+.return-condition__content--reason-list {
+  background-color: #fff;
+}
+
+.return-condition__content--reason-list > *:hover {
+  background-color: "{theme_color_2}";
+}
+
+.refund-link {
+  color: "{theme_color_2}";
+}
+
+.refund-link:hover {
+  color: "{theme_color_1}";
+}
+
+.return-order-confirm__header {
+  color: "{theme_color_1}";
+}
+
+.return-order-confirm__body table tr .value {
+  color: "{theme_color_1}";
+}
+
+part-pdf .pdf-container .pdf-slider .control i:hover {
+  color: "{theme_color_1}";
+}
+
+#feedback-image-section .control-group {
+  color: "{font_color_1}";
+}
+
+#feedback-image-section i.fa-plus {
+  color: "{font_color_1}";
+}
+
+.listpart-more-info .sag-table-header {
+  background-color: "{theme_color_1}";
+}
+
+sag-order-ref-popup i.enabled {
+  color: "{theme_color_1}";
+}
+
+.switch.enable {
+  background-color: "{theme_color_1}";
+}
+
+/* logo */
+.sag-logo {
+  background: url("{logo_image}") no-repeat center center;
+}
+
+.sag-account-shopping ul li a {
+  color: "{theme_color_1}";
+}
+
+.sag-account-shopping ul li a:hover {
+  color: "{theme_color_1}";
+}
+
+.sag-account-shopping ul li a span .ico-basket svg {
+  fill: "{theme_color_1}";
+}
+
+.sag-account-shopping ul li .sag-select-item span span {
+  color: "{theme_color_1}";
+}
+
+.sag-account-shopping ul li .sag-select-item i:before {
+  color: "{theme_color_1}";
+}
+
+.sag-account-shopping ul .basket-view .basket-list:before {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 12px 12px;
+  border-color: transparent transparent "{theme_color_1}" transparent;
+}
+
+.sag-account-shopping ul .basket-view .basket-list h4 {
+  background-color: "{theme_color_1}";
+}
+
+.sag-account-shopping ul .basket-view .basket-list .sag-button-wrapper .sag-button-inner-wrapper .btn-link {
+  color: "{theme_color_1}";
+}
+
+.sag-account-shopping .dropdown-profile .dropdown-menu li li a:hover {
+  background-color: "{theme_color_1}";
+}
+
+.sag-account-shopping .dropdown-profile .dropdown-menu .call-name {
+  color: "{theme_color_1}";
+}
+
+.sag-account-shopping .dropdown-profile .dropdown-menu .bg-primary {
+  background-color: "{theme_color_1}";
+}
+
+.sag-languages ul .active a {
+  color: "{theme_color_1}";
+}
+
+.sag-header-2 .main-menu {
+  border-top: 1px solid "{theme_color_1}";
+  border-bottom: 1px solid "{theme_color_1}";
+}
+
+.sag-header-2 .main-menu > li {
+  border-right: 1px solid "{theme_color_1}";
+}
+
+.sag-header-2 .main-menu > li:first-child {
+  border-left: 1px solid "{theme_color_1}";
+}
+
+.sag-header-2 .main-menu > li > a.active, .sag-header-2 .main-menu > li > a:hover {
+  background-color: "{theme_color_1}";
+}
+
+.sag-header-2 .sub-menu a.active, .sag-header-2 .sub-menu a:hover {
+  background-color: "{theme_color_1}";
+}
+
+.affiliate-link a {
+  color: "{theme_color_1}";
+}
+
+.affiliate-link a:hover, .affiliate-link a:focus {
+  color: #333;
+}
+
+.panel-primary .panel-title a:hover {
+  color: "{theme_color_1}";
+}
+
+.panel-primary .panel-body a {
+  color: "{theme_color_1}";
+}
+
+.panel-primary .panel-body a:hover {
+  color: #666;
+}
+
+.color-primary {
+  color: "{theme_color_1}";
+}
+
+/* footer */
+.sag-footer {
+  color: "{footer_text_color}";
+  background-color: "{footer_color}";
+}
+
+.sag-footer .sag-wrapper {
+  background-color: "{footer_color}";
+}
+
+.sag-footer .sag-wrapper ul li a {
+  color: "{footer_text_color}";
+  border-color: "{footer_text_color}";
+}
+
+/* scroll top */
+.sag-scroll-top .sag-wrapper .icon-scroll-top {
+  background-color: "{theme_color_1}";
+}
+
+/* main background */
+body:before {
+  background-image: url("{background_image}");
+}
+
+/* spinner */
+.spinner {
+  background: url("{pre_loader}") no-repeat center center;
+}
+
+.btn-search-1:focus, .btn-search-1:hover {
+  background-color: "{theme_color_1}" !important;
+}
+
+.my-account-lable {
+  color: "{font_color_1}";
+}
+
+.big-point-link {
+  background: "{theme_color_1}";
+}
+
+.big-point-link:before {
+  border-left: 60px solid #003558;
+}
+
+.matik-ch .big-point-link:before {
+  border-left: 60px solid #3a5160;
+}
+
+.technomag .big-point-link:before {
+  border-left: 60px solid #7d0006;
+}
+
+.big-point-link:after {
+  border-left: 100px solid #00548b;
+}
+
+.matik-ch .big-point-link:after {
+  border-left: 100px solid #4d6c80;
+}
+
+.technomag .big-point-link:after {
+  border-left: 100px solid #b00009;
+}
+
+.modal .modal-header {
+  border-bottom: 1px solid "{theme_color_1}";
+}
+
+.modal .modal-header h4 {
+  color: "{font_color_1}" !important;
+}
+
+.modal .mehr-info .nav-tabs li.active a:hover {
+  color: "{theme_color_1}";
+}
+
+.modal .mehr-info .tab-content .title {
+  color: "{theme_color_1}";
+}
+
+.modal .oe-cross-reference-modal-content .modal-content .modal-body h4 {
+  border-bottom: 1px solid "{theme_color_1}";
+}
+
+.sag-login-tab .nav-tabs li a:hover {
+  color: "{theme_color_1}";
+}
+
+.sag-login-tab .nav-tabs li.active a {
+  color: "{theme_color_1}";
+}
+
+.sag-login-tab .group-nav > :first-child {
+  color: "{theme_color_1}";
+}
+
+.sag-login-tab .group-nav > :first-child i {
+  color: "{theme_color_1}";
+}
+
+.sag-login-tab .regist-forgot .sag-link {
+  color: "{theme_color_1}";
+}
+
+.renew-pass label,
+.link-forgot,
+.passforgotpanel .fpw-label,
+.forgot-code label {
+  color: "{theme_color_1}";
+}
+
+.submit-section .adal-link {
+  color: "{theme_color_1}";
+}
+
+.submit-section .adal-link .fa {
+  color: "{theme_color_1}";
+}
+
+.additional-link {
+  color: "{theme_color_1}";
+}
+
+#carousel-main-home .carousel-indicators li {
+  border-color: "{theme_color_1}";
+}
+
+#carousel-main-home .carousel-indicators .active {
+  background-color: "{theme_color_1}";
+}
+
+.block-title {
+  border-bottom: 1px solid "{theme_color_1}";
+  color: "{font_color_1}";
+}
+
+.sag-vehicle-search .tab-pane .block-input .amount-brand {
+  color: "{vin_notification_color}";
+}
+
+.sag-vehicle-search .title-block .toggle-arrow {
+  color: "{font_color_1}";
+}
+
+.sag-car-info .sag-info a:hover, .sag-car-info .sag-tech a:hover, .sag-car-info .sag-workshop a:hover {
+  color: "{font_color_1}";
+}
+
+.sag-car-info .sag-content .sag-table .sag-thead {
+  color: "{theme_color_1}";
+}
+
+.sag-head-info .sag-wrapper .sag-heading-box .sag-btn-info:hover .fa {
+  background-color: "{font_color_1}";
+}
+
+.sag-head-info .sag-wrapper .sag-heading-box .sag-btn-refresh:hover .fa {
+  color: "{font_color_1}";
+}
+
+.sag-result-category .nav-tabs li a {
+  color: "{theme_color_1}";
+}
+
+.sag-result-category .nav-tabs li.active a {
+  background-color: "{theme_color_1}";
+  border: 0;
+}
+
+.sag-result-category .nav-tabs li:last-child:hover a {
+  border-right: 0;
+}
+
+.sag-result-category .nav-tabs .active:first-child a {
+  border-left: 0;
+  color: white;
+}
+
+.sag-result-category .nav-tabs .active a {
+  background-color: "{theme_color_1}";
+  border-left: 0 !important;
+}
+
+.sag-result-list .suggest-block {
+  background-color: "{footer_color}";
+}
+
+.sag-result-list .suggest-block a, .sag-result-list .suggest-block span {
+  color: "{footer_text_color}";
+}
+
+.sag-result-list .sag-table-header {
+  background-color: "{theme_color_1}";
+}
+
+.sag-result-list .sag-table-cate-item .col-anzahl .amount > div a:hover {
+  background-color: "{theme_color_1}";
+}
+
+.sag-result-list .sag-table-cate-item .col-price .price a {
+  background-color: "{button_cart_color}";
+}
+
+.sag-result-list .sag-button-wrapper .sag-button-inner-wrapper .btn-ar {
+  color: "{button_text_color}";
+}
+
+.sag-result-list .sag-button-wrapper .sag-button-inner-wrapper .btn-ar i {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-shopping-tab .tab-item.active, .sag-shopping-cart .sag-wrapper .sag-shopping-tab .tab-item:hover {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-shopping-tab .tab-item.active span {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-shopping-tab .tab-item.active svg {
+  fill: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-shopping-tab .tab-item.active i {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-table-header {
+  background-color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-table-cate-item .col-anzahl .amount > div a:hover {
+  background-color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-table-cate-item .col-delete i:hover {
+  color: "{font_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .item-description ul li.active a {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .item-description ul li a:hover {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart .sag-wrapper .sag-button-wrapper .sag-button-inner-wrapper .btn-zu,
+.sag-shopping-cart .sag-wrapper .sag-button-wrapper .sag-button-inner-wrapper .btn-ar {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart.step-3 .sag-order-confirm {
+  text-align: center;
+}
+
+.sag-shopping-cart.step-3 .sag-order-confirm .text-1 {
+  color: "{theme_color_1}";
+}
+
+.sag-shopping-cart.step-3 .sag-order-confirm .text-3 span {
+  color: "{theme_color_1}";
+}
+
+.sag-freetext-search .sag-wrapper h3 {
+  color: "{font_color_1}";
+}
+
+.sag-freetext-search .sag-wrapper .filter-cont {
+  color: "{font_color_1}";
+}
+
+.sag-freetext-search .sag-wrapper .filter-cont i {
+  color: "{theme_color_1}";
+}
+
+.sag-freetext-search .sag-wrapper .tbl-ftSearch-result .btn-block .table .tcol i {
+  color: "{theme_color_1}";
+}
+
+.sag-my-history .sag-wrapper h3 {
+  color: "{font_color_1}";
+}
+
+.user-administration-pane .btn-icon:hover {
+  color: "{font_color_1}";
+}
+
+sag-order-history-detail .head-info .heading,
+sag-order-history-detail .head-info .info-item .label {
+  color: "{theme_color_1}";
+}
+
+sag-customer-search .customer-search label {
+  color: "{font_color_1}";
+}
+
+sag-customer-search .customer-search .customer-listed .customer-nr {
+  color: "{font_color_1}";
+}
+
+sag-customer-search .customer-info .customer-name {
+  color: "{font_color_1}";
+}
+
+sag-customer-search .hiding-toggle:hover {
+  color: "{font_color_1}";
+}
+
+sag-customer-search .infor-item .label {
+  color: "{font_color_1}";
+}
+
+sag-customer-info .label {
+  color: "{font_color_1}";
+}
+
+.order-dashboard-icon .order-dashboard-popup-btn .sag-icon-order-dashboard {
+  color: "{theme_color_1}";
+}
+
+.order-dashboard-icon .order-dashboard-popup-btn .badge {
+  background-color: "{theme_color_1}" !important;
+}
+
+.order-dashboard-icon .order-dashboard-popup-btn .loader::after,
+.order-dashboard-icon .order-dashboard-popup-btn .loader::before {
+  border-color: "{theme_color_1}" "{theme_color_1}" transparent transparent;
+}
+
+.order-dashboard-icon .fa-refresh {
+  color: "{theme_color_1}";
+}
+
+.dropdown-order-dashboard-popup .dropdown-menu li .badge {
+  background-color: "{theme_color_1}";
+}
+
+.dropdown-order-dashboard-popup .dropdown-menu li:hover a {
+  background-color: "{theme_color_1}";
+}
+
+.dropdown-order-dashboard-popup .dropdown-menu li:hover .badge {
+  color: "{theme_color_1}";
+}

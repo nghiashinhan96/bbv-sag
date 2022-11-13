@@ -1,0 +1,290 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ROLE_TYPE">
+        <sql>
+            INSERT INTO	dbo.ROLE_TYPE (NAME,DESCRIPTION)
+            VALUES ('ADMIN','Administrator role, including sag admin, group admin, user admin'),
+            ('ASSISTANT','Assistant role, including marketing and sales'),
+            ('NORMAL_USER','Normal user role, including customer and its employees');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_LANGUAGES">
+        <sql>
+            INSERT INTO dbo.LANGUAGES
+            (LANGCODE, LANGISO, DESCRIPTION)
+            VALUES ('LANG_DE', 'DE', 'German'),
+            ('LANG_FR', 'FR', 'French'),
+            ('LANG_IT', 'IT', 'Italian');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_INVOICE_TYPE">
+        <sql>
+            INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE,INVOICE_TYPE_NAME,INVOICE_TYPE_DESC) VALUES
+            ('SINGLE_INVOICE','EINZELFAKT','Einzelfaktura')
+            ,('TWO_WEEKLY_INVOICE','2WSAMFAKT','2 Wochensammel')
+            ,('WEEKLY_INVOICE','WOCHENFAKT','Wochenfaktura')
+            ,('DAILY_INVOICE','TAGSAMFAKT','Tagessammel')
+            ,('ACCUMULATIVE_INVOICE','ALLESAM','Alle Sammelfakturen')
+            ,('MONTHLY_INVOICE','1MSAMFAKT','Monatssammel')
+            ,('TWO_WEEKLY_INVOICE_WITH_CREDIT_SEPARATION','2WFAKTGT','2 Wochen Faktura mit Gutschriftstrennung')
+            ,('SINGLE_INVOICE_WITH_CREDIT_SEPARATION','EINZELFAGT','Fakturierung pro Auftrag mit Gutschriftstennung')
+            ,('MONTHLY_INVOICE_WITH_CREDIT_SEPARATION','MONATSFAGT','Monatsfaktura mit Gutschriftstrennung')
+            ,('DAILY_INVOICE_WITH_CREDIT_SEPARATION','TAGESFAGT','Tagesfaktura mit Gutschriftstrennung');
+
+            INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE,INVOICE_TYPE_NAME,INVOICE_TYPE_DESC) VALUES
+            ('WEEKLY_INVOICE_WITH_CREDIT_SEPARATION','WOCHENFAGT','Wochenfaktura mit Gutschriftstrennung')
+            ,('MONTHLY_INVOICE_WEEKLY_CREDIT_SEPARATION','MONATSFAGW	','')
+            ,('DEFAULT','DEFAULT','!!Nicht löschen!! Fallback mit Zuweisung auf Alle')
+            ,('TWO_WEEKLY_INVOICE_DAILY_CREDIT','2WFAKTGX','2 Wochen Faktura mit täglicher Gutschrift')
+            ,('MONTHLY_INVOICE_DAILY_CREDIT','MONATSFAGX','Monatsfaktura mit täglicher Gutschrift')
+            ,('WEEKLY_INVOICE_SINGLE_CREDIT','WOCHENFAGE','Wochenfaktura mit Einzelgutschrift wöchentlich')
+            ,('WEEKLY_INVOICE_DAILY_CREDIT','WOCHENFAGX','Wochenfaktura mit täglicher Gutschrift')
+            ,('ALL','ALLE','Fallbackprofil');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ALLOCATION_TYPE">
+        <sql>
+            INSERT INTO dbo.ALLOCATION_TYPE
+            ([TYPE], DESC_CODE, DESCRIPTION)
+            VALUES('Verrechnung gemäss Vereinbarung', 'ALLOCATION_TYPE1', 'Verrechnung gemäss Vereinbarung'),
+            ('Verrechnung als Einzelfaktura', 'ALLOCATION_TYPE2', 'Verrechnung als Einzelfaktura');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_COLLECTIVE_DELIVERY">
+        <sql>
+            INSERT INTO dbo.COLLECTIVE_DELIVERY
+            ([TYPE], DESC_CODE, DESCRIPTION)
+            VALUES('Ich benötige die verfügbare Ware dringend. Bitte senden Sie mir die verfügbaren Artikel schnellst möglich.', 'COLLECTIVE_DELIVERY1', 'Ich benötige die verfügbare Ware dringend. Bitte senden Sie mir die verfügbaren Artikel schnellst möglich.'),
+            ('Die Ware wird nicht dringend benötigt. Bitte senden Sie mir die Ware in einer Lieferung, sobald sie verfügbar ist.', 'COLLECTIVE_DELIVERY2', 'Die Ware wird nicht dringend benötigt. Bitte senden Sie mir die Ware in einer Lieferung, sobald sie verfügbar ist.');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_DELIVERY_TYPE">
+        <sql>
+            INSERT INTO dbo.DELIVERY_TYPE
+            ([TYPE], DESC_CODE, DESCRIPTION)
+            VALUES('Abholung in Filiale', 'PICKUP', 'Abholung in Filiale'),
+            ('Lieferung gemäss Tourenpla', 'TOUR', 'Lieferung gemäss Tourenplan');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ORGANISATION_TYPE">
+        <sql>
+            INSERT INTO dbo.ORGANISATION_TYPE (NAME,[LEVEL],DESCRIPTION) VALUES
+            ('SYSTEM',1,'This is SAG System organisation')
+            ,('AFFILIATE',2,'This is Affiliate organisation')
+            ,('CUSTOMER',3,'This is Customer organisation')
+            ,('FINAL_CUSTOMER',4,'This is Wholesaler organisation');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ESHOP_ROLE">
+        <sql>
+            INSERT INTO dbo.ESHOP_ROLE (NAME,ROLE_TYPE_ID,DESCRIPTION) VALUES
+            ('SYSTEM_ADMIN',1,'SAG System admin role')
+            ,('GROUP_ADMIN',1,'Group admin role')
+            ,('USER_ADMIN',1,'User admin role')
+            ,('SALES_ASSISTANT',2,'Sales assistant role')
+            ,('MARKETING_ASSISTANT',2,'Marketing assistant role')
+            ,('NORMAL_USER',3,'User Role')
+            ,('FINAL_USER_ADMIN',1,'Wholesaler User Admin Role')
+            ,('FINAL_NORMAL_USER',3,'Wholesaler Normal User Role')
+            ,('AUTONET_USER_ADMIN',1,'Autonet User Admin Role');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ORGANISATION">
+        <sql>
+            INSERT INTO dbo.ORGANISATION (NAME,ORG_CODE,ORGTYPE_ID,PARENT_ID,DESCRIPTION,SHORTNAME,ORDER_SETTINGS_ID) VALUES
+            ('Swiss-Automotive-Group','000000',1,0,'This is Swiss Automotive Group organisation','sag',NULL)
+            ,('Autonet-Hungary','1000000',2,1,'This is Autonet-Hungary organisation','autonet-hungary',NULL)
+            ,('Autonet-Hungary-Customer',NULL,4,2,'This is Customer for Autonet-Hungary Affiliate','autonet-hungary-customer',NULL);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ESHOP_GROUP">
+        <sql>
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            INSERT INTO autonet.dbo.ESHOP_GROUP (NAME,DESCRIPTION,ORG_CODE,ROLE_ID) VALUES
+            ('AUTONET_HUNGARY_USER','Autonet-hungary user group','000000', @autonet_eshop_role_id);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_GROUP_ROLE">
+        <sql>
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            DECLARE @autonet_hungary_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_HUNGARY_USER')
+            insert into GROUP_ROLE(GROUP_ID,ROLE_ID) VALUES (@autonet_hungary_eshop_group_id, @autonet_eshop_role_id)
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ORGANISATION_GROUP">
+        <sql>
+            DECLARE @autonet_hungary_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_HUNGARY_USER')
+            DECLARE @autonet_hungary_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-hungary-customer')
+            insert into ORGANISATION_GROUP(ORGANISATION_ID,GROUP_ID) VALUES (@autonet_hungary_customer_id, @autonet_hungary_eshop_group_id)
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ORGANISATION_COLLECTION">
+        <sql>
+            DECLARE @sag_id INT = (select ID from ORGANISATION o where SHORTNAME='sag')
+            DECLARE @autonet_hungary_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-hungary')
+            INSERT INTO dbo.ORGANISATION_COLLECTION (NAME,AFFILIATE_ID,DESCRIPTION,SHORTNAME) VALUES
+            ('Swiss-Automotive-Group',@sag_id,'This is the Default Collection','sag')
+            ,('Autonet-Hungary-collection',@autonet_hungary_id,'This is the Default Collection','autonet-hungary');
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_COLLECTION_RELATION">
+        <sql>
+            DECLARE @sag_id INT = (select ID from ORGANISATION o where SHORTNAME='sag')
+            DECLARE @autonet_hungary_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-hungary')
+            DECLARE @autonet_hungary_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-hungary-customer')
+            DECLARE @sag_collection_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'sag')
+            DECLARE @autonet_collection_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'autonet-hungary')
+            INSERT INTO autonet.dbo.COLLECTION_RELATION (COLLECTION_ID,ORGANISATION_ID,IS_ACTIVE) VALUES
+            (@sag_collection_id,@sag_id,1)
+            ,(@autonet_collection_id,@autonet_hungary_id,1)
+            ,(@autonet_collection_id,@autonet_hungary_customer_id,1);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ESHOP_CLIENT_RESOURCE">
+        <sql>
+            INSERT INTO dbo.ESHOP_CLIENT_RESOURCE
+            (NAME, DESCRIPTION, ACTIVE)
+            VALUES('sag-rest', 'SAG Core Rest API Services', 1);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_ESHOP_CLIENT">
+        <sql>
+            INSERT INTO dbo.ESHOP_CLIENT
+            (CLIENT_NAME, CLIENT_SECRET, RESOURCE_ID, ACTIVE)
+            VALUES('autonet-hungary', 'Fduo3lwjIlWwQFdDEQDLJsHSngFdV/IeKOt7hZwFdf6GA5wuEwfA', 1, 1),
+            ('autonet-rest', 'Fduo3lwjIlWwQFdyZdJNGPjc32FdYmUU3RYsGdk', 1, 1);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_PAYMENT_METHOD">
+        <sql>
+            INSERT INTO dbo.PAYMENT_METHOD (PAY_METHOD,DESC_CODE,DESCRIPTION,ORDER_DISPLAY) VALUES
+            ('Rechnung','CREDIT','Rechnung',1)
+            ,('Barzahlung','CASH','Barzahlung',2)
+            ,('Kartenzahlung','CARD','Kartenzahlung',4)
+            ,('Sofortrechnung','DIRECT_INVOICE','Sofortrechnung',3);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_AUTONET_ROMANIA">
+        <sql>
+            INSERT INTO dbo.ORGANISATION (NAME,ORG_CODE,ORGTYPE_ID,PARENT_ID,DESCRIPTION,SHORTNAME,ORDER_SETTINGS_ID) VALUES
+            ('Autonet-Romania','2000000',2,1,'This is Autonet-Romania organisation','autonet-romania',NULL);
+
+            DECLARE @romania_id INT = (select ID from ORGANISATION o where SHORTNAME='autonet-romania')
+            INSERT INTO dbo.ORGANISATION (NAME,ORG_CODE,ORGTYPE_ID,PARENT_ID,DESCRIPTION,SHORTNAME,ORDER_SETTINGS_ID) VALUES
+            ('Autonet-Romania-Customer',NULL, 4, @romania_id,'This is Customer for Autonet-Romania Affiliate','autonet-romania-customer',NULL);
+
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            INSERT INTO autonet.dbo.ESHOP_GROUP (NAME,DESCRIPTION,ORG_CODE,ROLE_ID) VALUES
+            ('AUTONET_ROMANIA_USER','Autonet-romania user group','000000', @autonet_eshop_role_id);
+
+            DECLARE @autonet_romania_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_ROMANIA_USER')
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            insert into GROUP_ROLE(GROUP_ID, ROLE_ID) VALUES (@autonet_romania_eshop_group_id, @autonet_eshop_role_id);
+
+            DECLARE @autonet_romania_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-romania-customer')
+            DECLARE @autonet_romania_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_ROMANIA_USER')
+            insert into ORGANISATION_GROUP(ORGANISATION_ID,GROUP_ID) VALUES (@autonet_romania_customer_id, @autonet_romania_eshop_group_id);
+
+            DECLARE @autonet_romania_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-romania')
+            INSERT INTO dbo.ORGANISATION_COLLECTION (NAME,AFFILIATE_ID,DESCRIPTION,SHORTNAME) VALUES
+            ('Autonet-Romania-collection',@autonet_romania_id,'This is the Default Collection','autonet-romania');
+
+            DECLARE @autonet_collection_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'autonet-romania')
+            DECLARE @autonet_romania_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-romania')
+            DECLARE @autonet_romania_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-romania-customer')
+            INSERT INTO autonet.dbo.COLLECTION_RELATION (COLLECTION_ID,ORGANISATION_ID,IS_ACTIVE) VALUES
+            (@autonet_collection_id,@autonet_romania_id,1)
+            ,(@autonet_collection_id,@autonet_romania_customer_id,1);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_AUTONET_SLOVAKIA">
+        <sql>
+            INSERT INTO dbo.ORGANISATION (NAME,ORG_CODE,ORGTYPE_ID,PARENT_ID,DESCRIPTION,SHORTNAME,ORDER_SETTINGS_ID) VALUES
+            ('Autonet-Slovakia','3000000',2,1,'This is Autonet-Slovakia organisation','autonet-slovakia',NULL);
+
+            DECLARE @slovakia_id INT = (select ID from ORGANISATION o where SHORTNAME='autonet-slovakia')
+            INSERT INTO dbo.ORGANISATION (NAME,ORG_CODE,ORGTYPE_ID,PARENT_ID,DESCRIPTION,SHORTNAME,ORDER_SETTINGS_ID) VALUES
+            ('Autonet-Slovakia-Customer',NULL, 4, @slovakia_id,'This is Customer for Autonet-Slovakia Affiliate','autonet-slovakia-customer',NULL);
+
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            INSERT INTO autonet.dbo.ESHOP_GROUP (NAME,DESCRIPTION,ORG_CODE,ROLE_ID) VALUES
+            ('AUTONET_SLOVAKIA_USER','Autonet-Slovakia user group','000000', @autonet_eshop_role_id);
+
+            DECLARE @autonet_slovakia_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_SLOVAKIA_USER')
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            insert into GROUP_ROLE(GROUP_ID, ROLE_ID) VALUES (@autonet_slovakia_eshop_group_id, @autonet_eshop_role_id);
+
+            DECLARE @autonet_slovakia_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovakia-customer')
+            DECLARE @autonet_slovakia_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_SLOVAKIA_USER')
+            insert into ORGANISATION_GROUP(ORGANISATION_ID,GROUP_ID) VALUES (@autonet_slovakia_customer_id, @autonet_slovakia_eshop_group_id);
+
+            DECLARE @autonet_slovakia_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovakia')
+            INSERT INTO dbo.ORGANISATION_COLLECTION (NAME,AFFILIATE_ID,DESCRIPTION,SHORTNAME) VALUES
+            ('Autonet-Slovakia-collection',@autonet_slovakia_id,'This is the Default Collection','autonet-slovakia');
+
+            DECLARE @autonet_collection_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'autonet-slovakia')
+            DECLARE @autonet_slovakia_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovakia')
+            DECLARE @autonet_slovakia_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovakia-customer')
+            INSERT INTO autonet.dbo.COLLECTION_RELATION (COLLECTION_ID,ORGANISATION_ID,IS_ACTIVE) VALUES
+            (@autonet_collection_id,@autonet_slovakia_id,1)
+            ,(@autonet_collection_id,@autonet_slovakia_customer_id,1);
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_125_INITIAL_AUTONET_SLOVENIA">
+        <sql>
+            INSERT INTO dbo.ORGANISATION (NAME,ORG_CODE,ORGTYPE_ID,PARENT_ID,DESCRIPTION,SHORTNAME,ORDER_SETTINGS_ID) VALUES
+            ('Autonet-Slovenia','4000000',2,1,'This is Autonet-Slovenia organisation','autonet-slovenia',NULL);
+
+            DECLARE @slovenia_id INT = (select ID from ORGANISATION o where SHORTNAME='autonet-slovenia')
+            INSERT INTO dbo.ORGANISATION (NAME,ORG_CODE,ORGTYPE_ID,PARENT_ID,DESCRIPTION,SHORTNAME,ORDER_SETTINGS_ID) VALUES
+            ('Autonet-Slovenia-Customer',NULL, 4, @slovenia_id,'This is Customer for Autonet-Slovenia Affiliate','autonet-slovenia-customer',NULL);
+
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            INSERT INTO autonet.dbo.ESHOP_GROUP (NAME,DESCRIPTION,ORG_CODE,ROLE_ID) VALUES
+            ('AUTONET_SLOVENIA_USER','Autonet-Slovenia user group','000000', @autonet_eshop_role_id);
+
+            DECLARE @autonet_slovenia_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_SLOVENIA_USER')
+            DECLARE @autonet_eshop_role_id INT = (select ID from ESHOP_ROLE where name='AUTONET_USER_ADMIN')
+            insert into GROUP_ROLE(GROUP_ID, ROLE_ID) VALUES (@autonet_slovenia_eshop_group_id, @autonet_eshop_role_id);
+
+            DECLARE @autonet_slovenia_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovenia-customer')
+            DECLARE @autonet_slovenia_eshop_group_id INT = (select ID from ESHOP_GROUP where name = 'AUTONET_SLOVENIA_USER')
+            insert into ORGANISATION_GROUP(ORGANISATION_ID,GROUP_ID) VALUES (@autonet_slovenia_customer_id, @autonet_slovenia_eshop_group_id);
+
+            DECLARE @autonet_slovenia_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovenia')
+            INSERT INTO dbo.ORGANISATION_COLLECTION (NAME,AFFILIATE_ID,DESCRIPTION,SHORTNAME) VALUES
+            ('Autonet-Slovenia-collection',@autonet_slovenia_id,'This is the Default Collection','autonet-slovenia');
+
+            DECLARE @autonet_collection_id INT = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'autonet-slovenia')
+            DECLARE @autonet_slovenia_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovenia')
+            DECLARE @autonet_slovenia_customer_id INT = (select ID from ORGANISATION where SHORTNAME = 'autonet-slovenia-customer')
+            INSERT INTO autonet.dbo.COLLECTION_RELATION (COLLECTION_ID,ORGANISATION_ID,IS_ACTIVE) VALUES
+            (@autonet_collection_id,@autonet_slovenia_id,1)
+            ,(@autonet_collection_id,@autonet_slovenia_customer_id,1);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

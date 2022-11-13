@@ -1,0 +1,174 @@
+.article-list-header {
+    align-items: center;
+    font-weight: 500;
+    padding: 0 5px;
+    background-color: $primary;
+    flex-wrap: nowrap;
+    min-height: 30px;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        height: 0;
+    }
+
+    .header-col {
+        white-space: nowrap;
+        text-align: center;
+        color: $white;
+        height: 16px;
+        // padding: 0 5px;
+
+        &:first-child {
+            margin-left: 0;
+            text-align: left;
+        }
+    }
+
+    .header-description {
+        width: $part-description-width;
+    }
+
+    .header-brand {
+        width: $part-brand-width;
+    }
+
+    .header-img {
+        width: $part-img-width;
+    }
+
+    .header-pos {
+        width: $part-pos-width;
+    }
+
+    .header-promo {
+        width: $part-promo-width;
+    }
+
+    .header-de-amount {
+        width: $part-de-amount-width;
+    }
+
+    .header-avail {
+        width: $part-avail-width;
+
+        &.text-left {
+            width: $part-with-filter-no-avail-width
+        }
+    }
+
+    .header-gross {
+        width: $part-gross-width;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 0;
+
+        > .label {
+            padding-right: 5px;
+        }
+    }
+
+    .header-net {
+        width: $part-net-width;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .label,
+        .btn-sort,
+        .tyre-sort {
+            visibility: hidden;
+            margin-right: 3px;
+        }
+
+        &.shown {
+            position: relative;
+
+            .label,
+            .btn-sort,
+            .tyre-sort {
+                visibility: visible;
+            }
+        }
+
+        .fa-eye {
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 0.25rem;
+
+            &.theme-darker {
+                opacity: 0.25;
+            }
+        }
+    }
+
+    .header-quality {
+        width: $part-quality-width;
+    }
+
+    .header-controler {
+        text-align: right;
+        flex: 2;
+        font-size: $font-icon;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        white-space: nowrap;
+        padding: 0 5px;
+    }
+
+    .header-total {
+        width: $part-total-width;
+    }
+
+    .header-remove {
+        .btn-remove {
+            color: white;
+        }
+    }
+    .header-check {
+        margin-top: 3px;
+    }
+    .displayed-mode {
+        cursor: pointer;
+        opacity: 0.5;
+
+        &.active {
+            color: $white;
+            cursor: default;
+            pointer-events: none;
+            opacity: 1;
+        }
+    }
+
+    .return-btn {
+        cursor: pointer;
+        color: $white;
+    }
+
+    .tyre-sort {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        i {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .header-amount-per-location {
+        width: $part-amount-per-location-width;
+        white-space: normal;
+    }
+
+    .header-location {
+        width: $part-location-width;
+        white-space: normal;
+    }
+
+    .filter-no-avail {
+        font-size: 10px;
+    }
+}

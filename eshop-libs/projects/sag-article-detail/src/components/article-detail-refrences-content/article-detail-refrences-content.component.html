@@ -1,0 +1,89 @@
+<ng-container *ngIf="isCollapsible">
+    <a class="d-flex sag-title" href="javascript:void(0)" (click)="isShownContent = !isShownContent">
+        <h4>{{'ARTICLE.REFERENCE' | translate}}</h4>
+        <i class="ml-auto fa fa-arrow-circle-o-down" [ngClass]="{'fa-rotate-180': isShownContent}"></i>
+    </a>
+</ng-container>
+
+<ng-container *ngIf="isShownContent">
+    <div class="row-reference d-flex flex-wrap" [class.col-single]="oeNumbers.length === 0 || iamNumbers.length === 0">
+        <div class="col-reference">
+            <div class="reference-block reference-info">
+                <h4 *ngIf="!isCollapsible">{{'ARTICLE.REFERENCE'| translate}}</h4>
+                <section class="reference-section">
+                    <label class="code-label">{{ isSb ? 'WINT' : 'SAG' }}</label>
+                    <div class="code-group-container">
+                        <div class="code-group">
+                            <div class="code-group-item">
+                                <span>{{ sagId }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="reference-section">
+                    <label class="code-label">EAN</label>
+                    <div class="code-group-container">
+                        <ng-container *ngIf="eanIds && eanIds.length; else noEanIds">
+                            <div class="code-group" *ngFor="let row of eanIds">
+                                <div *ngFor="let item of row" class="code-group-item">
+                                    <span>{{ item }}</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <ng-template #noEanIds class="no-eanid">
+                        <div class="code-group"><span>n/a</span></div>
+                    </ng-template>
+                </section>
+
+                <ng-container *ngIf="pccIds && pccIds.length > 0;">
+                    <section class="reference-section">
+                        <label class="code-label">{{'ARTICLE.PCC_ARTICLE_DETAIL' | translate}}</label>
+                        <div class="code-group-container pcc-number">
+                            <div class="code-group">
+                                <div class="code-group-item" *ngFor="let item of pccIds">
+                                    <span>{{ item }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </ng-container>
+            </div>
+            
+            <div class="reference-block oe-info" *ngIf="oeNumbers.length > 0">
+                <h4>{{'ARTICLE.OE_NUMBER'| translate}}</h4>
+                <ng-container *ngFor="let item of oeNumbers">
+                    <section class="reference-section">
+                        <label class="code-label">{{item.key}}</label>
+                        <div class="code-group-container">
+                            <div class="code-group" [class.code-readonly]="!enableRefNrChange">
+                                <div *ngFor="let code of item.values" class="code-group-item">
+                                    <a class="pointer" (click)="navigateTo($event, code)">{{code}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="col-reference" *ngIf="iamNumbers.length > 0">
+            <div class="reference-block">
+                <h4>{{'ARTICLE.IAM_NUMBER'| translate}}</h4>
+                <ng-container *ngFor="let item of iamNumbers">
+                    <section class="reference-section">
+                        <label class="code-label">{{item.key}}</label>
+                        <div class="code-group-container">
+                            <div class="code-group" [class.code-readonly]="!enableRefNrChange">
+                                <div *ngFor="let code of item.values" class="code-group-item">
+                                    <a class="pointer" (click)="navigateTo($event ,code)">{{code}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>

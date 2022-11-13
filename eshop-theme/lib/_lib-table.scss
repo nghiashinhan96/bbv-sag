@@ -1,0 +1,67 @@
+.table {
+    .header {
+        background-color: $primary;
+    }
+
+    thead {
+        tr>th {
+            &.sortable {
+                i {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    .filter {
+        td.disabled {
+
+            // disbaled input
+            >input {
+                pointer-events: none;
+                opacity: 0.5;
+                cursor: default;
+            }
+        }
+    }
+
+    tbody {
+        td {
+            color: $text-color;
+            font-weight: $font-weight-light;
+            vertical-align: middle;
+
+            .text-break {
+                word-break: break-all;
+            }
+        }
+
+        .alert-row {
+            background-color: $background-color !important;
+        }
+
+        .margin-value {
+            padding: 5px;
+
+            div {
+                padding: 5px 0px;
+                border: 1px solid black;
+                background: white;
+                min-height: 25px;
+            }
+        }
+    }
+}
+
+.margin-article-group-table {
+    min-height: 25px;
+
+    .margin-value div {
+        min-height: 25px;
+    }
+}
+
+.ngx-pagination {
+    justify-content: center;
+    text-align: center;
+}

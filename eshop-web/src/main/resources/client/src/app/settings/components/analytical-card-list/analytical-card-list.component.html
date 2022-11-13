@@ -1,0 +1,13 @@
+<div>
+    <sag-table *ngIf="searchModel" [mode]="'online'" [columns]="columns" (searchData)="searchTableData($event)" [sort]="sort"
+        notFoundText="{{'MESSAGES.NO_RESULTS_FOUND' | translate}}" [rows]="rows" [selectable]="true"
+        (selectRow)="onViewCardDetail($event)" [searchModel]="searchModel" [page]="page" [useSpinner]="false"></sag-table>
+</div>
+
+<ng-template let-row="row" #statusTemplate>
+    <i
+        class="fa fa-check card-{{row.status}}"
+        [class.fa-check]="row.status === STATUS.POSTED"
+        [class.fa-exclamation-triangle]="row.status === STATUS.IN_PROCESS">
+    </i>
+</ng-template>

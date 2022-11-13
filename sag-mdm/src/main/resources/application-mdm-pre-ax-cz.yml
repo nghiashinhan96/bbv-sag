@@ -1,0 +1,15 @@
+spring.profiles: mdm-pre-ax-cz
+
+external:
+  webservice:
+    dvse:
+      uri: https://mdm.carparts-cat.com/service.svc?wsdl
+      mdm_username: sag_apm_wsvc
+      mdm_password: jC5QvVxgQD
+      catalog_uri: https://web4.dvse.de/Loginh.aspx?SID=
+      template_customer_id_map:
+        ax-cz: 1412187
+      catalog_id_map:
+        # sid=556+018=language_code_cz
+        ax-cz: 556018
+

@@ -1,0 +1,12 @@
+spring.profiles: media-server
+
+external:
+  webservice:
+    ftp:
+      enabled: true
+      view: https://s3.exellio.de
+      upload: s3upload.exellio.de
+      user: connect_media
+      pass: uV88XXMduADFVJiQ
+      timeout: 5000 # unit: ms
+      parent-dir: connect_media

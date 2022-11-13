@@ -1,0 +1,6 @@
+spring.profiles: liquibase-cz-dev
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/dev/cz/db.changelog-master.xml
+    drop-first: false

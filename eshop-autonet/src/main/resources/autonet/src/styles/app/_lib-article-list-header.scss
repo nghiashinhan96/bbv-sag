@@ -1,0 +1,151 @@
+.article-list-header {
+    align-items: center;
+    font-weight: 500;
+    padding: 0.4rem 0.6rem;
+    background-color: $primary;
+    flex-wrap: nowrap;
+    min-height: $panel-height;
+
+    .header-col {
+        white-space: nowrap;
+        text-align: center;
+        color: $white;
+
+        &:first-child {
+            margin-left: 0;
+            text-align: left;
+        }
+    }
+
+    .header-description {
+        min-width: $part-brand-width + $part-img-width + $part-pos-width;
+        flex: 4;
+    }
+
+    .header-brand {
+        min-width: $part-brand-width;
+        width: $part-brand-width;
+    }
+
+    .header-img {
+        min-width: $part-img-width;
+        width:$part-img-width;
+    }
+
+    .header-pos {
+        min-width: $part-pos-width;
+        flex: 1;
+    }
+
+    .header-de-amount {
+        min-width: $part-de-amount-width;
+        flex: 1;
+        max-width: 150px;
+    }
+
+    .header-avail {
+        min-width: $part-avail-width;
+        flex: 1;
+    }
+
+    .header-gross {
+        min-width: $part-gross-width;
+        flex: 1;
+        text-align: right;
+    }
+
+    .header-net {
+        min-width: $part-net-width;
+        flex: 1;
+        text-align: right;
+
+        .label,
+        .btn-sort {
+            display: none;
+        }
+
+        &.shown {
+            position: relative;
+
+            .label,
+            .btn-sort {
+                display: inline-block;
+                margin-right: 3px;
+            }
+        }
+
+        .fa-eye {
+            cursor: pointer;
+            margin-left: 0.25rem;
+
+            &.theme-darker {
+                opacity: 0.25;
+            }
+        }
+    }
+
+    .header-quality {
+        min-width: $part-quality-width;
+    }
+
+    .header-controler {
+        text-align: right;
+        flex: 1;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        white-space: nowrap;
+    }
+
+    .header-total {
+        min-width: $part-total-width;
+        flex: 1;
+    }
+
+    .header-remove {
+        min-width: $part-remove-width;
+
+        .fa-trash {
+            cursor: pointer;
+        }
+    }
+
+    .header-check {
+        min-width: $part-check-width;
+        margin-top: 4px;
+    }
+
+    .displayed-mode {
+        cursor: pointer;
+        opacity: 0.5;
+
+        &.active {
+            color: $white;
+            cursor: default;
+            pointer-events: none;
+            opacity: 1;
+        }
+    }
+
+    .tyre-sort {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        i {
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &.simple-mode {
+
+        .header-gross,
+        .header-net {
+            text-align: right;
+        }
+    }
+}

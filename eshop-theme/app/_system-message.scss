@@ -1,0 +1,121 @@
+.system-message {
+    position: relative;
+
+    .markdown-format {
+        a {
+            color: $blue;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+        h3 {
+            font-size: 1.17rem;
+        }
+        h4 {
+            font-size: 1rem;
+        }
+        h5 {
+            font-size: 0.83rem;
+        }
+        h6 {
+            font-size: 0.67rem;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: inherit;
+        }
+        hr {
+            border-top-color: $thin-grey;
+        }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 4px;
+        right: 6px;
+        font-size: $font-icon-small;
+        color: $text-color;
+    }
+
+    .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 10px;
+        color: $text-color-inversed;
+        min-width: $min-screen-width;
+
+        &.bg-default {
+            background: #666
+        }
+
+        &.bg-primary {
+            background: #337ab7 !important;
+        }
+
+        &.bg-info {
+            background: lighten(#555, 20) !important;
+        }
+
+        .container-lg {
+            position: relative;
+        }
+
+        .markdown-format {
+            a {
+                color: $white;
+            }
+        }
+        
+        .close-btn {
+            top: 50%;
+            margin-top: -10px;
+            color: white;
+        }
+    }
+
+    .alert {
+        padding: 15px 25px 15px 15px;
+        margin-bottom: 20px;
+
+        &.alert-default {
+            color: #333;
+            border: 1px solid #ccc;
+            background: #f3f3f3;
+        }
+    
+        &.alert-primary {
+            color: #337ab7;
+            border: 1px solid #8bb8df;
+            background: #dbe9f5;
+        }
+    
+        &.alert-success {
+            color: darken($success, 10);
+            border: 1px solid lighten($success, 25);
+            background: lighten($success, 50);
+        }
+    
+        &.alert-warning {
+            color: $text-color;
+            border: 1px solid lighten($warning, 20);
+            background: lighten($warning, 30);
+        }
+    
+        &.alert-danger {
+            color: $danger;;
+            border: 1px solid lighten($danger, 25);
+            background: lighten($danger, 45);
+        }
+    }
+
+    &.technomag {
+        .banner.bg-primary {
+            background: #555 !important;
+        }
+    }
+}

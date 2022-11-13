@@ -1,0 +1,59 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_239_UPDATE_PRIMARY_EMAIL_ADDRESS">
+        <sql>
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.bruegg@sag-ag.ch' WHERE BRANCH_NUMBER='2111';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.langenthal@sag-ag.ch' WHERE BRANCH_NUMBER='2123';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.chur@sag-ag.ch' WHERE BRANCH_NUMBER='2211';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.nyon@sag-ag.ch' WHERE BRANCH_NUMBER='2415';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.romont@sag-ag.ch' WHERE BRANCH_NUMBER='2417';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.fribourg@sag-ag.ch' WHERE BRANCH_NUMBER='2418';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.marin@sag-ag.ch' WHERE BRANCH_NUMBER='2422';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.dietlikon@sag-ag.ch' WHERE BRANCH_NUMBER='2501';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.cham@sag-ag.ch' WHERE BRANCH_NUMBER='2511';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.rueschlikon@sag-ag.ch' WHERE BRANCH_NUMBER='2516';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.altendorf@sag-ag.ch' WHERE BRANCH_NUMBER='2521';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.schlieren@sag-ag.ch' WHERE BRANCH_NUMBER='2522';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.solothurn@sag-ag.ch' WHERE BRANCH_NUMBER='2122';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.hunzenschwil@sag-ag.ch' WHERE BRANCH_NUMBER='2125';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.stgallen@sag-ag.ch' WHERE BRANCH_NUMBER='2201';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.stgallen.lerche@sag-ag.ch' WHERE BRANCH_NUMBER='2213';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.bellinzona@sag-ag.ch' WHERE BRANCH_NUMBER='2310';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.baden@sag-ag.ch' WHERE BRANCH_NUMBER='2510';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.schaffhausen@sag-ag.ch' WHERE BRANCH_NUMBER='2515';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.winterthur@sag-ag.ch' WHERE BRANCH_NUMBER='2518';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.delemont@sag-ag.ch' WHERE BRANCH_NUMBER='2112';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.bern@sag-ag.ch' WHERE BRANCH_NUMBER='2115';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.thun@sag-ag.ch' WHERE BRANCH_NUMBER='2119';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.luzern@sag-ag.ch' WHERE BRANCH_NUMBER='2126';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.weinfelden@sag-ag.ch' WHERE BRANCH_NUMBER='2212';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.wil@sag-ag.ch' WHERE BRANCH_NUMBER='2215';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.etagnieres@sag-ag.ch' WHERE BRANCH_NUMBER='2401';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.vernier@sag-ag.ch' WHERE BRANCH_NUMBER='2413';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.sion@sag-ag.ch' WHERE BRANCH_NUMBER='2420';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.jona@sag-ag.ch' WHERE BRANCH_NUMBER='2520';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.niederbipp@sag-ag.ch' WHERE BRANCH_NUMBER='2110';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.burgdorf@sag-ag.ch' WHERE BRANCH_NUMBER='2117';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.basel@sag-ag.ch' WHERE BRANCH_NUMBER='2120';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.langnau@sag-ag.ch' WHERE BRANCH_NUMBER='2128';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.geneve@sag-ag.ch' WHERE BRANCH_NUMBER='2412';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.yverdon@sag-ag.ch' WHERE BRANCH_NUMBER='2416';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.oerlikon@sag-ag.ch' WHERE BRANCH_NUMBER='2513';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.bern@sag-ag.ch' WHERE BRANCH_NUMBER='2113';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.aarau@sag-ag.ch' WHERE BRANCH_NUMBER='2124';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.gams@sag-ag.ch' WHERE BRANCH_NUMBER='2214';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.barbengo@sag-ag.ch' WHERE BRANCH_NUMBER='2301';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.lugano@sag-ag.ch' WHERE BRANCH_NUMBER='2312';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.collombey@sag-ag.ch' WHERE BRANCH_NUMBER='2419';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='filiale.schlieren@sag-ag.ch' WHERE BRANCH_NUMBER='2512';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='reklamationen-nbp@sag-ag.ch' WHERE BRANCH_NUMBER='2000';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='reklamationen-nbp@sag-ag.ch' WHERE BRANCH_NUMBER='2001';
+            UPDATE dbo.BRANCH SET PRIMARY_EMAIL='reklamationen-nbp@sag-ag.ch' WHERE BRANCH_NUMBER='2003';
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,21 @@
+<div class="article-info">
+    <ng-container *ngIf="info">
+        <a href="javascript:void(0)" class="label article-info-type">
+            {{'ARTICLE.'+ INFO_TYPE[info.type] | translate}}
+        </a>
+        <ng-container [ngSwitch]="type">
+            <ng-container *ngSwitchCase="INFO_TYPE_MAP.TEXT">
+                <sag-long-text-display [content]="info?.txt"></sag-long-text-display>
+            </ng-container>
+            <ng-container *ngSwitchCase="INFO_TYPE_MAP.IMAGE">
+                <img class="info-img" [src]="info?.txt" />
+            </ng-container>
+            <ng-container *ngSwitchCase="INFO_TYPE_MAP.LINK">
+                <a [href]="info.txt" class="text-primary-color" [innerHTML]="info?.txt"></a>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                <sag-long-text-display [content]="info?.txt"></sag-long-text-display>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>

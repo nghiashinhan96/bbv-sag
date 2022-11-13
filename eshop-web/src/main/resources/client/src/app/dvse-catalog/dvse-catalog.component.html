@@ -1,0 +1,12 @@
+<div class="dvse-section" #dvseSection>
+    <button class="scalability-btn" [class.is-maximum]="isMaxSize" (click)="toggleIframeSize()">
+        <i class="fa" [ngClass]="isMaxSize ?  'fa-arrows-alt' : 'fa-window-restore'"></i>
+    </button>
+
+    <button class="btn-text btn-hide-footer" (click)="toogleFooter()">
+        <i class="fa" [ngClass]="footerIsShowed ? 'fa-angle-down' : 'fa-angle-up'"></i>
+    </button>
+    <div class="dvse-inner">
+        <iframe #dvseIframe allow="clipboard-write"></iframe>
+    </div>
+</div>

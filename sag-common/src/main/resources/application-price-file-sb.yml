@@ -1,0 +1,4 @@
+spring.profiles: price-file-sb
+
+external.webservice.ftp:
+  price-file-dir: eh-sb

@@ -1,0 +1,10 @@
+<nav class="navbar navbar-light header">
+    <div class="container-lg">
+        <a class="navbar-brand"></a>
+        <ul class="multi-language">
+            <li [class.active]="appLangCode === lang" *ngFor="let lang of supportedLangCodes">
+                <a href="javascript:void(0)" (click)="useLang(lang)">{{lang.toUpperCase()}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

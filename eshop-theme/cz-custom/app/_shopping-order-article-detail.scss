@@ -1,0 +1,16 @@
+.st-cz, .eh-cz {
+    .connect-shopping-order-article-detail {
+        &__header {
+            .col-produkt {
+                width: $order-description-width-cz;
+            }
+            .col-netto {
+                width: $order-net-price-width-cz;
+            }
+
+            .col-tour {
+                margin-left: 45px;
+            }
+        }
+    }
+}

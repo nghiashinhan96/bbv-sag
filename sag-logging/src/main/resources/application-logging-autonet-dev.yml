@@ -1,0 +1,4 @@
+spring.profiles: logging-autonet-dev
+
+logging:
+  config: classpath:log4j2-autonet-dev.xml

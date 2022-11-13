@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_239_UPDATE_VEN_TO_VWI_FOR_EXTERNAL_VENDOR">
+		<sql>
+			UPDATE dbo.EXTERNAL_VENDOR set AVAILABILITY_TYPE_ID ='VWO' WHERE
+			AVAILABILITY_TYPE_ID ='VEN' AND LOWER(COUNTRY) ='cz'
+		</sql>
+	</changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_239_INSERT_COUPON_MODULE_INTO_ESHOP_GLOBAL_SETTING">
+    <sql>
+     	INSERT INTO dbo.ESHOP_GLOBAL_SETTING (CODE, DESCRIPTION, ENABLED, SETTING_TYPE) 
+     	VALUES('coupon_module', '', 0, 'COUPON');
+    </sql>
+  </changeSet>
+</databaseChangeLog>

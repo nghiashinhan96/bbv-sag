@@ -1,0 +1,49 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_165_UPDATE_DEFAULT_SETTING_BRAND_PRIORITY_AVAIL_CH">
+    <sql>
+      DELETE FROM ORG_COLLECTION_SETTINGS where setting_key = 'c4s_brand_priority_avail_filter'
+      DELETE FROM ORG_COLLECTION_SETTINGS where setting_key = 'customer_brand_priority_avail_filter'
+      
+      DECLARE @tnm_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'technomag')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@tnm_collection_id,'customer_brand_priority_avail_filter', '001')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@tnm_collection_id,'c4s_brand_priority_avail_filter', '000')
+      
+      DECLARE @wbb_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'wbb')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@wbb_collection_id,'customer_brand_priority_avail_filter', '001')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@wbb_collection_id,'c4s_brand_priority_avail_filter', '000')
+      
+      DECLARE @mch_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'matik-ch')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@mch_collection_id,'customer_brand_priority_avail_filter', '001')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@mch_collection_id,'c4s_brand_priority_avail_filter', '000')
+      
+      DECLARE @kch_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'klaus')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@kch_collection_id,'customer_brand_priority_avail_filter', '001')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@kch_collection_id,'c4s_brand_priority_avail_filter', '000')
+      
+      DECLARE @dch_collection_id int = (select ID from ORGANISATION_COLLECTION where SHORTNAME = 'derendinger-ch')
+      
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@dch_collection_id,'customer_brand_priority_avail_filter', '001')
+      INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      VALUES (@dch_collection_id,'c4s_brand_priority_avail_filter', '000')
+
+	</sql>
+  </changeSet>
+</databaseChangeLog>

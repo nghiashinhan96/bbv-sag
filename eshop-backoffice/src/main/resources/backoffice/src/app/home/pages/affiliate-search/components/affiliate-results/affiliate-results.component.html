@@ -1,0 +1,13 @@
+<div class="affiliates-table">
+  <sag-table mode="online" [columns]="columns" [searchModel]="searchModel" [page]="page"
+    (searchData)="searchTableData($event)" [notFoundText]="'COMMON.NO_RESULT_FOUND' | translate">
+  </sag-table>
+</div>
+
+<ng-template #colActions let-row="row">
+  <div class="d-flex align-items-center">
+    <button class="btn-icon" (click)="edit(row)">
+      <i class="fa fa-eye"></i>
+    </button>
+  </div>
+</ng-template>

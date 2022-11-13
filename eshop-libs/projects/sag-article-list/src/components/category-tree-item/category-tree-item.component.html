@@ -1,0 +1,71 @@
+<ng-container *ngIf="category?.children?.length > 0; else singleRef">
+    <div id="cat-{{category.id}}" class="category-tree-item_header" [ngStyle]="{
+        'margin-left': isSingleLink ? setMarginStyles(category.index) : 'auto',
+        'padding-left': isSingleLink ? setPaddingStyles(category.index) : 'auto'
+    }" (click)="toggleCollapse()">
+        <span class="category-name">{{category?.description}}</span>
+        <i class="fa" [ngClass]="{'fa-caret-up' : category.show,'fa-caret-down' : !category.show}"></i>
+    </div>
+</ng-container>
+<ng-template #singleRef>
+    <ng-container *ngIf="rootCategoryId && category?.parentId === rootCategoryId; else otherRef">
+        <div class="category-tree-item_header" (click)="openLeafRoot()" id="cat-{{category.id}}">
+            <span class="category-name" [class.selected]="category.isChecked">{{category?.description}}</span>
+        </div>
+    </ng-container>
+
+    <ng-template #otherRef>
+        <ng-container *ngIf="isSingleLink; else checkboxRef">
+            <label class="single-cate px-2 m-0" [class.selected]="category.isChecked">
+                <ng-container *ngIf="!category.link ; else navigateLink">
+                    <a (click)="selectCategory(category)" href="javascript:void(0)" id="cat-{{category.id}}" class="text-primary-color"  [class.selected]="category.isChecked">
+                        <span [innerHTML]="category?.description"></span>
+                    </a>
+                </ng-container>
+
+                <ng-template #navigateLink>
+                    <ng-container *ngIf="category.navigate; else defaultLinkHref">
+                        <p *ngIf="!category.activeLink; else linkHref" 
+                        [innerHTML]="category?.description"></p>
+                        <ng-template #linkHref>
+                            <a href="javascript:void(0)" id="cat-{{category.id}}" (click)="navigateTo(category.navigate)" class="text-primary-color" target="{{category.target}}">
+                                <span [innerHTML]="category?.description"></span>
+                            </a>
+                        </ng-template>
+                    </ng-container>
+
+                    <ng-template #defaultLinkHref>
+                        <a [href]="category.link" id="cat-{{category.id}}" class="text-primary-color" target="{{category.target}}">
+                            <span [innerHTML]="category?.description"></span>
+                        </a>
+                    </ng-template>
+                </ng-template>
+            </label>
+        </ng-container>
+    </ng-template>
+</ng-template>
+<ng-template #checkboxRef>
+    <ng-container *ngIf="!category.link ; else linkRef">
+        <label class="checkbox" for="cat-{{category.id}}">
+            <input type="checkbox" (change)="searchArticles($event)" id="cat-{{category.id}}"
+                [checked]="category.isChecked" #checkboxRef>
+            <span [innerHTML]="category?.description"></span>
+        </label>
+    </ng-container>
+    <ng-template #linkRef>
+        <label class="mt-2">
+            <a [href]="category.link" id="cat-{{category.id}}" class="text-primary-color" target="_blank">
+                <span [innerHTML]="category?.description"></span>
+            </a>
+        </label>
+    </ng-template>
+</ng-template>
+
+<ul *ngIf="category?.children?.length > 0" class="nav flex-column category-tree-item_body"
+    [ngClass]="{'hidden' : !category.show}">
+    <li *ngFor="let cate of category?.children" class="nav-item" [class.nav-item_first]="isSingleLink" [class.border-0]="isSingleLink">
+        <sag-article-list-category-tree-item [category]="cate" [isSingleLink]="isSingleLink"
+            *ngIf="category.rendered || (!category.ignoredOpen && category.open === '1')">
+        </sag-article-list-category-tree-item>
+    </li>
+</ul>

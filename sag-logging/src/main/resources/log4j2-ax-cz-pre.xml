@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration  xmlns:xi="http://www.w3.org/2001/XInclude" scan="true" scanPeriod="5 seconds" status="debug">
+	<appenders>
+		<xi:include href="log4j2-appenders-console.xml"/>
+		<gelf 
+				name="GELF" 
+				host="udp:logstash.test.sag-ag.cloud" 
+				port="5041"
+				includeFullMdc="true" 
+				maximumMessageSize="8192"
+				facility="ESHOP-CONNECT-SAG-PREPROD-AX-CZ"
+                extractStackTrace ="-1">
+		</gelf>
+	</appenders>
+	<loggers>
+	    <logger name="org.springframework" level="info" additivity="false">
+	        <appenderRef ref="CONSOLE"/>
+	        <appenderRef ref="GELF"/>
+	    </logger>
+	    <logger name="org.hibernate.SQL" level="info" additivity="false">
+	        <appenderRef ref="CONSOLE"/>
+	        <appenderRef ref="GELF"/>
+	    </logger>
+	    <logger name="com.hazelcast.core.MapStore" level="debug" additivity="false">
+	        <appenderRef ref="CONSOLE"/>
+	        <appenderRef ref="GELF"/>
+	    </logger>
+	    <logger name="org.elasticsearch.index.search.slowlog.query" level="info" additivity="false">
+	        <appenderRef ref="CONSOLE"/>
+	        <appenderRef ref="GELF"/>
+	    </logger>    
+	    <logger name="com.sagag.eshop" level="debug" additivity="false">
+	        <appenderRef ref="CONSOLE"/>
+	        <appenderRef ref="GELF"/>
+	    </logger>   
+	    <logger name="com.sagag.services" level="debug" additivity="false">
+	        <appenderRef ref="CONSOLE"/>
+	        <appenderRef ref="GELF"/>
+	    </logger>        
+	</loggers>
+</configuration>
+

@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.sagag.eshop</groupId>
+    <artifactId>eshop-parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../eshop-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>eshop-service</artifactId>
+  <version>${project.version}</version>
+  <name>EShop Localized Services</name>
+
+  <dependencies>
+    <!-- Project dependencies -->
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sagag.eshop</groupId>
+      <artifactId>eshop-repo</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- Spring dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <exclusions>
+          <exclusion>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+      </exclusions>      
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-mail</artifactId>
+    </dependency>
+  </dependencies>
+</project>

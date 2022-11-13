@@ -1,0 +1,99 @@
+<div class="modal-header">
+    <h4>{{title | translate}}</h4>
+    <a href="javascript:void(0)" (click)="backToPreviousModel()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <form novalidate (ngSubmit)="onSubmit(formCustomer)" [formGroup]="formCustomer" data-automation="offer-persion-form-modal">
+        <div class="block-content">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label>{{'COMMON_LABEL.SALUTATION' | translate}}</label>
+                    <div class="sag-custom-select">
+                        <ng-select
+                            [searchable]="customerSalutations?.length > 10"
+                            *ngIf="customerSalutations"
+                            (selected)="onSalutationChanged()"
+                            [notFoundText]="'SEARCH.NO_RESULTS_FOUND' | translate"
+                            [items]="customerSalutations"
+                            formControlName="salutation"
+                            data-automation="salutation"
+                            bindValue="value">
+                        </ng-select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3" [hidden]="formCustomer.controls.salutation.value !== COMPANY_DROPDOWN_VALUE">
+                <div class="col-12">
+                    <label>{{'COMMON_LABEL.COMPANY_NAME' | translate}} *</label>
+                    <div class="sag-custom-select">
+                        <input type="text" class="form-control" formControlName="companyName" data-automation="company-name">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label>{{'COMMON_LABEL.FIRST_NAME' | translate}} *</label>
+                    <input type="text" class="form-control" formControlName="firstName" data-automation="first-name">
+                </div>
+                <div class="col-6">
+                    <label>{{'COMMON_LABEL.SURNAME' | translate}} *</label>
+                    <input type="text" class="form-control" formControlName="lastName" data-automation="last-name">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label>{{'COMMON_LABEL.STREET' | translate}}</label>
+                    <input type="text" class="form-control" formControlName="road" data-automation="road">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label>{{'COMMON_LABEL.ADDITIONAL_ADDRESS' | translate}} 1</label>
+                    <input type="text" class="form-control" formControlName="additionalAddress1" data-automation="additional-address-1">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label>{{'COMMON_LABEL.ADDITIONAL_ADDRESS' | translate}} 2</label>
+                    <input type="text" class="form-control" formControlName="additionalAddress2" data-automation="additional-address-2">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label>{{'COMMON_LABEL.POSTAL_CODE' | translate}} *</label>
+                    <input type="text" class="form-control" formControlName="postCode" data-automation="post-code">
+                </div>
+                <div class="col-8">
+                    <label>{{'COMMON_LABEL.PLACE' | translate}} *</label>
+                    <input type="text" class="form-control" formControlName="place" data-automation="place">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label>{{'COMMON_LABEL.PHONE' | translate}}</label>
+                    <input type="text" class="form-control" formControlName="phone" data-automation="phone">
+                </div>
+                <div class="col-6">
+                    <label>{{'COMMON_LABEL.FAX' | translate}}</label>
+                    <input type="text" class="form-control" formControlName="fax" data-automation="fax">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label>{{'COMMON_LABEL.EMAIL' | translate}}</label>
+                    <input type="text" class="form-control" type="email" formControlName="email" data-automation="email">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer d-flex justify-content-between px-3">
+    <div>
+        <button *ngIf="canBack" class="btn btn-primary ml-3" data-automation="offer-person-form-go-back"
+            (click)="backToPreviousModel()">{{'COMMON_LABEL.BACK' | translate}}</button>
+    </div>
+    <div>
+        <button class="btn btn-primary mr-3 align-self-end" [disabled]="formCustomer.invalid" data-automation="offer-person-form-submit"
+            (click)="onSubmit(formCustomer)" type="submit">{{'COMMON_LABEL.SAVE' | translate}}</button>
+    </div>
+</div>

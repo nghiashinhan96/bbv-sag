@@ -1,0 +1,49 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_116_CREATE_VIEW_V_DELIVERY_PROFILE">
+    <sql>
+		CREATE VIEW [dbo].[V_DELIVERY_PROFILE]
+		AS
+		SELECT
+		de.ID,
+		de.COUNTRY,
+		br2.BRANCH_CODE as DISTRIBUTION_BRANCH_CODE,
+		br.BRANCH_CODE as DELIVERY_BRANCH_CODE,
+		de.DELIVERY_PROFILE_ID,
+		de.NEXT_DAY,
+		de.VENDOR_CUT_OFF_TIME,
+		de.LATEST_TIME,
+		de.LAST_DELIVERY,
+		de.DELIVERY_DURATION,
+		de.DELIVERY_BRANCH_ID,
+		de.DISTRIBUTION_BRANCH_ID,
+		de.DELIVERY_PROFILE_NAME
+		FROM DELIVERY_PROFILE de
+		JOIN BRANCH br
+		ON de.DELIVERY_BRANCH_ID = br.BRANCH_NUMBER
+		JOIN BRANCH br2
+		ON de.DISTRIBUTION_BRANCH_ID = br2.BRANCH_NUMBER
+    </sql>
+</changeSet>
+<changeSet author="CONNECT_APP" id="ITER_116_CREATE_VIEW_V_EXTERNAL_VENDOR">
+    <sql>
+		CREATE VIEW [dbo].[V_EXTERNAL_VENDOR]
+		AS
+		SELECT distinct
+		ex.ID,
+		ex.COUNTRY,
+		ex.VENDOR_ID,
+		ex.VENDOR_NAME,
+		ex.VENDOR_PRIORITY,
+		de.DELIVERY_PROFILE_NAME,
+		ex.AVAILABILITY_TYPE_ID
+		FROM external_vendor ex
+		LEFT JOIN delivery_profile de
+		ON ex.delivery_profile_id = de.DELIVERY_PROFILE_ID
+    </sql>
+</changeSet>
+</databaseChangeLog>

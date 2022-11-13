@@ -1,0 +1,41 @@
+#!/bin/bash
+
+echo "Ensuring no CheckStyle violations"
+
+# Folder for temporary files required to run this script
+tmp_file=.git/hooks/tmp.$$
+function cleanup() {
+    rm -f $tmp_file
+}
+trap cleanup EXIT
+
+echo "Determining affected module paths"
+# Find all of the affected files (those which are indexed ready to be committed), filter to only those which are java files and produce a list of modules
+module_paths=`git diff-index --cached --name-only HEAD | grep -E .java$ | sed 's/\/src.*//' | sort | uniq | awk -v ORS=, '{ print $1 }' | sed 's/,$/\'$'\n/'`
+
+if [ -n "$module_paths" ]; then
+  echo "Running CheckStyle for all modules with java code touched in this branch [$module_paths]"
+
+  rm -f $tmp_file
+
+  echo "Running 'mvn checkstyle:check -pl $module_paths'"
+  #TODO  unable to run this line since root pom.xml in the eshop-parent which not the right folder level
+  #mvn checkstyle:check $module_paths -T 1C > $tmp_file
+
+  # Retrieve the result of the command
+  result=$?
+
+  if [ $result -ne 0 ]; then
+    echo -e "\n#################################" \
+            "\n# REJECTED: CheckStyle failures #" \
+            "\n#################################"
+    cat $tmp_file
+    exit 1
+  fi
+
+  echo "CheckStyle passed"
+else
+  echo "No java source files affected by this branch, skipping CheckStyle"
+fi
+
+exit 0

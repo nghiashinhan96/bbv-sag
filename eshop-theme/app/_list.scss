@@ -1,0 +1,51 @@
+.sag-additional {
+  margin: 0 0 $spacer;
+  font-size: 13px;
+
+  .additional-list {
+      column-count: 2;
+      column-width: 50%;
+      column-gap: $spacer;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: $spacer;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      a {
+          position: relative;
+          display: block;
+          color: $grey;
+          padding-left: $spacer * 1.25;
+          box-sizing: border-box;
+          text-decoration: none;
+          
+          &:hover {
+              color: $primary-font;
+          }
+
+          &:last-child {
+              margin-bottom: 0;
+          }
+
+          .fa {
+              position: absolute;
+              left: 0;
+              top: 2px;
+          }
+      }
+  }
+}
+
+connect-batteries {
+    .additional-list {
+        a {
+            max-width: 80%;
+        }
+    }
+}

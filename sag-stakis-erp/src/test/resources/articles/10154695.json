@@ -1,0 +1,505 @@
+{
+	"memos": [
+		{
+			"type": 0,
+			"text": null,
+			"label": null,
+			"statusKey": "Discontinued",
+			"statusValue": "No",
+			"icon": null,
+			"link": null
+		},
+		{
+			"type": 0,
+			"text": null,
+			"label": null,
+			"statusKey": "SellOff",
+			"statusValue": "No",
+			"icon": null,
+			"link": null
+		},
+		{
+			"type": 0,
+			"text": null,
+			"label": null,
+			"statusKey": "NewItem",
+			"statusValue": "No",
+			"icon": null,
+			"link": null
+		}
+	],
+	"freetextDisplayDesc": "Ölfilter BOSCH 0 451 103 033",
+	"oeNumbers": {
+		"AUDI": [
+			"XE021030288A",
+			"SE021030288A",
+			"E5120700509",
+			"BAT115561A",
+			"89201808900",
+			"89201808201",
+			"78115561K",
+			"70115561",
+			"59115661A",
+			"57115561",
+			"56115561G",
+			"56115561B",
+			"56115561A",
+			"56115561",
+			"5120700509",
+			"37115561B",
+			"37115561A",
+			"35115561",
+			"30115561D",
+			"28115351",
+			"28115351",
+			"261155613",
+			"078115561K",
+			"070115561",
+			"059115661A",
+			"057115561",
+			"056115561G",
+			"056115561B",
+			"056115561A",
+			"056115561",
+			"037115561B",
+			"037115561A",
+			"035115561",
+			"030115561D",
+			"028115351",
+			"0261155613",
+			"0028115351"
+		],
+		"CHEVROLET": [
+			"7984778"
+		],
+		"CHRYSLER": [
+			"MD353795",
+			"J3232126",
+			"5281090BA",
+			"5281090BA",
+			"5203217",
+			"5203217",
+			"05281090BA",
+			"05203217"
+		],
+		"CITROËN": [
+			"MLS000702",
+			"5417584"
+		],
+		"DODGE": [
+			"MD353795"
+		],
+		"FORD": [
+			"E1NN6714BA",
+			"5007124",
+			"5004928",
+			"5004747",
+			"5003461",
+			"5003460"
+		],
+		"MAZDA": [
+			"ZZN123302",
+			"ZZM123802A"
+		],
+		"MITSUBISHI": [
+			"N152H1010",
+			"MD353795",
+			"MD129809",
+			"MD108063",
+			"MB620598"
+		],
+		"NISSAN": [
+			"15208V4000",
+			"15208H1011"
+		],
+		"PEUGEOT": [
+			"1109C1"
+		],
+		"PORSCHE": [
+			"93110770100",
+			"56115561G",
+			"056115561G"
+		],
+		"RENAULT": [
+			"7701415078",
+			"7701415060",
+			"5021188543"
+		],
+		"SAAB": [
+			"8803348"
+		],
+		"SEAT": [
+			"XE021030288A",
+			"SE021030288A",
+			"E5120700509",
+			"BAT115561A",
+			"89201808900",
+			"89201808201",
+			"70115561",
+			"59115661A",
+			"57115561",
+			"56115561G",
+			"56115561B",
+			"56115561A",
+			"56115561",
+			"5120700509",
+			"37115561B",
+			"37115561A",
+			"35115561",
+			"30115561D",
+			"28115351",
+			"28115351",
+			"261155613",
+			"070115561",
+			"059115661A",
+			"057115561",
+			"056115561G",
+			"056115561B",
+			"056115561A",
+			"056115561",
+			"037115561B",
+			"037115561A",
+			"035115561",
+			"030115561D",
+			"028115351",
+			"0261155613",
+			"0028115351"
+		],
+		"SKODA": [
+			"XE021030288A",
+			"SE021030288A",
+			"E5120700509",
+			"BAT115561A",
+			"89201808900",
+			"89201808201",
+			"70115561",
+			"59115661A",
+			"57115561",
+			"56115561G",
+			"56115561B",
+			"56115561A",
+			"56115561",
+			"5120700509",
+			"37115561B",
+			"37115561A",
+			"35115561",
+			"30115561D",
+			"28115351",
+			"28115351",
+			"261155613",
+			"070115561",
+			"059115661A",
+			"057115561",
+			"056115561G",
+			"056115561B",
+			"056115561A",
+			"056115561",
+			"037115561B",
+			"037115561A",
+			"035115561",
+			"030115561D",
+			"028115351",
+			"0261155613",
+			"0028115351"
+		],
+		"TOYOTA": [
+			"12000007",
+			"12000005",
+			"0012000007",
+			"0012000005"
+		],
+		"VOLVO": [
+			"807180",
+			"6796585",
+			"419719",
+			"418719",
+			"110200"
+		],
+		"VW": [
+			"XE021030288A",
+			"SE021030288A",
+			"E5120700509",
+			"BAT115561A",
+			"89201808900",
+			"89201808201",
+			"70115561",
+			"59115661A",
+			"57115561",
+			"56115561G",
+			"56115561B",
+			"56115561A",
+			"56115561",
+			"5120700509",
+			"37115561B",
+			"37115561A",
+			"35115561",
+			"30115561D",
+			"28115351",
+			"28115351",
+			"261155613",
+			"070115561",
+			"059115661A",
+			"057115561",
+			"056115561G",
+			"056115561B",
+			"056115561A",
+			"056115561",
+			"037115561B",
+			"037115561A",
+			"035115561",
+			"030115561D",
+			"028115351",
+			"0261155613",
+			"0028115351"
+		]
+	},
+	"iamNumbers": {
+		"ASPÖCK": [
+			"GFE229"
+		],
+		"BOSCH": [
+			"0451103033",
+			"0451103228"
+		],
+		"DRESSELHAUS": [
+			"2312700",
+			"2313000",
+			"2313001",
+			"2331200"
+		],
+		"HEIZMANN": [
+			"LF3490",
+			"LF3568",
+			"LF758",
+			"LF785"
+		],
+		"KNOTT ACHSEN": [
+			"FT4862",
+			"FT4862CS",
+			"FT5089"
+		],
+		"MOTOREX": [
+			"6457",
+			"EDL505"
+		]
+	},
+	"pnrnEANs": [
+		"3165141015959"
+	],
+	"pnrnPccs": [],
+	"isReplacementFor": "0 451 103 228",
+	"availRequested": true,
+	"allowedAddToShoppingCart": true,
+	"favorite": false,
+	"100pr": false,
+	"oilArticle": false,
+	"glassOrBody": false,
+	"id_source": "dvse",
+	"artnr": "0451103033",
+	"is_100pr": false,
+	"gaID": "7",
+	"id_pim": "10154695",
+	"id_dlnr": "30",
+	"supplier": "BOSCH",
+	"supplierId": 0,
+	"artid": "10154695",
+	"artnr_display": "0 451 103 033",
+	"partDesc": "",
+	"amountNumber": 1,
+	"salesQuantity": 1,
+	"product_brand": "BOSCH",
+	"id_product_brand": "30",
+	"name": "Olejový filtr (Motorový olej)",
+	"product_addon": "Olejový filtr - Diverse",
+	"genArtTxts": [
+		{
+			"gaid": "7",
+			"gatxtdech": "Ölfilter"
+		}
+	],
+	"genArtTxtEng": {
+		"gaid": "7",
+		"gatxtdech": "Oil Filter"
+	},
+	"criteria": [
+		{
+			"cvp": "122.50",
+			"cid": "209",
+			"cn": "Výška ( v mm )",
+			"csort": 0
+		},
+		{
+			"cvp": "3/4\" 16 UNF",
+			"cid": "289",
+			"cn": "Velikost závitu",
+			"csort": 0
+		},
+		{
+			"cvp": "62.50",
+			"cid": "341",
+			"cn": "průměr 1",
+			"csort": 0
+		},
+		{
+			"cvp": "76",
+			"cid": "497",
+			"cn": "Vnější průměr [mm]",
+			"csort": 0
+		},
+		{
+			"cvp": "našroubovaný filtr",
+			"cid": "826",
+			"cn": "typ filtru",
+			"csort": 0
+		}
+	],
+	"images": [
+		{
+			"id_img": 1,
+			"ref": "https://s3.exellio.de/dvse/0030/1382268a67992c07a6bc2494144c469a.jpg",
+			"sort": 1,
+			"img_typ": "image"
+		},
+		{
+			"id_img": 2,
+			"ref": "https://s3.exellio.de/dvse/0030/300/1382268a67992c07a6bc2494144c469a.jpg",
+			"sort": 1,
+			"img_typ": "image_300"
+		},
+		{
+			"id_img": 3,
+			"ref": "https://s3.exellio.de/dvse/0030/110/1382268a67992c07a6bc2494144c469a.jpg",
+			"sort": 1,
+			"img_typ": "image_110"
+		},
+		{
+			"id_img": 4,
+			"ref": "https://s3.exellio.de/dvse/0030/21934bdc0ff2865ecf3d56a213f469c8.jpg",
+			"sort": 2,
+			"img_typ": "image"
+		},
+		{
+			"id_img": 5,
+			"ref": "https://s3.exellio.de/dvse/0030/300/21934bdc0ff2865ecf3d56a213f469c8.jpg",
+			"sort": 2,
+			"img_typ": "image_300"
+		},
+		{
+			"id_img": 6,
+			"ref": "https://s3.exellio.de/dvse/0030/110/21934bdc0ff2865ecf3d56a213f469c8.jpg",
+			"sort": 2,
+			"img_typ": "image_110"
+		},
+		{
+			"id_img": 7,
+			"ref": "https://s3.exellio.de/dvse/0030/73f85760d10f7d9923e0fe1ae579c44e.jpg",
+			"sort": 3,
+			"img_typ": "image"
+		},
+		{
+			"id_img": 8,
+			"ref": "https://s3.exellio.de/dvse/0030/300/73f85760d10f7d9923e0fe1ae579c44e.jpg",
+			"sort": 3,
+			"img_typ": "image_300"
+		},
+		{
+			"id_img": 9,
+			"ref": "https://s3.exellio.de/dvse/0030/110/73f85760d10f7d9923e0fe1ae579c44e.jpg",
+			"sort": 3,
+			"img_typ": "image_110"
+		},
+		{
+			"id_img": 10,
+			"ref": "https://s3.exellio.de/dvse/0030/78398e0015d285e3fd51ad906ecdf18c.jpg",
+			"sort": 4,
+			"img_typ": "image"
+		},
+		{
+			"id_img": 11,
+			"ref": "https://s3.exellio.de/dvse/0030/300/78398e0015d285e3fd51ad906ecdf18c.jpg",
+			"sort": 4,
+			"img_typ": "image_300"
+		},
+		{
+			"id_img": 12,
+			"ref": "https://s3.exellio.de/dvse/0030/110/78398e0015d285e3fd51ad906ecdf18c.jpg",
+			"sort": 4,
+			"img_typ": "image_110"
+		},
+		{
+			"id_img": 13,
+			"ref": "https://s3.exellio.de/dvse/0030/875a5fdcdb93f6e22f5cf941758cb45a.jpg",
+			"sort": 5,
+			"img_typ": "image"
+		},
+		{
+			"id_img": 14,
+			"ref": "https://s3.exellio.de/dvse/0030/300/875a5fdcdb93f6e22f5cf941758cb45a.jpg",
+			"sort": 5,
+			"img_typ": "image_300"
+		},
+		{
+			"id_img": 15,
+			"ref": "https://s3.exellio.de/dvse/0030/110/875a5fdcdb93f6e22f5cf941758cb45a.jpg",
+			"sort": 5,
+			"img_typ": "image_110"
+		}
+	],
+	"info": [
+		{
+			"id_info": "1",
+			"info_type": "2",
+			"info_txt": "http://emea.resource.bosch.com/AA/internet/enfinity/img/products/0451103033PDANWHCO0000/index.html"
+		}
+	],
+	"article": {
+		"id": "10154695",
+		"salesQuantity": 0,
+		"articleLock": false,
+		"fitmentLock": false,
+		"displayArticle": false
+	},
+	"price": {
+		"articleId": "10154695",
+		"umarId": null,
+		"price": {
+			"grossPrice": 97.0,
+			"netPrice": 49.8,
+			"vatInPercent": 21.0,
+			"totalGrossPrice": 97.0,
+			"totalNetPrice": 49.8,
+			"currency": "Kč",
+			"vatGrossPrice": 117.36999999999999,
+			"totalVatGrossPrice": 117.36999999999999,
+			"vatNetPrice": 60.257999999999999,
+			"totalVatNetPrice": 60.257999999999999
+		}
+	},
+	"availabilities": [
+		{
+			"immediateDelivery": false,
+			"availState": 5,
+			"availStateColor": "YELLOW_GREEN",
+			"sofort": false,
+			"externalSource": false,
+			"venExternalSource": false,
+			"conExternalSource": false
+		},
+		{
+			"quantity": 1,
+			"immediateDelivery": false,
+			"arrivalTime": "2021-09-24T10:40:00.000+02:00",
+			"availState": 5,
+			"availStateColor": "YELLOW_GREEN",
+			"sofort": false,
+			"externalSource": false,
+			"venExternalSource": false,
+			"conExternalSource": false,
+			"rawArrivalTime": "24. září 2021 10:40:00",
+			"formattedCETArrivalTime": "10:40",
+			"formattedCETArrivalDate": "24.09.2021"
+		}
+	],
+	"tyre_article": false,
+	"qtyMultiple": 1
+}

@@ -1,0 +1,24 @@
+a:not(.anerp) {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+        color: $primary;
+        text-decoration: underline;
+    }
+
+    &.disabled,
+    [disabled] {
+        color: $dark-grey;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    i.fa-angle-right {
+        padding-right: 0.25rem;
+    }
+
+    .bold {
+        font-weight: 500;
+    }
+}

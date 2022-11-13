@@ -1,0 +1,147 @@
+<div class="modal-header">
+    <h4>{{ title | translate }}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <sag-common-message *ngIf="message" [data]="message"></sag-common-message>
+    <div class="card user-settings-form">
+        <div class="card-header">
+            <connect-expanded title="{{'DELIVERY_PROFILE.DELIVERY_PROFILE' | translate}}" [(expand)]="isProfileOpen">
+            </connect-expanded>
+        </div>
+        <div class="card-body" *ngIf="isProfileOpen">
+            <form [formGroup]="profileForm" *ngIf="profileForm">
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.PROFILE_NAME' | translate}} *
+                    </label>
+                    <div class="col-5">
+                        <input type="text" maxlength="24" class="form-control" formControlName="profileName">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.PROFILE_DESC' | translate}} *
+                    </label>
+                    <div class="col-5">
+                        <input type="text" maxlength="64" class="form-control" formControlName="profileDesc">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.BRANCH_CODE' | translate}}*
+                    </label>
+                    <div class="col-5">
+                        <ng-select class="sag-select" [items]="branchList"
+                            notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}" formControlName="branchCode"
+                            bindLabel="label" bindValue="id" [clearable]="false">
+                        </ng-select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card user-settings-form mt-4">
+        <div class="card-header">
+            <connect-expanded title="{{'DELIVERY_PROFILE.SUPPLIER_TOUR' | translate}}" [(expand)]="isSupplierTourOpen">
+            </connect-expanded>
+        </div>
+        <div class="card-body" *ngIf="isSupplierTourOpen">
+            <form [formGroup]="suppplierTourForm" *ngIf="suppplierTourForm">
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.DAY' | translate}}*
+                    </label>
+                    <div class="col-5">
+                        <ng-select class="sag-select" [items]="tourDayList"
+                            notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}" formControlName="day"
+                            bindLabel="label" bindValue="value" [clearable]="false">
+                            <ng-template ng-label-tmp let-item="item">
+                                {{ item.label | translate }}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                                <div class="d-flex align-items-center mr-3">{{ item.label | translate }}</div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.WSS_DEPARTURE_TIME' | translate}}*
+                    </label>
+                    <div class="col-5 time-picker-containter" [ngClass]="{ 'has-error': tourDepartureTimeInvalid}">
+                        <input type="text" required #tourDepartureTimeInput class="form-control"
+                            formControlName="supplierDepartTime">
+                        <span class="time-picker" (click)="isTourDepartureTimeOpen = !isTourDepartureTimeOpen"><i
+                                class="fa fa-clock-o"></i></span>
+                        <div class="time-picker-content" *ngIf="isTourDepartureTimeOpen" #departureTimeScroller>
+                            <ul class="time-picker-list">
+                                <li class="time-picker-item" *ngFor="let hour of hourList"
+                                    (click)="onSetDepartureTime(hour)">
+                                    {{ hour.formatText }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card user-settings-form mt-4">
+        <div class="card-header">
+            <connect-expanded title="{{'DELIVERY_PROFILE.FC_DELIVERY_PICKUP' | translate}}" [(expand)]="isFcTourOpen">
+            </connect-expanded>
+        </div>
+        <div class="card-body" *ngIf="isFcTourOpen">
+            <sag-common-message [data]="hintMsg"></sag-common-message>
+            <form [formGroup]="fcTourForm" *ngIf="fcTourForm">
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.OVERNIGHT' | translate}}
+                    </label>
+                    <div class="col-5">
+                        <input type="checkbox" id="overnight" formControlName="overnight">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.TOUR' | translate}}
+                    </label>
+                    <div class="col-5">
+                        <ng-select class="sag-select" [items]="fcTourList" [virtualScroll]="true"
+                            (scrollToEnd)="onFCTourListScrollToEnd()"
+                            notFoundText="{{'COMMON_LABEL.NO_RESULTS_FOUND' | translate}}" formControlName="tour"
+                            [clearable]="true" bindLabel="label" bindValue="value">
+                        </ng-select>
+                        <strong>und/oder</strong>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'DELIVERY_PROFILE.TOUR_ASSIGN_COLUMN.DURATION' | translate}}
+                    </label>
+                    <div class="col-5 time-picker-containter"
+                        [ngClass]="{ 'has-error': tourDuration.errors?.invalidValue}">
+                        <input type="text" #openingHourInput class="form-control" formControlName="duration">
+                        <span class="time-picker" (click)="isDurationPickerOpen = !isDurationPickerOpen"><i
+                                class="fa fa-clock-o"></i></span>
+                        <div class="time-picker-content" *ngIf="isDurationPickerOpen" #durationTimeScroller>
+                            <ul class="time-picker-list">
+                                <li class="time-picker-item" *ngFor="let hour of durationList"
+                                    (click)="onSetDuration(hour)">
+                                    {{ hour.formatText }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-center mt-3" (click)="onSubmit()"
+        [disabled]="!isSaveBtnEnable">{{ 'COMMON_LABEL.SAVE' | translate }}</button>
+</div>

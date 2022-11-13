@@ -1,0 +1,21 @@
+.status {
+  text-transform: uppercase;
+}
+
+#customer-lisence-panel {
+  padding: 0;
+
+  .table {
+    margin-bottom: 0;
+
+    td,
+    th {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+.add-user {
+  margin-top: 20px;
+}

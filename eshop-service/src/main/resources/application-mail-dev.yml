@@ -1,0 +1,15 @@
+spring.profiles: mail-dev
+
+# Mail Server properties
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: swissitbridge.test.1210@gmail.com
+    password: exadbqqidnptrapi
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com

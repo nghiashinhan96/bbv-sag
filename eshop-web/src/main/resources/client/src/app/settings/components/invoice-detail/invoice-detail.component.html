@@ -1,0 +1,20 @@
+<ng-container *ngIf="invoiceDetail">
+    <div class="invoice-detail">
+        <sag-table [columns]="columns"
+                       [rows]="invoiceDetail.positions"
+                       [firstlySearch]="false"></sag-table>
+
+        <div *ngIf="responseMessage"
+             connectResponseMessage
+             [responseMessage]="responseMessage">{{ responseMessage.key | translate }}</div>
+
+        <div class="btn-take">
+            <a href="javascript:void(0);"
+               [class.disabled]="!invoiceDetail"
+               id="add-order-history-to-cart"
+               class="btn-link"
+               (click)="onAddToBasket(invoiceDetail)">
+                <i class="fa fa-chevron-right"></i>{{'COMMON_LABEL.BUTTON.TAKE'| translate}}</a>
+        </div>
+    </div>
+</ng-container>

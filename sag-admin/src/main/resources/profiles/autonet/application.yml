@@ -1,0 +1,41 @@
+# ************************************************************************
+# This is the Autonet configuration of Admin application for development mode.
+# 
+# Required Common configuration:
+# - Application common configuration -
+# - Country Code - 
+# - Database -
+# - Elasticsearch - 
+# - ERP - 
+# - Caching - 
+# - Mail service - 
+# - Thread Executor Pool - 
+# - Authorization -
+# - MDM for creating DVSE user -
+# - Media Server -
+# - Proxy -
+# - Logging - 
+# - Java Melody Monitoring - 
+# - Actuator Healthcheck - 
+# - Liquibase - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagadmin,
+  autonet-erp-pre,
+  mdm-prod,
+  mail-dev,
+  elasticsearch-dev,
+  db-dev,
+  executor-pool,
+  no-liquibase,
+  logging-autonet-dev,
+  actuator,
+  cache-dev,
+  country-autonet,
+  no-proxy,
+  media-server,
+  javamelody,
+  auth-endpoint-autonet-dev
+
+spring.banner.location: classpath:banner/banner_autonet.txt

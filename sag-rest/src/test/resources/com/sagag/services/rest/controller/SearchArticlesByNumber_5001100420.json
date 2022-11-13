@@ -1,0 +1,114 @@
+{
+  "content": [
+    {
+      "id": "e0a6b3e2899fe9f45324e81c83abf246",
+      "criteria": [
+        {
+          "cvp": "Verbund",
+          "cid": "9001"
+        },
+        {
+          "cvp": "blau",
+          "cid": "9003"
+        },
+        {
+          "cvp": "Bandfilter blau",
+          "cid": "9003"
+        }
+      ],
+      "refs": [
+        {
+          "id_source": "atr",
+          "artnr": "5001100420",
+          "id_pim": "1000000003755619694",
+          "id_dlnr": "5010",
+          "supplier": "SEKURIT",
+          "id_autonet": "5001100420 SG",
+          "artid": "e0a6b3e2899fe9f45324e81c83abf246",
+          "artnr_display": "5001100420",
+          "gaID": "1191",
+          "genArtTxts": [
+            {
+              "gaid": "1191",
+              "gatxtdech": "Frontscheibe"
+            }
+          ],
+          "partImage": "images/parts/part-1234.png",
+          "partDesc": "Part description",
+          "brandImage": "images/brand/brand-1234.png",
+          "amountNumber": "1",
+          "availableIcon": "images/available.png",
+          "characteristics": "Evolution Unterlegscheiben mit Dual-Gummischichten anstelle von Stahl für 6-mal weniger Lärm",
+          "partBigImage": "images/parts/bigpart-1234.png",
+          "content": "Ort: Front. Produkt-Fit: Direkt Fit. Anzahl verkaufter: Werden einzeln verkauft. Erwarteter Schiff Out Zeit: Am selben Tag - 1 Arbeitstag. Artikelnummer : 116,33022.",
+          "productDesc": "CENTRIC OE ERSATZ BREMSBELÄGE SENSOREN. Hergestellt und OEM-Level-Standards geprüft, OE Ersatz Bremsklotz Sensoren des Centric sind garantiert optimal Bremsbeläge Dicke zu überwachen und warnen Sie den Moment, sie müssen ersetzt werden. Seit 2000 hat Centric Teile Kfz-Teilehandel mit hochwertigen Ersatz-Bremsteilen geliefert. Hergestellt und in OEM-Ebene geprüft, in-house Einrichtungen. Premium, robuste Ausführung. Deckt breite Palette von einheimischen und importierten Marken und Modelle. Einfach zu installieren",
+          "usage": "Für Modelle mit Einparkhilfe, Assist Für Modelle ohne Parallel Park",
+          "safety": "Unterstützt von 1 Jahr, unbegrenzte Kilometerleistung Garantie - sind Ersatzteile der Marke die günstigste Lösung für Ihre Ersatzbedarf !",
+          "favourite": "Favourite",
+          "isNew": "true",
+          "available": true,
+          "availability": {
+            "umarId": 1000000000193097925,
+            "leadingArticleId": 1000000003755619694,
+            "articleAvailability": {
+              "quantity": 1,
+              "backOrder": false,
+              "immediateDelivery": false,
+              "arrivalTime": "2016-10-10T11:30:00Z",
+              "tourName": "Dietlikon Umgebung",
+              "sendMethodCode": "TOUR"
+            }
+          },
+          "article": {
+            "id": 0,
+            "salesQuantity": 1,
+            "depotArticleId": 0,
+            "recycleArticleId": 0
+          },
+          "price": {
+            "articleId": null,
+            "umarId": 1000000000193097925,
+            "price": {
+              "grossPrice": 632.64,
+              "recommendedRetailPrice": null,
+              "originalBrandPrice": null,
+              "recommendedSellPrice": null,
+              "netPrice": 309.9936,
+              "discountPrice": 322.6464,
+              "discountInPercent": 51,
+              "vatInPercent": 8,
+              "totalGrossPrice": 632.64,
+              "totalNetPrice": 309.9936,
+              "totalDiscountPrice": 322.6464,
+              "retailPrice": null,
+              "quoteBasePriceWithVat": null,
+              "totalRecyclingFee": null,
+              "totalShippingFee": null,
+              "totalAssemblingFee": null,
+              "showDiscount": true,
+              "tyrePromotion": false,
+              "snpArticleGroup": false,
+              "originalEquipmentPrice": false
+            }
+          }
+        }
+      ],
+      "parts": [],
+      "info": [
+        {
+          "id_info": "1885",
+          "info_type": "1",
+          "info_txt_de": "MITSUBISHI PAJERO JEEP WINDSCHUTZSCHEIBE BJ 82-90"
+        }
+      ]
+    }
+  ],
+  "last": true,
+  "totalElements": 1,
+  "totalPages": 1,
+  "size": 10,
+  "number": 0,
+  "sort": null,
+  "numberOfElements": 1,
+  "first": true
+}

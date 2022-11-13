@@ -1,0 +1,35 @@
+<label>{{'ORDER_HISTORY.ORDER_LIST' | translate}}</label>
+<div>
+    <sag-table [columns]="columns" [mode]="'online'" [selectable]="true" (searchData)="searchTableData($event)"
+        (selectRow)="onSelectOrderHistory($event)">
+    </sag-table>
+</div>
+<div *ngIf="selectedOrder">
+    <connect-sale-order-history-detail [articles]="selectedOrder"></connect-sale-order-history-detail>
+</div>
+
+<div class="mt-2">
+    <a href="javascript:void(0);" [class.disabled]="!selectedOrder" id="add-order-history-to-cart" class="btn-link"
+        (click)="switchUser()">
+        <i class="fa fa-chevron-right"></i>{{'COMMON_LABEL.BUTTON.TAKE'| translate}}</a>
+</div>
+
+<ng-template #dateFilter let-model="row">
+    <div class="input-group date-range-picker">
+        <input class="form-control disabled opacity-100" placeholder="{{'SETTINGS.MY_ORDER.FILTER.DATE_TO' | translate}}"
+            angular-mydatepicker [options]="dateOption" #dpTo="angular-mydatepicker" readonly
+            (dateChanged)="onFilterDate($event)" [locale]="locale" (click)="dpTo.toggleCalendar()">
+        <div class="input-group-append input-group-clear pointer" (click)="dpTo.clearDate()" *ngIf="dpTo.isDateValid()">
+            <span class="input-group-text">
+                <i class="fa fa-close"></i>
+            </span>
+        </div>
+        <div class="input-group-append input-group-picker pointer" (click)="dpTo.toggleCalendar()">
+            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template let-row="row" #typeTemplate>
+    {{'ORDER.TYPE.' + row.type | translate }}
+</ng-template>

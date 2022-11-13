@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:ns7="http://eshop.sag.ch/types/entity" xmlns:ns6="http://eshop.sag.ch/types/organisation" xmlns:ns5="http://eshop.sag.ch/types/authority" xmlns:ns4="http://eshop.sag.ch/types/session" xmlns:ns3="http://eshop.sag.ch/types/mission" xmlns:ns2="http://eshop.sag.ch/elements" xmlns:ns1="http://eshop.sag.ch/types/transaction" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/model">
+
+<xs:import namespace="http://eshop.sag.ch/types/transaction" schemaLocation="xsd10.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/elements" schemaLocation="xsd7.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/mission" schemaLocation="xsd15.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/session" schemaLocation="xsd12.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/authority" schemaLocation="xsd6.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/organisation" schemaLocation="xsd13.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/entity" schemaLocation="xsd3.xsd"/>
+
+<xs:complexType name="query">
+<xs:sequence>
+<xs:element ref="ns2:transaction" minOccurs="0"/>
+</xs:sequence>
+<xs:attribute name="version" type="xs:string" use="required"/>
+</xs:complexType>
+</xs:schema>

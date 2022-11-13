@@ -1,0 +1,81 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_202_TABLE_BRANCH_ALTER_BRANCH_CODE_ALLOW_NULL">
+		<sql>
+			ALTER TABLE dbo.BRANCH ALTER COLUMN BRANCH_CODE VARCHAR(10) NULL;		
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_202_ALTER_NAME_FK_ESHOP_FAVORITE_USER_ID">
+		<sql>
+			IF EXISTS (SELECT * FROM sys.objects o WHERE o.object_id = object_id('[dbo].[FK_UNIPARTS_FAVORITE_USER_ID]') AND OBJECTPROPERTY(o.object_id, 'IsForeignKey') = 1)
+			BEGIN
+				ALTER TABLE [dbo].[ESHOP_FAVORITE]  DROP CONSTRAINT [FK_UNIPARTS_FAVORITE_USER_ID]
+			END
+			
+			IF NOT EXISTS (SELECT * FROM sys.objects o WHERE o.object_id = object_id('[dbo].[FK_ESHOP_FAVORITE_USER_ID]') AND OBJECTPROPERTY(o.object_id, 'IsForeignKey') = 1)
+			BEGIN
+			    ALTER TABLE [dbo].[ESHOP_FAVORITE] WITH CHECK ADD CONSTRAINT [FK_ESHOP_FAVORITE_USER_ID] FOREIGN KEY([USER_ID]) REFERENCES [dbo].[ESHOP_USER] ([ID])
+			END
+		</sql>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP" id="ITER_202_ADD_BRANCH_OPENING_TIME_SCHEMA">
+		<sql>
+			DROP TABLE IF EXISTS BRANCH_OPENING_TIME;
+		
+			CREATE TABLE BRANCH_OPENING_TIME (
+			ID int IDENTITY(1, 1) NOT NULL,
+			BRANCH_ID int NOT NULL,
+			WEEK_DAY varchar(100),
+			OPENING_TIME time NOT NULL,
+			CLOSING_TIME time NOT NULL,
+			LUNCH_START_TIME time NULL,
+			LUNCH_END_TIME time NULL,
+			CONSTRAINT PK_BRANCH_OPENING_TIME PRIMARY KEY (ID));		
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ITER_202_ALTER_BRANCH_SCHEMA">
+		<sql>
+	
+			ALTER TABLE BRANCH ALTER COLUMN OPENING_TIME time NULL;
+			ALTER TABLE BRANCH ALTER COLUMN CLOSING_TIME time NULL;
+	
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ITER_202_MIGRATE_BRANCH_SETTINGS">
+		<sql>
+			DECLARE @WeekDayList TABLE (Value NVARCHAR(50))
+			INSERT INTO @WeekDayList VALUES ('MONDAY')
+			INSERT INTO @WeekDayList VALUES ('TUESDAY')
+			INSERT INTO @WeekDayList VALUES ('WEDNESDAY')
+			INSERT INTO @WeekDayList VALUES ('THURSDAY')
+			INSERT INTO @WeekDayList VALUES ('FRIDAY')
+			
+			DECLARE @weekDay VARCHAR(50)
+			
+			DECLARE db_cursor CURSOR FOR  
+			SELECT Value FROM @WeekDayList
+			OPEN db_cursor   
+			FETCH NEXT FROM db_cursor INTO @weekDay
+			WHILE @@FETCH_STATUS = 0   
+			BEGIN   
+			       INSERT INTO dbo.BRANCH_OPENING_TIME (WEEK_DAY, BRANCH_ID, OPENING_TIME, CLOSING_TIME, LUNCH_START_TIME, LUNCH_END_TIME)
+					select @weekDay, ID, OPENING_TIME, CLOSING_TIME, LUNCH_START_TIME, LUNCH_END_TIME from dbo.BRANCH where OPENING_TIME is not NULL
+			
+			       FETCH NEXT FROM db_cursor INTO @weekDay
+			END   
+			
+			CLOSE db_cursor   
+			DEALLOCATE db_cursor;
+		</sql>
+	</changeSet>
+</databaseChangeLog>

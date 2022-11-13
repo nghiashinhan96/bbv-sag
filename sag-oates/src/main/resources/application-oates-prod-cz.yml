@@ -1,0 +1,6 @@
+external:
+  webservice:
+    oates:
+      endpoint: https://sag-ws-czech.phoenix.earlweb.net
+      token: sNHTI9tXTq7F
+      

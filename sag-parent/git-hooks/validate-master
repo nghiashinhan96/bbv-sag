@@ -1,0 +1,6 @@
+#!/bin/bash
+if test $(git rev-parse --abbrev-ref HEAD) = "master" ; then
+  echo "Oops ! Cannot commit on master. TACH BRANCH RA ROI COMMIT NHE !"
+  echo "Refer to Long or https://app.assembla.com/spaces/sag-eshop/wiki/Code_review_with_Gerrit"
+  exit 1
+fi

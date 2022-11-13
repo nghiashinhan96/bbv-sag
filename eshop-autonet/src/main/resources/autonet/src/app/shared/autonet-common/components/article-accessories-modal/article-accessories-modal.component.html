@@ -1,0 +1,63 @@
+<div class="modal-header">
+    <h3>{{root?.artnrDisplay}} - {{'COMMON_LABEL.ACCESSORIES' | translate}}</h3>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body modal-xl">
+    <sag-common-message *ngIf="notifier" [data]="notifier"></sag-common-message>
+    <sag-article-list-header
+        [articleListType]="articleListType"
+        [(articleMode)]="appStorage.articleMode"
+        [userSetting]="appStorage.libUserSetting"
+        [disableSort]="true">
+    </sag-article-list-header>
+    <section class="card card-body p-0 border-0">
+        <sag-article-list-non-group
+            [rootArticles]="[root]"
+            [notFoundTempRef]="notFoundTemplate"
+            [(articleMode)]="appStorage.articleMode"
+            [userSetting]="appStorage.libUserSetting"
+            [isAccessoryItem]="true"
+            [vehicle]="vehicle"
+            [category]="category"
+            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+            (onShowPartsListEmitter)="onShowPartsList($event)"
+            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+        >
+        </sag-article-list-non-group>
+        <ng-container *ngFor="let group of groups">
+            <div class="cate-group">
+                <div class="cate-group-header flex-column align-items-start">
+                    <div class="group-list-text">{{group.accesoryListsText}}</div>
+                    <div class="group-link-text" *ngIf="group.accessoryLinkText">{{group.accessoryLinkText}}</div>
+                    <div class="group-hint-text font-weight-normal">seqNo: {{group.seqNo}}</div>
+                </div>
+                <sag-article-list-non-group
+                    [rootArticles]="group?.values"
+                    [hasMoreData]="group?.moreValues?.length > 0"
+                    (showMoreArticleEmitter)="showMoreArticles(group?.seqNo, $event)"
+                    [notFoundTempRef]="notFoundTemplate"
+                    [(articleMode)]="appStorage.articleMode"
+                    [userSetting]="appStorage.libUserSetting"
+                    [enableRequestAvail]="false"
+                    [isAccessoryItem]="true"
+                    [vehicle]="vehicle"
+                    (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                    (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                    (onShowPartsListEmitter)="onShowPartsList($event)"
+                    (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                    >
+                </sag-article-list-non-group>
+            </div>
+        </ng-container>
+        <div *ngIf="moreGroups?.length" class="d-flex justify-content-center mt-3">
+            <sag-common-save-button (save)="showMoreGroups($event)" text="SEARCH_RESULT.LOAD_MORE"></sag-common-save-button>
+        </div>
+    </section>
+</div>
+
+<ng-template #notFoundTemplate>
+    <section class="alert alert-danger">
+        {{ 'SEARCH.ERROR_MESSAGE.ARTICLE_NOT_FOUND' | translate }}
+    </section>
+</ng-template>

@@ -1,0 +1,35 @@
+.st-cz, .eh-cz, .ax-cz, .eh-ax-cz {
+    .article-list-header {
+        min-height: 32px;
+        padding: 5px;
+
+        .header-col {
+            white-space: normal;
+            height: auto;
+            line-height: 0.8;
+        }
+
+        .header-brand {
+            width: $part-brand-width-cz;
+        }
+
+        .header-gross {
+            width: $part-gross-width-cz;
+            justify-content: center;
+
+            .custom-priciable {
+                display: none;
+            }
+        }
+
+        .header-net {
+            width: $part-net-width-cz;
+        }
+
+        .tyre-sort {
+            i {
+                bottom: -9px;
+            }
+        }
+    }
+}

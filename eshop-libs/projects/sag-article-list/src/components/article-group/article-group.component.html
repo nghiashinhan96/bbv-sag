@@ -1,0 +1,190 @@
+<div class="card-group-content">
+    <ng-container *ngIf="!isFirstLoading; else firstLoadingRef">
+        <ng-container *ngIf="isBrand">
+            <!-- Default -->
+            <ng-container *ngIf="topList.length > 0; else visibleNoAvailMsg">
+                <ng-container *ngFor="let article of topList | sagArticleListBrandFilter: filterBrands : filterCriteria
+                    | sagShowHideNonAvail: {affiliate: config.affiliate, projectId: config.projectId , hideNonAvail: hideNonAvail}; index as i">
+                    <sag-article-detail
+                        [index]="i"
+                        [articleMode]="articleMode"
+                        [userSetting]="userSetting"
+                        [article]="article"
+                        [availabilities]="availabilities"
+                        [price]="article.price"
+                        [category]="storedGroup?.cate"
+                        [vehicle]="vehicle"
+                        [isShownMoreInfo]="article?.info?.length"
+                        [specialInfoTemplateRef]="specialInfoTemplateRef"
+                        [memosTemplateRef]="memosTemplateRef"
+                        [customAvailTemplateRef]="customAvailTemplateRef"
+                        [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                        [priceTemplateRef]="priceTemplateRef"
+                        [totalPriceTemplateRef]="totalPriceTemplateRef"
+                        [rootModalName]="rootModalName"
+                        (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                        (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                        (onShowPartsListEmitter)="onShowPartsList($event)"
+                        (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                        (popoversChanged)="popoversChanged.emit($event)">
+                    </sag-article-detail>
+                </ng-container>
+            </ng-container>
+
+            <div *ngIf="wspRemainTopList?.length || isLoadingMoreArticlesUsedForWsp" class="d-flex justify-content-center m-3">
+                <sag-common-save-button [name]="'article-group-show-more-btn-wsp'" [loading]="isLoadingMoreArticlesUsedForWsp" (save)="showMoreArticles($event)" text="SEARCH_RESULT.LOAD_MORE"></sag-common-save-button>
+            </div>
+            <ng-template #visibleNoAvailMsg>
+                <ng-container *ngIf="showNoAvailMsgForDefaultGroup">
+                    <ng-container *ngTemplateOutlet="showNoArticleMsg"></ng-container>
+                </ng-container>
+            </ng-template>
+
+            <!-- Show More -->
+            <section [class.hidden]="!isShownMoreArticles">
+                <ng-container *ngIf="secondList.length > 0 || secondListTemp.length > 0; else showNoArticleMsg">
+                    <ng-container *ngFor="let article of secondList | sagArticleListBrandFilter: filterBrands : filterCriteria
+                        | sagShowHideNonAvail: {affiliate: config.affiliate, projectId: config.projectId , hideNonAvail: hideNonAvail}; index as i">
+                        <sag-article-detail
+                            [index]="defaultTotal + i"
+                            [articleMode]="articleMode"
+                            [userSetting]="userSetting"
+                            [article]="article"
+                            [availabilities]="availabilities"
+                            [price]="article.price"
+                            [category]="storedGroup?.cate"
+                            [vehicle]="vehicle"
+                            [isShownMoreInfo]="article?.info?.length"
+                            [specialInfoTemplateRef]="specialInfoTemplateRef"
+                            [memosTemplateRef]="memosTemplateRef"
+                            [customAvailTemplateRef]="customAvailTemplateRef"
+                            [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                            [priceTemplateRef]="priceTemplateRef"
+                            [totalPriceTemplateRef]="totalPriceTemplateRef"
+                            [rootModalName]="rootModalName"
+                            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                            (onShowPartsListEmitter)="onShowPartsList($event)"
+                            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                            (popoversChanged)="popoversChanged.emit($event)">
+                        </sag-article-detail>
+                    </ng-container>
+                </ng-container>
+            </section>
+            <div class="nav nav-more p-4" *ngIf="hasMoreArticles || hasLiquidation">
+                <button *ngIf="hasMoreArticles" (click)="showMoreArticles()" data-automation="article-group-show-more"
+                    class="btn btn-outer btn-sm btn-more">
+                    <i *ngIf="isLoadingMoreArticles; else moreRef" class="fa fa-spinner fa-spin fa-fw"></i>
+                    <ng-template #moreRef>
+                        {{(isShownMoreArticles? 'SEARCH_RESULT.HIDE_ADDTIONAL' : 'SEARCH_RESULT.SHOW_MORE_ADDTIONAL' ) | translate}}
+                    </ng-template>
+                </button>
+                <ng-container *ngIf="hasLiquidation">
+                    <div class="car-animation">
+                        <img src="assets/images/gif/moving-car.gif" alt="" class="car">
+                        <a class="liquidation" role="button" (click)="showLiquidation()" href="javascript:void(0)">
+                            {{'SEARCH_RESULT.LIQUIDATION'| translate}}
+                            <i class="fa fa-spinner fa-spin fa-fw" *ngIf="isLoadingLiquidations; else toggleRef"></i>
+                            <ng-template #toggleRef>
+                                <i class="fa" [ngClass]="isShownliquidation ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                            </ng-template>
+                        </a>
+                    </div>
+                </ng-container>
+            </div>
+
+            <!-- Liquidation -->
+            <section [class.hidden]="!isShownliquidation" #liqSection>
+                <ng-container *ngIf="liquidationArticles.length > 0; else showNoArticleMsg">
+                    <ng-container *ngFor="let article of liquidationArticles | sagArticleListBrandFilter: filterBrands : filterCriteria
+                        | sagShowHideNonAvail: {affiliate: config.affiliate, projectId: config.projectId , hideNonAvail: hideNonAvail}; index as i">
+                        <sag-article-detail
+                            [index]="defaultTotal + showMoreTotal + i"
+                            [articleMode]="articleMode"
+                            [userSetting]="userSetting"
+                            [article]="article"
+                            [availabilities]="availabilities"
+                            [price]="article.price"
+                            [category]="storedGroup?.cate"
+                            [vehicle]="vehicle"
+                            [isShownMoreInfo]="article?.info?.length"
+                            [specialInfoTemplateRef]="specialInfoTemplateRef"
+                            [memosTemplateRef]="memosTemplateRef"
+                            [customAvailTemplateRef]="customAvailTemplateRef"
+                            [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                            [priceTemplateRef]="priceTemplateRef"
+                            [totalPriceTemplateRef]="totalPriceTemplateRef"
+                            [rootModalName]="rootModalName"
+                            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                            (onShowPartsListEmitter)="onShowPartsList($event)"
+                            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                            (popoversChanged)="popoversChanged.emit($event)">
+                        </sag-article-detail>
+                    </ng-container>
+                </ng-container>
+                <div class="nav nav-more justify-content-end">
+                    <a class="liquidation-only" (click)="showLiquidation()" href="javascript:void(0)">
+                        {{'SEARCH_RESULT.LIQUIDATION'| translate}}
+                        <i class="fa fa-caret-up"></i>
+                    </a>
+                </div>
+            </section>
+        </ng-container>
+        <ng-container *ngIf="!isBrand">
+            <ng-container *ngIf="secondList.length > 0; else visibleNoAvailMsg">
+                <ng-container *ngFor="let article of secondList | sagArticleListBrandFilter: filterBrands : filterCriteria
+                    | sagShowHideNonAvail: {affiliate: config.affiliate, projectId: config.projectId , hideNonAvail: hideNonAvail}; index as i">
+                    <sag-article-detail
+                        [index]="i"
+                        [articleMode]="articleMode"
+                        [userSetting]="userSetting"
+                        [article]="article"
+                        [availabilities]="availabilities"
+                        [price]="article.price"
+                        [category]="storedGroup?.cate"
+                        [vehicle]="vehicle"
+                        [isShownMoreInfo]="article?.info?.length"
+                        [specialInfoTemplateRef]="specialInfoTemplateRef"
+                        [memosTemplateRef]="memosTemplateRef"
+                        [customAvailTemplateRef]="customAvailTemplateRef"
+                        [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                        [priceTemplateRef]="priceTemplateRef"
+                        [totalPriceTemplateRef]="totalPriceTemplateRef"
+                        [rootModalName]="rootModalName"
+                        (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                        (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                        (onShowPartsListEmitter)="onShowPartsList($event)"
+                        (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                        (popoversChanged)="popoversChanged.emit($event)">
+                    </sag-article-detail>
+                </ng-container>
+            </ng-container>
+            <div *ngIf="hasMoreArticles" class="d-flex justify-content-center nav-more p-4">
+                <sag-common-save-button (save)="showMoreArticles(false, $event)" text="SEARCH_RESULT.LOAD_MORE"></sag-common-save-button>
+            </div>
+            <ng-template #visibleNoAvailMsg>
+                <ng-container *ngIf="showNoAvailMsgForDefaultGroup">
+                    <ng-container *ngTemplateOutlet="showNoArticleMsg"></ng-container>
+                </ng-container>
+            </ng-template>
+        </ng-container>
+    </ng-container>
+</div>
+
+<ng-template #firstLoadingRef>
+    <div class="spinner spinner-inner overlay-loading relative" *ngIf="isFirstLoading">
+        <div>
+            <i class="fa fa-spinner fa-spin fa-2x fa-fw "></i>
+            <span class="loader-text">Loading...</span>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #showNoArticleMsg>
+    <ng-container *ngIf="!isLoadingMoreArticles && !isLoadingLiquidations">
+        <div class="no-article-in-section alert alert-warning">
+            {{'ARTICLE_SEARCH_LIST.NO_ARTILCE_IN_SECTION' | translate}}
+        </div>
+    </ng-container>
+</ng-template>

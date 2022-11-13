@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="DVSE.WebApp.CISService" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="DVSE.WebApp.CISService">
+   <wsdl:types>
+      <xsd:schema targetNamespace="DVSE.WebApp.CISService/Imports">
+         <xsd:import schemaLocation="CIS-XSD1.xsd" namespace="DVSE.WebApp.CISService" />
+         <xsd:import schemaLocation="CIS-XSD0.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+         <xsd:import schemaLocation="CIS-XSD2.xsd" namespace="http://schemas.datacontract.org/2004/07/" />
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="GetSessionRequest">
+      <wsdl:part name="GetSession" element="tns:GetSession" />
+   </wsdl:message>
+   <wsdl:message name="GetSessionResponse">
+      <wsdl:part name="GetSessionResponse" element="tns:GetSessionResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetCustomersRequest">
+      <wsdl:part name="GetCustomers" element="tns:GetCustomers" />
+   </wsdl:message>
+   <wsdl:message name="GetCustomersResponse">
+      <wsdl:part name="GetCustomersResponse" element="tns:GetCustomersResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetCustomerRequest">
+      <wsdl:part name="GetCustomer" element="tns:GetCustomer" />
+   </wsdl:message>
+   <wsdl:message name="GetCustomerResponse">
+      <wsdl:part name="GetCustomerResponse" element="tns:GetCustomerResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetVoucherTypesRequest">
+      <wsdl:part name="GetVoucherTypes" element="tns:GetVoucherTypes" />
+   </wsdl:message>
+   <wsdl:message name="GetVoucherTypesResponse">
+      <wsdl:part name="GetVoucherTypesResponse" element="tns:GetVoucherTypesResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetVouchersRequest">
+      <wsdl:part name="GetVouchers" element="tns:GetVouchers" />
+   </wsdl:message>
+   <wsdl:message name="GetVouchersResponse">
+      <wsdl:part name="GetVouchersResponse" element="tns:GetVouchersResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetVoucherDetailsRequest">
+      <wsdl:part name="GetVoucherDetails" element="tns:GetVoucherDetails" />
+   </wsdl:message>
+   <wsdl:message name="GetVoucherDetailsResponse">
+      <wsdl:part name="GetVoucherDetailsResponse" element="tns:GetVoucherDetailsResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetReturnItemOptionsRequest">
+      <wsdl:part name="GetReturnItemOptions" element="tns:GetReturnItemOptions" />
+   </wsdl:message>
+   <wsdl:message name="GetReturnItemOptionsResponse">
+      <wsdl:part name="GetReturnItemOptionsResponse" element="tns:GetReturnItemOptionsResponse" />
+   </wsdl:message>
+   <wsdl:message name="ReturnItemsRequest">
+      <wsdl:part name="ReturnItems" element="tns:ReturnItems" />
+   </wsdl:message>
+   <wsdl:message name="ReturnItemsResponse">
+      <wsdl:part name="ReturnItemsResponse" element="tns:ReturnItemsResponse" />
+   </wsdl:message>
+   <wsdl:message name="ResetVoucherItemsCanReturnPropertyRequest">
+      <wsdl:part name="ResetVoucherItemsCanReturnProperty" element="tns:ResetVoucherItemsCanReturnProperty" />
+   </wsdl:message>
+   <wsdl:message name="ResetVoucherItemsCanReturnPropertyResponse">
+      <wsdl:part name="ResetVoucherItemsCanReturnPropertyResponse" element="tns:ResetVoucherItemsCanReturnPropertyResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetConnectedVouchersRequest">
+      <wsdl:part name="GetConnectedVouchers" element="tns:GetConnectedVouchers" />
+   </wsdl:message>
+   <wsdl:message name="GetConnectedVouchersResponse">
+      <wsdl:part name="GetConnectedVouchersResponse" element="tns:GetConnectedVouchersResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetQueryTypesCustomerRequest">
+      <wsdl:part name="GetQueryTypesCustomer" element="tns:GetQueryTypesCustomer" />
+   </wsdl:message>
+   <wsdl:message name="GetQueryTypesCustomerResponse">
+      <wsdl:part name="GetQueryTypesCustomerResponse" element="tns:GetQueryTypesCustomerResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetQueryTypesVoucherRequest">
+      <wsdl:part name="GetQueryTypesVoucher" element="tns:GetQueryTypesVoucher" />
+   </wsdl:message>
+   <wsdl:message name="GetQueryTypesVoucherResponse">
+      <wsdl:part name="GetQueryTypesVoucherResponse" element="tns:GetQueryTypesVoucherResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetInvoicesRequest">
+      <wsdl:part name="GetInvoices" element="tns:GetInvoices" />
+   </wsdl:message>
+   <wsdl:message name="GetInvoicesResponse">
+      <wsdl:part name="GetInvoicesResponse" element="tns:GetInvoicesResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetSalesInformationRequest">
+      <wsdl:part name="GetSalesInformation" element="tns:GetSalesInformation" />
+   </wsdl:message>
+   <wsdl:message name="GetSalesInformationResponse">
+      <wsdl:part name="GetSalesInformationResponse" element="tns:GetSalesInformationResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetSalesRequest">
+      <wsdl:part name="GetSales" element="tns:GetSales" />
+   </wsdl:message>
+   <wsdl:message name="GetSalesResponse">
+      <wsdl:part name="GetSalesResponse" element="tns:GetSalesResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetEnabledFunctionsRequest">
+      <wsdl:part name="GetEnabledFunctions" element="tns:GetEnabledFunctions" />
+   </wsdl:message>
+   <wsdl:message name="GetEnabledFunctionsResponse">
+      <wsdl:part name="GetEnabledFunctionsResponse" element="tns:GetEnabledFunctionsResponse" />
+   </wsdl:message>
+   <wsdl:message name="GetVersionRequest">
+      <wsdl:part name="GetVersion" element="tns:GetVersion" />
+   </wsdl:message>
+   <wsdl:message name="GetVersionResponse">
+      <wsdl:part name="GetVersionResponse" element="tns:GetVersionResponse" />
+   </wsdl:message>
+   <wsdl:portType name="TMCustomerIdentificationProSvcSoap">
+      <wsdl:operation name="GetSession">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetSession" name="GetSessionRequest" message="tns:GetSessionRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetSessionResponse" name="GetSessionResponse" message="tns:GetSessionResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetCustomers">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetCustomers" name="GetCustomersRequest" message="tns:GetCustomersRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetCustomersResponse" name="GetCustomersResponse" message="tns:GetCustomersResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetCustomer">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetCustomer" name="GetCustomerRequest" message="tns:GetCustomerRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetCustomerResponse" name="GetCustomerResponse" message="tns:GetCustomerResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetVoucherTypes">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetVoucherTypes" name="GetVoucherTypesRequest" message="tns:GetVoucherTypesRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetVoucherTypesResponse" name="GetVoucherTypesResponse" message="tns:GetVoucherTypesResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetVouchers">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetVouchers" name="GetVouchersRequest" message="tns:GetVouchersRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetVouchersResponse" name="GetVouchersResponse" message="tns:GetVouchersResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetVoucherDetails">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetVoucherDetails" name="GetVoucherDetailsRequest" message="tns:GetVoucherDetailsRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetVoucherDetailsResponse" name="GetVoucherDetailsResponse" message="tns:GetVoucherDetailsResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetReturnItemOptions">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetReturnItemOptions" name="GetReturnItemOptionsRequest" message="tns:GetReturnItemOptionsRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetReturnItemOptionsResponse" name="GetReturnItemOptionsResponse" message="tns:GetReturnItemOptionsResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="ReturnItems">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/ReturnItems" name="ReturnItemsRequest" message="tns:ReturnItemsRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/ReturnItemsResponse" name="ReturnItemsResponse" message="tns:ReturnItemsResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="ResetVoucherItemsCanReturnProperty">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/ResetVoucherItemsCanReturnProperty" name="ResetVoucherItemsCanReturnPropertyRequest" message="tns:ResetVoucherItemsCanReturnPropertyRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/ResetVoucherItemsCanReturnPropertyResponse" name="ResetVoucherItemsCanReturnPropertyResponse" message="tns:ResetVoucherItemsCanReturnPropertyResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetConnectedVouchers">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetConnectedVouchers" name="GetConnectedVouchersRequest" message="tns:GetConnectedVouchersRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetConnectedVouchersResponse" name="GetConnectedVouchersResponse" message="tns:GetConnectedVouchersResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetQueryTypesCustomer">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetQueryTypesCustomer" name="GetQueryTypesCustomerRequest" message="tns:GetQueryTypesCustomerRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetQueryTypesCustomerResponse" name="GetQueryTypesCustomerResponse" message="tns:GetQueryTypesCustomerResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetQueryTypesVoucher">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetQueryTypesVoucher" name="GetQueryTypesVoucherRequest" message="tns:GetQueryTypesVoucherRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetQueryTypesVoucherResponse" name="GetQueryTypesVoucherResponse" message="tns:GetQueryTypesVoucherResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetInvoices">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetInvoices" name="GetInvoicesRequest" message="tns:GetInvoicesRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetInvoicesResponse" name="GetInvoicesResponse" message="tns:GetInvoicesResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetSalesInformation">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetSalesInformation" name="GetSalesInformationRequest" message="tns:GetSalesInformationRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetSalesInformationResponse" name="GetSalesInformationResponse" message="tns:GetSalesInformationResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetSales">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetSales" name="GetSalesRequest" message="tns:GetSalesRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetSalesResponse" name="GetSalesResponse" message="tns:GetSalesResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetEnabledFunctions">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetEnabledFunctions" name="GetEnabledFunctionsRequest" message="tns:GetEnabledFunctionsRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetEnabledFunctionsResponse" name="GetEnabledFunctionsResponse" message="tns:GetEnabledFunctionsResponse" />
+      </wsdl:operation>
+      <wsdl:operation name="GetVersion">
+         <wsdl:input wsaw:Action="DVSE.WebApp.CISService/GetVersion" name="GetVersionRequest" message="tns:GetVersionRequest" />
+         <wsdl:output wsaw:Action="DVSE.WebApp.CISService/TMCustomerIdentificationProSvcSoap/GetVersionResponse" name="GetVersionResponse" message="tns:GetVersionResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

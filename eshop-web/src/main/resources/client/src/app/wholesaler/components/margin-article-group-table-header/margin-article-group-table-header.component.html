@@ -1,0 +1,52 @@
+<div class="table-container">
+    <table class="table table-hover table-striped margin-article-group-default">
+        <thead>
+            <tr class="header text-white">
+                <th class="margin-value-20">
+                    {{'MARGIN_MANAGE.ARTICLE_GROUP' | translate}}
+                </th>
+                <th class="margin-value-15">
+                    {{'MARGIN_MANAGE.ARTICLE_GROUP_DES' | translate}}
+                </th>
+                <th class="margin-value-10">
+                    {{'MARGIN_MANAGE.GH_ARTICLE_GROUP_COL' | translate}}
+                </th>
+                <th class="margin-value-15">
+                    {{'MARGIN_MANAGE.GH_ARTICLE_GROUP_DES_COL' | translate}}
+                </th>
+                <ng-container *ngFor="let item of margins">
+                    <th class="text-center margin-value-5">
+                        <div class="text-break">{{item}}</div>
+                    </th>
+                </ng-container>
+                <th class="margin-value-5"> </th>
+            </tr>
+            <tr class="filter">
+                <td class="margin-value-20">
+                    <input class="form-control" [(ngModel)]="searchModel.sagArticleGroup"
+                        (ngModelChange)="onTextInputChange($event)">
+                </td>
+                <td class="margin-value-15">
+                    <input class="form-control" [(ngModel)]="searchModel.sagArticleGroupDesc"
+                        (ngModelChange)="onTextInputChange($event)">
+                </td>
+                <td class="margin-value-10">
+                    <input class="form-control" [(ngModel)]="searchModel.customArticleGroup"
+                        (ngModelChange)="onTextInputChange($event)">
+                </td>
+                <td class="margin-value-15">
+                    <input class="form-control" [(ngModel)]="searchModel.customArticleGroupDesc"
+                        (ngModelChange)="onTextInputChange($event)">
+                </td>
+
+                <ng-container *ngFor="let item of margins">
+                    <td class="text-center margin-value-5">
+                    </td>
+                </ng-container>
+
+                <td class="margin-value-5">
+                </td>
+            </tr>
+        </thead>
+    </table>
+</div>

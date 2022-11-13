@@ -1,0 +1,13 @@
+<div class="modal-recommend">
+    <div class="modal-header d-flex d-flex-center">
+        <i class="fa fa-cogs"></i>
+    </div>
+    <div class="modal-body text-center">
+        <p class="title" [innerHtml]="title | translate | safe: 'html'"></p>
+        <p [innerHtml]="firstDescription | translate | safe: 'html'"></p>
+        <p [innerHtml]="secondDescription | translate | safe: 'html'"></p>
+    </div>
+    <div class="modal-footer">
+        <a class="continue-btn" href="javascript:void(0)" (click)="confirm()">{{'COMMON_LABEL.BUTTON.CONTINUE' | translate}}</a>
+    </div>
+</div>

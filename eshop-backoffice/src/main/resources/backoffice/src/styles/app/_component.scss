@@ -1,0 +1,575 @@
+.login-page {
+    background-color: $sag-bg;
+    $sag-darker: darken($sag-bg, 5%);
+    $sag-lighten: lighten($sag-bg, 10%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &:before {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 200%;
+        width: 130%;
+        border-radius: 100%;
+        z-index: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba($sag-bg, 1) 0%,
+            rgba($sag-darker, 1) 20%,
+            rgba($sag-lighten, 1) 100%
+        );
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        transform: translate(48%, 3%);
+    }
+}
+
+backoffice-main-nav {
+    display: block;
+}
+
+.backoffice-main-nav {
+    display: block;
+    padding-top: $header-height;
+}
+
+.sag-main {
+    padding: $base-spacing * 2 0;
+}
+
+.main-container {
+    position: relative;
+    padding-bottom: $footer-height;
+    min-height: 100%;
+}
+
+sag-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.nav-pagi {
+    text-align: center;
+}
+
+ng-select.sag-select {
+    position: relative;
+
+    .toggle {
+        display: none;
+    }
+
+    select-dropdown {
+        > div {
+            z-index: 2;
+
+            .options {
+                max-height: 300px;
+
+                ul {
+                    li {
+                        color: #444;
+                        font-size: 12px;
+                        line-height: 1.2;
+                        font-family: Arial;
+                        font-weight: bold;
+                        padding: 5px;
+
+                        &.highlighted,
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .highlighted,
+        .selected.highlighted {
+            background-color: $brand-color;
+        }
+    }
+
+    > div {
+        border: none;
+
+        > div.single {
+            display: flex;
+            height: 34px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 3px;
+
+            &:before {
+                font: normal normal normal 12px/1 FontAwesome;
+                content: '\f107';
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 1;
+                width: 28px;
+                height: 34px;
+                line-height: 34px;
+                background-color: #555;
+                color: #fff;
+                text-align: center;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+
+            > div.value {
+                padding: 0 28px 0 5px;
+                font-weight: bold;
+            }
+
+            > div.value,
+            > div.placeholder {
+                height: 34px;
+                line-height: 34px;
+            }
+        }
+    }
+}
+
+.nav-pagi {
+    display: inline-block;
+    width: 100%;
+
+    .ngx-pagination {
+        display: inline-block;
+        margin: $base-spacing 0;
+
+        li {
+            position: relative;
+            float: left;
+
+            &.pagination-previous,
+            &.pagination-next {
+                a,
+                > span {
+                    border-radius: 3px;
+                }
+            }
+        }
+
+        a,
+        button,
+        .current,
+        .pagination-previous > span,
+        .pagination-next > span {
+            padding: 6px 12px;
+            line-height: 1.42857143;
+        }
+
+        a,
+        button,
+        .pagination-previous > span,
+        .pagination-next > span {
+            position: relative;
+            float: left;
+            color: $brand-color;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-left: -2px;
+        }
+
+        .pagination-previous {
+            &:before {
+                position: absolute;
+                margin-right: 0;
+                left: 12px;
+                top: 0;
+                padding: 6px 0;
+                z-index: 2;
+            }
+
+            > span {
+                padding-left: 29px;
+                margin-left: 0;
+            }
+        }
+
+        .pagination-next {
+            &:after {
+                position: absolute;
+                margin-right: 0;
+                right: 12px;
+                top: 0;
+                padding: 6px 0;
+                z-index: 2;
+            }
+
+            > span {
+                padding-right: 29px;
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+            }
+        }
+
+        .current {
+            background-color: $brand-color;
+            border: 1px solid $brand-color;
+            margin-left: -2px;
+        }
+
+        .disabled {
+            padding: 0;
+            cursor: default;
+
+            > span {
+                color: #999;
+            }
+        }
+    }
+}
+
+backoffice-customer-results {
+    td,
+    th {
+        &:nth-child(4) {
+            width: 50px;
+        }
+    }
+}
+
+backoffice-user-management {
+    .user-table {
+        td,
+        th {
+            word-wrap: break-word;
+
+            &.sorting {
+                cursor: pointer;
+            }
+
+            &:nth-child(1) {
+                width: 110px;
+            }
+
+            &:nth-child(2),
+            &:nth-child(5),
+            &:nth-child(6) {
+                width: 100px;
+            }
+
+            &:nth-child(3) {
+                width: 130px;
+            }
+
+            &:nth-child(7),
+            &:nth-child(8) {
+                width: 50px;
+            }
+        }
+    }
+}
+
+table {
+    &.angular-table {
+        &.unsorted {
+            thead {
+                th {
+                    word-wrap: break-word;
+
+                    &.sorting {
+                        cursor: pointer;
+                        position: relative;
+                        padding-right: 20px;
+
+                        .fa {
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -7px;
+                            right: 8px;
+                        }
+
+                        &:after,
+                        &:before {
+                            position: absolute;
+                            right: 3px;
+                            display: inline-block;
+                            font: normal normal normal 14px/1 FontAwesome;
+                            font-size: inherit;
+                            text-rendering: auto;
+                            -webkit-font-smoothing: antialiased;
+                        }
+
+                        &:before {
+                            content: '\F077';
+                            top: 50%;
+                            margin-top: -11px;
+                        }
+
+                        &:after {
+                            content: '\F078';
+                            bottom: 50%;
+                            margin-bottom: -11px;
+                        }
+
+                        &.sorted {
+                            &:before,
+                            &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        thead {
+            th {
+                &.sorting {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.fa-exclamation-triangle {
+    margin-right: 10px;
+    color: #f36666;
+    font-size: 32px !important;
+}
+
+.time-picker-containter {
+    .time-picker {
+        color: $default-color;
+
+        &:hover {
+            color: $darker;
+        }
+    }
+
+    .time-picker-content {
+        background-color: $white;
+        border: 1px solid $border-color;
+
+        .time-picker-list {
+            .time-picker-item {
+                &:hover {
+                    cursor: pointer;
+                    background-color: $default-color;
+                }
+            }
+        }
+    }
+}
+
+.sub-menu {
+    li {
+        display: block;
+
+        a {
+            display: block;
+            padding: 10px;
+            border: 1px solid $border-color;
+            border-bottom: none;
+            color: $darker;
+
+            &:hover,
+            &.active {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    margin-top: -7px;
+                    width: 0;
+                    height: 0;
+                    border-top: 7px solid transparent;
+                    border-bottom: 7px solid transparent;
+                    border-right: 7px solid #005eaa;
+                }
+            }
+
+            &.active {
+                font-weight: bold;
+            }
+        }
+
+        &:last-child {
+            a {
+                border-bottom: 1px solid $border-color;
+            }
+        }
+    }
+}
+
+.modal-confirm {
+    .modal-content {
+        padding: 30px 20px 25px;
+        box-sizing: border-box;
+    }
+
+    .modal-btn {
+        overflow: hidden;
+        margin: 20px 0 0;
+
+        .btn {
+            float: right;
+            margin-left: 10px;
+        }
+    }
+
+    .messages {
+        font-size: 15px;
+    }
+}
+
+.filter-input {
+    .filter-col {
+        ng-select {
+            .below {
+                .single {
+                    .value {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.select-input {
+    height: 34px;
+
+    .below {
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        height: 34px;
+
+        .single {
+            .toggle:before {
+                font: normal normal normal 12px/1 FontAwesome;
+                content: '\f107';
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 1;
+                width: 28px;
+                height: 35px;
+                line-height: 34px;
+                background-color: #555;
+                color: #fff;
+                text-align: center;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+        }
+    }
+
+    select-dropdown {
+        > div {
+            z-index: 2;
+        }
+    }
+}
+
+.multiple-select-input {
+    select-dropdown {
+        > div {
+            z-index: 2;
+        }
+    }
+}
+
+.highlight-filter {
+    .mydp {
+        border-color: $brand-color;
+        outline: 0 none;
+        width: 100%;
+        box-shadow: 0 1px 1px $brand-color inset, 0 0 5px $brand-color;
+
+        .selection {
+            color: $brand-color !important;
+        }
+    }
+
+    .selection,
+    .filter-label {
+        color: $brand-color;
+    }
+}
+
+.filter-col {
+    .error-popover {
+        animation: fadeOut 0.5s 1;
+        animation-fill-mode: forwards;
+        animation-delay: 2s;
+
+        .has-error {
+            color: red;
+        }
+    }
+}
+
+ul {
+    &.dashed {
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            text-indent: 15px;
+            font-style: italic;
+
+            &:before {
+                content: '-';
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.external-vendor-filter {
+    ng-select {
+        .below {
+            .single {
+                .value {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+.duration-popup,
+.timer-popup {
+    .bs-timepicker-field {
+        width: 50px !important;
+        border-radius: 4px !important;
+    }
+
+    &.small {
+        input {
+            padding: 0 !important;
+        }
+    }
+}
+
+.pagination {
+    justify-content: center;
+}
+
+lib-angular-mydatepicker-calendar {
+    .ng-mydp {
+        .myDpSelectorArrowRight {
+            left: -160px !important;
+        }
+    }
+}

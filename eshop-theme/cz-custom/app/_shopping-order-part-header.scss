@@ -1,0 +1,15 @@
+.st-cz, .eh-cz {
+    .connect-shopping-order-part-header {
+        .header-description {
+            width: $order-description-width-cz;
+        }
+        .header-gross-price {
+            i {
+                display: none;
+            }
+        }
+        .header-net-price {
+            width: $order-net-price-width-cz;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+<div class="panel panel-primary card mb-4">
+    <div class="card-header">
+        <connect-expanded [title]="'CUSTOMER.SETTING.TITLE'" [(expand)]="isFormExpanded">
+        </connect-expanded>
+    </div>
+    <div class="card-body" [hidden]="!isFormExpanded">
+        <ng-container *ngIf="!!customerSettingModel && !!customerInfo">
+            <form novalidate [formGroup]="customerSettingForm">
+                <div class="form-group row">
+                    <span class="col-4 control-label">
+                        {{"Customer Group" | translate}}
+                    </span>
+                    <div class="col-8">
+                        <ng-select (change)="collectionChanged($event)" class="sag-select" [items]="collections"
+                            notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" formControlName="collections"
+                            [clearable]="false"></ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <span class="col-4 control-label">
+                        {{"CUSTOMER.SETTING.PAYMENT_METHOD.TITLE" | translate}}
+                    </span>
+                    <div class="col-8">
+                        <div *ngFor="let payment of paymentMethods" class="radio">
+                            <label>
+                                <input type="radio" [value]="payment.id" name="paymentId" formControlName="paymentId" 
+                                disabled="isCh || isAt"/>
+                                {{"CUSTOMER.SETTING.PAYMENT_METHOD." + payment.descCode| translate}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <span class="col-4 control-label">
+                        {{"CUSTOMER.SETTING.DELIVERY_TYPE.TITLE" | translate}}
+                    </span>
+                    <div class="col-8">
+                        <div *ngFor="let delivery of deliveryTypes" class="radio">
+                            <label>
+                                <input type="radio" [value]="delivery.id" name="deliveryId"
+                                    formControlName="deliveryId" disabled="isCh || isAt"/>
+                                {{"CUSTOMER.SETTING.DELIVERY_TYPE." + delivery.descCode| translate}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="section-timeout" class="col-4 control-label">
+                        {{"CUSTOMER.SETTING.SESSION_TIME_OUT" | translate}}
+                    </label>
+                    <div class="col-4">
+                        <input type="number" max-length="3" class="form-control" id="section-timeout"
+                            formControlName="sessionTimeoutMinutes" />
+                    </div>
+                </div>
+
+                <ng-container *ngIf="!isSb">
+                    <div class="form-group row">
+                        <label for="customer-info-net-price" class="col-4 control-label">
+                            {{"CUSTOMER.INFO.NET_PRICE" | translate}}
+                        </label>
+                        <div class="col-4">
+                            <input type="checkbox" id="customer-info-net-price" formControlName="netPriceView" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="customer-info-discount" class="col-4 control-label">
+                            {{"CUSTOMER.INFO.DISCOUNT" | translate}}
+                        </label>
+                        <div class="col-4">
+                            <input type="checkbox" id="customer-info-discount" formControlName="showDiscount" />
+                        </div>
+                    </div>
+                </ng-container>
+
+
+                <div class="form-group row">
+                    <label for="customer-info-order-confirmation" class="col-4">
+                        {{"CUSTOMER.INFO.ORDER_CONFIRMATION" | translate}}
+                    </label>
+                    <div class="col-4">
+                        <input type="checkbox" id="customer-info-order-confirmation" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="demo-customer" class="col-4">
+                        {{"CUSTOMER.INFO.DEMO_CUSTOMER" | translate}}
+                    </label>
+                    <div class="col-4">
+                        <input type="checkbox" id="demo-customer" formControlName="demoCustomer" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="normauto-display" class="col-4">
+                        {{"CUSTOMER.INFO.NORMAUTO" | translate}}
+                    </label>
+                    <div class="col-4">
+                        <input type="checkbox" id="normauto-display" formControlName="normautoDisplay" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="partner-program" class="col-4">
+                        {{"CUSTOMER.INFO.PARTNER_PROGRAM" | translate}}
+                    </label>
+                    <div class="col-4">
+                        <input type="checkbox" id="partner-program" formControlName="hasPartnerprogramView" />
+                    </div>
+                </div>
+
+                <div *ngFor="let p of perms.controls; let i = index">
+                    <div class="form-group row">
+                        <label class="col-4">
+                            {{"CUSTOMER.SETTING." + permissionList[i].langKey | translate}}
+                        </label>
+                        <div class="col-4">
+                            <input type="checkbox" [formControl]="p"
+                                (change)="permissionChanged(p, permissionList[i])" />
+                        </div>
+                    </div>
+
+                    <ng-container *ngIf="permissionList[i].permission === 'OCI'">
+                        <div class="form-group child-group row">
+                            <label for="oci-vat" class="col-4">{{'CUSTOMER.SETTING.OCI_VAT' | translate}}</label>
+                            <div class="col-4">
+                                <input type="checkbox" formControlName="showOciVat">
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="permissionList[i].permission === 'WHOLESALER'">
+                        <div class="form-group child-group row">
+                            <label class="col-4 control-label"
+                                [innerHTML]="'CUSTOMER.SETTING.WHOLESALER_DELIVERY_SETTINGS.WHOLESALER_DELIVERY_TYPE' | translate">
+                            </label>
+                            <div class="col-8">
+                                <div *ngFor="let deliType of wssDeliveryType" class="radio">
+                                    <strong>
+                                        <input type="radio" [value]="deliType.id" name="wssDeliveryId"
+                                            formControlName="wssDeliveryId" />
+                                        {{"CUSTOMER.SETTING.WHOLESALER_DELIVERY_SETTINGS." + deliType.descCode | translate}}
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+            </form>
+        </ng-container>
+    </div>
+</div>

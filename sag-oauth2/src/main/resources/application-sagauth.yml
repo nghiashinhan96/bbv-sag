@@ -1,0 +1,4 @@
+spring.profiles: sagauth
+
+server.port: 9002
+app.name: authserver

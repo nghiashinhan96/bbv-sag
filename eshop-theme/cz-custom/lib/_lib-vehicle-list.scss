@@ -1,0 +1,17 @@
+.st-cz, .eh-cz, .eh-ax-cz {
+    .vehicle-list {
+        table {
+            tr {
+                td.name,
+                th.name {
+                    width: 245px;
+                }
+    
+                td.engine,
+                th.engine {
+                    width: 105px;
+                }
+            }
+        }
+    }
+}

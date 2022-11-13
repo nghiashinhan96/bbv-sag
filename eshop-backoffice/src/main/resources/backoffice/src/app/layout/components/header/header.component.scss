@@ -1,0 +1,13 @@
+.navbar-nav {
+    flex: 1;
+    flex-flow: row nowrap;
+    height: 40px;
+
+    li.nav-item {
+        padding: 0 1rem;
+
+        &.bl-1 {
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+        }
+    }
+}

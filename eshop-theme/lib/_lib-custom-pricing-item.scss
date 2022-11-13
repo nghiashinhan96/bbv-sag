@@ -1,0 +1,51 @@
+sag-article-detail,
+connect-shopping-order-article-detail,
+connect-order-history-detail {
+    .part-gross, .col-gross-price {
+        .custom-priciable {
+            visibility: hidden;
+
+            &.noHeight {
+                height: 0;
+            }
+
+            a.btn-icon, .price-type {
+                font-size: 14px;
+                // position: absolute;
+                // top: 13px;
+
+                span {
+                    font-size: 10px;
+                    white-space: nowrap;
+                }
+            }
+
+            a.btn-icon {
+                right: 18px;
+                width: auto;
+                height: 16px;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                justify-content: flex-end;
+                padding-top: 13px;
+
+                span {
+                    margin-right: 4px;
+                    max-width: calc(100% - 14px);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                i.fa-edit {
+                    margin-top: 1px;
+                }
+            }
+
+            .price-type {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<div class="classic-category" data-automation="classic-category">
+    <sag-common-message *ngIf="errorMessage" [message]="errorMessage" type="ERROR"></sag-common-message>
+    <div class="row" *ngIf="categories && categories.length > 0">
+        <div class="col-9">
+            <div class="px-2 py-3">
+                <h5>{{'CLASSIC_CATEGORIES.STEP_1_TITLE' | translate}}</h5>
+            </div>
+            <div class="row">
+                <div *ngFor="let item of categories | classicCategoryColumn; let i = index" class="col-4" [attr.data-automation]="'classic-category-column-' + i"
+                    [class.border-left]="i > 0">
+                    <sag-article-list-classic-category-items [categories]="item" [step]="STEP.ONE"
+                        (selectItem)="selectCategory($event)" (oilCheck)="oilCateCheck($event)">
+                    </sag-article-list-classic-category-items>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 border-left">
+            <div class="step-heading px-2 py-3 d-flex justify-content-between">
+                <h5>{{'CLASSIC_CATEGORIES.STEP_2_TITLE' | translate}}
+                </h5>
+                <a href="javascript:void(0)" class="btn-icon btn-clear" (click)="clearSelectedCategories()"
+                    [class.disabled]="!classicCategoryService.selectedCategoriesOnStep1.length">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </div>
+            <div class="text-center col-12" *ngIf="totalStep2Selected > 10">
+                <button class="btn btn-primary" type="button" (click)="onSearch()" data-automation="classic-category-top-search"
+                    [class.disabled]="!totalStep2Checked">
+                    {{'QUICK_CLICK.ARTICLES_DISPLAY' | translate}}
+                </button>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <sag-article-list-classic-category-items
+                        [categories]="classicCategoryService.selectedCategoriesOnStep1 | classicCategoryLeaf"
+                        [step]="STEP.TWO" (selectItem)="selectCategory($event)" (oilCheck)="oilCateCheck($event)">
+                    </sag-article-list-classic-category-items>
+                </div>
+            </div>
+            <div class="text-center mt-3 col-12">
+                <button class="btn btn-primary" type="button" (click)="onSearch()" data-automation="classic-category-bottom-search"
+                    [class.disabled]="!totalStep2Checked">
+                    {{'QUICK_CLICK.ARTICLES_DISPLAY' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

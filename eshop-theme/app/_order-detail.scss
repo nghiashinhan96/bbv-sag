@@ -1,0 +1,13 @@
+.order-detail-manufacturer {
+    .article-number {
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+}
+
+connect-offer-article-form-modal {
+    .modal-footer {
+        border-top: 1px solid #ccc !important;
+        padding-top: 20px !important;
+    }
+}

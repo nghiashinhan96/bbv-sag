@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h4>{{('SEARCH_RESULT.HAYNESPRO_TD_WORKSHOP' | translate)}}</h4>
+    <div class="d-flex flex-grow-1 justify-content-end">
+        <button class="btn btn-primary"
+            (click)="handleGetHaynesProParts()">{{ 'SEARCH_RESULT.BACK' | translate }}</button>
+    </div>
+    <a href="javascript:void()" (click)="handleGetHaynesProParts()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <button><i class="fa fa-info"></i></button>
+    {{ vehicleInfo }}
+    <div class="mt-3">
+        <ng-select
+            [searchable]="haynesProOptions?.length > 10"
+            bindValue="value"
+            [items]="haynesProOptions"
+            [(ngModel)]="haynesProSelect"
+            [placeholder]="'HAYNES_PRO.SELECT_SUBJECT' | translate"
+            [notFoundText]="'SEARCH.NO_RESULTS_FOUND' | translate" (change)="handleLoginHaynesPro()"
+            [clearable]="false"
+            class="font-weight-bold">
+        </ng-select>
+    </div>
+    <div class="text-right mt-3">
+        <button class="btn btn-primary" (click)="handleReGenerateLoginUrl()">
+            {{'SEARCH_RESULT.GO_TO_HAYNESPRO' | translate}}
+        </button>
+    </div>
+</div>

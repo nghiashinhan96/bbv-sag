@@ -1,0 +1,22 @@
+.margin-art-group-tree {
+    ::ng-deep {
+        .db-tree-view  {
+            width: 100%;
+            border: none;
+
+            thead {
+                visibility: collapse;
+            }
+
+            th, td {
+                border: none;
+            }
+
+            .un-expand {
+                .expand-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+}

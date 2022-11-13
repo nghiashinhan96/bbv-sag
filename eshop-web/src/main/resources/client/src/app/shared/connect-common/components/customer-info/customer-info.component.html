@@ -1,0 +1,11 @@
+<div class="nav w-100 connect-customer-info">
+    <div class="customer-info-name text-truncate">
+        <span class="mr-2 color-primary">{{'AX_CONNECTION.CUSTOMER' | translate}}&nbsp;</span>
+        <strong>{{customerHeadInfo}}</strong>
+    </div>
+    <connect-customer-memo [userDetail]="userService.userDetail" *ngIf="isShownMemo"></connect-customer-memo>
+    <div class="ml-auto color-primary">
+        <span class="mr-2">{{'AX_CONNECTION.CREATOR' | translate}}</span>
+        <strong>{{salesHeadInfo}}</strong>
+    </div>
+</div>

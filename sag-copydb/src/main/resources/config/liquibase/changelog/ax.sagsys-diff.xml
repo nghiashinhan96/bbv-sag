@@ -1,0 +1,213 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:appdba="http://www.datical.net/xml/ns/appdba" xmlns:datical="http://www.datical.net/xml/ns/datical" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="CONNECT_APP" id="ADD_COL_ORDER_HISTORY_ORDER_DATE">
+	    <addColumn tableName="ORDER_HISTORY">
+	    	<column name="ORDER_DATE" defaultValueComputed="getdate()" defaultValueConstraintName="DF_ORDER_HISTORY_ORDER_DATE" type="datetime"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_COL_CUSTOMER_SETTINGS_ALLOW_SHOW_DISCOUNT_CHANGED">
+	    <addColumn tableName="CUSTOMER_SETTINGS">
+	    	<column name="ALLOW_SHOW_DISCOUNT_CHANGED" defaultValueNumeric="0" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_ALLOW_SHOW_DISCOUNT_CHANGED" type="bit">
+	    		<constraints nullable="false"/>
+	    	</column>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_COL_CUSTOMER_SETTINGS_NORMAUTO_DISPLAY">
+	    <addColumn tableName="CUSTOMER_SETTINGS">
+	    	<column name="NORMAUTO_DISPLAY" defaultValueNumeric="0" defaultValueConstraintName="DF_CUSTOMER_SETTINGS_NORMAUTO_DISPLAY" type="bit">
+	    		<constraints nullable="false"/>
+	    	</column>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_COL_LOGIN_PASSWORD_HASH_BACKUP">
+	    <addColumn tableName="LOGIN">
+	    	<column name="PASSWORD_HASH_BACKUP" type="varchar(100)"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_COL_MESSAGE_MESSAGE_LOCATION_ID">
+	    <addColumn tableName="MESSAGE">
+	    	<column name="MESSAGE_LOCATION_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_COL_ESHOP_PERMISSION_SORT">
+	    <addColumn tableName="ESHOP_PERMISSION">
+	    	<column name="SORT" type="smallint"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="CREATE_TAB_SUPPORTED_BRAND_PROMOTION">
+	    <createTable tableName="SUPPORTED_BRAND_PROMOTION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK_SUPPORTED_BRAND_PROMOTION"/>
+            </column>
+            <column name="ARTICLE_SHOP_TYPE" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUPPORTED_AFFILIATE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BRAND" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ACTIVE" type="bit">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="END_DATE" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="getdate()" defaultValueConstraintName="DF_SUPPORTED_BRAND_PROMOTION_CREATED_DATE" name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_DATE" type="datetime"/>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+        </createTable>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_TAB_LEGAL_DOCUMENT_CUSTOMER_ACCEPTED_LOG">
+	    <createTable tableName="LEGAL_DOCUMENT_CUSTOMER_ACCEPTED_LOG">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="PK_LEGAL_DOCUMENT_CUSTOMER_ACCEPTED_LOG"/>
+            </column>
+            <column name="AFFILIATE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LEGAL_DOCUMENT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CUSTOMER_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TIME_ACCEPTED" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_TAB_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG">
+	    <createTable tableName="LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG">
+            <column autoIncrement="true" name="ID" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="PK_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG"/>
+            </column>
+            <column name="AFFILIATE_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LEGAL_DOCUMENT_ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SORT" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATE_VALID_FROM" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueConstraintName="DF_LEGAL_ASSIGNED_ACCEPTANCE_PERIOD_DAYS" defaultValueNumeric="0" name="ACCEPTANCE_PERIOD_DAYS" type="int"/>
+            <column name="STATUS" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+        </createTable>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG_AFFILIATE_ID">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG_AFFILIATE_ID" tableName="LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG">
+            <column name="AFFILIATE_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG_LEGAL_DOCUMENT_ID">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG_LEGAL_DOCUMENT_ID" tableName="LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG">
+            <column name="LEGAL_DOCUMENT_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG_STATUS">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG_STATUS" tableName="LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG">
+            <column name="STATUS"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="CREATE_UC_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG">
+        <addUniqueConstraint columnNames="AFFILIATE_ID, LEGAL_DOCUMENT_ID" constraintName="UC_LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG" tableName="LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG"/>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="ADD_TAB_LEGAL_DOCUMENT_MASTER">
+	    <createTable tableName="LEGAL_DOCUMENT_MASTER">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK_LEGAL_DOCUMENT_MASTER"/>
+            </column>
+            <column defaultValue="CH" defaultValueConstraintName="DF_LEGAL_DOCUMENT_MASTER_COUNTRY" name="COUNTRY" type="varchar(10)"/>
+            <column defaultValue="DE" defaultValueConstraintName="DF_LEGAL_DOCUMENT_MASTER_LANGUAGE" name="LANGUAGE" type="varchar(10)"/>
+            <column name="DOCUMENT_NAME" type="varchar(500)"/>
+            <column name="DOCUMENT_REF" type="varchar(1000)"/>
+            <column name="SUMMARY" type="varchar(MAX)"/>
+            <column name="DOCUMENT" type="varchar(MAX)"/>
+            <column name="PDF_URL" type="varchar(1000)"/>
+            <column name="CREATED_USER_ID" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_DATE" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MODIFIED_USER_ID" type="bigint"/>
+            <column name="MODIFIED_DATE" type="datetime"/>
+        </createTable>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_MASTER_COUNTRY">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_MASTER_COUNTRY" tableName="LEGAL_DOCUMENT_MASTER">
+            <column defaultValueConstraintName="DF_LEGAL_DOCUMENT_MASTER_COUNTRY" name="COUNTRY"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_MASTER_CREATED_USER_ID">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_MASTER_CREATED_USER_ID" tableName="LEGAL_DOCUMENT_MASTER">
+            <column name="CREATED_USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_MASTER_DOCUMENT_NAME">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_MASTER_DOCUMENT_NAME" tableName="LEGAL_DOCUMENT_MASTER">
+            <column name="DOCUMENT_NAME"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_MASTER_LANGUAGE">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_MASTER_LANGUAGE" tableName="LEGAL_DOCUMENT_MASTER">
+            <column defaultValueConstraintName="DF_LEGAL_DOCUMENT_MASTER_LANGUAGE" name="LANGUAGE"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="CREATE_IDX_LEGAL_DOCUMENT_MASTER_MODIFIED_USER_ID">
+        <createIndex indexName="IDX_LEGAL_DOCUMENT_MASTER_MODIFIED_USER_ID" tableName="LEGAL_DOCUMENT_MASTER">
+            <column name="MODIFIED_USER_ID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="ADD_COL_USER_SETTINGS_ALLOW_NET_PRICE_CHANGED">
+	    <addColumn tableName="USER_SETTINGS">
+	    	<column name="ALLOW_NET_PRICE_CHANGED" defaultValueNumeric="0" defaultValueConstraintName="DF_USER_SETTINGS_ALLOW_NET_PRICE_CHANGED" type="bit"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_COL_ESHOP_RELEASE_RELEASE_BRANCH">
+	    <addColumn tableName="ESHOP_RELEASE">
+	    	<column name="RELEASE_BRANCH" type="varchar(20)"/>
+	    </addColumn>
+	</changeSet>
+	<changeSet author="CONNECT_APP" id="ADD_TAB_AFFILIATE_PERMISSION">
+        <createTable tableName="AFFILIATE_PERMISSION">
+            <column autoIncrement="true" name="ID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SUPPORTED_AFFILIATE_ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK_AFFILIATE_PERMISSION"/>
+            </column>
+            <column name="ESHOP_PERMISSION_ID" type="int">
+                <constraints primaryKey="true" primaryKeyName="PK_AFFILIATE_PERMISSION"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

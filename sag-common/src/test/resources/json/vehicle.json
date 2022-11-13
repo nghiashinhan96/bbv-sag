@@ -1,0 +1,49 @@
+{
+  "equipment_list": {
+    "total_matches": "1",
+    "equipment": [
+      {
+        "@btid": "cars",
+        "@cxid": "000124808",
+        "@guid": "3405187513347080",
+        "@href": "/equipment/a7_sportback_4ga_4gf_2_8_fsi_quattro_162kw_FawEcBR7Y",
+        "@id": "FawEcBR7Y",
+        "@language": "de",
+        "family": {
+          "@original": "Cars",
+          "#text": "PKW"
+        },
+        "familygroup": [
+          {
+            "@original": "Cars",
+            "#text": "PKW"
+          }
+        ],
+        "manufacturer": "AUDI",
+        "manufacturer_original": "AUDI",
+        "model": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW",
+        "model_original": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW",
+        "alt_fueltype": "Benzin",
+        "alt_fueltype_original": "Petrol",
+        "series": [
+          {
+            "@original": "A7",
+            "#text": "A7"
+          }
+        ],
+        "displacement": [
+          "2.8"
+        ],
+        "yearfrom": "2014",
+        "yearto": "2018",
+        "display_year": "2014-2018",
+        "display_name_short": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW",
+        "fueltype": {
+          "@original": "P",
+          "#text": "B"
+        },
+        "display_name_long": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW (B) (2014-2018)"
+      }
+    ]
+  }
+}

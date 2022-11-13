@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_140_ADD_AT_DMS_CLIENT">
+    <sql>
+      -- 123456@A	
+      INSERT INTO ESHOP_CLIENT(CLIENT_NAME,CLIENT_SECRET,RESOURCE_ID,ACTIVE) VALUES('cloud-dms-derendinger-austria','$2a$10$nNg/POXEZYFUDhK.wrimCeGWYZy4Wi4MpQbw26eBsfUJ0m2asmVSu',1,1)
+      INSERT INTO ESHOP_CLIENT(CLIENT_NAME,CLIENT_SECRET,RESOURCE_ID,ACTIVE) VALUES('cloud-dms-matik-austria','$2a$10$nNg/POXEZYFUDhK.wrimCeGWYZy4Wi4MpQbw26eBsfUJ0m2asmVSu',1,1) 
+    </sql>
+  </changeSet>
+</databaseChangeLog>

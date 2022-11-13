@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_172_ORG_COLLECTION_SETTINGS_CHANGE_BACKGROUND">
+	  <sql>
+        Declare @wt_collection_id int = (select id from ORGANISATION_COLLECTION where shortname = 'wt-sb')
+        update ORG_COLLECTION_SETTINGS set SETTING_VALUE = '../images/background/bg-wtsb.jpg' where SETTING_KEY = 'background_image' and COLLECTION_ID = @wt_collection_id
+        update ORG_COLLECTION_SETTINGS set SETTING_VALUE = '../images/background/bg-wtsb.jpg' where SETTING_KEY = 'default_background' and COLLECTION_ID = @wt_collection_id
+	  </sql>
+  </changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_172_ORG_COLLECTION_SETTINGS_CHANGE_SENDER_EMAIL">
+	  <sql>
+        Declare @wt_collection_id int = (select id from ORGANISATION_COLLECTION where shortname = 'wt-sb')
+        update ORG_COLLECTION_SETTINGS set SETTING_VALUE = 'shop@wint.rs' where SETTING_KEY = 'default_email' and COLLECTION_ID = @wt_collection_id
+	  </sql>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,78 @@
+.form-group {
+  margin: 0px -15px 10px -15px !important;
+}
+
+.block-input {
+  height: 30px;
+  border: 0;
+
+  &.description {
+    height: auto;
+  }
+}
+
+input[type="text"] {
+  border: 1px solid #dadada;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+
+.intro {
+  font-size: 14px;
+}
+
+.customer-info {
+    font-size: 14px;
+    margin: 20px 0 -10px;
+}
+
+.checking-form {
+  padding-bottom: 20px;
+  border-bottom: 1px solid;
+  margin-bottom: 20px !important;
+
+  .form-group {
+    margin-bottom: 0 !important;
+  }
+}
+
+.registry-form {
+  .submit-row {
+    padding-top: 10px;
+  }
+}
+
+.btn {
+  margin-bottom: 0 !important;
+}
+
+.border-primary-color {
+  border-color: #0073be ;
+}
+
+.text-primary-color {
+  color: #0073be !important;
+}
+
+.intro p {
+  margin-top: 14px;
+}
+
+#registration-modal .modal-dialog {
+  width: 800px !important;
+}
+
+.pr-15-px {
+  padding-right: 15px;
+}
+
+.registrieren-cont {
+    .btn-primary {
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+}

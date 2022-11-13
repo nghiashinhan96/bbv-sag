@@ -1,0 +1,79 @@
+.login-page {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 87px;
+
+    .adal-link {
+        font-size: 1.1rem;
+    }
+
+    .btn-login {
+        min-width: 160px;
+    }
+
+    .nav-tabs {
+        .nav-item {
+            a.nav-link {
+                padding: 0px 45px;
+                font-size: 14px;
+                font-weight: 500;
+                background-color: #f1eff0;
+                height: 42px;
+                padding-bottom: 2px;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+
+                &.active {
+                    background-color: white;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        background-color: white;
+        padding: 40px;
+        border: 1px solid #e0e0e0;
+        font-size: 13px;
+        border-top: 0;
+    }
+
+    .ads-wrapper {
+        min-height: 250px;
+    }
+}
+
+sag-auth-login-form {
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@keyframes left {
+    0%   { left: 100%; }
+    100%  { left: 0 }
+}
+
+@keyframes right {
+    0%   { right: 100%; }
+    100%  { right: 0 }
+}
+
+.registration-tab {
+    overflow: hidden;
+
+    .registration-container {
+        display: flex;
+        position: relative;
+        animation: right 250ms;
+
+        &.additional-shown {
+            animation: left 250ms;
+        }
+    }
+}
+
+sag-auth-potential-customer-registration {
+    width: 100%;
+}

@@ -1,0 +1,6 @@
+export enum AppContextEnum {
+    VEHICLE_CONTEXT = 1,
+    ARTICLE_NUMBER_CONTEXT = 2,
+    ESHOP_BASKET_CONTEXTS = 4,
+    USER_PRICE_OPTION_CONTEXT = 5
+}

@@ -1,0 +1,5 @@
+spring.profiles.include: logging-default, executor-pool, oates-pre-at, country-at
+
+logging:
+  level:
+    com.sagag.services: DEBUG

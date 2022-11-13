@@ -1,0 +1,17 @@
+spring:
+  profiles: ax-testing
+
+## Supported value for mode: true | false
+backOrder.tourTimeTable: false
+
+# The Ax configuration
+external:
+  webservice:
+    ax:
+      url: https://prebusiness.sag.services/tstapps/test-webshop-service-app
+      tokenPath: https://test-webshop-service-app.tstapps.sag.services
+      clientId: e274e535-57f9-4a0a-aa1f-ee8aba913de4
+      # only for token refresh
+      clientSecret: bu/goRv8Sg5GGL8RV9WVUEdLQ0ymdX5prFjMtNwP1xQ=
+      userName: sys-ws-connect-test@sag-ag.ch
+      password: agenda01

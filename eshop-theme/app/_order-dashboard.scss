@@ -1,0 +1,33 @@
+connect-order-dashboard-list {
+    .ordered {
+        .action-export {
+            margin-top: 5px;
+
+            .fa {
+                position: relative;
+                font-size: 20px;
+                cursor: pointer;
+                color: #666666;
+
+                &:not(:last-child) {
+                    margin-right: 5px;
+                }
+
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+
+            .fa-file-o:after {
+                content: "csv";
+                position: absolute;
+                bottom: 2px;
+                left: 2px;
+                letter-spacing: -1px;
+                font-size: 10px;
+                font-weight: bold;
+                font-family: monospace;
+            }
+        }
+    }
+}

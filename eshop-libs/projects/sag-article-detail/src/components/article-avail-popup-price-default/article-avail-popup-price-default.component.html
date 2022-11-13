@@ -1,0 +1,81 @@
+<div class="nav mb-2">
+    <strong id="span-sagCurrencyTitle">
+        {{'ARTICLE.PRICE.PRICE_INFORMATION_UNIT' | translate}}
+    </strong>
+    <strong id="span-sagCurrencyValue">
+        {{currency}}
+    </strong>
+</div>
+<div class="nav" *ngIf="oepPrice">
+    <span id="span-grossPriceTitle">
+        {{'ARTICLE.PRICE.OEP_PRICE' | translate}}
+    </span>
+    <span id="span-grossPriceValue">
+        {{ oepPrice | sagCurrency }}
+    </span>
+</div>
+<div class="nav" *ngIf="uvpePrice">
+    <span id="span-grossPriceTitle">
+        {{'ARTICLE.PRICE.UVPE_PRICE' | translate}}
+    </span>
+    <span id="span-grossPriceValue">
+        {{ uvpePrice | sagCurrency }}
+    </span>
+</div>
+<div class="nav" *ngIf="uvpPrice">
+    <span id="span-grossPriceTitle">
+        {{'ARTICLE.PRICE.UVP_PRICE' | translate}}
+    </span>
+    <span id="span-grossPriceValue">
+        {{ uvpPrice | sagCurrency }}
+    </span>
+</div>
+<div class="nav" *ngIf="kbPrice">
+    <span id="span-grossPriceTitle">
+        {{'ARTICLE.PRICE.KB_PRICE' | translate}}
+    </span>
+    <span id="span-grossPriceValue">
+        {{ kbPrice | sagCurrency}}
+    </span>
+</div>
+<p></p>
+<div class="nav" *ngIf="standardGrossPrice && userSetting.showGross">
+    <span id="span-grossPriceTitle">
+        {{'ARTICLE.PRICE.GROSS_PRICE' | translate}}
+    </span>
+    <span id="span-grossPriceValue">
+        {{standardGrossPrice | sagCurrency}}
+    </span>
+</div>
+<ng-container *ngIf="isShowNetPrice">
+    <div class="nav" *ngIf="isShowDiscount">
+        <span id="span-discountPriceTitle">
+            {{'ARTICLE.PRICE.DISCOUNT' | translate}}
+            ({{ discountInPercent | sagNumeric }}%)
+        </span>
+        <span id="span-discountPriceValue">
+            {{ discountPrice | sagCurrency}}
+        </span>
+    </div>
+    <div class="nav" *ngIf="netPrice">
+        <strong id="span-netPriceTitle">
+            {{'ARTICLE.PRICE.NET_PRICE' | translate}}
+        </strong>
+        <strong id="span-netPriceValue">
+            {{ netPrice | sagCurrency}}
+        </strong>
+    </div>
+    <div class="nav" *ngIf="finalCustomerNetPrice && isFinalBasket()">
+        <span id="span-fcNetPriceTitle">
+            {{'ARTICLE.PRICE.FC_NET_PRICE' | translate}}
+        </span>
+        <span id="span-fcNetPriceValue">
+            {{ finalCustomerNetPrice | sagCurrency}}
+        </span>
+    </div>
+    <p></p>
+</ng-container>
+<ng-container *ngIf="isAffiliateApplyFgasAndDeposit">
+    <sag-article-avail-popup-deposit-article [article]="article" [userSetting]="userSetting" [includeVAT]="isIncludeVAT">
+    </sag-article-avail-popup-deposit-article>
+</ng-container>

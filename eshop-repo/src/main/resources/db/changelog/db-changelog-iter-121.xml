@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_121_CREATE_INDEX_INVOICE_HISTORY">
+    <sql>
+      CREATE INDEX IDX_INVOICE_HISTORY_INVOICE_NR ON [dbo].INVOICE_HISTORY (INVOICE_NR);
+      CREATE INDEX IDX_INVOICE_HISTORY_CUSTOMER_NR ON [dbo].INVOICE_HISTORY (CUSTOMER_NR);
+      CREATE INDEX IDX_INVOICE_HISTORY_CREATED_DATE ON [dbo].INVOICE_HISTORY (CREATED_DATE);
+    </sql>
+  </changeSet>
+</databaseChangeLog>

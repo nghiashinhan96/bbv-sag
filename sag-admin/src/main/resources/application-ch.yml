@@ -1,0 +1,27 @@
+# ************************************************************************
+# This is the CH country configuration of Admin application for local mode.
+# 
+# Required Common configuration:
+# - ERP
+# - Database
+# - Elasticsearch
+# - Liquibase
+# - Caching
+# - Country Code
+# - Media Server
+# - Authorization
+# - MDM for creating DVSE user
+#
+# ************************************************************************
+spring.profiles.include: 
+  ax-pre-cloud, 
+  db-ch, 
+  elasticsearch-dev,
+  no-liquibase, 
+  cache-dev, 
+  country-ch, 
+  media-server,
+  auth-endpoint-ch-dev,
+  mdm-prod
+
+spring.banner.location: classpath:banner/banner_ch.txt

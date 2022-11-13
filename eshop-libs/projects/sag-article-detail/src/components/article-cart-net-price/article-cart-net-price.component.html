@@ -1,0 +1,80 @@
+<ng-container *ngIf="!isPDP; else pdpRef">
+    <ng-container *ngIf="isFinalCustomer; else otherCustomerRef">
+        <ng-container *ngIf="cartItem?.displayFCNetPrice; else artWithoutPrice">
+            <ng-container *ngIf="isShowVat; else notShowVatFCPriceRef">
+                <div class="netto text-right" *ngIf="cartItem?.articleItem?.getFinalCustomerNetPrice(userSetting); else artWithoutPrice">
+                    {{ cartItem?.articleItem?.getFinalCustomerNetPrice(userSetting) | sagCurrency }}
+                </div>
+                <div class="netto include-vat text-right" *ngIf="cartItem?.articleItem?.getFinalCustomerNetPrice(userSetting, true)">
+                    ({{ cartItem?.articleItem?.getFinalCustomerNetPrice(userSetting, true) | sagCurrency }})
+                </div>
+                <div class="discount text-right" *ngIf="isShownDiscount">
+                    ({{ cartItem?.articleItem?.discountInPercent | sagNumeric }}%)
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+<ng-template #pdpRef>
+    <div [class.is--greater-equal]="netPriceGreaterThanOrEqualNet1Price"
+        [class.is--less]="netPriceLessThanNet1Price">
+
+        <div class="discount-1 text-right" *ngIf="isShownDiscount">
+            {{ cartItem?.getDiscount() | sagNumeric }}%
+        </div>
+
+        <ng-container *ngIf="netPriceLessThanNet1Price">
+            <ng-container *ngIf="isShowVat; else noShowVatNet1PriceRef">
+                <div class="netto1 text-right" *ngIf="cartItem?.getNet1Price()">
+                    {{ cartItem?.getNet1Price() | sagCurrency }}
+                </div>
+                <div class="netto1 include-vat text-right" *ngIf="cartItem?.getNet1Price(true)">
+                    ({{ cartItem?.getNet1Price(true) | sagCurrency }})
+                </div>
+            </ng-container>
+            <ng-template #noShowVatNet1PriceRef>
+                <div class="netto1 text-right" *ngIf="cartItem?.getNet1Price(currentStateVatConfirm)">
+                    {{ cartItem?.getNet1Price(currentStateVatConfirm) | sagCurrency }}
+                </div>
+            </ng-template>
+        </ng-container>
+
+        <div class="discount-2 text-right pt-2" *ngIf="isShowPromotionDiscount">
+            {{ cartItem?.getPromotionDiscount() | sagNumeric }}%
+        </div>
+
+
+        <div class="netto2 text-right" *ngIf="netPrice; else artWithoutPrice">
+            {{ netPrice | sagCurrency }}
+        </div>
+        <div class="netto2 include-vat text-right" *ngIf="isShowVat && cartItem?.getNetPrice(true)">
+            ({{ cartItem?.getNetPrice(true) | sagCurrency }})
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #artWithoutPrice>
+    <div class="col-art-without-price text-right" id="col-artWithoutPrice-{{cartItem?.articleItem?.artnr}}">
+        {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}</div>
+</ng-template>
+
+<ng-template #otherCustomerRef>
+    <ng-container *ngIf="netPrice; else artWithoutPrice">
+        <div class="netto text-right">
+            {{ netPrice | sagCurrency }}
+        </div>
+        <div class="discount text-right" *ngIf="isShownDiscount">
+            ({{ cartItem?.articleItem?.discountInPercent | sagNumeric }}%)
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #notShowVatFCPriceRef>
+    <div class="netto text-right">
+        {{ cartItem?.displayFCNetPrice | sagCurrency }}
+    </div>
+    <div class="discount text-right" *ngIf="isShownDiscount">
+        ({{ cartItem?.articleItem?.discountInPercent | sagNumeric }}%)
+    </div>
+</ng-template>

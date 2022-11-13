@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* SAG theme per affiliate */
+@import './sag-theme.scss';
+/* Bootstrap original style */
+@import '~bootstrap/scss/bootstrap.scss';
+/* Custom variables */
+@import './sag-variables.scss';
+/* Custom boostrap style */
+@import './custom-bootstrap/bootstrap';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+/* SAG application style */
+@import './app/app';
+/* New fitlering style from original library*/
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+html {
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    min-width: 900px;
+    --pre-loader: 'assets/images/DS-Loader_small.gif';
+}
+
+body {
+    font-size: 1rem;
+    background: $background;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Verdana, sans-serif;
+    line-height: normal !important;
+    background-attachment: fixed;
+}
+
+.hidden {
+    display: none;
+}
+
+.divider {
+    margin-bottom: $spacer;
+
+    &--line {
+        border-top: 1px solid $primary;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+}

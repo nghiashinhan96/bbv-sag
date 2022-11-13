@@ -1,0 +1,33 @@
+# ************************************************************************
+# This is the AT configuration of OAuth2 application for Feature mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Proxy - 
+# - Java Melody Monitoring -
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagauth,
+  ax-pre-cloud,
+  elasticsearch-dev,
+  db-dev,
+  executor-pool,
+  no-liquibase,
+  logging-at-feature,
+  actuator,
+  cache-dev,
+  country-at,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_at.txt

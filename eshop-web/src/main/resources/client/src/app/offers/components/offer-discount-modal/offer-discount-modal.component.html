@@ -1,0 +1,70 @@
+<div class="modal-header">
+    <h4>{{ 'OFFERS.DISCOUNT.ADD_DISCOUNTS_SURCHARGES' | translate }}</h4>
+    <a href="javascript:void(0)" (click)="modalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body" data-automation="offer-detail-discount-modal-body">
+    <div class="block-content">
+        <div class="form-group">
+            <label class="col-xs-2 control-label">{{ 'COMMON_LABEL.TYPE' | translate }}*</label>
+            <div class="col-xs-10 sag-custom-select">
+                <ng-select
+                    [searchable]="discountTypes?.length > 10"
+                    [items]="discountTypes"
+                    [(ngModel)]="discountTypeModel"
+                    bindValue="value"
+                    [clearable]="false"
+                    [notFoundText]="'SEARCH.NO_RESULTS_FOUND' | translate"
+                    (change)="selectDiscountType()"
+                    data-automation="offer-discount-value">
+                    <ng-template ng-label-tmp let-item="item">
+                        {{ item.label | translate }}
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item" let-index="index">
+                        {{ item.label | translate }}
+                    </ng-template>
+                </ng-select>
+            </div>
+        </div>
+        <form *ngIf="discountForm" novalidate [formGroup]="discountForm">
+            <div class="form-group" *ngIf="isDiscountByPercent">
+                <label>{{ 'COMMON_LABEL.PERCENT' | translate }}*</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" formControlName="percent" [libNumeric] data-automation="offer-discount-percent">
+                    <div class="input-group-append">
+                        <span class="input-group-text">{{percentSign}}</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div *ngIf="isDiscountByPercent && !discountForm.controls.percent.valid && attemptedSubmitingForm"
+                    class="alert alert-danger">
+                    {{ 'OFFERS.DISCOUNT.INVALID_PERCENT' | translate }}
+                </div>
+            </div>
+            <div class="form-group" *ngIf="!isDiscountByPercent">
+                <label>{{ 'COMMON_LABEL.AMOUNT' | translate }}*</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" formControlName="amount" [libNumeric] data-automation="offer-discount-amount">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="!isDiscountByPercent && !discountForm.controls.amount.valid && attemptedSubmitingForm"
+                    class="alert alert-danger">
+                    {{ 'OFFERS.DISCOUNT.INVALID_AMOUNT' | translate }}
+                </div>
+            </div>
+        </form>
+        <div class="form-group mb-0">
+            <label>{{ 'COMMON_LABEL.REASON' | translate }}</label>
+            <div>
+                <input class="form-control" type="text" [(ngModel)]="reasonModel" data-automation="offer-discount-reason">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer d-flex justify-content-between px-3" data-automation="offer-detail-discount-modal-footer">
+    <button class="btn btn-primary ml-3" (click)="modalRef.hide()">{{ 'COMMON_LABEL.ABORT_STOP' | translate }}</button>
+    <button class="btn btn-primary mr-3" (click)="submit()" [disabled]="attemptedSubmitingForm && discountForm.invalid">
+        {{'COMMON_LABEL.TAKE' | translate }}
+    </button>
+</div>

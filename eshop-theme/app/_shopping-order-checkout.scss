@@ -1,0 +1,62 @@
+.connect-shopping-checkout {
+    text-align: center;
+
+    .barcode-content{
+        margin: auto;
+        width: 35%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
+        .barcode-item {
+            border-bottom: 1px solid #e0e0e0;
+            line-height: 1.2;
+
+            .part-bar-code{
+                align-content: center;
+                width: 100%;
+            }
+        }
+    }
+
+    .confirm-info {
+        margin-top: 30px;
+    }
+
+    .text-1 {
+        font-size: 20px;
+        font-weight: $font-weight;
+        color: $primary;
+        margin-bottom: 20px;
+        justify-content: center;
+
+        i {
+            font-size: 48px;
+        }
+
+        div * {
+            vertical-align: middle;
+        }
+    }
+
+    .text-2 {
+        color: $grey;
+        font-size: 16px;
+        font-weight: $font-weight;
+        justify-content: center;
+    }
+
+    .text-3 {
+        justify-content: center;
+
+        span {
+            color: $primary;
+            font-weight: bold;
+        }
+    }
+
+    .btn-primary {
+        width: 150px;
+        height: 30px;
+        padding: 0 10px;
+    }
+}

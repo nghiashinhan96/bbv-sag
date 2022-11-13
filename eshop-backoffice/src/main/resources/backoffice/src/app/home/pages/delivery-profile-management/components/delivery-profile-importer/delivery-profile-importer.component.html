@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{'DELIVERY_PROFILE.IMPORT_DELIVERY_PROFILE_TITLE'| translate}}</h4>
+    <i class="fa fa-times-circle close" (click)="bsModalRef.hide()"></i>
+</div>
+<div class="modal-body import-body">
+    <backoffice-file-selection (fileSelectedHandler)="selectedFile = $event" [accepts]="acceptedFileTypes"
+        [label]="'DELIVERY_PROFILE.IMPORT_DELIVERY_PROFILE_SUB_TITLE'">
+    </backoffice-file-selection>
+    <div class="row mt-10" *ngIf="notifier">
+        <div class="col-12">
+            <notification [notifier]="notifier"></notification>
+        </div>
+    </div>
+</div>
+<div class="modal-footer justify-content-between">
+    <button class="btn btn-default" (click)="bsModalRef.hide()">
+        {{'COMMON.BUTTON.CANCEL' | translate}}
+    </button>
+    <button class="btn btn-primary" type="button" (click)="upload()" [disabled]="!selectedFile">
+        <i class="fa fa-save"></i> {{'COMMON.BUTTON.SAVE' | translate}}
+    </button>
+</div>

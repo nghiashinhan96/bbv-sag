@@ -1,0 +1,62 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_191_INSERT_PERMISSION_DVSE">
+        <sql>
+            <!-- ESHOP_PERMISSION-->
+            BEGIN
+                IF NOT EXISTS (SELECT * FROM ESHOP_PERMISSION WHERE PERMISSION_KEY ='DVSE')
+                BEGIN
+                    INSERT INTO ESHOP_PERMISSION(PERMISSION,DESCRIPTION,CREATED_BY,PERMISSION_KEY)
+                    VALUES('DVSE', 'Permission to work with DVSE', '1', 'DVSE')
+                END
+
+
+                <!--ESHOP_FUNCTION-->
+                IF NOT EXISTS (SELECT * FROM ESHOP_FUNCTION WHERE FUNCTION_NAME ='DVSE_URL_ACCESS')
+                BEGIN
+                    INSERT INTO ESHOP_FUNCTION ( FUNCTION_NAME, DESCRIPTION, RELATIVE_URL)
+                    VALUES( N'DVSE_URL_ACCESS', N'Function to work with DVSE ', N'/dvse')
+                END
+
+                <!--PERM_FUNCTION-->
+                DECLARE
+                    @permDvseID VARCHAR(10) = (SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION_KEY= 'DVSE'),
+                    @funcDvseID VARCHAR(10)= (SELECT ID FROM ESHOP_FUNCTION WHERE FUNCTION_NAME= 'DVSE_URL_ACCESS')
+                IF (@permDvseID &lt;&gt; '' AND @funcDvseID &lt;&gt; '')
+                BEGIN
+                    INSERT INTO PERM_FUNCTION (PERM_ID, FUNCTION_ID)
+                    VALUES( @permDvseID, @funcDvseID)
+                END
+            END
+        </sql>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="ITER_191_SET_DEFAULT_PERMISSION_DVSE_FOR_MATIK_AT_MATIK_CH">
+        <sql>
+            BEGIN
+                <!--COLLECTION_PERMISSION-->
+                DECLARE @permDvseID VARCHAR(10) = (SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION_KEY= 'DVSE')
+                IF @permDvseID &lt;&gt; ''
+                BEGIN
+                    INSERT INTO COLLECTION_PERMISSION(COLLECTION_ID, ESHOP_PERMISSION_ID)
+                    SELECT ID, @permDvseID  FROM ORGANISATION_COLLECTION oc  WHERE SHORTNAME ='matik-ch' or SHORTNAME ='matik-at'
+                END
+
+                <!--GROUP_PERMISSION-->
+                IF @permDvseID &lt;&gt; ''
+                BEGIN
+                INSERT INTO GROUP_PERMISSION(GROUP_ID , PERM_ID, ALLOWED)
+                        SELECT  eg.ID, @permDvseID,'1'
+                        FROM ESHOP_GROUP eg
+                        INNER JOIN ORGANISATION_GROUP og ON og.GROUP_ID = eg.ID
+                        INNER JOIN ORGANISATION o ON og.ORGANISATION_ID = o.ID
+                        WHERE o.PARENT_ID  IN
+                        (SELECT  AFFILIATE_ID FROM ORGANISATION_COLLECTION oc  WHERE SHORTNAME ='matik-ch' or SHORTNAME ='matik-at')
+                END
+            END
+        </sql>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,14 @@
+{
+	"articleId": "1000082238",
+	"quantity": 1,
+	"immediateDelivery": false,
+	"arrivalTime": "2021-09-17T09:00:00Z",
+	"sendMethodCode": "PICKUP",
+	"availState": 0,
+	"sofort": false,
+	"externalSource": false,
+	"venExternalSource": false,
+	"conExternalSource": false,
+	"formattedCETArrivalTime": "11:00",
+	"formattedCETArrivalDate": "17.09.2021"
+}

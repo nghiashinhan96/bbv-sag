@@ -1,0 +1,75 @@
+<div class="modal-header">
+    <h4>{{title | translate }}</h4>
+    <a href="javascript:void(0)" (click)="cancelAction()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <div class="block-content form-horizontal">
+        <form *ngIf="articleForm" novalidate [formGroup]="articleForm" data-automation="offer-article-form">
+            <div class="form-group row">
+                <label class="col-3 col-form-label">{{ 'COMMON_LABEL.NUMBER' | translate }}*</label>
+                <div class="col-9">
+                    <input #articleNumber sagCommonAutofocus type="text" class="form-control"
+                        formControlName="articleNumber" data-automation="article-number">
+                </div>
+            </div>
+            <div class="row" *ngIf="attemptedSubmit && !articleForm.controls.articleNumber.valid">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">{{ 'OFFERS.INVALID_NUMBER' | translate }}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 col-form-label">{{ 'COMMON_LABEL.NAME' | translate }}</label>
+                <div class="col-9">
+                    <input type="text" class="form-control" formControlName="name" data-automation="article-name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 col-form-label">{{ 'COMMON_LABEL.DESCRIPTION' | translate }}</label>
+                <div class="col-9">
+                    <textarea class="form-control" formControlName="description" data-automation="article-description"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 col-form-label">{{ 'COMMON_LABEL.AMOUNT' | translate }}*</label>
+                <div class="col-9">
+                    <input class="form-control" [libNumeric] formControlName="amount" data-automation="article-amount">
+                </div>
+            </div>
+            <div class="row" *ngIf="attemptedSubmit && !articleForm.controls.amount.valid">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">{{ 'OFFERS.INVALID_AMOUNT' | translate }}</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 col-form-label">{{ affiliateCode | grossPriceKey | translate }}*</label>
+                <div class="col-9">
+                    <input class="form-control" [libNumeric] formControlName="price" data-automation="article-price">
+                </div>
+            </div>
+            <div class="row" *ngIf="attemptedSubmit && !articleForm.controls.price.valid">
+                <div class="col-9 offset-3">
+                    <div class="alert alert-danger">{{ 'OFFERS.INVALID_PRICE' | translate }}</div>
+                </div>
+            </div>
+            <div class="row" *ngIf="err">
+                <div class="col-12">
+                    <div class="alert alert-danger">
+                        {{err | translate}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer d-flex justify-content-between px-3">
+    <div class="ml-3">
+        <button class="btn btn-primary" *ngIf="canBack" (click)="backToPreviousModel()" data-automation="offer-article-go-back">
+            {{'COMMON_LABEL.BACK' | translate }}
+        </button>
+    </div>
+    <div class="mr-3">
+        <button class="btn btn-primary" (click)="save()" data-automation="offer-article-submit">
+            {{ 'COMMON_LABEL.SAVE' | translate }}
+        </button>
+    </div>
+</div>

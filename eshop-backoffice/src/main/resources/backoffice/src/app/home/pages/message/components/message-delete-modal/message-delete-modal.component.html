@@ -1,0 +1,29 @@
+<div class="modal-delete-confirm" tabindex="-1" role="dialog">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'MESSAGE.DELETE_MESSAGE' | translate}}</h4>
+        <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="closeModal.emit(true)"
+            aria-hidden="true">
+        </i>
+    </div>
+    <div class="modal-body">
+        <div class="messages">
+            <table>
+                <tr>
+                    <td>
+                        <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                            {{'MESSAGE.DELETE_CONFIRM' | translate}} {{deletingMessage.title}} ?</p>
+                    </td>
+                </tr>
+                <tr>
+                    <notification [notifier]="resMessage"></notification>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer button-right">
+        <button class="btn btn-default" aria-label="Close" (click)="closeModal.emit(true)"
+            data-dismiss="modal">{{'COMMON.BUTTON.NO' | translate}}</button>
+        <button class="btn btn-primary"
+            (click)="confirmDelete.emit(deletingMessage)">{{'COMMON.BUTTON.YES' | translate}}</button>
+    </div>
+</div>

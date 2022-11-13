@@ -1,0 +1,12 @@
+<h4 class="mb-3 mt-5">{{'ORDER_HISTORY.ARTICLE' | translate}}</h4>
+<sag-table [mode]="'offline'" [rows]="data" [columns]="columns" [firstlySearch]="false">
+</sag-table>
+<ng-template let-row="row" #descRef>
+    <span [innerHTML]="row.info | safe: 'html'"></span>
+</ng-template>
+<ng-template let-row="row" #manufacturerRef>
+    <span class="img" *ngIf="!!row.manufacturer; else emptyRef"
+        [ngStyle]="{'background-image': 'url(https://s3.exellio.de/connect_media/common/images/brands/' + row.manufacturer + manufacturerSuffix + '.jpg)'}">
+    </span>
+    <ng-template #emptyRef>-</ng-template>
+</ng-template>

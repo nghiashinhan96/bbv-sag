@@ -1,0 +1,23 @@
+<div class="view-all-location-popover">
+    <div class="nav">
+        <strong class="flex-2">
+            {{'ARTICLE.NUMBER' | translate}}:
+        </strong>
+        <strong class="flex-6">
+            {{'ARTICLE.LOCATION' | translate}}
+        </strong>
+    </div>
+
+    <div class="location-items">
+        <div class="nav" *ngFor="let location of locations">
+            <strong class="flex-2">{{location.quantity}}</strong>
+            <div class="flex-6 d-flex flex-nowrap">
+                <div class="arrivalTime">
+                    <span>{{location.locationName}}</span>
+                    <span *ngIf="!!location.locationPhoneNr">&nbsp; -
+                        {{location.locationPhoneNr}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

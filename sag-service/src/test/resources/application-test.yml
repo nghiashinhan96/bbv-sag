@@ -1,0 +1,42 @@
+spring.profiles.include: 
+  ax-pre,
+  incentive-dev,
+  hp-normal-at,
+  hpback-at-dev,
+  gtmotive-at-dev,
+  mdm-pre,
+  oates-pre-ch,
+  mail-dev,
+  elasticsearch-pre,
+  db-at-test,
+  cache-dev-test,
+  connect,
+  executor-pool,
+  no-liquibase,
+  country-at,
+  no-proxy,
+  thule-pre
+
+server:
+  port: 9000
+  sessionTimeout: 30
+logging:
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG
+    com.zaxxer.hikari: DEBUG
+#Log for elasticsearch
+    org.elasticsearch.index.search.slowlog.query: INFO
+    org.elasticsearch.bootstrap: ERROR
+
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      host: http://sag-eshop.sib-services.ch/auth-server-1.0
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW

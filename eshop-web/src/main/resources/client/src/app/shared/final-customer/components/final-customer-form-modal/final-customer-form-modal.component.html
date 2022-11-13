@@ -1,0 +1,226 @@
+<div class="modal-header">
+    <h4>{{ title | translate }}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <div [formGroup]="form">
+        <section class="card mb-3">
+            <div class="card-header">
+                <connect-expanded title="MENU.PROFILE" [(expand)]="isProfileOpened"></connect-expanded>
+            </div>
+            <section class="card-body" *ngIf="isProfileOpened">
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label>{{'SETTINGS.PROFILE.TYPE.TEXT'| translate}}</label>
+                        <ng-select
+                            [searchable]="customerTypeOptions?.length > 10"
+                            bindValue="value"
+                            [items]="customerTypeOptions"
+                            formControlName="customerType"
+                            [clearable]="false">
+                            <ng-template ng-label-tmp let-item="item">
+                                {{ (item.label ? 'FINAL_CUSTOMER.TYPE.' + item.label : '') | translate }}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                                {{ 'FINAL_CUSTOMER.TYPE.' + item.label | translate }}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="font-weight-bold">{{'COMMON_LABEL.STATUS'| translate}}</label>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group form-check">
+                            <input class="form-check-input" formControlName="isActive" type="radio" id="statusActive" [value]="true">
+                            <label class="form-check-label" for="statusActive">
+                                <strong>{{ 'COMMON_LABEL.ACTIVE' | translate }}</strong>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group form-check">
+                            <input class="form-check-input" formControlName="isActive" type="radio" id="statusInactive" [value]="false">
+                            <label class="form-check-label" for="statusInactive">
+                                <strong>{{ 'COMMON_LABEL.INACTIVE' | translate }}</strong>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label>{{'REGISTER.CUSTOMER_NUMBER'| translate}}*</label>
+                        <input formControlName="customerNr" maxlength="15" type="text" class="form-control">
+                        <connect-control-messages [control]="customerNr"></connect-control-messages>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.COMPANY_NAME'| translate}}*</label>
+                        <input formControlName="customerName" maxlength="100" type="text" class="form-control">
+                        <connect-control-messages [control]="customerName"></connect-control-messages>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label>{{'SETTINGS.PROFILE.SALUTATION.TEXT'| translate}}</label>
+                        <ng-select
+                            [searchable]="salutationOptions?.length > 10"
+                            bindValue="code"
+                            [items]="salutationOptions"
+                            formControlName="salutation"
+                            [clearable]="false">
+                            <ng-template ng-label-tmp let-item="item">
+                                {{ (item.code ? 'SETTINGS.PROFILE.SALUTATION.' + item.code : '') | translate }}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                                {{ 'SETTINGS.PROFILE.SALUTATION.' + item.code | translate }}
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.SURNAME'| translate}}*</label>
+                        <input formControlName="surName" maxlength="100" type="text" class="form-control">
+                        <connect-control-messages [control]="surName"></connect-control-messages>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.FIRST_NAME'| translate}}*</label>
+                        <input formControlName="firstName" maxlength="100" type="text" class="form-control">
+                        <connect-control-messages [control]="firstName"></connect-control-messages>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.STREET'| translate}}</label>
+                        <input formControlName="street" maxlength="100" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'REGISTER.OPTIONAL_ADDRESS'| translate}}</label>
+                        <input formControlName="addressOne" maxlength="100" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'REGISTER.OPTIONAL_ADDRESS'| translate}}</label>
+                        <input formControlName="addressTwo" maxlength="100" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.PO_BOX'| translate}}</label>
+                        <input formControlName="poBox" maxlength="100" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.POSTCODE'| translate}}*</label>
+                        <input formControlName="postcode" maxlength="100" type="text" class="form-control">
+                        <connect-control-messages [control]="postcode"></connect-control-messages>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.CITY'| translate}}*</label>
+                        <input formControlName="place" maxlength="100" type="text" class="form-control">
+                        <connect-control-messages [control]="place"></connect-control-messages>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.PHONE'| translate}}</label>
+                        <input formControlName="phone" maxlength="100" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.FAX'| translate}}</label>
+                        <input formControlName="fax" maxlength="100" type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-4">
+                        <label>{{'COMMON_LABEL.EMAIL'| translate}}</label>
+                        <input formControlName="email" maxlength="100" type="text" class="form-control">
+                        <connect-control-messages [control]="email"></connect-control-messages>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="card mb-3">
+            <div class="card-header">
+                <connect-expanded title="MENU.SETTINGS" [(expand)]="isSettingOpened"></connect-expanded>
+            </div>
+            <section class="card-body" *ngIf="isSettingOpened">
+                <div class="row">
+                    <div class="col-4" *sagCommonShowHideByAff="[sb];show:false">
+                        <div class="form-group form-check">
+                            <input class="form-check-input" formControlName="showNetPrice" type="checkbox"
+                                id="showNetPrice">
+                            <label class="form-check-label" for="showNetPrice">
+                                <strong>{{ 'SETTINGS.SETTING.NET_PRICE' | translate }}</strong>
+                            </label>
+                        </div>
+                    </div>
+                    <ng-container formArrayName="perms">
+                        <div class="col-4" *ngFor="let p of permissions.controls">
+                            <div class="form-group form-check" [formGroup]="p">
+                                <input class="form-check-input" formControlName="enable" [attr.disabled]="p.value.editable ? null: ''" type="checkbox" id="'cb-perm-{{p.value.permissionId}}'">
+                                <label class="form-check-label" for="'cb-perm-{{p.value.permissionId}}'">
+                                    <strong>{{ 'PERMISSION.' + p.value.langKey | translate }}</strong>
+                                </label>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4">
+                        <label>{{'SETTINGS.DELIVERY_PROFILE'| translate}}</label>
+                        <ng-select
+                            [virtualScroll]="true"
+                            (scrollToEnd)="onDeliveryProfileListScrollEnd()"
+                            [searchable]="deliveryProfileOptions?.length > 10"
+                            bindLabel="name"
+                            bindValue="id"
+                            [items]="deliveryProfileOptions"
+                            [clearable]="true"
+                            formControlName="wssDeliveryProfileDto">
+                            <ng-template ng-label-tmp let-item="item">
+                                {{item.name}} - {{item.branchCode}}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                                <div class="d-flex align-items-center mr-3">{{item.name}} - {{item.branchCode}}</div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+
+                    <div class="form-group col-4">
+                        <label>{{'SETTINGS.MARGIN_GROUP'| translate}}</label>
+                        <ng-select
+                            [searchable]="marginGroups?.length > 10"
+                            bindLabel="name"
+                            bindValue="id"
+                            [items]="marginGroups"
+                            [clearable]="true"
+                            formControlName="wssMarginGroup">
+                            <ng-template ng-label-tmp let-item="item">
+                                {{item.id && (('SETTINGS.GROUP' | translate) + ' ' + item.id)}}
+                            </ng-template>
+                            <ng-template ng-option-tmp let-item="item">
+                                <div class="d-flex align-items-center mr-3">{{('SETTINGS.GROUP' | translate) + ' ' + item.id}}</div>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-12 control-label font-weight-bold"
+                        [innerHTML]="'WSS.WHOLESALER_DELIVERY_SETTINGS.WHOLESALER_DELIVERY_TYPE' | translate">
+                    </label>
+
+                    <div *ngFor="let deliType of deliveryTypes" class="radio" class="col-4">
+                        <strong class="form-group form-check">
+                            <input type="radio" [value]="deliType.id" name="deliveryId" formControlName="deliveryId" class="form-check-input"/>
+                            <label class="form-check-label">
+                                {{"WSS.WHOLESALER_DELIVERY_SETTINGS." + deliType.descCode | translate}}
+                            </label>
+                        </strong>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <sag-common-message *ngIf="result" [data]="result"></sag-common-message>
+        <p class="text-center">
+            <button type="button" [disabled]="form.invalid" class="btn btn-primary btn-lg btn-center" (click)="onSubmit()">
+                {{ 'COMMON_LABEL.SAVE' | translate }}
+            </button>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<section class="row">
+    <section class="col-6">
+        <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_1'"></connect-system-message>
+        <connect-oil-filters [data]="data" [models]="models" [loading]="!oilIsUpdated"
+            [fullBottleSizeDataUsedForRenderTemplate]="fullBottleSizeDataUsedForRenderTemplate"
+            [bottleSizeData]="bottleSizeData" [bottleSizeHistoryData]="bottleSizeHistoryData"
+            [isSliderDataLoading]="isSliderDataLoading" (sliderValueChangeEmitter)="onSliderValueChangeEmitter($event)"
+            (updateFilter)="updateFilters($event)" (resetFilter)="resetFilter()" (search)="viewArticles($event)">
+        </connect-oil-filters>
+    </section>
+    <section class="col-6 d-flex justify-content-end">
+        <div class="oil-ads">
+            <sag-common-adserver [zid]="9" [sitearea]="'MAIN_OIL_AREA'" [custom1]="adsTargetName"
+                (adsClickedEmitter)="sendAdsClick()">
+            </sag-common-adserver>
+            <connect-additional-info *ngIf="showAdditionalInfo" [title]="'SEARCH.SEARCH_OIL.ADDITIONAL_INFORMATION'"
+                [links]="additionalInfo">
+            </connect-additional-info>
+            <div class="mt-3">
+                <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_2'"></connect-system-message>
+                <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_3'"></connect-system-message>
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_119_CREATE_TABLE_INVOICE_HISTORY">
+    <sql>
+      CREATE TABLE [dbo].[INVOICE_HISTORY](
+      	[ID] [varchar](20) NOT NULL,
+      	[INVOICE_NR] [int] NOT NULL,
+      	[ORDER_NR] [int] NOT NULL,
+      	[DELIVERY_NR] [int] NULL,
+      	[CUSTOMER_NR] [int] NOT NULL,
+      	[COMPANY_NAME] [varchar](50) NULL,
+      	[LAST_NAME] [varchar](50) NULL,
+      	[FIRST_NAME] [varchar](50) NULL,
+      	[SEARCH_TERM] [varchar](20) NULL,
+      	[STREET] [varchar](50) NULL,
+      	[POST_CODE] [int] NOT NULL,
+      	[PLACE] [varchar](50) NULL,
+      	[COUNTRY] [varchar](10) NULL,
+      	[CREATED_DATE] [datetime] NOT NULL,
+      	[CURRENCY] [varchar](10) NULL,
+      	[PRICE] [float] NULL,
+      	[INVOICE_TYPE] [varchar](10) NULL,
+      	[CASH_CREDIT] [varchar](10) NULL,
+      	[ORGANISATION] [varchar](10) NULL,
+      	[DOC_ID] [varchar](30) NOT NULL,
+      	[SOURCE_FROM] [varchar](10) NULL,
+      	PRIMARY KEY (ID)
+      )
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

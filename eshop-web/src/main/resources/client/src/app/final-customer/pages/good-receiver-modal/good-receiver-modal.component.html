@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-xs-left">
+        {{ 'ORDER_DASHBOARD.SELECT_CUSTOMER' | translate}}
+    </h4>
+    <a href="javascript:void(0)"><i class="fa fa-times-circle close" (click)="bsModalRef.hide()"></i></a>
+</div>
+<div class="modal-body">
+    <sag-table [mode]="'online'" [columns]="columns" [sort]="sort" (searchData)="searchTableData($event)">
+    </sag-table>
+    <div class="nav mt-3">
+        <button class="btn btn-secondary" (click)="bsModalRef.hide()">
+            {{ 'COMMON_LABEL.ABORT' | translate }}
+        </button>
+        <div class="ml-auto">
+            <button class="btn btn-primary" (click)="removeCustomer()">
+                {{ 'ORDER_DASHBOARD.REMOVE_CUSTOMER' | translate }}
+            </button>
+            <button class="btn btn-primary ml-2" (click)="take()" [disabled]="!selectedCustomer?.orgId">
+                {{ 'COMMON_LABEL.BUTTON.TAKE' | translate }}
+            </button>
+        </div>
+    </div>
+</div>
+<ng-template #statusRef let-val="value">
+    {{CUSTOMER_TYPE[val] | translate}}
+</ng-template>
+<ng-template #actionRef let-row="row">
+    <input type="radio" name="finalCustomer" value="{{row.orgId}}"
+        [checked]="selectedCustomer && row.orgId === selectedCustomer.orgId" (change)="onSelect(row)">
+</ng-template>

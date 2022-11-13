@@ -1,0 +1,59 @@
+<form class="form-horizontal" [formGroup]="filterForm">
+    <div class="row">
+        <div class="col-2 d-flex flex-column justify-content-end">
+            <div class="date-range-text">
+                <strong>
+                    {{ 'OPENING_DAY.FILTER_DATE.FROM' | translate }}
+                </strong>
+            </div>
+            <div class="input-group" [ngClass]="{ 'highlight-filter': isDateRangeSearchActivated }">
+                <input class="form-control" angular-mydatepicker name="dateFrom" [options]="datePickerCommonSetting"
+                    #dpFrom="angular-mydatepicker" formControlName="dateFrom" [locale]="locale"
+                    (dateChanged)="validateDateRange($event, 'from')" (click)="dpFrom.toggleCalendar()"
+                    autocomplete="off" />
+                <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-2  d-flex flex-column justify-content-end">
+            <div class="date-range-text">
+                <strong>
+                    {{ 'OPENING_DAY.FILTER_DATE.TO' | translate }}
+                </strong>
+            </div>
+            <div class="input-group" [ngClass]="{ 'highlight-filter': isDateRangeSearchActivated }">
+                <input class="form-control" angular-mydatepicker name="dateTo" [options]="datePickerCommonSetting"
+                    #dpTo="angular-mydatepicker" formControlName="dateTo" [locale]="locale"
+                    (dateChanged)="validateDateRange($event, 'to')" (click)="dpTo.toggleCalendar()"
+                    autocomplete="off" />
+                <div class="input-group-append pointer" (click)="dpTo.toggleCalendar()">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary search-opening-day-btn" (click)="search()" [disabled]="isInvalidDateRange">
+                {{'COMMON.BUTTON.SEARCH' | translate}}
+            </button>
+        </div>
+        <div class="offset-10 date-range-filter">
+            <ng-select class="sag-select" [items]="filterRangeOptions"
+                notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" [clearable]="false"
+                (change)="onFilterSelected($event)">
+            </ng-select>
+            <div class=" input-group calendar-opening-day"
+                [ngClass]="{ 'highlight-filter': isPredefinedDateRangeSearchActivated }">
+                <input class="form-control" angular-mydatepicker #dpRange="angular-mydatepicker" [locale]="locale"
+                    [options]="datePickerCombineSetting" (dateChanged)="onDateRangeChange($event)" />
+                <div class="input-group-append pointer" (click)="dpRange.toggleCalendar()">
+                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+            </div>
+            <span class="selected-date-filter-text"
+                [ngStyle]="{'visibility' : isFilterDateOptionVisible ? 'visible' : 'hidden' }">
+                {{ selectedFilterDate.label }}
+            </span>
+        </div>
+    </div>
+</form>

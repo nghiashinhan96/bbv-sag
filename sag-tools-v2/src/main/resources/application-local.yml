@@ -1,0 +1,25 @@
+spring:
+  target:
+    datasource:
+      jdbcUrl: jdbc:sqlserver://127.0.0.1;databaseName=sag_offer
+      username: sag
+      password: 123
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      testOnConnect: true
+      maxActive: 50
+      maxIdle: 50
+      jpa:
+        properties:
+          hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+proxy:
+  host: proxy2.sag-ag.ch
+  port:
+  schema: http
+
+## This is the default value config to make persistent data for dev environment
+default:
+  ## user name: admin
+  userId: 1
+  ## customer nr: 000000 - Swiss-Automotive-Group
+  organisationId: 1

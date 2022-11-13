@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>
+                <div class="row">
+                    <div class="col-4 discount-description">{{item.discountDescription}}</div>
+                    <div class="col-4">{{item.discountValue}}</div>
+                    <div class="col-3">{{item.discountValue}}</div>
+                    <div class="col-1 text-center">
+                        <i (click)="deleteItem(item)" class="fa fa-trash btn-icon"></i>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

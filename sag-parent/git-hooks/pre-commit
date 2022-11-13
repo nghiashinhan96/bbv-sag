@@ -1,0 +1,16 @@
+#!/bin/bash
+
+script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+# Test prospective commit - run less expensive checks first to ensure quick feedback
+$script_dir/validate-git-settings && \
+$script_dir/validate-formatting && \
+#$script_dir/run-checkstyle
+$script_dir/validate-master
+$script_dir/run-lint
+
+# Retrieve the result of the command
+result=$?
+
+[ $result -ne 0 ] && exit 1
+exit 0

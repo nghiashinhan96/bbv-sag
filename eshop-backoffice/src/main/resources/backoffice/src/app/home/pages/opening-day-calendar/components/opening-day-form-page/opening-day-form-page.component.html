@@ -1,0 +1,7 @@
+<div class="notice-panel alert" [ngClass]="{ 'alert-success': isCreated, 'alert-danger': !isCreated }"
+    *ngIf="noticeMessage">
+    {{ noticeMessage | translate }}
+</div>
+<backoffice-opening-day-form [openingDay]="openingDay" [countries]="countries" [affiliates]="affiliates" [branches]="branches"
+    [workingCodes]="workingCodes" [onlyNumberHint]="onlyNumberHint" (save)="save($event)" (update)="update($event)"
+    (goBackEmmiter)="goBack($event)"></backoffice-opening-day-form>

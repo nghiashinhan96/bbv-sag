@@ -1,0 +1,70 @@
+# ************************************************************************
+# This is the CZ configuration of RESTful application for Production mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - HaynesPro Endpoint - 
+# - HaynesPro Callback - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - OATS(replace Olyslager) - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - No Proxy For Serbia and CZ we are in Azure - 
+# - Media Server - 
+# - Price File Location - 
+# - Java Melody Monitoring - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  ax-prod-cloud,
+  incentive-prod,
+  hp-prod,
+  gtmotive-cz-prod,
+  mdm-prod-ax-cz,
+  oates-prod-cz,
+  mail-prod,
+  elasticsearch-prod,
+  db-prod,
+  executor-pool-prod-cz,
+  no-liquibase,
+  logging-ax-cz-prod,
+  actuator,
+  cache-prod,
+  analytics-prod-cloud,
+  country-ax-cz,
+  no-proxy,
+  media-server,
+  price-file-cz,
+  javamelody,
+  thule-prod
+
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      # host: https://connect.sag.services/auth-server-st
+      host: http://localhost:8080/auth-server-cz-ax
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+
+license:
+  vin:
+    minimumOrder: 600
+    
+spring.banner.location: classpath:banner/banner_axcz.txt

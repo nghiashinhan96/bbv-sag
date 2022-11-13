@@ -1,0 +1,4 @@
+<ng-container *ngIf="activatedRoute.parent.params | async as params">
+    <div class="divider mt-2"></div>
+    <sag-article-list-quick-click [vehicleId]="params.vehicleId" [currentStateSingleSelectMode]="currentStateSingleSelectMode" (performanceSearch)="performanceSearch()"></sag-article-list-quick-click>
+</ng-container>

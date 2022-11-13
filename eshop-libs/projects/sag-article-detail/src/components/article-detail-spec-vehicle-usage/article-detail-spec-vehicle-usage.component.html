@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h4>{{'ARTICLE.USING_TAB.LABLE' | translate}}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <div class="card" *ngFor="let vehicleUsages of allVehicleUsages">
+        <div class="card-header" (click)="vehicleUsages.isShown = !vehicleUsages.isShown">
+            <strong>{{vehicleUsages.vehicleBrand}}</strong>
+            <i class="fa fa-caret-down"></i>
+
+        </div>
+        <ul class="list-group list-group-flush" *ngIf="vehicleUsages.isShown">
+            <li class="list-group-item" *ngFor="let vehicleUsage of vehicleUsages.vehicleUsage">
+                <a href="javascript:void(0)" (click)="navigateTo($event, vehicleUsage.vehId)">{{vehicleUsage.vehicleDisplayName}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

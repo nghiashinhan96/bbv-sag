@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP" id="ITER_237_UPDATE_DVSE_PERMISSION_CUSTOMER_SETTING">
+		<sql>
+			DECLARE @dvseProPerm INT = (SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION ='DVSE')
+			DECLARE @customerOrg INT = (SELECT ID FROM ORGANISATION_TYPE WHERE NAME ='CUSTOMER')
+
+			UPDATE GROUP_PERMISSION SET ALLOWED=0 WHERE PERM_ID=@dvseProPerm AND GROUP_ID IN
+			(SELECT GROUP_ID FROM ORGANISATION_GROUP WHERE ORGANISATION_ID IN
+			(SELECT ID FROM ORGANISATION WHERE ORGTYPE_ID = @customerOrg))
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ITER_237_UPDATE_DVSE_PERMISSION_COLLECTION_SETTING">
+		<sql>
+			DELETE FROM COLLECTION_PERMISSION WHERE ID IN
+				(SELECT cp.ID FROM COLLECTION_PERMISSION cp
+					JOIN ORGANISATION_COLLECTION oc on oc.ID = cp.COLLECTION_ID
+					JOIN ESHOP_PERMISSION ep on ep.ID = cp.ESHOP_PERMISSION_ID
+					JOIN ORGANISATION o on o.ID = oc.AFFILIATE_ID
+					WHERE o.SHORTNAME = 'ax-cz' AND ep.PERMISSION_KEY = 'DVSE')
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

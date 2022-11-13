@@ -1,0 +1,16 @@
+external:
+  webservice:
+    stakis-erp:
+      cis-svc: https://wsvc.stahlgruber.cz/testService/CustomerInformationService.svc
+      cis-context-path: com.sagag.services.stakis.erp.wsdl.cis
+      tm-connect-svc: https://wsvc.stahlgruber.cz/testService/TMConnect.svc
+      tm-connect-context-path: com.sagag.services.stakis.erp.wsdl.tmconnect
+      config:
+        payment: 
+          CASH: Platba v hotovosti
+          EUR_PAYMENT: EUR payment
+          BANK_TRANSFER: Převodem na účet
+        fgas_item_text:
+          en: F-Gas item only sellable to customers with valid identification number
+          de: „F-Gas“ Artikel sind nur an Kunden mit gültiger Identifikationsnummer verkäuflich.
+          cs: F-Gas položky lze prodat pouze zákazníkům s platnou F-Gas certifikací.

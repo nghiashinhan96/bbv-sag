@@ -1,0 +1,29 @@
+<span class="part-img-inner">
+    <span id="span-isVin-{{article.artnr}}" *ngIf="vinType; else imagesRef" class="img {{vinType}}"></span>
+    <ng-template #imagesRef>
+        <span id="span-noImage-{{article.artnr}}" *ngIf="noImage; else  imagesSourceRef" class="img no-image">
+        </span>
+    </ng-template>
+    <ng-template #imagesSourceRef>
+        <ng-container *ngIf="showHoverImg; else defaultRef">
+            <span id="span-notPdf-{{article.artnr}}" class="img img-zoomlens pointer" (click)="showImagesInfo()"
+                [ngStyle]="thumbnail" [popover]="magnifierRef" #magnifierPop="bs-popover" container="body"
+                [delay]="popoverDelay"
+                triggers="mouseenter:mouseleave" containerClass="magnifier-popover"></span>
+        </ng-container>
+    </ng-template>
+</span>
+
+<ng-template #magnifierRef>
+    <div class="thumbnail-img-zoomlens">
+        <div class="p-2 thumbnail-zoomlens" [ngStyle]="thumbnail"></div>
+    </div>
+</ng-template>
+
+<ng-template #defaultRef>
+    <span id="span-notPdf-{{article.artnr}}" class="img img-zoomlens pointer" (click)="showImagesInfo()"
+        [ngStyle]="thumbnail">
+        <img *ngIf="useImgTag" src="{{thumb}}"/>
+    </span>
+</ng-template>
+

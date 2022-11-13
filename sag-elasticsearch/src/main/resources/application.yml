@@ -1,0 +1,6 @@
+spring.profiles.active: elasticsearch-dev, country-at, executor-pool
+#Log
+logging:
+  level:
+    org.elasticsearch.index.search.slowlog.query: INFO
+    com.sagag.services.elasticsearch: DEBUG

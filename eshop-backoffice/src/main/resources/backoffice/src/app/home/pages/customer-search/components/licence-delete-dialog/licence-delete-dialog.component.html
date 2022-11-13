@@ -1,0 +1,32 @@
+<div class="modal-user-form" tabindex="-1" role="dialog" id="userDetail">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'CUSTOMER.LICENSE.DELETE_LICENCE' | translate}}</h4>
+        <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="cancelDeleteAction()"
+            aria-hidden="true">
+        </i>
+    </div>
+    <div class="modal-body">
+        <div class="messages">
+            <table class="full-width">
+                <tr>
+                    <td>
+                        <p> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                            {{'CUSTOMER.LICENSE.CONFIRM_DELETE_LICENCE' | translate}} {{licence?.packName}}?</p>
+                    </td>
+                </tr>
+                <tr *ngIf="err">
+                    <td>
+                        <p class="col-12 alert alert-danger">{{err | translate}}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" (click)="cancelDeleteAction()"
+            #closeBtn>{{'COMMON.BUTTON.BACK' | translate}}</button>
+        <button type="button" class="btn btn-primary"
+            (click)="deleteLicence()">{{'COMMON.BUTTON.DELETE' | translate}}</button>
+    </div>
+</div>

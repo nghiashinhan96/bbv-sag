@@ -1,0 +1,27 @@
+<div class="w-100">
+    <div class="sag-wrapper">
+        <div class="block-content">
+            <h3 class="title">{{ 'BRANCHES.BRANCH_LIST_MENU_TITLE' | translate }}</h3>
+            <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+                notFoundText="{{ 'SEARCH.NO_RESULTS_FOUND' | translate }}">
+            </sag-table>
+        </div>
+    </div>
+</div>
+<div class="btn-section btn-section d-flex justify-content-end">
+    <button class="btn btn-primary add-item-btn" (click)="onCreateBranch()">
+        <i class="fa fa-plus"></i>
+        {{'BRANCHES.CREATE_BRANCH'| translate}}
+    </button>
+</div>
+
+<ng-template #colActions let-row="row">
+    <div class="branch-edit">
+        <i class="fa fa-edit" (click)="onEditBranch(row)"></i>
+        <i class="fa fa-trash" (click)="onDeleteBranch(row)"></i>
+    </div>
+</ng-template>
+
+<ng-template #colTimeList let-row="row">
+    <span>{{generateTimes(row)}}</span>
+</ng-template>

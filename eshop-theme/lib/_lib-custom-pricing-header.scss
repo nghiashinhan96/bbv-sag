@@ -1,0 +1,39 @@
+.article-list-header {
+    .header-gross {
+        .custom-priciable {
+            display: flex;
+            position: relative;
+            visibility: hidden;
+            max-width: 32px;
+            justify-content: flex-end;
+
+            a.btn-icon {
+                color: white;
+                min-width: 16px;
+                height: 16px;
+                font-size: 12px;
+
+                &:hover {
+                    opacity: 0.75;
+                }
+
+                .fa-eye {
+                    &.theme-darker {
+                        opacity: 0.25;
+                    }
+                }
+            }
+
+            a.btn-icon.edit {
+                visibility: hidden;
+            }
+
+            &.editable {
+                a.btn-icon.edit {
+                    right: 16px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

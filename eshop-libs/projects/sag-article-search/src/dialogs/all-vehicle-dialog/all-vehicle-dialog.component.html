@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h4>{{'SEARCH.MULTIPLE_VEHICLES_TITLE' | translate}}</h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <ul class="list-group list-group-flush list-group-full">
+        <p><strong>{{'SEARCH.MULTIPLE_VEHICLES_DESCRIPTION' | translate}} - {{'COMMON_LABEL.MODEL' | translate}}</strong></p>
+        <li class="list-group-item" *ngFor="let vehicle of vehicles">
+            <a (click)="navigateTo($event, vehicle.vehid)">{{vehicle.vehicleInfo}}</a>
+        </li>
+    </ul>
+</div>

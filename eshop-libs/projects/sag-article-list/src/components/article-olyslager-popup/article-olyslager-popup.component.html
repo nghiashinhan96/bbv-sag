@@ -1,0 +1,56 @@
+<div class="modal-body options-modal">
+    <ng-template #noOilType>
+        <span id="span-olyslagerVehicle">
+            <span id="span-olyslagerVehicleDescription"
+                class="description">{{'OLYSLAGER.MESSAGE.NOT_FOUND_VEHICLES' | translate}}</span>
+        </span>
+    </ng-template>
+    <div id="span-olyslagerVehicleHasData" *ngIf="data && data.length > 0; else noOilType">
+        <p class="oil-desc">{{'OLYSLAGER.DESCRIPTION' | translate}}</p>
+        <div class="oil-content">
+            <ng-container *ngFor="let g of data; let i = index">
+                <div class="d-flex" style="margin-bottom: 15px;">
+                    <div class="cate-name">
+                        {{g[0]?.cateName}}
+                    </div>
+                    <div class="cate-detail">
+                        <div class="list-group">
+                            <ng-container *ngFor="let oil of g;">
+                                <ng-container *ngIf="oil?.type === oilType.Choice; else appRef">
+                                    <div class="list-group-item">
+                                        <div class="list-group-item-sub">
+                                            <input type="radio" name="oil_{{i}}" [value]="oil.guid"
+                                                (change)="getRecommendationByTypeIdFromPopup(oil)"
+                                                id="{{oil.displayName}}" #selectedInput [disabled]="!oilOption.cateId">
+                                            <label class="category-name" for="{{oil.displayName}}">
+                                                {{oil.displayName}}
+                                            </label>
+                                        </div>
+                                        <sag-article-list-cate-oil-option [option]="oil.choice" #oilOption
+                                            (selected)="onSelectApplicationId($event, oil.cateId, selectedInput)">
+                                        </sag-article-list-cate-oil-option>
+                                    </div>
+                                </ng-container>
+                                <ng-template #appRef>
+                                    <div class="list-group-item">
+                                        <input type="radio" name="oil_{{i}}" [value]="oil.guid"
+                                            (change)="getRecommendationByTypeIdFromPopup(oil)" id="{{oil.guid}}">
+                                        <label class="category-name" for="{{oil.guid}}">
+                                            {{oil.displayName}}
+                                        </label>
+                                    </div>
+                                </ng-template>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" (click)="select()" type="button"
+        [disabled]="selectedOil.length !== requiredtotalGroup">
+        {{ 'COMMON_LABEL.ACCEPT' | translate }}
+    </button>
+</div>

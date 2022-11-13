@@ -1,0 +1,35 @@
+Execute:
+
+java -jar [appname.jar] --spring.profiles.active=[env_config | default dev] --spring.batch.job.names=[jobName | ex:importShopArticlesJob ] --path.csv.user=[migration_user_id_csv_file.csv] --page.start=[startPage| default is 0] --page.end=[endPage | optional | default get all] --page.maxSize=[max size | default is 10]
+
+the list of envs:
+ - local: for custom local config
+ - dev: for dev config
+ - pre: for pre-prod config
+ - prod: not yet
+
+The job names list: 
+ - importShopArticlesJob
+ - importOfferJob
+ - mappingUserIdJob
+ - exportShopArticlesJob (just run with local env)
+ - exportPersonListJob (just run with local env)
+ - exportPersonPropertyListJob (just run with local env)
+ 
+Ex:  
+java -jar sag-tools-1.0-SNAPSHOT.jar --spring.profiles.active=dev --spring.batch.job.names=importShopArticlesJob
+
+How to run MigrateCustomerSettings job:
+- desc: This job used to migrate from ORGANISATIONPROPERTY of EBL-DB -> CUSTOMER_SETTINGS of connect-db
+- cmd: java -jar sag-tools-1.0-SNAPSHOT.jar --spring.profiles.active=[env_config | default dev] --spring.batch.job.names=[jobName | ex:MigrateCustomerSettings ] --sag.migration.customer_settings.types=[org_property_type | ex:hasInvoicePreview] --sag.migration.customer.numbers=[customerNr | ex:4400519]
+- cmd-ex: java -jar sag-tools-1.0-SNAPSHOT.jar --spring.profiles.active=dev --spring.batch.job.names=MigrateCustomerSettings --sag.migration.customer_settings.types=hasInvoicePreview --sag.migration.customer.numbers=4400519
+- sag.migration.customer_settings.types: Required - this field mapped to ORGANISATIONPROPERTY of EBL-DB, currently just support 'hasInvoicePreview'
+- sag.migration.customer.numbers: Optional - list of customer need to migrate, default = migrate all
+
+How to run SetAffiliatePermission job:
+- desc: This job used to set specific permission for specific affiliate
+- cmd: java -jar sag-tools-1.0-SNAPSHOT.jar --spring.profiles.active=[env_config | default dev] --spring.batch.job.names=[jobName | SetAffiliatePermission ] --sag.batch.permission.affiliate_shortname=[affiliate_shortname | ex:derendinger-ch] --sag.batch.permission.permission_name=[permission_name | ex:OIL] --sag.batch.permission.enable=[enable | ex:true] 
+- cmd-ex: java -jar sag-tools-1.0-SNAPSHOT.jar --spring.profiles.active=dev --spring.batch.job.names=SetAffiliatePermission --sag.batch.permission.affiliate_shortname=derendinger-at  --sag.batch.permission.permission_name=OIL --sag.batch.permission.enable=true
+- sag.batch.permission.affiliate_shortname: Required
+- sag.batch.permission.permission_name: Required 
+- sag.batch.permission.enable: Optional - true is enable and false is disable, default is true

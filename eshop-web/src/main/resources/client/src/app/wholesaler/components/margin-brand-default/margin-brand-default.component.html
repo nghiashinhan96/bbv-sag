@@ -1,0 +1,19 @@
+<table class="table table-hover table-striped default-brand" *ngIf="!!brand">
+    <tbody>
+        <tr>
+            <td class="brand-name">
+                <div class="text-break">{{brand.name}}</div>
+            </td>
+            <ng-container *ngFor="let item of margins">
+                <td class="text-center margin-value-10 margin-value">
+                    <div class="text-break">{{brand['margin' + item]}}</div>
+                </td>
+            </ng-container>
+            <td class="text-center align-items-center margin-value-10 margin-action">
+                <div class="margin-icon d-flex">
+                    <i class="fa fa-edit pointer" (click)="edit()"></i>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

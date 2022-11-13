@@ -1,0 +1,218 @@
+@import 'layout';
+@import 'common';
+@import 'article-avail-popup';
+@import 'ng-select';
+@import 'home-page';
+@import 'switch';
+@import 'list';
+@import 'header-search';
+@import 'header-settings';
+@import 'header-saved-basket';
+@import 'header-sub-basket';
+@import 'menu-bar';
+@import 'sale-customer-search';
+@import 'tyre-search';
+@import 'adserver';
+@import 'offers';
+@import 'mini_basket';
+@import 'order-detail';
+@import 'order-history-detail';
+@import 'moon-icon';
+@import 'icons';
+@import 'shopping-basket';
+@import 'shopping-order-condition';
+@import 'shopping-order-article-detail';
+@import 'shopping-order-part-header';
+@import 'shopping-order';
+@import 'system-message';
+@import 'shopping-order-checkout';
+@import 'ordered-detail';
+@import 'feedback';
+@import 'special-category-search';
+@import 'scroll-top';
+@import 'article-list-search';
+@import 'articles-in-context';
+@import 'articles-not-in-context';
+@import 'invoice-history';
+@import 'login';
+@import 'forgot-password';
+@import 'labour-time';
+@import 'connect-vehicle-info-dialog';
+@import 'connect-sale-order-history-result';
+@import 'article-result-container';
+@import 'vin-popup';
+@import 'connect-settings';
+@import 'connect-offer-item';
+@import 'input-state';
+@import 'connect-return-article';
+@import 'shopping-export';
+@import 'catalog-iframe';
+@import 'search-history';
+@import 'connect-opening-time';
+@import 'connect-wholesaler';
+@import 'margin-mgt';
+@import 'article-view-location-popup';
+@import 'shopping-location-condition';
+@import 'header-credit-limit';
+@import 'analytical-card';
+@import 'universal-parts';
+@import 'favorite-list';
+@import 'header-search-dashboard';
+@import 'header-shopping-basket';
+@import 'vehicle-search';
+@import 'connect-slider-bar-chart';
+@import 'article-return-list';
+@import 'order-dashboard';
+
+.loader {
+    border-top-color: $primary;
+}
+
+.loader-text {
+    color: $primary;
+}
+
+.spinner {
+    z-index: 999;
+
+    &.relative {
+        position: relative;
+    }
+
+    .loader {
+        border-top: 6px solid $primary;
+    }
+
+    .loader-text {
+        color: $primary;
+    }
+
+    &.spinner-inner {
+        padding: 2rem;
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border-width: 4px;
+            border-top-width: 4px;
+        }
+    }
+
+    &.ex-sm {
+        .loader {
+            width: 14px;
+            height: 14px;
+            border-width: 2px;
+            border-top-width: 2px;
+        }
+    }
+
+    &.sm {
+        .loader {
+            width: 24px;
+            height: 24px;
+            border-width: 3px;
+            border-top-width: 3px;
+        }
+    }
+
+    &.app-spinner {
+        background: rgba(255, 255, 255, 0.25);
+        position: fixed;
+
+        .app-loader {
+            background: $preload;
+            width: 60px;
+            height: 60px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+
+.spinner-wrapper {
+    position: relative;
+}
+
+.overlay-loading {
+    z-index: 999;
+    color: $primary;
+
+    &.absolute {
+        position: absolute;
+
+        &.fixed-top {
+            align-items: flex-start;
+            padding-top: 150px;
+        }
+    }
+
+    &.remain {
+        position: relative;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.switch {
+    &.enable {
+        background-color: $primary;
+    }
+}
+
+.disabled-content {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+// For marked pipe
+span {
+    p {
+        margin-bottom: 0px !important;
+    }
+}
+
+.is--greater-equal {
+    .netto2 {
+        font-weight: bold;
+    }
+}
+
+.is--less {
+    .netto1 {
+        text-decoration: line-through;
+    }
+
+    .netto1 {
+        font-weight: normal;
+    }
+
+    .netto2,
+    .discount-2 {
+        color: red;
+    }
+}
+
+.w-33-p {
+    width: calc(100%/3);
+}
+
+.or-line {
+    margin-bottom: 20px;
+
+    .text {
+        font-size: 13px;
+        color: #666666;
+        margin: 0 10px;
+    }
+}
+
+.form-group + .or-line {
+    padding: 0 15px;
+}

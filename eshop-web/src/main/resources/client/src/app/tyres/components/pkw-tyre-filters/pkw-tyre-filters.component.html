@@ -1,0 +1,280 @@
+<div [formGroup]="form">
+    <div class="row py-2">
+        <div class="col-6 d-flex align-items-center">
+            <span class="label">{{'SEARCH.SEARCH_TYRES.SEASON' | translate}}</span>
+        </div>
+        <div class="col-6">
+            <ng-select
+                class="ng-select-filter"
+                formControlName="season"
+                [items]="data.content.seasons"
+                (change)="onUpdateFilter()"
+                [clearable]="false"
+                bindValue="value" data-automation="tyre-dropdown-season">
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    {{ item.label | translate }}
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 d-flex align-items-center">
+            <span class="label">{{'SEARCH.SEARCH_TYRES.WIDTH' | translate}} /
+                {{'SEARCH.SEARCH_TYRES.CROSS_SECTION' | translate}} / {{'SEARCH.SEARCH_TYRES.DIAMETER' | translate}}*
+            </span>
+        </div>
+        <div class="col-6">
+            <div class="row no-gutters">
+                <div class="col-4 pr-2">
+                    <input #inputWidth type="text" formControlName="inputWidth" class="form-control"
+                        [maxlength]="maxLengthWidth" (keyup.enter)="onDimensionInputEnter()" data-automation="tyre-input-width">
+                </div>
+                <div class="col-4 px-1">
+                    <input #inputHeight type="text" formControlName="inputHeight" class="form-control"
+                        [maxlength]="maxLengthHeight" (keydown)="allowDecimalNumber($event, 'decimalNumber')"
+                        (keyup.enter)="onDimensionInputEnter()" data-automation="tyre-input-height">
+                </div>
+                <div class="col-4 pl-2">
+                    <input #inputRadius type="text" formControlName="inputRadius" class="form-control"
+                        [maxlength]="maxLengthRadius" (keydown)="onDimensionInputKeydown($event,'number')"
+                        (keyup.enter)="onDimensionInputEnter()" data-automation="tyre-input-radius">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 offset-6">
+            <div class="row no-gutters">
+                <div class="col-4 pr-2">
+                    <ng-select
+                        class="ng-select-filter"
+                        #widthSelect
+                        formControlName="width"
+                        [items]="data.content.widths"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false" bindValue="value"
+                        (search)="onFiltering($event, 'width', widthSelect, heightSelect)" data-automation="tyre-dropdown-width">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+                <div class="col-4 px-1">
+                    <ng-select
+                        class="ng-select-filter"
+                        #heightSelect
+                        formControlName="height"
+                        [items]="data.content.heights"
+                        (search)="onFiltering($event, 'height', heightSelect, radiusSelect)"
+                        (change)="onUpdateFilter()"
+                        [clearable]="false"
+                        bindValue="value" data-automation="tyre-dropdown-height">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+                <div class="col-4 pl-2">
+                    <ng-select
+                        class="ng-select-filter"
+                        #radiusSelect
+                        formControlName="radius"
+                        [items]="data.content.radiuses"
+                        (change)="onUpdateFilter()"
+                        (search)="onFiltering($event, 'radius', radiusSelect, null)"
+                        [clearable]="false"
+                        bindValue="value" data-automation="tyre-dropdown-radius">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{ item.label | translate }}
+                        </ng-template>
+                        <ng-template ng-option-tmp let-item="item" let-index="index">
+                            {{ item.label | translate }}
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 d-flex align-items-center">
+            <span class="label">{{'SEARCH.SEARCH_TYRES.SPEED_INDEX' | translate}}</span>
+        </div>
+        <div class="col-6">
+            <ng-select
+                class="ng-select-filter"
+                formControlName="speedIndex"
+                [items]="data.content.speed_indexes"
+                (change)="onUpdateFilter()"
+                [clearable]="false"
+                bindValue="value" data-automation="tyre-dropdown-speed-index">
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    {{ item.label | translate }}
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 d-flex align-items-center">
+            <span class="label">{{'SEARCH.SEARCH_TYRES.LOAD_INDEX' | translate}}</span>
+        </div>
+        <div class="col-6">
+            <ng-select
+                class="ng-select-filter"
+                formControlName="loadIndex"
+                [items]="data.content.load_indexs"
+                (change)="onUpdateFilter()"
+                [clearable]="false"
+                bindValue="value" data-automation="tyre-dropdown-load-index">
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    {{ item.label | translate }}
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 d-flex align-items-center">
+            <span class="label">{{'SEARCH.SEARCH_TYRES.TYRE_SEGMENT' | translate}}</span>
+        </div>
+        <div class="col-6">
+            <ng-select
+                class="ng-select-filter"
+                formControlName="tyreSegment"
+                [items]="data.content.tyre_segments"
+                (change)="onUpdateFilter()"
+                [clearable]="false"
+                bindValue="value" data-automation="tyre-dropdown-segment">
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    {{ item.label | translate }}
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 d-flex align-items-center">
+            <span class="label">{{'SEARCH.SEARCH_TYRES.MANUFACTURER' | translate}}</span>
+        </div>
+        <div class="col-6">
+            <ng-select
+                class="ng-select-filter"
+                formControlName="supplier"
+                [items]="data.content.suppliers"
+                (change)="onUpdateFilter()"
+                [clearable]="false"
+                bindValue="value" data-automation="tyre-dropdown-supplier">
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    {{ item.label | translate }}
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 d-flex align-items-center">
+            <span class="label">{{'SEARCH.SEARCH_TYRES.FZ_CATEGORY' | translate}}</span>
+        </div>
+        <div class="col-6">
+            <ng-select
+                class="ng-select-filter"
+                formControlName="fzCategory"
+                [items]="data.content.fz_categories"
+                (change)="onUpdateFilter()"
+                [clearable]="false"
+                bindValue="value" data-automation="tyre-dropdown-fz-category">
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    {{ item.label | translate }}
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-6 offset-6 d-flex">
+            <div class="form-group form-check mr-3 mb-0">
+                <input class="form-check-input mt-0" type="checkbox" formControlName="runflat" id="runflat-pkw-check" data-automation="tyre-checkbox-runflat"
+                    (change)="onUpdateFilter()">
+                <label class="form-check-label" for="runflat-pkw-check">
+                    {{ 'SEARCH.SEARCH_TYRES.RUNFLAT' | translate }}
+                </label>
+            </div>
+            <div class="form-group form-check mb-0">
+                <input class="form-check-input mt-0" type="checkbox" formControlName="spike" data-automation="tyre-checkbox-spike"
+                    (change)="onUpdateFilter()" id="spike-pkw-check">
+                <label class="form-check-label" for="spike-pkw-check">
+                    {{ 'SEARCH.SEARCH_TYRES.SPIKE' | translate }}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="my-3 border-bottom"></div>
+    <div class="py-2">
+        <div class="row">
+            <div class="col-12 form-group d-flex justify-content-between">
+                <button class="btn btn-secondary min-width-90-px" data-automation="tyre-button-reset"
+                    (click)="onReset()">{{'SEARCH.SEARCH_TYRES.RESET' | translate}}</button>
+                <sag-common-save-button
+                    [disabled]="isSearchTyreDisabled()"
+                    [loading]="loading"
+                    [hideTextOnLoading]="true"
+                    [css]="'btn-primary btn-view-article'"
+                    [text]="('SEARCH.SEARCH_TYRES.SHOW_ALL_ARTICLES' | translate) + ' [ ' + (data.totalElements || 0) + ' ]'"
+                    (save)="onSearch()" name="tyre-button-search">
+                </sag-common-save-button>
+            </div>
+            <div class="col-12 d-flex flex-column align-items-center relative my-2 additional-line">
+                <div class="w-100 border-bottom"></div>
+                <div class="text px-4 font-weight-bold absolute bg-white">{{'SEARCH.OR' | translate}}</div>
+            </div>
+            <div class="col-12 d-flex form-group">
+                <sag-common-message *ngIf="matchCodeArticleOverLimit" [message]="'SEARCH.SEARCH_TYRES.MATCH_CODE_ARTICLE_OVER_LIMIT'" type="ERROR"></sag-common-message>
+            </div>
+            <div class="col-12 d-flex form-group">
+                <div class="flex-grow-1 position-relative mr-3">
+                    <input class="form-control" type="text" formControlName="matchCode" (keyup.enter)="matchCodeSearch.onSave()"
+                        placeholder="{{'SEARCH.SEARCH_TYRES.MATCH_CODE' | translate}}" data-automation="tyre-input-match-code">
+                    <div class="d-flex position-absolute align-items-center px-2 h-100 btn-code-info">
+                        <i class="fa fa-question-circle btn-icon mr-0" [popover]="matchCodePopover" [outsideClick]="true"
+                            aria-hidden="true" #pop="bs-popover"></i>
+                    </div>
+                    <ng-template #matchCodePopover>
+                        <div>
+                            <h4 class="pb-2 border-bottom border-primary">
+                                {{'SEARCH.SEARCH_TYRES.INPUT_EXAMPLE' | translate}}</h4>
+                            <div>
+                                <ul class="mathcode-example px-5">
+                                    <li *ngFor="let item of EXAMPLE_MATCH_CODES"
+                                        (click)="pop.hide(); setMatchCode(item)">
+                                        <a href="javascript:void(0)" class="text-dark">{{ item }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+                <sag-common-save-button (save)="searchTyreByMatchCode($event)" text='SEARCH.SEARCH_BUTTON' #matchCodeSearch
+                    name="tyre-button-match-code-search"></sag-common-save-button>
+            </div>
+        </div>
+    </div>
+</div>

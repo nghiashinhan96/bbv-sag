@@ -1,0 +1,88 @@
+<sag-advance-vehicle-search-breadcumb *ngIf="breadcrumbs.length > 0" [breadcrumbs]="breadcrumbs">
+</sag-advance-vehicle-search-breadcumb>
+<div class="avs-models-wrapper" *ngIf="quickSelectionList.length > 0 && modelSeriesGroupList.length > 0">
+    <p class="avs-models-top-header">{{'ADVANCE_VEHICLE_SEARCH.HEADER' | translate}}</p>
+    <div class="avs-models-year-filter d-flex flex-column">
+        <div class="title">{{'ADVANCE_VEHICLE_SEARCH.FILTER_BY_YEAR' | translate}}</div>
+        <ng-select [items]="yearFilterList" class="ng-select-filter" bindLabel="label" bindValue="value"
+            [(ngModel)]="yearFrom" notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}"
+            loadingText="{{'SEARCH.LOADING' | translate}}" (change)="filterByYear()" [clearable]="false"
+            [searchable]="yearFilterList.length > 10">
+        </ng-select>
+    </div>
+    <div class="avs-models-quick-wrapper" [ngClass]="'cols-' + quickSelectionColumns">
+        <p class="avs-models-header">{{'ADVANCE_VEHICLE_SEARCH.QUICK_SELECTION' | translate}}</p>
+        <div class="d-flex">
+            <ng-container *ngFor="let item of quickSelectionArray$ | async">
+                <ng-container [ngTemplateOutlet]="quickSelection" [ngTemplateOutletContext]="{data: item}">
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <div class="avs-models-group">
+        <p class="avs-models-header">{{'ADVANCE_VEHICLE_SEARCH.MODELS' | translate}}</p>
+        <div class="avs-model-series-labels d-flex justify-content-between"
+            [ngClass]="'cols-' + modelSeriesGroupListColumn" [class.hidden-last]="modelSeriesGroupList.length === 1">
+            <ng-container *ngFor="let item of modelSeriesGroupListLoopCount">
+                <div class="d-flex justify-content-between">
+                    <p>{{'ADVANCE_VEHICLE_SEARCH.MODEL_SERIES' | translate}}</p>
+                    <p>{{'ADVANCE_VEHICLE_SEARCH.MODEL_YEAR' | translate}}</p>
+                </div>
+            </ng-container>
+        </div>
+        <div class="avs-model-group-wrapper d-flex" [ngClass]="'cols-' + modelSeriesGroupListColumn">
+            <ng-container *ngFor="let item of modelSeriesGroupArray$ | async">
+                <ng-container [ngTemplateOutlet]="modelSeriesGroup" [ngTemplateOutletContext]="{data: item}">
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template let-data="data" #quickSelection>
+    <div class="avs-models-quick">
+        <div class="avs-quick-selection-list d-flex flex-column">
+            <ng-container *ngFor="let item of data">
+                <a href="javascript:void(0)" class="avs-quick-selection-item" (click)="scrollToGroup(item)">
+                    <span class="d-flex align-items-center">
+                        <i class="fa fa-arrow-down icon" aria-hidden="true"></i>
+                        {{item}}
+                    </span>
+                </a>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template let-data="data" #modelSeriesGroup>
+    <div class="avs-model-series-list d-flex flex-column">
+        <ng-container *ngIf="data?.length > 0">
+            <ng-container *ngFor="let group of data">
+                <div>
+                    <p [id]="'group-' + group.series" class="avs-models-group-title">{{group.series}}</p>
+                    <div class="avs-models-group-list d-flex flex-column">
+                        <ng-container *ngFor="let model of group.models">
+                            <a href="javascript:void(0)" (click)="navigateToTypesList(model)"
+                                class="avs-models-group-item d-flex align-items-center justify-content-between">
+                                <span class="label">{{model.label}}</span>
+                                <span class="right d-flex align-items-center justify-content-end">
+                                    <span class="year" [class.no-image]="!model.img">{{model.year}}</span>
+                                    <i *ngIf="model.img" class="fa fa-camera icon-camera" aria-hidden="true"
+                                        [popover]="popoverRef" [delay]="popoverDelay" container="body"
+                                        triggers="mouseenter:mouseleave" containerClass="model-image-popover"
+                                        placement="left"></i>
+                                    <ng-template #popoverRef>
+                                        <div class="model-image-popover-wrapper">
+                                            <img class="model-img" [src]="model.img" alt="model.label">
+                                            <p class="model-label">{{model.label}}</p>
+                                        </div>
+                                    </ng-template>
+                                </span>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</ng-template>

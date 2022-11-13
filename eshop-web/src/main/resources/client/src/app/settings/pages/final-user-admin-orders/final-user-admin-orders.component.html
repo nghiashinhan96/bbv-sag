@@ -1,0 +1,21 @@
+<div class="mt-3 orders">
+    <sag-table mode="online" [columns]="columns" [searchModel]="searchModel" [page]="page" [sort]="sort"
+        [notFoundText]="'MESSAGE_SEARCH_NOT_FOUND.ORDER_HISTORY'"
+        [firstlySearch]="false" (searchData)="searchTableData($event)"></sag-table>
+</div>
+
+<ng-template let-value="value" #dateTemplate>
+    {{ value | orderDatePipe}}
+</ng-template>
+
+<ng-template let-value="value" #statusTemplate>
+    {{ value ? ('SETTINGS.FINAL_USER_ORDER.FILTER.' + value | translate) : '' }}
+</ng-template>
+
+<ng-template let-row="row" #viewDetailTemplate>
+    <a (click)="onViewOrderDetail($event,row)" class="btn-icon btn-eye"><i class="fa fa-search"></i></a>
+</ng-template>
+
+<ng-container *ngIf="orderDetail">
+    <connect-final-user-admin-order-detail #orderHistoryDetail [orderDetail]="orderDetail" (addToCart)="addToShoppingBasket($event)"></connect-final-user-admin-order-detail>
+</ng-container>

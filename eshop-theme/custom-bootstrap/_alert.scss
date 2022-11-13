@@ -1,0 +1,9 @@
+.alert {
+  padding: $spacer;
+  width: 100%;
+  border-radius: 4px;
+
+  &.alert-danger {
+    color: $message-color-danger;
+  }
+}

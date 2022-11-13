@@ -1,0 +1,50 @@
+spring.profiles: gtmotive-sb-prod
+
+external:
+  webservice:
+    ## production: bestellung@normauto.ch
+    normautoAddress: bestellung@normauto.ch
+# GTMotive connection
+    gtmotive:
+      url: https://estimate.mygtmotive.com/webservice/GtInterfaceWS.asmx
+      multilang: true
+      accounts:
+        de:
+          clientid: SAG_RO
+          userid: ctlgprode
+          password: FC3306DA3A
+          gsId: SGS029700N
+        ro:
+          clientid: SAG_RO
+          userid: ctlgproro
+          password: FC3306DA3A
+          gsId: SGS029700N
+        en:
+          clientid: SAG_RO
+          userid: ctlgproen
+          password: FC3306DA3A
+          gsId: SGS029700N
+    vehicle:
+      url: https://wsgtisecure.gtestimate.com/WSGtVehicleInformationService.svc
+      gsId: SGS029700N
+      password: FC3306DA3A
+      customerId: SAG_RO
+      userId: wsuserpro
+    gtmotive-main-module:
+      url: https://wsgti.gtestimate.com/WSGtService.svc
+      accounts:
+        de:
+          clientid: SAG_RO
+          userid: wsuserprode
+          password: FC3306DA3A
+          gsId: SGS029700N
+        ro:
+          clientid: SAG_RO
+          userid: wsuserproro
+          password: FC3306DA3A
+          gsId: SGS029700N
+        en:
+          clientid: SAG_RO
+          userid: wsuserproen
+          password: FC3306DA3A
+          gsId: SGS029700N

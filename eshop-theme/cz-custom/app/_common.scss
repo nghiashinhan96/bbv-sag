@@ -1,0 +1,22 @@
+.st-cz, .eh-cz, .eh-ax-cz {
+    .avail-state {
+        font-weight: 500;
+        
+        &-2 {
+            color: #02ad02;
+        }
+        &-3 {
+            color: #00aeef;
+        }
+        &-4 {
+            color: #ff161f;
+        }
+        &-5 {
+            color: #f7941d;
+        }
+    }
+
+    .regular-price {
+        text-decoration: line-through;
+    }
+}

@@ -1,0 +1,61 @@
+# ************************************************************************
+# This is the Autonet configuration of RESTful application for Production mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - Proxy - 
+# - Media Server - 
+# - Java Melody Monitoring - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  autonet-erp-prod,
+  incentive-prod,
+  gtmotive-ch-prod,
+  mdm-prod,
+  mail-prod,
+  elasticsearch-customization-prod,
+  db-prod,
+  executor-pool-prod,
+  no-liquibase,
+  logging-autonet-prod-cloud,
+  actuator,
+  cache-prod,
+  analytics-prod-cloud,
+  country-autonet,
+  no-proxy,
+  media-server,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_autonet.txt
+
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      host: http://localhost:8080/auth-server-autonet
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: autonet-rest
+      clientSecret: autonet-rest-yztAhGpFW
+
+license:
+  vin:
+    minimumOrder: 150

@@ -1,0 +1,61 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_219_ALTER_INVOICE_HISTORY_COLUMNS_SIZE">
+      <sql>
+    	DROP INDEX IF EXISTS IDX_INVOICE_HISTORY_INVOICE_NR ON dbo.INVOICE_HISTORY
+    	ALTER TABLE INVOICE_HISTORY ALTER COLUMN INVOICE_NR bigint
+    	ALTER TABLE INVOICE_HISTORY ALTER COLUMN ORDER_NR bigint
+    	ALTER TABLE INVOICE_HISTORY ALTER COLUMN DELIVERY_NR bigint
+    	ALTER TABLE INVOICE_HISTORY_POSITION ALTER COLUMN INVOICE_NR bigint
+    	CREATE NONCLUSTERED INDEX IDX_INVOICE_HISTORY_INVOICE_NR ON dbo.INVOICE_HISTORY (  INVOICE_NR ASC  )  
+		 WITH (  PAD_INDEX = OFF ,FILLFACTOR = 100  ,SORT_IN_TEMPDB = OFF , IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON  )
+		 ON [PRIMARY ]
+	  </sql>
+    </changeSet>
+    <changeSet author="CONNECT_APP"
+               id="ITER_219_ADD_NEW_COLUMNS_FOR_ESHOP_CART_ITEM">
+        <sql>
+            IF NOT EXISTS (SELECT 1 FROM sys.columns
+			WHERE Name =
+			N'BASKET_ITEM_SOURCE_ID'
+			AND Object_ID = Object_ID(N'ESHOP_CART_ITEM'))
+            BEGIN
+            ALTER TABLE [dbo].[ESHOP_CART_ITEM] ADD BASKET_ITEM_SOURCE_ID varchar(256) null
+            END
+
+            IF NOT EXISTS (SELECT 1 FROM sys.columns
+			WHERE Name =
+			N'BASKET_ITEM_SOURCE_DESC'
+			AND Object_ID = Object_ID(N'ESHOP_CART_ITEM'))
+            BEGIN
+            ALTER TABLE [dbo].[ESHOP_CART_ITEM] ADD BASKET_ITEM_SOURCE_DESC varchar(256) null
+            END
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP"
+               id="ITER_219_ADD_COLUMNS_LAST_UPDATE_FOR_OFFER_POSITION">
+        <sql>
+            IF NOT EXISTS (SELECT 1 FROM sys.columns
+			WHERE Name =
+			N'BASKET_ITEM_SOURCE_ID'
+			AND Object_ID = Object_ID(N'OFFER_POSITION'))
+            BEGIN
+            ALTER TABLE [dbo].[OFFER_POSITION] ADD BASKET_ITEM_SOURCE_ID varchar(256) null
+            END
+
+            IF NOT EXISTS (SELECT 1 FROM sys.columns
+			WHERE Name =
+			N'BASKET_ITEM_SOURCE_DESC'
+			AND Object_ID = Object_ID(N'OFFER_POSITION'))
+            BEGIN
+            ALTER TABLE [dbo].[OFFER_POSITION] ADD BASKET_ITEM_SOURCE_DESC varchar(256) null
+            END
+        </sql>
+    </changeSet>
+  
+</databaseChangeLog>

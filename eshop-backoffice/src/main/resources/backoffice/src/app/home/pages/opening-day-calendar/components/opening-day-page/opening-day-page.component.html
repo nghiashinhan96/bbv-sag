@@ -1,0 +1,122 @@
+<h3 class="row section-title">
+    {{ 'OPENING_DAY.OPENING_DAY_TITLE' | translate }}
+</h3>
+<div class="row">
+    <backoffice-opening-day-date-filter (searchEvent)="searchWithDateRange($event)"
+        (searchWithSelectedDay)="searchWithSelectedDay($event)"
+        (searchWithPredefinedRange)="searchWithPredefinedRange($event)" class="w-100">
+    </backoffice-opening-day-date-filter>
+</div>
+<div class="row">
+    <backoffice-opening-day-list [workingCodes]="workingCodes" [openingDayList]="openingDayList"
+        [itemsPerPage]="itemsPerPage" [totalElements]="totalElements"
+        [resetFilterEvent]="resetFilterEvent.asObservable()" (filterWorkingCode)="filterWithWorkingCode($event)"
+        (filterTyping)="filterTyping($event)" (sortEvent)="sortWith($event)" (pageEvent)="goToPage($event)"
+        (delete)="deleteOpeningDayItem($event)" (tableSearch)="searchTableData($event)">
+    </backoffice-opening-day-list>
+</div>
+<div class="col-12 create-btn-container">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#opening-day-imported-modal"
+        (click)="openUploadModal()">
+        <i class="fa fa-upload mr-1"></i>
+        <span>{{'OPENING_DAY.IMPORT_CALENDAR_FILE' | translate }}</span>
+    </button>
+    <button class="btn btn-primary opening-day-create-btn ml-1" routerLink="./create">
+        {{ 'OPENING_DAY.CREATE_OPENING_DAY_LABEL' | translate }}
+    </button>
+</div>
+
+<ng-template #deletingModal>
+    <div class="modal-delete-confirm" tabindex="-1" role="dialog">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">
+                {{'OPENING_DAY.DELETE_TITLE' | translate}}
+            </h4>
+            <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="closeDeleteModal()"
+                aria-hidden="true">
+            </i>
+        </div>
+        <div class="modal-body">
+            <div class="messages">
+                <table>
+                    <tr>
+                        <td>
+                            <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                {{ 'OPENING_DAY.DELETE_CONFIRM' | translate}} :
+                                <strong>
+                                    {{ selectedOpeningDay?.date | date:'dd.MM.yyyy' }} -
+                                    {{ 'OPENING_DAY.' + selectedOpeningDay?.workingDayCode | translate }} -
+                                    {{ selectedOpeningDay?.countryName }}
+                                </strong>
+                                ?
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div *ngIf="noticeMessage" class="col-12 alert mt-40"
+                [ngClass]="{'alert-success': isSuccessful, 'alert-danger': !isSuccessful}">
+                {{ noticeMessage | translate}}
+            </div>
+        </div>
+        <div class="modal-footer button-right">
+            <button class="btn btn-default pull-right" aria-label="Close" (click)="closeDeleteModal()">
+                {{'COMMON.BUTTON.NO' | translate}}
+            </button>
+            <button class="btn btn-primary pull-right ml-10" (click)="remove()">
+                {{'COMMON.BUTTON.YES' | translate}}
+            </button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #importModal>
+    <div class="modal-import-confirm" role="dialog">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                (click)="closeUploadModal()"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">
+                {{'OPENING_DAY.IMPORT_TITLE' | translate}}
+            </h4>
+        </div>
+        <div class="modal-body import-modal-body">
+            <div class="row">
+                <div class="col-7">
+                    <input type="file" class="pull-left" id="{{preFixName}}-input-file" accept=".csv,text/csv"
+                        (change)="getFile($event)" #fileUpload />
+                    <div class="input-outer">
+                        <label for="{{preFixName}}-input-file">
+                            <span class="file-text" [innerHTML]="fileName ? fileName : label"></span>
+                            <span class="browse-btn">
+                                {{'COMMON.BUTTON.CHOOSE_FILE' | translate}}
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <button class="btn btn-primary pull-right ml-10" [disabled]="isNotOverride"
+                        (click)="overrideImport()">
+                        {{'COMMON.BUTTON.OVERRIDE' | translate}}
+                    </button>
+                    <button class="btn btn-primary pull-right" [disabled]="isNotImported" (click)="uploadFile()">
+                        {{'COMMON.BUTTON.IMPORT' | translate}}
+                    </button>
+                </div>
+            </div>
+            <div class="progress opening-upload-bar mt-20" *ngIf="isUploading">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0"
+                    aria-valuemax="100"
+                    [ngClass]="{ 'progress-bar-success': isUploaded, 'progress-bar-danger': !isUploaded }"
+                    [ngStyle]="{ 'width': uploadPercentage + '%'}">
+                </div>
+            </div>
+            <div class="row import-error">
+                <div *ngIf="uploadMessage" class="col-12 alert mt-20"
+                    [ngClass]="{'alert-success': isUploaded, 'alert-danger': !isUploaded}"
+                    [innerHTML]="uploadMessage | translate">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>

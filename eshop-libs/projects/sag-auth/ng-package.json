@@ -1,0 +1,19 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/sag-auth",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "ngx-bootstrap": "ngx-bootstrap",
+      "ngx-bootstrap/modal": "ngx-bootstrap/modal",
+      "ngx-bootstrap/tabs": "ngx-bootstrap/tabs",
+      "@ngx-translate/core": "@ngx-translate/core",
+      "@ng-select/ng-select": "@ng-select/ng-select",
+      "ngx-webstorage": "ngx-webstorage",
+      "sag-common": "sag-common",
+      "uuid/v4": "uuid/v4",
+      "subsink": "subsink",
+      "jwt-decode": "jwt-decode"
+    }
+  }
+}

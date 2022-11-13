@@ -1,0 +1,81 @@
+<ng-container *ngIf="article.priceRequested; else loadingRef">
+    <div [popover]="popoverRef" #pop="bs-popover" [outsideClick]="true" container="body" class="d-flex flex-column w-100"
+        triggers="mouseenter:mouseleave" containerClass="article-avail-popover" [delay]="popoverDelay">
+        <div class="text-center" *ngIf="type === priceType.LIST_PRICE">
+            <ng-container *ngIf="isShowVat; else showGrossPriceRef">
+                <div *ngIf="article?.getGrossPrice(); else artWithoutPrice">
+                    {{article?.getGrossPrice() | sagCurrency}}
+                </div>
+                <div *ngIf="article?.getGrossPrice(true)">
+                    ({{(article?.getGrossPrice(true)) | sagCurrency}})
+                </div>
+            </ng-container>
+        </div>
+        <ng-container *ngIf="isShowNetPrice">
+            <div class="text-center" [class.has-discount]="!isEhCz && article?.getDiscountPrice()"
+                *ngIf="type === priceType.CUSTOMER_PRICE">
+                <ng-container *ngIf="isEhCz; else defaultPriceTemplate">
+                    <ng-container *ngIf="isShowVat; else showFCNetPriceRef">
+                        <div *ngIf="article?.finalCustomerNetPrice; else artWithoutPrice">
+                            {{article?.finalCustomerNetPrice | sagCurrency}}
+                        </div>
+                        <div *ngIf="article?.finalCustomerNetPriceWithVat">
+                            ({{(article?.finalCustomerNetPriceWithVat) | sagCurrency}})
+                        </div>
+                    </ng-container>
+                </ng-container>
+                <ng-template #defaultPriceTemplate>
+                    <ng-container *ngIf="isShowVat; else showNetPriceRef">
+                        <div *ngIf="article?.getNetPrice(); else artWithoutPrice">
+                            {{article?.getNetPrice() | sagCurrency}}
+                        </div>
+                        <div *ngIf="isShowVat && article?.getNetPrice(true)">
+                            ({{(article?.getNetPrice(true)) | sagCurrency}})
+                        </div>
+                    </ng-container>
+
+                    <div *ngIf="article?.getDiscountPrice()" class="regular-price">
+                        ({{article?.getDiscountPrice() | sagCurrency}})
+                    </div>
+                </ng-template>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-template #popoverRef>
+    <sag-article-detail-avail-popup [article]="article" [popupRef]="pop" [availabilities]="article.availabilities"
+        [userSetting]="userSetting" [availTemplateRef]="popoverContentTemplateRef">
+    </sag-article-detail-avail-popup>
+</ng-template>
+
+<ng-template #popoverContentRef>
+    <connect-cz-avail-popover-content [article]="article" [currency]="currency"></connect-cz-avail-popover-content>
+</ng-template>
+
+<ng-template #loadingRef>
+    <i class="fa fa-spinner fa-spin fa-fw text-success"></i>
+</ng-template>
+
+<ng-template #showGrossPriceRef>
+    <div *ngIf="article?.getGrossPrice(currentStateVatConfirm); else artWithoutPrice">
+        {{article?.getGrossPrice(currentStateVatConfirm) | sagCurrency}}
+    </div>
+</ng-template>
+
+<ng-template #showNetPriceRef>
+    <div *ngIf="article?.getNetPrice(currentStateVatConfirm); else artWithoutPrice">
+        {{article?.getNetPrice(currentStateVatConfirm) | sagCurrency}}
+    </div>
+</ng-template>
+
+<ng-template #showFCNetPriceRef>
+    <div *ngIf="article?.getFinalCustomerNetPrice(userSetting, currentStateVatConfirm); else artWithoutPrice">
+        {{article?.getFinalCustomerNetPrice(userSetting, currentStateVatConfirm) | sagCurrency}}
+    </div>
+</ng-template>
+
+<ng-template #artWithoutPrice>
+    <span class="col-art-without-price" id="col-artWithoutPrice-{{article.artnr}}">
+        {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}</span>
+</ng-template>

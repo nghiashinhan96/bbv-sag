@@ -1,0 +1,43 @@
+<div class="modal-delete-confirm" tabindex="-1" role="dialog">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ modalTitle | translate}}</h4>
+        <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="hideDeleteModal()"
+            aria-hidden="true">
+        </i>
+    </div>
+    <div class="modal-body">
+        <div class="messages">
+            <table>
+                <tr>
+                    <td>
+                        <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                            {{ deleteMessage | translate}} {{ deleteItemName }}?
+                        </p>
+                    </td>
+                </tr>
+                <tr *ngIf="noticeMessage">
+                    <td>
+                        <p class="col-12 alert alert-success">
+                            {{ noticeMessage | translate}}
+                        </p>
+                    </td>
+                </tr>
+                <tr *ngIf="errorMessage">
+                    <td>
+                        <p class="col-12 alert alert-success">
+                            {{ errorMessage | translate}}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer button-right">
+        <button class="btn btn-default pull-right" aria-label="Close" (click)="hideDeleteModal()">
+            {{'COMMON.BUTTON.NO' | translate}}
+        </button>
+        <button class="btn btn-primary pull-right" (click)="confirmDelete()">
+            {{'COMMON.BUTTON.YES' | translate}}
+        </button>
+    </div>
+</div>

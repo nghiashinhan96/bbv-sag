@@ -1,0 +1,15 @@
+spring.profiles.include: cache-members
+app:
+  cache:
+    managementCenter:
+      enabled: false
+      update-interval: 3
+      url: 
+    tcpConfig:
+      enabled: true
+    query:
+      pool-size: 100
+      queue-capacity: 1000
+    cart:
+      write-delay-seconds: 5
+      write-batch-size: 200

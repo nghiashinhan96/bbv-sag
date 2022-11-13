@@ -1,0 +1,21 @@
+external:
+  webservice:
+    thule:
+      endpoint: https://www.thule.com/{language}-{country}/buyers-guide?dealerId={dealerId}
+      dealer-id-map:
+        derendinger-at-c4s: 
+        matik-at-c4s: test-maktik-at-c4s
+        derendinger-ch-c4s: 5500089A-78BB-4F72-BE54-C08506255AB8
+        technomag-c4s: tmc4s-5500089A-78BB-4F72-BE54-C08506255AB
+        matik-ch-c4s: mtchc4s-5500089A-78BB-4F72-BE54-C08506255AB
+        wbb-c4s: wbbc4s-5500089A-78BB-4F72-BE54-C08506255AB
+        rbe-c4s: rbec4s-5500089A-78BB-4F72-BE54-C08506255AB
+        eh-ch: ehch-5500089A-78BB-4F72-BE54-C08506255AB
+        eh-at: ehat-5500089A-78BB-4F72-BE54-C08506255AB
+        derendinger-at: ddat-5500089A-78BB-4F72-BE54-C08506255AB
+        matik-at: mtat-5500089A-78BB-4F72-BE54-C08506255AB
+        derendinger-ch: 5500089A-78BB-4F72-BE54-C08506255AB8
+        technomag: tm-5500089A-78BB-4F72-BE54-C08506255AB
+        matik-ch: mtch-5500089A-78BB-4F72-BE54-C08506255AB
+        wbb: wbb-5500089A-78BB-4F72-BE54-C08506255AB
+        rbe: rbe-5500089A-78BB-4F72-BE54-C08506255AB

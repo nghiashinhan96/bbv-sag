@@ -1,0 +1,38 @@
+# ************************************************************************
+# This is the Autonet configuration of DVSE(SOAP) application for Development mode.
+# 
+# Required Common configuration:
+# - Elasticsearch -
+# - ERP -
+# - MDM for DVSE service - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Caching - 
+# - Incentive - 
+# - SOAP - 
+# - Country Code - 
+# -  Proxy - 
+# - Java Melody Monitoring - 
+#
+# ************************************************************************
+spring.profiles.include:
+  elasticsearch-dev,
+  mail-dev,
+  autonet-erp-pre,
+  mdm-prod,
+  db-dev,
+  executor-pool,
+  no-liquibase,
+  logging-autonet-dev,
+  actuator,
+  sba-client-ch-dev,
+  cache-dev,
+  incentive-dev,
+  soap,
+  country-autonet,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_autonet.txt

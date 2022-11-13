@@ -1,0 +1,15 @@
+{
+	"articleId": "1000082238",
+	"quantity": 1,
+	"immediateDelivery": false,
+	"arrivalTime": "2021-09-17T04:15:00Z",
+	"sendMethodCode": "TOUR",
+	"availState": 10,
+	"availStateColor": "IN_24_HOURS",
+	"sofort": false,
+	"externalSource": false,
+	"venExternalSource": false,
+	"conExternalSource": false,
+	"formattedCETArrivalTime": "06:15",
+	"formattedCETArrivalDate": "17.09.2021"
+}

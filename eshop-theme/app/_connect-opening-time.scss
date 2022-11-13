@@ -1,0 +1,72 @@
+connect-opening-time {
+    .time-picker {
+        tr {
+            background-color: white !important;
+            td {
+                padding: 0px !important;
+                border-top: 0;
+                vertical-align: middle;
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    .table {
+        table-layout: fixed;
+    }
+}
+
+.time-picker-containter {
+    position: relative;
+
+    &.has-error {
+        input {
+            border-color: $message-color-danger;
+        }
+    }
+
+    .time-picker {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        font-size: 22px;
+        cursor: pointer;
+        color: #999;
+
+        &:hover {
+            color: #333;
+        }
+    }
+
+    .time-picker-content {
+        position: absolute;
+        right: 15px;
+        z-index: 100;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        width: 86%;
+
+        .time-picker-list {
+            list-style-type: none;
+            overflow-y: auto;
+            max-height: 200px;
+            width: 175px;
+            width: 100%;
+            padding-left: 0px;
+
+            .time-picker-item {
+                padding: 10px 5px;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #999;
+                }
+            }
+        }
+    }
+}

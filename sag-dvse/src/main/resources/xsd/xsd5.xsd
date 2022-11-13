@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/customer">
+
+<xs:simpleType name="customertype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="RETAIL"/>
+<xs:enumeration value="WHOLESALE"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,82 @@
+<ng-container *ngIf="isAT || isCH; else otherVehicleSearchTmp">
+    <div class="vehicle-search-wrapper-container">
+        <tabset [justified]="true">
+            <tab heading="{{(isAT ? 'SEARCH.VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB_AT' : 'SEARCH.VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB') | translate}}" id="vehicle-search-tab">
+                <ng-container *ngIf="isAT">
+                    <sag-advance-search-vehicle (navigateToModelPageEventEmitter)="onNavigateToModelPage($event)">
+                    </sag-advance-search-vehicle>
+                    <div class="or-line d-flex align-items-center flex-grow-1">
+                        <div class="border-bottom flex-grow-1"></div>
+                        <div class="text">{{ 'SEARCH.OR' | translate }}</div>
+                        <div class="border-bottom flex-grow-1"></div>
+                    </div>
+                </ng-container>
+                <sag-search-vehicle [customerNumber]="customerNumber" [hasVinSearchPermission]="hasVinSearchPermission"
+                    [isSalesOnBeHalf]="isSalesOnBeHalf" [isFinalUserRole]="isFinalUserRole" [language]="language"
+                    [autoFilledVinValue]="autoFilledVinValue"
+                    (vinPackagePurchaseEmitter)="onVinPackagePurchaseEmit($event)"
+                    (vehicleSearchEmitter)="onVehicleSearchEmit($event)"
+                    (vehicleSearchEventEmitter)="onVehicleSearchEventEmit($event)" [dmsSearchQuery]="dmsSearchQuery">
+                </sag-search-vehicle>
+            </tab>
+            <tab heading="{{(isCH ? 'SEARCH.VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB_CH' : 'SEARCH.VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB') | translate}}">
+                <ng-container *ngIf="searchMakeModelErrorMsg">
+                    <div class="alert alert-danger">{{ 'SEARCH.ERROR_MESSAGE.REQUIRED_FIELD' | translate }}</div>
+                </ng-container>
+                <ng-container *ngIf="isCH">
+                    <sag-advance-search-vehicle (navigateToModelPageEventEmitter)="onNavigateToModelPage($event)">
+                    </sag-advance-search-vehicle>
+                    <div class="or-line d-flex align-items-center flex-grow-1">
+                        <div class="border-bottom flex-grow-1"></div>
+                        <div class="text">{{ 'SEARCH.OR' | translate }}</div>
+                        <div class="border-bottom flex-grow-1"></div>
+                    </div>
+                </ng-container>
+                <sag-search-make-model-type #makeModelType [customerNumber]="customerNumber"
+                    (searchEmitter)="searchMakeModel($event)">
+                </sag-search-make-model-type>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-primary" style="display:block; margin-left: auto;" type="button" (click)="onSearchMakeModelBtnClick()">
+                            {{'SEARCH.SEARCH_BUTTON' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</ng-container>
+<!--  -->
+<ng-template #otherVehicleSearchTmp>
+    <div class="vehicle-search-wrapper-container">
+        <tabset [justified]="true">
+            <tab heading="{{'SEARCH.VEHICLE_SEARCH_CODE_SEARCH_TERM_WITH_SELECT_MAKE_TAB' | translate}}" id="vehicle-search-tab">
+                <sag-advance-search-vehicle (navigateToModelPageEventEmitter)="onNavigateToModelPage($event)">
+                </sag-advance-search-vehicle>
+                <div class="or-line d-flex align-items-center flex-grow-1">
+                    <div class="border-bottom flex-grow-1"></div>
+                    <div class="text">{{ 'SEARCH.OR' | translate }}</div>
+                    <div class="border-bottom flex-grow-1"></div>
+                </div>
+                <sag-search-vehicle [customerNumber]="customerNumber" [hasVinSearchPermission]="hasVinSearchPermission"
+                    [isSalesOnBeHalf]="isSalesOnBeHalf" [isFinalUserRole]="isFinalUserRole" [language]="language"
+                    [autoFilledVinValue]="autoFilledVinValue"
+                    (vinPackagePurchaseEmitter)="onVinPackagePurchaseEmit($event)"
+                    (vehicleSearchEmitter)="onVehicleSearchEmit($event)"
+                    (vehicleSearchEventEmitter)="onVehicleSearchEventEmit($event)" [dmsSearchQuery]="dmsSearchQuery"
+                    [isShownMakeModelTypeSearch]="false">
+                </sag-search-vehicle>
+            </tab>
+            <tab heading="{{'SEARCH.VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB' | translate}}">
+                <sag-search-vehicle [customerNumber]="customerNumber" [hasVinSearchPermission]="hasVinSearchPermission"
+                    [isSalesOnBeHalf]="isSalesOnBeHalf" [isFinalUserRole]="isFinalUserRole" [language]="language"
+                    [autoFilledVinValue]="autoFilledVinValue"
+                    (vinPackagePurchaseEmitter)="onVinPackagePurchaseEmit($event)"
+                    (vehicleSearchEmitter)="onVehicleSearchEmit($event)"
+                    (vehicleSearchEventEmitter)="onVehicleSearchEventEmit($event)" [dmsSearchQuery]="dmsSearchQuery"
+                    [isShownSearchTerm]="false">
+                </sag-search-vehicle>
+            </tab>
+        </tabset>
+    </div>
+</ng-template>

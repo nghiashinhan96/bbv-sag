@@ -1,0 +1,53 @@
+# ************************************************************************
+# This is the CH configuration of Admin application for production mode.
+# 
+# Required Common configuration:
+# - Application common configuration -
+# - Country Code - 
+# - Database -
+# - Elasticsearch - 
+# - ERP - 
+# - Caching - 
+# - Mail service - 
+# - Thread Executor Pool - 
+# - Authorization -
+# - MDM for creating DVSE user -
+# - Media Server -
+# - Proxy -
+# - Logging - 
+# - Java Melody Monitoring - 
+# - Actuator Healthcheck - 
+# - Liquibase - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagadmin,
+  ax-prod-cloud,
+  mdm-prod,
+  mail-prod,
+  elasticsearch-prod,
+  db-prod,
+  executor-pool-prod,
+  no-liquibase,
+  logging-ch-prod-cloud,
+  actuator,
+  cache-prod,
+  country-ch,
+  no-proxy,
+  media-server,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_ch.txt
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      #host: http://localhost:9002
+      #host: https://connect.sag.services/auth-server-ch-ax
+      host: http://localhost:8080/auth-server-ch-ax
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+

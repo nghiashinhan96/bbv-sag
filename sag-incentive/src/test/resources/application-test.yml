@@ -1,0 +1,5 @@
+spring.profiles.include: incentive-dev, executor-pool, db-at-test, no-proxy, executor-pool
+
+logging:
+  level:
+    com.sagag.services.incentive: DEBUG  

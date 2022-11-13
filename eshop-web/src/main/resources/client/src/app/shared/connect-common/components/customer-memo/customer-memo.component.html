@@ -1,0 +1,26 @@
+<ng-container *ngIf="memoInfo">
+    <button class="btn text-primary btn-icon"
+        type="type"
+        [popover]="memoRef"
+        [outsideClick]="true"
+        #pop="bs-popover"
+        triggers="manual"
+        placement="bottom"
+        (mouseenter)="showPop(pop)"
+        (mouseleave)="leavePop(pop)"
+        [class.flash]="isAnimation"
+        [ngClass]="containerClass"
+        containerClass="memo-popover"
+        (click)="clickedMemo(pop)">
+        <i class="fa fa-warning"></i>
+    </button>
+    <ng-template #memoRef>
+        <h3 class="popover-title">
+            <span>{{'MENU.HINT' | translate}}</span>
+            <a class="close" href="javascript:void(0)" (click)="closeMemo(pop)"><i class="fa fa-times-circle"></i></a>
+        </h3>
+        <div class="popover-content">
+            {{memoInfo}}
+        </div>
+    </ng-template>
+</ng-container>

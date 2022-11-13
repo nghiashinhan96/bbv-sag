@@ -1,0 +1,24 @@
+spring.profiles.include: 
+  ax-pre-cloud,
+  incentive-dev,
+  hp-normal-at,
+  hpback-at-dev,
+  plate,
+  gtmotive-at-dev,
+  mdm-pre,
+  oates-pre-ch,
+  mail-dev,
+  elasticsearch-pre,
+  db-at-test,
+  cache-dev-test,
+  executor-pool-test,
+  connect,
+  no-liquibase,
+  country-ch,
+  no-proxy,
+  thule-pre
+
+logging:
+  level:
+    org.elasticsearch.bootstrap: ERROR
+    com.sagag.services.ivds: DEBUG

@@ -1,0 +1,6 @@
+
+<backoffice-sales-saving *ngIf="model"
+    [pageTitle]="'SALES_MANAGEMENT.SALE_ACCOUNT_DETAIL' | translate"
+    [model]="model"
+    (saveEvent)="edit($event)" >
+</backoffice-sales-saving>

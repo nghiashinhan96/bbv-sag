@@ -1,0 +1,13 @@
+spring.profiles: auth-endpoint-ax-cz-dev
+
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      host: https://axcz10.bbv-demo.ch/auth-server-cz-ax
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+

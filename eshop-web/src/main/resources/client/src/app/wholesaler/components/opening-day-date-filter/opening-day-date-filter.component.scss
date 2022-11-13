@@ -1,0 +1,39 @@
+.search-opening-day-btn {
+    height: 35px;
+    margin-top: 28px;
+}
+
+.date-range-filter {
+    margin-top: 18px;
+}
+
+.calendar-opening-day {
+    position: absolute;
+    top: 30px;
+    width: 160px;
+    right: 55px;
+    height: 36px;
+
+    > input {
+        height: 36px;
+    }
+}
+
+.sag-select {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    width: 200px;
+}
+
+.selected-date-filter-text {
+    position: absolute;
+    width: 120px;
+    height: 32px;
+    top: 32px;
+    right: 90px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+

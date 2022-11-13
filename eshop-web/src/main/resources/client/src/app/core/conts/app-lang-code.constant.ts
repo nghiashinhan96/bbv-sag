@@ -1,0 +1,10 @@
+export const APP_LANG_CODE_DE = 'de';
+export const APP_LANG_CODE_FR = 'fr';
+export const APP_LANG_CODE_IT = 'it';
+export const APP_LANG_CODE_CS = 'cs';
+export const APP_LANG_CODE_EN = 'en';
+export const APP_LANG_CODE_SR = 'sr';
+export const DEFAULT_LANG_CODE = APP_LANG_CODE_DE;
+export const SUPPORTED_LANG_CODES = [APP_LANG_CODE_DE, APP_LANG_CODE_FR, APP_LANG_CODE_IT];
+export const SUPPORTED_LANG_CODES_CZ = [APP_LANG_CODE_CS, APP_LANG_CODE_DE, APP_LANG_CODE_EN];
+export const SUPPORTED_LANG_CODES_SB = [APP_LANG_CODE_SR, APP_LANG_CODE_EN];

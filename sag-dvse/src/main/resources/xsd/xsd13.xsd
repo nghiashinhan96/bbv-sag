@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://eshop.sag.ch/types/organisation" xmlns:ns5="http://eshop.sag.ch/types/description" xmlns:ns4="http://eshop.sag.ch/types/uid" xmlns:ns3="http://eshop.sag.ch/types/value" xmlns:ns2="http://eshop.sag.ch/types/authority" xmlns:ns1="http://eshop.sag.ch/elements" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/organisation">
+
+<xs:import namespace="http://eshop.sag.ch/elements" schemaLocation="xsd7.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/authority" schemaLocation="xsd6.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/value" schemaLocation="xsd8.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/uid" schemaLocation="xsd9.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/description" schemaLocation="xsd4.xsd"/>
+
+<xs:complexType name="organisation">
+<xs:sequence>
+<xs:element name="idIdx" type="ns4:uid"/>
+<xs:element name="parents" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="organisationIdx" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="children" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="organisationIdx" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="descriptions" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns1:description" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="idx" type="xs:ID" use="required"/>
+<xs:attribute name="name" type="xs:string" use="required"/>
+<xs:attribute name="type" type="tns:organisationtype" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="organisationtype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="IDENTIFICATION"/>
+<xs:enumeration value="TYPIFICATION"/>
+<xs:enumeration value="COMPOSITION"/>
+<xs:enumeration value="GROUPING"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

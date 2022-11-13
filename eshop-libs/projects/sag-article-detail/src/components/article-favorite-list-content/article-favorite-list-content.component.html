@@ -1,0 +1,26 @@
+<form [formGroup]="search" class="input-group fav-search" (submit)="onDoSearch()">
+    <input type="text" class="form-control" formControlName="term" #searchControl (keydown.enter)="onDoSearch()">
+    <a href="javascript:void(0)" class="btn-icon close" *ngIf="!!searchControl.value" (click)="onClearValue($event)">
+        <i class="fa fa-times-circle"></i>
+    </a>
+    <div class="input-group-append">
+        <button href="javascript:void(0)" (click)="onDoSearch()" class="btn btn-search" type="submit">
+            <i class="ico-search"></i>
+        </button>
+    </div>
+</form>
+<div class="favorites-list" scrollTracker (onScrollEnd)="onScrollEnd()">
+    <div *ngFor="let item of items" class="d-flex justify-content-between fav-item">
+        <div class="pr-3 item-title" (click)="onItemClick(item)">
+            <a href="javascript:void(0)">{{item.title}}</a>
+            <div *ngIf="item.comment" class="fav-comment">{{item.comment}}</div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a href="javascript:void(0)" class="text-body"><i class="fa fa-edit"
+                    (click)="onEditFavorite(item)"></i></a>
+            <a href="javascript:void(0)" class="ml-2 text-body"><i class="fa fa-trash"
+                    (click)="onRemoveFavorite(item)"></i></a>
+        </div>
+
+    </div>
+</div>

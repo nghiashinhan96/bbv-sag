@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_235_ADD_SETTING_BRAND_PRIORITY_AVAILABILITY_SETTING_AT">
+        <sql>
+			DECLARE @SETTING_KEY nvarchar(100) = N'disabled_brand_priority_availability'
+			INSERT INTO dbo.ORG_COLLECTION_SETTINGS
+			(COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+				SELECT oc.ID, @SETTING_KEY, N'true' FROM ORGANISATION_COLLECTION oc WHERE 
+			     NOT EXISTS (SELECT * FROM dbo.ORG_COLLECTION_SETTINGS ocs WHERE ocs.COLLECTION_ID = oc.ID AND ocs.SETTING_KEY = @SETTING_KEY)
+        </sql>
+    </changeSet>
+</databaseChangeLog>

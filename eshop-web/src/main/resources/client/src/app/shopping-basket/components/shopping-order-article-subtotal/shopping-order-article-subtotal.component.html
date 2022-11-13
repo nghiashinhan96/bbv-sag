@@ -1,0 +1,30 @@
+<ng-container *ngIf="isPDP; else defaultSubTotalRef">
+    <ng-container *ngIf="vatTypeDisplayConvert?.list; else defaultSubTotalRef">
+        <div class="text-right">
+            <strong [class.price-value]="!isCartStepMode">
+                {{basketPriceSummary?.subTotalExlVat | sagCurrency}}
+            </strong>
+        </div>
+        <div class="text-right">
+            <strong [class.price-value]="!isCartStepMode">({{basketPriceSummary?.subTotalWithVat | sagCurrency}})</strong>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #defaultSubTotalRef>
+    <div class="text-right">
+        <strong [class.price-value]="!isCartStepMode">
+            {{basketPriceSummary?.subTotal | sagCurrency}}
+        </strong>
+        <ng-container *ngIf="isCartStepMode">
+            <ng-container *sagCommonShowHideByAff="[cz,sb];show:false">
+                <span id="span-showVat" *ngIf="showVatIcon"
+                    [hidden]="(isPDP || isFinalCustomer) && vatTypeDisplayConvert?.list">
+                    <i id="icon-toggleVAT" class="fa"
+                        [ngClass]="currentStateVatConfirm ? 'fa-minus-circle' : 'fa-plus-circle'" aria-hidden="true"
+                        (click)="toggleVAT()"></i>
+                </span>
+            </ng-container>
+        </ng-container>
+    </div>
+</ng-template>

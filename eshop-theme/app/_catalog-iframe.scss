@@ -1,0 +1,122 @@
+$mainMenuHeight: 50px;
+$comp-spacing: 20px;
+$hideBtnSize: 20px;
+$dvseCustomerHeight: 20px;
+$headerHeight: 80px;
+
+$menuHeight: $mainMenuHeight + $comp-spacing;
+
+.dvse-section, .unicat-section, .stginfo-section {
+    position: fixed;
+    top: $headerHeight + $menuHeight + $comp-spacing;
+    bottom: 0;
+    transition: all .6s;
+    background: #fff;
+    z-index: 20;
+    max-width: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0px !important;
+    margin-left: auto;
+    margin-right: auto;
+
+    .sag-layout & {
+        top: $headerHeight + $menuHeight + $comp-spacing * 2 + $dvseCustomerHeight;
+    }
+
+    .menu-hide & {
+        top: $headerHeight;
+    }
+
+    .footer-hide & {
+        bottom: 0;
+    }
+
+    iframe {
+        height: 100%;
+        width: 100%;
+        border: none;
+        border-top: 1px solid #ccc;
+    }
+}
+
+.customer-name {
+    margin: 0;
+    .label {
+        font-weight: normal;
+    }
+}
+
+.btn-outer {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.btn-hide-footer {
+    position: relative;
+    z-index: 1020;
+    font-size: 12px;
+    height: $hideBtnSize;
+    padding: 0;
+    width: $hideBtnSize * 2.2;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-top: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .175);
+
+    .fa {
+        font-size: 16px;
+    }
+}
+
+.dvse-inner, .unicat-inner, .stginfo-inner {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.btn-hide-footer {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -(($hideBtnSize * 2.2) / 2);
+    transform: rotate(-180deg);
+
+    .fa {
+        transform: rotate(-180deg);
+    }
+}
+
+.scalability-btn {
+    padding: 2px 3px 1px 4px;
+    background: #555;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    z-index: 1020;
+    top: -24px;
+    border: none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    &:hover {
+        background: #000;
+    }
+
+    .fa {
+        font-size: 20px;
+    }
+
+    &.is-maximum {
+        padding: 3px 4px 2px 4px;
+
+        .fa {
+            font-size: 16px;
+        }
+    }
+}

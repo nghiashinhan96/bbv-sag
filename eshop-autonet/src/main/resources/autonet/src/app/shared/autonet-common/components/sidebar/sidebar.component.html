@@ -1,0 +1,8 @@
+<div class="advertise">
+    <div class="top-left-ads mb-3">
+        <autonet-advertise [url]="topRightAdsUrl" [params]="topRightAdsParams" [customClass]="'top-right-ads'"></autonet-advertise>
+    </div>
+    <autonet-article-free-text-search *ngIf="enableFreetextSearch"></autonet-article-free-text-search>
+    <sag-search-vehicle-history (selectedVehicleHistoryEmitter)="viewSelectedVehicleHistory($event)">
+    </sag-search-vehicle-history>
+</div>

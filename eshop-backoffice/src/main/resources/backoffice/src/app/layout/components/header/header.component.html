@@ -1,0 +1,17 @@
+<header class="d-flex align-items-center">
+    <div class="container-xl">
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="#" id="main-logo" class="brand"><img src="assets/images/sag-logo-alpha.png" alt="SAG"></a>
+            <div class="info">
+                <div class="welcome text-right mb-2">
+                    <span class="label">Welcome </span>
+                    <span class="name">{{user?.firstName + ' ' + user?.lastName}}</span>
+                </div>
+                <div class="user-role btn-group" role="group">
+                    <span class="role">{{ user?.roleName }}</span>
+                    <button type="button" class="btn btn-secondary bg-primary rounded-0" (click)="logout()">{{'COMMON.BUTTON.LOGOUT' | translate}}</button>
+                  </div>
+            </div>
+        </div>
+    </div>
+</header>

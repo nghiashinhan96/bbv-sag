@@ -1,0 +1,12 @@
+<section class="d-flex flex-wrap merkmale-filter-bagde pb-0" *ngIf="filterDataOnBadge?.categoryName">
+    <strong class="bagde-clear-title mb-2">{{ filterDataOnBadge.categoryName }}</strong>
+    <a href="javascript:void(0)" class="badge badge-pill badge-secondary mb-2"
+        *ngFor="let value of filterDataOnBadge.criteriaValueIds | keyvalue" (click)="deselectValue(value)">
+        <span>{{ value.key }}</span>
+        <span class="ml-1">&times;</span>
+    </a>
+    <a href="javascript:void(0)" *ngIf="filterDataOnBadge?.criteriaValueIds.size > 1" (click)="clearAllFilterValues()" class="badge badge-pill bagde-clear-all mb-2">
+        {{ 'ARTICLE.CLEAR_ALL_FILTER' | translate }}
+        <span class="ml-1">&times;</span>
+    </a>
+</section>

@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "sag-currency",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "sag-currency",
+      "kebab-case"
+    ]
+  }
+}

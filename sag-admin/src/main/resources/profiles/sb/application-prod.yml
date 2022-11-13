@@ -1,0 +1,41 @@
+# ************************************************************************
+# This is the CZ configuration of Admin application for production mode.
+# 
+# Required Common configuration:
+# - Application common configuration -
+# - Country Code - 
+# - Database -
+# - Elasticsearch - 
+# - ERP - 
+# - Caching - 
+# - Mail service - 
+# - Thread Executor Pool - 
+# - Authorization -
+# - MDM for creating DVSE user -
+# - Media Server -
+# - No Proxy For Serbia and CZ we are in Azure -
+# - Logging - 
+# - Java Melody Monitoring - 
+# - Actuator Healthcheck - 
+# - Liquibase - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagadmin,
+  wint-prod,
+  mdm-prod,
+  mail-wt-prod,
+  elasticsearch-customization-prod,
+  db-prod,
+  executor-pool-prod-sb,
+  no-liquibase,
+  logging-sb-prod,
+  actuator,
+  cache-prod,
+  country-sb,
+  no-proxy,
+  media-server,
+  javamelody,
+  auth-endpoint-sb-prod
+
+spring.banner.location: classpath:banner/banner_sb.txt

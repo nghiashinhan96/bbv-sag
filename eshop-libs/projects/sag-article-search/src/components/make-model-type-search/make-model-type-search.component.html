@@ -1,0 +1,97 @@
+<form [formGroup]="searchForm">
+    <ng-container *ngIf="!isAT && !isCH">
+        <p *sagCommonShowHideByAff="[cz,ehcz,axcz,ehaxcz,sb];show:false">{{ 'SEARCH.MAKE_MODEL_HINT' | translate }}</p>
+    </ng-container>
+    <div class="row mb-3" *ngIf="!isAffiliateApplyMotorbikeShop && !isSb && projectId !== PROJECT_ID.AUTONET">
+        <ng-container>
+            <div class="col-12 d-flex">
+                <label class="checkbox mb-0 mr-5">
+                    <input value="pc" formControlName="vehicleType" type="radio" name="vehicleType" (focusin)="onFocus()">
+                    <span>{{'VEHICLE_FILTER.PC' | translate}}</span>
+                </label>
+                <label class="checkbox mb-0">
+                    <input value="mb" formControlName="vehicleType" type="radio" name="vehicleType" (focusin)="onFocus()">
+                    <span>{{'VEHICLE_FILTER.MB' | translate}}</span>
+                </label>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="make$ | async" formControlName="makeCode" (open)="loadMakeOptions()"
+                [loading]="isLoadingMakeOptions" bindLable="label" bindValue="id"
+                (change) = "onBrandChange($event)"
+                placeholder="{{'VEHICLE_FILTER.BRAND' | translate}}" [virtualScroll]="false"
+                notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}" loadingText="{{'SEARCH.LOADING' | translate}}"
+                (focus)="onFocus()" [tabIndex]="1">
+                <ng-template ng-option-tmp let-item="item">
+                    <span [class.gap]="item.id === 'gap'">{{item.label}}</span>
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="input-group input-border-left">
+                <input formControlName="yearFrom" class="form-control" maxlength="7" tabindex="2"
+                    title="{{ 'SEARCH.HOVER_TITLES.YEAR' | translate }}" type="text"
+                    placeholder="{{ 'SEARCH.YEAR' | translate }}"
+                    [ngClass]="{ 'is-invalid': yearControl?.errors?.invalidYear }"
+                    (focusin)="onFocus()" tabIndex="2">
+            </div>
+            <div *ngIf="yearControl?.errors?.invalidYear" class="hint-error">{{'SEARCH.YEAR_ERROR_HINT' | translate}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="model$ | async" formControlName="modelCode" [loading]="isLoadingModelOptions"
+                bindLable="label" bindValue="id" placeholder="{{'VEHICLE_FILTER.MODEL' | translate}}"
+                (change) = "onModelCodeChange($event)"
+                [virtualScroll]="false" notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}"
+                loadingText="{{'SEARCH.LOADING' | translate}}" #modelCodeControl (focus)="onFocus()" (open)="loadModelOptions()"
+                [tabIndex]="3"  [ngClass]="{'error-required': isModelInputInvalid}"></ng-select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="fuel$ | async" formControlName="fuelType" [loading]="isLoadingModelOptions"
+                bindLable="label" bindValue="id" placeholder="{{'VEHICLE_FILTER.FUEL' | translate}}"
+                (change) = "onFuelChange($event)"
+                [virtualScroll]="false" notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}"
+                loadingText="{{'SEARCH.LOADING' | translate}}" #fuelTypeControl (focus)="onFocus()" (open)="loadFuelOptions()"
+                [tabIndex]="4"></ng-select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="type$ | async" formControlName="typeCode" [loading]="isLoadingTypeOptions"
+            bindLable="label" bindValue="id" placeholder="{{'VEHICLE_FILTER.TYPE' | translate}}"
+                (change) = "onTypeChange($event)"
+                [virtualScroll]="false" notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}"
+                loadingText="{{'SEARCH.LOADING' | translate}}" #typeCodeControl (focus)="onFocus()" (open)="loadTypeOptions()"
+                [tabIndex]="5" [keyDownFn]="handleKeydown"  [ngClass]="{'error-required': isTypeInputInvalid}">
+                <ng-template ng-label-tmp let-item="item">
+                    {{item.label}}
+                    <small>{{item.infosText}}</small>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item">
+                    {{item.label}}
+                    <small>{{item.infosText}}</small>
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+
+    <ng-container *ngIf="!isAT && !isCH || projectId === PROJECT_ID.AUTONET">
+        <div class="row mb-3" *sagCommonShowHideByAff="[cz,ehcz,axcz,ehaxcz,sb];show:false">
+            <div class="col-12 text-right">
+                <button class="btn btn-primary" type="button" (click)="seachData()">
+                    {{'SEARCH.SEARCH_BUTTON' | translate}}
+                </button>
+            </div>
+        </div>
+    </ng-container>
+</form>

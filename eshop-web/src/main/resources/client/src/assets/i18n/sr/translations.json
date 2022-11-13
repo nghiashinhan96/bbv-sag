@@ -1,0 +1,2093 @@
+{
+  "APP_VERSION": "Verzija",
+  "ARTICLE": {
+    "24_HOURS": "Drago nam je što smo razjasnili vreme isporuke",
+    "24_HOURS_SHORT": "Čekanje na potvrdu",
+    "AMOUNT": "Količina",
+    "ARTICLE_LIST": "Lista artikala",
+    "ARTICLE_COUNT": "Broj članaka",
+    "BRIEF_INFORMATION": "Kratke informacije",
+    "CLEAR_ALL_FILTER": "Izbriši sve",
+    "COPIED_TEXT": "Kopirano",
+    "DELIVERY": "Isporuka",
+    "DELIVERY_IMMEDIATE": "Odmah",
+    "DELIVERY_TYPE": "Isporuka",
+    "DEPOSIT": "Depozit",
+    "FAVORITES": "Omiljeno",
+    "FC_NET": "Krajnji kupac Neto",
+    "FEATURES": "Detalji",
+    "FINISH_TIME": "Vreme",
+    "GENERAL_INFORMATION": "Opšte informacije",
+    "GRAPHIC_SEARCH": "Grafička pretraga",
+    "GROSS": "Bruto",
+    "GROSS_VALUE": "Prodajna cena",
+    "GROUPS": {
+      "DIRECT_MATCH": "Direktni rezultati",
+      "REFERENCE_MATCH": "Referentni rezultati",
+      "ORIGINAL_PART": "Originalni delovi",
+      "POSSIBLE_MATCH": "Mogući rezultati"
+    },
+    "IAM_NUMBER": "IAM brojevi",
+    "IMAGE": "Slika",
+    "INFORMATION": "Više informacija",
+    "INSTALLATION_INFORMATION": "Informacije o montaži",
+    "LABOUR": "Vreme rada",
+    "MAINTENANCE_INTERVALS": "Intervali održavanja",
+    "MANUFACTURER": "Proizvođač",
+    "MEASUREMENT_FUNCTIONS": "Funkcije merenja",
+    "MEMO": {
+      "DEPOSITITEM": "U prilogu ovog proizvoda: {{depositItemType}}",
+      "NONRETURNABLEITEM": "UPOZORENJE! - Povrat nije moguć",
+      "NEWITEM": "Novo",
+      "SELLOFF": "Do isteka zaliha!",
+      "FGAS": "Prodaja moguća samo sa sertifikatom",
+      "NONRETURNABLEITEM_LONG_TEXT": "Pažnja! - Stavka se ne može vratiti"
+    },
+    "MORE_INFO": "Više informacija",
+    "NET": "Neto",
+    "NOT_FOUND_IN_AX": "Članak nije pronađen",
+    "NOT_INSTOCK_MESSAGE": "Nažalost, ovaj artikal trenutno nije na lageru. Pozovite najbližu filijalu za više informacija.",
+    "NUMBER": "Ukupno",
+    "OE_NUMBER": "OE brojevi",
+    "OLYSLAGER": "Kapacitet/korišćenje/interval",
+    "OPTIONAL_ACCESSORIES": "Specijalna oprema",
+    "PARTIAL_DELIVERY": "Delimična isporuka",
+    "PARTIAL_DELIVERY_SURFIX": "kom",
+    "PDF": "PDF",
+    "PICKUP": "Preuzimanje",
+    "POSITION": "Pozicija",
+    "PRICE": {
+      "ARTICLE_WITHOUT_PRICE": "Na upit",
+      "AVAILIBILITY": "Raspoloživost",
+      "CALCULATION_PRICE": "Preporuka prodajne cene",
+      "DISCOUNT": "Popust",
+      "GROSS_PRICE": "Veleprodajna cena sa PDV-om",
+      "GROSS_PRICE_SB": "Veleprodajna cena sa PDV-om",
+      "KB_PRICE": "Osnovica za izračunavanje",
+      "NET_PRICE": "Neto cena sa PDV-om",
+      "NET_PRICE_SB": "Neto cena sa PDV-om",
+      "OEP_PRICE": "Cena proizvođača (OEP) bez PDV-a",
+      "PRICE_INFORMATION_AVAILIBILITY": "Informacije o ceni. Raspoloživost",
+      "PRICE_INFORMATION": "Informacije o ceni",
+      "INFORMATION_AVAILIBILITY": "Raspoloživost",
+      "PRICE_INFORMATION_UNIT": "Informacije o ceni (po komadu)",
+      "PROMOTION_PRICE": "Specijalna cena",
+      "UVPE_PRICE": "Preporučena cena (UVPE)",
+      "UVP_PRICE": "Prodajna cena sa PDV-om"
+    },
+    "PRODUCT": "Proizvod",
+    "PRODUCT_DESCRIPTION": "Opis proizvoda",
+    "QUICK_CLICK": "Odabir na klik",
+    "REAR": "Iza",
+    "REFERENCE": "Reference",
+    "REPLACED_BY": "Zamenjen",
+    "REPLACES": "Zamenjuje",
+    "SAFETY_INFORMATION": "Bezbednosne informacije",
+    "SAFETY_NOTE": "Bezbednosna beleška",
+    "SNP_INFO": "Posebne neto cene",
+    "TECHNICAL_INFORMATION": "Tehničke informacije",
+    "TOUR": "Ruta",
+    "TYRE_GROSS": "Prodajna cena",
+    "USE": "Koristi se u",
+    "USING_TAB": {
+      "ALL_SEARCH": "Prikaži sve",
+      "LABLE": "Koristi se u"
+    },
+    "UVPE": "Prodajna cena",
+    "UVPE_VALUE": "Prodajna cena",
+    "AVAILABILITY": {
+      "IN_STOCK_BRANCH": "Na lageru u filijali",
+      "PARTLY_AVAILABLE": "Delimično dostupno",
+      "UNAVAILABLE": "Nije dostupno",
+      "IN_STOCK_CENTRAL_WAREHOUSE": "Dostupno u centralnom magacinu",
+      "NON_ORDERALE": "Nije moguće naručiti",
+      "MULTI_SHOP": "Multi-shop",
+      "FULLY_EXTERNAL": "Eksterni magacin",
+      "PARTLY_EXTERNAL": "Tražena količina je dilimično dostupna u eksternom magacinu",
+      "PARTLY_LOCAL": "Tražena količina je delimično dostupna",
+      "NONE": "",
+      "NOT_AVAILABLE": "Artikal nije dostupan",
+      "TITLE": "Isporuka"
+    },
+    "PRODUCT_COMMERCIAL_CODE": "Broj trgovine",
+    "PCC_ARTICLE_DETAIL": "Br. trgovine",
+    "TOTAL_AMOUNT": "Ukupna količina",
+    "AMOUNT_PER_LOCATION": "Količina po lokaciji",
+    "LOCATION": "Lokacija",
+    "VIEW_ALL_LOCATIONS": "Prikaži sve lokacije",
+    "DELIVERY_WAREHOURSE": "Lokacija isporuke",
+    "ORDER_DELIVERY": "Isporuku",
+    "HIDE_NO_ARTICLE_AVAIL": "Samo na lageru",
+    "SHOW_ONLY_ARTICLE_STOCK": "Prikaži nedostupne stavke",
+    "HIDE_ONLY_ARTICLE_STOCK": "Sakrij nedostupne stavke",
+    "ERROR_MESSAGE": {
+      "INVALID_OR_MISSING_DATA": "Zbog nevažećih podataka ili podataka koji nedostaju, nismo u mogućnosti da prikažemo nijedan članak za tu kategoriju."
+    }
+  },
+  "ARTICLE_FILTER": {
+    "AMPERE_HOURS": "Amper sati",
+    "ARTICLE_SEARCH": "Pretraga artikala",
+    "ATTRIBUTES": "Osobine",
+    "BOTTLE_SIZES": "Veličina pakovanja",
+    "BRAND_FILTER": {
+      "BRANDS": "Marka"
+    },
+    "CATEGORY_MERKMALE": "Kategorije i karakteristike",
+    "CODES": "Šifre",
+    "DESC": "Primeni filter",
+    "FILTER": "Filter",
+    "GEN_ART": "Kategorija",
+    "GEN_ARTS": "Kategorija",
+    "LOAD_INDEX": "Učitaj indeks",
+    "MATCHING_PRODUCTS": "Odgovarajuće stavke",
+    "RESET": "Poništi filter",
+    "SPEED_INDEX": "Indeks brzine",
+    "SUPPLIERS": "Proizvođač",
+    "TYRE_SEGMENT": "Segment pneumatika",
+    "VISCOSITIES": "Viskoznost",
+    "VOLTAGES": "Napon",
+    "WATTS": "Vati"
+  },
+  "ARTICLE_SEARCH_LIST": {
+    "CLEAR_CART_COMFIRM_MESSAGE": "Ova lista će biti izbrisana pre nego što se lista artikala može uneti. Korpa za kupovinu ostaje nepromenjena. <br> želite da pokrenete unos?",
+    "CONTINUE": "Nastavi",
+    "IMPORTED_ITEM_ALREADY_IN_CART": "Ovaj artikal je već u vašoj korpi za kupovinu – željena količina: < {{amount}} >.",
+    "IMPORTED_MULTIPLE_RESULT": "Pronađeno je nekoliko artikala-željena količina: < {{amount}} >.",
+    "IMPORTED_NO_RESULTS": "Nije pronađen nijedan artikal! -željena količina: < {{amount}} >.",
+    "IMPORT_ARTICLE_LIST": "Uvoz šoping lista",
+    "IMPORT_HINT": "Ispravni tipovi datoteka: csv, txt, xls, xlsx",
+    "INVALID_IMPORTED_FILE": "Datoteku nije moguće učitati! Proverite format CSV datoteke (zarez ili tačka-zarez).",
+    "NO_INFO": "Nema detalja",
+    "NO_ARTILCE_IN_SECTION": "Trenutno nemamo više artikala za ovu oblast u ponudi.",
+    "TITLE": "Šoping lista"
+  },
+  "ARTICLE_TITLE": "Pretraga artikala",
+  "AX_CONNECTION": {
+    "ACCOUNT_BALANCE": "Saldo",
+    "ACTIVATION_OF_DISCOUNT": "Odštampaj popust",
+    "ACTIVATION_OF_NETPRICE": "Odštampaj neto cenu",
+    "ACTIVATION_OF_SOW": "SOW 4+",
+    "ADDRESS": "Adresa",
+    "BLOCKED_CUSTOMER": "{{customerNr}} je blokiran",
+    "BRANCH_NAME": "Filijala",
+    "CASH_DISCOUNT": "Popust na gotovinu",
+    "COMPANY": "Kompanija",
+    "CREATOR": "Po",
+    "CREDIT_LIMIT_REST": "Preostali kredit",
+    "CREDIT_LIMIT_TOTAL": "Kreditni limit",
+    "CREDIT_LIMIT": "Kreditni limit",
+    "CREDIT_LIMIT_AVAIL": "Preostali limit",
+    "ADDITIONAL_CREDIT_LIMIT": "Dodatni kreditni limit",
+    "ADDITIONAL_CREDIT_LIMIT_AVAIL": "Preostali dodatni limit",
+    "CURRENCY_SHORTCUT": "Valuta",
+    "CUSTOMER": "Kupac",
+    "CUSTOMERS": "Kupci",
+    "CUSTOMER_CATEGORY": "Kategorija kupca",
+    "CUSTOMER_FREE_TEXT_NOT_FOUND": "Nije pronađen nijedan kupac. Molimo vas da proverite pretragu.",
+    "CUSTOMER_INFORMATION": "Informacije o kupcu",
+    "CUSTOMER_INPUT_REQUIRED": "Proveri detalje pretrage",
+    "CUSTOMER_NOT_FOUND": "Kupac nije pronađen!",
+    "CUSTOMER_OVERVIEW": "Pregled kupca",
+    "CUSTOMER_SEARCH": "Pretraga kupca",
+    "CUSTOMER_TELEPHONE_NOT_FOUND": "Za ovaj broj telefona nije pronađen nijedan kupac. Proverite svoju pretragu",
+    "CUSTOMER_USER_NAME": "Broj kupca",
+    "DELIVERY_SERVICE": "Agent prodaje",
+    "DELIVERY_TYPE": "Način isporuke",
+    "DISPLAY_NET_PRICE": "Odštampaj neto cenu",
+    "DUNNING_LEVEL": "Nivo podsetnika",
+    "EMAIL": "E-mail",
+    "ERROR": {
+      "CUSTOMER_LIMIT": "Broj mogućih kartica kupaca{{size}}. <br> Sačuvajte ili zatvorite karticu Kupac pre nego što otvorite novu."
+    },
+    "FAX": "Faks",
+    "INVOICE_TYPE": "Tip fakture",
+    "LANGUAGE_SHORTCUT": "Jezik",
+    "LAST_DUNNING_DATE": "Poslednji podsetnik",
+    "LOCATION": "Lokacija",
+    "NAME_OR_COMPANY": "Ime / kompanija",
+    "OF": "Iz",
+    "ORDER_POSITION": "Otvorene porudžbine",
+    "ORDER_REGULATORY": "Regulatori porudžbine",
+    "OTHER": "Drugo",
+    "OVERVIEW": "Pregled",
+    "PAYMENT_OBJECTIVE": "Uslovi plaćanja",
+    "PAYMENT_TYPE": "Način plaćanja",
+    "PHONE": "Telefon",
+    "PLACE_HOLDER_CUSTOMER_FREE_TEXT": "Termin za pretragu, poštanski broj, grad, ime",
+    "PLACE_HOLDER_CUSTOMER_NUMBER": "Br. kupca",
+    "PLACE_HOLDER_CUSTOMER_TELEPHONE": "Telefon",
+    "RECEIVER": "Primaoc",
+    "RECENT_CUSTOMER_ORDERS": "Poslednje porudžbine kupca",
+    "SALES_ADMIN_NOT_FOUND": "Ovaj klijent nema ulogu administratorskog korisnika i zato se ne može uneti.",
+    "SALES_EMPLOYEE_NUMBER_INVALID": "Nevažeći br. zaposlenog",
+    "SALES_GROUP": "Oblast prodaje",
+    "SHIPPING_TYPE": "Način isporuke"
+  },
+  "BASKET_HISTORY": {
+    "ABORT": "Zatvori",
+    "ADDING_FAILED": "Ažuriranje nije uspelo!",
+    "ADDING_SUCCESSFULLY": "Stavke su dodate u korpu.",
+    "BACK_BASKET_HISTORY": "Vratite se na sačuvanu korpu za kupovinu",
+    "CART_STATUS": "Trenutna korpa je prazna!",
+    "CLEAR": "Izbriši",
+    "CLEAR_CART_FAILED": "Nije moguće isprazniti korpu za kupovinu!",
+    "CLEAR_CART_SUCCESSFULLY": "Korpa za kupovinu je uspešno ispražnjena.",
+    "COLUMNS": {
+      "BASKET_NAME": "Korpa za kupovinu",
+      "MANUFACTURER": "Proizvođač"
+    },
+    "CURRENT_CUSTOMER": "Trenutni kupac",
+    "DELETE": "Želite li da izbrišete ovu sačuvanu korpu za kupovinu?",
+    "DESCRIPTION": "Opis (opcionalno)",
+    "LABEL": "Korpe za kupovinu",
+    "MY_SAVED_BASKETS": "Moje korpe za kupovinu",
+    "NEW_SHOPPING": "Nova korpa za kupovinu",
+    "NOTICE_MESSAGE": {
+      "DELETE_FAILURE": "Nije moguće sačuvati!",
+      "DELETE_SUCCESS": "Uspešno izbrisano"
+    },
+    "NO_BASKET_HISTORIES_FOUND": "Nisu pronađene sačuvane korpe za kupovinu!",
+    "PLACE_HOLDERS": {
+      "BASKET_NAME": "Korpa za kupovinu",
+      "MANUFACTURER": "Proizvođač"
+    },
+    "SAVED_BASKETS": "Sačuvane korpe za kupovinu",
+    "SAVING_MESSAGE": "Želite li da sačuvate trenutnu korpu za kupovinu?",
+    "TAKE": "Poruči",
+    "OPEN_SHOPPING_BASKET": "Otvorite korpu za kupovinu",
+    "SAVE_SHOPPING_BASKET": "Sačuvajte korpu za kupovinu",
+    "EXPORT_SHOPPING_BASKET": "Izvozna korpa za kupovinu"
+  },
+  "BATTERIES": {
+    "AMPERES": "Amper sati",
+    "BATTERIES": "Akumulatori",
+    "CIRCUIT": "Šema",
+    "DIAGRAMS": "Dijagrami",
+    "FLOOR_FIXINGS": "Tipovi donjih šina",
+    "REMARKS": "Zabeleške",
+    "TYPES_OF_POLE": "Polaritet",
+    "TYPES_OF_POLES": "Polaritet",
+    "VOLTAGES": "Napon",
+    "WARNINGS_AND_SAFETY_PRECAUTIONS": "Upozorenja i bezbednosne mere predostrožnosti",
+    "WITHOUT_START_STOP": "Bez Start-stop sistema",
+    "WITH_START_STOP": "Sa Start-stop sistemom"
+  },
+  "BULBS": {
+    "ADDITIONAL_LINK_1": "Koja sijalica?",
+    "BULBS": "Sijalice",
+    "CODE": "Tip i slika",
+    "SUPPLIER": "Proizvođač",
+    "VOLTAGE": "Volti",
+    "WATT": "Vati"
+  },
+  "CAR_INFORMATION": {
+    "CHANGE_VEHICLES": "Promeni vozilo"
+  },
+  "CATEGORY": {
+    "BUTTON": {
+      "RESET_FILTER": "Poništi filter"
+    },
+    "SEARCH": {
+      "TEXT_HOLDER": "Kategorije"
+    },
+    "TAB": {
+      "ALL_PARTS": "Svi delovi",
+      "SERVICE": "Servisni delovi"
+    }
+  },
+  "CLASSIC_CATEGORIES": {
+    "STEP_1_TITLE": "1. korak: izaberite kategorije",
+    "STEP_2_TITLE": "2. korak: vaš izbor"
+  },
+  "COMMON_LABEL": {
+    "ABORT": "Otkaži",
+    "ABORT_STOP": "Otkaži",
+    "ACCEPT": "Prihvati",
+    "ACCESSORIES": "Pribor",
+    "ACCESSORIES_LIST": "Lista pribora",
+    "ACCESSORIES_GROUPS_HINT": "Pronađen je veliki broj dodatne opreme za različita vozila. Da biste suzili rezultate, molimo izaberite vozilo na kartici „Koristi se u” u odeljku „Detalji”.",
+    "ACTIVE": "Aktivan",
+    "ADDITIONAL_ADDRESS": "Dodatna adresa",
+    "ADDRESS": "Adresa",
+    "ALL": "Sve",
+    "AMOUNT": "Količina",
+    "ARTICLE_NUMBER_LABEL": "Br. artikla",
+    "ARTICLE_OF_ORDER": "Artikal",
+    "AVAILABLE": "Dostupno",
+    "A_MONTH_EARLIER": "Prošli mesec",
+    "A_MONTH_LATER": "Sledeći mesec",
+    "BACK": "Nazad",
+    "BRAKES": "Kočnice",
+    "BUTTON": {
+      "ABORT": "Otkaži",
+      "CONTINUE": "Nastavi",
+      "SEND": "Pošalji",
+      "TAKE": "Poruči"
+    },
+    "CHOOSE": "Poslednje porudžbine prodaje",
+    "CHOOSE_FILE": "Odaberi datoteku",
+    "CITY": "Grad",
+    "CLOSE": "Zatvori",
+    "COLUMNS": {
+      "SEARCH_METHOD": "Tip pretrage",
+      "ARTICLE_NR": "Br. artikla",
+      "ARTICLE_NUMBER": "Broj artikla",
+      "CUSTOMER_NAME": "Kupac",
+      "CUSTOMER_NR": "Broj kupca",
+      "INFO": "Opis",
+      "NUMBER": "Ukupno",
+      "QUANTITY": "Količina",
+      "REFERENCE": "Referenca",
+      "SALE_NAME": "Prodavac",
+      "SAVING_DATE": "Datum čuvanja",
+      "TOTAL": "Ukupno sa PDV-om",
+      "TOTAL_EXCL_VAT": "Ukupno bez PDV-a",
+      "VEHICLE": "Vozilo"
+    },
+    "COLUMN_ENGINE": "Zapremina motora",
+    "COMMENT": "Zabeleške",
+    "COMPANY": "Kompanija",
+    "COMPANY_NAME": "Ime kompanije",
+    "CONFIRMATION": "Potvrđeno",
+    "CONFIRM_BTN": "Potvrdi",
+    "CONTACT_INFO": "Kontakt",
+    "CROSS_REFERENCE": "Alternativni artikla",
+    "CUSTOMER": "Kupac",
+    "CUSTOMER_NAME": "Kupac",
+    "CUSTOMER_NUMBER": "Broj kupca",
+    "DATE": "Datum",
+    "DEAL_OFWEEK": "Nedeljna akcija",
+    "DELETE_ALL_ENTRIES": "Izbriši sve stavke",
+    "DELIVERY_NOTE_NUMBER": "Br. beleške za isporuku",
+    "DELIVERY_NUMBER": "Br. beleške za isporuku",
+    "DESCRIPTION": "Opis",
+    "DETAILS": "Detalji",
+    "EMAIL": "E-mail",
+    "EXPAND": "Proširi",
+    "FAX": "Faks",
+    "FILTER": "Filter",
+    "FIRST_NAME": "Ime",
+    "FROM_DATE": "iz",
+    "GLOBAL_ERROR_CONTENT": "Obratite se administratoru ili tehničkoj podršci.",
+    "GLOBAL_ERROR_TITLE": "Tehnička greška!",
+    "HEIGHT": "Visina",
+    "IMPORT": "Uvezi",
+    "INACTIVE": "Neaktivni",
+    "INVOICE": "Faktura",
+    "INVOICE_ARCHIVE": "Arhiva faktura",
+    "INVOICE_NUMBER": "Broj fakture",
+    "INVOICE_OVERVIEW": "Pregled fakture",
+    "LANDING_GEAR": "Suspenzija",
+    "LAST_NAME": "Prezime",
+    "LAST_WEEK": "Prošle nedelje",
+    "LENGTH": "Dužina",
+    "LIST": "Lista",
+    "LOADING_MORE": "Više...",
+    "MARK": "Registarska tablica",
+    "MODEL": "Model",
+    "NAME": "Ime",
+    "NO": "Ne",
+    "NO_FILE_CHOSEN": "Nema izabranih datoteka",
+    "NO_RESULTS_FOUND": "Nisu pronađeni rezultati",
+    "NUMBER": "Broj",
+    "OK": "u redu",
+    "ORDER_NUMBER": "Broj porudžbine",
+    "OVERRIDE": "Zameni",
+    "PARTS_LIST": "Lista delova",
+    "PARTS_LIST_HINT": "Pojedinačni delovi pogledajte listu delova",
+    "PAYMENT_TYPE": "Način plaćanja",
+    "PERCENT": "Procenat",
+    "PHONE": "Telefon",
+    "PLACE": "Mesto",
+    "PLACE_HOLDERS": {
+      "ARTICLE_NR": "Br. artikla",
+      "CUSTOMER_NAME": "Kupac",
+      "CUSTOMER_NR": "Kupac br.",
+      "INFO": "Opis",
+      "NUMBER": "Količina",
+      "QUANTITY": "Količina",
+      "REFERENCE": "Referenca",
+      "SALE_NAME": "Agent prodaje",
+      "SAVING_DATE": "Sačuvano",
+      "TOTAL": "Ukupan iznos sa PDV-om",
+      "TOTAL_EXCL_VAT": "Ukupno bez PDV-a",
+      "VEHICLE": "Vozilo"
+    },
+    "PLEASE_SELECT": "Molimo izaberite",
+    "POSTAL_CODE": "Poštanski broj",
+    "POSTCODE": "Poštanski broj",
+    "PO_BOX": "Poštanski broj",
+    "PRICE": {
+      "GROSS_PRICE_AT": "Cena.",
+      "GROSS_PRICE_CH": "Cena.",
+      "GROSS_PRICE_OTHER": "Brutto"
+    },
+    "QUICK_ORDER": "Direktna porudžbina",
+    "REASON": "Razlog",
+    "REDUCE": "Sakrij",
+    "REMARK": "Zabeleške",
+    "REMARKS": "Zabeleške",
+    "REMOVE_ALL": "Ukloni sve",
+    "RETRY": "Pokušaj ponovo",
+    "SALUTATION": "Oslovljavanje",
+    "SAVE": "Sačuvaj",
+    "SAVE_AND_CLOSE": "Sačuvaj i isprazni",
+    "SEARCH_OIL": {
+      "ADDITIONAL_INFORMATION": "Dodatne informacije",
+      "LUBRICANT_CATALOG": "Katalog maziva",
+      "MOBILE_PRODUCT_DATA_SHEETS": "Podaci o proizvodu",
+      "MOBILE_SAFETY_DATA_SHEETS": "Radni listovi sa podacima o bezbednosti",
+      "WHICH_ENGINE_OIL": "Koje motorno ulje?"
+    },
+    "SELECT": "Odaberi",
+    "SELECT_ALL": "Izaberi sve",
+    "SEVEN_DAYS": "Prethodnih 7 dana",
+    "STATUS": "Status",
+    "STREET": "Ulica",
+    "SURNAME": "Prezime",
+    "TAKE": "Prihvati",
+    "THIRTYONE_DAYS": "Prethodnih 31 dan",
+    "TODAY": "Danas",
+    "TOTAL_INCLUDE_VAT": "Ukupno sa PDV-om",
+    "TWO_DAYS": "Prethodna 2 dana",
+    "TYPE": "Tip",
+    "USER": "Korisnik",
+    "VEHICLES": "Vozila",
+    "VIN": "Broj šasije (VIN)",
+    "WEBSITE": "Sajt",
+    "WIDTH": "Širina",
+    "YES": "Da",
+    "LOCATIONS": {
+      "PRIMARY": "Primarna lokacija",
+      "SECONDARY": "Sekundarna lokacija",
+      "THIRD": "Tercijarna lokacija",
+      "NON_PRIORITY": "Lokacija gde je roba"
+    },
+    "YOU_ARE_OFFLINE": "Ups! Van mreže ste"
+  },
+  "COMMON_MESSAGE": {
+    "CHANGED_QUANTITY": "Broj je promenjen!",
+    "SAVE_UNSUCCESSFULLY": "Čuvanje nije uspelo!"
+  },
+  "CONDITION": {
+    "AT_THE": "",
+    "AT_THE_SUFFIX": "",
+    "BILLING_ADDRESS": "Adresa na fakturi",
+    "BILLING_ADDRESS1": "Demo klijent E-shop TM",
+    "BRANCH": "Filijala",
+    "BRANCH_PICKUP": "Filijala za preuzimanje robe",
+    "COLLECTIVE_DELIVERY": {
+      "COLLECTIVE_DELIVERY1": "Delimična isporuka, hitno - artikli će biti pojedinačno isporučeni kada postanu dostupni.",
+      "COLLECTIVE_DELIVERY2": "Kolektivna isporuka, nije hitno - porudžbina će biti isporučena zajedno, kada svi artikli postanu dostupni.",
+      "PICKUP": "Delimična isporuka",
+      "TITLE": "Delimična-, kolektivna dostava",
+      "TOUR": "Kolektivna isporuka"
+    },
+    "COLLECTIVE_DELIVERY_TITLE": "Kolektivna isporuka",
+    "DEFAULT_INVOICE_TYPE": {
+      "AGREEMENT_INVOICE": "Fakturisanje po ugovoru",
+      "SINGLE_INVOICE": "Jedinstveno fakturisanje",
+      "TITLE": "Fakturisanje"
+    },
+    "DELIVERY_ADDRESS": "Adresa isporuke",
+    "DELIVERY_ADDRESS1": "Demo klijent E-shop TM",
+    "DELIVERY_TYPE": {
+      "COUNTER": "Kupac u maloprodaji",
+      "PICKUP": "Lično u filijali",
+      "TITLE": "Isporuka",
+      "TOUR": "Razvoz",
+      "COURIER": "Courier"
+    },
+    "DELIVERY_TYPE_PICKUP": "Isporuka: lično preuzimanje",
+    "DELIVERY_TYPE_TOUR": "Isporuka: razvoz",
+    "EXPAND": "Proširi",
+    "INVOICE_TYPE": {
+      "ACCUMULATIVE_INVOICE": "Kolektivno fakturisanje",
+      "ALL": "Rezervni profil",
+      "DAILY_INVOICE": "Dnevno fakturisanje",
+      "DAILY_INVOICE_WITH_CREDIT_SEPARATION": "Dnevno fakturisanje bez kredit limita",
+      "DEFAULT": "!! Ne brišite !! Podrazumevano za sve",
+      "MONTHLY_INVOICE": "Mesečno fakturisanje",
+      "MONTHLY_INVOICE_DAILY_CREDIT": "Mesečna faktura sa dnevnim kreditnim limitima",
+      "MONTHLY_INVOICE_WEEKLY_CREDIT_SEPARATION": "Mesečna faktura sa nedeljnim kreditnim limitima",
+      "MONTHLY_INVOICE_WITH_CREDIT_SEPARATION": "Mesečno fakturisanje bez kredit limita",
+      "SINGLE_INVOICE": "Jedinstveno fakturisanje",
+      "SINGLE_INVOICE_WITH_CREDIT_SEPARATION": "Jedinstveno fakturisanje bez kredit limita",
+      "TITLE": "Fakturisanje",
+      "TWO_WEEKLY_INVOICE": "Polumesečno fakturisanje",
+      "TWO_WEEKLY_INVOICE_DAILY_CREDIT": "Dvonedeljna faktura sa dnevnim kreditnim limitima",
+      "TWO_WEEKLY_INVOICE_WITH_CREDIT_SEPARATION": "Polumesečno fakturisanje bez kredit limita",
+      "WEEKLY_INVOICE": "Polumesečno fakturisanje",
+      "WEEKLY_INVOICE_DAILY_CREDIT": "Nedeljna faktura sa dnevnim kreditnim limitima",
+      "WEEKLY_INVOICE_SINGLE_CREDIT": "Nedeljna faktura sa pojedinačnim nedeljnim kreditnim limitima",
+      "WEEKLY_INVOICE_WITH_CREDIT_SEPARATION": "Polumesečno fakturisanje bez kredit limita"
+    },
+    "PARTIAL_DELIVERY_TITLE": "Delimična isporuka",
+    "PAYMENT_METHOD": {
+      "BANK_TRANSFER": "Bankovni transfer",
+      "CARD": "Kreditna kartica",
+      "CASH": "Revers",
+      "CREDIT": "Faktura",
+      "DIRECT_INVOICE": "Trenutna faktura",
+      "TITLE": "Plaćanja",
+      "WHOLESALE": "Faktura"
+    },
+    "PICKUP_TIME": "Svi artikli dostupni za preuzimanje u {{param}}",
+    "FC_PICKUP_TIME": "Sve je spremno za preuzimanje",
+    "PLEASE_SELECT_VALID_BRANCH": "Odaberi važeću filijalu!",
+    "REDUCE": "Sakrij",
+    "SHIPPING_PAYMENT": "Uslovi isporuke i plaćanja",
+    "TOUR_TIME": "Isporuka u {{param}} sati",
+    "FC_TOUR_TIME": "Isporuka",
+    "WITH_TOUR": "sa isporukom",
+    "DELIVERY_TEXT_TOUR_WITH_TIME": "Svi artikli spremni za isporuku {{arrivalDate}} u {{arrivalTime}}",
+    "DELIVERY_TEXT_PICKUP_WITH_TIME": "Svi artikli spremni za preuzimanje {{arrivalDate}} u {{arrivalTime}}",
+    "DELIVERY_TEXT_TOUR_WITHOUT_TIME": "Svi artikli spremni za isporuku: {{arrivalValue}}",
+    "DELIVERY_TEXT_PICKUP_WITHOUT_TIME": "Svi artikli spremni za preuzimanje: {{arrivalValue}}"
+  },
+  "COUPON": {
+    "ERROR": {
+      "COUPON_LIMIT": "Dostignuto je ograničenje kupona od {{MAX_ORDER_AMOUNT}}",
+      "EXPIRED": "Nažalost, ovaj kuponski kod je istekao",
+      "FULLY_USED": "Ovaj kuponski kod je već iskorišćen",
+      "INVALID_FOR_AFFI": "Kuponski kod se ne može koristiti zajedno sa artiklima",
+      "INVALID_FOR_SHOP": "Nevažeći kuponski kod",
+      "LIMIT_USED": "Ovaj kupon se može iskoristiti samo jednom",
+      "NOT_FOUND": "Šifra kupona je nevažeća. Proverite svoj unos i ponovo unesite kod.",
+      "TOTAL_MINIMUM": "Kupon se može iskoristiti samo za iznos porudžbine veći od {{MIN_ORDER_AMOUNT}}."
+    },
+    "SUCCESS": "Kupon je važeći",
+    "TITLE": "Kupon"
+  },
+  "CUSTOMER_INFO": {
+    "MESSAGES": {
+      "CUSTOMER_INACTIVE": "Ovaj klijent možda nije registrovan. Kontaktirajte vašu filijalu.",
+      "CUSTOMER_NOT_BELONG_TO_AFFILIATE": "Nepoznat kupac!",
+      "INTERAL_SERVER_ERROR": "Interna server greška!",
+      "INVALID_AFFILIATE": "Naziv kompanije nije važeći! ",
+      "INVALID_CUSTOMER": "Broj kupca nije važeći!",
+      "INVALID_POST_CODE": "Poštanski broj nije važeći!",
+      "INVALID_USERNAME_IN_CUSTOMER": "Ovo korisničko ime već postoji za ovog kupca!",
+      "OTHERS": "Ovom kupcu nedostaju obavezni podaci u ERP-u i ne može se koristiti u Webshop-u!",
+      "TECHNICAL": "Tehnička greška:"
+    }
+  },
+  "CUSTOM_PRICE": {
+      "OEP": "Maloprodajna cena",
+      "UVPE": "Prodajna cena"
+  },
+  "DMS": {
+    "ERROR": {
+      "EXPORT_FAILED": "Greška u izvozu korpe!",
+      "FAILED_TO_ADD_OFFER": "Dodavanje ponude U7 = {{param}} nije uspelo",
+      "NOT_FOUND_ARTICLE_NUMBERS": "Nažalost, nije moguće pronaći odgovarajuće artikle. Kontaktirajte vašu filijalu za pomoć.",
+      "OFFER_FAILED": "Ponuda nije prihvaćena! ",
+      "SUBMIT_FAILED": "Greška prilikom učitavanja korpe za kupovinu."
+    },
+    "EXPORT": {
+      "TAKE": "Prihvati"
+    },
+    "LABOUR": {
+      "WORKING_HOURS_TITLE": "vreme rada"
+    },
+    "MESSAGE": {
+        "RETRY": "Greška prilikom učitavanja korpe za kupovinu. Molimo vas pokušajte ponovo!"
+      },
+    "OFFER_NOT_SUPPORTED": "Modul ponude nije aktivan. Kontaktirajte vašu filijalu.",
+    "TYPE": {
+      "OFFER": "Ponuda",
+      "ORDER": "Porudžbina"
+    }
+  },
+  "ERROR_500": "Interna server greška",
+  "ERROR_MESSAGE": {
+    "SYSTEM_ERROR": "Izvinite na prekidu, molimo pokušajte kasnije ponovo."
+  },
+  "FAVORITE": {
+    "FAVORITES": "Favoriti",
+    "ADD_FAVORITE": "Dodaj omiljeno",
+    "EDIT_FAVORITE": "Izmenite omiljeno",
+    "COMMENT": "Komentar (opcionalno)",
+    "REMOVE": "Uklonite"
+  },
+  "FEEDBACK": {
+    "ATTACHMENT": "Prilozi",
+    "CUSTOMER_CONTACT": "Kontakt kupca",
+    "CUSTOMER_FEEDBACK": "Povratna informacija kupca",
+    "FEEDBACK_THEME": "Tema povratne informacije",
+    "IS_EXCEED_LIMITED_FILES_SIZE": "Prilozi moraju biti manji od 5 MB!",
+    "MENU_TITLE": "Povratne informacije, problem, greška",
+    "REQUIRED_FIELD": "Unesi",
+    "SALES_DATA": "Informacije o prodajnom agentu",
+    "SALES_FEEDBACK": "Povratna informacija za prodajne agente",
+    "SCREEN_SHOT_PASTE_HINT": "Snimak ekrana se može prevući direktno u tekst sa povratnim informacijama sa Klipborda.",
+    "SOURCE": {
+      "SALES_NOT_ON_BEHALF": "Prodaja preko Web prodavnice",
+      "SALES_ON_BEHALF": "Webshop klijent",
+      "TITLE": "Izvor greške"
+    },
+    "SUCCESSFUL_MESSAGE": "Hvala vam na povratnim informacijama.",
+    "SUCCESSFUL_MESSAGE_WITH_EMAIL": "Hvala vam na povratnim informacijama. Poslali smo potvrdu na {{userEmail}}.",
+    "TECHNICAL_DATA": {
+      "ARTICLE_RESULTS": "Trenutna lista artikala",
+      "ARTICLE_SEARCH": "Pretraga artikala",
+      "FREE_TEXT_SEARCH": "Tekstualna pretraga",
+      "OFFER_NUMBER": "Broj ponude",
+      "SHOPPING_CART": "Korpa za kupovinu",
+      "USER_SETTING": "Korisnička podešavanja",
+      "VEHICLE": "Trenutno vozilo",
+      "VEHICLE_SEARCH": "Pretraga po vozilu",
+      "WEBSITE": "Sajt"
+    },
+    "TECHNICAL_DATA_TITLE": "Tehničke karakteristike",
+    "THEME": "Tema",
+    "TOPICS": {
+      "BONUS_MILES_PROGRAM": "Bonus program",
+      "EASE_OF_USE": "Jednostavnost korišćenja",
+      "LICENSING": "Licence (HaynesPro, VIN itd.)",
+      "MISSING_WRONG_DATA": "Nedostajući ili netačni podaci",
+      "ORDERS_AVAILABILITY": "Porudžbine, raspoloživost",
+      "OTHER": "Drugo...",
+      "PRICING": "Цене",
+      "PROFILE_SETTINGS": "Profil, podešavanja",
+      "SYSTEM_BROWSER_INTERFACES": "Sistem, pretraživač..."
+    },
+    "USER_DATA": {
+      "BRANCH": "Filijala",
+      "CUSTOMER": "Kupac",
+      "EMAIL": "E-mail",
+      "PHONE": "Telefon",
+      "SALES": "Agent prodaje"
+    },
+    "YOUR_DATA": "Podaci o kupcu",
+    "YOUR_FEEDBACK": "Poruka sa povratnim informacijama"
+  },
+  "FINAL_CUSTOMER": {
+    "ADD_NEW_CUSTOMER": "Dodaj novog kupca",
+    "CREATE_CUSTOMER": "Kreiraj novog kupca",
+    "CREATE_FINAL_USER": "Kreiraj novog korisnika",
+    "CUSTOMER_COULD_NOT_DELETE": "Nije moguće izbrisati kupca! Prvo izbrišite sve nove i otvorene porudžbine i pokušajte ponovo.",
+    "DELETE_CUSTOMER_CONFIRM": "Izbrisati <strong>{{param}}</strong> ?",
+    "DELETE_MESSAGE": "Da li kupac treba da bude izbrisan?",
+    "FINAL_USER_ERROR": {
+      "DUPLICATED_USER": "Ovo korisničko ime već postoji."
+    },
+    "TYPE": {
+      "ONLINE": "EH Mušterija",
+      "PASSANT": "Prolaznik"
+    }
+  },
+  "FOOTER": {
+    "COMPANY_INFO_DERENDINGER": "Derendinger AG, Švajcarska-kompanija Swiss Automotive Group AG",
+    "COMPANY_INFO_DERENDINGER_AT": "SAG Austrija Handels GmbH, Austrija-kompanija Swiss Automotive Group AG",
+    "COMPANY_INFO_MATIK": "SAG Austrija Handels GmbH, Austrija-kompanija Swiss Automotive Group AG",
+    "COMPANY_INFO_MCH": "Matik Handels GmbH, Austrija-kompanija Swiss Automotive Group AG",
+    "COMPANY_INFO_RBE": "Remco Belgium NV-članica Swiss Automotive Group AG",
+    "COMPANY_INFO_TECHNOMAG": "TEHNOMAG AG, Švajcarska-kompanija Swiss Automotive Group AG",
+    "COMPANY_INFO_WBB": "Walchli + Bollier AG",
+    "DATA_PROTECTION": {
+      "LINK": {
+        "EH_CH": "https://www.waelchli-bollier.ch/de/footer-menu/Datenschutz.html"
+      },
+      "TITLE": "Obaveštenje o zaštiti podataka"
+    },
+    "DISCLAIMER": {
+      "LINK": {
+        "EH_CH": "https://www.waelchli-bollier.ch/de/footer-menu/disclaimer.html"
+      },
+      "TITLE": "Obaveštenje o odricanju odgovornosti"
+    },
+    "HOTLINE": "Pomoć uživo",
+    "TERM_OF_SERVICE": {
+      "LINK": {
+        "DERENDINGER_AT": "https://s3.exellio.de/connect_media/derendinger-at/pdfs/derendinger-at-agb.pdf",
+        "DERENDINGER_CH": "https://www.derendinger.ch/_Resources/Persistent/081e9c0935907a3de7dc6d24f9cff853c4086314/AGB_Derendinger%20AG_D.pdf",
+        "EH_CH": "https://www.waelchli-bollier.ch/_Resources/Persistent/83d37b11048f9f3dc7e86b9a7aecccbe00da6900/AGB_Waelchli-Bollier%20AG_D.pdf",
+        "MATIK_AT": "https://s3.exellio.de/connect_media/matik-at/pdfs/Matik_AGB.pdf",
+        "MATIK_CH": "https://www.matik.ch/_Resources/Persistent/772470a94ebe9657a6878c10c1c1d0629fa14a37/AGB_Matik%20AG_D.pdf",
+        "REMCO": "https://shop.remco.be",
+        "TECHNOMAG": "https://www.technomag.ch/_Resources/Persistent/9344c38e3159abad129a8152fc8625cda16e58ac/AGB_Technomag%20AG_D.pdf",
+        "WBB": "https://www.waelchli-bollier.ch/_Resources/Persistent/83d37b11048f9f3dc7e86b9a7aecccbe00da6900/AGB_Waelchli-Bollier%20AG_D.pdf",
+        "SB": "https://s3.exellio.de/connect_media/wint-sb/pdfs/OPSTI_USLOVI_KUPOVINE.pdf"
+      },
+      "TITLE": "Opšti Uslovi Kupovine"
+    }
+  },
+  "FORGOT_PASSWORD": {
+    "CODE_IN_EMAIL": "Poslali smo kod na vašu e-mail adresu.",
+    "CODE_PLACEHOLDER": "Poslat je kod na vašu e-mail adresu.",
+    "CONFIRM_IDENDITY": "Potvrda identiteta",
+    "CONTINUE": "Nastavi",
+    "ERROR_MESSAGE": {
+      "EMAIL_INPUT_REQUIRED": "Unesite svoju e-mail adresu.",
+      "INPUT_REQUIRED": "Unesite korisničko ime ili svoju e-mail adresu.",
+      "MULTIPLE_MAIL_ADDRESSES": "Postoji više korisničkih naloga za ovu e-mail adresu. Upotrebite korisničko ime.",
+      "NOT_AUTHORIZED_USER": "Niste ovlašćeni za ovu prodavnicu",
+      "NOT_FOUND_USER": "Nevažeće korisničko ime ili e-mail adresa",
+      "SEND_MAIL_FAILED": "Greška pri slanju mejla!",
+      "USERNAME_INPUT_REQUIRED": "Unesite svoje korisničko ime"
+    },
+    "INFO_MESSAGE": {
+      "PASSWORD_RETRIEVED_SUCCESSFUL": "Proverite prijemno poštansko sanduče da biste dobili novu lozinku"
+    },
+    "INPUT_CODE": "Unesi šifru",
+    "INVALID_CODE": "Nevažeći kod...",
+    "LABEL": {
+      "EMAIL": "E-mail adresa",
+      "FORGOT_PASSWORD_BUTTON": "Zaboravljena lozinka",
+      "NEW_REGISTER": "Registracija",
+      "OR": "Ili"
+    },
+    "TOKEN_EXPIRED": "Šifra je istekla"
+  },
+  "GTMOTIVE": {
+    "LABEL": {
+      "CANCEL": "Otkaži",
+      "CONTINUE": "Nastavi",
+      "DATE_OF_MANUFACTURE": "Datum proizvodnje",
+      "ENTER_VIN": "Unesi broj šasije (VIN)",
+      "EQUIPMENT_INFORMATION": "Oprema",
+      "EQUIPMENT_OPTIONS": "Oprema: opcije",
+      "EQUIPMENT_OTHER_INFO": "Oprema: ostale informacije",
+      "MULTI_PARTS": "Odabir delova",
+      "PARTS_TREE": "Lista za pretraživanje delova",
+      "VEHICLE_BOARD_NAVIGATION": "Pregled vozila",
+      "VEHICLE_COMPOSITION": "Grafička pretraga"
+    },
+    "MESSAGE": {
+      "INCOMPATIBILITY_CASE": "Izbor opreme nije odgovarajući. Molim vas ispravite.",
+      "NON_MATCHED_CATALOGUE": "Sledeći delovi nisu pronađeni u katalogu:",
+      "WARNING_USE_VIN": "Za grafičku pretragu preporučujemo korišćenje broja šasije (VIN-a)"
+    }
+  },
+  "GT_MORE_INFO": {
+    "DESCRIPTION_HEADER": "Oznaka",
+    "MANUFACTURER_PARTS": "Delovi proizvođača",
+    "NORMAUTO_INTRODUCE": "Normauto OE-Teil AG servis",
+    "OE_NUMBER_HEADER": "OE br.",
+    "SEND_OFFER_ORDER": "Za ove delove želeo bih ponudu od firme Normauto",
+    "TITLE": "U našem asortimanu nisu pronađeni sledeći delovi:",
+    "TITLE_NORMAUTO": "Na raspolaganju su vam sledeći delovi našeg partnera Normauto:"
+  },
+  "HAPPY_POINT": {
+    "TERM": "Kliknite na dugme u redu ako se slažete sa uslovima Happy Bonus Shop-a",
+    "TITLE": "Naručite preko interneta i zaradite Srećne Poene. Očekuju vas vredne nagrade. Registrujte se odmah."
+  },
+  "HAYNES_PRO": {
+    "ERROR": {
+      "NO_LICENSE": "Nažalost nemate HaynesPro licencu. Kontaktirajte vašu fiijalu.",
+      "REQUEST_PROCCESS_MESG": "Hvala vam na prijavi, uskoro ćemo vas kontaktirati.",
+      "REQUEST_TRIAL_LICENSE": "Dodaj 30-dnevnu probnu licencu!",
+      "REQUEST_TRIAL_LICENSE_MESG": "Trenutno nemate HaynesPro licencu."
+    },
+    "EXPORT_TO_WEBSHOP": "Izvesti u Web-šop",
+    "SELECT_OPTION": {
+      "ADJUSTMENT": "Podešavanje podataka",
+      "DIAGNOSIS": "Dijagnoza",
+      "DRAWINGS": "Stručni crteži",
+      "ELECTRONICS": "Elektronika",
+      "FUSES": "Osigurači i releji",
+      "LUBRICANTS": "Mazivo",
+      "MAINTENANCE": "Održavanje",
+      "OVERVIEW": "Pregled",
+      "RECALLS": "Opoziv",
+      "REPAIR_TIMES": "Vreme održavanja",
+      "SMARTCASE": "SmartCase",
+      "SMARTFIX": "Usluge SmartFix-a/tehničkog servisa"
+    },
+    "SELECT_SUBJECT": "Odaberi"
+  },
+  "HEADER": {
+    "INFORMATION": "Informacije",
+    "PROMOTIONS": "Promocije",
+    "SHOPPING_BASKET": "Korpa za kupovinu",
+    "WELCOME": "Dobro došli"
+  },
+  "HOME": {
+    "COVERING_FRONT": "Kočione pločice (prednje)"
+  },
+  "INCENTIVE": {
+    "MILES_DESCRIPTION": "Podsticajna sredstva"
+  },
+  "INFORMATIONS_DATA": {
+    "THULE_LINK": "Thule katalog"
+  },
+  "INFORMATIONS_DATA_DE": {
+    "AT_LINK_1": "Pregled asortimana",
+    "AT_LINK_2": "Katalog motocikla",
+    "AT_LINK_3": "Opis upotrebe antifriza",
+    "AT_LINK_4": "Techpool program za obuku",
+    "AT_LINK_5": "Quick Brake dodaci",
+    "DD_LINK_1": "Tehničke informacije FERODO kočionih delova",
+    "DD_LINK_10": "Pretraživač Castrol proizvoda",
+    "DD_LINK_11": "VARTA poslovni portal",
+    "DD_LINK_2": "Pretraživač Mahle filtera",
+    "DD_LINK_3": "Pretraživač NGK proizvoda",
+    "DD_LINK_4": "Pretraživač OSRAM sijalica",
+    "DD_LINK_5": "Thule vodič za kupovinu",
+    "DD_LINK_6": "Katalog Beta alata",
+    "DD_LINK_7": "Katalog Hazet alata",
+    "DD_LINK_8": "Katalog SW-Stahl alata",
+    "DD_LINK_9": "Pretraživač Eni proizvoda",
+    "MCH_LINK_1": "BPW Bergische Achsen rezervni delovi",
+    "MCH_LINK_2": "Rezervni delovi SAF-Holland",
+    "MCH_LINK_3": "HACO rezervni delovi",
+    "MCH_LINK_4": "Proplast rasveta",
+    "MCH_LINK_5": "Aspöck rasveta",
+    "MCH_LINK_6": "Valeo termalni sistemi",
+    "MCH_LINK_7": "Petec tehnologija povezivanja",
+    "MCH_LINK_8": "KS Tools (DE)",
+    "RBE_LINK_1": "BPW Bergische Achsen rezervni delovi",
+    "RBE_LINK_2": "SAF Holandija rezervni delovi",
+    "RBE_LINK_3": "Aspöck rasveta",
+    "SNR_LINK": "Vodič SNR dijagnostike i ležajeva točka",
+    "SNR_LINK2": "SNR ASB tehnologija",
+    "TM_LINK_1": "Tehničke informacije FERODO kočionih delova",
+    "TM_LINK_2": "Katalog Man filtera",
+    "TM_LINK_3": "Pretraživač NGK proizvoda",
+    "TM_LINK_4": "Pretraživač OSRAM sijalica",
+    "TM_LINK_5": "Thule vodič za kupovinu",
+    "TM_LINK_6": "Katalog Facom alata",
+    "TM_LINK_7": "Katalog Expert alata",
+    "TM_LINK_8": "Katalog SW-Stahl alata",
+    "TM_LINK_9": "Katalog Mobil ulja",
+    "WBB_LINK_1": "Thule katalog",
+    "WBB_LINK_2": "Thule cenovnik",
+    "WBB_LINK_3": "ARAL vodič za ulja",
+    "WBB_LINK_4": "ARAL pretraživač ulja"
+  },
+  "INFORMATIONS_DATA_FR": {
+    "DD_LINK_1": "Tehničke informacije FERODO kočionih delova",
+    "DD_LINK_10": "Pretraživač Castrol proizvoda",
+    "DD_LINK_11": "VARTA portal za profesionalne kupce",
+    "DD_LINK_2": "Katalog Mahle filtera",
+    "DD_LINK_3": "Katalog NGK svećica",
+    "DD_LINK_4": "Pretraživač OSRAM sijalica",
+    "DD_LINK_5": "Thule vodič za kupovinu",
+    "DD_LINK_6": "Katalog Beta alata",
+    "DD_LINK_7": "Katalog Hazet alata",
+    "DD_LINK_8": "Katalog SW-Stahl alata",
+    "DD_LINK_9": "Pretraživač Eni proizvoda",
+    "MCH_LINK_1": "BPW Bergische Achsen rezervni delovi",
+    "MCH_LINK_2": "SAF-Holland rezervni delovi",
+    "MCH_LINK_3": "HACO rezervni delovi - (FR)",
+    "MCH_LINK_8": "KS Tools (FR)",
+    "RBE_LINK_1": "BPW Bergische Achsen rezervni delovi",
+    "RBE_LINK_2": "SAF Holland rezervni delovi",
+    "RBE_LINK_3": "Aspöck rasveta",
+    "SNR_LINK": "Vodič SNR dijagnostike i ležajeva točka",
+    "SNR_LINK2": "SNR ASB tehnologija (FR)",
+    "TM_LINK_1": "Tehničke informacije FERODO kočionih delova",
+    "TM_LINK_2": "Katalog Man filtera",
+    "TM_LINK_3": "Katalog NGK svećica",
+    "TM_LINK_4": "Pretraživač OSRAM sijalica",
+    "TM_LINK_5": "Thule vodič za kupovinu",
+    "TM_LINK_6": "Katalog Facom alata",
+    "TM_LINK_7": "Katalog Expert alata",
+    "TM_LINK_8": "Katalog SW-Stahl alata",
+    "TM_LINK_9": "Pretraživač Mobil proizvoda",
+    "WBB_LINK_1": "Thule katalog",
+    "WBB_LINK_2": "Thule cenovnik"
+  },
+  "INFORMATIONS_DATA_IT": {
+    "DD_LINK_1": "Tehničke informacije FERODO kočionih delova",
+    "DD_LINK_10": "Pretraživač Castrol proizvoda",
+    "DD_LINK_2": "Pretraživač NGK svećica",
+    "DD_LINK_3": "Pretraživač OSRAM sijalica",
+    "DD_LINK_4": "Thule vodič za kupovinu",
+    "DD_LINK_5": "Katalog Beta alata",
+    "DD_LINK_6": "Pretraživač Eni proizvoda",
+    "DD_LINK_7": "Vodič SNR dijagnostike i ležajeva točka",
+    "DD_LINK_8": "Tehničke informacije FERODO kočionih delova",
+    "DD_LINK_9": "Katalog Man filtera",
+    "FERODO_VIDEO": "Ferodo - Video",
+    "MCH_LINK_3": "HACO rezervni delovi - (IT)",
+    "MCH_LINK_8": "KS Tools (IT)",
+    "SNR_LINK": "SNR analize i preporuke (IT)",
+    "SNR_LINK2": "SNR ASB tehnologija (IT)",
+    "TM_LINK_1": "Pretraživač OSRAM sijalica",
+    "TM_LINK_2": "Thule vodič za kupovinu",
+    "TM_LINK_3": "Katalog Facom alata",
+    "TM_LINK_4": "Katalog Expert alata",
+    "TM_LINK_5": "Pretraživač Mobil proizvoda",
+    "TM_LINK_6": "Facom katalog alata",
+    "TM_LINK_7": "Expert katalog alata",
+    "TM_LINK_8": "Katalog",
+    "TM_LINK_9": "Mobil vodič za ulja",
+    "WBB_LINK_1": "Thule katalog",
+    "WBB_LINK_2": "Thule cenovnik"
+  },
+  "INVOICE": {
+    "ARTICLE_HAS_NO_NUMBER_MESSAGE": "Ne postoji informacija o artiklu za izabranu fakturu",
+    "INVALID_ARTICLE_TO_ADD_MESSAGE": "Faktura sadrži jedan ili više artikala koje nije moguće dodati u korpu za kupovinu.",
+    "NO_RESULTS_FOUND_MESSAGE": "Nijedna faktura ne odgovara vašim kriterijumima! Podesite pretragu. Imajte na umu da se prvo mora izabrati važeći period.",
+    "GROSS_PRICE": "Iznos"
+  },
+  "IS_DISPLAY": {
+    "FALSE": "Ne",
+    "TRUE": "Da"
+  },
+  "LOGIN": {
+    "BUTTON": {
+      "LOGIN": "Prijavljivanje"
+    },
+    "ERROR_MESSAGE": {
+      "BLOCKED_CUSTOMER": "Nalog je blokiran. Molimo vas da kontaktirate vašu lokalnu filijalu.",
+      "INVALID_CREDENTIALS": "Vaša registracija nije tačna! Proverite korisničko ime, lozinku i/ili ime kompanije.",
+      "NO_CREDENTIALS": "Vaša Registracija je nepotpuna! Unesite korisničko ime i lozinku.",
+      "SYSTEM_ERROR": "Izvinite na prekidu. Pokušajte ponovo uskoro.",
+      "USER_IS_NOT_ACTIVED": "Nalog kupca je zaključan! Kontaktirajte vašu filijalu.",
+      "WHOLESALER_PERMISSION_ACCESS_DENIED": "Kalkulacija za veleprodaje je deaktivirana!"
+    },
+    "LABEL": {
+      "FORGOT_PASSWORD": "Zaboravili ste lozinku?",
+      "LOGIN": "Prijavi se",
+      "PASSWORD": "Lozinka",
+      "REGISTRATION": "Registruj se",
+      "SHOW": "Prikaži",
+      "SSO": "Registracija agenta za prodaju",
+      "USER_NAME": "Korisničko ime"
+    }
+  },
+  "MENU": {
+    "EXTERNAL_LINKS": {
+      "BIG_POINTS": "<b> Veliki</b> Poeni",
+      "DIGITAL_CATALOG": "Digitalni katalog",
+      "HAPPY_POINTS_REGISTRATION": "Registracija Srećnih Poena",
+      "HAPPY_POINTS_SHOP": "Prodavnica Srećnih Poena"
+    },
+    "HINT": "Beleške",
+    "LICENSE_SPECIFICATIONS": "Tehnički podaci o licenci",
+    "LOG_OUT": "Odjavi se",
+    "MANAGE_CUSTOMERS": "Upravljanje kupcima",
+    "MY_FAVORITES": "Moji favoriti",
+    "MY_ORDERS": "Moje porudžbine",
+    "PRICE_FILE": "Cenovnik (Excel)",
+    "PROFILE": "Profil",
+    "RETURN": "Povrati",
+    "SETTINGS": "Podešavanja",
+    "USER_ADMINISTRATION_TAB": "Upravljanje korisnicima",
+    "VIEW_INVOICES": "Prikaži fakture",
+    "VIEW_ORDER": "Prikaži porudžbinu"
+  },
+  "MESSAGES": {
+    "ADDED_SUCCESSFULLY": "Uspešno dodato!",
+    "GENERAL_ERROR": "Greška!",
+    "NO_RESULTS_FOUND": "Nisu pronađeni rezultati!",
+    "PRICE_FILE_NOT_FOUND": "Cenovnik nije dostupan",
+    "SECTION_EXPIRED": "Trenutna sesija je istekla!",
+    "SERVER_ERROR": "Greška na serveru!",
+    "VERSION_CHECKER_INFORM": "Postoji nova verzija! <br> Sistem će biti ponovo učitan i biti dostupan za dalje korišćenje."
+  },
+  "MY_DATE_RANGE_PICKER": {
+    "DAYS": {
+      "FRI": "Pet",
+      "MON": "Pon",
+      "SAT": "Sub",
+      "SUN": "Ned",
+      "THU": "Čet",
+      "TUE": "Uto",
+      "WED": "Sre"
+    },
+    "MONTHS": {
+      "APR": "Apr",
+      "AUG": "Avg",
+      "DEC": "Dec",
+      "FEB": "Feb",
+      "JAN": "Jan",
+      "JUL": "Jul",
+      "JUN": "Jun",
+      "MAR": "Mart",
+      "MAY": "Maj",
+      "NOV": "Nov",
+      "OCT": "Okt",
+      "SEP": "Sep"
+    },
+    "SELECT_BEGIN_DATE_TEXT": "Datum od",
+    "SELECT_END_DATE_TEXT": "Datum do"
+  },
+  "OCI": {
+    "EXPORT_TO_SAP": "Premesti informacije o artiklu u SAP",
+    "TRANSFER": "Prenos"
+  },
+  "OFFERS": {
+    "DELETE_OFFER_MESSAGE": "Želite li da otkažete ovu ponudu <strong> {{param}} </strong >?",
+    "DELETE_UNSUCCESSFULLY": "Brisanje nije uspelo!",
+    "DISCOUNT": {
+      "ADDITION_AS_AMOUNT": "Doplata",
+      "ADDITION_AS_AN_AMOUNT_ON_ARTICLES": "Doplata na robu",
+      "ADDITION_AS_AN_AMOUNT_ON_WORKS": "Doplata na uslugu",
+      "ADDITION_IN_PERCENT": "Doplata u procentima",
+      "ADDITION_IN_PERCENT_ON_ARTICLES": "Doplata u procentima na robu",
+      "ADDITION_IN_PERCENT_ON_WORKS": "Doplata u procentima na uslugu",
+      "ADD_DISCOUNTS_SURCHARGES": "Saberi popuste, doplate",
+      "DISCOUNT_AS_AMOUNT": "Popust",
+      "DISCOUNT_AS_AN_AMOUNT_ON_ARTICLES": "Popust na robu",
+      "DISCOUNT_AS_AN_AMOUNT_ON_WORKS": "Popust na uslugu",
+      "DISCOUNT_IN_PERCENT": "Popust u procentima",
+      "DISCOUNT_IN_PERCENT_ON_ARTICLES": "Popust u procentima na robu",
+      "DISCOUNT_IN_PERCENT_ON_WORKS": "Popust u procentima na uslugu",
+      "INVALID_AMOUNT": "Nevažeći iznos!",
+      "INVALID_PERCENT": "Nevažeći procenat",
+      "ON_ALL_OWN_ARTICLE": "Na svu robu",
+      "ON_ALL_OWN_WORK": "Na sve usluge"
+    },
+    "INVALID_AMOUNT": "Nevažeći iznos!",
+    "INVALID_NUMBER": "Nevažeći broj!",
+    "INVALID_PRICE": "Nevažeća cena!",
+    "MANAGE_CUSTOMERS": "Upravljajte kupcima",
+    "MANAGE_OFFERS": "Upravljaj ponudama",
+    "MANAGE_YOUR_ARTICLES": "Upravljaj sopstvenim artiklima",
+    "MANAGE_YOUR_OWN_WORK": "Upravljaj sopstvenim uslugama",
+    "NEW_CUSTOMER": "Dodaj novog kupca",
+    "NEW_OFFER": "Nova ponuda",
+    "OFFER_CUSTOMER": {
+      "ADDRESS": "Adresa",
+      "CONTACT_INFO": "Kontakt informacije",
+      "DELETE_MESSAGE": "Želite li da izbrišete ovog kupca <strong> {{param}} </strong >?",
+      "EDIT_CUSTOMER_TITLE": "Izmene informacija o kupcu",
+      "NAME": "Prezime",
+      "NEW_CUSTOMER_TITLE": "Dodaj novog kupca",
+      "NO": "Ne",
+      "YES": "Da"
+    },
+    "OFFER_DETAIL": {
+      "CONFIRM_SAVE_CHANGES": "Želite li da sačuvate promene?",
+      "DATE": "Datum",
+      "DELIVERY_DATE": "Datum isporuke",
+      "DETAIL": "Detalji",
+      "OFFER_ITEM": {
+        "ARTICLE": "Artikli",
+        "ARTICLE_WITH_VEHICLE": "Artikli sa prikazom vozila",
+        "ARTICLE_WTHOUT_CATEGORY": "Razno",
+        "ARTICLE_WTHOUT_VEHICLE": "Artikli bez prikaza vozila",
+        "BACK": "Nazad",
+        "DESCRIPTION": "Opis",
+        "MORE_ITEMS_FOR_VEHICLE": "Ostali artikli za izabrano vozilo",
+        "ORDER": "Porudžbina",
+        "OWN_ARTICLES": "Sopstvene artikli",
+        "OWN_WORK": "Sopstvene usluge",
+        "PRICE": "Cena",
+        "PRINT_INVOICE": "Odštampaj kao fakturu",
+        "QUANTITY": "Količina",
+        "SAVE": "Sačuvaj",
+        "SURCHARGES_DISCOUNT": "Popusti, doplate",
+        "TOTAL": "Ukupno",
+        "TOTAL_OFFER_WITHOUT_VAT": "Ukupna ponuda bez PDV-a",
+        "TOTAL_OFFER_WITH_VAT": "Ukupna ponuda sa PDV-om",
+        "VAT": "PDV",
+        "VIEW_TO_ADD": "Prikaži vreme rada",
+        "WORK": "Rad",
+        "WORKING_TO_ADD": "Dodaj vreme rada"
+      },
+      "OFFER_NUMBER": "Broj",
+      "OFFER_STATUS": {
+        "ALL": "Sve",
+        "MANUALLY_ORDERED": "Ručno obrađena porudžbina",
+        "OPEN": "U procesu",
+        "ORDERED": "Naručeno"
+      },
+      "REMARKS": "Zabeleške",
+      "STATUS": "Status",
+      "TITLE": "Promeni ponudu"
+    },
+    "OVERVIEW_OF_ALL_CUSTOMERS": "Pregled svih kupaca",
+    "OVERVIEW_OF_ALL_OFFERS": "Pregled svih ponuda",
+    "OWN_ARTICLE": {
+      "CAPTURE_NEW_ARTICLE": "Dodaj novi artikal",
+      "CREATE_NEW_ARTICLE": "Dodaj novi artikal",
+      "EDIT_ARTICLE": "Promeni artikal",
+      "MESSAGE": {
+        "DELETE_CONFIRM": "Želite li da izbrišete artikal <strong> {{param}} </strong >?",
+        "NOT_FOUND_ARTICLES": "Nije pronađen nijedan artikal"
+      },
+      "OVERVIEW_OF_ALL_ARTICLE": "Pregled svih artikala"
+    },
+    "OWN_WORK": {
+      "CAPTURE_NEW_WORK": "Dodaj novo zaduženje",
+      "CREATE_NEW_WORK": "Dodaj sopstveno zaduženje",
+      "EDIT_WORK": "Promeni sopstveno zaduženje",
+      "MESSAGE": {
+        "DELETE_CONFIRM": "Želite li da izbrišete zaduženje<strong> {{param}} </strong >?",
+        "NOT_FOUND_WORKS": "Nijedno sopstveno zaduženje nije pronađeno"
+      },
+      "OVERVIEW_OF_ALL_WORK": "Pregled svih sopstvenih zaduženja"
+    },
+    "SAVE_UNSUCCESSFULLY": "Čuvanje nije uspelo!",
+    "SELECT_CUSTOMER": "Izaberi kupca",
+    "SELECT_YOUR_OWN_ARTICLE": "Izaberi sopstvene artikle",
+    "SELECT_YOUR_OWN_WORK": "Izaberi sopstveno zaduženje"
+  },
+  "OIL": {
+    "AGGREGATE": "Vrsta maziva",
+    "ALL": "Sva",
+    "APPROVED": "Međunarodna norma",
+    "BOTTLE_SIZE": "Veličina pakovanja",
+    "OIL": "Mazivo",
+    "SPECIFICATION": "Specifikacija",
+    "VEHICLE": "Tip vozila",
+    "VISCOSITY": "Viskoznost",
+    "BRAND": "Proizvođač"
+  },
+  "OLYSLAGER": {
+    "APP_NOTE": "Napomena o aplikaciji",
+    "DESCRIPTION": "Izaberi željeni model vozila:",
+    "FILL_QUANTITY": "Količina",
+    "MESSAGE": {
+      "API_ERROR": "Ne postoji informacija o ulju za ovo vozilo",
+      "NOT_FOUND_VEHICLES": "Nažalost, nije pronađen odgovarajući proizvod za vozilo koje ste izabrali. Obratite se vašoj filijali za pomoć."
+    },
+    "TITLE": "Vozila",
+    "USE_INTERVAL": "Upotreba/interval"
+  },
+  "ORDER": {
+    "ERROR": {
+      "AX_INVALID_COMPANY": "Kompanija ne postoji!",
+      "AX_INVALID_DATA": "Ova porudžbina krši jedno ili više pravila za proveru valjanosti! Proverite unete podatke.",
+      "AX_TIMEOUT": "Porudžbina nije uspela (greška vremenskog ograničenja)! <br> Proverite porudžbinu u AX-u.",
+      "CREATE_OFFER_FAILED": "Nije moguće kreiranje AX ponude.",
+      "EMAIL_FAILED": "E-mail nije dostavljen!",
+      "OFFER_FAILED": "Ponuda nije prihvaćena!",
+      "ORDER_FAILED": "Porudžbina nije moguća! Kontaktirajte vašu filijalu.",
+      "TIMEOUT": "Porudžbina nije uspela (greška vremenskog ograničenja)! Proverite porudžbinu u SAGsys-u.",
+      "TRANSFER_FAILED": "Prenos korpe za kupovinu nije uspeo!",
+      "TRANSFER_ONLY_TIMEOUT_FAILED": "Uspešan završetak poredak ne može biti potvrđena. Molimo vas da pozovete svoju ekspozituru da proverite red.",
+      "TRANSFER_TIMEOUT_AND_OTHER_FAILED": "Prenos korpe za kupovinu delimično nije uspeo! Uspešan završetak poredak ne može biti potvrđena. Molimo vas da pozovete svoju ekspozituru da proverite red."
+    },
+    "TYPE": {
+      "ABS": "ABS",
+      "ALL": "Svi",
+      "COUNTER": "Kupac u maloprodaji",
+      "ORDER": "Porudžbina",
+      "STD": "STD"
+    },
+    "WARNING": {
+      "INVALID_COUPON": "Ne možemo primeniti kupon na ovu porudžbinu. Molimo vas da kontaktirate svoju filijalu.",
+      "TRANSFER_PARTIALLY_FAILED": "Upozorenje! Neke artikle nije moguće naručiti. Molimo vas da proverite korpu za kupovinu i pozovete lokalnu filijalu."
+      }
+  },
+  "ORDER_CONFIRMATION": {
+    "COUNTER": {
+      "BARCODE_ITEMS": "Artikli se mogu birati pomoću bar koda.",
+      "HEADER": "Porudžbina poslata kupcu",
+      "ORDER_NR": "Vaš broj porudžbine"
+    },
+    "REFERENCE": "Vaše POS. reference"
+  },
+  "ORDER_DASHBOARD": {
+    "CART_NR": "Korpa za kupvinu / broj porudžbine",
+    "COMPANY_TYPE": "Tip kompanije",
+    "CONFIRMATION": {
+      "CONFIRM_ADD_TO_BASKET": "Sačuvaj korpu za kupovinu i zatvori",
+      "CONFIRM_BTN_ADD_TO_BASKET": "Poruči",
+      "CONFIRM_DELETE_ORDER": "Porudžbina će biti izbrisana"
+    },
+    "CONTACT_INFO": "Kontakt informacije",
+    "CUSTOMER": "Kupac",
+    "DELETE": "Izbriši",
+    "GOODS_RECEIVER": "Primalac robe",
+    "MY_CUSTOMERS_ORDERS": "Porudžbine kupca",
+    "NEW_ORDERS": "Nove porudžbine kupaca",
+    "ORDERED": "Poručeno",
+    "ORDER_DATE_TIME": "Datum porudžbine",
+    "ORDER_LIST_NOT_FOUND": "Nije pronađen nijedan zapis.",
+    "ORDER_REF": {
+      "CUSTOMER_MESSAGE": "Poruka za kupca",
+      "CUSTOMER_POSITION_REF": "Referenca pozicije",
+      "CUSTOMER_REF": "Referenca kupca"
+    },
+    "REMOVE_CUSTOMER": "Ukloni kupca",
+    "SELECT_CUSTOMER": "Odaberi kupca",
+    "TOTAL": "Ukupna Prodajna cena",
+    "TOTAL_ORDER": "Ukupno: {{total}} porudžbine",
+    "VEHICLE_ARTICLE": "Vozilo / Artikal"
+  },
+  "ORDER_HISTORY": {
+    "ADDING_FAILED": "Dodavanje ne funkcioniše!",
+    "ADDING_SUCCESSFULLY": "Artikli su dodati u korpu",
+    "ARTICLE": "Artikli",
+    "COLUMNS": {
+      "ORDER_NUMBER": "Broj porudžbine",
+      "STATUS": "Status",
+      "TYPE": "Tip"
+    },
+    "ERROR": {
+      "ERROR_HAPPENED": "Istorija porudžbina nije pronađena!"
+    },
+    "LABEL": "Sačuvane korpe za kupovinu",
+    "ORDER_LIST": "Zadaci",
+    "PLACE_HOLDERS": {
+      "ORDER_NUMBER": "Broj porudžbine"
+    }
+  },
+  "PAGE_TITLE": {
+    "ARTICLE_SEARCH_LIST": "Šoping lista",
+    "BATTERY": "Akumulatori",
+    "BULBS": "Sijalice",
+    "HOME": "Vozila, delovi",
+    "INFORMATION": "Informacije",
+    "OFFERS": "Ponude",
+    "OIL": "Ulje",
+    "OUTLET_SHOP": "Outlet prodavnica",
+    "PROMOTIONS": "Promocije",
+    "TYPRES": "Gume",
+    "UNIVERSAL_PART": "Univerzalni delovi"
+  },
+  "PAGINATION": {
+    "NEXT": "Sledeća",
+    "PREVIOUS": "Prethodna"
+  },
+  "PERMISSION": {
+    "BATTERY": "Akumulatori",
+    "BULB": "Sijalice",
+    "DMS": "Menadžment sistem za kupce - DMS",
+    "HAYNESPRO": "HaynesPro",
+    "HOME": "Početna stranica",
+    "OCI": "OCI",
+    "OFFER": "Ponude",
+    "OIL": "Maziva",
+    "TYRE": "Gume",
+    "VIN": "Broj šasije (VIN)",
+    "UNIPARTS": "Univerzalni delovi"
+  },
+  "PROMOTIONS_DATA": {
+    "AT_LINK_1": "Fokus",
+    "AT_LINK_2": "Mesečne promocije",
+    "DD_LINK_1": "Promocije",
+    "DD_LINK_1_TYRES": "Gume - Akcija",
+    "DD_LINK_2": "Promocije",
+    "DD_LINK_2_TYRES": "Gume - Akcija",
+    "DD_LINK_3": "Promocije",
+    "DD_LINK_3_TYRES": "Gume - Akcija",
+    "MT_LINK_1": "Matik Aktuell",
+    "MT_LINK_2": "KSTools promocija",
+    "RBE_LINK_1": "REMCO PROMOCIJA - REMCO PROMOCIJA",
+    "TM_LINK_1": "Promocije",
+    "TM_LINK_1_TYRES": "Gume - Akcija",
+    "TM_LINK_2": "Promocije",
+    "TM_LINK_2_TYRES": "Gume - Akcija",
+    "TM_LINK_3": "Promocije",
+    "TM_LINK_3_TYRES": "Gume - Akcija"
+  },
+  "QUICK_CLICK": {
+    "ARTICLES_DISPLAY": "Prikaži delove",
+    "FOLD": "Prikaži manje",
+    "UNFOLD": "Prikaži više"
+  },
+  "RECOMMENDATIONS": {
+    "DISC_BRAKE_SET_ACCESSORIES": "Kočioni disk set + oprema"
+  },
+  "REGISTER": {
+    "ADDITIONAL_LINK_TO_CONTACT": "Kliknite ovde ako još uvek nemate broj kupca.",
+    "CONTACT": {
+      "SUCCESS_MESSAGE": "Hvala vam na interesovanju za našu internet prodavnicu. Vaš zahtev je podnet, a mi ćemo vas kontaktirati u najkraćem mogućem roku.",
+      "TEXT": "Online prodavnica je isključivo za pravna lica."
+    },
+    "CUSTOMER_NUMBER": "Broj kupca",
+    "DESCRIPTION": "Opis",
+    "FAX_NUMBER": "Faks",
+    "HOMEPAGE": "Početna stranica",
+    "INTRODUCTION_1": "Online prodavnica je isključivo za pravna lica.",
+    "INTRODUCTION_2": "Informacije: da biste se registrovali morate prvo upisati broj kupca i poštanski broj svoje glavne adrese. Tada ćete moći da kreirate novi korisnički nalog za internet prodavnicu.",
+    "MESSAGES": {
+      "CREATE_MDM_CUSTOMER_FAILED": "Nije moguće kreirati klijenta u MDM-u!",
+      "CREATE_MDM_USER_FAILED": "Nije moguće kreirati korisnika MDM-a!",
+      "CUSTOMER_INACTIVE": "Nije moguće registrovati ovog klijenta. Kontaktirajte vašu filijalu.",
+      "CUSTOMER_NOT_BELONG_TO_AFFILIATE": "Klijent nije pronađen!",
+      "INTERNAL_ERROR": "Interna greška servera!",
+      "INVALID_ADMIN_ROLE": "Administratorska uloga nije važeća!",
+      "INVALID_AFFILIATE": "Kompanija je nepostojeća!",
+      "INVALID_COMPANY_NAME": "Ime kompanije je netačno!",
+      "INVALID_CUSTOMER": "Broj kupca je netačan!",
+      "INVALID_DELIVERY_METHOD": "Način isporuke je netačan!",
+      "INVALID_EMAIL": "E-mail je netačan!",
+      "INVALID_GROUP": "Grupa je netačna!",
+      "INVALID_ORGANISATION_TYPE": "Tip organizacije je netačan!",
+      "INVALID_POST_CODE": "Poštanski broj je netačan!",
+      "INVALID_SALUTATION": "Skraćenica za oslovljavanje je netačna!",
+      "INVALID_SUR_NAME": "Prezime je netačno!",
+      "INVALID_USERNAME_IN_AFFILIATE": "Ovo korisničko ime je već u upotrebi.",
+      "INVALID_USERNAME_IN_CUSTOMER": "Ovo korisničko ime već postoji za ovog kupca!",
+      "INVALID_CUSTOMER_ALREADY_REGISTERED" : "Kupac je već registrovan",
+      "INVALID_USER_NAME": "Korisničko ime je netačno!",
+      "INVALID_USER_ROLE": "Poslovna uloga je netačna!",
+      "MESSAGE_SUCCESS": "Novi administrator korisnika je uspešno kreiran."
+    },
+    "OPTIONAL_ADDRESS": "Opcionalna adresa.",
+    "REGISTRY": "Registracija",
+    "USERNAME": "Korisničko ime",
+    "CREATE_ON_BEHALF_ONLY" : "Offline klijent"
+  },
+  "RETURN_ARTICLE_BASKET": {
+    "CONTAIN_DEPOSIT_WARNING": "Ova stavka sadrži depo za stari deo. Prilikom vraćanja starog dela izaberite razlog vraćanja \"8 - stari deo\"!",
+    "CREATE_SELECTED_RETURNS": "Kreirajte izabrane povrate",
+    "ERRORS": {
+      "AX_TIMEOUT": "Zahtev nije uspeo (greška vremenskog ograničenja)! <br> Proverite povrate u AX-u.",
+      "INVALID_RETURN_QUANTITY": "Povratna količina je netačna! Dozvoljene su samo vrednosti između 1 i količine koja je preostala za vraćanje.",
+      "SUBMIT": "Povrati nisu poslati! Proverite svoje podatke."
+    },
+    "MULTIPLE_PIECES_WARNING": "Kupljeno je više komada ovog artikla. Proverite vraćenu količinu!",
+    "PAYMENT_TERM": "Uslovi plaćanja",
+    "PAYMENT_TERM_DESC": "<strong> {{value}} </strong> Povrati uvek moraju biti isti kao porudžbina.",
+    "PRINT_RETURN_CONFIRMATION": "Štampanje potvrde povrata",
+    "QUARANTINE_REASON": "Razlog odvajanja (skladištenja) robe (Max 60 znakova)",
+    "REFUND": "Povraćaj novca",
+    "RETURN_CONDITION": {
+      "REASON_LIST": {
+        "AIS_RETOUR": "9 - AIS povratak",
+        "ALTERNATIVE": "8 - Stari deo",
+        "DEFECT": "1 - Neispravan",
+        "FALSE_ARTICLE": "3 - Pogrešan artikal",
+        "INCORRECT_FEED_LINE": "2 - Pogrešno dodeljivanje",
+        "NOT_USED": "6 - Ne koristi",
+        "SELECTION": "5 - Poslat uzorak",
+        "SUPPLIER_CALLBACK": "7 - Opoziv dobavljača",
+        "WRONG_AMOUNT": "4 - Pogrešna količina",
+        "REPAIR": "10 - Popravka"
+      },
+      "TITLE": "Uslovi povrata"
+    },
+    "RETURN_CONFIRMATION": {
+      "INFO": "Primili smo povrat i biće obrađen što je pre moguće.",
+      "QUARANTINE_ORDER": "Vaši skladišteni povrati su:",
+      "RETURN_ORDER": "Vaši nalozi za povrat su:",
+      "TITLE": "Zabeleženi povrati",
+      "MESSAGE": "Da li samo želite da vratite <b>polovne delove</b>?",
+      "SELECT_ANOTHER_REASON": "Molimo vas da izaberete drugi razlog za povratak."
+    },
+    "RETURN_REASON_TITLE": "Razlog vraćanja",
+    "TABLE_COLUMNS": {
+      "AMOUNT": "Količina",
+      "ASSIGNMENT": "Zadatak",
+      "CASH_DISCOUNT": "Popust na gotovinu",
+      "DEADLINE": "Rok",
+      "ID": "ID",
+      "KEYWORD": "Ključna reč",
+      "NAME": "Prezime",
+      "NUMBER": "Broj",
+      "PAYMENT": "Plaćanje",
+      "QUARANTINE": "Skladište",
+      "REST": "Ostalo",
+      "STORAGE_LOCATION": "Lokacija za skladištenje",
+      "TYPE": "Tip",
+      "DESCRIPTION": "Oznaka "
+    },
+    "TABLE_TITLE": "Kreiranje povrata"
+  },
+  "SEARCH": {
+    "ADD_TO_CART": "U korpi za kupovinu",
+    "ALL": "Sve",
+    "ARTICLE_DESC": "Opis artikla",
+    "ARTICLE_FULLTEXT": "Pretraga čitavog teksta",
+    "ARTICLE_HISTORY_TITLE": "Nedavno pretraženo",
+    "ARTICLE_TIPS": "Br.artikla/OE broj",
+    "BRAKES": "Kočnice",
+    "BUYVIN": "Naruči VIN (br šasije) paket",
+    "CHOOSE": "Poslednje porudžbine prodavca",
+    "COLUMN_BODY": "Karoserija",
+    "COLUMN_CYLINDER": "Cilindar",
+    "COLUMN_DRIVE_TYPE": "Pogon",
+    "COLUMN_ENGINE": "Zapremina motora",
+    "COLUMN_FUEL": "Gorivo",
+    "COLUMN_MOTOR": "Motor",
+    "COLUMN_NAME": "Tip",
+    "COLUMN_POWER": "Snaga",
+    "COLUM_PERIOD": "Godina",
+    "DATA": "Podaci",
+    "DEAL_OFWEEK": "Dogovor nedelje",
+    "ENGINE_PARTS": "Delovi motora",
+    "ERROR_MESSAGE": {
+      "ARTICLE_NOT_FOUND": "Članak se ne može pronaći.",
+      "EXCEED_30_DAYS": "Razlika ne sme da premaši 30 dana!",
+      "EXCEED_31_DAYS": "Razlika ne sme da premaši 31 dan!",
+      "FROM_DATE_CHANGED": "Datum od je podešen na razliku od 31 dan",
+      "HAS_VALUES": "Unos HSN/TSN broja",
+      "INVALID_RETURN_ARTICLE": "Artikal je netačan!",
+      "INVALID_VIN": "Broj šasije (VIN) je netačan",
+      "MAKE_MODEL_TYPE_REQUIRED": "Molim vas odaberite marku/model/tip",
+      "NOT_FOUND": "Nije moguće pronaći artikal. Proverite svoj unos.",
+      "PERMISSION": "Nemate dozvolu da izvršite ovu radnju.",
+      "REQUIRED_FIELD": "Molimo vas da popunite",
+      "TO_DATE_CHANGED": "Datum do je podešen na razliku od 31 dan",
+      "UNSUPPORTED": "Ova funkcija pretraživanja nije podržana!",
+      "VEHICLE_NOT_FOUND": "Nijedno vozilo nije pronađeno!",
+      "VEHICLE_NOT_MATCHED": "Nijedno odgovarajuće vozilo nije pronađeno.",
+      "SELECT_CATEGORIES_ON_LEFT": "Izaberite neku od kategorija sa leve strane."
+    },
+    "FILTER": "Filter",
+    "FILTER_NAME_TITLE": "Pretraga sa zvezdicom: (*) odgovara jednom ili više znakova. Primer: sport* pronalazi Sportback",
+    "HISTORY_TIPS": "Prethodno tražena vozila",
+    "HOVER_TITLES": {
+      "VEHICLES": "Pretraži: Kataloški broj (KB), Broj tablice, NAT kod",
+      "VEHICLES_DESC": "Traži preko: Marke, Modela, Tipa vozila, Karoserije, Vrste goriva, Zapremine motora, Broja motora, Snage u kW, Pogona ... ili bilo koje kombinacije.",
+      "VEHICLES_DESC_HELP": "Zvezdica (*) odgovara jednom ili više znakova. Primer: sport* pronalazi Sportback",
+      "VIN_20": "Pretraga preko: broja šasije (VIN-a)",
+      "YEAR": "Traži godinu: YYYY"
+    },
+    "HSN": "HSN",
+    "KILOMETER": "Kilometraža",
+    "KW_PS": "KW/KS",
+    "LANDING_GEAR": "Suspenzija",
+    "LOADING": "Učitavanje…",
+    "MAINTENANCE": "Održavanje",
+    "MAKE_MODEL_HINT": "Traženje vozila pomoću polja ispod",
+    "MARK": "Registracija",
+    "MOTOCODE_DESC": "Broj motora/ fabrički kod",
+    "MULTIPLE_VEHICLES_DESCRIPTION": "Odabir vozila",
+    "MULTIPLE_VEHICLES_TITLE": "Sva vozila",
+    "MYFAVORITES": "Moji favoriti",
+    "NATIONAL_CODE": "NAC kod",
+    "NO_ARTICLE_SEARCH_FOUND": "Nije pronađen nijedan zapis",
+    "NO_RESULTS_FOUND": "Nisu pronađeni rezultati",
+    "NO_VEHICLE_SEARCH_FOUND": "Nije pronađeno nijedno vozilo",
+    "OR": "ili",
+    "PART_SEARCH": "Pretraga artikala",
+    "QUICK_ORDER": "Brzo naručivanje",
+    "REMOVE": "Ukloni",
+    "SEARCH_BUTTON": "Pretraga",
+    "SEARCH_OIL": {
+      "ADDITIONAL_INFORMATION": "Dodatne informacije",
+      "LUBRICANT_CATALOG": "Katalog maziva",
+      "MOBILE_PRODUCT_DATA_SHEETS": "Podaci o proizvodu",
+      "MOBILE_SAFETY_DATA_SHEETS": "Radni listovi sa podacima o bezbednosti",
+      "WHICH_ENGINE_OIL": "Koje motorno ulje?"
+    },
+    "SEARCH_TYRES": {
+      "ACCESSORIES": "Dodatna oprema",
+      "ADDITIONAL_INFORMATION": "Dodatne informacije",
+      "COMPARISON_TATBLE": "Uporedna tabela",
+      "CROSS_SECTION": "Visina",
+      "DIAMETER": "Prečnik",
+      "FZ_CATEGORY": "Tip vozila",
+      "INPUT_EXAMPLE": "Primer",
+      "LOAD_INDEX": "Indeks nosivosti",
+      "MANUFACTURER": "Proizvođač",
+      "MATCH_CODE": "Podudaranje koda",
+      "MATURITY_INDEX": "Indeks nosivosti",
+      "MOTORBIKES": "Motor/Motocikl",
+      "MOTOR_CATEGORY": "Kategorija",
+      "POTS_AND_PANS": "Kompleti za popravku",
+      "REPAIR_MATERIAL": "Popravka proizvoda",
+      "RESET": "Izbriši",
+      "RIM": "Felne",
+      "RUNFLAT": "Runflat",
+      "SEASON": "Sezona",
+      "SHOW_ALL_ARTICLES": "Prikaži sve artikle",
+      "SPEED_CATEGORIES": "Kategorije indeksa brzine",
+      "SPEED_INDEX": "Indeks brzine",
+      "SPIKE": "Šiljci",
+      "TYRES": "Putnička vozila / Laka komercijalna vozila",
+      "TYRE_LABEL": "Oznaka pneumatika",
+      "TYRE_SAFETY_NOTES": "Informacije o bezbednosti pneumatika",
+      "TYRE_SEGMENT": "Model gume",
+      "TYRE_TECHNICAL_TERMS": "Tehnički termini pneumatika",
+      "WHEELS": "Pribor za točkove",
+      "WIDTH": "Širina",
+      "MATCH_CODE_ARTICLE_OVER_LIMIT": "SR_MATCH_CODE_ARTICLE_OVER_LIMIT"
+    },
+    "SEARCH_VIN": {
+      "CONTINUE_WITHOUT_VIN": "Nastavi bez broja šasije (VIN-a)",
+      "VIN_POPUP_TITLE": "Broj šasije (VIN)",
+      "VIN_VALUE": "VIN (broj šasije)"
+    },
+    "SELECT": "Odaberi",
+    "SELECT_VEHICLE": "Odabir vozila",
+    "SUGGESTION": "Možda ste zainteresovani i za",
+    "TSN": "TSN",
+    "TYPECERTIFICATE": "Sertifikat",
+    "VEHICLES": "Vrsta sertifikata, Broj tablica, NAT kod",
+    "VEHICLES_DESC": "Opis vozila",
+    "VEHICLE_HINT": "Pretraga vozila vrši se korišćenjem jednog od ovih polja.",
+    "VEHICLE_HISTORY_TITLE": "Poslednja pretraga vozila",
+    "VEHICLE_SEARCH": {
+      "MAKE_MODEL_TITLE": "Marka/model",
+      "VEHICLE_TITLE": "Vozilo"
+    },
+    "VEHICLE_SEARCH_TITLE": "Pretraga po vozilu",
+    "VEHICLE_SEARCH_TITLE_MORE_INFO": "Automobili/Dostavni Kamioni & Motocikli",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB": "Kod/Termin za pretragu",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_TAB_AT": "Izbor marke/Kod",
+    "VEHICLE_SEARCH_CODE_SEARCH_TERM_WITH_SELECT_MAKE_TAB": "Izbor marke",
+    "VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB": "Brend/Model/Tip",
+    "VEHICLE_SEARCH_MAKE_MODEL_TYPE_TAB_CH": "Napredna pretraga vozila",
+    "VIN": "Broj šasije (VIN)",
+    "VIN_20": "VIN ili broj šasije",
+    "VIN_CALLS": "Preostali upiti broja šasije",
+    "VIN_ERROR_MSG": {
+      "ACCESS_LIMIT_EXCEEDED": "Tehnička greška {33}!",
+      "AUTHENTICATION_ERROR": "Tehnička greška {3}!",
+      "DATA_ERROR": "Greška u podacima",
+      "IMPOSSIBLE_TO_OBTAIN_LABOUR_TIME": "Greška, nepotpuni ili nepoznati podaci {14}!",
+      "INACTIVE_USER": "Tehnička greška {31}!",
+      "INCOMPATIBLE_EQUIPMENT_FOR_TYPE_ITEM": "Greška, nepotpuni ili nepoznati podaci {24}!",
+      "INCOMPATIBLE_EQUIPMENT_FOR_TYPE_RANK": "Greška, nepotpuni ili nepoznati podaci {23}!",
+      "INCOMPATIBLE_MAINTENANCE_PART_CODES": "Greška, nepotpuni ili nepoznati podaci {38}!",
+      "INTERNAL_ERROR": "Tehnička greška {6}!",
+      "INVALID_EQUIPMENT_ITEM": "Greška, nepotpuni ili nepoznati podaci {12}!",
+      "INVALID_FAMILY_IN_EQUIPMENT_RANK_LIST": "Greška, nepotpuni ili nepoznati podaci {16}!",
+      "INVALID_MAINTENANCE_PART_CODE": "Greška, nepotpuni ili nepoznati podaci {25}!",
+      "INVALID_MANUFACTURER_OPERATION_CODE": "Greška, nepotpuni ili nepoznati podaci {13}!",
+      "INVALID_MODEL_CODE": "Greška, nepotpuni ili nepoznati podaci {7}!",
+      "INVALID_OPERATION_TYPE": "Greška, nepotpuni ili nepoznati podaci {15}!",
+      "INVALID_PART_CODE": "Greška, nepotpuni ili nepoznati podaci {18}!",
+      "INVALID_PART_CODE_FOR_THIS_METHOD": "Greška, nepotpuni ili nepoznati podaci {39}!",
+      "INVALID_PART_CODE_IN_MODEL": "Greška, nepotpuni ili nepoznati podaci {19}!",
+      "INVALID_RANGE_VALUE_1": "Greška, nepotpuni ili nepoznati podaci {70}!",
+      "INVALID_RANGE_VALUE_2": "Greška, nepotpuni ili nepoznati podaci {71}!",
+      "INVALID_REFERENCE": "Greška, nepotpuni ili nepoznati podaci {32}!",
+      "INVALID_USER": "Tehnička greška {5}!",
+      "INVALID_USER_CODE": "Tehnička greška {4}!",
+      "INVALID_VIN_FORMAT": "Pogrešan broj šasije (VIN) {8}! Proverite broj šasije i ponovo ga unesite.",
+      "MODEL_IDENTIFICATION_REQUIRED": "Greška, nepotpuni ili nepoznati podaci {11}!",
+      "MULTIPLE_UMC_DECODED": "Greška, nepotpuni ili nepoznati podaci {10}!",
+      "NOT_FOUND_VEHICLE": "Nije pronađeno odgovarajuće vozilo",
+      "NO_MODEL_CODE": "Greška, nepotpuni ili nepoznati podaci {69}!",
+      "NO_RELATIONSHIP_FOUND_BETWEEN_FAMILY_AND_MODEL": "Greška, nepotpuni ili nepoznati podaci {17}!",
+      "NO_RESULT_FOUND": "Rezultati nisu pronađeni {21}!",
+      "NO_VALID_MODEL_CODE_DECODED_FROM_VIN": "Pogrešan broj šasije (VIN) {9}! Proverite broj šasije i ponovo ga unesite.",
+      "OPERATION_CODE_DOES_NOT_EXIST_FOR_UMC": "Greška, nepotpuni ili nepoznati podaci {22}!",
+      "OPERATION_TYPE_NOT_VALID_FOR_PART_CODE": "Greška, nepotpuni ili nepoznati podaci {20}!",
+      "SYSTEM_ERROR": "Sistemska greška",
+      "UNKNOWN": "Nepoznata greška",
+      "USER_UNKNOWN": "Korisnik je nepoznat",
+      "VIN ALREADY EXISTS": "Pogrešan broj šasije (VIN) {40}! Proverite broj šasije i ponovo ga unesite. ",
+      "VIN DOES NOT EXIST": "Broj šasije (VIN) ne postoji {41}! ",
+      "VIN_ERROR": "Pogrešan broj šasije (VIN)! Proverite broj šasije i ponovo ga unesite.",
+      "VIN_INVALID": "Neispravan broj šasije (VIN)!",
+      "VIN_UNKNOWN": "Nepoznat broj šasije (VIN)! Proverite broj šasije i ponovo ga unesite.",
+      "VIN_UNSUPPORTED": "VIN servis nije dostupan! Molimo vas da koristite drugi tip pretrage vozila.",
+      "XML_FORMAT_ERROR": "Tehnička greška {2}!"
+    },
+    "VIN_INFORM_MESSAGE": "Možemo da pružimo uslugu provere valjanosti kako bismo pronašli pravi deo za ovo vozilo. Da biste proverili valjanost, unesite broj šasije (VIN):",
+    "WORKSHOP_GROUPS": "Grupe mehaničara",
+    "YEAR": "Godina",
+    "YEAR_ERROR_HINT": "GGGG, MM/GGGG, MM-GGGG"
+  },
+  "SEARCH_RESULT": {
+    "BACK": "Nazad",
+    "DISC_BRAKE_SET_ACCESSORIES": "Kočioni disk set + oprema",
+    "GO_TO_HAYNESPRO": "Kliknite ovde za HaynesPro",
+    "HAYNESPRO_TD_WORKSHOP": "HaynesPro",
+    "HIDE_ADDTIONAL": "Prikaži manje",
+    "LIQUIDATION": "Obračun",
+    "LOAD_MORE": "Prikaži više",
+    "NEXT": "Nastavite sa narudžbom",
+    "ORDER_NEXT": "Poručite odmah",
+    "SHOW_MORE_ADDTIONAL": "Prikaži više brendova"
+  },
+  "SEARCH_TYPE": {
+    "ALL": "Sve",
+    "ARTICLES": "Artikli",
+    "BARCODE": "Brzo skeniranje",
+    "BARCODE_NOT_FOUND_MS": "Bar kod {{barcode}} je nepoznat! Koristite pretragu preko artikla.",
+    "BATTERIES": "Akumulatori",
+    "MSG_DISPLAY": "Prikaži",
+    "MSG_NO_RECORDS": "Bez podudaranja",
+    "MSG_RECORDS_FOUND": "Pronađeno",
+    "NO_RETURN_ARTICLE_FOUND": "Za ovaj unos nije pronađen nijedan artikal! Unesite važeću vrstu prevoza, porudžbinu, isporuku ili broj fakture.",
+    "RETURN": "Povrati",
+    "RETURN_QUANTITY_IS_ZERO": "Nije pronađen nijedan artikal koji ima povratnu količinu!",
+    "SEARCH_LABLE": "Pretraga čitavog teksta: artikal, vozilo, opis",
+    "VEHICLES": "Vozila",
+    "PRODUCT_CATEGORY": "Proizvod Kategorija"
+  },
+  "SERVICE": {
+    "REAR": {
+      "BRAKE_HOSES": "Kočiona creva",
+      "CALIPER_ACCESSORIES": "Kočione čeljusti + oprema",
+      "DISC_ACCESSORIES": "Kočioni diskovi + oprema",
+      "DISC_BRAKE_SET_ACCESSORIES": "Kočioni disk set + oprema",
+      "SELECT_ALL": "Izaberi sve"
+    }
+  },
+  "SETTINGS": {
+    "ANALYTICAL_CARD": {
+      "DESCRIPTION": "Opis",
+      "EXTERNAL_DOCUMENT": "Br. Eksternog dokumenta",
+      "HEADER": {
+        "DOCUMENT_TYPE": "Vrsta Dokumenta",
+        "DOCUMENT_NO": "Br. Dokumenta",
+        "ORDER_NO": "Br. WEB Porudžbenice",
+        "POSTING_DATE": "Datum knjiženja",
+        "DUE_DATE": "Datum Dospelosti",
+        "PAYMENT_DEADLINE": "Rok za plaćanje",
+        "STATUS": "Status",
+        "REMAINING_AMOUNT": "Preostali iznos"
+      },
+      "IN_PROCESS_AMOUNT": "Iznos u Obradi",
+      "LINE_HEADER": {
+        "TYPE": "Vrsta",
+        "NUMBER": "Broj",
+        "DESCRIPTION": "Opis",
+        "UOM": "JM",
+        "AMOUNT": "Količina",
+        "PRICE": "Cena",
+        "TOTAL": "Iznos",
+        "REMAIN_WITH_VAT": "Preostali iznos sa PDV"
+      },
+      "LINES": "Linije",
+      "OPEN": "Otvoreno",
+      "POSTED_BALANCE": "Proknjiženi saldo",
+      "POSTED_DATE": "Datum knjiženja",
+      "REMAIN_AMOUNT": "Preostali iznos",
+      "SELLER": "Prodavac",
+      "STATUS": {
+        "POSTED": "Proknjiženo",
+        "IN_PROCESS": "U Obradi"
+      },
+      "TITLE": "Finansijska kartica",
+      "TOTAL_WITH_VAT": "Iznos sa PDV",
+      "VALUE_DATE": "Datum valute"
+    },
+    "CANCEL": "Otkaži",
+    "CONFIG": "Podešavanja",
+    "DELETE": "Izbriši",
+    "DELETE_CONFIRM_MESSAGE": "Želite li da potvrdite brisanje ovog korisnika <strong>{{value}} </strong>?",
+    "DELETE_DVSE_EXTERNAL": "Izbriši DVSE spoljnog korisnika",
+    "FINAL_CUSTOMER_USER_MANAGEMENT_TAB": "Upravljanje kupcima",
+    "FINAL_USER_ORDER": {
+      "FILTER": {
+        "ALL": "Ukupno",
+        "NEW": "Porudžbina poslata",
+        "OPEN": "Porudžbina poslata",
+        "ORDERED": "Poručeno"
+      }
+    },
+    "FINAL_USER_ORDER_TAB": "Poslednje porudžbine",
+    "FIRSTNAME": "Ime",
+    "INVOICE_ARCHIVE_TAB": "Arhiva faktura",
+    "MANAGE_CUSTOMERS_TAB": "Administracija kupca",
+    "MESSAGE_FAILURE": "Greška pri čuvanju!",
+    "MESSAGE_SUCCESSFUL": "Uspešno sačuvano",
+    "MY_FAVORITE_TAB": "Omiljeno",
+    "MY_ORDER": {
+      "ADD_TO_BASKET_SUCCESSFULLY": "Artikal je dodat u korpu za kupovinu.",
+      "DETAIL": {
+        "AROUND": "u",
+        "HEADER": {
+          "ARTICLE_NUMBER": "Broj artikla",
+          "DELIVERY_INFORMATION": "Informacije o isporuci",
+          "GROSS_PRICE": "Bruto",
+          "IMAGE": "Slika",
+          "MANUFACTURER": "Proizvođač",
+          "QUANTITY": "Broj",
+          "REFERENCE": "Vaša POS referenca",
+          "UVPE_PRICE": "Prodajna cena po komadu",
+          "VEHICLE": "Vozilo"
+        },
+        "ORDER_DATE": "Datum porudžbine",
+        "ORDER_DETAILS": "Detalji porudžbine",
+        "ORDER_NUMBER": "Broj porudžbine"
+      },
+      "DUMMY": {
+        "ORDER_STATUS": "Porudžbina poslata"
+      },
+      "ERP_SYSTEM": "Sistem",
+      "ESHOP": "Internet prodavnica",
+      "FILTER": {
+        "DATE_FROM": "Datum od",
+        "DATE_TO": "Datum do",
+        "FILTER_ALL_COLUMNS": "Filtriranje svih kolona",
+        "ORDER_STATUS": "Status porudžbine",
+        "USER_NAME": "Korisničko ime"
+      },
+      "HEADER": {
+        "CUSTOMER_NAME": "Kupac",
+        "ORDER_DATE": "Datum porudžbine",
+        "ORDER_NUMBER": "Kopra za kupovinu / broj porudžbine",
+        "ORDER_STATUS": "Status porudžbine",
+        "ORDER_TYPE": "Vrsta porudžbine",
+        "SOURCE": "Mesto nastanka porudžbine",
+        "USERNAME": "Korisničko ime",
+        "VEHICLE": "Vozila"
+      },
+      "STATUS": {
+        "ALL": "Ukupno",
+        "BACKORDER": "Otvori",
+        "CANCELLED": "Otkazano",
+        "DELIVERED": "Isporučeno",
+        "INVOICED": "Porudžbina je u potpunosti fakturisana",
+        "NONE": "Ne",
+        "PENDING": "U obradi"
+      }
+    },
+    "ORDER_HISTORY_TAB": "Poslednje porudžbine",
+    "PROFILE": {
+      "HOURLY_RATE": "Tarifa po satu",
+      "INVALID_EMAIL": "Nevažeći e-mail",
+      "INVALID_HOURLY_RATE": "Nevažeća tarifa po satu",
+      "INVALID_MANDATORY_FIELDS": "Čuvanje nije moguće! < Molim vas popunite sva obavezna polja označena zvezdicom.",
+      "INVALID_USERNAME": "Neispravno korisničko ime. Dužina imena mora biti između {{{min}} i {{max}}}",
+      "LANGUAGE": {
+        "LANG_DE": "Nemački",
+        "LANG_FR": "Francuski",
+        "LANG_IT": "Italijanski",
+        "LANG_CS": "Češki",
+        "LANG_EN": "Engleski",
+        "TEXT": "Jezik",
+        "LANG_SR": "Srpski"
+      },
+      "LICENSE": "Tehnički podaci licence",
+      "LICENSE_LABEL": "Lorem ipsum dolor sit amet, consectetur adipiscing elit:",
+      "MESSAGE_SUCCESSFUL": "Uspešno sačuvano",
+      "PASSWORD_CHANGE": {
+        "CONFIRM_PASSWORD": "Ponovi lozinku",
+        "INVALID": "Nevažeća lozinka. Lozinka mora biti dugačka između 8 i 14 znakova i sadrži najmanje jedno slovo (AŽ) i broj (0-9).",
+        "MIN_LENGTH": "Najmanje {{param}} znak/znaka/znakova",
+        "NEW_PASSWORD": "Nova lozinka",
+        "NOT_MATCH": "Lozinke se ne podudaraju",
+        "OLD_PASSWORD": "Stara lozinka",
+        "TITLE": "Promeni lozinku",
+        "WRONG_FORMAT_PASSWORD": "Netačna lozinka.",
+        "WRONG_OLD_PASSWORD": "Netačna stara lozinka."
+      },
+      "REMAINING_VIN": "Preostali VIN (broj šasije) zahtevi",
+      "REQUIRED_FIELD": "Molimo vas, dovršite",
+      "SALUTATION": {
+        "ALL": "Ukupno",
+        "GENERAL_SALUTATION_COMPANY": "Kompanija",
+        "GENERAL_SALUTATION_FEMALE": "Gđa",
+        "GENERAL_SALUTATION_MALE": "G.",
+        "SALUTATION_DR": "Dr.",
+        "SALUTATION_I": "I",
+        "SALUTATION_II": "II",
+        "SALUTATION_III": "III",
+        "SALUTATION_JR": "Ml.",
+        "SALUTATION_MADAM": "Gđa",
+        "SALUTATION_MISS": "Gđica",
+        "SALUTATION_MR": "G.",
+        "SALUTATION_MRS": "Gđa",
+        "SALUTATION_MS": "Gđa",
+        "SALUTATION_OTHER": "Drugi",
+        "SALUTATION_PROF": "Prof.",
+        "SALUTATION_SIR": "G.",
+        "SALUTATION_SR": "St.",
+        "TEXT": "Oslovljavanje"
+      },
+      "SAVE": "Sačuvaj",
+      "TYPE": {
+        "ALL": "Ukupno",
+        "FINAL_NORMAL_USER": "Korisnik",
+        "FINAL_USER_ADMIN": "Administrator korisnika",
+        "GROUP_ADMIN": "Administrator grupe",
+        "MARKETING_ASSISTANT": "Marketing",
+        "NORMAL_USER": "Korisnik",
+        "SALES_ASSISTANT": "Prodaja",
+        "SYSTEM_ADMIN": "Administrator sistema",
+        "TEXT": "Tip",
+        "USER_ADMIN": "Administrator korisnika"
+      },
+      "USER_NAME": "Korisničko ime",
+      "VIN_CALLS": "VIN (broj šasije) upit"
+    },
+    "PROFILE_TAB": "Profil",
+    "ROLE": "Uloga",
+    "SALUTATION": "Oslovljavanje",
+    "SETTING": {
+      "ADDRESS": "Bilo koja ulica 6 11000 Grad",
+      "ADDRESS_SETTINGS": "Izmeni adresu kompanije",
+      "BILLS": "Prikaži fakturu",
+      "BILL_SHOW": "Prikaži",
+      "CATEGORY_VIEW_MODE": {
+        "CLASSIC": "Klasičan režim pretrage",
+        "TEXT": "Režim pretrage kategorije",
+        "TREE": "Režim pretrage stabla"
+      },
+      "DEFAULT_SETTINGS": "Standardna podešavanja za sve korisnike",
+      "DEFAUL_SETTING": "Standardna podešavanja",
+      "EMAIL_CONFIRMATION": "Pošalji e-mail potvrdu",
+      "EXPAND": "Proširi",
+      "NET_PRICE": "Prikaži neto cene",
+      "NET_PRICE_EMAIL": "Prikaži neto cenu u e-mail potvrdi porudžbine",
+      "OFFER": {
+        "FOOTER_TEXT": {
+          "TITLE": "Podnožje stranice za ponude"
+        },
+        "FORMAT_ALIGN": {
+          "LEFT": "Poravnato sa leve strane",
+          "RIGHT": "Poravnato sa desne strane",
+          "TITLE": "Format slova"
+        },
+        "GENERAL_CROSSING": {
+          "TITLE": "Obično precrtavanje"
+        },
+        "PRINT_VENDOR_ADDR": {
+          "FALSE": "Ne",
+          "TITLE": "Adresa kompanije u ponudi",
+          "TRUE": "Da"
+        }
+      },
+      "PAYMENT_DELIVERY": "Plaćanja i isporuke",
+      "PRICE_DISPLAY": {
+        "LABEL": "Standard za preporuku cena u listi artikala, korpi za kupovinu i ponudama",
+        "OEP_UVPE_GROSS": "OEP > UVPE > Brutto",
+        "TIP_LABEL": "Aktivno nakon sledećeg prijavljivanja",
+        "UVPE_OEP_GROSS": "UVPE > OEP > Brutto"
+      },
+      "REDUCE": "Zatvori",
+      "SHOW_DISCOUNT": "Prikaži popust",
+      "USER_SETTINGS": "Korisnička podešavanja",
+      "ELECTRONIC_INVOICE": "Elektronska faktura (PDF putem e -pošte)",
+      "REQUEST_BUTTON": "Zatraži / Promeni",
+      "INVOICE_MODAL": {
+        "TITLE": "Zatražite / promenite elektronsku fakturu (PDF putem e -pošte)",
+        "EMAIL_LABEL": "E-mail adresa primaoca računa",
+        "RE_SEND_CODE": "Ponovo pošalji šifru",
+        "SUBMITTED_SUCCESSFUL_MSG": "Predali smo vašu prijavu našoj službi za korisnike. Dobićete potvrdu prijave na e -adresu koju ste upravo dali. Imajte na umu da može proći nekoliko dana dok promena ne stupi na snagu."
+      }
+    },
+    "TITLE": "Moj nalog",
+    "USER_ADMINISTRATION_TAB": "Upravljanje korisnicima",
+    "USER_MANAGEMENT": {
+      "CREATE_PROFILE": "Kreiraj nalog",
+      "GARAGE_NAME": "Korisničko ime",
+      "MESSAGE": {
+        "DELETE_SUCCESFULLY": "Ovaj korisnik je uspešno izbrisan",
+        "DELETE_UNSUCCESFULLY": "Nije moguće izbrisati korisnika!",
+        "NOT_FOUND_EXTERNAL_CUSTOMER": "Nije moguće pronaći ovog kupca u MDM sistemu! Molim vas da kontaktirate vašeg administratora.",
+        "NOT_FOUND_EXTERNAL_USER": "Korisnik nema korisnički nalog u DVSE-u! Molim vas da kontaktirate vašeg administratora."
+      },
+      "PROFILE_NAME": "Ime profila",
+      "ROLE": {
+        "ADMIN": "Administrator",
+        "ASSISTANT": "Asistent",
+        "NORMAL_USER": "Korisnik",
+        "ROLE_NAME": "Uloga",
+        "USER_ADMIN": "Administrator korisnika",
+        "SALES_ASSISTANT": "Prodaja"
+      },
+      "TABLE_COLUMNS": {
+        "FIRST_NAME": "Ime",
+        "LAST_NAME": "Prezime",
+        "ROLE_NAME": "Uloga",
+        "SALUTATION": "Oslovljavanje",
+        "USER_NAME": "Korisničko ime"
+      },
+      "TABLE_FILTER": {
+        "FILTER_ALL_COLUMNS": "Sve kolone"
+      }
+    },
+    "USER_NAME": "Korisničko ime",
+    "VIEW_INVOICES_TAB": "Prikaži proračun",
+    "VIEW_ORDER_TAB": "Prikaži redosled"
+  },
+  "SHOPPING_BASKET": {
+    "ADD_TO_EXISTING_OFFER": "Dodavanje artikala u postojeću ponudu {{value}}",
+    "ADD_TO_NEW_OFFER": "Dodavanje artikala u novu ponudu",
+    "ARTICLE_DESCRIPTION": "Opis artikla",
+    "ARTICLE_LIST_EXPORT": "Šoping lista",
+    "ARTICLE_NUMBER": "Broj artikla",
+    "BACK": "Nazad",
+    "BASKET_FILE": "Ponuda",
+    "BILLING_ADDRESS": "Adresa na fakturi",
+    "BTN_CONTINUE": "Nastavi",
+    "CART_TOTAL": "Ukupan iznos korpe za kupovinu",
+    "COLLAPSE": "Skupiti",
+    "CONFIRMATION": "Potvrda",
+    "CONFIRM_SAVE_CHANGES": "Sačuvati izmene?",
+    "COUNTER_MESSAGE": "Ova korpa za kupovinu sadrži artikle koji nisu dostupni na vašoj lokaciji. <br> Uklonite stavke koje nisu dostupne ili poručite na standardan način.",
+    "COUPON_CODE": "Kod kupona:",
+    "CREATE_AX_OFFER": "Ponuda u AX-u",
+    "CREDITE_LIMIT_REMOVE_ITEM_NON_AX": "Molimo vas da uklonite stavke iz korpe za kupovinu ili promenite uslove plaćanja.",
+    "CREDIT_LIMIT": "Prekoračen kreditni limit!",
+    "CREDIT_MESSAGE": {
+      "CREDIT": "Porudžbine na računu ne smeju premašiti raspoloživi kreditni limit <span class='text-nowrap'> {{credit}} </span>.",
+      "ADDITIONAL_CREDIT": "Porudžbine na računu ne smeju premašiti raspoloživi dodatni kreditni limit <span class='text-nowrap'> {{additionalCredit}} </span>.",
+      "DIRECT_INVOICE": "Za hitna plaćanja, raspoloživi kreditni limit <span class='text-nowrap' > {{credit}} </span> može biti premašen samo za <span class='text-nowrap'> {{additionalCredit}} </span>."
+    },
+    "CSV_FILE": "CSV",
+    "DELIVERY_ADDRESS": "Adresa isporuke",
+    "DELIVERY_MESSAGE": "Vaša poruka za filijalu. Unošenje poruke može dovesti do kašnjenja u isporuci.",
+    "DEPOT_TEXT": "Depozit",
+    "DVSE": {
+      "CONTACT_BRANCH": "Molimo vas da kontaktirate vašu Derendinger filijalu.",
+      "ORDER_VIA_PHONE": "Ovaj artikal možete naručiti samo telefonom"
+    },
+    "EMPTY": "Vaša korpa za kupovinu je prazna!",
+    "EMPTY_VEHICLE_TITLE": "Više artikala",
+    "ERROR_MESSAGE_EXTENDED": "Nažalost, ne možemo vam obezbediti sve artikle. Molim vas da izmenite količinu u korpi za kupovinu ili kontaktirajte vašu poslovnicu.",
+    "EXCEL_FILE": "Excel",
+    "EXCLUDE_VAT": "Bez PDV-a.",
+    "EXPAND": "Proširi",
+    "EXPORT": "Izvezi",
+    "EXPORTING_HEADING": "Biće izvezeni",
+    "EXPORT_HEADER": {
+      "GROSS_PRICE": "Bruto cena po komadu",
+      "GROSS_PRICE_TYPE": "Vrsta cene",
+      "NET_PRICE": "Neto cena po komadu",
+      "UVPE_PRICE": "Prodajna cena po komadu"
+    },
+    "ITEM": "Artikli",
+    "ITEM_REFERENCE": "Reference artikla",
+    "MAKE_ORDER": "Poruči",
+    "MESSAGES": "Odaberi format datoteke",
+    "MWST": "PDV.",
+    "ORDER": "Porudžbina",
+    "ORDER_COMPLETE": "Porudžbina je dovršena",
+    "ORDER_CONDITION": {
+      "AUTO_CHANGE_TO_PICKUP_MESG": "Automatski podešeno na lično preuzimanje jer razvoz nije dozvoljen."
+    },
+    "ORDER_NUMBER": "Broj porudžbine",
+    "PAYMENT_CONTENT": "Uslovi isporuke i plaćanje",
+    "PAYMENT_LABEL": "Uslovi isporuke i plaćanje",
+    "PFAND_TEXT": "Pfand",
+    "RECYCLING_TEXT": "Avansna naknada za reciklažu",
+    "REFERENCE": "Vaša referenca",
+    "REFERENCE_MAX_200_LENGTH": "Maks. 200 znakova",
+    "REFERENCE_MAX_60_LENGTH": "Maks. 60 znakova",
+    "REFERENCE_MAX_20_LENGTH": "Maks. 20 znakova",
+    "SHOPPING": "Korpa za kupovinu",
+    "SHORT_CSV_EXPORT": "Lista artikala",
+    "SHORT_CSV_FILE_NAME": "Lista artikala",
+    "SUB_TOTAL": "Međuzbir korpe za kupovinu",
+    "THULE_NOT_FOUND_PARTS": "Trenutno nismo u mogućnosti da pronađemo artikal: {{ids}}. Molimo vas da kontaktirate svoju filijalu.",
+    "TOTAL": "Ukupno sa PDV-om",
+    "TOTAL_EXCLUDE_VAT": "Ukupno bez PDV-a",
+    "TOTAL_INCLUDE_VAT": "Ukupno sa PDV-om",
+    "TRANSACTION_NUMBER": "Broj transakcije",
+    "TXT_TRANSFER_BASKET": "Prebacite se na AX",
+    "UPDATE_AVAIL_MESSAGE": "Dostupnost artikala je promenjena; vremenski period je premašen.",
+    "VOC_TEXT": "VOC naknada (isparljiva organska jedinjenja)",
+    "VOC_TEXT_SHORT": "VOC naknada",
+    "VRG_TEXT": "Avansna naknada za reciklažu",
+    "VRG_TEXT_SHORT": "ANR",
+    "WORD_FILE": "Word",
+    "ARTICLE_LIST_EXPORT_FILE_NAME": "Lista artikala",
+    "REQUEST_QUANTITY_NOT_AVAIL_AT_PRIMARY_LOCATION": "Tražena količina nije dostupna na primarnim lokacijama. Za dodatnu količinu molim vas proverite informacije ispod."
+  },
+  "SHOPPING_ORDER": {
+    "CONFIRMATION": {
+      "ADDITIONAL_MESG": {
+        "ABS": "Dokumenti za ovu porudžbinu će biti automatski odštampani.",
+        "STD": "Ručno odštampajte dokumente čim kupac preuzme artikle u filijali."
+      },
+      "TXT_ORDER_MESSAGE": "Primili smo vašu porudžbinu i obradićemo je što je pre moguće",
+      "TXT_ORDER_NUMBER": "Vaši brojevi porudžbina",
+      "TXT_ORDER_TRANSACTION": "Broj transakcije je"
+    },
+    "MODAL": {
+      "ACCEPT": "Prihvaćeno",
+      "NOT_ACCEPT": "Nije prihvaćeno",
+      "TITLE": "Dostupnost je promenjena"
+    },
+    "TXT_ORDER_SUCCESS": "Porudžbina je obrađena"
+  },
+  "TIMEOUT": {
+    "AUTOMATIC_LOGOUT": "Automatsko odjavljivanje",
+    "REGISTER_AGAIN": "Ponovno prijavljivanje:",
+    "SERVER_REQUEST": "Nema reakcije servera. Pokušajte ponovo."
+  },
+  "TYRE": {
+    "ALL": "Sve",
+    "FZ_CATEGORIES": {
+      "FOUR_X_FOUR": "4 x 4",
+      "LNFZ": "Laka komercijalna vozila",
+      "PKW": "Putničko vozilo"
+    },
+    "MOTOR_CATEGORIES": {
+      "ALL": "Sve gume za motocikle",
+      "OFFROAD": "Offroad",
+      "RENNREIFEN": "Trkačke gume",
+      "ROLLER": "Skuter",
+      "STRASSENREIFEN": "Auto-gume"
+    },
+    "SEASONS": {
+      "ALL_YEAR": "Gume za sve sezone",
+      "SPRING": "Prolećne gume",
+      "SUMMER": "Letnje gume",
+      "WINTER": "Zimske gume"
+    },
+    "TYRE_SEGMENTS": {
+      "BUDGET": "Budžet",
+      "ECO": "Eko",
+      "PREMIUM": "Premijum",
+      "KUMHO": "KUMHO",
+      "PIREL": "PIREL",
+      "MICHE" : "MICHE"
+    }
+  },
+  "VEHICLE_FILTER": {
+    "APPROVAL": "Odobrenje",
+    "BODY": "Karoserija",
+    "BODY_TYPE": "Karoserija",
+    "BRAND": "Marka",
+    "BUILD_YEAR": "Godina",
+    "CAPACITY_ENGINE": "Zapremina motora",
+    "CATALYST_CONVERTER_TYPE": "Katalizator",
+    "CYLINDER": "Cilindri",
+    "DOORS": "Vrata",
+    "DRIVE_TYPE": "Pogon",
+    "ENGINE_CODE": "Motor",
+    "FUEL": "Gorivo",
+    "FUEL_SUPPLY": "Snabdevanje gorivom",
+    "FUEL_TYPE": "Vrsta goriva",
+    "MB": "Motocikli",
+    "MODEL": "Model",
+    "PC": "Automobili/Dostavni kamioni",
+    "POWER": "Snaga",
+    "POWER_HP": "KS",
+    "POWER_KW": "KW",
+    "TITLE": "Marka/model",
+    "TYPE": "Tip vozila",
+    "VALVES": "Ventili",
+    "ROAD": "Road",
+    "MX": "MX",
+    "SCOOTER": "Scooter",
+    "ATV": "ATV",
+    "CUBIC_CAPACITY": "Zapremina",
+    "MOTORBIKE_SHOP_LINK": "Motocikli",
+    "ADVANCE_VEHICLE_SEARCH_LINK": "Erweiterte Suche"
+  },
+  "WORKSHOP_GROUPS": {
+    "PADS": "Kočione pločice",
+    "SHOCK_ABSORBER": "Amortizer"
+  },
+  "HISTORY_MODE": {
+      "OWN_HISTORY" : "Moje poslednje pretrage"
+  },
+  "MESSAGE_SEARCH_NOT_FOUND": {
+    "ORDER_HISTORY": "Nisu pronađene porudžbine!",
+    "USER_MANAGEMENT": "Nema pronađenih korisnika!",
+    "SUB_ORDERS": "Nisu pronađene porudžbine!"
+  },
+  "SHOW_TOUR_PLAN": "Prikaži plan rute",
+  "TOUR_TITLE": "Ture",
+  "BROWSER_RECOMMENDATION": {
+    "TITLE": "Važno obaveštenje za korisnike Internet Ekplorer-a (IE) 11!",
+    "FIRST_DESCRIPTION": "Trenutno koristite zastareli pregledač koji više neće biti upotrebljiv nakon 01.01.2023 iz bezbednosnih razloga i razloga podrške.",
+    "SECOND_DESCRIPTION": "Zbog toga vas molimo da što pre koristite ažurirani internet pretraživač, npr. Microsoft Edge, Google Chrome, Mozilla Firefox."
+  },
+  "ADVANCE_VEHICLE_SEARCH": {
+    "HEADER": "Napredna pretraga vozila",
+    "TOP_MAKES_HEADER": "Popularne marke",
+    "ALL_MAKES_HEADER": "Sve Marke",
+    "MAKES": "Marke",
+    "MODELS": "Modeli",
+    "MODEL_SERIES": "Serija modela",
+    "MODEL_YEAR": "Godina",
+    "FILTER_BY_YEAR": "Filtrirajte po godini",
+    "QUICK_SELECTION": "Brza selekcija modela",
+    "SEARCH": {
+      "COLUMN_TYPE": "Tip",
+      "COLUMN_YEAR": "Godina"
+    }
+  },
+  "RETURN_ORDER":{
+    "MESSAGE_HEADER":"Vraćanja se kreiraju i obrađuju.<br />Ovo može potrajati.",
+    "MESSAGE_BODY":"Ako ne želite da čekate, obrada se takođe može završiti u pozadini. Tada možete nastaviti sa radom u radnji i bićete obavešteni putem e-pošte.",
+    "MESSAGE_FOOTER":"<strong>Pažnja</strong>: AX vraća porudžbine se mogu menjati tek nakon što je obrada završena!",
+    "PROCESSING_IN_BACKGROUND":"Obrada u pozadini",
+    "BATCH_JOB_ERROR_MESSAGE": "Refundiranje povraćaja nije uspelo (Batch Job ID: {{batchJobId}}) ",
+    "BATCH_JOB_ERROR_TITLE": "Greška - povratak nije uspeo",
+    "PROCESSING_IN_BACKGROUND_TIMEOUT_TITLE":"Upozorenje - Zahtev za status trenutno nije moguć",
+    "PROCESSING_IN_BACKGROUND_TIMEOUT": "Isteklo je vreme za upit statusa (ID paketnog posla: {{batchJobId}}). Status porudžbina za vraćanje dobićete putem e-pošte.",
+    "PROCESSING_IN_BACKGROUND_RETRY_ERROR_TITLE":"Upozorenje - Vreme je isteklo",
+    "PROCESSING_IN_BACKGROUND_RETRY_ERROR": "Nadoknada povraćaja još nije mogla da se završi (ID paketnog posla: {{batchJobId}}). Proverite povrate u AX.",
+    "MESSAGE_ERROR_FROM_API": "Refundiranje povraćaja nije uspelo ({{errorMessage}})!",
+    "ORDER_WARNING_TITLE": "Upozorenje – Trenutno nije moguće postaviti upit za brojeve naloga za vraćanje",
+    "ORDER_WARNING_MESSAGE": "Nadoknada povrata je bila uspešna. Ali upit za broj naloga za vraćanje nije uspeo (ID paketnog posla: {{batchJobId}}). Proverite povrate u AX."
+  },
+  "PAGE_NOT_FOUND": "Stranica nije pronađena! Kliknite na URL ispod da biste se vratili na početnu stranicu.",
+  "HOME_PAGE": "Početna stranica",
+  "RANGE_CHECKBOX": "Izaberite opseg"
+}

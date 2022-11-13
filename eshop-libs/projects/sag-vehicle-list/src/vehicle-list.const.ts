@@ -1,0 +1,225 @@
+import { SagVehicleSearchTableColumn } from "./models/list-table-column.model";
+import { KEY_RAW } from "./enums/vehicle-list.enum";
+
+export const VIN_MAX_LENGTH = 17;
+export const ADVANCE_VEHICLE_SEARCH_TYPE_LIST_COLUMNS: SagVehicleSearchTableColumn[] = [
+    {
+        name: 'type',
+        key: 'vehicle_advance_name',
+        keyPayload: 'vehicle_advance_name',
+        keyData: 'vehicle_name',
+        keyHintTitle: 'vehicleInfo',
+        keyRaw: KEY_RAW.vehicle_advance_name_raw,
+        text: 'ADVANCE_VEHICLE_SEARCH.SEARCH.COLUMN_TYPE',
+        options: [],
+        isCenterText: false,
+        isFilter: true,
+        order: 0
+    },
+    {
+        name: 'year',
+        key: 'built_year_month_from',
+        keyPayload: 'built_year_month_from',
+        keyData: 'displayYear',
+        keyRaw: KEY_RAW.vehicle_built_year_from,
+        text: 'ADVANCE_VEHICLE_SEARCH.SEARCH.COLUMN_YEAR',
+        options: [],
+        isCenterText: true,
+        isFilter: false,
+        order: 1
+    },
+    {
+        name: 'body',
+        key: 'body_type',
+        keyPayload: 'body_type',
+        keyData: 'vehicle_body_type',
+        keyRaw: KEY_RAW.vehicle_body_type_raw,
+        text: 'SEARCH.COLUMN_BODY',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 2
+    },
+    {
+        name: 'fuel',
+        key: 'fuel_type',
+        keyPayload: 'fuel_type',
+        keyData: 'vehicle_fuel_type',
+        keyRaw: KEY_RAW.vehicle_fuel_type_raw,
+        text: 'SEARCH.COLUMN_FUEL',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 3
+    },
+    {
+        name: 'cylinder',
+        key: 'zylinder',
+        keyPayload: 'zylinder',
+        keyData: 'vehicle_zylinder',
+        keyRaw: KEY_RAW.vehicle_zylinder,
+        text: 'SEARCH.COLUMN_CYLINDER',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 4
+    },
+    {
+        name: 'engine',
+        key: 'capacity_cc_tech',
+        keyPayload: 'capacity_cc_tech',
+        keyData: 'vehicle_capacity_cc_tech',
+        keyRaw: KEY_RAW.vehicle_capacity_cc_tech,
+        text: 'SEARCH.COLUMN_ENGINE',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 6
+    },
+    {
+        name: 'moto-code',
+        key: 'motor_code',
+        keyPayload: 'motor_code',
+        keyData: 'vehicle_engine_code',
+        keyRaw: KEY_RAW.vehicle_engine_code_raw,
+        text: 'SEARCH.COLUMN_MOTOR',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 5
+    },
+    {
+        name: 'kw',
+        key: 'power',
+        keyPayload: 'power',
+        keyData: 'vehicle_power_kw',
+        keyRaw: KEY_RAW.vehicle_power_kw_hp,
+        text: 'SEARCH.KW_PS',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 7
+    },
+    {
+        name: 'drive',
+        key: 'drive_type',
+        keyPayload: 'drive_type',
+        keyData: 'vehicle_drive_type',
+        keyRaw: KEY_RAW.vehicle_drive_type_raw,
+        text: 'SEARCH.COLUMN_DRIVE_TYPE',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 8
+    },
+];
+export const VEHICLE_LIST_COLUMNS: SagVehicleSearchTableColumn[] = [
+    {
+        name: 'name',
+        key: 'vehicle_info',
+        keyPayload: 'full_name',
+        keyData: 'vehicleInfo',
+        keyRaw: KEY_RAW.empty,
+        text: 'SEARCH.COLUMN_NAME',
+        options: [],
+        isCenterText: false,
+        isFilter: false,
+        order: 0
+    },
+    {
+        name: 'year',
+        key: 'built_year_month_from',
+        keyPayload: 'built_year_month_from',
+        keyData: 'displayYear',
+        keyRaw: KEY_RAW.vehicle_built_year_from,
+        text: 'SEARCH.COLUM_PERIOD',
+        options: [],
+        isCenterText: true,
+        isFilter: false,
+        order: 1
+    },
+    {
+        name: 'body',
+        key: 'body_type',
+        keyPayload: 'body_type',
+        keyData: 'vehicle_body_type',
+        keyRaw: KEY_RAW.vehicle_body_type_raw,
+        text: 'SEARCH.COLUMN_BODY',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 2
+    },
+    {
+        name: 'fuel',
+        key: 'fuel_type',
+        keyPayload: 'fuel_type',
+        keyData: 'vehicle_fuel_type',
+        keyRaw: KEY_RAW.vehicle_fuel_type_raw,
+        text: 'SEARCH.COLUMN_FUEL',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 3
+    },
+    {
+        name: 'cylinder',
+        key: 'zylinder',
+        keyPayload: 'zylinder',
+        keyData: 'vehicle_zylinder',
+        keyRaw: KEY_RAW.vehicle_zylinder,
+        text: 'SEARCH.COLUMN_CYLINDER',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 4
+    },
+    {
+        name: 'engine',
+        key: 'engine',
+        keyPayload: 'engine',
+        keyData: 'vehicle_engine',
+        keyRaw: KEY_RAW.vehicle_engine,
+        text: 'SEARCH.COLUMN_ENGINE',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 5
+    },
+    {
+        name: 'moto-code',
+        key: 'motor_code',
+        keyPayload: 'motor_code',
+        keyData: 'vehicle_engine_code',
+        keyRaw: KEY_RAW.vehicle_engine_code_raw,
+        text: 'SEARCH.COLUMN_MOTOR',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 6
+    },
+    {
+        name: 'kw',
+        key: 'power',
+        keyPayload: 'power',
+        keyData: 'vehicle_power_kw',
+        keyRaw: KEY_RAW.vehicle_power_kw_hp,
+        text: 'SEARCH.KW_PS',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 6
+    },
+    {
+        name: 'drive',
+        key: 'drive_type',
+        keyPayload: 'drive_type',
+        keyData: 'vehicle_drive_type',
+        keyRaw: KEY_RAW.vehicle_drive_type_raw,
+        text: 'SEARCH.COLUMN_DRIVE_TYPE',
+        options: [],
+        isCenterText: true,
+        isFilter: true,
+        order: 7
+    },
+];

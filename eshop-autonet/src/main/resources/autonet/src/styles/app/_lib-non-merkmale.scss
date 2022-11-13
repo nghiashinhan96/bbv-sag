@@ -1,0 +1,19 @@
+sag-article-list-non-merkmale-filter-item {
+    .filter-title {
+        cursor: pointer;
+        color: #666;
+        background-color: #f1f0f0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $half-spacer;
+        height: $panel-height;
+        align-items: center;
+    }
+
+    .non-merkmale-filter-container {
+        max-height: 30rem !important;
+        overflow-y: auto;
+        padding: $half-spacer;
+    }
+}

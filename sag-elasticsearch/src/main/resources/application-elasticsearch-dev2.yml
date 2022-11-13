@@ -1,0 +1,13 @@
+spring.profiles: elasticsearch-dev2
+spring.profiles.include: elasticsearch-index-name-mapper
+spring:
+  data:
+    elasticsearch:
+      host: 78.47.167.114
+      port: 9300
+      cluster-nodes: ${spring.data.elasticsearch.host}:${spring.data.elasticsearch.port}
+      cluster-name: elasticsearch
+      properties:
+        http.enabled: true
+      repositories:
+        enabled: true

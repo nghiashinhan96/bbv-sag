@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	<changeSet author="CONNECT_APP"
+		id="ITER_207_TABLE_ESHOP_FAVORITE_ADD_COLUMN_VEHICLE_ID">
+		<sql>
+			ALTER TABLE dbo.ESHOP_FAVORITE ADD VEHICLE_ID VARCHAR(50) NULL;		
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP"
+		id="ITER_207_ALTER_LOGIN_TABLE">
+		<sql>
+			ALTER TABLE dbo.LOGIN ADD PASSWORD_HASH varchar(255) DEFAULT NULL
+			ALTER TABLE dbo.LOGIN ADD PASSWORD_SALT varchar(255) DEFAULT NULL
+		</sql>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP"
+		id="ITER_207_ALTER_LOGIN_TABLE_PASSWORD_SALT">
+		<sql>
+			ALTER TABLE dbo.LOGIN ALTER COLUMN PASSWORD_SALT varchar(500) NULL
+		</sql>
+	</changeSet>
+</databaseChangeLog>

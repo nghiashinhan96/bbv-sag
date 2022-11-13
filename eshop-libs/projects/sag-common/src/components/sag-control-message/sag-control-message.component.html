@@ -1,0 +1,3 @@
+<div class="alert alert-danger mt-2" [class.alert-custom]="custom" *ngIf="error">
+    {{error.message | translate:error.param}}
+</div>

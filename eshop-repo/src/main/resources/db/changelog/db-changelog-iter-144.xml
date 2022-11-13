@@ -1,0 +1,44 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP"
+    id="ITER_144_MODIFY_ESHOP_CART_ITEM_CUSTOMER_NUMBER">
+    <sql>
+      DROP INDEX
+      dbo.ESHOP_CART_ITEM.INX_ESHOP_CART_ITEM_CUSTOMER_NR;
+      DROP INDEX
+      dbo.ESHOP_CART_ITEM.INX_ESHOP_CART_ITEM_USER_ID_CUSTOMER_NR;
+
+      ALTER
+      TABLE dbo.ESHOP_CART_ITEM ALTER COLUMN CUSTOMER_NR
+      VARCHAR(255);
+
+      CREATE NONCLUSTERED INDEX INX_ESHOP_CART_ITEM_CUSTOMER_NR ON
+      dbo.ESHOP_CART_ITEM ( CUSTOMER_NR ASC )
+      WITH ( PAD_INDEX = OFF ,FILLFACTOR = 100 ,SORT_IN_TEMPDB = OFF ,
+      IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF
+      , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON )
+      ON [PRIMARY ];
+
+      CREATE NONCLUSTERED INDEX
+      INX_ESHOP_CART_ITEM_USER_ID_CUSTOMER_NR ON
+      dbo.ESHOP_CART_ITEM (
+      USER_ID ASC , CUSTOMER_NR ASC )
+      WITH (
+      PAD_INDEX = OFF ,FILLFACTOR = 100 ,SORT_IN_TEMPDB = OFF ,
+      IGNORE_DUP_KEY = OFF , STATISTICS_NORECOMPUTE = OFF , ONLINE = OFF
+      , ALLOW_ROW_LOCKS = ON , ALLOW_PAGE_LOCKS = ON )
+      ON [PRIMARY ];
+
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_144_UPDATE_COLUMNS_VENDOR_ID_AND_VENDOR_NAME_ALLOW_NULL">
+    <sql>
+      ALTER TABLE EXTERNAL_VENDOR ALTER COLUMN VENDOR_ID bigint NULL
+	  ALTER TABLE EXTERNAL_VENDOR ALTER COLUMN VENDOR_NAME nvarchar(50) NULL
+    </sql>
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_234_ADD_GTM_RAPIDBOX_CZ">
+        <sql>
+            <!--
+            ## PRODUCTION
+			## DECLARE @valueForProd nvarchar(MAX) = JSON_QUERY('{"name": "Rapidbox", "gtm_container_id": "GTM-KMZCDFV", "gtm_env": "env-1", "gtm_auth": "ekTYkJs1_FnSXny2QTOaJg"}')
+			
+			## UPDATE ORG_COLLECTION_SETTINGS set SETTING_VALUE = JSON_MODIFY(SETTING_VALUE, 'append $."application"', JSON_QUERY(@valueForProd)) WHERE SETTING_KEY ='google_tag_manager_setting'
+			-->
+			<!--PRE-PROD-->
+			DECLARE @valueForPreProd nvarchar(MAX) = N'{"name": "Rapidbox", "gtm_container_id": "GTM-KMZCDFV", "gtm_env": "env-3", "gtm_auth": "chVr3recMHHXvyHZnysJFw"}'
+			UPDATE ORG_COLLECTION_SETTINGS set SETTING_VALUE = JSON_MODIFY(SETTING_VALUE, 'append $."application"', JSON_QUERY(@valueForPreProd)) WHERE SETTING_KEY ='google_tag_manager_setting'
+        </sql>
+    </changeSet>
+</databaseChangeLog>

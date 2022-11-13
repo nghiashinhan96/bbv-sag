@@ -1,0 +1,64 @@
+.table {
+    margin-bottom: 20px;
+
+    td,
+    th {
+        vertical-align: middle;
+        height: auto;
+    }
+
+    th {
+        .btn-ordering {
+            background: none;
+            border: none;
+            padding: 0;
+
+            .fa-caret-down {
+                margin-left: 4px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    td {
+        white-space: normal;
+        border-left: none;
+        word-wrap: break-word;
+    }
+}
+
+.extra-filter {
+    position: absolute;
+    top: -3px;
+    right: 44px;
+}
+.customer-number-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.modal-body {
+    .messages {
+        height: 68px;
+    }
+    .modal-btn {
+        height: 30px;
+        .wide {
+            width: 60px;
+        }
+    }
+}
+
+.section-export {
+    .fa-share-square-o {
+        transform: scaleX(-1);
+    }
+
+    i {
+        font-size: 14px;
+    }
+}

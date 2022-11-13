@@ -1,0 +1,17 @@
+spring:
+  profiles: ax-pre-https
+
+## Supported value for mode: true | false
+backOrder.tourTimeTable: false
+
+# The Ax configuration
+external:
+  webservice:
+    ax:
+      url: https://prebusiness.sag.services/preapps/accept-webshop-service-app
+      tokenPath: https://prebusiness.sag.services/preapps/accept-webshop-service-app
+      clientId: 4cc04acb-be56-448d-a095-860036251616
+      # only for token refresh
+      clientSecret: lPAi1rFYtzeIv9r1g97vVTRVuyrWXYAqLdFvmZjPBsA=
+      userName: sys-ws-connect-accept@sag-ag.ch
+      password: agenda01

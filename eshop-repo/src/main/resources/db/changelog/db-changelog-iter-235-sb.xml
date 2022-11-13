@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_235_ADD_DVSE_PERM_IF_MISSING">
+        <sql>
+           IF NOT EXISTS (SELECT * FROM dbo.ESHOP_PERMISSION ep WHERE ep.PERMISSION ='DVSE')
+		   BEGIN 
+				INSERT INTO econnectAxPPAT.dbo.ESHOP_PERMISSION
+				(PERMISSION, DESCRIPTION, CREATED_BY, CREATED_DATE, MODIFIED_BY, MODIFIED_DATE, PERMISSION_KEY)
+				VALUES(N'DVSE', N'Permission to work with DVSE', 1, '2021-10-08 04:47:56.523', NULL, NULL, N'DVSE')
+			
+		    END
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

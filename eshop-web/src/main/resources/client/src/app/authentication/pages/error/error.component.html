@@ -1,0 +1,8 @@
+<sag-auth-header></sag-auth-header>
+<div class="container-lg container-main">
+    <section *ngIf="error$ | async as error">
+        <h1>{{error.code}}</h1>
+        <p>{{error.message}}</p>
+    </section>
+</div>
+<connect-footer></connect-footer>

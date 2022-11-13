@@ -1,0 +1,21 @@
+# ************************************************************************
+# This is the AT configuration of OAuth2 application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Liquibase - 
+# - Caching - 
+# - Country Code - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  ax-pre-cloud, 
+  db-at, 
+  elasticsearch-dev,
+  no-liquibase, 
+  cache-dev, 
+  country-at
+
+spring.banner.location: classpath:banner/banner_at.txt

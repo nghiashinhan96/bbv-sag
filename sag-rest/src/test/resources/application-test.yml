@@ -1,0 +1,38 @@
+spring.profiles.include: 
+  ax-pre,
+  incentive-dev,
+  hp-normal-at,
+  hpback-at-dev,
+  gtmotive-at-dev,
+  mdm-pre,
+  oates-pre-ch,
+  mail-dev,
+  elasticsearch-umbpre,
+  db-at-test,
+  executor-pool,
+  no-liquibase,
+  country-at,
+  no-proxy
+
+server:
+  port: 9000
+  sessionTimeout: 30
+logging:
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG
+#Log for elasticsearch
+    org.elasticsearch.index.search.slowlog.query: INFO
+    org.elasticsearch.bootstrap: ERROR
+
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      host: https://at.bbv-demo.ch/auth-server
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW

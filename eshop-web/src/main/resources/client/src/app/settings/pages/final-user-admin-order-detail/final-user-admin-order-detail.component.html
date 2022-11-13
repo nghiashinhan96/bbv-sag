@@ -1,0 +1,55 @@
+<section *ngIf="orderData">
+    <div class="my-3">
+        <h5 class="card-title">{{('SETTINGS.MY_ORDER.DETAIL.ORDER_DETAILS' | translate)}}</h5>
+        <p class="card-text pl-3 font-weight-bold">
+            <span class="text-primary">{{('SETTINGS.MY_ORDER.DETAIL.ORDER_NUMBER' | translate)}}</span>
+            {{orderData.id}}
+        </p>
+        <p class="card-text pl-3 font-weight-bold">
+            <span class="text-primary">{{('SETTINGS.MY_ORDER.DETAIL.ORDER_DATE' | translate)}}</span>
+            {{orderData.orderDate | orderDatePipe}}
+        </p>
+    </div>
+    <sag-table [columns]="columns" [firstlySearch]="false" [rows]="orderData.items"></sag-table>
+
+    <ng-container *ngIf="orderData.reference || orderData.branchRemark">
+        <div class="table-footer bg-light p-4 mb-3">
+            <div class="mb-3">{{ orderData.reference }}</div>
+            <div>{{ orderData.branchRemark }}</div>
+        </div>
+    </ng-container>
+
+    <div *ngIf="responseMessage"
+             connectResponseMessage
+             [responseMessage]="responseMessage">{{ responseMessage.key | translate }}</div>
+
+    <div class="py-4">
+        <div class="btn-take">
+            <a href="javascript:void(0);"
+               id="add-order-history-to-cart"
+               class="btn-link"
+               (click)="addOrderToCart()">
+                <i class="fa fa-chevron-right"></i>{{'COMMON_LABEL.BUTTON.TAKE'| translate}}</a>
+        </div>
+    </div>
+</section>
+
+<ng-template let-row="row" #articleNumber>
+    <div>
+        <div class="article-number-genart-desc">
+            {{row?.genArtDescription}}
+        </div>
+        <div class="text-primary text-truncate" *ngIf="row.articleDesc" title="{{row?.articleDesc}}">
+            {{row?.articleDesc}}
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template let-row="row" #deliveryInfo>
+    <span>
+        <ng-container *ngFor="let info of getDeliveryInfos(row)">
+            {{ info | translate:{param: param | translate} }}
+        </ng-container>
+    </span>
+</ng-template>

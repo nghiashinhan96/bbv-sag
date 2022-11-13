@@ -1,0 +1,26 @@
+<div class="margin-management">
+    <div class="row mx-0">
+        <div class="form-group form-check col-md-3 mb-0 d-flex align-items-center" [ngClass]="isEnableShowNetPriceCheck ? '':'disabled'">
+            <input class="form-check-input position-relative mr-1 mt-0" type="checkbox" id="showNetPrice" [(ngModel)]="showNetPrice" (ngModelChange)="onUpdateShowNetPrice($event)">
+            <label class="form-check-label" for="showNetPrice">{{ 'SETTINGS.SETTING.NET_PRICE'|translate }}</label>
+        </div>
+        <div class="form-group form-check col-md-9 mb-0 px-0">
+            <ul class="nav nav-tabs nav-fill">
+                <li class="nav-item" (click)="tab = 1">
+                    <a class="nav-link" [class.active]="tab === 1">{{ 'MARGIN_MANAGE.ARTICLE_GROUP_MGT' | translate}}</a>
+                </li>
+                <li class="nav-item" (click)="tab = 2">
+                    <a class="nav-link" [class.active]="tab === 2">{{ 'MARGIN_MANAGE.BRANDS' | translate}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mx-0 mt-4">
+        <ng-container *ngIf="tab === 1">
+            <connect-margin-article-group class="w-100"></connect-margin-article-group>
+        </ng-container>
+        <ng-container *ngIf="tab === 2">
+            <connect-margin-brands class="w-100"></connect-margin-brands>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+spring.profiles: source-es-dev
+spring:
+  data:
+    elasticsearch:
+      host: 148.251.19.36
+      port: 9260
+      cluster-nodes: 148.251.19.36:9260
+      cluster-name: elasticsearch
+      properties:
+        http.enabled: true
+      repositories:
+        enabled: true
+        

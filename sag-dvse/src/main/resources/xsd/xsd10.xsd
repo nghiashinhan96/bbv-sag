@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://eshop.sag.ch/types/transaction" xmlns:ns9="http://eshop.sag.ch/types/entity" xmlns:ns8="http://eshop.sag.ch/types/feature" xmlns:ns7="http://eshop.sag.ch/types/description" xmlns:ns6="http://eshop.sag.ch/types/organisation" xmlns:ns5="http://eshop.sag.ch/types/uid" xmlns:ns4="http://eshop.sag.ch/types/authority" xmlns:ns3="http://eshop.sag.ch/types/session" xmlns:ns2="http://eshop.sag.ch/elements" xmlns:ns1="http://eshop.sag.ch/types/mission" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/transaction">
+
+<xs:import namespace="http://eshop.sag.ch/types/mission" schemaLocation="xsd15.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/elements" schemaLocation="xsd7.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/session" schemaLocation="xsd12.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/authority" schemaLocation="xsd6.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/uid" schemaLocation="xsd9.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/organisation" schemaLocation="xsd13.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/description" schemaLocation="xsd4.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/feature" schemaLocation="xsd2.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/entity" schemaLocation="xsd3.xsd"/>
+
+<xs:complexType name="transaction">
+<xs:sequence>
+<xs:element ref="ns2:mission"/>
+<xs:element ref="ns2:session"/>
+<xs:element name="authorities" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns2:authority" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="organisations" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns2:organisation" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="entities" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns2:entity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="authorizations">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entityIdx" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="objectives">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entityIdx" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="conditions">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entityIdx" type="xs:IDREF" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="results" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns2:missionResult" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="state" type="tns:transactionstate" use="required"/>
+<xs:attribute name="id" type="xs:string" use="required"/>
+</xs:complexType>
+
+<xs:simpleType name="transactionstate">
+<xs:restriction base="xs:string">
+<xs:enumeration value="INIT"/>
+<xs:enumeration value="REQUEST"/>
+<xs:enumeration value="RESPONSE"/>
+<xs:enumeration value="ERRORRESPONSE"/>
+<xs:enumeration value="INVALID"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

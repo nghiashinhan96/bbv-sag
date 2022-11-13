@@ -1,0 +1,144 @@
+connect-feedback {
+    .feedback-btn {
+        position: fixed;
+        bottom: 15px;
+        right: 20px;
+        width: 57px;
+        height: 48px;
+        padding: 0;
+        border: none;
+        background: transparent;
+    
+        .cls-1 {
+            fill: #fff;
+        }
+    
+        &.shown {
+            animation: pulse 1.3s cubic-bezier(.3, .3, 0, 1);
+        }
+    
+        .cls-2 {
+            fill: $primary;
+        }
+    }
+}
+
+connect-feedback-modal {
+    connect-expanded {
+        .nav {
+            color: inherit;
+
+            > span {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .block-data {
+        background: #e9e9e9;
+        padding: $spacer;
+        margin-top: $half-spacer;
+        word-break: break-all;
+    }
+
+    .img-container {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 4px;
+        box-shadow: 0 2px 2px rgba(41, 47, 56, .5), 0 8px 8px rgba(41, 47, 56, .2);
+        transition: 200ms box-shadow;
+
+        &:hover {
+            box-shadow: 0 1px 2px rgba(41, 47, 56, 0.5);
+        }
+
+        i {
+            font-size: 30px;
+            color: gray;
+        }
+
+        .fa-file-excel-o {
+            color: #119009;
+        }
+
+        .fa-file-word-o {
+            color: #087ad4;
+        }
+
+        .fa-file-powerpoint-o {
+            color: #FF5722;
+        }
+    }
+
+    .img-item {
+        flex-flow: column nowrap;
+        position: relative;
+        margin-right: 1.5 * $spacer;
+        margin-bottom: $spacer;
+        display: inline-flex;
+        
+        .title {
+            margin-top: $half-spacer;
+            word-break: break-all;
+            max-width: 60px;
+            display: block;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        i.fa-times {
+            cursor: pointer;
+            position: absolute;
+            right: -9px;
+            top: -6px;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            color: #929292;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            box-shadow: 0 2px 2px rgba(41, 47, 56, .5), 0 8px 8px rgba(41, 47, 56, .2);
+            border: 1px solid rgba(41, 47, 56, .1);
+            transition: 200ms box-shadow;
+
+            &:hover {
+                box-shadow: 0 1px 2px rgba(41, 47, 56, 0.5);
+            }
+        }
+    }
+
+    i {
+        font-size: 14px;
+    }
+
+    i.fa-trash {
+        cursor: pointer;
+    }
+
+    .screenshot-paste-hint {
+        border: 1px solid #ccc;
+        border-top: 1px;
+        padding: 5px;
+        color: rgb(122, 122, 122);
+        border-top-style: dotted;
+    }
+
+    .feedback-textbox {
+        &:focus {
+            outline: -webkit-focus-ring-color auto 1px;
+        }
+    }
+
+    sag-common-message {
+        .message {
+            text-align: center;
+        }
+    }
+}

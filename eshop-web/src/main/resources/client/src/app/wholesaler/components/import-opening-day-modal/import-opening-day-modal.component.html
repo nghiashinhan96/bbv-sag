@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4>{{ "OPENING_DAY.IMPORT_TITLE" | translate }}</h4>
+    <a href="javascript:void(0)" (click)="closeUploadModal()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-7">
+            <input type="file" class="pull-left" id="{{preFixName}}-input-file" accept=".csv,text/csv"
+                (change)="getFile($event)" #fileUpload />
+            <div class="input-outer">
+                <label for="{{preFixName}}-input-file">
+                    <span class="file-text" [innerHTML]="fileName ? fileName : label"></span>
+                    <span class="browse-btn">
+                        {{'COMMON_LABEL.CHOOSE_FILE' | translate}}
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="col-5">
+            <button class="btn btn-primary pull-right ml-2" [disabled]="isNotOverride" (click)="overrideImport()">
+                {{'COMMON_LABEL.OVERRIDE' | translate}}
+            </button>
+            <button class="btn btn-primary pull-right" [disabled]="isNotImported" (click)="uploadFile()">
+                {{'COMMON_LABEL.IMPORT' | translate}}
+            </button>
+        </div>
+    </div>
+    <div class="progress opening-upload-bar mt-2" *ngIf="isUploading">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+            [ngClass]="{ 'progress-bar-success': isUploaded, 'progress-bar-danger': !isUploaded }"
+            [ngStyle]="{ 'width': uploadPercentage + '%'}">
+        </div>
+    </div>
+    <div class="row import-error">
+        <div *ngIf="uploadMessage" class="col-12 alert mt-2"
+            [ngClass]="{'alert-success': isUploaded, 'alert-danger': !isUploaded}"
+            [innerHTML]="uploadMessage | translate">
+        </div>
+    </div>
+</div>

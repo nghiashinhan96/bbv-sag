@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP"
+               id="ITER_222_EXPORT_SETTINGS_CUSTOMER_PARTNER_PROGRAM_DDCH_TNM_MTCH_SCRIPT">
+        <sql>
+            SELECT  cs.ID  as CUSTOMER_SETTINGS_ID,  cs.HAS_PARTNER_PROGRAM_VIEW FROM COLLECTION_RELATION cr
+               JOIN ORGANISATION og on og.ID = cr.ORGANISATION_ID
+               JOIN ORGANISATION_COLLECTION oc on oc.ID = cr.COLLECTION_ID
+               JOIN ORGANISATION_TYPE ot on ot.ID = og.ORGTYPE_ID
+               JOIN CUSTOMER_SETTINGS cs on cs.ID  = og.ORDER_SETTINGS_ID
+            WHERE ot.[LEVEL] ='3' AND oc.SHORTNAME in ('derendinger-ch', 'technomag', 'matik-ch');
+
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP"
+               id="ITER_222_DISABLE_SETTINGS_CUSTOMER_PARTNER_PROGRAM_FOR_DDCH_TNM_MTCH_SCRIPT">
+        <sql>
+            UPDATE CUSTOMER_SETTINGS SET HAS_PARTNER_PROGRAM_VIEW = 0 WHERE ID IN (
+                SELECT  cs.ID  as CUSTOMER_SETTINGS_ID FROM COLLECTION_RELATION cr
+                     JOIN ORGANISATION og on og.ID = cr.ORGANISATION_ID
+                     JOIN ORGANISATION_COLLECTION oc on oc.ID = cr.COLLECTION_ID
+                     JOIN ORGANISATION_TYPE ot on ot.ID = og.ORGTYPE_ID
+                     JOIN CUSTOMER_SETTINGS cs on cs.ID  = og.ORDER_SETTINGS_ID
+                WHERE ot.[LEVEL] ='3' AND oc.SHORTNAME in ('derendinger-ch', 'technomag', 'matik-ch'));
+        </sql>
+    </changeSet>
+  
+</databaseChangeLog>

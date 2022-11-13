@@ -1,0 +1,15 @@
+<sag-article-list
+    [data]="articleInContextService.data$ | async"
+    [userSetting]="storage.libUserSetting"
+    [articleListType]="articleListType"
+    [(articleMode)]="storage.articleMode"
+    [brandsData]="articleInContextService.brandsData$ | async"
+    (brandsItemsChange)="onBrandsItemsChange($event)"
+    (brandsStateChange)="onBrandsStateChange($event)"
+    (barFilterStateChange)="onBarFilterStateChange($event)"
+    (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+    (onShowAccessoriesEmitter)="onShowAccessories($event)"
+    (onShowPartsListEmitter)="onShowPartsList($event)"
+    (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+>
+</sag-article-list>

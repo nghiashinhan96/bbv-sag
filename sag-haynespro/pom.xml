@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.sagag.services</groupId>
+    <artifactId>sag-parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../sag-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>sag-haynespro</artifactId>
+  <version>${project.version}</version>
+  <name>SAG Haynes Pro API Services</name>
+
+  <dependencies>
+    <!-- Spring dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <exclusions>
+          <exclusion>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+      </exclusions>      
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <!-- Common utils -->
+    <dependency>
+      <groupId>com.sagag.services</groupId>
+      <artifactId>sag-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+  <!--<build>-->
+    <!--<plugins>-->
+      <!--&lt;!&ndash; <plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> -->
+        <!--</plugin> &ndash;&gt;-->
+      <!--&lt;!&ndash;&lt;!&ndash; tag::wsdl[] &ndash;&gt; &ndash;&gt;-->
+      <!--<plugin>-->
+        <!--<groupId>org.jvnet.jaxb2.maven2</groupId>-->
+        <!--<artifactId>maven-jaxb2-plugin</artifactId>-->
+        <!--<version>0.13.1</version>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<goals>-->
+              <!--<goal>generate</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        <!--</executions>-->
+        <!--<configuration>-->
+          <!--<schemaLanguage>WSDL</schemaLanguage>-->
+          <!--<generatePackage>com.haynespro.dataservice.wsdl</generatePackage>-->
+          <!--<args>-->
+            <!--<arg>-XautoNameResolution</arg>-->
+          <!--</args>-->
+          <!--<schemas>-->
+            <!--<schema>-->
+              <!--<url>http://www.haynespro-services.com/workshopServices3/services/DataServiceEndpoint?wsdl</url>-->
+            <!--</schema>-->
+          <!--</schemas>-->
+        <!--</configuration>-->
+      <!--</plugin>-->
+      <!--&lt;!&ndash;&lt;!&ndash; end::wsdl[] &ndash;&gt; &ndash;&gt;-->
+    <!--</plugins>-->
+  <!--</build>-->
+</project>

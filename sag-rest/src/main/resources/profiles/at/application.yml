@@ -1,0 +1,69 @@
+# ************************************************************************
+# This is the AT configuration of RESTful application for Development mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - HaynesPro Endpoint - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - OATS(replace Olyslager) - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - Proxy - 
+# - Media Server - 
+# - Price File Location - 
+# - Java Melody Monitoring - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  ax-pre-cloud,
+  incentive-dev,
+  hp-dev,
+  gtmotive-at-pre,
+  mdm-prod,
+  oates-pre-at,
+  mail-dev,
+  elasticsearch-dev,
+  db-dev,
+  executor-pool,
+  logging-at-dev,
+  actuator,
+  cache-dev,
+  country-at,
+  analytics-pre-cloud,
+  liquibase-at-dev,
+  no-proxy,
+  media-server,
+  price-file-at,
+  javamelody,
+  thule-dev
+
+spring.banner.location: classpath:banner/banner_at.txt
+
+---
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      host: https://at.bbv-demo.ch/auth-server
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW
+
+license:
+  vin:
+    minimumOrder: 0

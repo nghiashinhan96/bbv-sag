@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light header">
+    <div class="container-lg" *ngIf="userService.userDetail$ | async as user">
+        <a class="navbar-brand" [class.sale-logo]="user.salesUser || user.isSalesOnBeHalf" [routerLink]="['/','home']" data-automation="app-logo"></a>
+        <ul class="navbar-nav">
+            <li class="nav-item connect-header-search-nav-item">
+                <connect-header-search *ngIf="user.normalUser"></connect-header-search>
+            </li>
+            <li class="nav-item connect-header-settings-nav-item">
+                <connect-header-settings></connect-header-settings>
+            </li>
+            <li class="nav-item connect-header-credit-limit-nav-item" *sagCommonShowHideByAff="[sb];show:true">
+                <connect-header-credit-limit></connect-header-credit-limit>
+            </li>
+            <li class="nav-item connect-header-shopping-basket-nav-item">
+                <connect-header-shopping-basket></connect-header-shopping-basket>
+            </li>
+            <li class="nav-item align-self-center connect-header-saved-basket-nav-item">
+                <connect-header-saved-basket></connect-header-saved-basket>
+            </li>
+            <li class="nav-item align-self-center connect-header-sub-basket-nav-item" *ngIf="user.hasWholesalerPermission && !user.isSalesOnBeHalf">
+                <connect-header-sub-basket></connect-header-sub-basket>
+            </li>
+        </ul>
+    </div>
+</nav>

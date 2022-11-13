@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.1.RELEASE</version>
+  </parent>
+  <groupId>com.sagag.services</groupId>
+  <artifactId>sag-parent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>SAG Services Parent Project</name>
+
+  <properties>
+  	<project.version>1.0-SNAPSHOT</project.version>
+    <java.version>1.8</java.version>
+    <spring-boot.version>2.0.1.RELEASE</spring-boot.version>
+    <spring-security-oauth2.version>2.3.1.RELEASE</spring-security-oauth2.version>
+    <spring-security-jwt.version>1.0.9.RELEASE</spring-security-jwt.version>
+    <hazelcast.version>3.11.2</hazelcast.version>
+    <junit.version>4.12</junit.version>
+    <logback.version>1.1.7</logback.version>
+    <log4j2.version>2.17.1</log4j2.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jquery.version>2.2.3</jquery.version>
+    <bootstrap.version>3.3.6</bootstrap.version>
+    <lombok.version>1.16.8</lombok.version>
+    <jjwt.version>0.6.0</jjwt.version>
+    <commons-io.version>2.5</commons-io.version>
+    <commons-net.version>3.6</commons-net.version>
+    <commons-collections4.version>4.1</commons-collections4.version>
+    <commons-lang3.version>3.4</commons-lang3.version>
+    <guava.version>23.0</guava.version>
+    <json-unit.version>1.13.0</json-unit.version>
+    <json-unit-fluent.version>1.13.0</json-unit-fluent.version>
+    <json-unit-spring.version>1.13.0</json-unit-spring.version>
+    <powermock.version>1.7.3</powermock.version>
+    <jbehave.version>4.0.5</jbehave.version>
+    <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
+    <failOnViolation>true</failOnViolation>
+    <!--<checkstyle.skip>true</checkstyle.skip> -->
+    <javax-ws-rs.version>2.0.1</javax-ws-rs.version>
+    <version.adal4j>1.2.0</version.adal4j>
+    <version.java-jwt>3.4.0</version.java-jwt>
+    <HikariCP.version>2.6.3</HikariCP.version>
+    <javamelody-spring-boot-starter.version>1.69.0</javamelody-spring-boot-starter.version>
+    <mapstruct.version>1.2.0.Final</mapstruct.version>
+    <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+    <sba-client.version>2.0.1</sba-client.version>
+    <joda-time.version>2.10.7</joda-time.version>
+
+    <!-- Jacoco coverage report -->
+    <jacoco.plugin.version>0.7.7.201606060606</jacoco.plugin.version>
+    <skip.integration.tests>true</skip.integration.tests>
+    <skip.unit.tests>false</skip.unit.tests>
+    <!-- Jacoco output file for UTs & ITs -->
+    <jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
+    <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
+    <!-- jacoco.outputDir can be overridden when running command line using -Djacoco.outputDir=${WORKSPACE}/target
+      where ${WORKSPACE} is the root directory -->
+    <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
+
+    <!-- Sonar properties -->
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.jacoco.reportMissing.force.zero>true</sonar.jacoco.reportMissing.force.zero>
+    <sonar.language>java</sonar.language>
+    <sonar.sourceEncoding>${project.build.sourceEncoding}</sonar.sourceEncoding>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <!-- For JUnit to extract coverage details per test -->
+    <sonar-jacoco-listeners.version>3.2</sonar-jacoco-listeners.version>
+    <sonar.jacoco.reportPath>${env.WORKSPACE}/target/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
+    <sonar.jacoco.itReportPath>${env.WORKSPACE}/target/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
+
+    <!-- Maven build profiles for CH and AT on SWS AX platform -->
+    <build.customer>at</build.customer> <!-- default build for AT customer -->
+    <build.profile.id>dev</build.profile.id> <!-- default build profile is DEV -->
+    <src.directory>src/main/resources</src.directory>
+    <config.build.directory>${src.directory}/profiles/${build.customer}</config.build.directory>
+    <!-- application.yml -->
+    <config.app.default>${config.build.directory}/application.yml</config.app.default>
+    <config.app.profile-src>${config.build.directory}/application-${build.profile.id}.yml</config.app.profile-src>
+    <config.app.out>${project.build.outputDirectory}/application.yml</config.app.out>
+
+    <!-- ############################# START Custom Configuration ############################# -->
+    <!-- Hazelcast TCP IP Members -->
+    <app.cache.tcp-ip-config.members>127.0.0.1</app.cache.tcp-ip-config.members>
+    
+    <!-- Database Configuration -->
+    <app.db.jdbc-url>116.203.249.156:1433</app.db.jdbc-url>
+    <app.db.db-name>axat</app.db.db-name>
+    <app.db.username>sag</app.db.username>
+    <app.db.password>eU24|%569k(v}yJ</app.db.password>
+    <app.db.idle-timeout>10000</app.db.idle-timeout>
+    <app.db.minimum-idle>1</app.db.minimum-idle>
+    <app.db.connection-timeout>10000</app.db.connection-timeout>
+    <app.db.max-lifetime>30000</app.db.max-lifetime>
+    <app.db.leak-detection-threshold>30000</app.db.leak-detection-threshold>
+    <app.db.show-sql>false</app.db.show-sql>
+    <app.db.maximum-pool-size>125</app.db.maximum-pool-size>
+    <app.db.hz-maximum-pool-size>20</app.db.hz-maximum-pool-size>
+    
+    <!-- Elasticsearch Configuration -->
+    <app.elasticsearch.host>88.99.36.49</app.elasticsearch.host>
+    <app.elasticsearch.port>9300</app.elasticsearch.port>
+    <app.elasticsearch.cluster-name>elasticsearch</app.elasticsearch.cluster-name>
+    
+    <!-- HaynesPro Configuration -->
+    <app.hpback.uri>https://www.haynespro-services.com/reg/services/RegistrationV2</app.hpback.uri>
+    <app.hpback.companyIdentificaton>sag_connect_at</app.hpback.companyIdentificaton>
+    <app.hpback.distributorPassword>LSFP6rfQ88WzGwy8</app.hpback.distributorPassword>
+    <app.hpback.callbackUrl>https://at.bbv-demo.ch/rest-ax</app.hpback.callbackUrl>
+    <app.hpback.license.derendinger-ch-email></app.hpback.license.derendinger-ch-email>
+    <app.hpback.license.technomag-email></app.hpback.license.technomag-email>
+    <app.hpback.license.default-email></app.hpback.license.default-email>
+    <app.hpback.license.at-email></app.hpback.license.at-email>
+    
+    <!-- Invoice Archive Endpoint Configuration -->
+    <app.invoice.archiveUrl>http://sag-app-026.derendinger.ch/</app.invoice.archiveUrl>
+    <!-- AX ERP Configuration -->
+    <app.erpConfig.maxRequestSize>20</app.erpConfig.maxRequestSize>
+    
+    <!-- ############################# END Custom Configuration ############################# -->
+
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>Java Maven Maven Repository Manager</id>
+      <name>Maven Repository Manager</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+
+  <modules>
+    <module>/../sag-ivds</module>
+    <module>/../sag-elasticsearch</module>
+    <module>/../sag-gtmotive</module>
+    <module>/../sag-oauth2</module>
+    <module>/../sag-rest</module>
+    <module>/../sag-hazelcast</module>
+    <module>/../sag-haynespro</module>
+    <module>/../sag-incentive</module>
+    <module>/../sag-common</module>
+    <module>/../sag-domain</module>
+    <module>/../sag-logging</module>
+    <module>/../sag-dvse</module>
+    <module>/../sag-mdm</module>
+    <module>/../sag-sso</module>
+    <module>/../sag-article-api</module>
+    <module>/../sag-ax</module>
+    <module>/../sag-autonet-erp</module>
+    <module>/../sag-stakis-erp</module>
+    <module>/../sag-thule</module>
+    <module>/../sag-oates</module>
+    <module>/../sag-service</module>
+    <module>/../sag-admin</module>
+  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.sonar-plugins.java</groupId>
+      <artifactId>sonar-jacoco-listeners</artifactId>
+      <version>${sonar-jacoco-listeners.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <profiles>
+    <!-- DEVELOPMENT ENV -->
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <config.app.profile-src>${config.app.default}</config.app.profile-src>
+        <build.profile.id>dev</build.profile.id>
+      </properties>
+    </profile>
+    
+    <!-- FEATURE ENV -->
+    <profile>
+      <id>feature</id>
+      <properties>
+        <build.profile.id>feature</build.profile.id>
+      </properties>
+    </profile>
+
+    <!-- PRE-PRODUCTION ENV -->
+    <profile>
+      <id>pre</id>
+      <properties>
+        <build.profile.id>pre</build.profile.id>
+      </properties>
+    </profile>
+    
+    <!-- PRODUCTION ENV -->
+    <profile>
+      <id>prod</id>
+      <properties>
+        <build.profile.id>prod</build.profile.id>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>SdokCertificate-5.jks</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <filtering>false</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>SdokCertificate-5.jks</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <!-- States that the plugin's add-test-source goal is executed at generate-test-sources phase. -->
+          <execution>
+            <id>add-integration-test-sources</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/test/java</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle.plugin.version}</version>
+        <configuration>
+          <configLocation>check-styles/checkStyleSAG.xml</configLocation>
+          <failOnViolation>${failOnViolation}</failOnViolation>
+          <failsOnError>true</failsOnError>
+          <violationSeverity>error</violationSeverity>
+          <consoleOutput>true</consoleOutput>
+          <excludes>**/wsdl/**/*</excludes>
+          <linkXRef>false</linkXRef>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.plugin.version}</version>
+        <configuration>
+          <haltOnFailure>false</haltOnFailure>
+        </configuration>
+        <executions>
+          <execution>
+            <id>pre-unit-test</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <configuration>
+              <destFile>${sonar.jacoco.reportPath}</destFile>
+              <propertyName>surefireArgLine</propertyName>
+              <append>true</append>
+            </configuration>
+          </execution>
+          <execution>
+            <id>post-unit-test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <dataFile>${sonar.jacoco.reportPath}</dataFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>pre-integration-test</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <configuration>
+              <destFile>${sonar.jacoco.itReportPath}</destFile>
+              <propertyName>failsafeArgLine</propertyName>
+              <append>true</append>
+            </configuration>
+          </execution>
+          <execution>
+            <id>post-integration-test</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <dataFile>${sonar.jacoco.itReportPath}</dataFile>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Used for unit tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <argLine>${surefireArgLine}</argLine>
+          <skipTests>${skip.unit.tests}</skipTests>
+          <excludes>
+            <exclude>**/IT.java</exclude>
+          </excludes>
+          <properties>
+            <property>
+              <name>listener</name>
+              <value>org.sonar.java.jacoco.JUnitListener</value>
+            </property>
+          </properties>
+        </configuration>
+      </plugin>
+      <!-- Used for integration tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>integration-test</goal>
+            </goals>
+            <configuration>
+              <argLine>-Xmx1024m -XX:MaxPermSize=512m ${failsafeArgLine}</argLine>
+              <skipTests>${skip.integration.tests}</skipTests>
+              <properties>
+                <property>
+                  <name>listener</name>
+                  <value>org.sonar.java.jacoco.JUnitListener</value>
+                </property>
+              </properties>
+              <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>verify</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle.plugin.version}</version>
+        <configuration>
+          <configLocation>check-styles/checkStyleSAG.xml</configLocation>
+          <failOnViolation>${failOnViolation}</failOnViolation>
+          <failsOnError>true</failsOnError>
+          <violationSeverity>error</violationSeverity>
+          <consoleOutput>true</consoleOutput>
+          <excludes>**/wsdl/**/*</excludes>
+          <linkXRef>false</linkXRef>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

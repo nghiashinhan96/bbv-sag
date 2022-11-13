@@ -1,0 +1,29 @@
+.card-tile-item {
+    height: 100%;
+
+    .text-nowrap {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 12px;
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+}
+
+.gen-art-popup-content {
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .link {
+        white-space: nowrap;
+        width: 150px;
+        margin-right: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

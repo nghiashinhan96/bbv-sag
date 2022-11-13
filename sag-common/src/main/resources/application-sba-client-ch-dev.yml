@@ -1,0 +1,11 @@
+spring.profiles: sba-client-ch-dev
+
+spring.boot.admin.client:
+  url: https://ax.sib-services.ch/monitoring
+  period: 10000
+  instance:
+    name: SAG Connect Application For CH Affiliates
+    service-base-url: https://ch.bbv-demo.ch
+    metadata:
+      tags:
+        environment: development

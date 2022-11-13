@@ -1,0 +1,21 @@
+# ************************************************************************
+# This is the default configuration of Admin application for local mode.
+# 
+# Required Common configuration:
+# - Application common configuration
+# - Mail service
+# - Thread Executor Pool
+# - Proxy
+# - Logging
+# - Java Melody Monitoring
+# - Actuator Healthcheck
+#
+# ************************************************************************
+spring.profiles.include:
+  sagadmin,
+  mail-dev,
+  executor-pool,
+  no-proxy,
+  logging-default,
+  javamelody,
+  actuator

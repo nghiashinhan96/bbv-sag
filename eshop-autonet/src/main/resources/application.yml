@@ -1,0 +1,30 @@
+server:
+  port: 8090
+  sessionTimeout: 30
+logging:
+  level:
+    org.springframework: INFO
+    com.sagag.eshop: DEBUG
+    
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  mvc:
+    favicon:
+      enabled: false      
+
+javamelody:
+  enabled: true
+  spring-monitoring-enabled: true
+  init-parameters:
+    log: true
+    # to add basic authentication
+    authorized-users: admin:Ms8=j[Uz
+    # to change the default "/monitoring" path
+    monitoring-path: /perf
+  advisor-auto-proxy-creator-enabled: false
+  scheduled-monitoring-enabled: true
+      

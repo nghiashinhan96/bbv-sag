@@ -1,0 +1,126 @@
+<div class="table-container row">
+    <div class="col-12">
+        <table class="table" [class.table-hover]="isHover" [class.table-striped]="isStriped">
+            <thead>
+                <tr class="header text-white">
+                    <ng-container *ngFor="let col of columns">
+                        <ng-container *ngIf="col.headerTemplate; else headerRef">
+                            <th class="{{col.class}}" [style.max-width]="col.width" [style.width]="col.width"
+                                [style.height]="rowHeight">
+                                <ng-container *ngTemplateOutlet="col.headerTemplate;"></ng-container>
+                            </th>
+                        </ng-container>
+                        <ng-template #headerRef>
+                            <ng-container *ngIf="col.sortable">
+                                <th class="{{col.class}} sortable" [style.max-width]="col.width" [sagCommonSortable]="col.id"
+                                    [(sort)]="sort" (sortChange)="sortData($event)" [style.width]="col.width"
+                                    [style.height]="rowHeight">
+                                    <span>{{col.i18n | translate}}</span>
+                                </th>
+                            </ng-container>
+                            <ng-container *ngIf="!col.sortable">
+                                <th class="{{col.class}}" [style.max-width]="col.width" [style.width]="col.width"
+                                    [style.height]="rowHeight">
+                                    {{col.i18n | translate}}</th>
+                            </ng-container>
+                        </ng-template>
+                    </ng-container>
+                </tr>
+                <tr class="filter">
+                    <ng-container *ngFor="let col of columns">
+                        <td [style.max-width]="col.width" [style.width]="col.width" [style.height]="rowHeight"
+                            class="{{col.class}}">
+                            <ng-container *ngIf="col.filterable">
+                                <ng-container *ngIf="col.filterTemplate; else filterRef">
+                                    <ng-container *ngTemplateOutlet="col.filterTemplate; context: {col: col};">
+                                    </ng-container>
+                                </ng-container>
+                                <ng-template #filterRef>
+                                    <ng-container [ngSwitch]="col.type">
+                                        <ng-container *ngSwitchCase="'select'">
+                                            <ng-select class="ng-select-filter" [items]="col.selectSource"
+                                                [(ngModel)]="searchModel[col.id]" [clearable]="false"
+                                                [searchable]="col.selectSource.length > 10"
+                                                notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}"
+                                                loadingText="{{'SEARCH.LOADING' | translate}}" (change)="filterData()"
+                                                [bindValue]="col.selectValue" [bindLabel]="col.selectLabel">
+                                                <ng-template ng-label-tmp let-item="item">
+                                                    {{ item.label | translate }}
+                                                </ng-template>
+                                                <ng-template ng-option-tmp let-item="item" let-index="index">
+                                                    {{ item.label | translate }}
+                                                </ng-template>
+                                            </ng-select>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'daterangepicker'">
+                                            <div class="input-group date-range-picker">
+                                                <input class="form-control bg-white" angular-mydatepicker
+                                                    [locale]="locale" [options]="myDateRangePickerOptions"
+                                                    #dp="angular-mydatepicker" (dateChanged)="onDateChange(col, $event)"
+                                                    (click)="dp.toggleCalendar()" readonly />
+                                                <div *ngIf="searchModel[col.id]?.dateRange?.beginJsDate"
+                                                    class="input-group-append input-group-clear pointer" (click)="dp.clearDate()">
+                                                    <span class="input-group-text"><i class="fa fa-close"></i></span>
+                                                </div>
+                                                <div class="input-group-append input-group-picker pointer" (click)="dp.toggleCalendar()">
+                                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                        <ng-container *ngSwitchDefault>
+                                            <input class="form-control" [(ngModel)]="searchModel[col.id]"
+                                                (ngModelChange)="onTextInputChange($event)">
+                                        </ng-container>
+                                    </ng-container>
+                                </ng-template>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="rows && rows.length > 0">
+                    <tr *ngFor="let row of rows | paginate: { id: tableId,totalItems: page.totalItems, itemsPerPage: page.itemsPerPage, currentPage: page.currentPage}"
+                        (click)="onSelectRow(row)" [class.pointer]="selectable" [class.disabled]="row.disabled">
+                        <ng-container *ngFor="let col of columns">
+                            <td [style.max-width]="col.width" [style.width]="col.width" [style.height]="rowHeight"
+                                class="{{col.cellClass}}">
+                                <ng-container *ngIf="col.cellTemplate; else filterRef">
+                                    <ng-container
+                                        *ngTemplateOutlet="col.cellTemplate; context: {row: row, value: row[col.id], col: col};">
+                                    </ng-container>
+                                </ng-container>
+                                <ng-template #filterRef>
+                                    <div [class.text-ellipsis]="col.ellipsis" [class.text-break]="!col.ellipsis">{{row[col.id]}}</div>
+                                </ng-template>
+                            </td>
+                        </ng-container>
+                    </tr>
+                </ng-container>
+                <tr class="alert-row" *ngIf="(showNotFoundOnFirstLoad && rows?.length === 0) || (!showNotFoundOnFirstLoad && isChanged && rows?.length === 0)">
+                    <td [attr.colSpan]="columns?.length"
+                        [style.height]="rowHeight">
+                        <div class="alert alert-warning">
+                            {{notFoundText | translate}}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" *ngIf="page.totalItems > page.itemsPerPage">
+    <div class="col-12">
+        <pagination-controls [id]="tableId" nextLabel="{{'PAGINATION.NEXT' | translate}}"
+            previousLabel="{{'PAGINATION.PREVIOUS' | translate}}" (pageChange)="pageChanged($event)"
+            (pageBoundsCorrection)="pageChanged($event)" autoHide="false">
+        </pagination-controls>
+    </div>
+</div>
+<ng-template #dateRef let-val="value" let-col="col">
+    {{val | date: (col.dateFormat || defaultDateFormat)}}
+</ng-template>
+
+<ng-template #currencyRef let-val="value" let-col="col">
+    {{val | sagCurrency: col.currencyOptions}}
+</ng-template>

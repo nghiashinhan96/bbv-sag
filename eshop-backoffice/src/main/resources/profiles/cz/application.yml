@@ -1,0 +1,17 @@
+server:
+  port: 8010
+  sessionTimeout: 30
+logging:
+  level:
+    org.springframework: INFO
+    com.sagag.eshop: DEBUG
+
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  mvc:
+    favicon:
+      enabled: false

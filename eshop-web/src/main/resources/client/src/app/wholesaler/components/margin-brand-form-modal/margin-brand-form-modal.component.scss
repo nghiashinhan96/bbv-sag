@@ -1,0 +1,14 @@
+.margin-brand-dialog {
+    ::ng-deep {
+        .btn-search-brand {
+            min-width: 70px !important;
+        }
+    }
+
+    .list-group {
+        min-height: 20px;
+        max-height: 250px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

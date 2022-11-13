@@ -1,0 +1,12 @@
+spring.profiles: source-ax-prod
+
+external:
+  webservice:
+    ax:
+      url: https://business.sag.services/apps/prod-webshop-service-app
+      tokenPath: https://business.sag.services/apps/prod-webshop-service-app
+      clientId: dac59217-3884-4ba8-8874-6245de0eaa18
+      # only for token refresh
+      clientSecret: e3UvWDJcsEC5LXPZFsK8nQfZ6p3wb4J9O5a1VOoCY1M=
+      userName: sys-ws-connect-prod@sag-ag.ch
+      password: agenda01

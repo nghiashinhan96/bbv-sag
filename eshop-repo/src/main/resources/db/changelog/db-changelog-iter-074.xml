@@ -1,0 +1,212 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet author="CONNECT_APP" id="FEEDBACK_TOPIC_V1_0">
+    <createTable tableName="FEEDBACK_TOPIC">
+      <column autoIncrement="true" name="ID" type="int">
+        <constraints primaryKey="true" primaryKeyName="PK_FEEDBACK_TOPIC_ID" />
+      </column>
+      <column name="TOPIC_CODE" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="DESCRIPTION" type="varchar(500)" />
+    </createTable>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FEEDBACK_STATUS_V1_0">
+    <createTable tableName="FEEDBACK_STATUS">
+      <column autoIncrement="true" name="ID" type="int">
+        <constraints primaryKey="true" primaryKeyName="PK_FEEDBACK_STATUS_ID" />
+      </column>
+      <column name="STATUS_CODE" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="DESCRIPTION" type="varchar(500)" />
+    </createTable>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FEEDBACK_DEPARTMENT_CONTACT_V1_0">
+    <createTable tableName="FEEDBACK_DEPARTMENT_CONTACT">
+      <column autoIncrement="true" name="ID" type="bigint">
+        <constraints primaryKey="true"
+          primaryKeyName="PK_FEEDBACK_DEPARTMENT_CONTACT_ID" />
+      </column>
+      <column name="DEPARTMENT_ID" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="TYPE" type="varchar(200)">
+        <constraints nullable="false" />
+      </column>
+      <column name="VALUE" type="varchar(500)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FEEDBACK_V1_0">
+    <createTable tableName="FEEDBACK">
+      <column autoIncrement="true" name="ID" type="bigint">
+        <constraints primaryKey="true" primaryKeyName="PK_FEEDBACK_ID" />
+      </column>
+      <column name="USER_ID" type="bigint">
+        <constraints nullable="false" />
+      </column>
+      <column name="SALES_ID" type="bigint" />
+      <column name="STATUS_ID" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="TOPIC_ID" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="ORG_ID" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="USER_INFORMATION" type="varchar(MAX)" />
+      <column name="TECHNICAL_INFORMATION" type="varchar(MAX)" />
+      <column name="FEEDBACK_MESSAGE" type="varchar(3000)">
+        <constraints nullable="false" />
+      </column>
+      <column defaultValueComputed="getdate()" name="CREATED_DATE" type="datetime">
+        <constraints nullable="false" />
+      </column>
+      <column name="CREATED_USER_ID" type="bigint">
+        <constraints nullable="false" />
+      </column>
+      <column name="MODIFIED_DATE" type="datetime" />
+      <column name="MODIFIED_USER_ID" type="bigint" />
+      <column name="CUSTOMER_CONTACT" type="varchar(255)" />
+      <column name="SOURCE" type="varchar(100)" />
+    </createTable>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="RETURN_ORDER_REASON_V1_0">
+    <createTable tableName="RETURN_ORDER_REASON">
+      <column autoIncrement="true" name="ID" type="int">
+        <constraints primaryKey="true" primaryKeyName="PK_RETURN_ORDER_REASON_ID" />
+      </column>
+      <column name="CODE" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="NAME" type="varchar(255)" />
+      <column name="AX_CODE" type="varchar(50)">
+        <constraints nullable="false" />
+      </column>
+      <column defaultValueNumeric="0" name="IS_DEFAULT" type="bit">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FEEDBACK_TOPIC_DEPARTMENT_V1_0">
+    <createTable tableName="FEEDBACK_TOPIC_DEPARTMENT">
+      <column autoIncrement="true" name="ID" type="int">
+        <constraints primaryKey="true" primaryKeyName="PK_FEEDBACK_TOPIC_DEPARTMENT_ID" />
+      </column>
+      <column name="TOPIC_ID" type="int">
+        <constraints nullable="false" />
+      </column>
+      <column name="DEPARTMENT_ID" type="int">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FEEDBACK_DEPARTMENT_V1_0">
+    <createTable tableName="FEEDBACK_DEPARTMENT">
+      <column autoIncrement="true" name="ID" type="int">
+        <constraints primaryKey="true" primaryKeyName="PK_FEEDBACK_DEPARTMENT_ID" />
+      </column>
+      <column name="DEPARTMENT_CODE" type="varchar(100)">
+        <constraints nullable="false" />
+      </column>
+      <column name="DESCRIPTION" type="varchar(500)" />
+      <column name="SUPPORTED_AFFILIATE_ID" type="int" />
+    </createTable>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="V_FEEDBACK_V1_0">
+    <createView fullDefinition="false" viewName="V_FEEDBACK">SELECT DISTINCT 
+    F.ID AS ID,
+    F.USER_ID AS USER_ID,
+    NU.USERNAME AS USER_NAME,
+    NU.EMAIL AS EMAIL,
+    F.SALES_ID AS SALES_ID,
+    SU.USERNAME AS SALES_USER_NAME,
+    SU.EMAIL AS SALES_EMAIL,
+    F.ORG_ID AS ORG_ID,
+    ORG.ORG_CODE AS ORG_CODE,
+    ORG.NAME AS ORG_NAME,
+    F.STATUS_ID AS STATUS_ID,
+    FS.STATUS_CODE AS STATUS_CODE,
+    F.TOPIC_ID AS TOPIC_ID,
+    FT.TOPIC_CODE AS TOPIC_CODE
+  FROM FEEDBACK F
+  JOIN ESHOP_USER NU ON NU.ID = F.USER_ID
+  LEFT JOIN ESHOP_USER SU ON SU.ID = F.SALES_ID
+  JOIN FEEDBACK_STATUS FS ON FS.ID = F.STATUS_ID
+  JOIN FEEDBACK_TOPIC FT ON FT.ID = F.TOPIC_ID
+  JOIN ORGANISATION ORG ON ORG.ID = F.ORG_ID</createView>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FK_FEEDBACK_SALES_ID_V1_0">
+    <addForeignKeyConstraint baseColumnNames="SALES_ID"
+      baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_SALES_ID" deferrable="false"
+      initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID"
+      referencedTableName="ESHOP_USER" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FK_FEEDBACK_STATUS_ID_V1_0">
+    <addForeignKeyConstraint baseColumnNames="STATUS_ID"
+      baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_STATUS_ID" deferrable="false"
+      initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID"
+      referencedTableName="FEEDBACK_STATUS" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FK_FEEDBACK_TOPIC_ID_V1_0">
+    <addForeignKeyConstraint baseColumnNames="TOPIC_ID"
+      baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_TOPIC_ID" deferrable="false"
+      initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID"
+      referencedTableName="FEEDBACK_TOPIC" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FK_FEEDBACK_USER_ID_V1_0">
+    <addForeignKeyConstraint baseColumnNames="USER_ID"
+      baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_USER_ID" deferrable="false"
+      initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID"
+      referencedTableName="ESHOP_USER" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="IDX_ORGANISATION_NAME_V1_0">
+    <createIndex indexName="IDX_ORGANISATION_NAME" tableName="ORGANISATION">
+      <column name="NAME" />
+    </createIndex>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FK_FEEDBACK_DEPARTMENT_CONTACT_DEPARTMENT_ID_V1_0">
+    <addForeignKeyConstraint baseColumnNames="DEPARTMENT_ID"
+      baseTableName="FEEDBACK_DEPARTMENT_CONTACT"
+      constraintName="FK_FEEDBACK_DEPARTMENT_CONTACT_DEPARTMENT_ID" deferrable="false"
+      initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID"
+      referencedTableName="FEEDBACK_DEPARTMENT" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="FK_FEEDBACK_ORG_ID_V1_0">
+    <addForeignKeyConstraint baseColumnNames="ORG_ID"
+      baseTableName="FEEDBACK" constraintName="FK_FEEDBACK_ORG_ID" deferrable="false"
+      initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID"
+      referencedTableName="ORGANISATION" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ADD_NO_REPLY_EMAIL">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <columnExists tableName="SUPPORTED_AFFILIATE" columnName="NO_REPLY_EMAIL" />
+      </not>
+    </preConditions>
+    <addColumn tableName="SUPPORTED_AFFILIATE">
+      <column name="NO_REPLY_EMAIL" type="varchar(255)" />
+    </addColumn>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ADD_ORDER_STATE">
+    <preConditions onFail="MARK_RAN">
+      <not>
+        <columnExists tableName="ORDER_HISTORY" columnName="ORDER_STATE" />
+      </not>
+    </preConditions>
+    <addColumn tableName="ORDER_HISTORY">
+      <column name="ORDER_STATE" type="varchar(50)" />
+    </addColumn>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="IDX_ORGANISATION_NAME_V1_0">
+    <createIndex indexName="IDX_ORGANISATION_NAME" tableName="ORGANISATION">
+      <column name="NAME" />
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

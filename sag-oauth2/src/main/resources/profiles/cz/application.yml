@@ -1,0 +1,35 @@
+# ************************************************************************
+# This is the CZ configuration of OAuth2 application for Development mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Proxy - 
+# - Java Melody Monitoring -
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagauth,
+  stakis-erp-pre,
+  elasticsearch-dev,
+  db-cz,
+  executor-pool,
+  no-liquibase,
+  logging-cz-dev,
+  actuator,
+  cache-dev,
+  country-cz,
+  no-proxy,
+  javamelody
+
+logging:
+  level:
+    org.springframework.security.oauth2.provider.token: DEBUG

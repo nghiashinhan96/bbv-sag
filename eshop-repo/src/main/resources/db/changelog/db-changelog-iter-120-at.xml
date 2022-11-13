@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_120_REMOVE_WHOLESALER_PERMISSION_FOR_DDAT_AND_MAT_COLLECTIONS">
+	<sql>
+		DELETE FROM COLLECTION_PERMISSION WHERE ID = (
+		SELECT cp.ID FROM COLLECTION_PERMISSION cp 
+		JOIN ORGANISATION_COLLECTION oc on oc.ID = cp.COLLECTION_ID
+		JOIN ESHOP_PERMISSION ep on ep.ID = cp.ESHOP_PERMISSION_ID
+		JOIN ORGANISATION o on o.ID = oc.AFFILIATE_ID
+		JOIN ORGANISATION_TYPE ot on o.ORGTYPE_ID = ot.ID
+		WHERE ot.[LEVEL] = 2 AND o.SHORTNAME in('derendinger-at','matik-at') AND ep.PERMISSION_KEY = 'WHOLESALER' )
+	</sql>
+  </changeSet>
+</databaseChangeLog>

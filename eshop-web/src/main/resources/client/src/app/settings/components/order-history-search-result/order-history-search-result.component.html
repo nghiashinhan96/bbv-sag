@@ -1,0 +1,12 @@
+<div *ngIf="result | async as list">
+    <sag-table [columns]="columns" [firstlySearch]="false" [rows]="list"
+    notFoundText="{{ 'MESSAGE_SEARCH_NOT_FOUND.ORDER_HISTORY' | translate }}"></sag-table>
+</div>
+
+<ng-template let-row="row" #viewDetailTemplate>
+    <a (click)="onViewOrderDetail($event, row)" class="btn-icon btn-eye"><i class="fa fa-search"></i></a>
+</ng-template>
+
+<ng-container *ngIf="detail">
+    <connect-order-history-detail #orderHistoryDetail [orderDetail]="detail" (addToCart)="addToShoppingBasket($event)"></connect-order-history-detail>
+</ng-container>

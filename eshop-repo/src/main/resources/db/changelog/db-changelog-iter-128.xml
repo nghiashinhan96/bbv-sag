@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_128_ENABLE_JSON_EVENTS">
+        <sql>
+           -- ALREADY EXECUTED FOR PRE AND PRO, PLEASE DO NOT RUN IT ANY MORE
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'login_page';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'tyressearch';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'batteriessearch';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'bulbssearch';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'oilsearch';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'article_list';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'shopping_basket';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'coupon';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'order';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'article_category';
+           UPDATE dbo.ESHOP_GLOBAL_SETTING SET ENABLED=1 WHERE CODE = 'fulltextsearch_return';
+        </sql>
+    </changeSet>
+</databaseChangeLog>

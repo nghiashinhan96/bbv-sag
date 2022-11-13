@@ -1,0 +1,33 @@
+# ************************************************************************
+# This is the Autonet configuration of OAuth2 application for Production mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Proxy - 
+# - Java Melody Monitoring -
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagauth,
+  autonet-erp-prod,
+  elasticsearch-customization-prod,
+  db-prod,
+  executor-pool-prod,
+  no-liquibase,
+  logging-autonet-prod-cloud,
+  actuator,
+  cache-prod,
+  country-autonet,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_autonet.txt

@@ -1,0 +1,367 @@
+<div class="part-detail-item" [class.simple-mode]="isSimpleMode" [class.disabled]="disabled" id="part-detail-{{uuid}}" [attr.data-automation]="article.id">
+    <div class="brand-sorting-hint-text">
+        GaId {{article?.gaID}} - id: {{article.artid}}- prio: {{articleRef?.prio}} -
+        sub-prio: {{articleRef?.subPrio}} - suplier: {{article?.supplier}} - stock: {{ article.stock | json }} - stockAx: {{ article.totalAxStock }} - deliverableStock: {{ article.deliverableStock }}
+    </div>
+    <div *ngIf="article.isPromotion" class="item-new">
+        <i class="fa fa-star" aria-hidden="true"></i>
+    </div>
+    <div class="header-section">
+        <div class="part-col">
+            <div *ngIf="projectId === PROJECT_ID.AUTONET" class="aut-art-no">{{article.pimId}}</div>
+            <span *ngIf="productText && !isSimpleMode"
+                id="span-productText-{{article.pimId}}">{{productText | translate}}</span>
+            <sag-article-detail-description [isSimpleMode]="true" [type]="descriptionType.HEADER" [article]="article"
+                *ngIf="isSimpleMode; else fullHeaderRef" [enableRefNrChange]="!isSubBasket" [enableDetail]="enableDetail"
+                [popoverDelay]="popoverDelay" [affiliateCode]="affiliateCode">
+            </sag-article-detail-description>
+            <ng-template #fullHeaderRef>
+                <sag-article-detail-description [isSimpleMode]="false" [type]="descriptionType.FULL" [popoverDelay]="popoverDelay"
+                    [article]="article" [enableRefNrChange]="!isSubBasket" [enableDetail]="enableDetail" [affiliateCode]="affiliateCode">
+                </sag-article-detail-description>
+            </ng-template>
+
+            <ng-container *ngIf="!isSimpleMode && article?.pnrnPccs?.length > 0">
+                <sag-article-pcc-number [pnrnPccs]="article?.pnrnPccs" [customClass]="'text-truncate'"></sag-article-pcc-number>
+            </ng-container>
+        </div>
+    </div>
+    <div class="body-section">
+        <div class="part-col part-description" *ngIf="isSimpleMode; else fullBodyRef">
+            <span *ngIf="productText" id="span-productText-{{article.pimId}}">{{productText | translate}}</span>
+            <sag-article-detail-description [isSimpleMode]="true" [type]="descriptionType.CONTENT" [article]="article" [enableDetail]="enableDetail"
+                [popoverDelay]="popoverDelay" [affiliateCode]="affiliateCode">
+            </sag-article-detail-description>
+            <sag-article-detail-description [isSimpleMode]="true" [type]="descriptionType.REPLACEMENT" [popoverDelay]="popoverDelay"
+                [article]="article" (articleNumberClick)="onArticleNumberClick($event)" [enableDetail]="enableDetail" [affiliateCode]="affiliateCode">
+            </sag-article-detail-description>
+            <sag-article-detail-description [isSimpleMode]="true" [type]="descriptionType.INFO" [article]="article" [enableDetail]="enableDetail"
+                [popoverDelay]="popoverDelay" [affiliateCode]="affiliateCode">
+            </sag-article-detail-description>
+
+            <ng-container *ngIf="article?.pnrnPccs?.length > 0">
+                <sag-article-pcc-number [pnrnPccs]="article?.pnrnPccs" [customClass]="'text-truncate'"></sag-article-pcc-number>
+            </ng-container>
+        </div>
+        <ng-template #fullBodyRef>
+            <div class="part-col part-brand">
+                <sag-article-detail-manufacturer [article]="article" [affiliateCode]="affiliateCode"></sag-article-detail-manufacturer>
+            </div>
+            <div class="part-col part-img">
+                <sag-article-detail-image [article]="article" [vinType]="vinTypeDisplay" [popoverDelay]="popoverDelay"></sag-article-detail-image>
+            </div>
+            <div class="part-col part-pos" id="part-pos-{{article.artnr}}" [title]="article?.position ? article?.position : ''">
+                {{article.position | slice:0:partPosMaxLength}}{{article.position?.length > partPosMaxLength ? '...' : ''}}
+            </div>
+        </ng-template>
+
+        <ng-container *ngIf="isSb && isSBMode; else defaultAffiliateRef">
+            <div class="part-col part-amount-per-location text-center" [class.align-self-start]="artAvailabilities && artAvailabilities[0]?.location?.items?.length >= 2" data-automation="article-avail">
+                <ng-container *ngIf="enableAvail && userSetting.hasAvailabilityPermission">
+                    <ng-container *ngIf="!artAvailabilities; else amountPerLocationRef">
+                        <i class="fa fa-spinner fa-spin fa-fw text-success"></i>
+                    </ng-container>
+                </ng-container>
+
+                <ng-template #amountPerLocationRef>
+                    <ng-container *ngIf="artAvailabilities.length > 0">
+                        <div class="font-weight-bold" [class.py-2]="i <= 2" *ngFor="let item of artAvailabilities[0].location.items; let i = index">
+                            <ng-container *ngIf="i <= 2">
+                                {{item.quantity}}
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </ng-template>
+            </div>
+
+            <div class="part-col part-location text-left" [class.align-self-start]="artAvailabilities && artAvailabilities[0]?.location?.items?.length >= 2" data-automation="article-avail">
+                <ng-container *ngIf="enableAvail && userSetting.hasAvailabilityPermission">
+                    <ng-container *ngIf="!artAvailabilities; else locationRef">
+                        <i class="fa fa-spinner fa-spin fa-fw text-success"></i>
+                    </ng-container>
+                </ng-container>
+
+                <ng-template #locationRef>
+                    <ng-container *ngIf="artAvailabilities.length > 0">
+                        <div class="text-truncate font-weight-bold" [class.py-2]="i <= 2" *ngFor="let item of artAvailabilities[0].location.items; let i = index"
+                            title="{{item.locationName + (!!item.locationPhoneNr ? ' - ' + item.locationPhoneNr : '')}}">
+                            <ng-container *ngIf="i <= 2">
+                                <span>{{item.locationName}}</span>
+                                <span *ngIf="!!item.locationPhoneNr">&nbsp; -
+                                    {{item.locationPhoneNr}}</span>
+                            </ng-container>
+                        </div>
+
+                        <ng-container *ngIf="artAvailabilities[0].location.items.length > 3">
+                            <div class="text-center view-all-location text-truncate mt-2" [popover]="viewAllLocationRef" #pop="bs-popover" container="body"
+                                triggers="click" containerClass="location-display-popover">
+                                {{'ARTICLE.VIEW_ALL_LOCATIONS' | translate}}
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </ng-template>
+            </div>
+        </ng-container>
+        <ng-template #defaultAffiliateRef>
+            <div *ngIf="!article.bom" class="part-col part-de-amount" id="part-pos-{{article.artnr}}">{{article.salesQuantity}}</div>
+            <div *ngIf="!article.bom && !hideArticleInfo && !article.pseudo" class="part-col part-avail" data-automation="article-avail">
+                <ng-container *ngIf="isNotExistsInAx; else existInAx">
+                    <div>{{'ARTICLE.NOT_FOUND_IN_AX' | translate}}</div>
+                </ng-container>
+                <ng-template #existInAx>
+                    <ng-container *ngIf="enableAvail && userSetting.hasAvailabilityPermission">
+                        <ng-container *ngIf="!artAvailabilities; else availabilityRef">
+                            <i class="fa fa-spinner fa-spin fa-fw text-success"></i>
+                        </ng-container>
+                    </ng-container>
+                </ng-template>
+            </div>
+        </ng-template>
+
+        <ng-container *ngIf="!article.bom && !hideArticleInfo && !article.pseudo">
+            <ng-container *ngIf="priceTemplateRef; else defaultPriceTemplateRef">
+                <ng-container *ngTemplateOutlet="priceTemplateRef; context:{article: article, popoversChanged: popoversChanged, currentStateVatConfirm: currentStateVatConfirm}"></ng-container>
+            </ng-container>
+        </ng-container>
+        <ng-template #defaultPriceTemplateRef>
+            <ng-container *ngIf="projectId === PROJECT_ID.CONNECT; else otherPrice">
+                <sag-article-gross-price
+                    [article]="article"
+                    [price]="article.price"
+                    [disabled]="disabled"
+                    [priceType]="priceType"
+                    [customPriceBrand]="customPriceBrand"
+                    [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                    (onCustomPriceChangeEmit)="onCustomPriceChange($event)"
+                    [popoverDelay]="popoverDelay"
+                    [userSetting]="userSetting"
+                    [affiliateCode]="affiliateCode"
+                    [currentStateVatConfirm]="currentStateVatConfirm">
+                </sag-article-gross-price>
+
+                <sag-article-net-price
+                    [affiliateCode]="affiliateCode"
+                    [popoverDelay]="popoverDelay"
+                    [userSetting]="userSetting"
+                    [currentStateVatConfirm]="currentStateVatConfirm"
+                    [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                    [article]="article"
+                    [price]="article.price">
+                </sag-article-net-price>
+            </ng-container>
+        </ng-template>
+        <ng-template #otherPrice>
+            <div *ngIf="!article.bom && !hideArticleInfo && !article.pseudo" class="part-col part-net" data-automation="netto-price">
+              <ng-container *ngIf="article.autonetRequested; else loadingRef">
+                <ng-container *ngIf="article.netPrice; else artWithoutPrice">
+                  <div [popover]="popoverRef" #pop="bs-popover" container="body" triggers="mouseenter:mouseleave" [delay]="popoverDelay"
+                      [outsideClick]="true" containerClass="article-avail-popover">{{article.netPrice | sagCurrency}}
+                  </div>
+                </ng-container>
+              </ng-container>
+            </div>
+        </ng-template>
+        <ng-container *ngIf="projectId === PROJECT_ID.CONNECT">
+            <ng-container *ngIf="artAvailabilities?.length > 1; else defaultAmountInputRef">
+                <div *ngIf="!article.bom && !hideArticleInfo && !article.pseudo" class="part-col part-quality" [class.no-quantiy-in-primary-location]="isSb && isSBMode && !allowedAddToShoppingCart && artAvailabilities"
+                    [class.disabled]="(!allowedAddToShoppingCart && !isSBMode && isSb) || (!allowedAddToShoppingCart && !isSb)"
+                    [popover]="popoverRef" #pop="bs-popover" container="body" triggers="mouseenter:mouseleave" [delay]="popoverDelay"
+                    [outsideClick]="true" containerClass="article-avail-popover">
+					<sag-currency-amount-input [amountNumber]="quantity" (amountNumberChange)="addToShoppingCart($event, null, true)"
+						[salesQuantity]="article.salesQuantity" [qtyMultiple]="article.qtyMultiple"
+						[mode]="inputHorizontalMode" [min]="article.qtyMultiple" [max]="maxQuantity"></sag-currency-amount-input>
+				</div>
+            </ng-container>
+            <ng-template #defaultAmountInputRef>
+                <div *ngIf="!article.bom && !hideArticleInfo && !article.pseudo" class="part-col part-quality" [class.no-quantiy-in-primary-location]="isSb && isSBMode && !allowedAddToShoppingCart && artAvailabilities"
+                    [class.disabled]="(!allowedAddToShoppingCart && !isSBMode && isSb) || (!allowedAddToShoppingCart && !isSb)">
+                    <sag-currency-amount-input [amountNumber]="quantity" (amountNumberChange)="addToShoppingCart($event, null, true)"
+                        [salesQuantity]="article.salesQuantity" [qtyMultiple]="article.qtyMultiple"
+                        [mode]="inputHorizontalMode" [min]="article.qtyMultiple" [max]="maxQuantity"></sag-currency-amount-input>
+                </div>
+            </ng-template>
+        </ng-container>
+        <div *ngIf="!hideArticleInfo" class="part-col part-total-and-cart">
+            <sag-article-total-price
+                *ngIf="!article.bom && !article.pseudo"
+                [article]="article"
+                [price]="article.price"
+                [currentStateVatConfirm]="currentStateVatConfirm"
+                [projectId]="projectId"
+                [cartKey]="cartKey"
+                [displayedPrice]="article?.displayedPrice"
+                [affiliateCode]="affiliateCode"
+                [userSetting]="userSetting"
+                [totalPriceTemplateRef]="totalPriceTemplateRef">
+            </sag-article-total-price>
+            <ng-container *ngIf="!article.pseudo || (article.bom && article.partsListItems?.length > 0)">
+                <button [class.disabled]="!allowedAddToShoppingCart" class="btn btn-warning btn-shopping" (click)="addToShoppingCart(null, null, true)" *ngIf="enableShoppingCart" data-automation="add-to-cart">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </button>
+                <button class="btn btn-remove" (click)="removeArticle()" *ngIf="removable" data-automation="remove">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                <div class="art-checkbox" *ngIf="selectable">
+                    <input type="checkbox" [(ngModel)]="article.markAsDeleted" (ngModelChange)="onMarkAsDeleted()" data-automation="select">
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="footer-section" *ngIf="!isSimpleMode">
+        <sag-article-detail-description [isSimpleMode]="isSimpleMode" [type]="descriptionType.REPLACEMENT" [popoverDelay]="popoverDelay"
+            [article]="article" (articleNumberClick)="onArticleNumberClick($event)" [enableDetail]="enableDetail" [affiliateCode]="affiliateCode">
+        </sag-article-detail-description>
+    </div>
+    <div class="footer-section" *ngIf="!isSimpleMode">
+        <sag-article-detail-description [isSimpleMode]="isSimpleMode" [type]="descriptionType.INFO" [article]="article" [enableDetail]="enableDetail"
+            [popoverDelay]="popoverDelay" [affiliateCode]="affiliateCode">
+        </sag-article-detail-description>
+    </div>
+    <div class="footer-section">
+        <div [innerHTML]="article.artDesc || ''" sagCommonTextEllipsis></div>
+    </div>
+    <div class="footer-section parts-list-hint" *ngIf="article?.partsListItems?.length > 0">
+        <div>{{'COMMON_LABEL.PARTS_LIST_HINT' | translate}}</div>
+    </div>
+    <div class="footer-section">
+        <div class="spec-info">
+            <div class="additional-info">
+                <div *ngIf="!disabled && article.itemType!=='VIN' && showCrossReference" class="additional-info-element btn-cross-reference">
+                    <div class="btn-cross-reference" (click)="onShowCrossReference()">
+                        <i class="fa fa-window-restore" [title]="'COMMON_LABEL.CROSS_REFERENCE' | translate"></i>
+                    </div>
+                </div>
+                <div class="additional-info-element btn-parts-list" *ngIf="article?.partsListItems?.length > 0">
+                    <div class="spec-detail" (click)="onShowPartsList()">
+                        <span class="label">{{'COMMON_LABEL.PARTS_LIST' | translate}}</span>
+                    </div>
+                </div>
+                <div class="additional-info-element btn-accessory-list" *ngIf="article?.hasAccessories">
+                    <div class="spec-detail" (click)="onShowAccessories()">
+                        <span class="label">{{'COMMON_LABEL.ACCESSORIES' | translate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="article.memo">
+            <div class="additional-info-nemo" [innerHTML]="article.memo | safe:'html'"></div>
+        </ng-container>
+        <div class="additional-info">
+            <div class="additional-info-element" *ngIf="enableDetail">
+                <div class="spec-detail" (click)="showSpecialDetail()">
+                    <i class="fa fa-angle-down" [ngClass]="{'fa-rotate-180': isShownSpecDetail}"></i>
+                    <span class="label">{{'COMMON_LABEL.DETAILS' | translate}}</span>
+                </div>
+            </div>
+            <sag-article-detail-pdf [article]="article"></sag-article-detail-pdf>
+            <div class="additional-info-element" *ngIf="article?.price?.price?.snpArticleGroup">
+                <i id="icon-tour" class="ico-20 ico-tour no-loader avail-icon" (mouseover)="showSNPInfo($event)"></i>
+            </div>
+            <div class="additional-info-element" *ngIf="article?.price?.price?.tyrePromotion">
+                <i id="icon-tyrePromotion" class="ico-20 ico-promotion avail-icon"
+                    (mouseover)="showTyrePromotionInfo($event)"></i>
+            </div>
+            <ng-container *ngIf="memosTemplateRef && article.memos?.length">
+                <ng-container *ngTemplateOutlet="memosTemplateRef; context:{memos: article.memos, article: article}"></ng-container>
+            </ng-container>
+        </div>
+
+        <sag-article-favorite-icon
+            *ngIf="!disabled && article.itemType!=='VIN'"
+            [action]="actionFavorite"
+            [isFavorited]="article?.favorite"
+            [uuid]="uuid"
+            [(article)]="article"
+            [rootModalName]="rootModalName"
+            [favoriteComment]="article?.favoriteComment">
+        </sag-article-favorite-icon>
+    </div>
+    <ng-container *ngIf="specialInfoTemplateRef">
+        <ng-container *ngTemplateOutlet="specialInfoTemplateRef; context:{article: article}"></ng-container>
+    </ng-container>
+    <div class="footer-more-detail" *ngIf="enableDetail && isShownSpecDetail">
+        <sag-article-detail-spec [article]="article" [isShownMoreInfo]="isShownMoreInfo"></sag-article-detail-spec>
+    </div>
+    <div class="footer-section parts-list-img">
+        <sag-article-detail-image [article]="article" [vinType]="vinTypeDisplay" [showHoverImg]="false" [useImgTag]="true"></sag-article-detail-image>
+    </div>
+</div>
+<ng-template #artWithoutPrice>
+    <span class="col-art-without-price" id="col-artWithoutPrice-{{article.artnr}}"
+        [popover]="popoverRef" #pop="bs-popover" [outsideClick]="true" container="body"
+        triggers="mouseenter:mouseleave" containerClass="article-avail-popover" [delay]="popoverDelay">
+        {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}</span>
+</ng-template>
+
+<ng-template #availabilityRef>
+    <div [popover]="popoverRef" #pop="bs-popover" [outsideClick]="true" container="body" class="d-flex flex-column w-100"
+        triggers="mouseenter:mouseleave" containerClass="article-avail-popover" [delay]="popoverDelay">
+        <ng-container *ngIf="customAvailTemplateRef && !isEhCz; else defaultAvailTemplate">
+            <ng-container *ngTemplateOutlet="customAvailTemplateRef; context: {availabilities: artAvailabilities}">
+            </ng-container>
+        </ng-container>
+        <ng-template #defaultAvailTemplate>
+            <ng-container *ngIf="projectId === PROJECT_ID.AUTONET">
+                <ng-container *ngIf="article.autonetRequested; else loadingRef">
+                    <img [src]="article.availabilities[0].presentPath" height="16px">
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="projectId === PROJECT_ID.CONNECT">
+                <ng-container *ngIf="!customerHaveFGASCertificate">
+                    <div [ngStyle]="{'color': getAvailColor(availDisplayStates.NOT_ORDERABLE)}">
+                        <span [innerHtml]="getAvailDisplayTextByState(availDisplayStates.NOT_ORDERABLE)">
+                        </span>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="customerHaveFGASCertificate">
+                    <ng-container
+                        *ngIf="(article.salesQuantity > 1 || cartKey) && artAvailabilities.length > 1 && (hasInvalidAvail || hasDropShipmentFakeAvail) ; else singleAvail">
+                        <div [ngStyle]="{'color': getAvailColor(availDisplayStates.PARTIALLY_AVAILABLE)}">
+                            <ng-container *ngIf="!isPartialDisplayText">
+                                <span class="label small-label nowrap">
+                                    {{'COMMON_LABEL.AVAILABLE' | translate}}
+                                    {{availableQuantity}}
+                                    {{'ARTICLE.PARTIAL_DELIVERY_SURFIX' | translate}}
+                                </span>
+                            </ng-container>
+                            <span class="time">
+                                <ng-container *ngIf="artAvailabilities[latestAvailIndex].sofort;else timeRef">
+                                    <span [innerHtml]="getAvailDisplayTextCaseSofort()"></span>
+                                </ng-container>
+                                <ng-template #timeRef>
+                                    <span [innerHtml]="getAvailDisplayText(artAvailabilities[latestAvailIndex], availDisplayStates.PARTIALLY_AVAILABLE)"></span>
+                                    <ng-container *ngIf="getSpecialNotesWithDeliveryTour(artAvailabilities)">
+                                        <div class="avail-note-text" [ngStyle]="{'color': getAvailColor(availDisplayStates.IN_STOCK)}">
+                                            <span [innerHtml]="getSpecialNotesWithDeliveryTour(artAvailabilities)"></span>
+                                        </div>
+                                    </ng-container>
+                                </ng-template>
+                            </span>
+                        </div>
+                    </ng-container>
+                    <ng-template #singleAvail>
+                        <sag-article-avail [userSetting]="userSetting" [isArticle24h]="isArticle24h" [nonAvailableSymbol]="nonAvailableSymbol"
+                            [isSofort]="isSofort" [artAvailabilities]="artAvailabilities" [stock]="article?.stock">
+                        </sag-article-avail>
+                    </ng-template>
+                </ng-container>
+            </ng-container>
+        </ng-template>
+    </div>
+</ng-template>
+<ng-template #popoverRef>
+    <sag-article-detail-avail-popup [article]="article" [popupRef]="pop" [availabilities]="article.availabilities"
+        [userSetting]="userSetting" [availTemplateRef]="customAvailPopoverContentTemplateRef"
+        [currentStateVatConfirm]="currentStateVatConfirm"
+        >
+    </sag-article-detail-avail-popup>
+</ng-template>
+
+<ng-template #viewAllLocationRef>
+    <sag-article-view-location-popover [popupRef]="pop" [locations]="artAvailabilities[0].location.items">
+    </sag-article-view-location-popover>
+</ng-template>
+
+<ng-template #loadingRef>
+    <i class="fa fa-spinner fa-spin fa-fw text-success"></i>
+</ng-template>

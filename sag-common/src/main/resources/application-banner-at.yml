@@ -1,0 +1,3 @@
+spring.profiles: banner-at
+
+spring.banner.location: classpath:banner/banner_at.txt

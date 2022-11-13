@@ -1,0 +1,63 @@
+<ng-container *ngIf="userService.userDetail$ | async as user">
+    <ng-container *ngIf="user.normalUser">
+        <section class="row">
+            <div class="col-6 col-home-left">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <connect-system-message *ngIf="!(user.salesUser || user.isSalesOnBeHalf)"
+                            [subArea]="'CUSTOMER_HOME_PAGE_1'"></connect-system-message>
+                        <ng-container *ngIf="user?.customer?.affiliateShortName !== MATIK_CH">
+                            <ng-container *ngTemplateOutlet="vehicleSearch"></ng-container>
+                        </ng-container>
+                    </div>
+                    <div class="col-12 mb-3" *ngIf="!user.isSalesOnBeHalf">
+                        <ng-container *ngTemplateOutlet="articleSearch"></ng-container>
+                    </div>
+                    <div class="col-12 mb-3" *ngIf="user?.customer?.affiliateShortName === MATIK_CH">
+                        <ng-container *ngTemplateOutlet="vehicleSearch"></ng-container>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <connect-article-history [custNr]="user.custNr"></connect-article-history>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-home-right">
+                <div class="row">
+                    <div class="col-12 mb-3" *ngIf="!(user.salesUser || user.isSalesOnBeHalf)">
+                        <div class="home-ads d-flex justify-content-end">
+                            <sag-common-adserver [zid]="19" [sitearea]="'MOTO'" [custom1]="adsTargetName">
+                            </sag-common-adserver>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3" *ngIf="user.isSalesOnBeHalf">
+                        <ng-container *ngTemplateOutlet="articleSearch"></ng-container>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <connect-vehicle-history [custNr]="user.custNr" [vehicleClass]="vehicleClass"></connect-vehicle-history>
+                    </div>
+                    <div class="col-12 mb-1">
+                        <sag-haynespro
+                            *connectHasPermission="['HAYNESPRO']"
+                            [isRedirectToHaynesPro]="true"
+                            [user]="user">
+                        </sag-haynespro>
+                    </div>
+                    <div class="col-12">
+                        <connect-system-message *ngIf="!(user.salesUser || user.isSalesOnBeHalf)"
+                            [subArea]="'CUSTOMER_HOME_PAGE_2'"></connect-system-message>
+                    </div>
+                    <div class="col-12">
+                        <connect-system-message *ngIf="!(user.salesUser || user.isSalesOnBeHalf)"
+                            [subArea]="'CUSTOMER_HOME_PAGE_3'"></connect-system-message>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <ng-template #vehicleSearch>
+            <connect-motorbike-search></connect-motorbike-search>
+        </ng-template>
+        <ng-template #articleSearch>
+            <connect-article-search></connect-article-search>
+        </ng-template>
+    </ng-container>
+</ng-container>

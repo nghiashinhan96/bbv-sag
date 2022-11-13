@@ -1,0 +1,28 @@
+<section class="row">
+    <div class="col-left">
+        <div class="row">
+            <div class="col-12 mb-3" id="main-search-page-top-ads">
+                <autonet-advertise [url]="topRightAdsUrl" [params]="topRightAdsParams"
+                    [customClass]="['top-right-ads','main-search-page-ads']"></autonet-advertise>
+            </div>
+            <!-- <div class="col-12 mb-3">
+                <autonet-passenger-car-make-model-type></autonet-passenger-car-make-model-type>
+            </div> -->
+            <div class="col-12 mb-3">
+                <autonet-passenger-car-article-search></autonet-passenger-car-article-search>
+            </div>
+            <div class="col-12 mb-3">
+                <autonet-passenger-car-article-history-search></autonet-passenger-car-article-history-search>
+            </div>
+            <div class="col-12 mb-3">
+                <autonet-passenger-car-vehicle-search></autonet-passenger-car-vehicle-search>
+            </div>
+            <div class="col-12 mb-3">
+                <autonet-passenger-car-vehicle-history-search></autonet-passenger-car-vehicle-history-search>
+            </div>
+        </div>
+    </div>
+    <div class="col-right">
+        <autonet-advertise [url]="url" [params]="params"></autonet-advertise>
+    </div>
+</section>

@@ -1,0 +1,13 @@
+<div class="card search-card">
+    <div class="card-header">
+        <h2>{{'SEARCH.ARTICLE_HISTORY_TITLE' | translate}}
+            <a href="javascript:void(0);" class="btn-link ml-1" (click)="showVehicleHistory()">
+                <i class="fa fa-search-plus" aria-hidden="true"></i>
+            </a>
+        </h2>
+    </div>
+    <div class="card-body p-0 border-0">
+        <sag-search-article-history (selectedArticleHistoryEmitter)="viewSelectedHistory($event)">
+        </sag-search-article-history>
+    </div>
+</div>

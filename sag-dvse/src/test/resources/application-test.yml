@@ -1,0 +1,29 @@
+spring.profiles.include:
+  elasticsearch-umbpre,
+  mail-dev,
+  ax-pre,
+  mdm-prod,
+  db-at-test,
+  executor-pool,
+  no-liquibase,
+  incentive-dev,
+  soap,
+  country-at,
+  no-proxy
+
+server:
+  port: 8088
+security.basic.enabled: false
+management.security.enabled: false
+
+dvse:
+  url_mapping: /ws/*
+  wsdl_name: catalog_endpoint.wsdl
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %X{User} %X{requestID} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework: INFO
+    com.sagag.services: INFO
+    com.sagag.services.dvse: DEBUG

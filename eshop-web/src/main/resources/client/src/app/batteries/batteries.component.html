@@ -1,0 +1,41 @@
+<section class="row">
+    <section class="col-6">
+        <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_1'"></connect-system-message>
+        <connect-battery-filters [data]="data" [models]="models" [loading]="!batteriesIsUpdated"
+            [fullAmpeDataUsedForRenderTemplate]="fullAmpeDataUsedForRenderTemplate"
+            [ampeData]="ampeData"
+            [ampereHourHistoryData]="ampereHourHistoryData"
+            [isSliderAmpeDataLoading]="isSliderAmpeDataLoading"
+            [fullLengthDataUsedForRenderTemplate]="fullLengthDataUsedForRenderTemplate"
+            [lengthData]="lengthData"
+            [lengthHistoryData]="lengthHistoryData"
+            [isSliderLengthDataLoading]="isSliderLengthDataLoading"
+            [fullWidthDataUsedForRenderTemplate]="fullWidthDataUsedForRenderTemplate"
+            [widthData]="widthData"
+            [widthHistoryData]="widthHistoryData"
+            [isSliderWidthDataLoading]="isSliderWidthDataLoading"
+            [fullHeightDataUsedForRenderTemplate]="fullHeightDataUsedForRenderTemplate"
+            [heightData]="heightData"
+            [heightHistoryData]="heightHistoryData"
+            [isSliderHeightDataLoading]="isSliderHeightDataLoading"
+            (sliderValueChangeEmitter)="onSliderValueChangeEmitter($event)"
+            (updateFilter)="updateFilters($event)" (resetFilter)="resetFilter()" (search)="viewArticles($event)">
+        </connect-battery-filters>
+    </section>
+    <section class="col-6 d-flex justify-content-end">
+        <div class="batteries-ads">
+            <sag-common-adserver
+                [zid]="7"
+                [sitearea]="'MAIN_BATTERIES_AREA'"
+                [custom1]="adsTargetName"
+                (adsClickedEmitter)="sendAdsClick()">
+            </sag-common-adserver>
+            <connect-additional-info
+                [title]="'SEARCH.SEARCH_TYRES.ADDITIONAL_INFORMATION'"
+                [links]="additionalInfo">
+            </connect-additional-info>
+            <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_2'"></connect-system-message>
+            <connect-system-message [subArea]="'CUSTOMER_HOME_PAGE_3'"></connect-system-message>
+        </div>
+    </section>
+</section>

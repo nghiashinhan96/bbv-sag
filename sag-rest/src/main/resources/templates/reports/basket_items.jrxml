@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="offer_articles" pageWidth="481" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="481" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ad644e2b-90b5-4ac8-ab63-5ee50b6722d9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="priceItemReport" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="isCurrentStateNetPriceView" class="java.lang.Boolean"/>
+	<parameter name="currency" class="java.lang.String"/>
+	<parameter name="uvpe" class="java.lang.String"/>
+	<parameter name="oep" class="java.lang.String"/>
+	<field name="articleNumber" class="java.lang.String"/>
+	<field name="articleDescription" class="java.lang.String"/>
+	<field name="amount" class="java.math.BigInteger"/>
+	<field name="netPrice" class="java.lang.String"/>
+	<field name="totalNetPrice" class="java.lang.String"/>
+	<field name="totalGrossPrice" class="java.lang.String"/>
+	<field name="priceItems" class="java.util.List"/>
+	<field name="basketItem" class="com.sagag.services.service.exporter.ReportBasketItemDto">
+		<fieldDescription><![CDATA[_THIS]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="3" width="77" height="13" uuid="456c54e9-3791-4fdd-8e6c-0176f82bc814"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{articleNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="3" width="213" height="13" uuid="296f3669-1526-4e47-abbe-b82ccf3638d6"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{articleDescription}]]></textFieldExpression>
+			</textField>
+			<textField pattern="0.00" isBlankWhenNull="true">
+				<reportElement x="403" y="3" width="64" height="13" uuid="50ed3c7f-d7a6-47b0-95b1-fe1c0d82d623"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{isCurrentStateNetPriceView} ? $F{totalNetPrice} : $F{totalGrossPrice}]]></textFieldExpression>
+			</textField>
+			<textField pattern="0.00" isBlankWhenNull="true">
+				<reportElement x="340" y="3" width="56" height="13" uuid="dd212720-9e33-46a4-b1fe-49b8f8c9bf50">
+					<printWhenExpression><![CDATA[$P{isCurrentStateNetPriceView}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netPrice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="3" width="46" height="13" uuid="65058c69-23e5-45e4-8e30-b3fe29de3af4"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="75" y="16" width="200" height="4" uuid="252680af-e7c8-4d89-a999-a1775ae5c568"/>
+				<subreportParameter name="currency">
+					<subreportParameterExpression><![CDATA[$P{currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="uvpe">
+					<subreportParameterExpression><![CDATA[$P{uvpe}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="oep">
+					<subreportParameterExpression><![CDATA[$P{oep}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{priceItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{priceItemReport}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

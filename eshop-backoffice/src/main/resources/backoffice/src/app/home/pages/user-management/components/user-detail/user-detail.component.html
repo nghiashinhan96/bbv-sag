@@ -1,0 +1,289 @@
+<div class="card panel panel-primary mb-4 shopping-basket-condition">
+    <div class="card-header">
+        <connect-expanded [title]="'USER_MANAGEMENT.USER_DETAIL.PASSSWORD_TITLE'" [(expand)]="isPassFormExpand">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isPassFormExpand">
+        <form *ngIf="profilePasswordForm" novalidate [formGroup]="profilePasswordForm" class="form-horizontal"
+            autocomplete="off">
+            <div class="form-group row">
+                <label for="user-password"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.NEW_PASSWORD' | translate}}*</label>
+                <div class="col-4">
+                    <input formControlName="pass1" placeholder="*******" type="password" name="n-passwort"
+                        class="form-control form-sm" autocomplete="off">
+                    <control-messages [control]="profilePasswordForm.controls.pass1"></control-messages>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="user-confirm-password"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.CONFIRM_PASSWORD' | translate}}*</label>
+                <div class="col-4">
+                    <input formControlName="pass2" placeholder="*******" type="password" id="b-passwort"
+                        name="b-passwort" class="form-control form-sm" autocomplete="off">
+                    <control-messages [control]="profilePasswordForm"></control-messages>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-3 col-4">
+                    <button type="button" [disabled]="!profilePasswordForm.valid" class="btn btn-primary"
+                        (click)="updatePassword()">{{'BUTTON.SAVE' | translate}}</button>
+                </div>
+            </div>
+            <notification [notifier]="notifierPassword"></notification>
+        </form>
+    </div>
+</div>
+
+<div class="card panel panel-primary mb-4 shopping-basket-condition">
+    <div class="card-header">
+        <connect-expanded [title]="'USER_MANAGEMENT.USER_DETAIL.USER_SETTINGS'" [(expand)]="isPassFormExpand">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isPassFormExpand">
+        <form novalidate [formGroup]="profileForm" (submit)="saveUserDetail()" class="form-horizontal"
+            *ngIf="userSetting">
+            <div class="form-group row">
+                <label for="customerNumber"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.CUSTOMER_NUMBER' | translate}}</label>
+                <div class="col-4">
+                    <input type="text" readonly class="form-control" id="customerNumber"
+                        formControlName="customerNumber">
+                </div>
+                <button id="customer-shortcut" class="btn-icon" type="button" (click)="viewCustomerDetail()">
+                    <i class="fa fa-edit customer-shortcut"></i>
+                </button>
+            </div>
+            <div class="form-group row">
+                <label for="companyName"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.COMPANY_NAME' | translate}}</label>
+                <div class="col-4">
+                    <input type="text" readonly class="form-control" id="companyName" formControlName="companyName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="extCustomerNr"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.DVSE_CUSTOMER_NAME' | translate}}</label>
+                <div class="col-4">
+                    <input type="text" readonly class="form-control" id="extCustomerNr"
+                        formControlName="extCustomerName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="extUserName"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.DVSE_USERNAME' | translate}}</label>
+                <div class="col-4">
+                    <input type="text" readonly class="form-control" id="extUserName" formControlName="extUserName">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="active-status"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.ACTIVE_STATUS' | translate}}</label>
+                <div class="col-4">
+                    <input type="checkbox" formControlName="isUserActive" id="active-status">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="username"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.USERNAME' | translate}}*</label>
+                <div class="col-4">
+                    <input type="text" class="form-control" formControlName="userName" id="username" required>
+                    <control-messages [control]="profileForm.controls.userName"></control-messages>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="salutation"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.SALUTATION' | translate}}</label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="optionsSalutation" bindLabel="label" bindValue="value"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="salutationId"
+                        [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lastname"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.LASTNAME' | translate}}*</label>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="lastname" formControlName="lastName">
+                    <control-messages [control]="profileForm.controls.lastName"></control-messages>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="firstname"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.FIRSTNAME' | translate}}*</label>
+                <div class="col-4">
+                    <input type="text" class="form-control" id="firstname" formControlName="firstName" />
+                    <control-messages [control]="profileForm.controls.firstName"></control-messages>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.EMAIL' | translate}}*</label>
+                <div class="col-4">
+                    <input formControlName="email" type="text" class="form-control" id="email">
+                    <control-messages [control]="profileForm.controls.email"></control-messages>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="phone"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.TELEPHONE' | translate}}</label>
+                <div class="col-4">
+                    <input formControlName="telephone" type="text" name="t-telefon" class="form-control form-sm"
+                        placeholder="+44 123 456 789">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="fax" class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.FAX' | translate}}</label>
+                <div class="col-4">
+                    <input formControlName="fax" type="text" class="form-control" id="fax">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="language"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.LANGUAGE' | translate}}</label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="optionsLanguage"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="languageId"
+                        [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="type" class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.TYPE' | translate}}</label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="optionsType" bindLabel="label" bindValue="value"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="typeId"
+                        [clearable]="false">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email-confirmation"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.EMAIL_CONFIRMATION' | translate}}</label>
+                <div class="col-4">
+                    <input type="checkbox" formControlName="emailNotificationOrder" id="email-confirmation">
+                </div>
+            </div>
+            <ng-container *ngIf="!isSb">
+                <div class="form-group row">
+                    <label for="show-net-price"
+                        class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.SHOW_NET_PRICE' | translate}}</label>
+                    <div class="col-4">
+                        <input type="checkbox" formControlName="netPriceView" id="show-net-price">
+                    </div>
+                </div>
+            </ng-container>
+            <div *ngIf="showDiscountEnable" class="form-group row">
+                <label for="show-discount"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.SHOW_DISCOUNT' | translate}}</label>
+                <div class="col-4">
+                    <input type="checkbox" formControlName="showDiscount" id="show-discount">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="net-price-confirmation"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.NET_PRICE_EMAIL_CONFIRMATION' | translate}}</label>
+                <div class="col-4">
+                    <input type="checkbox" formControlName="netPriceConfirm" id="net-price-confirmation">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="set-hour"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.SET_HOUR' | translate}}</label>
+                <div class="col-4">
+                    <input type="text" class="form-control" formControlName="hourlyRate" id="set-hour">
+                    <control-messages [control]="profileForm.controls.hourlyRate"></control-messages>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card panel panel-primary mb-4 shopping-basket-condition">
+    <div class="card-header">
+        <connect-expanded [title]="'USER_MANAGEMENT.USER_DETAIL.PAYMENT.ORDER_SETTING_TITLE'"
+            [(expand)]="isPassFormExpand">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isPassFormExpand">
+        <div class="form-horizontal">
+            <div class="form-group row">
+                <label for="user-password"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.PAYMENT.PAYMENT_TITLE' | translate}}</label>
+                <div class="col-9">
+                    <div *ngFor="let option of payments; let i = index" class="no-inset">
+                        <label>
+                            <input type="radio" value="{{option.id}}" (click)="updatePaymentCheckbox($event)"
+                                name="payment" [checked]="option.id === userSetting.paymentId" />
+                            {{'USER_MANAGEMENT.USER_DETAIL.PAYMENT.' + option.descCode | translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="user-confirm-password"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.PAYMENT.DELIVERY' | translate}}</label>
+                <div class="col-9">
+                    <div *ngFor="let option of deliveryTypes; let i = index" class="no-inset">
+                        <label>
+                            <input type="radio" value="{{option.id}}" (click)="updateDeliveryType($event)"
+                                name="deliveryType" [checked]="option.id === userSetting.deliveryId" />
+                            {{'USER_MANAGEMENT.USER_DETAIL.PAYMENT.' + option.descCode | translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="user-confirm-password"
+                    class="col-3 control-label">{{'USER_MANAGEMENT.USER_DETAIL.PAYMENT.DELIVERY_METHOD' | translate}}</label>
+                <div class="col-9">
+                    <div *ngFor="let option of deliveryMethods; let i = index" class="no-inset">
+                        <label>
+                            <input type="radio" value="{{option.id}}" (click)="updateDeliveryMethod($event)"
+                                name="deliveryMethod" [checked]="option.id === userSetting.collectiveDelivery" />
+                            {{'USER_MANAGEMENT.USER_DETAIL.PAYMENT.' + option.descCode | translate}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<notification [notifier]="notifierUpdateUser"></notification>
+<div class="block-moving">
+    <button class="btn btn-default pull-left" (click)="hideDetailAndShowUserList()"><i
+            class="fa fa-arrow-left left"></i>{{'COMMON.BUTTON.BACK' | translate}}</button>
+    <button class="btn btn-primary pull-right" (click)="saveUserDetail()"
+        [disabled]="profileForm && !profileForm.valid"><i class="fa fa-save"></i> {{'COMMON.BUTTON.SAVE' | translate}}</button>
+</div>
+
+
+<ng-template #confirmModal>
+    <div class="modal-delete-confirm" tabindex="-1" role="dialog">
+        <div class="modal-header">
+            <h4 class="modal-title">{{'COMMON.MESSAGE.APPLY_CHANGES' | translate}}</h4>
+            <i class="fa fa-times-circle close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"
+                aria-hidden="true">
+            </i>
+        </div>
+        <div class="modal-body">
+            <p class="messages">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {{'COMMON.MESSAGE.CONFIRM_SAVE_CHANGES' | translate}}
+            </p>
+        </div>
+        <div class="modal-footer">
+            <p class="modal-btn">
+                <button type="button" class="btn btn-info"
+                    (click)="saveUserDetailAndRedirect()">{{'COMMON.BUTTON.YES' | translate}}</button>
+                <button type="button" class="btn btn-default ml-10" (click)="closeModalAndRedirect()"
+                    aria-label="Close">{{'COMMON.BUTTON.NO' | translate}}</button>
+                <button type="button" class="btn btn-default ml-10" (click)="closeModal()"
+                    aria-label="Close">{{'COMMON.BUTTON.CANCEL' | translate}}</button>
+            </p>
+        </div>
+    </div>
+</ng-template>

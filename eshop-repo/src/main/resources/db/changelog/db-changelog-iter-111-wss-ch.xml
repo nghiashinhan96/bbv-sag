@@ -1,0 +1,69 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+  <changeSet id="CONNECT_APP" author="ITER_104_UPDATE_COLLECTION_SHORT_NAME_ORGANISATION_COLLECTION">
+    <sql>
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='sag' WHERE NAME='Swiss-Automotive-Group'
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='derendinger-ch' WHERE NAME='Derendinger-Switzerland'
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='technomag' WHERE NAME='Technomag-Switzerland'
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='wbb' WHERE NAME='Walchli-Bollier-Bulach'
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='rbe' WHERE NAME='Remco-Belgium'
+      UPDATE dbo.ORGANISATION_COLLECTION SET SHORTNAME='matik-ch' WHERE NAME='Matik-Switzerland'
+    </sql>
+  </changeSet>
+
+   <changeSet author="CONNECT_APP" id="ITER_105_TABLE_COLLECTION_PERMISSION_INITIAL">
+       <sql>
+           INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+           SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+           JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+           JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+           WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='derendinger-ch' AND p.PERMISSION NOT IN ('WHOLESALER')
+
+           INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+           SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+           JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+           JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+           WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='technomag' AND p.PERMISSION NOT IN ('WHOLESALER', 'OIL')
+
+           INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+           SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+           JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+           JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+           WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='matik-ch' AND p.PERMISSION NOT IN ('WHOLESALER', 'OIL')
+
+           INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+           SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+           JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+           JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+           WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='wbb' AND p.PERMISSION NOT IN ('OFFER')
+
+           INSERT INTO [dbo].[COLLECTION_PERMISSION] (COLLECTION_ID, ESHOP_PERMISSION_ID)
+           SELECT orgCol.ID, p.ID FROM ESHOP_PERMISSION p, ORGANISATION_COLLECTION orgCol
+           JOIN ORGANISATION org on orgCol.AFFILIATE_ID= org.ID
+           JOIN ORGANISATION_TYPE orgType on org.ORGTYPE_ID = orgType.ID
+           WHERE orgType.[LEVEL] = 2 AND org.SHORTNAME='rbe' AND p.PERMISSION NOT IN ('WHOLESALER', 'OFFER')
+       </sql>
+   </changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_108_INSERT_EH_PORTAL_URL_SETTING">
+    <sql>
+      INSERT INTO [dbo].[ORG_COLLECTION_SETTINGS] (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+      SELECT oc.ID, 'eh_portal_url', ocs.SETTING_VALUE FROM ORGANISATION_COLLECTION oc, ORG_COLLECTION_SETTINGS ocs
+      WHERE oc.SHORTNAME IN ('eh-ch', 'wbb') AND ocs.COLLECTION_ID = oc.ID AND ocs.SETTING_KEY = 'default_url'
+    </sql>
+  </changeSet>
+
+ <changeSet author="CONNECT_APP" id="ITER_111_MIGRATE_LOGO_TO_MEDIA_SERVER">
+    <sql>
+        UPDATE  [dbo].[ORG_COLLECTION_SETTINGS]
+        SET SETTING_VALUE = CONCAT('https://s3.exellio.de/connect_media/collections/', SUBSTRING(SETTING_VALUE, 16, LEN(SETTING_VALUE)) )
+        WHERE SETTING_KEY = 'logo_image';
+    </sql>
+ </changeSet>
+
+</databaseChangeLog>

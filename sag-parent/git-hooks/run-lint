@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Folder for temporary files required to run this script
+tmp_file=.git/hooks/tmp.$$
+function cleanup() {
+    rm -f $tmp_file
+}
+trap cleanup EXIT
+
+echo "Determining affected ts files"
+rm -f log
+
+# Find all of the affected files (those which are indexed ready to be committed), filter to only those which are ts files
+git diff | grep -E .ts$
+tsfound=$?
+if [ $tsfound -ne 0 ]; then
+    cd eshop-web\\src\\main\\resources\\client
+    ng lint  -T 1C > log
+    if grep -q ERROR "log"; then
+        echo -e "\n#################################" \
+                "\n# YOUR COMMIT REJECTED: LINT VIOLATION ! ^^ #" \
+                "\n#################################"
+        cat log
+        exit 1
+    fi
+
+fi
+
+exit 0

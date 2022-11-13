@@ -1,0 +1,9 @@
+<button [type]="btnType" [disabled]="loading || disabled" (click)="onSave()" class="btn" [ngClass]="css" [attr.data-automation]="name">
+    <i class="fa fa-spinner fa-spin fa-lg btn--search" *ngIf="loading"></i>
+    <ng-container *ngIf="icon">
+        <i class="fa {{icon}}" *ngIf="!loading"></i>
+    </ng-container>
+    <ng-container *ngIf="text && !(loading && hideTextOnLoading)">
+        {{ text | translate: params }}
+    </ng-container>
+</button>

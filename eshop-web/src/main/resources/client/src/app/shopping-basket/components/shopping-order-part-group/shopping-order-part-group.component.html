@@ -1,0 +1,26 @@
+<div class="connect-shopping-order-part-group">
+    <ng-container *ngFor="let g of data; trackBy:trackByGroupKey">
+        <div class="cate-root">
+            <div class="nav cate-root-header" (click)="g.hidden = !g.hidden">
+                <i class="fa" [ngClass]="{'fa-caret-up': !g.hidden, 'fa-caret-down': g.hidden}"></i>
+                {{(g.key || ('SHOPPING_BASKET.EMPTY_VEHICLE_TITLE' |translate))}}
+            </div>
+            <div class="cate-root-content" [class.hidden]="g.hidden">
+                <ng-container *ngFor="let cartItem of g.value; trackBy:trackByCartKey">
+                    <connect-shopping-order-article-detail
+                        [cartItem]="cartItem"
+                        [userSetting]="userSetting">
+                    </connect-shopping-order-article-detail>
+    
+                    <ng-container *ngIf="cartItem.attachedCartItems">
+                        <connect-shopping-order-article-detail *ngFor="let additionalCartItem of cartItem.attachedCartItems;trackBy:trackByCartKey"
+                            [cartItem]="additionalCartItem"
+                            [userSetting]="userSetting">
+                        </connect-shopping-order-article-detail>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+</div>
+

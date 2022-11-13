@@ -1,0 +1,73 @@
+{
+			"id": 2006,
+			"name": "hien test ",
+			"description": "test all day",
+			"orgId": 164,
+			"wssBranch": {
+				"id": 22,
+				"branchNr": 1001,
+				"branchCode": "HI",
+				"orgId": 164,
+				"wssBranchOpeningTimes": [
+					{
+						"id": 1134,
+						"wssBranchId": 22,
+						"openingTime": "08:00",
+						"closingTime": "18:00",
+						"lunchStartTime": "11:30",
+						"lunchEndTime": "12:30",
+						"weekDay": "MONDAY"
+					},
+					{
+						"id": 1165,
+						"wssBranchId": 22,
+						"openingTime": "08:00",
+						"closingTime": "18:00",
+						"lunchStartTime": "11:30",
+						"lunchEndTime": "12:30",
+						"weekDay": "TUESDAY"
+					},
+					{
+						"id": 1196,
+						"wssBranchId": 22,
+						"openingTime": "08:00",
+						"closingTime": "18:00",
+						"lunchStartTime": "11:30",
+						"lunchEndTime": "12:30",
+						"weekDay": "WEDNESDAY"
+					},
+					{
+						"id": 1227,
+						"wssBranchId": 22,
+						"openingTime": "08:00",
+						"closingTime": "18:00",
+						"lunchStartTime": "11:30",
+						"lunchEndTime": "12:30",
+						"weekDay": "THURSDAY"
+					},
+					{
+						"id": 1258,
+						"wssBranchId": 22,
+						"openingTime": "08:00",
+						"closingTime": "18:00",
+						"lunchStartTime": "11:30",
+						"lunchEndTime": "12:30",
+						"weekDay": "FRIDAY"
+					}
+				]
+			},
+			"wssDeliveryProfileToursDtos": [
+				{
+					"id": 2007,
+					"supplierTourTime": "17:00",
+					"pickupWaitDuration": 10800,
+					"supplierTourDay": "ALL",
+					"wssTour": null,
+					"tourName": null,
+					"overNight": false,
+					"wssTourId": null,
+					"tourDepartureTime": "-"
+				}
+			],
+			"branchCode": "HI"
+		}

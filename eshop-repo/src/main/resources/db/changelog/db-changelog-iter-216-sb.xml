@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <!-- IMPORTANT: This is for DEV and PRE PROD only -->
+  <!-- Script for PROD is commented -->
+  <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS_SB">
+    <sql>
+		DECLARE @wtsb_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'wt-sb')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @wtsb_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@wtsb_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-KBC4H6S", "gtm_env": "env-3", "gtm_auth": "vuL3WwEQj67ImPUljqKBog" } ] }')
+		  END
+	</sql>
+  </changeSet>
+  <!-- <changeSet author="CONNECT_APP" id="ITER_216_ADD_GTM_SETTING_ORG_COLLECTION_SETTINGS_SB">
+    <sql>
+		DECLARE @wtsb_collection_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'wt-sb')
+		IF NOT EXISTS(SELECT 1 FROM ORG_COLLECTION_SETTINGS WHERE COLLECTION_ID = @wtsb_collection_id AND SETTING_KEY = 'google_tag_manager_setting')
+		  BEGIN
+			INSERT INTO ORG_COLLECTION_SETTINGS (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+			VALUES (@wtsb_collection_id, 'google_tag_manager_setting', '{ "application": [ { "name": "Connect", "gtm_container_id": "GTM-KBC4H6S", "gtm_env": "env-1", "gtm_auth": "cZS_HtoFREByzGF0OFuuXQ" } ] }')
+		  END
+	</sql>
+  </changeSet> -->
+</databaseChangeLog>

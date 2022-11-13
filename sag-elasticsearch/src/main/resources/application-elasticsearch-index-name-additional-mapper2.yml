@@ -1,0 +1,12 @@
+spring.profiles: elasticsearch-index-name-additional-mapper2
+elasticsearch:
+  custom:
+    alias-mapper:
+      makes:
+        alias: makes
+        alias-pattern:
+        default-alias: makes_v2
+      suppliers:
+        alias: suppliers
+        alias-pattern:
+        default-alias: suppliers_d

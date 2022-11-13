@@ -1,0 +1,20 @@
+spring.profiles: source-sagsys-umbpre
+
+sagsys.enabled: true
+
+spring:
+  sagsys:
+    datasource:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      jdbcUrl: jdbc:sqlserver://sag-prd-cdb-021.sag.services:1433;databaseName=econnectP;applicationName=ConnectRestServer
+      username: umblocal
+      password: 12econnectP34
+      idle-timeout: 10000
+      minimum-idle: 1
+      maximum-pool-size: 125
+      pool-name: restatax_pool
+      connection-timeout: 10000
+      max-lifetime: 30000
+      jpa:
+        properties:
+          hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect

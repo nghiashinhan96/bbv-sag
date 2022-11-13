@@ -1,0 +1,13 @@
+spring.profiles: elasticsearch-pre
+spring.profiles.include: elasticsearch-index-name-mapper, elasticsearch-connection
+spring:
+  data:
+    elasticsearch:
+      host: ${app.elasticsearch.host}
+      port: ${app.elasticsearch.port}
+      cluster-nodes: ${spring.data.elasticsearch.host}:${spring.data.elasticsearch.port}
+      cluster-name: ${app.elasticsearch.cluster-name}
+      properties:
+        http.enabled: true
+      repositories:
+        enabled: true

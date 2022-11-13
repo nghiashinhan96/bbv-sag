@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_99_CREATE_V_CUSTOMER_USER-CH">
+        <sql>
+            <!-- #4463 REPLACE &lt;&gt; by <> -->
+            CREATE VIEW [dbo].[V_CUSTOMER_USER] AS
+                SELECT
+                    O.ORG_CODE AS CUSTOMER_NUMBER,
+                    L.IS_USER_ACTIVE AS ACTIVE,
+                    U.USERNAME,
+                    S.DESCRIPTION AS SALUTATION,
+                    U.LAST_NAME,
+                    U.FIRST_NAME,
+                    R.DESCRIPTION AS USER_ROLE,
+                    U.EMAIL,
+                    LNG.DESCRIPTION AS LANGUAGE,
+                    XU.USERNAME AS DVSE_USER_NAME,
+                    XO.EXTERNAL_CUSTOMER_NAME AS DVSE_CUSTOMER_NAME,
+                    US.NET_PRICE_VIEW,
+                    US.NET_PRICE_CONFIRM AS NET_PRICE_EMAIL_CONFIRM
+                FROM
+                    ESHOP_USER U
+                    JOIN GROUP_USER GU ON U.ID = GU.USER_ID
+                    JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+                    JOIN GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+                    JOIN ESHOP_ROLE R  ON GR.ROLE_ID = R.ID
+                    JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID
+                    JOIN ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+                    JOIN LOGIN L ON L.USER_ID = U.ID
+                    JOIN SALUTATION S ON U.SALUTATION = S.ID
+                    JOIN LANGUAGES LNG ON U.LANGUAGE = LNG.ID
+                    JOIN USER_SETTINGS US ON U.SETTING = US.ID
+                    LEFT JOIN EXTERNAL_USER XU ON U.ID = XU.ESHOP_USER_ID
+                    LEFT JOIN EXTERNAL_ORGANISATION XO ON XO.ORG_ID = O.ID
+                WHERE U.TYPE IS NULL OR (U.TYPE &lt;&gt; 'VIRTUAL_DMS' AND U.TYPE &lt;&gt; 'VIRTUAL_OCI' AND U.TYPE &lt;&gt; 'ON_BEHALF_ADMIN')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

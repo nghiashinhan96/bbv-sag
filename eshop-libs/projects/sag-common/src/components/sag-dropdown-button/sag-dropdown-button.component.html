@@ -1,0 +1,17 @@
+<div class="btn-group" dropdown>
+    <button [type]="type" [disabled]="disabled" class="btn dropdown-toggle" [ngClass]="css"
+        aria-controls="dropdown-basic" dropdownToggle>
+        <ng-container *ngIf="icon">
+            <i class="fa {{icon}}"></i>
+        </ng-container>
+        <ng-container *ngIf="text">
+            {{ text | translate: params }}
+        </ng-container>
+        <span class="caret"></span>
+    </button>
+    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+        <li *ngFor="let item of items" role="menuitem">
+            <a class="dropdown-item" href="javascript:void(0)" (click)="onSelect(item)">{{item.text | translate}}</a>
+        </li>
+    </ul>
+</div>

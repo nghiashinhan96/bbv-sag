@@ -1,0 +1,67 @@
+@mixin page-link {
+    border-radius: 0 !important;
+    padding: 0.75rem !important;
+    text-align: center;
+    width: 3rem;
+    color: #212529;
+    font-weight: $font-weight-bold;
+    margin: 0px -1px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: $primary !important;
+}
+
+.ngx-pagination {
+    li {
+        a {
+            @include page-link;
+        }
+    }
+
+    .current {
+        padding: 0px !important;
+        div {
+            @include page-link;
+            color: white;
+            background-color: $primary;
+            padding: 0.75rem 1.1rem !important;
+            .show-for-sr {
+                display: none;
+            }
+        }
+    }
+
+    .pagination-previous {
+        padding: 0px !important;
+        a,
+        span {
+            @include page-link;
+            width: auto !important;
+            display: block;
+            &::before {
+                content: '<<' !important;
+                margin-right: 5px !important;
+            }
+        }
+
+        &.disabled {
+            &::before {
+                display: none !important;
+            }
+        }
+    }
+
+    .pagination-next {
+        padding: 0px !important;
+        a,
+        span {
+            @include page-link;
+            border: 1px solid $primary !important;
+            width: auto !important;
+            &::after {
+                content: '>>' !important;
+                margin-right: 5px !important;
+            }
+        }
+    }
+}

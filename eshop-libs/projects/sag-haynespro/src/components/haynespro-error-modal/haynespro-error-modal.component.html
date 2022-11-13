@@ -1,0 +1,14 @@
+<header class="modal-header">
+    <a href="javascript:void()" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</header>
+<main class="modal-body">
+    <div class="alert alert-warning" *ngIf="!isRequestedLicense">
+        {{ errorMessage | translate }}
+        <a href="javascript:void(0)" *ngIf="showRequestTrialLicense" class="trial-license-link"
+            (click)="handleRequestTrialLicense()">
+            {{'HAYNES_PRO.ERROR.REQUEST_TRIAL_LICENSE'|translate}}
+        </a>
+    </div>
+    <div class="alert alert-warning" *ngIf="isRequestedLicense">
+        {{'HAYNES_PRO.ERROR.REQUEST_PROCCESS_MESG'|translate}}</div>
+</main>

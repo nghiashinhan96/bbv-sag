@@ -1,0 +1,6 @@
+spring.profiles.include: gtmotive-at-pre, country-at, no-proxy, executor-pool
+
+logging:
+  level:
+    org.elasticsearch.bootstrap: ERROR
+    com.sagag.services: DEBUG

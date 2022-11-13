@@ -1,0 +1,20 @@
+<ul class="list-group list-group-full list-group-link">
+    <ng-container *ngIf="vehicleHistorySearch$ | async as histories;">
+        <li class="list-group-item" *ngFor="let vehicle of histories">
+            <i class="fa fa-angle-right"></i>
+            <div class="d-flex flex-column history-wrapper w-100">
+                <a (click)="viewVehicle(vehicle)" class="color-primary pointer fit-content history-title">{{vehicle.vehicleName}}</a>
+                <div class="d-flex fit-content w-100">
+                    <a *ngIf="vehicle?.searchTerm?.length>0" [title]="vehicle.searchTerm"
+                        class="text-body  pointer history-sub-description mr-3 text-truncate"
+                        (click)="viewVehicle(vehicle)">
+                        {{vehicle.searchTerm}}
+                    </a>
+                    <a class="text-body pointer history-sub-description" (click)="viewVehicle(vehicle)">
+                        {{vehicle.selectDate | date: (dateTimeFormat)}}
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ng-container>
+</ul>

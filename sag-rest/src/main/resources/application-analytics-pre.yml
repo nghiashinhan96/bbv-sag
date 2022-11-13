@@ -1,0 +1,17 @@
+spring.profiles: analytics-pre
+external:
+  webservice:
+    analytics:
+      url:
+        receive: http://accept-analytics-service-app-ext.preapps.sag.services/connectanalytics/receive
+        # receive: https://accept-analytics-service-app-ext.preapps.sag.services/connectanalytics/receive
+
+sag:
+  rest:
+    analytics:
+      timeout:
+        connection-request-timeout: 125000
+        connect-timeout: 125000
+        read-timeout: 125000
+    maxConnPerRoute: 150
+    maxConnTotal: 300

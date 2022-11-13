@@ -1,0 +1,28 @@
+# ************************************************************************
+# This is the default configuration of DVSE(SOAP) application for local mode.
+# 
+# Required Common configuration:
+# - Thread Executor Pool - 
+# - Actuator Healthcheck
+# - Incentive - 
+# - SOAP -
+# - Proxy
+# - Java Melody Monitoring
+# - Logging
+#
+# ************************************************************************
+spring.profiles.include:
+  executor-pool,
+  actuator,
+  incentive-dev,
+  soap,
+  no-proxy,
+  javamelody,
+  logging-default
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %X{User} %X{requestID} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG

@@ -1,0 +1,23 @@
+# ************************************************************************
+# This is the AT country configuration of Admin application for local mode.
+# 
+# Required Common configuration:
+# - ERP
+# - Database
+# - Elasticsearch
+# - Liquibase
+# - Caching
+# - Country Code
+# - Media Server
+# - Authorization
+# - MDM for creating DVSE user
+#
+# ************************************************************************
+spring.profiles.include: 
+  db-at, 
+  elasticsearch-dev,
+  no-liquibase, 
+  cache-dev, 
+  country-en,
+  auth-endpoint-local,
+  mdm-prod

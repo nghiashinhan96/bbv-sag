@@ -1,0 +1,14 @@
+<h3 class="section-title">{{ "CUSTOMER.TABLE_RESULT.CUSTOMER_LIST" | translate }}</h3>
+<div class="customer-group-table">
+    <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+        notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}">
+    </sag-table>
+</div>
+
+<ng-template #colActions let-row="row">
+    <div class="d-flex align-items-center justify-content-center">
+        <button class="btn-icon" (click)="getCustomerDetails(row)">
+            <i class="fa fa-eye"></i>
+        </button>
+    </div>
+</ng-template>

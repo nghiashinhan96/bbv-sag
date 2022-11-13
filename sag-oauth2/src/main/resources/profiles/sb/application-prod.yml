@@ -1,0 +1,33 @@
+# ************************************************************************
+# This is the SB configuration of OAuth2 application for Production mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - No Proxy For Serbia and CZ. We are in Azure -
+# - Java Melody Monitoring -
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagauth,
+  wint-prod,
+  elasticsearch-customization-prod,
+  db-prod,
+  executor-pool-prod-sb,
+  no-liquibase,
+  logging-sb-prod,
+  actuator,
+  cache-prod,
+  country-sb,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_sb.txt

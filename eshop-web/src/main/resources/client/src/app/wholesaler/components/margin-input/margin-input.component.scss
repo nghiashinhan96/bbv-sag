@@ -1,0 +1,11 @@
+.margin-input {
+    height: 30px;
+
+    &.sm {
+        max-width: 50px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

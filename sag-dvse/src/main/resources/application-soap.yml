@@ -1,0 +1,23 @@
+spring.profiles: soap
+
+endpoints.jmx.domain: dvseatax
+app.name: dvse
+server.port: 8088
+security.basic.enabled: false
+management.security.enabled: false
+
+soap:
+  url_mapping: /ws/*
+  dvse:
+    wsdl_name: catalog_endpoint.wsdl
+  tmconnect:
+    wsdl_name: tmconnect.wsdl
+  unicat:
+    wsdl_name: unicat_catalog_endpoint.wsdl
+  facade:
+    wsdl_name: shop_facade.wsdl
+  facade-1:
+    wsdl_name: shop_facade_1.wsdl
+  websocket:
+    #endpoint: ws://localhost:8088/notifyQuickViewCart
+    endpoint:

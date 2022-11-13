@@ -1,0 +1,30 @@
+<sag-advance-vehicle-search-breadcumb [breadcrumbs]="breadcrumbs"></sag-advance-vehicle-search-breadcumb>
+<div class="avs-makes-wrapper">
+    <p class="avs-makes-top-header">{{'ADVANCE_VEHICLE_SEARCH.HEADER' | translate}}</p>
+    <div class="avs-makes-top">
+        <p class="avs-makes-header">{{'ADVANCE_VEHICLE_SEARCH.TOP_MAKES_HEADER' | translate}}</p>
+        <div class="avs-makes-list-wrapper d-flex" [ngClass]="'cols-' + columns">
+            <ng-container *ngFor="let item of topMakesArray$ | async">
+                <ng-container [ngTemplateOutlet]="makesList" [ngTemplateOutletContext]="{data: item}">
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <div class="avs-makes-all">
+        <p class="avs-makes-header">{{'ADVANCE_VEHICLE_SEARCH.ALL_MAKES_HEADER' | translate}}</p>
+        <div class="avs-makes-list-wrapper d-flex" [ngClass]="'cols-' + columns">
+            <ng-container *ngFor="let item of allMakesArray$ | async">
+                <ng-container [ngTemplateOutlet]="makesList" [ngTemplateOutletContext]="{data: item}">
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<ng-template let-data="data" #makesList>
+    <div class="avs-makes-list">
+        <ng-container *ngFor="let make of data">
+            <a href="javascript:void(0)" (click)="navigateToModelsList(make)"
+                class="avs-make-item"><span class="d-flex align-items-center">{{make.label}}</span></a>
+        </ng-container>
+    </div>
+</ng-template>

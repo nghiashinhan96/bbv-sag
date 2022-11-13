@@ -1,0 +1,59 @@
+# ************************************************************************
+# This is the SB configuration of RESTful application for Pre-Prod mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Incentive - 
+# - HaynesPro Endpoint - 
+# - HaynesPro Callback - 
+# - GTMotive - 
+# - MDM for DVSE service - 
+# - OATS(replace Olyslager) - 
+# - Mail service - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Analytics - 
+# - Liquibase - 
+# - No Proxy For Serbia and CZ we are in Azure - 
+# - Media Server - 
+# - Price File Location - 
+# - Java Melody Monitoring - 
+# - Thule - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagrest,
+  wint-pre,
+  incentive-dev,
+  hp-pre,
+  gtmotive-sb-pre,
+  mdm-prod,
+  oates-prod-sb,
+  mail-wt-prod,
+  elasticsearch-pre,
+  db-pre,
+  executor-pool-pre-sb,
+  logging-sb-pre,
+  actuator,
+  cache-pre,
+  country-sb,
+  analytics-pre-cloud,
+  no-liquibase,
+  no-proxy,
+  media-server,
+  price-file-sb,
+  javamelody,
+  thule-pre,
+  auth-endpoint-sb-pre
+
+spring.banner.location: classpath:banner/banner_sb.txt
+
+license:
+  vin:
+    minimumOrder: 0

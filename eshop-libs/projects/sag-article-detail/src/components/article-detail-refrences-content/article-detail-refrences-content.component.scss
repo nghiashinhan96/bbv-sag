@@ -1,0 +1,46 @@
+.pointer {
+    cursor: pointer;
+}
+
+.row-reference {
+    margin-right: -20px;
+    margin-left: -20px;
+
+    .col-reference {
+        position: relative;
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+
+        .reference-block {
+            .reference-section {
+                margin-bottom: 0;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .code-label {
+            width: 150px;
+            margin-bottom: 0;
+        }
+
+        .code-group {
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .code-group-item {
+            margin-right: 1rem;
+
+            &:last-child {
+                flex: 1;
+            }
+        }
+    }
+}

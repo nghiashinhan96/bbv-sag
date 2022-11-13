@@ -1,0 +1,17 @@
+spring:
+  profiles: ax-prod-cloud
+
+## Supported value for mode: true | false
+backOrder.tourTimeTable: false
+
+# The Ax configuration
+external:
+  webservice:
+    ax:
+      url: https://webshop-service.sag-ag.cloud
+      tokenPath: api://4a5703d5-a14a-4e31-b16d-6af65175d48a
+      clientId: 7330c3c8-9dca-481d-b778-8b9af950b1c1
+      # only for token refresh
+      clientSecret: XOA7Q~.LJ1c2Cgmrx0HUqWJeOOK-rD0jvcgvg
+      userName: sys-ws-connect-accept@sag-ag.ch
+      password: agenda01

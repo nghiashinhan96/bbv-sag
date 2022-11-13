@@ -1,0 +1,33 @@
+# ************************************************************************
+# This is the CH configuration of OAuth2 application for Production mode.
+# 
+# Required Common configuration:
+# - Application common configuration - 
+# - ERP - 
+# - Elasticsearch - 
+# - Database - 
+# - Thread Executor Pool - 
+# - Liquibase - 
+# - Logging - 
+# - Actuator Healthcheck - 
+# - Caching - 
+# - Country Code - 
+# - Proxy - 
+# - Java Melody Monitoring -
+#
+# ************************************************************************
+spring.profiles.include: 
+  sagauth,
+  ax-prod-cloud,
+  elasticsearch-prod,
+  db-prod,
+  executor-pool-prod,
+  no-liquibase,
+  logging-ch-prod-cloud,
+  actuator,
+  cache-prod,
+  country-ch,
+  no-proxy,
+  javamelody
+
+spring.banner.location: classpath:banner/banner_ch.txt

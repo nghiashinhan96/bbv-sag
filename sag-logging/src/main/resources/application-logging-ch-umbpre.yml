@@ -1,0 +1,4 @@
+spring.profiles: logging-ch-umbpre
+
+logging:
+  config: classpath:log4j2-ch-umbpre.xml

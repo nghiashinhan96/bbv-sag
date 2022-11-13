@@ -1,0 +1,40 @@
+# ************************************************************************
+# This is the CH configuration of RESTful application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Caching - 
+# - Country Code - 
+# - Liquibase - 
+# - HaynesPro - 
+# - Media Server - 
+# - GTMotive - 
+# - Price File Location - 
+# - OATS(replace Olyslager) - TBD
+# - Thule - 
+# - MDM for DVSE service - 
+#
+# ************************************************************************
+spring.profiles.include:
+  stakis-erp-pre,
+  db-cz,
+  elasticsearch-dev2,
+  cache-dev,
+  country-cz,
+  liquibase-cz-dev,
+  hp-dev,
+  media-server,
+  gtmotive-cz-pre,
+  price-file-cz,
+  thule-dev,
+  unicat-pre,
+  unicat-callback-dev,
+  auth-endpoint-cz-dev,
+  recommend-art-cz-dev,
+  mdm-pre
+
+license:
+  vin:
+    minimumOrder: 600

@@ -1,0 +1,40 @@
+<a href="javascript:void(0)" (click)="bsModalRef.hide()" class="close"><i class="fa fa-times-circle"></i></a>
+
+<div class="modal-body p-0">
+    <div class="mb-4">
+        <sag-common-message [data]="message"></sag-common-message>
+    </div>
+    <div class="mb-4">
+        <div class="nav pb-2">
+            <strong class="flex-2">
+                {{'ARTICLE.NUMBER' | translate}}:
+            </strong>
+            <strong class="flex-6">
+                {{'ARTICLE.LOCATION' | translate}}
+            </strong>
+        </div>
+
+        <div class="locations-content">
+            <div class="nav py-2" *ngFor="let location of locations">
+                <strong class="flex-2" *ngIf="userSetting.isSalesOnBeHalf">
+                    {{location.quantity}}
+                </strong>
+                <strong class="flex-2" *ngIf="!userSetting.isSalesOnBeHalf">
+                    <i class="fa fa-check"></i>
+                </strong>
+                <div class="flex-6 d-flex flex-nowrap">
+                    <div class="arrivalTime">
+                        <span>{{location.locationName}}</span>
+                        <span *ngIf="!!location.locationPhoneNr">&nbsp; -
+                            {{location.locationPhoneNr}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer d-flex justify-content-center">
+    <button class="btn btn-primary" data-automation="close-warning-popup"
+        (click)="bsModalRef.hide()">{{'COMMON_LABEL.CLOSE' | translate}}
+    </button>
+</div>

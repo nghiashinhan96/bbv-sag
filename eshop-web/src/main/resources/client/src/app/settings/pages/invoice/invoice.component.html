@@ -1,0 +1,8 @@
+<div class="my-3">
+    <connect-invoice-filter [isCHAffiliates]="isCHAffilicates" [(errorMessage)]="errorMessage"
+        [(isShownOldInvoice)]="isShownOldInvoice" (datePickerEmitter)="searchInvoice($event)">
+    </connect-invoice-filter>
+</div>
+<connect-invoice-search-result [invoices]="invoices" [detail]="detail" [(isShownOldInvoice)]="isShownOldInvoice"
+    [errorMessage]="errorMessage">
+</connect-invoice-search-result>

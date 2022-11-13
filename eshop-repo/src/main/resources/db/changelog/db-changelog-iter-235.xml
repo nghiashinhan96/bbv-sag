@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_235_ADD_TABLE_VIN_ERROR_LOG">
+        <sql>
+            CREATE TABLE [dbo].[VIN_ERROR_LOG](
+				[ID] [int] IDENTITY(1,1) NOT NULL,
+				[TYPE] [varchar](50) NOT NULL,
+				[VIN] [varchar](50) NULL,
+				[CUPI] [varchar](50) NULL,
+				[LOCATION] [nvarchar](250) NOT NULL,
+				[OE_NR] [varchar](50) NOT NULL,
+				[UMC] [varchar](50) NOT NULL,
+				[RETURNED_DATA] [varchar](MAX) NOT NULL,
+				[CREATED_USER_ID] [bigint] NULL,
+				[CREATED_DATE] [datetime] NULL,
+			 CONSTRAINT [PK_VIN_ERROR_LOG] PRIMARY KEY CLUSTERED
+			(
+				[ID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY]
+        </sql>
+    </changeSet>
+	<changeSet author="CONNECT_APP" id="ITER_235_ALTER_TABLE_VIN_ERROR_LOG">
+		<sql>
+			ALTER TABLE [dbo].[VIN_ERROR_LOG] ALTER COLUMN [TYPE] [varchar](50) NULL
+			ALTER TABLE [dbo].[VIN_ERROR_LOG] ALTER COLUMN [LOCATION] [nvarchar](250) NULL
+			ALTER TABLE [dbo].[VIN_ERROR_LOG] ALTER COLUMN [OE_NR] [varchar](50) NULL
+			ALTER TABLE [dbo].[VIN_ERROR_LOG] ALTER COLUMN [UMC] [varchar](50) NULL
+			ALTER TABLE [dbo].[VIN_ERROR_LOG] ALTER COLUMN [RETURNED_DATA] [varchar](MAX) NULL
+		</sql>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_227_UPDATE_AVAIL_DISPLAY_CH_AT">
+        <sql>
+            DECLARE @collectionIdTable TABLE(id int)
+            INSERT INTO @collectionIdTable
+            SELECT ID FROM ORGANISATION_COLLECTION oc WHERE oc.SHORTNAME &lt;&gt; 'sag'
+
+            DECLARE @collectionId int
+            DECLARE @settingKey nvarchar(max) = N'availability_display'
+            DECLARE @inStock varchar(MAX) = 'IN_STOCK'
+            DECLARE @panelTitleInStock varchar(MAX) = 'In stock'
+            DECLARE @colorInStock varchar(MAX) = '#000000'
+
+            DECLARE @listAvailText_inStock_de varchar(MAX) = 'An Lager in der Filiale'
+            DECLARE @listAvailText_inStock_fr varchar(MAX) = 'En stock dans la filiale'
+            DECLARE @listAvailText_inStock_it varchar(MAX) = 'In stock presso la filiale'
+
+            DECLARE @defaultDisplayOption varchar(MAX) = 'DISPLAY_TEXT'
+            DECLARE CollectionCursor CURSOR FOR SELECT ID from @collectionIdTable
+            OPEN collectionCursor
+            FETCH NEXT FROM CollectionCursor INTO @collectionId
+            WHILE @@FETCH_STATUS = 0
+                BEGIN
+                    DECLARE @exisingAvailDidplaySetting nvarchar(MAX) = (SELECT SETTING_VALUE FROM dbo.ORG_COLLECTION_SETTINGS where
+                        COLLECTION_ID=@collectionId AND SETTING_KEY=@settingKey)
+                    if @exisingAvailDidplaySetting NOT LIKE '%'+@inStock+'%'
+                    BEGIN
+                        DECLARE @singleLanguageTemplate varchar(MAX)= N'{"langIso":"{{langIso}}","content":"{{content}}"}'
+                        DECLARE @multipleLanguageTemplate varchar(MAX)= N'[]'
+                        DECLARE @en_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+                                '$.langIso', 'fr'),
+                                '$.content', @listAvailText_inStock_fr)
+                        DECLARE @cs_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+                                '$.langIso', 'it'),
+                                '$.content', @listAvailText_inStock_it)
+                        DECLARE @de_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(@singleLanguageTemplate,
+                                '$.langIso', 'de'),
+                                '$.content', @listAvailText_inStock_de)
+                        DECLARE @listAvailText_inStock_json varchar(MAX) = JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(@multipleLanguageTemplate,
+                                'append $', JSON_QUERY(@en_json)),
+                                'append $', JSON_QUERY(@cs_json)),
+                                'append $', JSON_QUERY(@de_json))
+
+                        DECLARE @availTypeTemplate varchar(MAX) = N'{"availState":"{{avail_state}}","detailAvailText":[],"listAvailText":[],"title":"{{title}}}","description":"{{description}}","color":"{{color}}","confirmColor":"{{confirmColor}}","displayOption":"{{option}}"}'
+                        DECLARE @inStockJson varchar(MAX) = JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(JSON_MODIFY(@availTypeTemplate,
+                                '$.availState', @inStock),
+                                '$.detailAvailText', NULL),
+                                '$.listAvailText', JSON_QUERY(@listAvailText_inStock_json)),
+                                '$.title', @panelTitleInStock),
+                                '$.description', NULL),
+                                '$.color', @colorInStock),
+                                '$.confirmColor', NULL),
+                                '$.displayOption', @defaultDisplayOption)
+
+                        DECLARE @updatedAvailDisplaySetting nvarchar(MAX) = JSON_MODIFY(@exisingAvailDidplaySetting, 'append $', JSON_QUERY(@inStockJson))
+                        UPDATE dbo.ORG_COLLECTION_SETTINGS SET SETTING_VALUE = @updatedAvailDisplaySetting WHERE
+                            COLLECTION_ID = @collectionId AND SETTING_KEY =@settingKey
+                    END
+                    FETCH NEXT FROM CollectionCursor INTO @collectionId
+                END
+            CLOSE CollectionCursor
+            DEALLOCATE CollectionCursor
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,96 @@
+<div class="modal-header">
+  <h4 class="modal-title">
+    {{ "HOME.LABEL.AFFILIATE_SEARCH.REGISTRATION" | translate }}
+  </h4>
+  <button type="button" class="close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="registrieren-cont">
+    <div class="intro">
+      <strong>{{ "REGISTER.INTRODUCTION_1" | translate }}</strong>
+      <p>{{ "REGISTER.INTRODUCTION_2" | translate }}</p>
+    </div>
+    <notification [notifier]="checkingFormNoti"></notification>
+    <form class="checking-form border-primary-color" role="form" novalidate [formGroup]="customerCheckingForm"
+      (ngSubmit)="checkCustomerInfo(customerCheckingForm.value)">
+      <div class="row form-group">
+        <div class="col-4">
+          <input formControlName="customerNumber" type="text" class="form-control"
+            placeholder="{{ 'REGISTER.CUSTOMER_NUMBER' | translate }}*" />
+          <control-messages [control]="customerCheckingForm.controls.customerNumber"></control-messages>
+        </div>
+        <div class="col-4">
+          <input formControlName="postCode" type="text" class="form-control"
+            placeholder="{{ 'REGISTER.POSTCODE' | translate }}*" />
+          <control-messages [control]="customerCheckingForm.controls.postCode"></control-messages>
+        </div>
+        <div class="col-4">
+          <button id="check-customer-info-btn" [disabled]="!customerCheckingForm.valid" type="submit"
+            class="btn btn-primary">
+            <span>{{ "COMMON.BUTTON.SEARCH" | translate }}</span>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-12 customer-info text-primary-color" *ngIf="customerInfo">
+          {{ customerInfo }}
+        </div>
+      </div>
+    </form>
+    <notification [notifier]="registryFormNoti"></notification>
+    <form class="registry-form" role="form" novalidate [formGroup]="registrationForm"
+      (ngSubmit)="register(registrationForm.value)">
+      <div class="row form-group" *ngIf="isShownCustomerGroups">
+        <div class="col-8">
+          <ng-select class="sag-select" [items]="customerGroups"
+            notFoundText="{{ 'COMMON.NO_RESULT_FOUND' | translate }}" formControlName="collectionShortName"
+            [clearable]="false"></ng-select>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-8">
+          <input formControlName="userName" type="text" class="form-control"
+            placeholder="{{ 'REGISTER.USERNAME' | translate }}*" />
+          <control-messages [control]="registrationForm.controls.userName"></control-messages>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-8">
+          <input formControlName="firstName" type="text" class="form-control"
+            placeholder="{{ 'REGISTER.FIRSTNAME' | translate }}*" />
+          <control-messages [control]="registrationForm.controls.firstName"></control-messages>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-8">
+          <input formControlName="surName" type="text" class="form-control"
+            placeholder="{{ 'REGISTER.SURNAME' | translate }}*" />
+          <control-messages [control]="registrationForm.controls.surName"></control-messages>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-8">
+          <input formControlName="email" type="text" class="form-control"
+            placeholder="{{ 'REGISTER.EMAIL' | translate }}*" />
+          <control-messages [control]="registrationForm.controls.email"></control-messages>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-8">
+          <label for="partner-program-view" class="pr-15-px">
+            {{ "REGISTER.PARTNER_PROGRAM" | translate }}</label>
+          <input type="checkbox" id="partner-program-view" formControlName="hasPartnerprogramView" />
+        </div>
+      </div>
+      <div class="row form-group submit-row">
+        <div class="col-12">
+          <button id="register-user-btn" [disabled]="!registrationForm.valid" type="submit" class="btn btn-primary">
+            <span>{{ "REGISTER.REGISTRY" | translate }}</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+.form-control[readonly] {
+    background-color: initial !important;
+}
+
+.input-group .input-group-addon {
+    background: #555555;
+    font-size: 14px;
+    color: #fff;
+    padding: 6px;
+}
+
+.small {
+    input {
+        padding: 6px;
+    }
+}
+
+.duration {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+
+    .separator {
+        padding: 0 3px;
+    }
+
+    input {
+        text-align: center;
+        width: 50px;
+        border-radius: 4px;
+    }
+
+    input.ng-invalid {
+        border-color: red;
+    }
+
+    .duration-hours,
+    .duration-minutes {
+        min-width: 30px;
+    }
+}

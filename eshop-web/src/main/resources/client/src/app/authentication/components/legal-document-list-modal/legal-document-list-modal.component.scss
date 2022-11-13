@@ -1,0 +1,39 @@
+.doctype-list {
+    .doctype-header, .doctype-item {
+        min-height: 40px;
+        font-weight: 500;
+        padding: 0.25rem 0;
+
+        .col-name {
+            flex: 1;
+        }
+        .col-status {
+            width: 150px;
+            text-align: right;
+        }
+        .col-days-left {
+            width: 100px;
+            text-align: right;
+        }
+    }
+
+    .doctype-header {
+        border-bottom-width: 2px !important;
+    }
+
+    .doctype-item {
+        .col-name span {
+            cursor: pointer;
+        }
+
+        .col-status {
+            color: #666;
+            opacity: 0.5;
+
+            &.text-success {
+                color: var(--green);
+                opacity: 1;
+            }
+        }
+    }
+}

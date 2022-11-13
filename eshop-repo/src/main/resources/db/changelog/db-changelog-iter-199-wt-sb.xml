@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_199_UPDATE_NO_REPLY_EMAIL_FOR_SB">
+    <sql>
+     	UPDATE SUPPORTED_AFFILIATE SET NO_REPLY_EMAIL=N'noReply@sag-ag.ch' WHERE SHORT_NAME=N'wt-sb';
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_199_UPDATE_CORRECT_NO_REPLY_EMAIL_FOR_SB">
+    <sql>
+     	UPDATE SUPPORTED_AFFILIATE SET NO_REPLY_EMAIL=N'shop@wint.rs' WHERE SHORT_NAME=N'wt-sb';
+    </sql>
+  </changeSet>
+</databaseChangeLog>

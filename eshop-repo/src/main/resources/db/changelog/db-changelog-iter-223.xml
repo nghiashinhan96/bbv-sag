@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_223_TOUR_TIME_ADD_INDEX">
+		<sql>
+			ALTER TABLE dbo.TOUR_TIME ALTER COLUMN TOUR_NAME nvarchar(255)
+			CREATE INDEX IDX_TOUR_TIME_TOUR_NAME on dbo.TOUR_TIME (TOUR_NAME)
+		</sql>
+	</changeSet>
+	
+	<changeSet author="CONNECT_APP" id="ITER_223_USER_VEHICLE_HISTORY_ADD_INDEX">
+		<sql>
+			ALTER TABLE dbo.USER_VEHICLE_HISTORY ADD CONSTRAINT PK_USER_VEHICLE_HISTORY PRIMARY KEY CLUSTERED(ID)
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

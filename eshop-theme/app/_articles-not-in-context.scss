@@ -1,0 +1,32 @@
+$filterWidth: 270px;
+
+connect-article-result-container {
+    .btn-nav {
+        font-size: 1.25rem;
+    }
+
+    .filtering {
+        width: $filterWidth;
+        padding: 0 15px;
+    }
+
+    .ads-box {
+        width: calc(#{$filterWidth} - 30px);
+        max-width: calc(#{$filterWidth} - 30px);
+        margin-right: 15px;
+    }
+
+    .result {
+        width: calc(100% - #{$filterWidth});
+        padding-right: 15px;
+        position: relative;
+
+        .nav-tabs {
+            .nav-link {
+                padding-right: 30px;
+                padding-left: 30px;
+            }
+        }
+
+    }
+}

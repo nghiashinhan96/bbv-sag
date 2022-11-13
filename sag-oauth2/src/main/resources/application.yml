@@ -1,0 +1,23 @@
+# ************************************************************************
+# This is the default configuration of OAuth2 application for local mode.
+# 
+# Required Common configuration:
+# - Application common configuration
+# - Thread Executor Pool
+# - Actuator Healthcheck
+# - Proxy
+# - Java Melody Monitoring
+# - Logging
+#
+# ************************************************************************
+spring.profiles.include:
+  sagauth,
+  executor-pool,
+  actuator,
+  no-proxy,
+  javamelody,
+  logging-default
+
+logging:
+  level:
+    org.springframework.security.oauth2.provider.token: DEBUG

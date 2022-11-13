@@ -1,0 +1,56 @@
+.ng-mydp * {
+    font-family: Roboto;
+    font-size: 1rem;
+
+    .myDpDaycell {
+        &.myDpTableSingleDay:hover {
+            background-color: transparent;
+        }
+
+        &.myDpCurrMonth {
+            background-color: #f6f6f6;
+            font-weight: 400;
+
+            &:hover {
+                background-color: #ddd;
+            }
+        }
+
+        &.myDpSelectedDay {
+            border: none;
+            background-color: #8ebfff;
+            border-radius: 2px;
+        }
+
+        &.myDpRangeColor {
+            background-color: #d9f2e6;
+        }
+    }
+}
+
+.input-group.date-range-picker {
+    >input {
+        border-right: 0;
+        background-color: white;
+    }
+
+    >.input-group-append {
+        margin-left: 0;
+    }
+
+    >.input-group-append.input-group-clear {
+        >.input-group-text {
+            background-color: transparent;
+            border-left: 0;
+            border-right: 0;
+
+            .fa-close {
+                color: #666;
+            }
+        }
+    }
+
+    >.input-group-append.input-group-picker {
+        >.input-group-text {}
+    }
+}

@@ -1,0 +1,113 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet author="CONNECT_APP"
+    id="ITER_94_FEEDBACK_DROP_CUSTOMER_CONTACT_COLUMN">
+    <sql>
+      IF EXISTS (SELECT 1
+      FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'FEEDBACK' AND COLUMN_NAME = 'CUSTOMER_CONTACT')
+      BEGIN
+      ALTER TABLE FEEDBACK DROP COLUMN CUSTOMER_CONTACT
+      END;
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP"
+    id="ITER_94_FEEDBACK_ADD_SALES_INFORMATION_COLUMN">
+    <sql>
+      IF NOT EXISTS (SELECT 1
+      FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = 'FEEDBACK' AND COLUMN_NAME = 'SALES_INFORMATION')
+      BEGIN
+      ALTER TABLE FEEDBACK ADD SALES_INFORMATION varchar(max) NULL
+      END;
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP"
+    id="ITER_94_CREATE_MESSAGE_LOCATION_RELATION">
+    <sql>
+      CREATE TABLE [dbo].[MESSAGE_LOCATION_RELATION](
+      [ID] [bigint] IDENTITY(1,1) NOT NULL,
+      [MESSAGE_ID] [bigint] NOT NULL,
+      [MESSAGE_LOCATION_ID] [int] NOT NULL,
+      CONSTRAINT [UK_MESSAGE_MESSAGELOCATION] UNIQUE ([MESSAGE_ID],
+      [MESSAGE_LOCATION_ID]),
+      CONSTRAINT [PK_MESSAGE_LOCATION_RELATION] PRIMARY KEY CLUSTERED
+      (
+      [ID] ASC
+      )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY =
+      OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+      ) ON [PRIMARY];
+      ALTER TABLE [dbo].[MESSAGE_LOCATION_RELATION] ADD CONSTRAINT FK_MESSAGE_ID
+      FOREIGN KEY (MESSAGE_ID) REFERENCES [dbo].[MESSAGE] (ID);
+      ALTER TABLE [dbo].[MESSAGE_LOCATION_RELATION] ADD CONSTRAINT
+      FK_MESSAGE_LOCATION_ID FOREIGN KEY (MESSAGE_LOCATION_ID)
+      REFERENCES [dbo].[MESSAGE_LOCATION] (ID);
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP"
+    id="ITER_94_UPDATE_V_MESSAGE">
+    <sql>
+      ALTER VIEW [V_MESSAGE] AS
+      SELECT
+      TEMP.*,
+      STUFF(
+      (SELECT CAST(', ' AS varchar(max)) + L.VALUE
+      FROM MESSAGE_LOCATION as L
+      WHERE L.ID in (
+      select LR.MESSAGE_LOCATION_ID FROM MESSAGE_LOCATION_RELATION LR
+      WHERE LR.MESSAGE_ID = TEMP.ID)
+      FOR XML PATH(''), TYPE
+      )
+      .value('.', 'varchar(max)'),1, 1,'') AS LOCATION_VALUE
+      FROM
+      (SELECT DISTINCT
+      M.ID AS ID,
+      M.TITLE AS TITLE,
+      T.TYPE AS TYPE,
+      A.AREA AS AREA,
+      SA.SUB_AREA AS SUB_AREA,
+      M.ACTIVE AS ACTIVE,
+      CREATED_DATE AS CREATED_DATE
+      FROM (
+      MESSAGE M
+      JOIN MESSAGE_TYPE T ON M.MESSAGE_TYPE_ID = T.ID
+      JOIN MESSAGE_SUB_AREA SA ON M.MESSAGE_SUB_AREA_ID=SA.ID
+      JOIN MESSAGE_AREA A ON SA.MESSAGE_AREA_ID = A.ID
+      )
+      ) AS TEMP;
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP"
+    id="ITER_94_INITIAL_MESSAGE_LOCATION_RELATION_DATA">
+    <sql>
+      INSERT INTO dbo.MESSAGE_LOCATION
+      SELECT ml.MESSAGE_LOCATION_TYPE_ID, ml.VALUE FROM [dbo].[MESSAGE_LOCATION]
+      ml
+      join MESSAGE m on m.MESSAGE_LOCATION_ID = ml.ID ORDER by m.ID desc
+
+      DECLARE @MESSAGE_LOCATION_TEMP table(
+      r int not null,
+      id int not null
+      )
+      INSERT into @MESSAGE_LOCATION_TEMP (r, id) SELECT ROW_NUMBER() OVER(ORDER
+      BY ID DESC) AS Rank,ID FROM MESSAGE_LOCATION
+
+      DECLARE @MESSAGE_TEMP table(
+      r int not null,
+      id int not null
+      )
+      INSERT into @MESSAGE_TEMP (r, id) SELECT ROW_NUMBER() OVER(ORDER BY ID asc)
+      AS Rank,ID FROM MESSAGE
+      INSERT INTO [dbo].[MESSAGE_LOCATION_RELATION] (MESSAGE_ID,
+      MESSAGE_LOCATION_ID)
+      SELECT A.id, B.id
+      FROM
+      @MESSAGE_TEMP A
+      Inner JOIN @MESSAGE_LOCATION_TEMP B on A.r = B.r ORDER by A.r
+    </sql>
+  </changeSet>
+</databaseChangeLog>

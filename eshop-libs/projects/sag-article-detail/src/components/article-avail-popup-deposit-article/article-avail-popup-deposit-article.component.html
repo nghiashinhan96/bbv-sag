@@ -1,0 +1,93 @@
+<!-- deposit article section -->
+<div class="mb-3 deposit-article-section" *ngIf="isShowDepositArticle">
+    <div class="d-flex align-items-start">
+        <div>
+            <img src="assets/images/cz/status/deposititem.png">
+        </div>
+        <div class="w-100">
+            <ng-container *ngIf="isShowDeposit">
+                <div class="nav d-flex justify-content-between align-items-start deposit-item">
+                    <div [class.w-50-p]="isShowVat" [class.flex-6]="!isShowVat" class="text-nowrap">
+                        {{'ARTICLE.DEPOSIT' | translate}}
+                    </div>
+
+                    <ng-container *ngIf="depositPrice; else noPriceRef">
+                        <ng-container *ngIf="isShowVat">
+                            <div class="flex-4 text-right w-25-p">
+                                {{ depositPriceWithVat | sagCurrency }}
+                            </div>
+                        </ng-container>
+
+                        <div class="text-right" [class.w-25-p]="isShowVat" [class.flex-6]="!isShowVat">
+                            {{(includeVAT ? depositPriceWithVat : depositPrice) | sagCurrency }}
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="isShowVOC">
+                <div class="nav d-flex justify-content-between align-items-start deposit-item">
+                    <div [class.w-50-p]="isShowVat" [class.flex-6]="!isShowVat" class="text-nowrap">
+                        {{'SHOPPING_BASKET.VOC_TEXT_SHORT' | translate}}
+                    </div>
+
+                    <ng-container *ngIf="vocPrice; else noPriceRef">
+                        <ng-container *ngIf="isShowVat">
+                            <div class="flex-4 text-right w-25-p">
+                                {{ vocPriceWithVat | sagCurrency }}
+                            </div>
+                        </ng-container>
+
+                        <div class="text-right" [class.w-25-p]="isShowVat" [class.flex-6]="!isShowVat">
+                            {{(includeVAT ? vocPriceWithVat : vocPrice) | sagCurrency }}
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="isShowVRG">
+                <div class="nav d-flex justify-content-between align-items-start deposit-item">
+                    <div [class.w-50-p]="isShowVat" [class.flex-6]="!isShowVat" class="text-nowrap">
+                        {{'SHOPPING_BASKET.VRG_TEXT_SHORT' | translate}}
+                    </div>
+
+                    <ng-container *ngIf="vrgPrice; else noPriceRef">
+                        <ng-container *ngIf="isShowVat">
+                            <div class="flex-4 text-right w-25-p">
+                                {{ vrgPriceWithVat | sagCurrency }}
+                            </div>
+                        </ng-container>
+
+                        <div class="text-right" [class.w-25-p]="isShowVat" [class.flex-6]="!isShowVat">
+                            {{(includeVAT ? vrgPriceWithVat : vrgPrice) | sagCurrency }}
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="isShowPFAND">
+                <div class="nav d-flex justify-content-between align-items-start deposit-item">
+                    <div [class.w-50-p]="isShowVat" [class.flex-6]="!isShowVat" class="text-nowrap">
+                        {{'SHOPPING_BASKET.PFAND_TEXT' | translate}}
+                    </div>
+
+                    <ng-container *ngIf="pfandPrice; else noPriceRef">
+                        <ng-container *ngIf="isShowVat">
+                            <div class="flex-4 text-right w-25-p">
+                                {{ pfandPriceWithVat | sagCurrency }}
+                            </div>
+                        </ng-container>
+
+                        <div class="text-right" [class.w-25-p]="isShowVat" [class.flex-6]="!isShowVat">
+                            {{(includeVAT ? pfandPriceWithVat : pfandPrice) | sagCurrency }}
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #noPriceRef>
+    {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}
+</ng-template>

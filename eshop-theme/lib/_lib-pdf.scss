@@ -1,0 +1,116 @@
+.pdf-container {
+    position: relative;
+
+    .pdf {
+        display: flex;
+        flex-flow: column;
+        opacity: 1;
+        font-size: 1.3rem;
+        transition: all 250ms;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.65;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 8px;
+            background-color: red;
+            color: $white;
+            margin-top: -3px;
+        }
+    }
+
+    .pdf-slider {
+        display: flex;
+        position: absolute;
+        right: -8px;
+        top: 32px;
+        background-color: $white;
+        border: 1px solid $thin-grey;
+        box-shadow: 0 2px 2px rgba(41, 47, 56, .1), 0 8px 8px rgba(41, 47, 56, .1);
+        z-index: 10;
+        border-radius: 3px;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-top-width: 0;
+        }
+
+        &:before {
+            top: -18px;
+            right: 6px;
+            border-bottom-color: #c7c7c7;
+            border-width: 9px;
+        }
+
+        &:after {
+            top: -16px;
+            right: 6px;
+            border-bottom-color: #fff;
+            border-width: 9px;
+        }
+
+        .control {
+            min-width: 15px;
+            width: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                font-size: 26px;
+                color: gray;
+                cursor: pointer;
+                opacity: 0.75;
+                transition: all 300ms;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .pdf-slider-content {
+            position: relative;
+            overflow: hidden;
+            max-width: 343px;
+            display: flex;
+
+            .pdf-silder-scroll {
+                transition: left 300ms;
+                position: relative;
+                display: flex;
+                left: 0;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .pdf {
+            cursor: pointer;
+            padding: 6px;
+            i.fa-file-pdf-o {
+                font-size: 26px;
+            }
+
+            .text {
+                padding: 0 1px;
+            }
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h5>{{'OLYSLAGER.TITLE' | translate}}</h5>
+    <a href="javascript:void()" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <span class="description">{{'OLYSLAGER.DESCRIPTION' | translate}}</span>
+    <div class="content mt-3">
+        <table id="table-gtmotiveIframe" class="table table-bordered text-center">
+            <thead>
+                <th class="thead bg-primary">{{'COMMON_LABEL.MODEL' | translate}}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let link of gtLinks">
+                    <td>
+                        <a class="text-body font-weight-normal" href="javascript:void(0)" (click)="onOpenGtmotiveForGtCode(link)">
+                            {{link.gtmod_name}} - ({{link.gt_start}} - {{link.gt_end}})
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

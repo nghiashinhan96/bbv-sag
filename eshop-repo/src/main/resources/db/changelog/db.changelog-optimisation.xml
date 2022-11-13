@@ -1,0 +1,23 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+  <changeSet author="CONNECT_APP" id="DELETE_UQ_PERSONAL_NUMBER_EMAIL">
+    <dropUniqueConstraint tableName="AAD_ACCOUNTS"
+      constraintName="UQ_PERSONAL_NUMBER_EMAIL"
+      uniqueColumns="PERSONAL_NUMBER, PRIMARY_CONTACT_EMAIL" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="CHANGE_TYPE_AAD_ACCOUNTS_PERSONAL_NUMBER_STRING">
+    <modifyDataType tableName="AAD_ACCOUNTS" columnName="PERSONAL_NUMBER"
+      newDataType="varchar(255)" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="CREATE_UQ_PERSONAL_NUMBER_EMAIL">
+    <addUniqueConstraint columnNames="PERSONAL_NUMBER, PRIMARY_CONTACT_EMAIL"
+      constraintName="UQ_PERSONAL_NUMBER_EMAIL" tableName="AAD_ACCOUNTS" />
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="DROP_NOTNULL_EXTERNAL_USER_ESHOP_USER_ID">
+    <dropNotNullConstraint columnDataType="bigint" columnName="ESHOP_USER_ID"
+      tableName="EXTERNAL_USER" />
+  </changeSet>
+</databaseChangeLog>

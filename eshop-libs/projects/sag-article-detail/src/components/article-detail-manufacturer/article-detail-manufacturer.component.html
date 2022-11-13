@@ -1,0 +1,7 @@
+<span id="span-imageBrand-{{article.artnr}}" class="img"
+    [ngStyle]="{'background-image': 'url(' + brandLocation + article.dlnrId + manufacturerSuffix + '.jpg)'}">
+</span>
+<div class="img-certified" *ngIf="article.certifiedPartType">
+    <img id="img-certified-{{article.artnr}}" [src]="'./assets/images/certified/' + article.certifiedPartType + '.jpg'"
+        alt="">
+</div>

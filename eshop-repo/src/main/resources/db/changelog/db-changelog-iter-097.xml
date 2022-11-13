@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="CONNECT_APP" id="ITER_97_DROP_BUSINESS_LOG_TABLE">
+        <sql>
+            DROP TABLE [dbo].[BUSINESS_LOG];
+        </sql>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="ITER_97_ADD_SEND_FEEDBACK_NOTIFICATION_FLAG">
+        <sql>
+            DECLARE @sag_id INT = (SELECT ID FROM ORGANISATION WHERE SHORTNAME='sag')
+			INSERT INTO ORGANISATION_SETTINGS(NAME,ORGANISATION_ID,SETTING_KEY,SETTING_VALUE) values('Default-Settings',@sag_id,'send_feedback_notification_email','true');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

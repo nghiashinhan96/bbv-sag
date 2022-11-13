@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice" pageWidth="595" pageHeight="842" columnWidth="483" leftMargin="56" rightMargin="56" topMargin="22" bottomMargin="28" isSummaryWithPageHeaderAndFooter="true" uuid="711ec08a-45ee-4563-b590-35eb97a37994" resourceBundle="i18n">
+  <property name="ireport.zoom" value="1.0"/>
+  <property name="ireport.x" value="0"/>
+  <property name="ireport.y" value="0"/>
+  <style name="Title" fontName="DejaVu Sans" fontSize="26" isBold="false"/>
+  <style name="SubTitle" forecolor="#666666" fontName="DejaVu Sans" fontSize="18"/>
+  <style name="Column header" fontName="DejaVu Sans" fontSize="12" isBold="false"/>
+  <style name="Detail" fontName="DejaVu Sans" fontSize="12"/>
+  <parameter name="totalParts" class="java.lang.String"/>
+  <parameter name="totalWork" class="java.lang.String"/>
+  <parameter name="totalOffer" class="java.lang.String"/>
+  <parameter name="vat" class="java.lang.String"/>
+  <parameter name="defaultVat" class="java.lang.String"/>
+  <parameter name="totalOfferVat" class="java.lang.String"/>
+  <parameter name="offerNumber" class="java.lang.String"/>
+  <parameter name="SubReportParam" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+  <parameter name="remark" class="java.lang.String"/>
+  <parameter name="customerInformationLeft" class="java.lang.String"/>
+  <parameter name="totalVat" class="java.lang.String"/>
+  <parameter name="offerDate" class="java.lang.String"/>
+  <parameter name="totalRemarks" class="java.lang.String"/>
+  <parameter name="vendorInformation" class="java.lang.String"/>
+  <parameter name="customerInformationRight" class="java.lang.String"/>
+  <parameter name="printVendorInformation" class="java.lang.Boolean"/>
+  <parameter name="printRemarks" class="java.lang.Boolean"/>
+  <parameter name="footer" class="java.lang.String"/>
+  <parameter name="offerStatus" class="com.sagag.services.common.enums.offer.OfferStatus"/>
+  <parameter name="totalPriceLabel" class="java.lang.String">
+    <parameterDescription><![CDATA[]]></parameterDescription>
+    <defaultValueExpression><![CDATA[$R{report.offer.label.total}]]></defaultValueExpression>
+  </parameter>
+  <parameter name="longPriceLabel" class="java.lang.String">
+    <parameterDescription><![CDATA[]]></parameterDescription>
+    <defaultValueExpression><![CDATA[$R{report.offer.label.gross}]]></defaultValueExpression>
+  </parameter>
+  <field name="title" class="java.lang.String"/>
+  <field name="reportOfferPositions" class="java.util.List"/>
+  <background>
+    <band splitType="Stretch"/>
+  </background>
+  <title>
+    <band height="207" splitType="Stretch">
+      <textField isBlankWhenNull="true">
+        <reportElement style="Column header" positionType="Float" x="0" y="189" width="483" height="15" uuid="40eb9e3d-3b7d-44e6-b9a3-b688bbfa9b5c"/>
+        <textElement>
+          <font size="10"/>
+        </textElement>
+        <textFieldExpression><![CDATA[(($P{offerStatus}.equals(com.sagag.services.common.enums.offer.OfferStatus.ORDERED) || $P{offerStatus}.equals(com.sagag.services.common.enums.offer.OfferStatus.MANUALLY_ORDERED)) ? ($P{offerNumber} == null ? $R{report.offer.label.billing_nr} : $R{report.offer.label.billing_nr} + $P{offerNumber}) :($P{offerNumber} == null ? $R{report.offer.label.offer_nr} : $R{report.offer.label.offer_nr} + $P{offerNumber}))]]></textFieldExpression>
+      </textField>
+      <textField>
+        <reportElement positionType="Float" x="0" y="157" width="136" height="20" uuid="3b5e53d7-9903-44b8-a5ef-3ae4b116698e"/>
+        <textElement>
+          <font fontName="DejaVu Sans" size="10"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{offerDate}]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+        <reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="156" height="20" uuid="eae923ff-7556-44a8-a1b7-0485b54e3e2b">
+          <printWhenExpression><![CDATA[$P{printVendorInformation}]]></printWhenExpression>
+        </reportElement>
+        <textElement markup="html">
+          <font fontName="DejaVu Sans"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{vendorInformation}]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+        <reportElement stretchType="RelativeToBandHeight" x="333" y="106" width="150" height="22" uuid="9bf96b13-31fc-4a62-9e4a-f4ef9f4cd577"/>
+        <textElement markup="html">
+          <font fontName="DejaVu Sans"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{customerInformationRight}]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+        <reportElement stretchType="RelativeToBandHeight" x="0" y="106" width="150" height="22" uuid="6fa57bba-a661-4b56-9fc2-c20ffb93420c"/>
+        <textElement markup="html">
+          <font fontName="DejaVu Sans"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{customerInformationLeft}]]></textFieldExpression>
+      </textField>
+    </band>
+  </title>
+  <pageHeader>
+    <band splitType="Stretch"/>
+  </pageHeader>
+  <columnHeader>
+    <band height="30">
+      <frame>
+        <reportElement x="0" y="0" width="483" height="30" uuid="2180b607-7d79-4a3f-b3c7-563d844132ae">
+          <printWhenExpression><![CDATA[$P{printRemarks}]]></printWhenExpression>
+        </reportElement>
+        <textField>
+          <reportElement style="Column header" x="0" y="0" width="178" height="15" uuid="40eb9e3d-3b7d-44e6-b9a3-b688bbfa1b5c"/>
+          <textElement>
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.article}]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement style="Column header" x="178" y="0" width="98" height="29" uuid="7888e4cd-adab-49a6-ae3d-631410ee1222"/>
+          <textElement textAlignment="Center">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.number_of_hour}]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement style="Column header" x="276" y="0" width="69" height="29" uuid="c0a48394-cc0e-4e11-bde5-bad0bb8de480">
+            <property name="local_mesure_unitx" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.x" value="px"/>
+            <property name="local_mesure_unity" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.y" value="px"/>
+            <property name="local_mesure_unitwidth" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.width" value="px"/>
+            <property name="local_mesure_unitheight" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+          </reportElement>
+          <textElement textAlignment="Right">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{longPriceLabel}]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement style="Column header" x="414" y="0" width="69" height="29" uuid="fa77103c-18f2-4d40-b31a-fa1e94c57541"/>
+          <textElement textAlignment="Right">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalPriceLabel}]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement style="Column header" x="345" y="0" width="69" height="29" uuid="fa77103c-18f2-4d40-b31a-fa1e94c57541"/>
+          <textElement textAlignment="Right">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.discount}]]></textFieldExpression>
+        </textField>
+      </frame>
+      <frame>
+        <reportElement x="0" y="0" width="483" height="30" uuid="2180b607-7d79-4a3f-b3c7-563d844132ae">
+          <property name="local_mesure_unitheight" value="pixel"/>
+          <property name="com.jaspersoft.studio.unit.height" value="px"/>
+          <printWhenExpression><![CDATA[$P{printRemarks} == false ? true : false]]></printWhenExpression>
+        </reportElement>
+        <textField>
+          <reportElement style="Column header" x="0" y="0" width="247" height="15" uuid="40eb9e3d-3b7d-44e6-b9a3-b688bbfa1b5c"/>
+          <textElement>
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.article}]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement style="Column header" x="247" y="0" width="98" height="29" uuid="7888e4cd-adab-49a6-ae3d-631410ee1222"/>
+          <textElement textAlignment="Center">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.number_of_hour}]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement style="Column header" x="345" y="0" width="69" height="29" uuid="19d9501d-0d1e-4088-8557-79b05ef74770">
+            <property name="local_mesure_unitx" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.x" value="px"/>
+            <property name="local_mesure_unitwidth" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.width" value="px"/>
+            <property name="local_mesure_unitheight" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+          </reportElement>
+          <textElement textAlignment="Center">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{longPriceLabel}]]></textFieldExpression>
+        </textField>
+        <textField>
+          <reportElement style="Column header" x="414" y="0" width="69" height="29" uuid="fa77103c-18f2-4d40-b31a-fa1e94c57541"/>
+          <textElement textAlignment="Right">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalPriceLabel}]]></textFieldExpression>
+        </textField>
+      </frame>
+    </band>
+  </columnHeader>
+  <detail>
+    <band height="28">
+      <textField isBlankWhenNull="true">
+        <reportElement x="0" y="0" width="345" height="12" uuid="085320b8-4f1a-4b8c-987f-e3b9b798c168"/>
+        <textElement>
+          <font fontName="DejaVu Sans" size="10" isBold="true" isItalic="false"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+      </textField>
+      <subreport>
+        <reportElement x="0" y="14" width="200" height="12" uuid="a0daae50-ba7d-4363-a51b-b7ea31815298"/>
+        <subreportParameter name="printRemarks">
+        <subreportParameterExpression><![CDATA[$P{printRemarks}]]></subreportParameterExpression></subreportParameter>
+        <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{reportOfferPositions})]]></dataSourceExpression>
+        <subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
+      </subreport>
+      <line>
+        <reportElement x="0" y="13" width="483" height="1" uuid="40b60b3f-eb45-41e6-9d22-a6ee7e4512b3"/>
+      </line>
+    </band>
+  </detail>
+  <columnFooter>
+    <band splitType="Stretch"/>
+  </columnFooter>
+  <pageFooter>
+    <band height="60" splitType="Stretch">
+      <textField>
+        <reportElement x="399" y="39" width="71" height="20" uuid="9e52a1c2-841b-4ee3-8568-b16ccca2674c"/>
+        <textElement textAlignment="Right">
+          <font size="10" isBold="false"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$R{report.offer.label.page.from}+ " "+$V{PAGE_NUMBER}+" " + $R{report.offer.label.page.to}]]></textFieldExpression>
+      </textField>
+      <textField evaluationTime="Report">
+        <reportElement x="470" y="39" width="40" height="20" uuid="d496fea0-1a85-4760-8f29-1daabc320f52"/>
+        <textElement textAlignment="Left">
+          <font size="10" isBold="false"/>
+        </textElement>
+        <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+      </textField>
+      <textField pattern="dd.MM.yyyy">
+        <reportElement x="0" y="39" width="197" height="20" uuid="f3c92167-4470-400d-990b-076fa2876080"/>
+        <textElement>
+          <font size="10" isBold="false"/>
+        </textElement>
+        <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+      </textField>
+      <line>
+        <reportElement mode="Transparent" x="0" y="15" width="483" height="1" uuid="40b60b3f-eb45-41e6-9d22-a6ee7e4512b3"/>
+      </line>
+      <textField isBlankWhenNull="true">
+        <reportElement x="0" y="18" width="483" height="15" uuid="29a38e69-057f-480a-8db1-ae24626b415b"/>
+        <textElement>
+          <font fontName="DejaVu Sans"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{footer}]]></textFieldExpression>
+      </textField>
+    </band>
+  </pageFooter>
+  <summary>
+    <band height="187" splitType="Stretch">
+      <frame>
+        <reportElement x="190" y="6" width="294" height="60" uuid="26b88a46-e03f-41ba-a0b5-df2a2af487d5">
+          <printWhenExpression><![CDATA[$P{printRemarks} == false ? true : false]]></printWhenExpression>
+        </reportElement>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="0" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab12"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_article}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="0" width="100" height="12" uuid="e6d85beb-ad41-44f0-bf98-1c796309f7d7"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10" isBold="false"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalParts}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="12" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab13"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_own_work}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="12" width="100" height="12" uuid="12de98fb-52c0-4d41-b5a4-4e773589d2c8"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalWork}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="24" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab14"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_exclude_vat}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="24" width="100" height="12" uuid="fa0c8608-ca76-4f23-af84-21668e0243aa"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalOffer}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="36" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab15"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.vat} + "("+($P{vat} == null ? $P{defaultVat} : $P{vat})+"%)"]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="36" width="100" height="12" uuid="3357b41d-c643-46ce-8104-681d5b72baae"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalVat}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Column header" x="0" y="48" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab16"/>
+          <textElement textAlignment="Right">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_include_vat}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="48" width="100" height="12" uuid="dbb2889b-1d89-4296-9064-6888b173616f"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10" isBold="true" isItalic="false"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalOfferVat}]]></textFieldExpression>
+        </textField>
+      </frame>
+      <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+        <reportElement style="Detail" x="0" y="116" width="483" height="65" uuid="00fcb82c-83fb-45f2-9f09-126467f2564e"/>
+        <textElement>
+          <font fontName="DejaVu Sans" size="10"/>
+        </textElement>
+        <textFieldExpression><![CDATA[$P{remark} == null ? "" : $R{report.offer.label.comment} + $P{remark}]]></textFieldExpression>
+      </textField>
+      <line>
+        <reportElement mode="Transparent" x="0" y="2" width="483" height="1" uuid="40b60b3f-eb45-41e6-9d22-a6ee7e4512b3"/>
+      </line>
+      <frame>
+        <reportElement x="190" y="6" width="294" height="73" uuid="26b88a46-e03f-41ba-a0b5-df2a2af487d5">
+          <printWhenExpression><![CDATA[$P{printRemarks}]]></printWhenExpression>
+        </reportElement>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="0" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab12"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_article}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="0" width="100" height="12" uuid="e6d85beb-ad41-44f0-bf98-1c796309f7d7"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10" isBold="false"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalParts}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="12" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab12">
+            <printWhenExpression><![CDATA[$P{printRemarks}]]></printWhenExpression>
+          </reportElement>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_include_discount}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="12" width="100" height="12" uuid="54bad960-18bf-4c63-8b7a-49b70b838e34">
+            <printWhenExpression><![CDATA[$P{printRemarks}]]></printWhenExpression>
+          </reportElement>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalRemarks}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="24" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab13"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_own_work}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="24" width="100" height="12" uuid="12de98fb-52c0-4d41-b5a4-4e773589d2c8"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalWork}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="36" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab14"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_exclude_vat}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="36" width="100" height="12" uuid="fa0c8608-ca76-4f23-af84-21668e0243aa"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalOffer}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Detail" x="0" y="48" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab15"/>
+          <textElement textAlignment="Right">
+            <font size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.vat} + " ("+($P{vat} == null ? $P{defaultVat} : $P{vat})+"%)"]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="48" width="100" height="12" uuid="3357b41d-c643-46ce-8104-681d5b72baae"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalVat}]]></textFieldExpression>
+        </textField>
+        <textField isBlankWhenNull="true">
+          <reportElement style="Column header" x="0" y="60" width="192" height="12" uuid="c9fa0913-a790-4619-91cb-62223a23ab16"/>
+          <textElement textAlignment="Right">
+            <font size="10" isBold="true"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$R{report.offer.label.total_include_vat}]]></textFieldExpression>
+        </textField>
+        <textField pattern="0.00" isBlankWhenNull="true">
+          <reportElement x="193" y="60" width="100" height="12" uuid="dbb2889b-1d89-4296-9064-6888b173616f"/>
+          <textElement textAlignment="Right">
+            <font fontName="DejaVu Sans" size="10" isBold="true" isItalic="false"/>
+          </textElement>
+          <textFieldExpression><![CDATA[$P{totalOfferVat}]]></textFieldExpression>
+        </textField>
+      </frame>
+    </band>
+  </summary>
+</jasperReport>

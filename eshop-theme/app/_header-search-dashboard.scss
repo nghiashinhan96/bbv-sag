@@ -1,0 +1,37 @@
+connect-header-search-dashboard {
+    .card-header {
+        border-bottom: 0 !important;
+        margin-bottom: 0 !important;
+
+        h4 {
+            border-bottom: 0;
+            font-weight: bold;
+            margin-bottom: 0;
+            color: $text-color !important;
+        }
+
+        .fa {
+            font-size: 1.5rem;
+        }
+
+        .favorite-list-title {
+            width: fit-content;
+        }
+    }
+    .list-group {
+        .list-group-item {
+            a {
+                line-height: normal;
+                width: fit-content;
+
+                + div {
+                    width: fit-content;
+                }
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

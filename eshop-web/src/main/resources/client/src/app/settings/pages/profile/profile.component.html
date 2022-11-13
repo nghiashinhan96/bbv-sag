@@ -1,0 +1,8 @@
+<section [class.disabled]="isOciFlow">
+    <connect-change-password-form (changePasswordDataEmitter)="updatePassword($event)"></connect-change-password-form>
+</section>
+<hr class="divider">
+<section [class.disabled]="isOciFlow">
+    <connect-account-detail-form [userInfomation]="userDetail" [userProfiles]="userProfile"
+        (updateProfileEmitter)="updateProfile($event)"></connect-account-detail-form>
+</section>

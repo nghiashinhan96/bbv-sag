@@ -1,0 +1,187 @@
+.additional-line {
+    .text {
+        color: $grey;
+        transform: translateY(-50%);
+    }
+}
+
+.connect-expand {
+    font-size: 1rem;
+
+    .connect-expand-title,
+    .connect-expand-btn {
+        color: $grey;
+        font-weight: 500;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.connect-expand-lg {
+    font-size: 1.25rem;
+}
+
+.credit-limit-panel {
+    background-color: #ffdd1e;
+}
+
+.btn-link-export {
+    position: absolute;
+    top: -3rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.divider {
+    margin-bottom: $spacer;
+}
+
+.divider-border {
+    margin-bottom: $spacer;
+    border-bottom: 1px solid #dee2e6;
+    &.primary {
+        border-color: $primary;
+        font-weight: 700;
+
+        .info {
+            font-size: 15px;
+            float: right;
+            width: 350px;
+            text-align: right;
+        }
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: default;
+}
+
+.min-height-200-px {
+    min-height: 200px;
+}
+
+.rounded-1 {
+    border-radius: 0.25rem;
+}
+
+.markdown-format {
+    width: 100%;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    div {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    p {
+        margin: 0;
+
+        + p {
+            margin-top: 10px;
+        }
+    }
+
+    ol,
+    ul {
+        padding-left: $spacer;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 10px 0;
+        display: block;
+    }
+
+    .banner & {
+        a {
+            font-weight: 500;
+            color: #fff;
+        }
+    }
+
+    blockquote {
+        quotes: none;
+        padding: 10px;
+        background-color: #fff8dc;
+        border-left: 2px solid #ffeb8e;
+        margin: 10px 0;
+        font-size: 1.3rem;
+    }
+
+    pre {
+        overflow: auto;
+    }
+}
+
+.color-primary {
+    color: $primary-font !important;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toggle-arrow {
+    text-align: center;
+    color: $secondary;
+}
+
+.coppy-label {
+    position: absolute;
+    right: 0;
+    top: -16px;
+    opacity: 0;
+    color: $primary;
+    &.coppied {
+        animation: showHide 600ms;
+    }
+}
+
+.opacity-100 {
+    opacity: 1 !important;
+}
+
+input[angular-mydatepicker].today-disabled + lib-angular-mydatepicker-calendar {
+    lib-footer-bar .myDpFooterBar {
+        pointer-events: none;
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+.connect-filter-card {
+    border: 1px solid $thin-grey;
+
+    .title {
+        background-color: $primary;
+        color: #fff;
+        padding: $half-spacer;
+        height: $panel-height;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.fit-content {
+    width: fit-content;
+}

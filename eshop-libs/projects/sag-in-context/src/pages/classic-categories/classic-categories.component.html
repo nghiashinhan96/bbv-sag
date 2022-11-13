@@ -1,0 +1,3 @@
+<ng-container *ngIf="activatedRoute.parent.params | async as params">
+    <sag-article-list-classic-category [vehicleId]="params.vehicleId" (search)="search()"></sag-article-list-classic-category>
+</ng-container>

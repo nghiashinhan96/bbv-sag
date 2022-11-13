@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP" id="ITER_226_INSERT_PERMISSION_FOR_MOTORBIKE_SHOP">
+		<sql>
+            <!--ESHOP_PERMISSION-->
+            DECLARE @motorbikePermissionKey varchar(255) = 'MOTO'
+            DECLARE @motorbikeAccessUrl varchar(255) = 'MOTO_URL_ACCESS'
+            BEGIN
+            IF NOT EXISTS (SELECT * FROM ESHOP_PERMISSION WHERE PERMISSION_KEY =@motorbikePermissionKey)
+                BEGIN
+                    INSERT INTO ESHOP_PERMISSION(PERMISSION,DESCRIPTION,CREATED_BY,PERMISSION_KEY)
+                    VALUES(@motorbikePermissionKey, 'Permission to work with motorbike shop', '1', @motorbikePermissionKey)
+                END
+            
+            <!--ESHOP_PERMISSION-->
+            
+            DECLARE @permID VARCHAR(10) = (SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION_KEY= @motorbikePermissionKey)
+            IF @permID &lt;&gt; ''
+                BEGIN
+                    <!--COLLECTION_PERMISSION-->
+                    INSERT INTO COLLECTION_PERMISSION(COLLECTION_ID, ESHOP_PERMISSION_ID)
+                    SELECT ID, @permID FROM ORGANISATION_COLLECTION oc
+                    <!--COLLECTION_PERMISSION-->
+
+                    <!--GROUP_PERMISSION-->
+                    INSERT INTO GROUP_PERMISSION(GROUP_ID , PERM_ID, ALLOWED)
+                    SELECT GROUP_ID, @permID, '1' FROM GROUP_PERMISSION gp GROUP BY GROUP_ID ORDER BY GROUP_ID
+                    <!--GROUP_PERMISSION-->
+                END
+            
+
+            <!--ESHOP_FUNCTION-->           
+            IF NOT EXISTS (SELECT * FROM ESHOP_FUNCTION WHERE FUNCTION_NAME =@motorbikeAccessUrl)
+                BEGIN
+                    INSERT INTO ESHOP_FUNCTION ( FUNCTION_NAME, DESCRIPTION, RELATIVE_URL)
+                    VALUES( @motorbikeAccessUrl, N'Function to work with motorbike shop search API', N'/moto')
+                END
+            <!--ESHOP_FUNCTION-->
+
+            <!--PERM_FUNCTION-->
+            DECLARE  @funcID VARCHAR(10)= (SELECT ID FROM ESHOP_FUNCTION WHERE FUNCTION_NAME= @motorbikeAccessUrl)
+			IF (@permID &lt;&gt; '' AND @funcID &lt;&gt; '')
+                BEGIN
+                    INSERT INTO PERM_FUNCTION (PERM_ID, FUNCTION_ID)
+                    VALUES( @permID, @funcID)
+                END
+            END
+            <!--PERM_FUNCTION-->
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

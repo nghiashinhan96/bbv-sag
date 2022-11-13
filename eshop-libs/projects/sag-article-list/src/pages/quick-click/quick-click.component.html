@@ -1,0 +1,44 @@
+<section class="quick-click-container ">
+    <ng-container *ngIf="categories$ | async as categories; else errorRef">
+        <div class="row">
+            <div *ngFor="let root of categories; let i = index" class="col" [class.has-foldable]="foldState[i]" >
+                <div class="sub-section mb-4" *ngFor="let sub of root">
+                    <div class="sub-title mb-2" *ngIf="sub.qfold; else defaultSubTitle">
+                        <a href="javascript:void(0)" class="d-flex" (click)="toggle(sub)">
+                            <i class="fa flex-shrink-0" [ngClass]="{'fa-caret-right' : sub.isFolded, 'fa-caret-down' : !sub.isFolded}"></i>
+                            <strong>{{sub.description}}</strong>
+                        </a>
+                    </div>
+                    <ng-template #defaultSubTitle>
+                        <label class="mb-2">
+                            <strong>{{sub.description}}</strong>
+                        </label>
+                    </ng-template>
+                    <ng-container *ngIf="sub?.children?.length > 0">
+                        <ng-container *ngFor="let item of sub.children">
+                            <ng-container *ngIf="(!sub?.qfold || (sub?.qfold && (!sub.isFolded || item.qfoldShow))) && (item?.qshow && item?.qflag === 1)">
+                                <label class="checkbox" [class.disabled]="!isReady" (click)="handleSelectCategory(item)">
+                                    <input *ngIf="!currentStateSingleSelectMode" type="checkbox"
+                                        (change)="checkOnTree($event, item)"
+                                        [attr.data-automation]="'quick-click-' + item.id"
+                                        [checked]="item.isChecked">
+                                    <span [innerHTML]="item?.description"></span>
+                                </label>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!currentStateSingleSelectMode" class="text-center m-5">
+            <button class="btn btn-primary" type="button" (click)="searchArticles()" [disabled]="!isReady" data-automation="quick-click-search">
+                {{'QUICK_CLICK.ARTICLES_DISPLAY' | translate}}
+            </button>
+        </div>
+    </ng-container>
+    <ng-template #errorRef>
+        <div class="alert alert-danger" *ngIf="!!errorMessage">
+            {{errorMessage | translate}}
+        </div>
+    </ng-template>
+</section>

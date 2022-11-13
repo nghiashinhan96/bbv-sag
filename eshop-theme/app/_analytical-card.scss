@@ -1,0 +1,15 @@
+connect-analytical-card,
+connect-analytical-card-detail {
+    tr {
+        &.filter {
+            td {
+                padding: 0;
+            }
+        }
+        &.alert-row {
+            td {
+                padding: 0.75rem 0;
+            }
+        }
+    }
+}

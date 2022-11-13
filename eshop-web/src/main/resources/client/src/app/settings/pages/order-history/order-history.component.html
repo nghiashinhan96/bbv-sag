@@ -1,0 +1,12 @@
+<div *ngIf="isSalesDdatAuthed && !isLoginOnBehalf; else elseBlock">
+    <connect-sale-order-history-result>
+    </connect-sale-order-history-result>
+</div>
+<ng-template #elseBlock>
+    <div class="mt-3 mb-3">
+        <connect-order-history-filter [isSearching]="isSearching" [orderHistoryFilter]="orderHistoryFilter" (filterEmitter)="search($event)" [userDetail]="userService?.userDetail">
+        </connect-order-history-filter>
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage | translate}}</div>
+    <connect-order-history-search-result [result]="orderHistoryResult" [request]="request"></connect-order-history-search-result>
+</ng-template>

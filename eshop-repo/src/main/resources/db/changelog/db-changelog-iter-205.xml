@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+	  <changeSet author="CONNECT_APP" id="ITER_205_ARTICLE_CUSTOM_VATRATE_MAP">
+        <sql>
+            CREATE TABLE [dbo].[ARTICLE_CUSTOM_VATRATE_MAP] (
+            [ID] [bigint] IDENTITY(1, 1) NOT NULL,
+            [ART_ID] [varchar] (50) NOT NULL,
+            [CUSTOM_VAT_RATE] [decimal](19, 2) NOT NULL,
+            [COMMENT] [varchar] (255) NULL,
+            PRIMARY KEY (ID)
+            )
+        </sql>
+    </changeSet>
+</databaseChangeLog>

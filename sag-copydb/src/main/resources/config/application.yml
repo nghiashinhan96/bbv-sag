@@ -1,0 +1,136 @@
+spring:
+   devtools:
+      restart:
+         enabled: false
+      livereload:
+         enabled: false
+   jpa:
+      database-platform: org.hibernate.dialect.SQLServer2012Dialect
+      database: SQL_SERVER
+      show_sql: false
+      properties:
+         hibernate.id.new_generator_mappings: true
+         hibernate.connection.provider_disables_autocommit: true
+         hibernate.cache.use_second_level_cache: true
+         hibernate.cache.use_query_cache: false
+         hibernate.generate_statistics: false
+         hibernate.cache.region.factory_class: com.hazelcast.hibernate.HazelcastCacheRegionFactory
+         hibernate.cache.hazelcast.instance_name: copydb
+         hibernate.cache.use_minimal_puts: true
+         hibernate.cache.hazelcast.use_lite_member: true
+   batch:
+      initialize-schema: always
+      job.names: CopyDatabase
+   main:
+      allow-bean-definition-overriding: true
+copy:
+   compareIgnoreCase: true
+   tables:
+   - AAD_ACCOUNTS
+   - ADDRESS
+   - ADDRESS_TYPE
+   - AFFILIATE_PERMISSION
+   - ALLOCATION_TYPE
+   - ARTICLE_HISTORY
+   - BASKET_HISTORY
+   - BUSINESS_LOG
+   - CLIENT_ROLE
+   - COLLECTION_PERMISSION
+   - COLLECTION_RELATION
+   - COLLECTIVE_DELIVERY
+   - COUNTRY
+   - COUPON_CONDITIONS
+   - COUPON_USE_LOG
+   - CURRENCY
+   - CUSTOMER_SETTINGS
+   - DELIVERY_TYPE
+   - ESHOP_CART_ITEM
+   - ESHOP_CLIENT
+   - ESHOP_CLIENT_RESOURCE
+   - ESHOP_FUNCTION
+   - ESHOP_GROUP
+   - ESHOP_PERMISSION
+   - ESHOP_RELEASE
+   - ESHOP_ROLE
+   - ESHOP_USER
+   - EXTERNAL_ORGANISATION
+   - EXTERNAL_USER
+   - FEEDBACK
+   - FEEDBACK_DEPARTMENT
+   - FEEDBACK_DEPARTMENT_CONTACT
+   - FEEDBACK_STATUS
+   - FEEDBACK_TOPIC
+   - FEEDBACK_TOPIC_DEPARTMENT
+   - FINAL_CUSTOMER_ORDER
+   - FINAL_CUSTOMER_ORDER_ITEM
+   - FINAL_CUSTOMER_PROPERTY
+   - GROUP_PERMISSION
+   - GROUP_ROLE
+   - GROUP_USER
+   - INVOICE_TYPE
+   - LANGUAGES
+   - LEGAL_DOCUMENT_AFFILIATE_ASSIGNED_LOG
+   - LEGAL_DOCUMENT_CUSTOMER_ACCEPTED_LOG
+   - LEGAL_DOCUMENT_MASTER
+   - LICENSE
+   - LICENSE_SETTINGS
+   - LOGIN
+   - MAPPING_USER_ID_EBL_CONNECT
+   - MESSAGE
+   - MESSAGE_ACCESS_RIGHT
+   - MESSAGE_ACCESS_RIGHT_AREA
+   - MESSAGE_ACCESS_RIGHT_ROLE
+   - MESSAGE_AREA
+   - MESSAGE_HIDING
+   - MESSAGE_LANGUAGE
+   - MESSAGE_LOCATION
+   - MESSAGE_LOCATION_TYPE
+   - MESSAGE_LOCATION_TYPE_ROLE_TYPE
+   - MESSAGE_ROLE_TYPE
+   - MESSAGE_STYLE
+   - MESSAGE_SUB_AREA
+   - MESSAGE_TYPE
+   - MESSAGE_VISIBILITY
+   - OFFER
+   - OFFER_ADDRESS
+   - OFFER_PERSON
+   - OFFER_PERSON_PROPERTY
+   - OFFER_POSITION
+   - ORDER_HISTORY
+   - ORDER_STATUS
+   - ORDER_TYPE
+   - ORGANISATION
+   - ORGANISATION_ADDRESS
+   - ORGANISATION_COLLECTION
+   - ORGANISATION_GROUP
+   - ORGANISATION_PROPERTY
+   - ORGANISATION_SETTINGS
+   - ORGANISATION_TYPE
+   - ORG_COLLECTION_SETTINGS
+   - PAYMENT_METHOD
+   - PERM_FUNCTION
+   - ROLE_PERMISSION
+   - ROLE_TYPE
+   - SALUTATION
+   - SHOP_ARTICLE
+   - SUPPORTED_AFFILIATE
+   - SUPPORTED_BRAND_PROMOTION
+   - USER_ORDER_HISTORY
+   - USER_SETTINGS
+   - USER_VEHICLE_HISTORY
+   - VEHICLE_HISTORY
+   - VIN_LOGGING
+   artefacts:
+      tables:
+      - BATCH_JOB_EXECUTION_CONTEXT
+      - BATCH_JOB_EXECUTION_PARAMS
+      - BATCH_JOB_EXECUTION_SEQ
+      - BATCH_JOB_SEQ
+      - BATCH_STEP_EXECUTION_CONTEXT
+      - BATCH_STEP_EXECUTION_SEQ
+      - BATCH_STEP_EXECUTION
+      - BATCH_JOB_EXECUTION
+      - BATCH_JOB_INSTANCE
+jasypt:
+   encryptor:
+      bean: copydbPwEncryptorBean

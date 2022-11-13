@@ -1,0 +1,19 @@
+spring.profiles: hp-pre
+spring.profiles.include: hpback-config
+
+external:
+  webservice:
+    haynespro:
+      uri: ${app.hpback.uri}
+      wsdl: ${external.webservice.haynespro.uri}?wsdl
+      companyIdentificaton: ${app.hpback.companyIdentificaton}
+      distributorPassword: ${app.hpback.distributorPassword}
+      callbackApi: /haynespro/callback
+
+haynespro:
+  callbackUrl: ${app.hpback.callbackUrl}
+  license:
+    derendinger-ch-email: ${app.hpback.derendinger-ch-email}
+    technomag-email: ${app.hpback.technomag-email}
+    default-email: ${app.hpback.default-email}
+    at-email: ${app.hpback.at-email}

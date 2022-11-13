@@ -1,0 +1,8 @@
+spring.profiles.include: db-test, liquibase-test, country-ch, executor-pool
+logging:
+  level:
+    org.elasticsearch.bootstrap: ERROR
+    com.sagag.eshop.repo: DEBUG
+    org.springframework: INFO
+    com.sagag.services: DEBUG
+    org.hibernate.SQL: DEBUG

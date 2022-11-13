@@ -1,0 +1,72 @@
+<div class="opening-day-table-container" *ngIf="isNotReload">
+    <table class="table table-hover table-primary sag-table-header">
+        <thead>
+            <tr class="header text-white">
+                <th class="header-text col-date-title" rowspan="2" (click)="sortByDate()">
+                    {{ 'OPENING_DAY.OPENING_DAY_COLUMNS.DATE' | translate }}
+                    <i class="fa" [class.fa-sort]="orderByDateDesc == null"
+                        [class.fa-sort-asc]="orderByDateDesc !== null && orderByDateDesc == false"
+                        [class.fa-sort-desc]="orderByDateDesc !== null && orderByDateDesc == true">
+                    </i>
+                </th>
+                <th class="header-text" rowspan="2" colspan="2">
+                    {{ 'OPENING_DAY.OPENING_DAY_COLUMNS.DAY_TYPE' | translate }}
+                </th>
+                <th class="header-text col-country" rowspan="2" colspan="2" (click)="sortByLand()">
+                    {{ 'OPENING_DAY.OPENING_DAY_COLUMNS.LAND' | translate }}
+                    <i class="fa" [class.fa-sort]="orderByLandDesc == null"
+                        [class.fa-sort-asc]="orderByLandDesc !== null && orderByLandDesc == false"
+                        [class.fa-sort-desc]="orderByLandDesc !== null && orderByLandDesc == true">
+                    </i>
+                </th>
+                <th class="header-text text-center exception-col" colspan="10">
+                    {{ 'OPENING_DAY.OPENING_DAY_FORM.EXCEPTIONS' | translate }}
+                </th>
+            </tr>
+            <tr class="header text-white">
+                <th class="header-text" colspan="2">
+                    {{ 'OPENING_DAY.OPENING_DAY_COLUMNS.EXCEPT_BRANCH_ID' | translate }}
+                </th>
+                <th class="header-text" colspan="2">
+                </th>
+
+                <th class="header-text" colspan="2">
+                    {{ 'OPENING_DAY.OPENING_DAY_COLUMNS.EXCEPT_DAY_TYPE' | translate }}
+                </th>
+                <th class="header-text" colspan="2">
+                </th>
+                <th class="header-text"></th>
+            </tr>
+        </thead>
+    </table>
+    <sag-table mode="online" [columns]="columns" (searchData)="searchTableData($event)"
+        notFoundText="{{ 'SEARCH.NO_RESULTS_FOUND' | translate }}" class="sag-table-content">
+    </sag-table>
+</div>
+
+<ng-template #colActions let-row="row">
+    <div class="branch-edit d-flex">
+        <i class="fa fa-edit" (click)="updateItem(row.id)"></i>
+        <i class="fa fa-trash" (click)="deleteItem(row)"></i>
+    </div>
+</ng-template>
+
+<ng-template #colDate let-row="row">
+    {{ row.date | date:'dd.MM.yyyy' }}
+</ng-template>
+
+<ng-template #colWorkingDayCode let-row="row">
+    {{ 'OPENING_DAY.' + row.workingDayCode | translate }}
+</ng-template>
+
+<ng-template #colBranchCodes let-row="row">
+    {{formatText(row.expBranchInfo)}}
+</ng-template>
+
+<ng-template #colExpWorkingCode let-row="row">
+    {{formatExpWorkingCode(row.expWorkingDayCode) | translate}}
+</ng-template>
+
+<ng-template #colExpAddressIds let-row="row">
+    {{formatText(row.expDeliveryAddressId)}}
+</ng-template>

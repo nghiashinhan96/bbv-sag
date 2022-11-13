@@ -1,0 +1,133 @@
+<div class="col avail-info" *ngIf="((!isSb && userSetting?.hasAvailabilityPermission) || (isSb && locations.length > 0)) && projectId === PROJECT_ID.CONNECT">
+    <ng-container *ngIf="availData">
+        <ng-container *ngIf="!isSb; else serbiaRef">
+            <strong class="nav">{{'ARTICLE.PRICE.AVAILIBILITY' | translate}}</strong>
+            <div class="nav">
+                <strong class="flex-2">
+                    {{'ARTICLE.NUMBER' | translate}}:
+                </strong>
+                <div class="flex-4">
+                    <strong>{{'CONDITION.DELIVERY_TYPE.TITLE' | translate}}: </strong>
+                    <span *ngIf="isTourMode">
+                        {{'ARTICLE.TOUR' | translate}}
+                    </span>
+                    <span *ngIf="isPickupMode">{{'ARTICLE.PICKUP' | translate}}</span>
+                </div>
+                <strong class="flex-6">
+                    {{'ARTICLE.FINISH_TIME' | translate}}
+                    <ng-container *ngIf="getSpecialNotesWithDeliveryTour(availData && availData.length > 0 && availData[availData.length - 1])">
+                        <span class="pl-2 avail-note-text">{{ getSpecialNotesWithDeliveryTour(availData && availData.length > 0 && availData[availData.length - 1]) | translate }}</span>
+                    </ng-container>
+                </strong>
+            </div>
+
+            <div class="nav" *ngFor="let availability of availData">
+                <ng-container *ngIf="!isEh, else fcAvailInfo">
+                    <strong class="flex-2">{{availability.quantity}}</strong>
+                    <div class="flex-4">
+                        <ng-container *ngIf="isTourMode && availability.availState !== AVAIL_STATE_24_HOURS">
+                            {{availability.tourName}}
+                        </ng-container>
+                        <ng-container *ngIf="isPickupMode">{{'CONDITION.BRANCH' | translate}}:
+                            {{branchName}}
+                        </ng-container>
+                    </div>
+                </ng-container>
+                <ng-template #fcAvailInfo>
+                    <ng-container *ngIf="user?.hasAvailabilityPermission">
+                        <strong class="flex-2">{{availability.quantity}}</strong>
+                        <div class="flex-4">
+                            <ng-container
+                                *ngIf="isTourMode && availability.availState !== AVAIL_STATE_24_HOURS && availability.availState !== AVAIL_STATE_24_HOURS_CZ">
+                                {{availability.tourName}}
+                            </ng-container>
+                            <ng-container *ngIf="isPickupMode">{{'CONDITION.BRANCH' | translate}}:
+                                {{user?.settings?.wssDeliveryProfile?.wssBranch?.branchCode}}
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </ng-template>
+                <div class="flex-6 d-flex flex-nowrap">
+                    <div *ngIf="availability.sofort && isPickupMode; else notSofortRef" class="arrivalTime">
+                        <span id="span-deliveryImmediate"
+                            [ngStyle]="{'color': getAvailColor(availability, availDisplayStates.SAME_DAY)}">
+                            {{'ARTICLE.DELIVERY_IMMEDIATE' | translate}}
+                        </span>
+                    </div>
+                    <ng-template #notSofortRef>
+                        <ng-container [ngSwitch]="availability.availState">
+                            <ng-container *ngSwitchCase="AVAIL_STATE_24_HOURS">
+                                <span [innerHtml]="detailAvailTextDisplay"></span>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="AVAIL_STATE_24_HOURS_CZ">
+                                <span [innerHtml]="detailAvailTextDisplay"></span>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="AVAIL_STATE_NO_STOCK">
+                                {{'ARTICLE.24_HOURS'| translate}}
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <div class="flex-6 d-flex flex-nowrap"
+                                    [ngStyle]="{'color': getAvailColor(availability)}">
+                                    <span>{{availability.dateFormat}}</span>
+                                    <strong class="ml-2">{{availability.timeFormat}}</strong>
+                                    <div class="ml-auto">
+                                        <img src="assets/images/vendor.gif" width="11px"
+                                            *ngIf="availability.venExternalSource && !isEh">
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </ng-template>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #serbiaRef>
+            <ng-container *ngIf="locations.length > 0">
+                <strong class="nav">{{'ARTICLE.PRICE.AVAILIBILITY' | translate}}</strong>
+                <div class="nav">
+                    <strong class="flex-2">
+                        {{'ARTICLE.NUMBER' | translate}}:
+                    </strong>
+                    <strong class="flex-6">
+                        {{'ARTICLE.LOCATION' | translate}}
+                    </strong>
+                </div>
+                <div class="location-items">
+                    <div class="nav" *ngFor="let location of locations">
+                        <strong class="flex-2" *ngIf="userSetting.isSalesOnBeHalf">
+                            {{location.quantity}}
+                        </strong>
+                        <strong class="flex-2" *ngIf="!userSetting.isSalesOnBeHalf">
+                            <i class="fa fa-check"></i>
+                        </strong>
+                        <div class="flex-6 d-flex flex-nowrap">
+                            <div class="arrivalTime">
+                                <span>{{location.locationName}}</span>
+                                <span *ngIf="!!location.locationPhoneNr">&nbsp; -
+                                    {{location.locationPhoneNr}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-template>
+    </ng-container>
+</div>
+<ng-container *ngIf="projectId === PROJECT_ID.AUTONET">
+    <div class="col-12 price-info">
+        <div class="nav" *ngFor="let p of article?.price?.autonet">
+            <span id="span-grossPriceTitle">{{p.description}}</span>
+            <span id="span-grossPriceValue">
+                {{p.value | sagCurrency}} {{p.currencyCode}}
+            </span>
+        </div>
+        <p></p>
+    </div>
+    <div class="col-12 avail-info">
+        <strong class="nav">{{'ARTICLE.PRICE.AVAILIBILITY' | translate}}</strong>
+        <div class="nav justify-content-start flex-nowrap" *ngFor="let avail of availData">
+            <img [src]="avail.presentPath" height="16px">
+            <span class="pl-2">{{avail.description | translate}}</span>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,185 @@
+<div class="sag-auth-potential-customer-registration">
+    <ng-container *ngIf="!isSent; else sentRef">
+        <div class="row mb-20">
+            <div class="col-12">
+                <strong class="title">{{'REGISTER.CONTACT.TEXT' | translate }}</strong>
+            </div>
+        </div>
+        <div class="row mb-20"
+             *ngIf="!!errorMsg">
+            <div class="col-12">
+                <sag-common-message [message]="errorMsg"
+                                    type='ERROR'>
+                </sag-common-message>
+            </div>
+        </div>
+        <form class="mb-20"
+              [formGroup]="contactForm" (ngSubmit)="save()">
+            <div class=" row form-group">
+                <div class="col-6">
+                    <div class="vertical-align-middle">
+                        <div class="w-105 mandatory">{{'COMMON_LABEL.COMPANY' | translate}}</div>
+                        <div class="fill-remaining">
+                            <input formControlName="company"
+                                   type="text"
+                                   class="form-control"
+                                   required>
+                        </div>
+                    </div>
+
+                    <sag-common-control-message [control]="contactForm.controls.company">
+                    </sag-common-control-message>
+                </div>
+                <div class="col-6">
+                    <div class="vertical-align-middle">
+                        <div class="w-105 mandatory">{{'COMMON_LABEL.FIRST_NAME' | translate}}</div>
+                        <div class="fill-remaining">
+                            <input formControlName="firstName"
+                                   type="text"
+                                   class="form-control"
+                                   required>
+                        </div>
+                    </div>
+
+                    <sag-common-control-message [control]="contactForm.controls.firstName">
+                    </sag-common-control-message>
+                </div>
+            </div>
+            <div class=" row form-group">
+                <div class="col-6">
+                    <div class="vertical-align-middle">
+                        <div class="w-105 mandatory">{{'COMMON_LABEL.SURNAME' | translate}}</div>
+                        <div class="fill-remaining">
+                            <input formControlName="lastName"
+                                   type="text"
+                                   class="form-control"
+                                   required>
+                        </div>
+                    </div>
+
+                    <sag-common-control-message [control]="contactForm.controls.lastName">
+                    </sag-common-control-message>
+                </div>
+                <div class="col-6 vertical-align-middle">
+                    <div class="w-105">{{'COMMON_LABEL.STREET' | translate}}</div>
+                    <div class="fill-remaining">
+                        <input type="text"
+                               class="form-control"
+                               formControlName="street">
+                    </div>
+                </div>
+            </div>
+            <div class=" row form-group">
+                <div class="col-6">
+                    <div class="vertical-align-middle">
+                        <div class="w-105 mandatory">{{'COMMON_LABEL.POSTAL_CODE' | translate}}</div>
+                        <div class="fill-remaining">
+                            <input class="form-control"
+                                   type="text"
+                                   formControlName="postalCode"
+                                   required>
+                        </div>
+                    </div>
+
+                    <sag-common-control-message [control]="contactForm.controls.postalCode">
+                    </sag-common-control-message>
+                </div>
+                <div class="col-6">
+                    <div class="vertical-align-middle">
+                        <div class="w-105 mandatory">{{'COMMON_LABEL.PLACE' | translate}}</div>
+                        <div class="fill-remaining">
+                            <input class="form-control"
+                                   type="text"
+                                   formControlName="city"
+                                   required>
+                        </div>
+                    </div>
+
+                    <sag-common-control-message [control]="contactForm.controls.city">
+                    </sag-common-control-message>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-6">
+                    <div class="vertical-align-middle">
+                        <div class="w-105 mandatory">{{'COMMON_LABEL.PHONE' | translate}}</div>
+                        <div class="fill-remaining">
+                            <input class="form-control"
+                                   type="text"
+                                   formControlName="phone"
+                                   required>
+                        </div>
+                    </div>
+
+                    <sag-common-control-message [control]="contactForm.controls.phone">
+                    </sag-common-control-message>
+                </div>
+                <div class="col-6">
+                    <div class="vertical-align-middle">
+                        <div class="w-105 mandatory">{{'COMMON_LABEL.EMAIL' | translate}}</div>
+                        <div class="fill-remaining">
+                            <input class="form-control"
+                                   type="text"
+                                   formControlName="email"
+                                   required>
+                        </div>
+                    </div>
+
+                    <sag-common-control-message [control]="contactForm.controls.email">
+                    </sag-common-control-message>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-6 vertical-align-middle">
+                    <div class="w-105">{{'COMMON_LABEL.WEBSITE' | translate}}</div>
+                    <div class="fill-remaining">
+                        <input class="form-control"
+                               type="text"
+                               formControlName="website">
+                    </div>
+                </div>
+                <div class="col-6 vertical-align-middle comment">
+                    <div class="w-105">{{'COMMON_LABEL.REMARK' | translate}}</div>
+                    <div class="fill-remaining">
+                        <textarea class="form-control"
+                                  formControlName="comment"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row submit-row mb-20">
+                <div class="col-12">
+                    <sag-common-save-button [loading]="isSending"
+                                            [disabled]="contactForm.invalid"
+                                            (save)="save()"
+                                            text="REGISTER.REGISTRY"
+                                            css="btn btn-primary btn-center">
+                    </sag-common-save-button>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+    <ng-template #sentRef>
+        <div class="row mb-20 sent"
+             *ngIf="!errorMsg">
+            <div class="col-12">
+                <sag-common-message [message]="'REGISTER.CONTACT.SUCCESS_MESSAGE'"
+                                    type='SUCCESS'>
+                </sag-common-message>
+            </div>
+        </div>
+    </ng-template>
+    <div class="row">
+        <div class="col-12">
+            <div class="top-separator"></div>
+        </div>
+        <div class="col-12">
+            <a class="btn-link"
+               href="javascript:void(0)"
+               (click)="back()"
+               [ngClass]="{'disabled': isSending }">
+                <i class="fa fa-angle-left"></i>
+                <span>{{'SEARCH_RESULT.BACK'| translate}}</span>
+            </a>
+        </div>
+    </div>
+</div>

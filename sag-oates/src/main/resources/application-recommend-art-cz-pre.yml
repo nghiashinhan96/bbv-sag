@@ -1,0 +1,6 @@
+spring.profiles: recommend-art-cz-pre
+
+external:
+  webservice:
+    additionalRecommendation:
+      endpoint: https://sag-ws-czech.phoenix.earlweb.net/products.json?token=sNHTI9tXTq7F

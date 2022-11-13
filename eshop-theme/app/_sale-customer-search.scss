@@ -1,0 +1,142 @@
+$free-text-width: 200px;
+$input-width: 120px;
+
+connect-sale-control {
+    .sale-customer-search {
+        margin-bottom: 20px;
+
+        .search-title {
+            display: inline-block;
+            max-width: 100%;
+            font-weight: 700;
+            color: $primary;
+            font-size: 14px;
+            padding-right: 10px;
+        }
+
+        form.sale-customer-search-form {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex: 1;
+
+            .search-input-container {
+                position: relative;
+
+                input:not(:first-child) {
+                    margin-left: 10px;
+                    width: $input-width;
+                    height: 30px;
+                    padding: 5px 10px;
+
+                }
+
+                .fill {
+                    flex: 1;
+                    min-width: $free-text-width;
+                }
+            }
+
+            .btn-search-customer {
+                margin-left: 10px;
+                padding: 0 10px;
+                height: 30px;
+                line-height: 26px;
+                border-radius: 10px;
+                min-width: 68px !important;
+            }
+        }
+
+        .recent-orders {
+            width: 276px;
+
+        }
+    }
+
+
+
+    .sale-customers {
+        margin-bottom: 20px;
+        .nav-item {
+            .nav-link {
+                display: flex;
+                align-items: center;
+                padding: 6px 41px 7px 25px;
+                position: relative;
+                .btn-icon.close {
+                    position: absolute;
+                    top: 50%;
+                    right: 6px;
+                    margin-top: -9px;
+                    width: 16px;
+                    height: 16px;
+                    cursor: pointer;
+                    color: black;
+                    font-size: 16px;
+                    opacity: 0.65;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .customer-info-header {
+        position: absolute;
+        top: -52px;
+        left: 0;
+        height: 32px;
+        line-height: 32px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 476px;
+
+        .customer-info-name {
+            font-weight: 400;
+            margin-right: 3px;
+        }
+
+        .customer-info-detail {
+            font-weight: 700;
+        }
+    }
+
+    .tab-container {
+        .nav-tabs {
+            .nav-item {
+                .disabled {
+                    color: #777 !important;
+                    cursor: default !important;
+                    opacity: 1;
+                }
+
+                a.nav-link {
+                    padding: 6px 30px 7px 30px;
+
+                    span.ax {
+                        width: 32px;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+connect-customer-info {
+    .connect-customer-info {
+        position: relative;
+        margin: 0 0 20px;
+        font-size: 15px;
+        padding-top: 4px;
+
+        .customer-info-name {
+            width: 476px;
+        }
+    }
+}

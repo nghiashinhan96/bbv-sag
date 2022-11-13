@@ -1,0 +1,110 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_115_INSERT_ADDITIONAL_INVOICE_TYPE">
+    <sql>
+      -- Invoice Type Code: DEFAULT
+      INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE, INVOICE_TYPE_NAME, INVOICE_TYPE_DESC) 
+      VALUES('DEFAULT', 'DEFAULT', '!!Nicht löschen!! Fallback mit Zuweisung auf Alle');
+
+      -- Invoice Type Code: 2WFAKTGX
+      INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE, INVOICE_TYPE_NAME, INVOICE_TYPE_DESC) 
+      VALUES('TWO_WEEKLY_INVOICE_DAILY_CREDIT', '2WFAKTGX', '2 Wochen Faktura mit täglicher Gutschrift');
+
+      -- Invoice Type Code: MONATSFAGX
+      INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE, INVOICE_TYPE_NAME, INVOICE_TYPE_DESC) 
+      VALUES('MONTHLY_INVOICE_DAILY_CREDIT', 'MONATSFAGX', 'Monatsfaktura mit täglicher Gutschrift');
+
+      -- Invoice Type Code: WOCHENFAGE
+      INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE, INVOICE_TYPE_NAME, INVOICE_TYPE_DESC) 
+      VALUES('WEEKLY_INVOICE_SINGLE_CREDIT', 'WOCHENFAGE', 'Wochenfaktura mit Einzelgutschrift wöchentlich');
+
+      -- Invoice Type Code: WOCHENFAGX
+      INSERT INTO dbo.INVOICE_TYPE (INVOICE_TYPE_CODE, INVOICE_TYPE_NAME, INVOICE_TYPE_DESC) 
+      VALUES('WEEKLY_INVOICE_DAILY_CREDIT', 'WOCHENFAGX', 'Wochenfaktura mit täglicher Gutschrift');
+
+    </sql>
+  </changeSet>
+  <changeSet id="CONNECT_APP" author="ITER_115_CREATE_INDEX_INVOICE_TYPE_NAME">
+    <sql>
+      CREATE INDEX IDX_INVOICE_TYPE_NAME ON dbo.INVOICE_TYPE (INVOICE_TYPE_NAME);
+    </sql>
+  </changeSet>
+  <changeSet id="CONNECT_APP" author="ITER_115_ADD_DEMO_CUSTOMER_COLUMN_FOR_CUSTOMER_SETTINGS_TABLE">
+    <sql>
+      ALTER TABLE CUSTOMER_SETTINGS ADD [DEMO_CUSTOMER] [bit] NOT NULL DEFAULT 0
+    </sql>
+  </changeSet>
+
+  <changeSet id="CONNECT_APP" author="ITER_115_ALTER_V_ACTIVE_USER_EXCLUDED_FINAL_USER">
+    <sql>
+        ALTER VIEW [dbo].[V_ACTIVE_USER] AS
+        SELECT
+        U.ID,
+        U.USERNAME,
+        U.EMAIL,
+        CONCAT(U.FIRST_NAME, ' ', U.LAST_NAME) AS FULL_NAME,
+        U.PHONE,
+        L.IS_USER_ACTIVE,
+        R.NAME AS ROLE_NAME,
+        G.NAME AS GROUP_NAME,
+        OG.ORGANISATION_ID AS ORG_ID,
+        O.PARENT_ID AS ORG_PARENT_ID,
+        O.ORG_CODE AS ORG_CODE,
+        OP.SHORTNAME AS AFFILIATE,
+        O.NAME AS ORG_NAME
+        FROM
+        ESHOP_USER U
+        JOIN GROUP_USER GU ON U.ID = GU.USER_ID
+        JOIN ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+        JOIN GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+        JOIN ESHOP_ROLE R  ON GR.ROLE_ID = R.ID
+        JOIN ORGANISATION_GROUP OG ON G.ID = OG.GROUP_ID
+        JOIN ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+        JOIN LOGIN L ON L.USER_ID = U.ID
+        JOIN ORGANISATION OP ON O.PARENT_ID = OP.ID
+        WHERE
+        (U.TYPE IS NULL OR (U.TYPE &lt;&gt; 'VIRTUAL_DMS' AND U.TYPE &lt;&gt; 'VIRTUAL_OCI' AND U.TYPE &lt;&gt; 'ON_BEHALF_ADMIN')) AND NULLIF(O.ORG_CODE, '') IS NOT NULL
+    </sql>
+  </changeSet>
+    <changeSet author="CONNECT_APP" id="ITER_115_CHANGE_COLUMN_SAG_ARTICLE_GROUP">
+        <sql>
+			ALTER TABLE EXTERNAL_VENDOR
+			ALTER COLUMN SAG_ARTICLE_GROUP nvarchar(100)
+        </sql>
+    </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_115_CREATE_TABLE_PRICE_DISPLAY_TYPE">
+     <sql>
+         IF NOT EXISTS (
+         SELECT 1 FROM
+            INFORMATION_SCHEMA.TABLES
+         WHERE
+            TABLE_NAME = 'PRICE_DISPLAY_TYPE')
+         BEGIN
+            CREATE TABLE [dbo].[PRICE_DISPLAY_TYPE] (
+                [ID] [bigint] IDENTITY(1, 1) NOT NULL,
+                [TYPE] [varchar] (255) NOT NULL,
+                [DESC_CODE] [varchar] (255) NOT NULL,
+                [DESCRIPTION] [varchar] (255) NOT NULL,
+                PRIMARY KEY (ID)
+            )
+         END;
+     </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_115_ALTER_CUSTOMER_SETTINGS_ADD_COLUMN_PRICE_DISPLAY_ID">
+     <sql>
+         IF NOT EXISTS (
+         SELECT 1 FROM
+            INFORMATION_SCHEMA.COLUMNS
+         WHERE
+            TABLE_NAME = 'CUSTOMER_SETTINGS'
+            AND COLUMN_NAME = 'PRICE_DISPLAY_ID')
+         BEGIN
+            ALTER TABLE [dbo].[CUSTOMER_SETTINGS] ADD [PRICE_DISPLAY_ID] [bigint] NOT NULL DEFAULT 1
+         END;
+     </sql>
+  </changeSet>
+</databaseChangeLog>

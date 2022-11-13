@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style type="text/css">
+	    .block-content {
+	        margin-top:15px;
+	        margin-bottom:15px;
+	    }
+	</style>
+</head>
+<body>
+	<div>
+			<p th:text="#{mail.registration.potentialcustomer.welcome}"></p>
+			<p th:text="#{mail.registration.potentialcustomer.header}"></p>
+	</div>
+	<div th:if="${data.info != null}" class="block-content">
+			<div th:utext="${data.info.getContent()}"></div>
+	</div>
+	<div class="block-content">
+		<div th:text="#{mail.registration.potentialcustomer.kind_regard}"></div>
+	</div>
+</body>
+</html>

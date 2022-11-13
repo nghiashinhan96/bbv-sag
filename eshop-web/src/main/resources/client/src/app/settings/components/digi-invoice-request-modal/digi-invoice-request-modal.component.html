@@ -1,0 +1,55 @@
+<div class="digi-invoice-container" [formGroup]="requestEmailForm">
+    <div class="modal-header">
+        <h4>{{"SETTINGS.SETTING.INVOICE_MODAL.TITLE" | translate}}</h4>
+        <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+    </div>
+    <div class="modal-body">
+        <ng-container *ngIf="mode === DIGI_INVOICE_MODE.INPUT_EMAIL">
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label class="text-primary">{{'SETTINGS.SETTING.INVOICE_MODAL.EMAIL_LABEL' | translate}}</label>
+                    <input id="invoice-request-input-email" name="invoice-request-input-email" type="text" class="form-control" placeholder="{{'FORGOT_PASSWORD.LABEL.EMAIL' | translate}}*"
+                        formControlName="inputEmail"
+                    >
+                </div>
+                <div class="form-group col-sm-6 continue-btn-container">
+                    <button id="invoice-request-send-code-btn" data-automation="invoice-request-send-code-btn" class="btn btn-primary" [disabled]="requestEmailForm?.get('inputEmail')?.invalid" (click)="onSendCode()">
+                        <span>{{'COMMON_LABEL.BUTTON.CONTINUE' | translate}}</span>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="mode === DIGI_INVOICE_MODE.VERIFY_CODE">
+            <sag-common-message *ngIf="notifier" [data]="notifier"></sag-common-message>
+            <div class="row mb-4">
+                <div class="col-12 intro">
+                    {{'FORGOT_PASSWORD.CONFIRM_IDENDITY' | translate}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label class="text-primary">{{'FORGOT_PASSWORD.INPUT_CODE' | translate}}</label>
+                    <a href="javascript:void(0)" (click)="sendCode()" class="re-send-code">&gt; {{'SETTINGS.SETTING.INVOICE_MODAL.RE_SEND_CODE' | translate}}</a>
+                    <input id="invoice-request-input-code" name="invoice-request-input-code" type="text" class="form-control" placeholder="{{'FORGOT_PASSWORD.CODE_PLACEHOLDER' | translate}}*"
+                        formControlName="inputCode"
+                    >
+                </div>
+                <div class="form-group col-sm-6 continue-btn-container">
+                    <button id="invoice-request-verify-code-btn" data-automation="invoice-request-verify-code-btn" class="btn btn-primary" (click)="onVerifyCode()">
+                        <span>{{'FORGOT_PASSWORD.CONTINUE' | translate}}</span>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="mode === DIGI_INVOICE_MODE.SUBMITTED">
+            <sag-common-message *ngIf="notifier" [data]="notifier"></sag-common-message>
+            <div class="continue-btn-container mt-3">
+                <button id="invoice-request-close-btn" data-automation="invoice-request-close-btn" class="btn btn-primary" (click)="bsModalRef.hide()">
+                    <span>{{'COMMON_LABEL.CLOSE' | translate}}</span>
+                </button>
+            </div>
+        </ng-container>
+    </div>
+</div>

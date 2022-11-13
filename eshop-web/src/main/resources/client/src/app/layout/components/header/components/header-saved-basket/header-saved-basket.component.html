@@ -1,0 +1,48 @@
+<ng-container *ngIf="!isHiddenSymbol">
+    <a class="saved-basket" href="javascript:void(0)"
+        [popover]="savedBasketMenuRef"
+        #pop="bs-popover"
+        containerClass="saved-basket-menu-container"
+        placement="bottom"
+        [outsideClick]="true"
+        container="body"
+        (onShown)="onPopoverShown()"
+    >
+        <i class="fa fa-floppy-o saved-basket-icon"></i>
+        <span class="saved-basket-badge">
+            <ng-container *ngIf="basketHistoriesTotals">
+                {{basketHistoriesTotals}}
+            </ng-container>
+        </span>
+    </a>
+</ng-container>
+
+<ng-container *ngIf="isHiddenSymbol">
+    <a href="javascript:void(0)" class="btn-link" (click)="onSaveShoppingBasket()">
+        <i class="fa fa-chevron-right"></i>
+        <span>{{'COMMON_LABEL.SAVE'| translate}}</span>
+    </a>
+</ng-container>
+
+<ng-template #savedBasketMenuRef>
+    <ul class="list-group list-group-header" data-automation="saved-basket-menu">
+        <li class="list-group-item" data-automation="open-saved-basket">
+            <a href="javascript:void(0)" (click)="shownBasketHistory()">
+                <i class="fa fa-chevron-right"></i>
+                <span>{{'BASKET_HISTORY.OPEN_SHOPPING_BASKET' | translate}}</span>
+            </a>
+        </li>
+        <li class="list-group-item" data-automation="save-items-to-saved-basket">
+            <a [class.disabled]="shouldDisablePopoverMenu" href="javascript:void(0)" (click)="onClickSaveShoppingBasket()">
+                <i class="fa fa-chevron-right"></i>
+                <span>{{'BASKET_HISTORY.SAVE_SHOPPING_BASKET' | translate}}</span>
+            </a>
+        </li>
+        <li class="list-group-item" data-automation="export-items-from-saved-basket">
+            <a [class.disabled]="shouldDisablePopoverMenu" href="javascript:void(0)" (click)="onClickExportShoppingBasket()">
+                <i class="fa fa-chevron-right"></i>
+                <span>{{'BASKET_HISTORY.EXPORT_SHOPPING_BASKET' | translate}}</span>
+            </a>
+        </li>
+    </ul>
+</ng-template>

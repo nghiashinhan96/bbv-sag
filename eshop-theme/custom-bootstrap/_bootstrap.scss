@@ -1,0 +1,23 @@
+@import "container";
+@import "tab";
+@import "modal";
+@import "button";
+@import "checkbox";
+@import "link";
+@import "list-group";
+@import "form";
+@import "popover";
+@import "card";
+@import "pagination";
+@import "alert";
+@import "borders";
+@import "mixins";
+
+@each $color, $value in $theme-colors {
+  .text-#{$color} {
+    color: var(--#{$color}) !important;
+  }
+  .bg-#{$color} {
+    background-color: var(--#{$color}) !important;
+  }
+}

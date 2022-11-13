@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-xs-left">
+        {{ 'SEARCH.SEARCH_VIN.VIN_POPUP_TITLE' | translate}}
+    </h4>
+    <a href="javascript:void(0)" (click)="cancel()"> <i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <sag-common-message *ngIf="errorMessage" [data]="errorMessage"></sag-common-message>
+    <form class="row" [formGroup]="vinForm">
+        <div class="col-12 form-group">
+            <p class="vin-message">{{'SEARCH.VIN_INFORM_MESSAGE' | translate}}</p>
+        </div>
+        <div class="col-12 form-group">
+            <input sagCommonAlphanumericSpace sagCommonVinLength formControlName="vin" class="form-control"
+                placeholder="{{ 'SEARCH.VIN_20' | translate }}" title="{{ 'SEARCH.HOVER_TITLES.VIN_20' | translate }}"
+                type="text">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" (click)="confirm()">
+        {{ 'COMMON_LABEL.ACCEPT' | translate }}
+    </button>
+    <button class="btn btn-primary" type="button" (click)="cancel()">
+        {{ 'SEARCH.SEARCH_VIN.CONTINUE_WITHOUT_VIN' | translate }}
+    </button>
+</div>

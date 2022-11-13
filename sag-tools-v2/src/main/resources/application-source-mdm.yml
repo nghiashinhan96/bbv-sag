@@ -1,0 +1,13 @@
+spring.profiles: source-mdm
+
+external:
+  webservice:
+    dvse:
+      uri: https://mdm.carparts-cat.com/service.svc?wsdl
+      mdm_username: sag_wsvc
+      mdm_password: qcswlGg7Qvb
+      mdm_template_customer_id: 649556
+      catalog_sid: 435001 
+      catalog_uri: https://web1.dvse.de/loginh.aspx?SID=${external.webservice.dvse.catalog_sid}
+      mdm_template_customer_id_matik: 699618
+      mdm_template_customer_id_matik_ch: 742567

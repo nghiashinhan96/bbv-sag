@@ -1,0 +1,2 @@
+spring.profiles.active: stakis-erp-pre, executor-pool, db-at-test, no-liquibase
+

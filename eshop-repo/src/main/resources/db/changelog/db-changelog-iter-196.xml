@@ -1,0 +1,86 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_196_ADD_USER_VEHICLE_HISTORY_COLUMNS">
+    <sql>
+      ALTER TABLE dbo.USER_ARTICLE_HISTORY ADD SEARCH_TERM nvarchar(255) DEFAULT NULL
+      ALTER TABLE dbo.USER_ARTICLE_HISTORY ADD SEARCH_MODE nvarchar(50) DEFAULT NULL
+      ALTER TABLE dbo.USER_ARTICLE_HISTORY ADD FROM_SOURCE nvarchar(50) DEFAULT 'C4C'
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_196_ADD_USER_VEHICLE_HISTORY_SELECT_DATE">
+	<sql>
+	  ALTER TABLE dbo.USER_ARTICLE_HISTORY ADD SELECT_DATE datetime DEFAULT getdate() NULL;
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_196_CREATE_VIEW_USER_ARTICLE_HISTORY">
+    <sql>
+      CREATE VIEW dbo.V_USER_ARTICLE_HISTORY with schemabinding AS
+        SELECT 
+          UAH.ID AS ID,
+          U.ID AS USER_ID,
+          U.USERNAME AS USER_NAME,
+          U.FIRST_NAME AS FIRST_NAME,
+          U.LAST_NAME AS LAST_NAME,
+          CONCAT(U.LAST_NAME, ' ', U.FIRST_NAME) AS FULL_NAME,
+          OG.ORGANISATION_ID AS ORG_ID,
+          O.ORG_CODE AS ORG_CODE,
+          AH.ART_ID AS ARTICLE_ID,
+          AH.ART_NUMBER AS ARTNR_DISPLAY,
+          UAH.SEARCH_TERM AS SEARCH_TERM,
+          UAH.SEARCH_MODE AS SEARCH_MODE,
+          UAH.FROM_SOURCE AS FROM_SOURCE,
+          UAH.SELECT_DATE AS SELECT_DATE,
+          CONCAT(UAH.SEARCH_TERM, COALESCE(' => ' + NULLIF(AH.ART_NUMBER, ''), '')) AS SEARCH_TERM_WITH_ART_NR
+          from
+          dbo.ARTICLE_HISTORY AH
+          JOIN dbo.USER_ARTICLE_HISTORY UAH ON AH.ID = UAH.ART_HISTORY_ID
+          JOIN dbo.ESHOP_USER U ON UAH.USER_ID = U.ID
+          JOIN dbo.GROUP_USER GU ON
+          U.ID = GU.USER_ID
+          JOIN dbo.ESHOP_GROUP G ON GU.GROUP_ID = G.ID
+          JOIN
+          dbo.GROUP_ROLE GR ON GR.GROUP_ID = G.ID
+          JOIN dbo.ESHOP_ROLE R ON
+          GR.ROLE_ID = R.ID
+          JOIN dbo.ORGANISATION_GROUP OG ON G.ID =
+          OG.GROUP_ID
+          JOIN dbo.ORGANISATION O ON O.ID = OG.ORGANISATION_ID
+          JOIN dbo.LOGIN L ON L.USER_ID = U.ID
+          JOIN dbo.USER_SETTINGS US ON
+          US.ID = U.SETTING
+          JOIN dbo.SALUTATION SL ON SL.ID = U.SALUTATION
+          WHERE L.IS_USER_ACTIVE = 1
+        
+    </sql>
+  </changeSet>
+  <changeSet author="CONNECT_APP" id="ITER_196_ADD_TABLE_UNIPARTS_FAVORITE">
+        <sql>
+            CREATE TABLE [dbo].[UNIPARTS_FAVORITE] (
+            [ID] [bigint] IDENTITY(1, 1) NOT NULL,
+            [USER_ID] [bigint] NOT NULL,
+            [TITLE] [varchar] (256) NOT NULL,
+            [COMMENT] [varchar] (256) NULL,
+            [TYPE] [varchar] (10) NOT NULL,
+            [ARTICLE_ID] [varchar] (50) NULL,
+            [TREE_ID] [varchar] (50) NULL,
+            [LEAF_ID] [varchar] (50) NULL,
+            [GA_ID] [varchar] (50) NULL,
+            [CREATED_TIME] [datetime] DEFAULT getdate() NOT NULL,
+            PRIMARY KEY (ID)
+            )
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="FK_UNIPARTS_FAVORITE_USER_ID">
+        <addForeignKeyConstraint baseColumnNames="USER_ID"
+                                 baseTableName="UNIPARTS_FAVORITE" constraintName="FK_UNIPARTS_FAVORITE_USER_ID" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ID"
+                                 referencedTableName="ESHOP_USER" />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+
+{
+  "responseInfo" : {
+    "vehicleInfoDec" : {
+      "equipmentList" : null,
+      "vin" : "VSSZZZ5FZH6561928",
+      "modelList" : {
+        "modelData" : {
+          "modelDescription" : "ATECA (5F) 5T (16-)",
+          "umc" : "SE02301",
+          "makeCode" : "SE1",
+          "makeDescription" : "SEAT"
+        }
+      }
+    }
+  },
+  "makeCode" : "SE1"
+}

@@ -1,0 +1,53 @@
+<div *ngIf="detail as invoiceOverview">
+    <div class="modal-header">
+        <h4>{{ 'COMMON_LABEL.INVOICE_OVERVIEW' | translate }}</h4>
+        <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="offset-md-8 col-md-4">
+                <div>{{ invoiceOverview.name }}</div>
+                <div>{{ invoiceOverview.address ? invoiceOverview.address.street : ' ' }}</div>
+                <div>{{ invoiceOverview.country || '' + ' - ' + invoiceOverview.zipcode || '' + ' ' + invoiceOverview.city || ''}}</div>
+            </div>
+        </div>
+        <h6 class="invoice-number">
+            {{ 'COMMON_LABEL.INVOICE_NUMBER' | translate }}
+            {{ invoiceOverview.invoiceNr }}
+            {{ 'COMMON_LABEL.FROM_DATE' | translate }}
+            {{ invoiceOverview.invoiceDate | date: dateTimeFormat}}</h6>
+        <hr class="invoice-line">
+        <div class="row delivery-row">
+            <div class="col-md-4">{{ 'COMMON_LABEL.DELIVERY_NOTE_NUMBER' | translate }}</div>
+            <div class="col-md-8">
+                <ul>
+                    <li *ngFor="let deliveryNr of invoiceOverview.deliveryNoteNrs">{{ deliveryNr }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-4">{{ 'COMMON_LABEL.ORDER_NUMBER' | translate }}</div>
+            <div class="col-md-8">
+                <div class="row" *ngFor="let order of invoiceOverview.orderNrs">
+                    <div class="col-md-4">{{ order }} </div>
+                    <div class="col-md-8"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">{{ 'COMMON_LABEL.PAYMENT_TYPE' | translate }}</div>
+            <div class="col-md-8">
+                {{ 'CONDITION.PAYMENT_METHOD.' + invoiceOverview.paymentType | translate }}</div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-4"><strong>{{ 'SHOPPING_BASKET.TOTAL_EXCLUDE_VAT' | translate }}</strong></div>
+            <div class="col-md-8"><strong>{{ invoiceOverview.amount | sagCurrency: {isAllowNegative : true} }}</strong></div>
+        </div>
+    </div>
+    <div class="modal-footer d-flex justify-content-between">
+        <button class="btn btn-primary"
+            (click)="bsModalRef.hide()">{{'COMMON_LABEL.CLOSE' | translate}}</button>
+
+        <a *ngIf="!(isShownOldInvoice && isAxCz)" (click)="getInvoicePDF($event, invoiceOverview)"><i class="fa fa-file-pdf-o btn-icon"></i></a>
+    </div>
+</div>

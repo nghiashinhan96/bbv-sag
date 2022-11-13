@@ -1,0 +1,248 @@
+.nav-tabs {
+    > li.nav-item {
+        background-color: $light-grey;
+
+        > a.nav-link {
+            border-radius: 0;
+            color: $grey;
+            font-weight: bold;
+            &:hover,
+            &.active {
+                color: $primary;
+            }
+        }
+        &:hover,
+        &.active {
+            background-color: $white;
+        }
+    }
+}
+
+.tab-container {
+    &.vertical {
+        display: flex;
+
+        .nav-tabs {
+            border-bottom: 0;
+            border-right: 1px solid $thin-grey;
+
+            > li.nav-item {
+                margin-bottom: 0;
+                margin-right: -1px;
+
+                > a.nav-link {
+                    &:hover,
+                    &.active {
+                        border-color: $thin-grey;
+                        border-top-right-radius: 0;
+                        border-bottom-left-radius: 0.25rem;
+                    }
+                    &.active {
+                        border-right-color: transparent;
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            flex: 1;
+            white-space: normal;
+            word-break: break-all;
+            padding: 0.5rem 1rem;
+        }
+    }
+}
+
+// .nav-tabs {
+//     border: 0;
+//     >li {
+//         padding: 0;
+//         margin: 0;
+//         >a {
+//             margin-right: 0;
+//             text-decoration: none;
+//             border-radius: 0;
+//             border: 1px solid white;
+//             padding: 10px 45px;
+//             background-color: #F1EFF0;
+//             font-family: 'Roboto';
+//             font-size: 14px;
+//             font-weight: 500;
+//             color: grey;
+//             line-height: 20px;
+//             margin-bottom: -1px;
+//             border-bottom: 0;
+//             border-right: 1px solid #e0e0e0;
+//             &:hover {
+//                 border-top: 1px solid grey;
+//                 border-right: 1px solid grey;
+//                 border-left-color: transparent;
+//                 border-bottom: none;
+//                 background-color: white;
+//             }
+//         }
+//         &:last-child {
+//             >a {
+//                 border-right-color: transparent;
+//             }
+//             >a:hover {
+//                 border-right: 1px solid grey;
+//             }
+//         }
+//         &:first-child {
+//             >a:hover {
+//                 border-left: 1px solid grey;
+//             }
+//         }
+//         &.active {
+//             >a {
+//                 border-top: 1px solid grey;
+//                 border-right: 1px solid grey;
+//                 border-left-color: transparent;
+//                 background-color: white;
+//             }
+//         }
+//         &.active:first-child {
+//             >a {
+//                 border-left: 1px solid grey;
+//             }
+//         }
+//     }
+// }
+
+// .tab-content {
+//     background-color: white;
+//     .tab-pane {
+//         margin: 0;
+//         .row {
+//             box-sizing: border-box; // margin: 0 -10px;
+//         }
+//         [class*=col-] {
+//             box-sizing: border-box;
+//         }
+//     }
+// }
+
+// .tab-container {
+//     .nav-tabs {
+//         border-bottom: 1px solid grey;
+//         margin-top: 0;
+//         >li.nav-item {
+//             >a.nav-link {
+//                 margin: 0;
+//                 border-radius: 0;
+//                 margin-bottom: -1px;
+//                 &.active {
+//                     border-bottom-color: transparent;
+//                 }
+//             }
+//         }
+//         &.nav-justified {
+//             border-bottom: none;
+//             >li.nav-item {
+//                 >a.nav-link {
+//                     padding-left: 0px;
+//                     padding-right: 0px;
+//                     &:hover:not(.active) {
+//                         border-bottom: 1px solid grey;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     .tab-content {
+//         padding: 20px;
+//         border: 1px solid grey;
+//         font-size: 13px;
+//         border-top: 0;
+//     }
+//     &.is-header {
+//         >.tab-content {
+//             padding: 0;
+//             border: 0;
+//         }
+//     }
+//     &.header-mb-20 {
+//         >.nav-tabs {
+//             margin-bottom: 20px;
+//         }
+//     }
+//     &.header-mt-20 {
+//         >.nav-tabs {
+//             margin-top: 20px;
+//         }
+//     }
+//     &.small-header {
+//         >.nav-tabs {
+//             li.nav-item {
+//                 a.nav-link {
+//                     padding: 5px 30px;
+//                 }
+//             }
+//         }
+//     }
+//     &.small-content {
+//         >.tab-content {
+//             padding: 10px;
+//         }
+//     }
+//     &.small {
+//         @extend .small-header;
+//         @extend .small-content;
+//     }
+//     &.vertical {
+//         display: flex;
+//         >.nav-tabs {
+//             width: 214px;
+//             border-bottom: none;
+//             >li.nav-item {
+//                 margin-bottom: 0;
+//                 width: 100%;
+//                 >a.nav-link {
+//                     padding: 10px 10px;
+//                     border: 1px solid grey;
+//                     border-bottom: none;
+//                     margin-right: -1px;
+//                     border-right: 0;
+//                     &.active {
+//                         border-right-color: transparent;
+//                     }
+//                 }
+//                 &:last-child {
+//                     a.nav-link {
+//                         border-bottom: 1px solid grey;
+//                     }
+//                 }
+//             }
+//         }
+//         .tab-content {
+//             flex: 1;
+//             border: 1px solid grey;
+//             padding: 20px;
+//             margin-left: 1px;
+//         }
+//     }
+//     &.right-side {
+//         >.nav-tabs {
+//             >li.nav-item {
+//                 float: right;
+
+//                     >a.nav-link:hover,
+//                     >a.nav-link.active {
+//                         border-left: 1px solid #e0e0e0;
+//                     }
+
+//             }
+//         }
+//     } // custom tab
+//     &.cats-list-header {
+//         >.nav-tabs {
+//             >li {
+//                 border: none !important;
+//                 >a {
+//                     padding: 0 !important;
+//                 }
+//             }
+//         }
+//     }
+// }

@@ -1,0 +1,90 @@
+<div class="universal-parts" *ngIf="trees !== undefined">
+    <ng-container *ngIf="trees?.length > 0; else showWarningRef">
+        <div class="row m-0 pb-3">
+            <div class="result first">
+                <connect-uni-tree [(uniTrees)]="trees" [(treeId)]="treeId" (treeIdChange)="updateTree($event)" [userDetailSetting]="userDetailSetting"></connect-uni-tree>
+            </div>
+        </div>
+
+        <ng-container *ngIf="breadcrumbs?.length > 0">
+            <div class="row m-0 pb-3 wsp-breadcrumb-wrapper">
+                <div>
+                    <a href="javascript:void(0)" class="wsp-breadcrumb active" (click)="onRootBreadcrumb()">
+                        <span>{{categoryLabel}}</span>
+                    </a>
+                    <i class="mx-2 fa fa-angle-right"></i>
+                </div>
+                <ng-container *ngFor="let breadcrumb of breadcrumbs">
+                    <div>
+                        <a href="javascript:void(0)" class="wsp-breadcrumb active"
+                            [class.highlight]="!genArtTextUsedForBreadcrumb && breadcrumb.isLeaf"
+                            (click)="onClickBreadcrumd(breadcrumb)">
+                            <span>{{breadcrumb.nodeName}}</span>
+                        </a>
+                        <ng-container *ngIf="!breadcrumb.isLeaf">
+                            <i class="mx-2 fa fa-angle-right"></i>
+                        </ng-container>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="genArtTextUsedForBreadcrumb">
+                    <div>
+                        <i class="mx-2 fa fa-angle-right"></i>
+                        <a href="javascript:void(0)" class="wsp-breadcrumb active highlight"
+                            (click)="onClickGenartBreadcrumb()">
+                            <span>{{genArtTextUsedForBreadcrumb}}</span>
+                        </a>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <div class="row">
+            <div class="filtering">
+                <sag-custom-favorite-list (onSelectItemEmit)="onSelectFavoriteItem($event)"></sag-custom-favorite-list>
+                <sag-article-list-category-tree
+                    [vehicleData]="null"
+                    [isSingleLink]="true"
+                    [categoryLabel]="categoryLabel"
+                    [treeId]="treeId"
+                    [userDetailSetting]="userDetailSetting"
+                    [searchProductCategory]="true"
+                    [hasResetFilter]="false"
+                    [hideSearchBox]="false"
+                    (handleCategorySearch)="handleCategorySearch($event)"
+                    (listCategoryTreeItemRendered)="handleFocusedNodeWhenJumpFromAnotherTree($event)">
+                </sag-article-list-category-tree>
+            </div>
+            <div class="result article-list">
+                <div class="content wsp-content">
+                    <sag-common-message *ngIf="error" type="ERROR" [message]="error"></sag-common-message>
+                    <ng-container *ngIf="isReady">
+                        <ng-container *ngIf="viewMode === VIEW_MODE.tile">
+                            <ng-container [ngSwitch]="tileMode">
+                                <ng-container *ngSwitchCase="TILE_MODE.NODE_MODE">
+                                    <connect-tile-list [tileMode]="tileMode" [items]="tiles" [nodeId]="nodeId" [treeId]="treeId" (selectLinkEmit)="selectLink($event)" *ngIf="tiles"></connect-tile-list>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="TILE_MODE.GENART_MODE">
+                                    <connect-tile-list [tileMode]="tileMode" [genArts]="genArts" (selectBrandsEmit)="onBrandSelected($event)"></connect-tile-list>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+
+                        <ng-container *ngIf="viewMode === VIEW_MODE.article || viewMode === VIEW_MODE.favoriteArticle">
+                            <connect-wsp-article-list [viewMode]="viewMode" [favoriteArticle]="currentFavoriteArticle" [genArts]="genArts"
+                                [categoryLabel]="categoryLabel" [breadcrumbs]="breadcrumbs" [currentTreeActive]="currentTreeActive"
+                                (onBrandFilterStateChange)="onBrandFilterStateChange($event)"
+                                (onBarFilterStateChange)="onBarFilterStateChange($event)" (rootHeaderClick)="rootHeaderClick()"
+                                (onLoadMore)="onLoadMore($event)"></connect-wsp-article-list>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #showWarningRef>
+    <sag-common-message message="ERROR_MESSAGE.SYSTEM_ERROR" type="WARNING">
+    </sag-common-message>
+</ng-template>
+

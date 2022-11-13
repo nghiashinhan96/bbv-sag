@@ -1,0 +1,47 @@
+<div class="py-3">
+    <div class="header">
+        <a (click)="isShow = !isShow" href="javascript:void(0)">
+            <i class="fa" 
+                [ngClass]="isShow ? 'fa-caret-down' : 'fa-caret-up'"
+                [class.fa-caret-up]="!gtNonMatchedOperations"
+                [class.fa-caret-down]="gtNonMatchedOperations && gtNonMatchedOperations.length"
+                aria-hidden="true"></i>
+                {{'GT_MORE_INFO.MANUFACTURER_PARTS' | translate}}
+        </a>
+    </div>
+    <div class="collapse mt-3" [class.show]="isShow && gtNonMatchedOperations && gtNonMatchedOperations.length > 0">
+        <div class="d-flex justify-content-between">
+             <span *ngIf="normauto">
+                <div class="intro">
+                    {{'GT_MORE_INFO.TITLE_NORMAUTO' | translate}}
+                </div>
+            </span>
+            <span *ngIf="!normauto">
+                <div class="intro">
+                    {{'GT_MORE_INFO.TITLE' | translate}}
+                </div>
+            </span>
+            <span *ngIf="normauto">
+                <img alt="normauto" class="brand" src="assets/images/normauto.png">
+            </span>
+        </div>
+        <table *ngIf='gtNonMatchedOperations && gtNonMatchedOperations.length > 0' class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="border-top-0">{{'GT_MORE_INFO.DESCRIPTION_HEADER' | translate}}</th>
+                    <th class="border-top-0">{{'GT_MORE_INFO.OE_NUMBER_HEADER' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let operation of gtNonMatchedOperations">
+                    <td>{{operation.partDescription}}</td>
+                    <td>{{operation.reference}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="normauto" class="d-flex justify-content-between align-items-center">
+            <span class="">{{'GT_MORE_INFO.NORMAUTO_INTRODUCE' | translate}}</span>
+            <button class="btn btn-primary" (click)="sendOfferOrderToNormauto()">{{'GT_MORE_INFO.SEND_OFFER_ORDER' | translate}}</button>
+        </div>
+    </div>
+</div>

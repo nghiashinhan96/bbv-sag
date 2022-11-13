@@ -1,0 +1,35 @@
+spring.profiles: incentive-prod
+incentive:
+  happy-bonus:
+    url: http://happybonus.ch?token=%s
+    access-point-key: dch
+    session-timeout-ms: 3600000
+  big-points:
+    url: https://shop.connexservice.com/login.php?id=662&user=%s&secure=%s
+    secure-key: FAF908C0655C927FA22A1873819D0E2B65DCB3BA
+    shop-value: 662
+    hash-encrypt: SHA-1
+  at-happy-points:
+    url: https://shop.connexservice.com/login.php?id=503&user=%s&secure=%s
+    secure-key: 9b215832c3905f8c031f0b0d35363193a0e7b1c3
+    shop-value: 503
+    hash-encrypt: SHA-1
+  ch-happy-points:
+    token-url: https://api.connexservice.com/auth/v1/token
+    auth-url: https://api.connexservice.com/loyalty/v1/users/auth_token/%s
+    secure-key: xLHI94mOpoXc2jPG03r8M4211Q4IKStrvGM5Hvnz
+    shop-value: 460
+  miles-points:
+    url: https://shop.connexservice.com/login.php?user=%s&shop=45&hash=%s
+    secure-key: A34CD799D234DA83988440B323B90C55
+    shop-value: 45
+    hash-encrypt: MD5
+  techno-outlet:
+    url: http://liqshop.technomag.ch/
+    secure-key: h2U9xhdF78ao0
+  ddch-outlet:
+    url: http://liqshop.derendinger.ch/
+    secure-key: h2U9xhdF78ao0
+  training:
+    company-password: 7BbyfJH9S8q6T8GP@#$
+    hash-encrypt: SHA-1

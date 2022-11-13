@@ -1,0 +1,36 @@
+spring.profiles: country-ax-cz
+
+country:
+  code: cz
+  supported_iso3_countries:
+    - AUT
+    - CHE
+  hashtype: BLCK_VAR
+  languages:
+    - CS
+    - EN
+    - DE
+  exclude_countries:
+  attached_article:
+    depot: true
+    recycle: false
+    vrg: true
+    voc: true
+  config:
+    erp-type: DYNAMIC_AX
+    user-loader-mode: ESHOP
+    enable-shopping-cart-map-store: true
+    enable-local-stock-availability-preferring: true    
+    enable-price-discount-promotion: true
+    es-external-article-service: default
+    category-converter: default
+    oauth2-external-authenticator: default
+    currency: Kč
+    default-language: cs
+    register-customer-user-setting:
+      customer-setting: 
+        session-timeout-seconds: 14400
+        net-price-view: true
+        net-price-confirm: true
+      user-setting: 
+        language: cs

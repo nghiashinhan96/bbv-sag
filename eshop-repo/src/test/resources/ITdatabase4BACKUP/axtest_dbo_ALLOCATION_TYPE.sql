@@ -1,0 +1,2 @@
+INSERT INTO axtest.dbo.ALLOCATION_TYPE (TYPE, DESC_CODE, DESCRIPTION, descCode) VALUES ('Verrechnung gemäss Vereinbarung', 'ALLOCATION_TYPE1', 'Verrechnung gemäss Vereinbarung', null);
+INSERT INTO axtest.dbo.ALLOCATION_TYPE (TYPE, DESC_CODE, DESCRIPTION, descCode) VALUES ('Verrechnung als Einzelfaktura', 'ALLOCATION_TYPE2', 'Verrechnung als Einzelfaktura', null);

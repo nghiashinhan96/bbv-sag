@@ -1,0 +1,82 @@
+connect-delivery-profile-list {
+    .delivery-row {
+        background: $light-grey;
+        border-bottom: 5px solid $text-color-inversed;
+        border-top: 5px solid $text-color-inversed;
+        font-size: 1.1rem;
+        .tcol {
+            .profile-edit {
+                text-align: right;
+                font-size: 1.5rem;
+                .fa {
+                    margin-left: 10px;
+                    cursor: pointer;
+                    color: $secondary;
+                }
+
+                .fa.fa-caret-down,
+                .fa.fa-caret-up {
+                    font-size: 2.2rem;
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    .connect-assign-tour-list {
+        .add-tour {
+            text-align: right;
+            cursor: pointer;
+        }
+
+        .tour-row {
+            background: $text-color-inversed;
+            border-bottom: 2px solid $primary-mtk;
+            font-size: 1.1rem;
+
+            .tcol {
+                .tour-edit {
+                    text-align: right;
+                    font-size: 1.5rem;
+                    .fa {
+                        color: $secondary;
+                        margin-left: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+connect-delivery-profile-edit-modal {
+    .time-picker-containter {
+        .time-picker-content {
+            width: 91%;
+        }
+    }
+}
+
+connect-opening-time {
+    .branch-edit {
+        font-size: 18px;
+        color: #777;
+
+        .fa {
+            margin: 0 5px;
+            cursor: pointer;
+
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}
+
+connect-opening-time-delete-modal {
+    .fa-exclamation-triangle {
+        margin-right: 10px;
+        color: #f36666;
+        font-size: 32px;
+    }
+}

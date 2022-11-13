@@ -1,0 +1,84 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        {{ 'BASKET_HISTORY.EXPORT_SHOPPING_BASKET' | translate}}
+    </h4>
+    <a href="javascript:void(0)" (click)="modelRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <div class="mb-4" *ngIf="errorMessage">
+        <sag-common-message [data]="errorMessage"></sag-common-message>
+    </div>
+    <div class="messages mb-4">{{'SHOPPING_BASKET.MESSAGES'| translate}}</div>
+    <div class="nav flex-wrap justify-content-center btn-row">
+        <ng-container *ngIf="isCZ || isSB; else defaultRef">
+            <sag-common-save-button
+                text="SHOPPING_BASKET.CSV_FILE"
+                icon="fa-file-o"
+                css="btn-primary min-width-auto btn-csv"
+                (save)="exportCSVFile($event)">
+            </sag-common-save-button>
+
+            <sag-common-save-button
+                text="SHOPPING_BASKET.EXCEL_FILE"
+                icon="fa-file-excel-o"
+                css="btn-primary min-width-auto btn-excel"
+                (save)="exportExcelFile($event)">
+            </sag-common-save-button>
+
+            <sag-common-save-button
+                text="SHOPPING_BASKET.WORD_FILE"
+                icon="fa-file-word-o"
+                css="btn-primary min-width-auto"
+                (save)="exportMSWordFile($event)">
+            </sag-common-save-button>
+        </ng-container>
+
+        <ng-template #defaultRef>
+            <sag-common-dropdown-button
+                [items]="exportOptions"
+                text="SHOPPING_BASKET.CSV_FILE"
+                icon="fa-file-o"
+                css="btn-primary min-width-auto btn-csv"
+                (selected)="exportCSVFile($event)">
+            </sag-common-dropdown-button>
+            <sag-common-dropdown-button
+                [items]="exportOptions"
+                text="SHOPPING_BASKET.EXCEL_FILE"
+                icon="fa-file-excel-o"
+                css="btn-primary min-width-auto btn-excel"
+                (selected)="exportExcelFile($event)">
+            </sag-common-dropdown-button>
+            <sag-common-dropdown-button
+                [items]="exportOptions"
+                text="SHOPPING_BASKET.WORD_FILE"
+                icon="fa-file-word-o"
+                css="btn-primary min-width-auto"
+                (selected)="exportMSWordFile($event)">
+            </sag-common-dropdown-button>
+        </ng-template>
+    </div>
+    <div class="nav flex-wrap justify-content-center">
+        <sag-common-save-button
+            text="SHOPPING_BASKET.ARTICLE_LIST_EXPORT"
+            icon="fa-file-o"
+            css="btn-secondary btn-csv"
+            (save)="exportShortCsvFile($event)">
+        </sag-common-save-button>
+        <sag-common-save-button
+            text="SHOPPING_BASKET.ARTICLE_LIST_EXPORT"
+            icon="fa-file-excel-o"
+            css="btn-excel"
+            (save)="exportShortExcelFile($event)">
+        </sag-common-save-button>
+        <div class="export-basket-file">
+            <sag-common-dropdown-button
+                *ngIf="userService?.userDetail?.isSalesOnBeHalf"
+                [items]="formatTypeBasketExport"
+                text="SHOPPING_BASKET.BASKET_FILE"
+                icon="fa-file-word-o"
+                css="btn-primary min-width-auto"
+                (selected)="exportBasketFile($event)">
+            </sag-common-dropdown-button>
+        </div>
+    </div>
+</div>

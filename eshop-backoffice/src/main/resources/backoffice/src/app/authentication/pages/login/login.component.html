@@ -1,0 +1,23 @@
+<section class="login-page">
+    <div class="wrapper d-flex align-items-center justify-content-center">
+        <div class="card">
+            <div class="card-header bg-white text-center border-bottom-0 pt-4 pb-0">
+                <img class="logo" src="assets/images/sag-logo.jpg" alt="SAG">
+            </div>
+            <div class="card-body py-4">
+                <backoffice-login-form *ngIf="mode === 'login'" (submitLogin)="submitLogin($event)"></backoffice-login-form>
+                <backoffice-forgot-password-form *ngIf="mode === 'forgot'" (resetPassword)="resetPassword($event)"></backoffice-forgot-password-form>
+            </div>
+            <div class="card-footer p-0 border-top-0">
+                <button *ngIf="mode === 'login'" type="button" class="btn btn-light btn-block bg-transparent"
+                    (click)="mode = 'forgot'">
+                    <strong>{{'LOGIN.LABEL.FORGOT_PASSWORD' | translate}}</strong>
+                </button>
+                <button *ngIf="mode === 'forgot'" type="button" class="btn btn-light btn-block bg-transparent"
+                    (click)="mode = 'login'">
+                    <strong>{{'LOGIN.LABEL.BACK_TO_LOGIN' | translate}}</strong>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

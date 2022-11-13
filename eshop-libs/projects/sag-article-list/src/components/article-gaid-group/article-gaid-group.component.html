@@ -1,0 +1,114 @@
+<div class="cate-group">
+    <div class="cate-group-header" *ngIf="!pseudo">
+        <div class="cate-group-header--name">
+            <ng-container *ngIf="!isBrandFilterEnable">
+                <span>{{groupName}}</span>
+                <span class="separator ml-2 py-3" *ngIf="totalSelectedBrands > 0"></span>
+                <ng-container *ngFor="let brand of brands">
+                    <a href="javascript:void(0)" class="badge badge-pill badge-secondary my-1" *ngIf="brand.checked"
+                        (click)="deselectBrand(brand)">
+                        <span>{{ brand.name }}</span>
+                        <i class="fa fa-times ml-2 mr-0"></i>
+                    </a>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="isBrandFilterEnable">
+                <ng-container *ngTemplateOutlet="brandFilter"></ng-container>
+            </ng-container>
+        </div>
+        <ng-container *ngIf="hasLiquidation">
+            <div class="car-animation">
+                <img src="assets/images/gif/moving-car.gif" alt="" class="car">
+                <a role="button" (click)="showAllLiquidation()" href="javascript:void(0)" class="liquidation">
+                    {{'SEARCH_RESULT.LIQUIDATION'| translate}}
+                    <i class="fa" [ngClass]="isShownliquidation ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                </a>
+            </div>
+        </ng-container>
+    </div>
+    <ng-container *ngIf="isFilterByCaId && !pseudo">
+        <ng-container *ngFor="let barFilterData of barFilterOptions">
+            <ng-container *ngIf="barFilterData.filterBar">
+                <div class="cate-group-header">
+                    <div class="cate-group-header--name d-flex flex-row justify-content-center">
+                        <span class="title">{{barFilterData.name}}</span>
+                        <div class="ml-5">
+                            <div class="form-group row mb-0">
+                                <ng-container *ngFor="let item of barFilterData.options">
+                                    <label class="checkbox mb-0 mr-4" for="barfilter-{{item.cvp}}">
+                                        <input type="checkbox" [(ngModel)]="item.checked"
+                                            (ngModelChange)="selectBarOption($event, item)" id="barfilter-{{item.cvp}}">
+                                        <span [innerHTML]="item.cvp"></span>
+                                        <span *ngIf="barFilterData.filterUom">({{barFilterData.filterUom}})</span>
+                                    </label>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+    <sag-common-message *ngIf="gaidGroups?.length === 0" type="ERROR" message="SEARCH.ERROR_MESSAGE.NOT_FOUND">
+    </sag-common-message>
+    <ng-container *ngFor="let g of gaidGroups; trackBy: trackByGaIdFn; let i= index">
+        <sag-article-list-group [group]="g" [articleMode]="articleMode" [userSetting]="userSetting" [vehicle]="vehicle"
+            [specialInfoTemplateRef]="specialInfoTemplateRef" [memosTemplateRef]="memosTemplateRef"
+            [customAvailTemplateRef]="customAvailTemplateRef"
+            [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+            [priceTemplateRef]="priceTemplateRef" [totalPriceTemplateRef]="totalPriceTemplateRef"
+            [showLiquidationObserve]="liquidationSub.asObservable()"
+            (hasLiquidationEmiter)="checkHasHeadeLiquidation($event)"
+            [(totalGroupGaIDShowNoAvailMsg)]="totalGroupGaIDShowNoAvailMsg" [indexGroup]="i"
+            [totalGroups]="gaidGroups.length" [isGroupByGaId]="true" [brandsData]="groupBrandsData[g.key]"
+            (brandsItemsChange)="onBrandsItemsChange($event)" [sortArticle]="sortArticle"
+            [articleListType]="articleListType" [moreArticles]="moreArticles"
+            [rootModalName]="rootModalName"
+            (sendArticleResultData)="sendArticleResultData.emit($event)"
+            (sendArticlesGaData)="sendArticlesGaData.emit($event)"
+            (barFilterItemsChange)="barFilterItemsChange.emit($event)" [barFilterOption]="barFilterOptions[0]"
+            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+            (onShowPartsListEmitter)="onShowPartsList($event)"
+            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+            (popoversChanged)="popoversChanged.emit($event)">
+        </sag-article-list-group>
+    </ng-container>
+    <div *ngIf="hasMoreArticles" class="d-flex justify-content-center m-3">
+        <sag-common-save-button (save)="showMoreArticles($event)" text="SEARCH_RESULT.LOAD_MORE">
+        </sag-common-save-button>
+    </div>
+</div>
+
+<ng-template #brandFilter>
+    <a class="btn-icon" href="javascript:void(0)" [popover]="filterRef" [placement]="'bottom'" #pop="bs-popover"
+        triggers="click" containerClass="brand-filter-popover" [adaptivePosition]="false"><i
+            class="fa fa-filter"></i></a>
+    <span class="title">{{groupName}}</span>
+    <span class="separator ml-2 py-3" *ngIf="totalSelectedBrands > 0"></span>
+    <div>
+        <ng-container *ngFor="let brand of brands">
+            <a href="javascript:void(0)" class="badge badge-pill badge-secondary my-1" *ngIf="brand.checked"
+                (click)="deselectBrand(brand)">
+                <span>{{ brand.name }}</span>
+                <i class="fa fa-times ml-2 mr-0"></i>
+            </a>
+        </ng-container>
+        <a href="javascript:void(0)" *ngIf="totalSelectedBrands > 1" (click)="deselectAllBrands()"
+            class="my-1 ml-2 text-nowrap">
+            {{ 'ARTICLE_FILTER.RESET' | translate }}
+        </a>
+    </div>
+</ng-template>
+<ng-template #filterRef>
+    <sag-article-list-brand-filter [brandsData]="groupBrandsData[groupName]"
+        (brandsStateChange)="onBrandsStateChange($event)" (close)="closeBrandFilterPopover()"
+        [isFilterByCaId]="isFilterByCaId" [barFilterOptionData]="barFilterOptions"
+        (barFilterStateChange)="onBarFilterFromPopupChange($event)">
+    </sag-article-list-brand-filter>
+</ng-template>
+
+
+<ng-template #barFilter>
+
+</ng-template>

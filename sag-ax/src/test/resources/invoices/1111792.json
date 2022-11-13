@@ -1,0 +1,167 @@
+[
+  {
+    "invoiceNr": "3000331501",
+    "invoiceDate": "2018-12-06T12:00:00Z",
+    "name": "KFZ - Richter GmbH",
+    "customerNr": "1111792",
+    "zipcode": "4050",
+    "city": "Traun",
+    "country": "Österreich",
+    "termOfPayment": "Bar",
+    "amount": 16.68,
+    "paymentType": "Bar",
+    "positions": [
+      {
+        "articleId": "1000376922",
+        "quantity": 1,
+        "orderNr": "AU3010974956",
+        "invoiceNr": "3000331501",
+        "deliveryNoteNr": "",
+        "amount": 13.9,
+        "sequence": 1
+      }
+    ],
+    "simpleMode": true
+  },
+  {
+    "invoiceNr": "3000331481",
+    "invoiceDate": "2018-12-06T12:00:00Z",
+    "name": "KFZ - Richter GmbH",
+    "customerNr": "1111792",
+    "zipcode": "4050",
+    "city": "Traun",
+    "country": "Österreich",
+    "termOfPayment": "Bar",
+    "amount": 16.68,
+    "paymentType": "Bar",
+    "positions": [
+      {
+        "articleId": "1000376922",
+        "quantity": 1,
+        "orderNr": "AU3010974926",
+        "invoiceNr": "3000331481",
+        "deliveryNoteNr": "",
+        "amount": 13.9,
+        "sequence": 1
+      }
+    ],
+    "simpleMode": true
+  },
+  {
+    "invoiceNr": "3000331437",
+    "invoiceDate": "2018-12-05T12:00:00Z",
+    "name": "KFZ - Richter GmbH",
+    "customerNr": "1111792",
+    "zipcode": "4050",
+    "city": "Traun",
+    "country": "Österreich",
+    "termOfPayment": "30T",
+    "amount": 77.32,
+    "paymentType": "Selbstzahl",
+    "positions": [
+      {
+        "articleId": "1000055887",
+        "quantity": 1,
+        "orderNr": "AU3010974823",
+        "invoiceNr": "3000331437",
+        "deliveryNoteNr": "LS3010670634",
+        "amount": 2.13,
+        "sequence": 1
+      },
+      {
+        "articleId": "1001245412",
+        "quantity": 1,
+        "orderNr": "AU3010974823",
+        "invoiceNr": "3000331437",
+        "deliveryNoteNr": "LS3010670634",
+        "amount": 33.27,
+        "sequence": 2
+      }
+    ],
+    "simpleMode": true
+  },
+  {
+    "invoiceNr": "3000331376",
+    "invoiceDate": "2018-12-05T12:00:00Z",
+    "name": "KFZ - Richter GmbH",
+    "customerNr": "1111792",
+    "zipcode": "4050",
+    "city": "Traun",
+    "country": "Österreich",
+    "termOfPayment": "30T",
+    "amount": 56.43,
+    "paymentType": "Selbstzahl",
+    "positions": [
+      {
+        "articleId": "1000236538",
+        "quantity": 1,
+        "orderNr": "AU3010974514",
+        "invoiceNr": "3000331376",
+        "deliveryNoteNr": "LS3010670605",
+        "amount": 34.91,
+        "sequence": 1
+      },
+      {
+        "articleId": "1000929868",
+        "quantity": 1,
+        "orderNr": "AU3010974514",
+        "invoiceNr": "3000331376",
+        "deliveryNoteNr": "LS3010670605",
+        "amount": 12.12,
+        "sequence": 2
+      }
+    ],
+    "simpleMode": true
+  },
+  {
+    "invoiceNr": "3000331375",
+    "invoiceDate": "2018-12-05T12:00:00Z",
+    "name": "KFZ - Richter GmbH",
+    "customerNr": "1111792",
+    "zipcode": "4050",
+    "city": "Traun",
+    "country": "Österreich",
+    "termOfPayment": "30T",
+    "amount": 175.95,
+    "paymentType": "Selbstzahl",
+    "positions": [
+      {
+        "articleId": "1000055887",
+        "quantity": 1,
+        "orderNr": "AU3010974516",
+        "invoiceNr": "3000331375",
+        "deliveryNoteNr": "LS3010670604",
+        "amount": 2.13,
+        "sequence": 1
+      },
+      {
+        "articleId": "1000995044",
+        "quantity": 1,
+        "orderNr": "AU3010974516",
+        "invoiceNr": "3000331375",
+        "deliveryNoteNr": "LS3010670604",
+        "amount": 57.75,
+        "sequence": 2
+      },
+      {
+        "articleId": "1000320774",
+        "quantity": 1,
+        "orderNr": "AU3010974516",
+        "invoiceNr": "3000331375",
+        "deliveryNoteNr": "LS3010670604",
+        "amount": 31.4,
+        "sequence": 3
+      },
+      {
+        "articleId": "1001206362",
+        "quantity": 1,
+        "orderNr": "AU3010974516",
+        "invoiceNr": "3000331375",
+        "deliveryNoteNr": "LS3010670604",
+        "amount": 55.34,
+        "sequence": 4
+      }
+    ],
+    "simpleMode": true
+  }
+]

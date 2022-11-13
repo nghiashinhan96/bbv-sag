@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<style type="text/css">
+	    .block-content {
+	        margin-top:15px;
+	        margin-bottom:15px;
+	    }
+	</style>
+</head>
+<body>
+	<!-- header -->
+	<div>
+			<p th:text="#{mail.sales.confirm.feedback.welcome}"></p>
+			<p th:text="#{mail.sales.confirm.feedback.header}"></p>
+	</div>
+
+	<!-- topic -->
+	<div th:if="${data.topic != null}" class="block-content">
+			<div th:text="${data.topic.title}" style="font-weight: bold" ></div>
+			<div th:utext="${data.topic.topic}"></div>
+	</div>
+	
+	<!-- message -->
+	<div  th:if="${data.message != null}" class="block-content">
+			<div th:text="${data.message.title}" style="font-weight: bold"></div>
+			<div th:text="${data.message.content}"></div>
+	</div>
+	
+	<!-- sales info -->
+	<div th:if="${data.salesInfo != null}" class="block-content">
+			<div th:text="${data.salesInfo.title}" style="font-weight: bold" ></div>
+			<div th:utext="${data.salesInfo.content}"></div>
+	</div>
+	
+	<!-- source -->
+	<div  th:if="${data.source != null}" class="block-content">
+			<div th:text="${data.source.title}" style="font-weight: bold"></div>
+			<div th:text="${data.source.source}"></div>
+	</div>
+
+	<!-- user data -->
+	<div th:if="${data.userData != null}" class="block-content">
+			<div th:text="${data.userData.title}" style="font-weight: bold" ></div>
+			<div th:utext="${data.userData.content}"></div>
+	</div>
+
+	<!-- technical data -->
+	<div th:if="${data.technicalData != null}" class="block-content">
+			<div th:text="${data.technicalData.title}" style="font-weight: bold"></div>
+			<div th:utext="${data.technicalData.content}">
+			</div>
+	</div>
+	
+	<div class="block-content">
+		<div th:text="#{mail.sales.confirm.feedback.kind_regard}"></div>
+		<div th:text="#{mail.sales.confirm.feedback.team}"></div>
+	</div>
+</body>
+</html>

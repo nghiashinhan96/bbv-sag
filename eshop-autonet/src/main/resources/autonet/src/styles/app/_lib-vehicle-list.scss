@@ -1,0 +1,207 @@
+.vehicle-list {
+    table {
+        margin-bottom: 0;
+        position: relative;
+
+
+        tr {
+            td.tcol {
+                padding: 0 0.6rem;
+                border-left: none;
+                border-right: none;
+                height: 100%;
+            }
+
+            td.name,
+            th.name {
+                width: 275px;
+                min-width: 275px;
+                position: relative;
+
+                .tooltip-btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    font-size: 1.3rem;
+                    color: $grey;
+                    z-index: 9;
+                    padding: 0.5rem 6px;
+                    display: flex;
+                    align-items: center;
+                    height: 42px;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    width: 180px;
+                    min-width: 180px;
+                }
+
+                @media (min-width: 1340px) {
+                    width: 300px;
+                    min-width: 300px;
+                }
+
+                @media (min-width: 1480px) {
+                    width: 400px;
+                    min-width: 400px;
+                }
+
+                @media (min-width: 1600px) {
+                    width: 500px;
+                    min-width: 500px;
+                }
+            }
+
+            th.year {
+                width: 135px;
+                min-width: 135px;
+            }
+
+            td.year {
+                width: 135px;
+                min-width: 135px;
+                text-align: left;
+            }
+
+            td.body,
+            th.body {
+                width: 100px;
+                min-width: 100px;
+            }
+
+            td.fuel,
+            th.fuel {
+                width: 100px;
+                min-width: 100px;
+            }
+
+            td.cylinder,
+            th.cylinder {
+                width: 90px;
+                min-width: 90px;
+            }
+
+            td.engine,
+            th.engine {
+                width: 90px;
+                min-width: 90px;
+            }
+
+            td.moto-code,
+            th.moto-code {
+                width: 90px;
+                min-width: 90px;
+            }
+
+            td.kw,
+            th.kw {
+                width: 90px;
+                min-width: 90px;
+            }
+
+            td.valves,
+            th.valves {
+                width: 90px;
+                min-width: 90px;
+            }
+
+            td.drive,
+            th.drive {
+                flex: 1;
+                min-width: 90px;
+                width: 100%;
+            }
+
+            td.fetch-more {
+                flex: 1;
+                text-align: center;
+            }
+
+            a {
+                color: #333;
+                text-decoration: none;
+
+                &:hover {
+                    color: #015cab;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        thead {
+            tr {
+                display: flex;
+
+                th,
+                td {
+                    display: flex;
+                    align-items: center;
+                    height: 32px;
+                }
+
+                th {
+                    padding: 0rem 0.3rem;
+                    background-color: $primary;
+                    color: $white;
+                    border-bottom: 0;
+
+                    vertical-align: middle;
+                    &.sortable {
+                        cursor: pointer;
+                    }
+                }
+
+                td {
+                    height: auto !important;
+                    text-align: left !important;
+                    border-top: 0;
+                    padding: 0.5rem 0 !important;
+                    .input-group,
+                    .ng-select {
+                        padding: 1px 0.6rem 1px 0 !important;
+                        width: inherit;
+                    }
+
+                    &:last-child {
+                        .ng-select {
+                            padding-right: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        tbody {
+            overflow: auto;
+            min-height: 350px;
+            max-height: calc(100vh - 167px);
+            display: block;
+            width: 100%;
+
+            tr {
+                height: $panel-height;
+                display: flex;
+
+                td {
+                    line-height: $panel-height;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .ng-select {
+        max-width: 160px;
+    }
+
+    .btn-group button:first-child {
+        background-color: #333;
+        color: #fff;
+        font-weight: 400;
+        z-index: 1;
+    }
+}

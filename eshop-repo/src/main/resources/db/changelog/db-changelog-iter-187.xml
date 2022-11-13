@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+	<changeSet author="CONNECT_APP" id="ITER_187_INSERT_MISSING_FC_SALUTATION_SETTING">
+		<sql>
+			INSERT INTO FINAL_CUSTOMER_PROPERTY (ORG_ID, SETTING_KEY, VALUE)
+			select DISTINCT(ORG_ID), 'SALUTATION', 'GENERAL_SALUTATION_COMPANY' from FINAL_CUSTOMER_PROPERTY
+			where ORG_ID not in (select f.ORG_ID from FINAL_CUSTOMER_PROPERTY f where f.SETTING_KEY='SALUTATION')
+		</sql>
+	</changeSet>
+
+	<changeSet author="CONNECT_APP" id="ITER_187_DISABLE_FC_HAYNES_PRO_SETTING">
+		<sql>
+			DECLARE @haynesProPerm INT = (SELECT ID FROM ESHOP_PERMISSION WHERE PERMISSION ='HAYNESPRO')
+			DECLARE @finalCustomerOrg INT = (SELECT ID FROM ORGANISATION_TYPE WHERE NAME ='FINAL_CUSTOMER')
+
+			UPDATE GROUP_PERMISSION SET ALLOWED=0 WHERE PERM_ID=@haynesProPerm AND GROUP_ID IN
+			(SELECT GROUP_ID FROM ORGANISATION_GROUP WHERE ORGANISATION_ID IN
+			(SELECT ID FROM ORGANISATION WHERE ORGTYPE_ID = @finalCustomerOrg))
+		</sql>
+	</changeSet>
+
+</databaseChangeLog>

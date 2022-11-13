@@ -1,0 +1,13 @@
+spring.profiles: source-es-umbprod
+spring:
+  data:
+    elasticsearch:
+      host: sag-prd-ces-020.sag.services
+      port: 9300
+      cluster-nodes: sag-prd-ces-020.sag.services:9300
+      cluster-name: connect_prd_umb
+      properties:
+        http.enabled: true
+      repositories:
+        enabled: true
+        

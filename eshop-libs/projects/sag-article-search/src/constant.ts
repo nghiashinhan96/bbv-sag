@@ -1,0 +1,13 @@
+export const LIB_VEHICLE_SEARCH_FREETEXT = 'lib-free-text';
+export const LIB_VEHICLE_SEARCH_DESC_YEAR = 'lib-vehicle-desc-and-year';
+export const LIB_VEHICLE_SEARCH_VIN = 'lib-vin';
+export const LIB_VEHICLE_SEARCH_MAKE_MODEL_TYPE = 'lib-vehicle-make-model-type';
+export const LIB_VEHICLE_MOTO_SEARCH_MAKE_MODEL = 'lib-vehicle-moto-make-model';
+export const LIB_VEHICLE_SEARCH_VIN_LENGTH = 17;
+export const LIB_VEHICLE_DEFAULT_PAGE_SIZE = 10;
+export const LIB_VEHICLE_ARTICLE_NUMBER_SEARCH = 'lib-vehicle-article-number-search';
+export const LIB_VEHICLE_ARTICLE_DESCRIPTION_SEARCH = 'lib-vehicle-article-description-search';
+export const LIB_VEHICLE_VIN_10_NAME = 'VIN-10';
+export const LIB_VEHICLE_VIN_20_NAME = 'VIN-20';
+export const MAKE_MODEL_TYPE_CARS_HISTORY = 'make-model-type-cars-history';
+export const MAKE_MODEL_TYPE_MOTO_HISTORY = 'make-model-type-moto-history';

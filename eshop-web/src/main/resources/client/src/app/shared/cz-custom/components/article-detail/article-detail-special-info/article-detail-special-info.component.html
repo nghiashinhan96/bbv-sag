@@ -1,0 +1,73 @@
+<div *ngIf="nonReturnableMemo" class="non-returnable-item">
+    {{ 'ARTICLE.MEMO.NONRETURNABLEITEM_LONG_TEXT' | translate }}
+</div>
+<ng-container *ngIf="!isFgasAndDepositNewFlow;else fgasAndDepositNewFlowTemplate">
+    <div *ngIf="article?.depositArticle && !isShoppingCart" class="deposit-item">
+        {{'ARTICLE.DEPOSIT' | translate}}: {{ article.depositArticle.price?.price?.grossPrice | sagCurrency }} {{ article.depositArticle.price?.price?.currency}}
+    </div>
+    <div *ngIf="fgasMemo" class="fgas-item">
+        {{ fgasMemo.text }}
+    </div>
+</ng-container>
+<ng-template #fgasAndDepositNewFlowTemplate>
+    <ng-container *ngIf="article?.depositArticle && !isShoppingCart">
+        <ng-container [ngTemplateOutlet]="article.depositArticle.getGrossPrice() ? depositTmp : withoutPriceTmp " [ngTemplateOutletContext]="{translateText: 'ARTICLE.DEPOSIT'}">
+        </ng-container>
+        <ng-template #depositTmp>
+            <div class="deposit-item">
+                {{'ARTICLE.DEPOSIT' | translate}}: {{ article.depositArticle.getGrossPrice() | sagCurrency }}
+                <ng-container *ngIf="isShowVat && article.depositArticle.getGrossPriceWithVat()">
+                    ({{article.depositArticle.getGrossPriceWithVat() | sagCurrency}})
+                </ng-container>
+                {{'CURRENCY.' + currency | translate:{defaultOnMissingKey:currency} }}
+            </div>
+        </ng-template>
+    </ng-container>
+    <ng-container *ngIf="article?.vocArticle && !isShoppingCart">
+        <ng-container [ngTemplateOutlet]="article.vocArticle.getGrossPrice() ? vocTmp : withoutPriceTmp " [ngTemplateOutletContext]="{translateText: 'SHOPPING_BASKET.VOC_TEXT'}">
+        </ng-container>
+        <ng-template #vocTmp>
+            <div class="deposit-item">
+                {{'SHOPPING_BASKET.VOC_TEXT' | translate}}: {{ article.vocArticle.getGrossPrice() | sagCurrency }}
+                <ng-container *ngIf="isShowVat && article.vocArticle.getGrossPriceWithVat()">
+                    ({{article.vocArticle.getGrossPriceWithVat() | sagCurrency}})
+                </ng-container>
+                {{'CURRENCY.' + currency | translate:{defaultOnMissingKey:currency} }}
+            </div>
+        </ng-template>
+    </ng-container>
+    <ng-container *ngIf="article?.vrgArticle && !isShoppingCart">
+        <ng-container [ngTemplateOutlet]="article.vrgArticle.getGrossPrice() ? vrgTmp : withoutPriceTmp " [ngTemplateOutletContext]="{translateText: 'SHOPPING_BASKET.VRG_TEXT'}">
+        </ng-container>
+        <ng-template #vrgTmp>
+            <div class="deposit-item">
+                {{'SHOPPING_BASKET.VRG_TEXT' | translate}}: {{ article.vrgArticle.getGrossPrice() | sagCurrency }}
+                <ng-container *ngIf="isShowVat && article.vrgArticle.getGrossPriceWithVat()">
+                    ({{article.vrgArticle.getGrossPriceWithVat() | sagCurrency}})
+                </ng-container>
+                {{'CURRENCY.' + currency | translate:{defaultOnMissingKey:currency} }}
+            </div>
+        </ng-template>
+    </ng-container>
+    <ng-container *ngIf="article?.pfandArticle && !isShoppingCart">
+        <ng-container [ngTemplateOutlet]="article.pfandArticle.getGrossPrice() ? pfandTmp : withoutPriceTmp " [ngTemplateOutletContext]="{translateText: 'SHOPPING_BASKET.PFAND_TEXT'}">
+        </ng-container>
+        <ng-template #pfandTmp>
+            <div class="deposit-item">
+                {{'SHOPPING_BASKET.PFAND_TEXT' | translate}}: {{ article.pfandArticle.getGrossPrice() | sagCurrency }}
+                <ng-container *ngIf="isShowVat && article.pfandArticle.getGrossPriceWithVat()">
+                    ({{article.pfandArticle.getGrossPriceWithVat() | sagCurrency}})
+                </ng-container>
+                {{'CURRENCY.' + currency | translate:{defaultOnMissingKey:currency} }}
+            </div>
+        </ng-template>
+    </ng-container>
+    <div *ngIf="shouldShowFGASItemInfoText" class="fgas-item">
+        {{ 'ARTICLE.CUSTOMER_DOESNT_HAVE_CERTIFICATE' | translate }}
+    </div>
+    <ng-template #withoutPriceTmp let-translateText="translateText">
+        <div class="deposit-item">
+            {{translateText | translate}}: {{'ARTICLE.PRICE.ARTICLE_WITHOUT_PRICE' | translate}}
+        </div>
+    </ng-template>
+</ng-template>

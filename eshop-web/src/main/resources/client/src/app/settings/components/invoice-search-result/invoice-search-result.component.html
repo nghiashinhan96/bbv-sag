@@ -1,0 +1,25 @@
+<div class="mt-4" *ngIf="!!errorMessage">
+    <sag-common-message [message]="errorMessage"></sag-common-message>
+</div>
+
+<ng-template let-row="row" #actions>
+    <div class="d-flex justify-content-around invoice-action">
+        <ng-container *ngIf="!(isShownOldInvoice && isAxCz)">
+            <a (click)="openInvoicePDF($event, row)"><i class="fa fa-file-pdf-o btn-icon"></i></a>
+        </ng-container>
+        <a (click)="openInvoiceOverview($event, row)"><i
+                class="fa fa-search btn-icon"></i></a>
+    </div>
+</ng-template>
+
+<div *ngIf="invoices as list">
+    <sag-table [columns]="columns" [rows]="list.invoiceDetailDtos" [selectable]="!isShownOldInvoice || isAxCz"
+        (selectRow)="openInvoiceDetail($event)" [notFoundText]="'INVOICE.NO_RESULTS_FOUND_MESSAGE'"
+        [firstlySearch]="false">
+    </sag-table>
+</div>
+
+<ng-container *ngIf="detail">
+    <h4 class="mt-20 label-detail">{{'COMMON_LABEL.ARTICLE_OF_ORDER' | translate}}</h4>
+    <connect-invoice-detail [detail]="detail" #invoiceDetailElement></connect-invoice-detail>
+</ng-container>

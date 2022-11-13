@@ -1,0 +1,67 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="CONNECT_APP" id="ITER_120_INSERT_EH_DEFAULT_EMAIL_TO_ORG_COLLECTION_SETTINGS">
+        <sql>
+            INSERT INTO [dbo].[ORG_COLLECTION_SETTINGS] (COLLECTION_ID, SETTING_KEY, SETTING_VALUE)
+            SELECT oc.ID, 'eh_default_email', ocs.SETTING_VALUE FROM ORGANISATION_COLLECTION oc, ORG_COLLECTION_SETTINGS ocs
+            WHERE ocs.COLLECTION_ID = oc.ID AND ocs.SETTING_KEY = 'default_email'
+        </sql>
+    </changeSet>
+
+    <changeSet author="CONNECT_APP" id="ITER_120_EH_DEFAULT_EMAIL_FOR_WBB">
+        <sql>
+            UPDATE [dbo].[ORG_COLLECTION_SETTINGS] SET SETTING_VALUE = 'noreply@automotive.ch'
+            WHERE SETTING_KEY='eh_default_email'
+            AND COLLECTION_ID IN (SELECT oc.ID FROM ORGANISATION_COLLECTION oc JOIN ORGANISATION o on o.ID = oc.AFFILIATE_ID WHERE o.SHORTNAME = 'wbb')
+        </sql>
+    </changeSet>
+    <changeSet author="CONNECT_APP" id="ITER_120_CREATE_ESHOP_GLOBAL_SETTING_TABLE">
+    <sql>
+      CREATE TABLE [dbo].[ESHOP_GLOBAL_SETTING] (
+      [ID] [int] IDENTITY(1,1) NOT NULL,
+      CODE [varchar](50) NOT NULL,
+      DESCRIPTION [varchar](255) NOT NULL,
+      ENABLED [bit] NOT NULL DEFAULT 1,
+      SETTING_TYPE [varchar](50) NOT NULL,
+      CONSTRAINT [PK_ESHOP_GLOBAL_SETTING]
+      PRIMARY
+      KEY CLUSTERED
+      ( [ID] ASC )WITH (PAD_INDEX = OFF,
+      STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY =
+      OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY] );
+    </sql>
+  </changeSet>
+
+  <changeSet author="CONNECT_APP" id="ITER_120_INITIAL_DATA_OF_ESHOP_GLOBAL_SETTING">
+    <sql>
+      INSERT INTO [dbo].[ESHOP_GLOBAL_SETTING] (CODE, DESCRIPTION, ENABLED, SETTING_TYPE)
+      VALUES
+      ('fulltextsearch', '', 1, 'JSON_EVENT'),
+      ('fahrzeugsuche', '', 1, 'JSON_EVENT'),
+      ('teilesuche', '', 1, 'JSON_EVENT'),
+      ('login_page', '', 0, 'JSON_EVENT'),
+      ('tyressearch', '', 0, 'JSON_EVENT'),
+      ('batteriessearch', '', 0, 'JSON_EVENT'),
+      ('blubssearch', '', 0, 'JSON_EVENT'),
+      ('oilsearch', '', 0, 'JSON_EVENT'),
+      ('article_list', '', 0, 'JSON_EVENT'),
+      ('shopping_basket', '', 0, 'JSON_EVENT'),
+      ('coupon', '', 0, 'JSON_EVENT'),
+      ('order', '', 0, 'JSON_EVENT'),
+      ('article_category', '', 0, 'JSON_EVENT'),
+      ('fulltextsearch_return', '', 0, 'JSON_EVENT');
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_120_UPDATE_BULBS_SEARCH">
+    <sql>
+      UPDATE [dbo].[ESHOP_GLOBAL_SETTING] 
+      SET CODE='bulbssearch' 
+      WHERE CODE='blubssearch'
+    </sql>
+  </changeSet>
+</databaseChangeLog>

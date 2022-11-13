@@ -1,0 +1,307 @@
+<div class="connect-shopping-cart">
+    <!-- <ng-template [systemMessages]="'SHOPPING_BASKET_PAGE_1'"></ng-template> -->
+    <sag-common-message message="{{errorMessage}}" type="ERROR" *ngIf="errorMessage">
+    </sag-common-message>
+    <sag-common-message *ngIf="dmsErrorMessage" [data]="dmsErrorMessage">
+    </sag-common-message>
+    <ng-container *ngIf="(shoppingBaketData$ | async) as shoppingBasket">
+        <ng-container *ngIf="shoppingBasket.data.length > 0;else emtyMessage">
+            <div class="nav connect-shopping-cart-actions">
+                <ng-container *ngTemplateOutlet="actionRef; context: {topAction: true}"></ng-container>
+            </div>
+            <ng-container *ngIf="userService?.userDetail?.isSalesOnBeHalf">
+                <connect-customer-info [isShownMemo]="true"></connect-customer-info>
+            </ng-container>
+            <div class="mb-4" *ngIf="userService.userDetail.isSalesOnBeHalf && !userService?.employeeInfo?.id">
+                <sag-common-message message="AX_CONNECTION.SALES_EMPLOYEE_NUMBER_INVALID" type="ERROR">
+                </sag-common-message>
+            </div>
+            <div class="mb-4" *ngIf="kslMessage">
+                <sag-common-message [data]="kslMessage"></sag-common-message>
+            </div>
+            <div class="mb-4" *ngIf="thuleMessage">
+                <sag-common-message [data]="thuleMessage"></sag-common-message>
+            </div>
+            <div class="mb-4" *ngIf="isSB && noQuantityAvailable">
+                <sag-common-message [data]="requestNoAvailInPrimaryLocationMessage"></sag-common-message>
+            </div>
+            <sag-article-list [data]="shoppingBasket.data" [articleListType]="SHOPPING_BASKET"
+                [(articleMode)]="appStorage.articleMode" [userSetting]="userService.userPrice"
+                (currentNetPriceChange)="toggleNetPriceSetting()" (removeArticlesEmitter)="removeArticle($event)"
+                [hasHaynesProFeatures]="hasHaynesProFeatures" (loginHaynesPro)="emitHandleLoginHaynesPro($event)"
+                [(labourTimes)]="labourTimes" (openHaynesProModal)="openHaynesProModal($event)"
+                [linkLoginHaynesPro]="haynesLinkHandleService.linkLoginHaynesPro"
+                (customPriceChange)="onCustomPriceChange($event, shoppingBasket.data)"
+                [currentStateVatConfirm]="currentStateVatConfirm"
+                [specialInfoTemplateRef]="specialInfoTemplateRef"
+                [memosTemplateRef]="memosTemplateRef"
+                [customAvailTemplateRef]="availTemplateRef"
+                [customAvailPopoverContentTemplateRef]="popoverContentTemplateRef"
+                [priceTemplateRef]="priceTemplateRef"
+                [totalPriceTemplateRef]="totalPriceTemplateRef"
+                [isSubBasket]="shoppingBasketService.basketType === SUB_BASKET"
+                (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                (onShowPartsListEmitter)="onShowPartsList($event)"
+                (onShowCrossReferenceEmitter)="onShowCrossReference($event)">
+            </sag-article-list>
+
+            <div class="price-preview mb-4" *sagCommonShowHideByAff="[sb];show:false">
+                <div class="nav justify-content-between sub-total">
+                    <strong>{{'SHOPPING_BASKET.SUB_TOTAL' | translate}}</strong>
+                    <strong class="price-value">
+                        <connect-shopping-order-article-subtotal
+                            [userSetting]="userService.userPrice"
+                            [showVatIcon]="showVatIcon"
+                            (toggleVATEmit)="toggleVAT()"
+                            [isCartStepMode]="true"
+                            [currentStateVatConfirm]="currentStateVatConfirm"
+                            [basketPriceSummary]="basketPriceSummary">
+                        </connect-shopping-order-article-subtotal>
+                    </strong>
+                </div>
+                <div class="nav justify-content-between align-items-end">
+                    <div class="coupon" *ngIf="couponModuleEnabled && !isHideCouponInput">
+                        <div class="coupon-info">
+                            <strong>{{'SHOPPING_BASKET.COUPON_CODE' | translate}}</strong>
+                            <span class="existed-coupon" *ngIf="basketPriceSummary?.existedCouponCode">
+                                {{basketPriceSummary?.existedCouponCode}}
+                                <a class="remove-coupon" href="javascript:void(0)" (click)="removeCoupon()"
+                                    [class.disabled]="isRemovingCoupon">
+                                    <i *ngIf="!isRemovingCoupon" class="fa fa-times"></i>
+                                    <i *ngIf="isRemovingCoupon" class="fa fa-spinner fa-spin"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="coupon-input">
+                            <form [formGroup]="couponForm" class="input-group">
+                                <input class="form-control" formControlName="couponCode">
+                                <div class="input-group-append">
+                                    <sag-common-save-button [icon]="'fa-check'" [text]="''" css="btn-coupon"
+                                        (save)="addCoupon($event)" btnType="submit" [disabled]="couponForm.invalid">
+                                    </sag-common-save-button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="coupon-value">
+                        <strong class="price-value" *ngIf="basketPriceSummary?.discount">{{basketPriceSummary?.discount | sagCurrency}}</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 pr-0">
+                        <sag-common-message [data]="errorCoupon" *ngIf="errorCoupon"></sag-common-message>
+                        <sag-common-message [data]="sucessCoupon" *ngIf="sucessCoupon && !errorCoupon"></sag-common-message>
+                    </div>
+                </div>
+                <div class="nav justify-content-between total-excluded-vat">
+                    <strong>{{'SHOPPING_BASKET.TOTAL_EXCLUDE_VAT' | translate}}</strong>
+                    <strong class="price-value">{{basketPriceSummary?.totalExclVat | sagCurrency}}</strong>
+                </div>
+                <div class="nav justify-content-between mwst">
+                    <strong>{{'SHOPPING_BASKET.MWST' | translate}}</strong>
+                    <strong class="price-value">{{basketPriceSummary?.vatTotal | sagCurrency}}</strong>
+                </div>
+                <div class="nav justify-content-between include-vat">
+                    <strong class="price-label">{{'SHOPPING_BASKET.TOTAL_INCLUDE_VAT' | translate}}</strong>
+                    <strong class="price-value">{{basketPriceSummary?.total | sagCurrency}}</strong>
+                </div>
+            </div>
+            <div class="price-preview mb-4" *sagCommonShowHideByAff="[sb];show:true">
+                <div class="nav justify-content-between include-vat">
+                    <strong class="price-label">{{'SHOPPING_BASKET.TOTAL' | translate}}</strong>
+                    <strong class="price-value border-0">{{basketPriceSummary?.total | sagCurrency}}</strong>
+                </div>
+            </div>
+
+            <ng-container *ngIf="creditLimitService.creditCardInfo$ | async as creditCardInfo">
+                <div class="card mb-4 card-body credit-limit-panel" *ngIf="!creditCardInfo.creditValid">
+                    <strong class="message-title w-100 mb-2">
+                        {{'SHOPPING_BASKET.CREDIT_LIMIT' | translate}}
+                    </strong>
+                    <div class="message-content"
+                        [innerHTML]="creditCardInfo.creditMessageListPart?.message | translate: creditCardInfo.creditMessageListPart?.messageParams">
+                    </div>
+                    <div class="message-content sub-message"
+                        [innerHTML]="creditCardInfo.creditMessageListPart?.subMessage | translate">
+                    </div>
+                </div>
+            </ng-container>
+
+            <!-- <div class="card mb-4">
+                check final user address
+             </div> -->
+            <div class="shopping-basket-condition" *ngIf="isSB; else defaultConditionRef">
+                <connect-shopping-condition-sb
+                    *ngIf="userService.userDetail && appContextService.shoppingBasketContext && paymentSetting"
+                    [paymentSetting]="paymentSetting"
+                    [currentBasket]="currentBasket"
+                    [userDetail]="userService.userDetail"
+                    (updateShoppingBasketContext)="updateShoppingBasketContext($event)"
+                    [context]="appContextService.shoppingBasketContext">
+                </connect-shopping-condition-sb>
+            </div>
+
+            <ng-template #defaultConditionRef>
+                <div class="card mb-4 shopping-basket-condition" *ngIf="!userService.userDetail.isFinalUserRole">
+                    <div class="card-header">
+                        <connect-expanded [title]="'CONDITION.SHIPPING_PAYMENT'" [(expand)]="conditionExpanded" size="sm">
+                        </connect-expanded>
+                    </div>
+                    <div class="card-body" *ngIf="conditionExpanded">
+                        <connect-shopping-condition
+                            *ngIf="userService.userDetail && appContextService.shoppingBasketContext && paymentSetting"
+                            [context]="appContextService.shoppingBasketContext" [deliveryInfo]="shoppingBasketInfo"
+                            [paymentSetting]="paymentSetting" [userDetail]="userService.userDetail"
+                            (updateShoppingBasketContext)="updateShoppingBasketContext($event)"
+                            [finalOrder]="subOrderBasket?.finalOrder" [allBranches]=" branches$ | async"
+                            (conditionChanged)="conditionChanged($event)">
+                        </connect-shopping-condition>
+                    </div>
+                </div>
+            </ng-template>
+            <div class="card mb-4 shopping-basket-condition" *ngIf="userService.userDetail.isFinalUserRole">
+                <div class="card-header">
+                    <connect-expanded [title]="'AX_CONNECTION.ADDRESS'" [(expand)]="conditionExpanded" size="sm">
+                    </connect-expanded>
+                </div>
+                <div class="card-body" *ngIf="conditionExpanded">
+                    <connect-final-customer-address></connect-final-customer-address>
+                </div>
+            </div>
+
+            <div class="card mb-4 shopping-basket-reference" *ngIf="!isSB">
+                <div class="card-header">
+                    <connect-expanded [title]="'SHOPPING_BASKET.REFERENCE'" [(expand)]="referenceExpanded">
+                    </connect-expanded>
+                </div>
+                <div class="card-body" *ngIf="referenceExpanded">
+                    <connect-customer-ref-text [keyStore]="refTextKeyStore"></connect-customer-ref-text>
+                </div>
+            </div>
+            <!-- Normal user offer -->
+            <ng-container *connectHasPermission="['OFFER']">
+                <div class="nav mb-5 justify-content-end" *ngIf="!userService.userDetail.isSalesOnBeHalf">
+                    <sag-common-save-button text="SHOPPING_BASKET.ADD_TO_NEW_OFFER" (save)="addOffer($event)" [disabled]="!currentBasket" icon="fa-file-text-o" name="shopping-basket-create-offer">
+                    </sag-common-save-button>
+                    <sag-common-save-button text="SHOPPING_BASKET.ADD_TO_EXISTING_OFFER" class="ml-3" [params]='{value: selectedOffer?.offerNr ? selectedOffer.offerNr : "" }'
+                        (save)="addOffer($event, selectedOffer)" *ngIf="selectedOffer" icon="fa-vcard-o" [disabled]="!currentBasket">
+                    </sag-common-save-button>
+                </div>
+            </ng-container>
+            <!-- End Normal user offer -->
+            <div class="nav mb-4">
+                <ng-container *ngTemplateOutlet="actionRef; context: {topAction: false}"></ng-container>
+            </div>
+
+            <div class="nav save-basket-section">
+                <div class="save-basket-header-menu hide-symbol">
+                    <connect-header-saved-basket [isHiddenSymbol]="true"></connect-header-saved-basket>
+                </div>
+                <connect-action icon="fa-chevron-right" text="SHOPPING_BASKET.EXPORT"
+                    customClass="btn-link-export" (isClicked)="export($event)" [disabled]="!currentBasket">
+                </connect-action>
+            </div>
+
+        </ng-container>
+        <ng-container *ngIf="shoppingBasket.dvse.length > 0">
+            <div class="w-100 mt-5">
+                <ng-container *ngIf="shoppingBasket.data.length === 0">
+                    <div class="nav mb-4">
+                        <connect-action icon="fa-chevron-left" text="SEARCH_RESULT.BACK" (isClicked)="backToPreviousPage($event)">
+                        </connect-action>
+                    </div>
+                    <div class="mb-4" *ngIf="userService?.userDetail?.isSalesOnBeHalf">
+                        <connect-customer-info></connect-customer-info>
+                    </div>
+                </ng-container>
+                <h3>{{'SHOPPING_BASKET.DVSE.ORDER_VIA_PHONE' |translate}}</h3>
+                <connect-dvse-list [data]="shoppingBasket.dvse" (removeArticleEmitter)="removeArticle($event)"></connect-dvse-list>
+            </div>
+        </ng-container>
+        <ng-template #emtyMessage>
+            <sag-common-message message="SHOPPING_BASKET.EMPTY" type="WARNING"
+                *ngIf="shoppingBasket.data.length === 0 && shoppingBasket.dvse.length === 0">
+            </sag-common-message>
+            <div class="mt-4" *ngIf="thuleMessage">
+                <sag-common-message [data]="thuleMessage"></sag-common-message>
+            </div>
+        </ng-template>
+    </ng-container>
+
+    <ng-template #actionRef let-topAction="topAction">
+        <connect-action icon="fa-chevron-left" text="SEARCH_RESULT.BACK" (isClicked)="backToPreviousPage($event)" name="shopping-basket-go-back">
+        </connect-action>
+
+        <div class="ml-auto">
+            <a href="javascript:void(0);" class="btn-link" (click)="addMoreArticle()"
+                *ngIf="userService?.userDetail?.hasWholesalerPermission && shoppingBasketService.basketType === SUB_BASKET && topAction">
+                <i class="fa fa-search-plus" aria-hidden="true"></i>
+            </a>
+            <ng-container *ngIf="userService?.userDetail?.isSalesOnBeHalf && userService?.employeeInfo?.id && !isCz && !isSB">
+                <connect-action
+                    [disabled]="!appContextService?.shoppingBasketContext?.billingAddress || userService?.userDetail?.settings?.demoCustomer || hasItemNotAllowToAddToShoppingCart"
+                    icon="fa-chevron-right" text="SHOPPING_BASKET.CREATE_AX_OFFER" (isClicked)="transferOffer($event)"
+                    customClass="ml-3">
+                </connect-action>
+
+                <connect-action
+                    [disabled]="!appContextService?.shoppingBasketContext?.billingAddress || userService?.userDetail?.settings?.demoCustomer || hasItemNotAllowToAddToShoppingCart"
+                    icon="fa-chevron-right" text="SHOPPING_BASKET.TXT_TRANSFER_BASKET"
+                    (isClicked)="transferBasket($event)" customClass="ml-3">
+                </connect-action>
+            </ng-container>
+            <connect-action *ngIf="allowDmsOffer" customClass="ml-3" icon="fa-chevron-right"
+                text="DMS.EXPORT.TAKE" (isClicked)="processDmsOffer($event)">
+            </connect-action>
+            <connect-action *ngIf="allowOrderReview"
+                [disabled]="isNotAllowToOrder || userService?.userDetail?.settings?.demoCustomer || hasItemNotAllowToAddToShoppingCart" customClass="ml-3"
+                icon="hide" customClass="btn btn-primary highlight" text="SEARCH_RESULT.NEXT" (isClicked)="viewConfirmOrder($event)" name="shopping-basket-review-order">
+            </connect-action>
+            <connect-action id="link-exportOci-bottom" *ngIf="isOciFlow"
+                [disabled]="!appContextService?.shoppingBasketContext?.billingAddress" customClass="ml-3"
+                icon="fa-chevron-right" text="OCI.TRANSFER" (isClicked)="exportOci()">
+            </connect-action>
+        </div>
+    </ng-template>
+
+</div>
+
+<ng-template #specialInfoRef let-article="article">
+    <connect-cz-article-detail-special-info [article]="article" [isShoppingCart]="true" [memos]="article?.memos"></connect-cz-article-detail-special-info>
+</ng-template>
+
+<ng-container *ngIf="isCz || isAffiliateApplyFgasAndDeposit">
+    <ng-template #memosRef let-article="article">
+        <connect-cz-article-detail-memos [memos]="article?.memos" [article]="article"></connect-cz-article-detail-memos>
+    </ng-template>
+</ng-container>
+
+<ng-container *ngIf="isCz || isEhCz">
+    <ng-template #availRef let-availabilities="availabilities" let-popover="popover">
+        <div class="avail-state avail-state-{{availabilities[0]?.availState}}">
+            {{'ARTICLE.AVAILABILITY.' + czAvailState[availabilities[0]?.availState] | translate}}
+        </div>
+    </ng-template>
+
+    <ng-template #popoverContentRef let-article="article" let-currency="currency">
+        <connect-cz-avail-popover-content [article]="article" [currency]="currency"></connect-cz-avail-popover-content>
+    </ng-template>
+
+    <ng-template #priceRef let-article="article" let-popoversChanged="popoversChanged" let-currentStateVatConfirm="currentStateVatConfirm">
+        <div class="part-col part-gross">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.LIST_PRICE" [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-price>
+        </div>
+        <div class="part-col part-net">
+            <connect-cz-article-detail-price [article]="article" [popoversChanged]="popoversChanged" [type]="czPriceType.CUSTOMER_PRICE" [currentStateVatConfirm]="currentStateVatConfirm"></connect-cz-article-detail-price>
+        </div>
+    </ng-template>
+
+    <ng-template #totalPriceRef let-article="article" let-currentStateVatConfirm="currentStateVatConfirm">
+        <connect-cz-article-detail-total-price
+            [article]="article"
+            [currentStateVatConfirm]="currentStateVatConfirm"
+        >
+        </connect-cz-article-detail-total-price>
+    </ng-template>
+</ng-container>

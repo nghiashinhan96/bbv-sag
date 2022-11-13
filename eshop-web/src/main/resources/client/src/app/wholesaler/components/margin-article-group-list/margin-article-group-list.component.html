@@ -1,0 +1,30 @@
+<ng-container
+    *ngFor="let artGroup of articleGroups | paginate: { id: 'margin-art-grp-table',totalItems: page?.totalItems, itemsPerPage: page?.itemsPerPage, currentPage: page?.currentPage}">
+    <tr>
+        <td class="margin-value-20">
+            <div class="text-break">{{artGroup.sagArticleGroup}}</div>
+        </td>
+        <td class="margin-value-15">
+            <div class="text-break">{{artGroup.sagArticleGroupDescDisplay}}</div>
+        </td>
+        <td class="margin-value-10">
+            <div class="text-break">{{artGroup.customArticleGroup}}</div>
+        </td>
+        <td class="margin-value-15">
+            <div class="text-break">{{artGroup.customArticleGroupDesc}}</div>
+        </td>
+        <ng-container *ngFor="let item of margins">
+            <td class="text-center margin-value margin-value-5">
+                <div class="text-break">{{artGroup['margin' + item]}}</div>
+            </td>
+        </ng-container>
+        <td class="text-center align-items-center margin-value-5 margin-action" [class.pr-0]="artGroup?.mapped || !artGroup.hasChild">
+            <div class="margin-icon d-flex">
+                <i class="fa fa-edit pointer" [class.mr-2]="artGroup?.mapped || !artGroup.hasChild" (click)="editArtGroup(artGroup)"></i>
+                <ng-container *ngIf="artGroup?.mapped || !artGroup.hasChild">
+                    <i class="fa fa-trash pointer" (click)="deleteArtGroup(artGroup)"></i>
+                </ng-container>
+            </div>
+        </td>
+    </tr>
+</ng-container>

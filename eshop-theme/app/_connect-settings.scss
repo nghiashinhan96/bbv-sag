@@ -1,0 +1,160 @@
+.connect-setting-header-text {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 10px 0 20px 0;
+    color: $primary-font;
+}
+
+.nav-tabs.connect-settings {
+    margin-bottom: 20px;
+
+    > .nav-item {
+        > .nav-link {
+            padding: 10px 0;
+            border-right: 1px solid #e0e0e0;
+        }
+    }
+}
+
+connect-account-detail-form,
+connect-profile {
+    .card {
+        border: 0;
+
+        .card-body {
+            padding: 0;
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        min-width: 150px;
+    }
+}
+
+connect-invoice {
+    .filter-highlight {
+        .position-relative,
+        .input-group input {
+            border-color: $primary;
+            box-shadow: 0 1px 1px $primary inset, 0 0 8px $primary;
+            -moz-box-shadow: 0 1px 1px $primary inset, 0 0 8px $primary;
+            -webkit-box-shadow: 0 1px 1px $primary inset, 0 0 8px $primary;
+            outline: 0 none;
+
+            input,
+            .ng-value {
+                color: $primary !important;
+            }
+        }
+    }
+}
+
+@keyframes left {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes right {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+.wholesale-container {
+    overflow: hidden;
+    .wholesale-list {
+        position: relative;
+        animation: right 250ms;
+    }
+
+    .final-customer-list {
+        position: relative;
+        animation: left 250ms;
+    }
+}
+
+connect-final-customer-form-modal {
+    connect-expanded {
+        div,
+        span {
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+connect-final-admin-user-profile-form {
+    .form-check-label {
+        font-weight: 700;
+    }
+}
+
+connect-order-history-filter {
+    sag-common-save-button {
+        border-block-end-width: 0px;
+    }
+}
+
+connect-final-user-admin-orders,
+connect-order-history-search-result {
+    .btn-eye {
+        color: #999 !important;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+connect-wholesaler-customers {
+    .fa-user {
+        color: #666 !important;
+        &:hover {
+            color: $primary !important;
+        }
+    }
+}
+
+connect-opening-day-date-filter {
+    .filter-highlight {
+        .position-relative,
+        &.input-group input {
+            border-color: $primary;
+            box-shadow: 0 1px 1px $primary inset, 0 0 8px $primary;
+            -moz-box-shadow: 0 1px 1px $primary inset, 0 0 8px $primary;
+            -webkit-box-shadow: 0 1px 1px $primary inset, 0 0 8px $primary;
+            outline: 0 none;
+
+            input,
+            .ng-value {
+                color: $primary !important;
+            }
+        }
+    }
+}

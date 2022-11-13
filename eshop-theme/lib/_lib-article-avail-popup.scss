@@ -1,0 +1,45 @@
+sag-article-detail-avail-popup {
+    .popup {
+        .avail-info,
+        .price-info {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .horizontal {
+        .avail-info,
+        .price-info {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    .location-items {
+        .fa {
+            color: green;
+        }
+    }
+    .flex-basis-auto {
+        flex-basis: auto;
+    }
+    .deposit-article-section {
+        img {
+            margin: 2px;
+            margin-top: 0;
+            width: 16px;
+            height: 16px;
+        }
+        .deposit-item {
+            color: red;
+            font-weight: 500;
+        }
+        .deposit-title-align {
+            margin-left: 22px;
+        }
+    }
+}
+
+sag-article-avail-popup-availability {
+    width: 100%;
+}

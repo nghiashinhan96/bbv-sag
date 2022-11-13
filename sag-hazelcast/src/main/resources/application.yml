@@ -1,0 +1,18 @@
+spring.profiles.active: ax-testing, elasticsearch-dev, mail-dev, db-at, no-liquibase, country-at
+logging:
+  level:
+    com.sagag.services.hazelcast: DEBUG
+app:
+  cache:
+    managementCenter:
+      enabled: false
+      update-interval: 3
+      url: 
+    tcpConfig:
+      enabled: true
+    query:
+      pool-size: 10
+      queue-capacity: 100
+    cart:
+      write-delay-seconds: 20
+      write-batch-size: 200

@@ -1,0 +1,22 @@
+<connect-margin-article-group-table-header [margins]="margins" [searchModel]="searchModel"
+    (onTextInputChangeEmit)="onTextInputChange($event)" (editEmit)="editArtGroup($event)">
+</connect-margin-article-group-table-header>
+
+<connect-margin-article-group-table-body [page]="page" (pageChangedEmit)="pageChanged($event)"
+    [numberOfElements]="numberOfElements" [margins]="margins" [currentLangCode]="currentLangCode"
+    [isViewTree]="isViewTree" (searchTreeRootEmit)="filterData($event)" (deleteEmit)="deleteItem($event)"
+    (editEmit)="editArtGroup($event)" (expandEmit)="expandArtGrp($event)" [margins]="margins">
+</connect-margin-article-group-table-body>
+
+<div class="w-100 create-btn-container d-flex justify-content-end">
+    <sag-common-dropdown-button [items]="exportOptions"
+        text=" {{ 'SHOPPING_BASKET.EXPORT' | translate }}(CSV)"
+        css="btn-primary mr-2" (selected)="exportData($event)">
+    </sag-common-dropdown-button>
+    <button class="btn btn-primary mr-2" (click)="openImportModal()">
+        {{ 'COMMON_LABEL.IMPORT' | translate }}(CSV)
+    </button>
+    <button class="btn btn-primary" (click)="createArtGrp()">
+        <i class="fa fa-plus mr-1"></i> {{ 'MARGIN_MANAGE.NEW_ART_GRP' | translate }}
+    </button>
+</div>

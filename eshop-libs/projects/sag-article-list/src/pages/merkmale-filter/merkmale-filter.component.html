@@ -1,0 +1,78 @@
+<section class="sag-article-filter">
+    <section class="title">{{title || ('ARTICLE_FILTER.FILTER' | translate) }}</section>
+    <a class="reset" href="javascript:void(0)" (click)="resetFilter()">{{'ARTICLE_FILTER.RESET' | translate }}</a>
+    <ng-container *ngIf="showContent" [ngTemplateOutlet]="brandFilter">
+    </ng-container>
+    <ng-container *ngIf="showContent">
+        <section class="category-name category-name-layout" (click)="isCategoryCollapsed = !isCategoryCollapsed">
+            <span>{{ 'ARTICLE_FILTER.CATEGORY_MERKMALE' | translate }}</span>
+            <span>
+                <i class="fa" [ngClass]="{'fa-caret-up' : !isCategoryCollapsed,'fa-caret-down' : isCategoryCollapsed}"></i>
+            </span>
+        </section>
+        <section *ngIf="filterItems" [hidden]="isCategoryCollapsed" class="filter-container">
+            <tree-root #filterTree [focused]="true" [nodes]="filterItems" [options]="categoryTreeOptions">
+                <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+                    <div #nodeWrapper class="node-wrapper"
+                        (mouseenter)="hoverShowMore(nodeWrapper, node.data.description)"
+                        (mouseleave)="leaveShowMore(nodeWrapper, node.data.description)"
+                        [ngStyle]="{'justify-content': node.data.description === 'showMore' ? 'center' : ''}"
+                        [style.padding-left]="node.getNodePadding()">
+
+                        <ng-container *ngIf="node.data.type !== 'criteriaValue'; else criteriaValueTemplate">
+                            <ng-container *ngIf="node.data.description !== 'showMore'; else showMoreCriteriaTemplate">
+                                <span (click)="openFilterValue(node)">
+                                    <tree-node-expander [node]="node"></tree-node-expander>
+                                </span>
+                                <div class="node-content-wrapper" [class.node-content-wrapper-active]="node.isActive"
+                                    [class.node-content-wrapper-focused]="node.isFocused" (click)="selectFilterValue(node)">
+                                    <tree-node-content [node]="node" [index]="index"
+                                        [ngStyle]="{'font-weight': node.data.isSelected ? 'bolder' : ''}">
+                                    </tree-node-content>
+                                </div>
+                            </ng-container>
+                            <ng-template #showMoreCriteriaTemplate>
+                                <section class="show-more-section" (click)="showMoreItems(node)">
+                                    <i class="fa"
+                                        [ngClass]="{'fa-angle-double-down': !node.data.isExpanded, 'fa-angle-double-up': node.data.isExpanded}">
+                                    </i>
+                                </section>
+                            </ng-template>
+                        </ng-container>
+
+                        <ng-template #criteriaValueTemplate>
+                            <ng-container *ngIf="node.data.description !== 'showMore'; else showMoreCriteriaValueTemplate">
+                                <section class="d-flex align-items-center">
+                                    <tree-node-expander [node]="node"></tree-node-expander>
+                                    <input type="checkbox" name="criteria-value" id="{{'node.id'}}"
+                                        [checked]="node.data.isSelected" (change)="selectFilterValue(node)">
+                                    <div class="node-content-wrapper" [class.node-content-wrapper-active]="node.isActive"
+                                        [class.node-content-wrapper-focused]="node.isFocused" (click)="checkCriteriaText(node)">
+                                        <tree-node-content [node]="node" [index]="index">
+                                        </tree-node-content>
+                                    </div>
+                                </section>
+                            </ng-container>
+                            <ng-template #showMoreCriteriaValueTemplate>
+                                <span class="show-more-section" (click)="showMoreItems(node)">
+                                    <i class="fa"
+                                        [ngClass]="{'fa-angle-double-down': !node.data.isExpanded, 'fa-angle-double-up': node.data.isExpanded}">
+                                    </i>
+                                </span>
+                            </ng-template>
+                        </ng-template>
+                    </div>
+                </ng-template>
+
+            </tree-root>
+        </section>
+    </ng-container>
+    <ng-template #brandFilter>
+        <sag-article-list-merkmale-brand-filter
+            [filterTitle]="'suppliers'"
+            [filterData]="brandFilterData"
+            (additionalFilterEmitter)="onFilterBrandChange($event)"
+        >
+        </sag-article-list-merkmale-brand-filter>
+    </ng-template>
+</section>

@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-12">
+        <autonet-article-info [numberOfSearchedArticles]="numberOfSearchedArticles || 0" (refresEmiter)="goBack()" [keywords]="keywords">
+        </autonet-article-info>
+        <div class="divider"></div>
+    </div>
+</div>
+<div class="row" *ngIf="hasMasterData;else noResultRef">
+    <div class="filtering">
+        <sag-custom-favorite-list (onSelectItemEmit)="onSelectFavoriteItem($event)"></sag-custom-favorite-list>
+
+        <sag-article-list-merkmale-filter *ngIf="useMerkmaleFilter" [filterData]="filterData"
+            [deselectMermaleValue]="uncheckMerkmale" [selectedCateFilter]="subSelectedCategory"
+            (changeRootCategoryEmitter)="selectRootCategory($event)" (changeFilter)="selectCriteriaValue($event)"
+            [brandFilterData]="merkmaleBrandFilterData"
+            (onFilterBrandChangeEmitter)="onMerkmaleBrandFilterChange($event)"
+            (resetFilterEmitter)="resetFilter()">
+        </sag-article-list-merkmale-filter>
+
+        <sag-article-list-non-merkmale-filter *ngIf="!useMerkmaleFilter" [filterData]="nonMerkmaleFilterData"
+            [attributes]="attributes" (additionalFilterEmitter)="handleAdditionalFilter($event)"
+            (resetEmitter)="resetFilter()">
+        </sag-article-list-non-merkmale-filter>
+    </div>
+    <div class="result">
+        <sag-article-list
+            *ngIf="showList"
+            [groupByRelevance]="groupByRelevance"
+            [data]="data"
+            [userSetting]="storage.libUserSetting"
+            [moreData]="moreData"
+            [hasMoreData]="hasMoreData"
+            [articleListType]="articleListType"
+            [filterDataOnBadge]="filterDataOnBadge"
+            (resetFilterEmitter)="resetFilter()"
+            (deselectMerkmaleEmitter)="deselectMerkmale($event)"
+            (showMoreArticlesEmitter)="showMoreArticles($event)"
+            [(articleMode)]="storage.articleMode"
+            (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+            (onShowAccessoriesEmitter)="onShowAccessories($event)"
+            (onShowPartsListEmitter)="onShowPartsList($event)"
+            (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+            >
+        </sag-article-list>
+    </div>
+</div>
+
+<ng-template #noResultRef>
+    <autonet-frame [url]="url" [params]="params" *ngIf="!!params" [customClass]="'error-frame'"></autonet-frame>
+</ng-template>

@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <h4>
+        {{'MENU.PRICE_FILE' | translate}}
+    </h4>
+    <a href="javascript:void(0)" (click)="bsModalRef.hide()"><i class="fa fa-times-circle close"></i></a>
+</div>
+<div class="modal-body">
+    <ul class="list-group list-group-full list-group-action" *ngIf="files$ | async as files; else notFound">
+        <li *ngFor="let f of files" class="list-group-item">
+            <a [href]="f.fileUrl" target="_blank">{{f.fileName}}</a>
+        </li>
+    </ul>
+    <ng-template #notFound>
+        <div class="alert alert-warning" *ngIf="isLoaded">{{'MESSAGES.PRICE_FILE_NOT_FOUND' | translate}}</div>
+    </ng-template>
+</div>

@@ -1,0 +1,16 @@
+.col-action {
+    width: 80px;
+}
+
+tr.profile-item>td {
+    padding-left: 16px;
+}
+
+.actions {
+    padding-left: 8px !important;
+    display: flex;
+
+    .btn-icon {
+        padding: 3px;
+    }
+}

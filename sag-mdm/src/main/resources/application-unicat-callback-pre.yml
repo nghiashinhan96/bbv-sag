@@ -1,0 +1,5 @@
+spring.profiles: unicat-callback-pre
+
+unicat:
+  callback_url: https://preconnect-int.sag.services/dvse-st/ws
+

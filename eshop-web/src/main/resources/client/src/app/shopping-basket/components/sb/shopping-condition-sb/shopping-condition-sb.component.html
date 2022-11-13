@@ -1,0 +1,137 @@
+<div class="shopping-location-condition" *ngIf="locations.length > 0">
+    <form [formGroup]="shoppingConditionForm">
+        <div formArrayName="locationFormArray">
+            <ng-container *ngFor="let location of locations; let i = index;">
+                <div class="card mb-4" [formGroupName]="i">
+                    <div class="card-header">
+                        <connect-expanded
+                            title="{{location.branch.branchName}}"
+                            [(expand)]="location.expanded" size="sm">
+                        </connect-expanded>
+                    </div>
+                    <div class="card-body" *ngIf="location.expanded">
+                        <div class="row mb-3">
+                            <div class="col-12 mb-2">
+                                <strong>{{ 'CONDITION.PAYMENT_METHOD.TITLE' | translate }}</strong>
+                            </div>
+                            <div class="col-4" *ngFor="let method of location.paymentMethods">
+                                <div class="form-check form-group mb-2">
+                                    <input class="form-check-input" type="radio" formControlName="paymentId"
+                                        [id]="location?.branch?.branchId + '-' + method.descCode" [value]="method.id"
+                                        [attr.disabled]="!method.allowChoose || null" (change)="changePaymentMethod(method, location)">
+                                    <label class="form-check-label"
+                                        for="{{location?.branch?.branchId + '-' + method.descCode}}">
+                                        {{ 'CONDITION.PAYMENT_METHOD.' + method.descCode | translate }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12 mb-2">
+                                <strong>{{ 'CONDITION.DELIVERY_TYPE.TITLE' | translate }}</strong>
+                            </div>
+                            <div class="col-4 d-flex align-items-center" *ngFor="let method of location.deliveryTypes">
+                                <div class="form-check form-group mb-2 w-100"
+                                    [class.is--counter]="method.descCode === COURIER">
+                                    <input class="form-check-input" type="radio" formControlName="deliveryId" (change)="changeDeliveryType(method, location)"
+                                        [id]="location?.branch?.branchId + '-' + method.descCode" [value]="method.id"
+                                        [attr.disabled]="!method.allowChoose || null">
+
+                                    <label class="form-check-label" [class.mr-2]="method.descCode === COURIER"
+                                        for="{{location?.branch?.branchId + '-' + method.descCode}}">
+                                        {{ 'CONDITION.DELIVERY_TYPE.' + method.descCode | translate }}
+                                    </label>
+
+                                    <ng-container *ngIf="method.descCode === COURIER">
+                                        <ng-select [searchable]="location?.courierServices?.length > 10"
+                                            formControlName="courierServiceCode" [items]="location?.courierServices"
+                                            [clearable]="false" bindValue="courierServiceCode" class="w-100"
+                                            [readonly]="!location.isCourierMode"
+                                            (change)="changeCourierServices($event, location)">
+                                            <ng-template ng-label-tmp let-item="item">
+                                                {{item.description}}
+                                            </ng-template>
+                                            <ng-template ng-option-tmp let-item="item">
+                                                {{item.description}}
+                                            </ng-template>
+                                        </ng-select>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3" *ngIf="location?.branch?.locationType !== PrimaryLocation && location?.isPickupMode">
+                            <div class="col-12 mb-2">
+                                <strong>{{'CONDITION.BRANCH_PICKUP' | translate}}</strong>
+                            </div>
+                            <div class="col-6">
+                                <ng-select [searchable]="location?.pickupBranchs?.length > 10"
+                                    [items]="location?.pickupBranchs" [clearable]="false" bindValue="branchId"
+                                    formControlName="branchId" (change)="changePickupBranch($event, location)">
+                                    <ng-template ng-label-tmp let-item="item">
+                                        {{item.branchName}}
+                                    </ng-template>
+                                    <ng-template ng-option-tmp let-item="item">
+                                        {{item.branchName}}
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3" *ngIf="deliveryAddress && deliveryAddress.length > 0">
+                            <div class="col-12 mb-2">
+                                <strong>{{'CONDITION.DELIVERY_ADDRESS' | translate}}</strong>
+                            </div>
+                            <div class="col-6" *ngIf="deliveryAddress.length === 1; else addressSelection">
+                                <span>{{deliveryAddress[0].fullAddress}}</span>
+                            </div>
+                            <ng-template #addressSelection>
+                                <div class="col-6" *ngIf="deliveryAddress.length > 0">
+                                    <ng-select [searchable]="deliveryAddress?.length > 10" [items]="deliveryAddress"
+                                        [clearable]="false" bindValue="id" formControlName="deliveryAddressId" (change)="changeDeliveryAddress($event, location)">
+                                        <ng-template ng-label-tmp let-item="item">
+                                            {{ item.fullAddress}}
+                                        </ng-template>
+                                        <ng-template ng-option-tmp let-item="item">
+                                            {{ item.fullAddress }}
+                                        </ng-template>
+                                    </ng-select>
+                                </div>
+                            </ng-template>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-12 mb-2">
+                                <strong>{{'SHOPPING_BASKET.REFERENCE' | translate}}</strong>
+                            </div>
+                            <div class="col-12">
+                                <textarea formControlName="referenceTextByLocation" rows="2" (blur)="updateLocationRefText($event, location)" (keyup.enter)="updateLocationRefText($event, location)" class="form-control"
+                                    placeholder="{{ 'SHOPPING_BASKET.REFERENCE_MAX_20_LENGTH' |  translate}}" maxlength="20">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="row mb-4" *ngIf="billingAddress && billingAddress.length > 0">
+            <div class="col-12 mb-2">
+                <strong>{{'CONDITION.BILLING_ADDRESS' | translate}}</strong>
+            </div>
+            <div class="col-6" *ngIf="billingAddress.length === 1;else billingAddressSelection">
+                <span>{{billingAddress[0].fullAddress}}</span>
+            </div>
+            <ng-template #billingAddressSelection>
+                <ng-select [searchable]="billingAddress?.length > 10" formControlName="billingAddressId"
+                    [items]="billingAddress" [clearable]="false" bindValue="id" (change)="changeBillingAddress($event)">
+                    <ng-template ng-label-tmp let-item="item">
+                        {{ item.fullAddress}}
+                    </ng-template>
+                    <ng-template ng-option-tmp let-item="item">
+                        {{ item.fullAddress }}
+                    </ng-template>
+                </ng-select>
+            </ng-template>
+        </div>
+    </form>
+</div>

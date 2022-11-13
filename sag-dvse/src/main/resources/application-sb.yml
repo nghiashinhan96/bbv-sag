@@ -1,0 +1,23 @@
+# ************************************************************************
+# This is the AT configuration of DVSE(SOAP) application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch
+# - Liquibase - 
+# - Caching -
+# - Country Code - 
+#
+# ************************************************************************
+spring.profiles.include: 
+  wint-dev, 
+  db-sb,
+  elasticsearch-dev2,
+  no-liquibase, 
+  cache-dev, 
+  country-sb,
+  mdm-prod
+
+# https://devops.datenkollektiv.de/banner.txt/index.html Banner Font: doom
+spring.banner.location: classpath:banner/banner_sb.txt

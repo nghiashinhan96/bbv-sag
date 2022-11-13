@@ -1,0 +1,31 @@
+# ************************************************************************
+# This is the AT configuration of RESTful application for local mode.
+# 
+# Required Common configuration:
+# - ERP - 
+# - Database - 
+# - Elasticsearch - 
+# - Caching - 
+# - Country Code - 
+# - Liquibase - 
+# - HaynesPro Endpoint - 
+# - Media Server - 
+# - GTMotive - 
+# - Price File Location - 
+# - OATS(replace Olyslager) - 
+# - Thule - 
+# - MDM for DVSE service - 
+#
+# ************************************************************************
+spring.profiles.include:
+  db-at,
+  elasticsearch-dev,
+  cache-dev,
+  country-en,
+  no-liquibase,
+  auth-endpoint-local,
+  mdm-pre
+
+license:
+  vin:
+    minimumOrder: 0

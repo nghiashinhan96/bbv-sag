@@ -1,0 +1,88 @@
+<div class="panel panel-primary panel-primary card mb-4 ext-part-setting-container">
+  <div class="card-header">
+    <connect-expanded [title]="'EXTERNAL_PART_SETTINGS.EXTERNAL_PART' | translate" [(expand)]="isFormExpanded">
+    </connect-expanded>
+  </div>
+  <div class="card-body" [hidden]="!isFormExpanded">
+    <form class="form-horizontal" id="affiliate-ext-part-setting-panel" [formGroup]="externalPartSettingForm">
+      <div class="form-group row">
+        <label for="useExternalParts"
+            class="col-3">{{"EXTERNAL_PART_SETTINGS.EXTERNAL_PART" | translate}}</label>
+        <div class="col-3">
+            <input type="checkbox" id="useExternalParts" formControlName="useExternalParts" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="showInReferenceGroup"
+            class="col-3">{{"EXTERNAL_PART_SETTINGS.SHOW_EXTERNAL_PART_REFERENCE" | translate}}</label>
+        <div class="col-3">
+            <input type="checkbox" id="showInReferenceGroup" formControlName="showInReferenceGroup" />
+        </div>
+      </div>
+      <div class="form-group row editor-setting header-names">
+        <div class="col-3 d-flex flex-column">
+          <label class="control-label">{{"EXTERNAL_PART_SETTINGS.HEADER_NAMES" | translate}}</label>
+        </div>
+        <div class="col-9 row mx-0 ext-part-option">
+          <div formGroupName="headerNames" class="form-group ms-content row pl-0">
+            <div class="col-12 p-0">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" *ngFor="let lang of headerNamesForm.controls | keyvalue; let i = index" class="nav-item">
+                  <a href="javascript:void(0)" [attr.aria-controls]="'language-' + lang.key" role="tab"
+                    data-toggle="tab" (click)="initAutoFocus(lang.key, i, 'header-names')"
+                    [class]="lang.key == currentEditorLangHeaderNames ? 'nav-link active' : 'nav-link' ">
+                    {{'COMMON_LABEL.'+ lang.key | translate}}
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div *ngFor="let lang of headerNamesForm.controls | keyvalue"
+                  [class]="lang.key == currentEditorLangHeaderNames ? 'tab-pane active' : 'tab-pane' " role="tabpanel"
+                  id="listExtPart-language-{{lang.key}}">
+                  <input #headerNameInput type="text" class="form-control border-top-0" [formControlName]="lang.key" />
+                </div>
+                <div *ngIf="externalPartSettingForm?.invalid && submitted" class="col-12 alert alert-danger mt-3">
+                  <ng-container *ngIf="isRequiredHeaderNames">
+                    {{'MESSAGE.MESSAGE_CONTENT_IS_REQUIRED_FOR_ALL_LANGUAGE' | translate}}
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row editor-setting order-texts">
+        <div class="col-3 d-flex flex-column">
+          <label class="control-label">{{"EXTERNAL_PART_SETTINGS.ORDER_TEXTS" | translate}}</label>
+        </div>
+        <div class="col-9 row mx-0 ext-part-option">
+          <div formGroupName="orderTexts" class="form-group ms-content row pl-0">
+            <div class="col-12 p-0">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" *ngFor="let lang of orderTextsForm.controls | keyvalue; let i = index" class="nav-item">
+                  <a href="javascript:void(0)" [attr.aria-controls]="'language-' + lang.key" role="tab"
+                    data-toggle="tab" (click)="initAutoFocus(lang.key, i, 'order-texts')"
+                    [class]="lang.key == currentEditorLangOrderTexts ? 'nav-link active' : 'nav-link' ">
+                    {{'COMMON_LABEL.'+ lang.key | translate}}
+                  </a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div *ngFor="let lang of orderTextsForm.controls | keyvalue"
+                  [class]="lang.key == currentEditorLangOrderTexts ? 'tab-pane active' : 'tab-pane' " role="tabpanel"
+                  id="listExtPart-language-{{lang.key}}">
+                  <input #orderTextInput type="text" class="form-control border-top-0" [formControlName]="lang.key" />
+                </div>
+                <div *ngIf="externalPartSettingForm?.invalid && submitted" class="col-12 alert alert-danger mt-3">
+                  <ng-container *ngIf="isRequiredOrderTexts">
+                    {{'MESSAGE.MESSAGE_CONTENT_IS_REQUIRED_FOR_ALL_LANGUAGE' | translate}}
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

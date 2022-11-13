@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:ns7="http://eshop.sag.ch/types/feature" xmlns:ns6="http://eshop.sag.ch/types/description" xmlns:ns5="http://eshop.sag.ch/types/uid" xmlns:ns4="http://eshop.sag.ch/types/value" xmlns:ns3="http://eshop.sag.ch/types/organisation" xmlns:ns2="http://eshop.sag.ch/types/authority" xmlns:ns1="http://eshop.sag.ch/elements" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/entity">
+
+<xs:import namespace="http://eshop.sag.ch/elements" schemaLocation="xsd7.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/authority" schemaLocation="xsd6.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/organisation" schemaLocation="xsd13.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/value" schemaLocation="xsd8.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/uid" schemaLocation="xsd9.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/description" schemaLocation="xsd4.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/feature" schemaLocation="xsd2.xsd"/>
+
+<xs:complexType name="entity">
+<xs:sequence>
+<xs:element name="ids" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns1:uid" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="organisations" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns1:organisation" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="features" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns1:feature" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="descriptions" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns1:description" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="idx" type="xs:ID" use="required"/>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# If this is a merge commit, others might have pushed invalid formatting, and we don't want the merger to suffer
+if [ -f ".git/MERGE_MSG" ]; then
+  echo "Currently merging, ignoring basic formatting"
+  exit 0
+fi
+
+# Find all of the files affected by this commit which match the source file types
+affected_source_files=`git diff-index --cached --name-only HEAD | egrep '(\.(java|jsp|html|xml|js|txt|sh|bat)$)|^githooks/.*$'`
+
+violating_files=()
+
+# Temporarily adjust the internal field separator (IFS) so that the while loop reads each filename as a separate value
+old_ifs=$IFS
+IFS=
+while read -r filename
+do
+    # Check if the source file contains line additions/modifications which include tabs - spaces should always be used for these files
+    output=`git diff-index --cached -U0 HEAD -- "$filename" | grep -E "^\+.*$( echo -e '\t' )"`
+    result=$?
+    if [ "$result" == "0" ]; then
+        # Print out the file name and offending lines for the file
+        echo "$filename"
+        echo "$output"
+        # Add to our violating files array so the commit can be rejected
+        violating_files+=("$filename")
+    fi
+done <<< "$affected_source_files"
+IFS=$old_ifs
+
+if [ ${#violating_files[@]} -ne 0 ]; then
+    echo -e "\n############################################################" \
+            "\n# Commit rejected - BO TAB NHE !                           #" \
+            "\n#                                                          #" \
+            "\n# Files contain tab characters instead of spaces           #" \
+            "\n############################################################"
+    echo -e "\nViolating files listed below:\n"
+    for violating_file in "${violating_files[@]}"; do
+        echo "# $violating_file"
+    done
+
+    exit 1
+fi
+
+echo "Basic file formatting passes"
+exit 0

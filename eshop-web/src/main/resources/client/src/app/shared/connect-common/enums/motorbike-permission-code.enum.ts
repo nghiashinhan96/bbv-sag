@@ -1,0 +1,3 @@
+export enum MOTORBIKE_PERMISSION_CODE {
+    MOTO = 'MOTO'
+}

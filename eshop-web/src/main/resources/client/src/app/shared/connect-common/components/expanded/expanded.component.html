@@ -1,0 +1,15 @@
+<a href="javascript:void(0)" class="nav justify-content-between connect-expand connect-expand-{{size}} {{customClass}}"
+    (click)="toggle()">
+    <ng-container *ngIf="titleTemplate; else titleRef">
+        <ng-container *ngTemplateOutlet="titleTemplate"></ng-container>
+    </ng-container>
+    <ng-template #titleRef>
+        <span>{{ title | translate }}</span>
+    </ng-template>
+    <div>
+        <i class="fa fa-arrow-circle-down" *ngIf="!expand"></i>
+        <i class="fa fa-arrow-circle-up" *ngIf="expand"></i>
+        <span class="ml-3" *ngIf="!expand">{{'SETTINGS.SETTING.EXPAND'|translate}}</span>
+        <span class="ml-3" *ngIf="expand">{{'SETTINGS.SETTING.REDUCE'|translate}}</span>
+    </div>
+</a>

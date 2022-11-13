@@ -1,0 +1,15 @@
+<div class="alert {{customClass}}"
+    [class.alert-danger]="type === 'ERROR'"
+    [class.alert-success]="type === 'SUCCESS'"
+    [class.alert-warning]="type === 'WARNING'"
+    [class.alert-info]="type === 'INFO'"
+    [class.has-icon]="icon">
+    <span class="icon" *ngIf="icon">
+        <i class="fa {{icon}}" [class.fa-2x]="size2x"></i>
+    </span>
+    <div class="message-container">
+        <ng-container *ngFor="let mess of content">
+            <div class="message" [innerHTML]="mess | translate: (params | safe:'text')"></div>
+        </ng-container>
+    </div>
+</div>

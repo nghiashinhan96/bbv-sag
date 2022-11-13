@@ -1,0 +1,20 @@
+<div class="mini-basket-content item-{{index}}" [class.highlight]="flashing">
+    <div class="row mini-basket-content--item">
+        <div class="col-5 px-3">
+            <div><strong>{{productText | translate}}</strong></div>
+            <span>{{supplier}}</span>
+            <span [class.pl-1]="!isSubItem">{{artnrDisplayed | translate}}</span>
+        </div>
+        <div class="col-7">
+            <div class="row align-items-center">
+                <div class="col-3 text-right pr-0">{{basketItem?.quantity}}</div>
+                <div class="col-6 text-right pr-1"><strong>{{articlePrice | sagCurrency}}</strong></div>
+                <div class="col-3 text-right pl-0" [class.disable]="isOrdered">
+                    <a href="javascript:void(0)" (click)="removeFromCart()" class="btn-icon" [class.disabled]="disabled">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+spring.profiles.include: incentive-dev, executor-pool, country-at, no-proxy
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %X{User} %X{requestID} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework: INFO
+    com.sagag.services: DEBUG
+

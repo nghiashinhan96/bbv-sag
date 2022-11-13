@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-5">
+        <div class="card sag-card dashboard-article-history">
+            <div class="card-header">
+                <h4 class="text-body">{{'SEARCH.ARTICLE_HISTORY_TITLE' | translate}}
+                    <a href="javascript:void(0);" class="btn-link ml-1" (click)="showArticleHistory()">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>
+                    </a>
+                </h4>
+            </div>
+            <div class="card-body border-0 p-0">
+                <ul class="list-group list-group-full list-group-link">
+                    <li class="list-group-item" *ngFor="let article of data?.artHistories">
+                        <i class="fa fa-angle-right"></i>
+                        <div class="history-wrapper">
+                            <div class="color-primary">
+                                <span class="mr-3  pointer"  (click)="viewArticle(article)"  [innerHTML]="article.searchTermDisplay"></span>
+                                <span class="text-body font-weight-normal  pointer" (click)="viewArticle(article)" >{{article.selectDate | date: dateTimeFormat}}</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-7 border-left">
+        <div class="card sag-card">
+            <div class="card-header">
+                <h4 class="text-body">{{'SEARCH.VEHICLE_HISTORY_TITLE' | translate}}
+                    <a href="javascript:void(0);" class="btn-link ml-1" (click)="showVehicleHistory()">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>
+                    </a>
+                </h4>
+            </div>
+            <div class="card-body border-0 p-0">
+                <ul class="list-group list-group-full list-group-link">
+                    <li class="list-group-item" *ngFor="let vehicle of data?.vehHistories">
+                        <i class="fa fa-angle-right"></i>
+                        <div class="d-flex flex-column history-wrapper w-100">
+                            <a (click)="viewVehicle(vehicle)" class="color-primary pointer  history-title">{{vehicle.vehicleName}}</a>
+                            <div class="d-flex w-100">
+                                <a *ngIf="vehicle?.searchTerm?.length>0" [title]="vehicle.searchTerm"
+                                    class="pointer  text-body history-sub-description mr-3 text-truncate" (click)="viewVehicle(vehicle)">
+                                    {{vehicle.searchTerm}}
+                                </a>
+                                <a class=" pointer text-body history-sub-description" (click)="viewVehicle(vehicle)">
+                                    {{vehicle.selectDate | date: (dateTimeFormat)}}
+                                </a>
+                            </div>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-3">
+        <div class="card sag-card border-top pt-3">
+            <div class="card-header">
+                <sag-custom-favorite-list [customPopover]="customPopover" [template]="favoriteTitle" (onSelectItemEmit)="viewFavorite($event)"></sag-custom-favorite-list>
+            </div>
+            <div class="card-body border-0 p-0">
+                <ul class="list-group list-group-full list-group-link">
+                    <li class="list-group-item" *ngFor="let favorite of data?.unipartFavotite">
+                        <i class="fa fa-angle-right"></i>
+                        <div class="history-wrapper">
+                            <a (click)="viewFavorite(favorite)" class="color-primary pointer history-title">{{favorite.title}}</a>
+                            <div class="d-flex">
+                                <a *ngIf="favorite?.comment?.length>0" [title]="favorite.comment"
+                                    class=" pointer text-body history-sub-description mr-3 text-truncate" (click)="viewFavorite(favorite)">
+                                    {{favorite.comment}}
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #favoriteTitle let-popover="popover" let-onShown="onShown">
+    <div class="d-flex align-items-center favorite-list-title">
+        <h4>{{'FAVORITE.FAVORITES' | translate}}</h4>
+        <a href="javascript:void(0);" class="btn-link ml-1 mr-0" [popover]="popover" #pop="bs-popover" [outsideClick]="false" placement="bottom"
+            containerClass="favorites-popover header-search-dashboard" (onShown)="onShown(true)">
+            <i class="fa fa-search-plus" aria-hidden="true"></i>
+        </a>
+    </div>
+</ng-template>

@@ -1,0 +1,9 @@
+<section class="card search-card">
+    <div class="card-header">
+        <h2>{{ 'ARTICLE_TITLE' | translate }}</h2>
+    </div>
+    <div class="card-body">
+        <sag-search-article (articleSearchEmitter)="searchArticle($event)" [enableValidation]="false">
+        </sag-search-article>
+    </div>
+</section>

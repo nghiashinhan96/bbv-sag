@@ -1,0 +1,22 @@
+<div class="advance-vehicle-search" *ngIf="makes.length > 0">
+    <div class="makes-list-wrapper" [ngClass]="'cols-' + columns">
+        <ng-container *ngFor="let item of makesArray$ | async">
+            <ng-container [ngTemplateOutlet]="makesList" [ngTemplateOutletContext]="{makes: item}">
+            </ng-container>
+        </ng-container>
+    </div>
+    <div class="button-all-make">
+        <a href="javascript:void(0)" (click)="navigateToMakesPage()">
+            <i class="fa fa-angle-right font-weight-bold text-body"></i>
+            <span>{{ 'ADVANCE_VEHICLE_SEARCH.ALL_MAKES_HEADER' | translate }}</span>
+        </a>
+    </div>
+</div>
+<ng-template let-makes="makes" #makesList>
+    <div class="makes-list">
+        <ng-container *ngFor="let make of makes">
+            <a href="javascript:void(0)" (click)="navigateToModelsPage(make)"
+                class="make-item"><span>{{make.label}}</span></a>
+        </ng-container>
+    </div>
+</ng-template>

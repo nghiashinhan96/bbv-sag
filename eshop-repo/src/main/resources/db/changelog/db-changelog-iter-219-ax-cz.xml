@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP" id="ITER_219_UPDATE_CZ_AX10_COLOR_STYLE_AX_CZ_TO_DDCH">
+    <sql>
+    	DECLARE @sag_cz_coll_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'ax-cz')
+		UPDATE ORG_COLLECTION_SETTINGS SET SETTING_VALUE=N'#0073be' WHERE COLLECTION_ID = @sag_cz_coll_id AND SETTING_KEY=N'theme_color_1'
+	</sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_219_UPDATE_CZ_AX10_COLOR_STYLE_EH_AX_CZ">
+    <sql>
+    	DECLARE @eh_ax_cz_coll_id int = (SELECT ID FROM ORGANISATION_COLLECTION WHERE SHORTNAME = 'eh-ax-cz')
+		UPDATE ORG_COLLECTION_SETTINGS SET SETTING_VALUE=N'#0073be' WHERE COLLECTION_ID = @eh_ax_cz_coll_id AND SETTING_KEY=N'theme_color_1'
+	</sql>
+  </changeSet>
+</databaseChangeLog>

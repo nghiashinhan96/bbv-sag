@@ -1,0 +1,91 @@
+<div class="modal-header">
+    <h4>{{'GTMOTIVE.LABEL.EQUIPMENT_INFORMATION' | translate}}</h4>
+</div>
+<div class="modal-body">
+    <div class="row no-gutters">
+        <div class="col-6 mb-3 equipment-list" *ngIf="filteredAdditionalEquips.length">
+            <div class="card h-100 rounded-0">
+                <h5 class="card-header text-body">
+                    {{'GTMOTIVE.LABEL.EQUIPMENT_OPTIONS' | translate}}
+                </h5>
+                <div class="card-body">
+                    <div class="alert alert-warning alert-dismissible fade" [class.show]="isShownEquipMessage"
+                        [hidden]="!isShownEquipMessage" role="alert">
+                        <a type="button" class="close alert-close" (click)="isShownEquipMessage = false"
+                            aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                        {{'GTMOTIVE.MESSAGE.INCOMPATIBILITY_CASE' | translate}}
+                    </div>
+                    <div class="family-item" *ngFor="let family of filteredAdditionalEquips; let itemIndex = index">
+                        <a class="btn-collapse" (click)="family.collapse = !family.collapse">
+                            <i class="fa border border-dark"
+                                [ngClass]="{'fa-minus': !family.collapse, 'fa-plus': family.collapse}"></i>
+                            <span>{{family.description}}</span>
+                        </a>
+                        <div class="sub-family-listed collapse mt-2" [class.show]="!family.collapse"
+                            *ngIf="family.subFamilies.length" id="family-{{family.code}}">
+                            <div class="sub-family-item" *ngFor="let subFamily of family.subFamilies">
+                                <a class="btn-collapse" (click)="subFamily.collapse = !subFamily.collapse">
+                                    <i class="fa border border-dark"
+                                        [ngClass]="{'fa-minus': !subFamily.collapse, 'fa-plus': subFamily.collapse}"></i>
+                                    <span>{{subFamily.description}}</span>
+                                </a>
+                                <div class="equipment-items collapse mt-2" [class.show]="!subFamily.collapse"
+                                    *ngIf="subFamily.equipmentOptions.length" id="sub-family-{{subFamily.code}}">
+                                    <div class="equip-item" *ngFor="let equip of subFamily.equipmentOptions">
+                                        <div class="item-inner">
+                                            <input type="checkbox" class="mr-2" name="additional-equip-{{equip.applicability.code}}"
+                                                [checked]="equip.checked"
+                                                [disabled]="equip.checked"
+                                                (click)="updateAdditionalEquips($event, equip)"
+                                                id="additional-equip-{{equip.applicability.code}}">
+                                            <label class="color-primary"
+                                                for="additional-equip-{{equip.applicability.code}}">
+                                                {{equip.applicability.description}}{{equip.manufacturerCode ? ' - ' + equip.manufacturerCode : ''}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 mb-3 additional-date" *ngIf="dateEquipments.length"
+            [class.no-equips]="!filteredAdditionalEquips.length">
+            <div class="card h-100 border-left-0 rounded-0">
+                <h5 class="card-header text-body">
+                    {{'GTMOTIVE.LABEL.EQUIPMENT_OTHER_INFO' | translate}}
+                </h5>
+                <div class="card-body">
+                    <ng-container *ngFor="let family of dateEquipments">
+                        <div class="row form-group align-items-center">
+                            <label class="col-12 flex-grow-0 mb-0">
+                                {{'GTMOTIVE.LABEL.DATE_OF_MANUFACTURE' | translate}}
+                            </label>
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <input class="form-control disabled opacity-100" angular-mydatepicker name="dateFrom"
+                                        #dpFrom="angular-mydatepicker" [options]="dateOptions"
+                                        (click)="dpFrom.toggleCalendar()" (dateChanged)="onSelectDate($event)"/>
+                                    <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 btn-groups text-right">
+            <a type="button" class="mr-3" [class.text-success]="!disabled" [class.disabled]="disabled"
+                (click)="onSearchPartsWithNewEquips()">
+                <i class="fa fa-check"></i>
+            </a>
+            <a type="button" class="text-danger" (click)="onClose()">
+                <i class="fa fa-close"></i>
+            </a>
+        </div>
+    </div>
+</div>

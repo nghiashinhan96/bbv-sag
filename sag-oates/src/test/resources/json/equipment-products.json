@@ -1,0 +1,471 @@
+{
+    "@created": "2020-05-20T12:13:53.167Z",
+    "equipment": {
+        "@btid": "cars",
+        "@cxid": "000124808",
+        "@guid": "3405187513347080",
+        "@href": "/equipment/a7_sportback_4ga_4gf_2_8_fsi_quattro_162kw_FawEcBR7Y",
+        "@id": "FawEcBR7Y",
+        "@language": "de",
+        "family": {
+            "@original": "Cars",
+            "#text": "PKW"
+        },
+        "familygroup": [
+            {
+                "@original": "Cars",
+                "#text": "PKW"
+            }
+        ],
+        "manufacturer": "AUDI",
+        "manufacturer_original": "AUDI",
+        "model": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW",
+        "model_original": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW",
+        "alt_fueltype": "Benzin",
+        "alt_fueltype_original": "Petrol",
+        "series": [
+            {
+                "@original": "A7",
+                "#text": "A7"
+            }
+        ],
+        "displacement": [
+            "2.8"
+        ],
+        "yearfrom": "2014",
+        "yearto": "2018",
+        "display_year": "2014-2018",
+        "capacity_unit": "litres",
+        "application": [
+            {
+                "@guid": "3413983604609849",
+                "@id": "1",
+                "name": "Motor",
+                "app_type": "Motor",
+                "app_type_original": "Engine",
+                "capacity": {
+                    "@type": "choice",
+                    "option": "6.8"
+                },
+                "display_capacity": "6,8",
+                "product": [
+                    {
+                        "@channel_name": "SAG",
+                        "@cid": "c1",
+                        "@id": "p3",
+                        "@tier": "t1",
+                        "@tier_name": "1st Choice",
+                        "@type": "p",
+                        "name": "Mobil1 FS 0W-40",
+                        "external_data": null,
+                        "resource": [
+                            {
+                                "@href": "{\"1\":\"1001387048\", \"2\":\"1001357324\", \"3\":\"1001385370\"}",
+                                "@type": "custom1"
+                            }
+                        ]
+                    },
+                    {
+                        "@channel_name": "SAG",
+                        "@cid": "c1",
+                        "@id": "p1",
+                        "@tier": "t2",
+                        "@tier_name": "2nd Choice",
+                        "@type": "p",
+                        "name": "Mobil1 ESP 5W-30",
+                        "external_data": null,
+                        "resource": [
+                            {
+                                "@href": "{\"1\":\"1001432669\",\"2\":\"1001432735\", \"3\":\"1001432734\", \"4\":\"1001432668\"}",
+                                "@type": "custom1"
+                            }
+                        ]
+                    }
+                ],
+                "fueltype": {
+                    "@original": "P",
+                    "#text": "B"
+                },
+                "display_name": "Motor (B)",
+                "display_coption": "kurzer Ölwechselintervall",
+                "coption": {
+                    "conjunction": [
+                        {
+                            "bind": [
+                                {
+                                    "var": "qg",
+                                    "value": {
+                                        "@display_name": "Wartungsplan",
+                                        "@display_value": "kurzer Ölwechselintervall",
+                                        "@value": "QG0/2"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "@guid": "3413983604609848",
+                "@id": "2",
+                "name": "Motor",
+                "app_type": "Motor",
+                "app_type_original": "Engine",
+                "capacity": {
+                    "@type": "choice",
+                    "option": "6.8"
+                },
+                "display_capacity": "6,8",
+                "product": [
+                    {
+                        "@channel_name": "SAG",
+                        "@cid": "c1",
+                        "@id": "p1",
+                        "@tier": "t1",
+                        "@tier_name": "1st Choice",
+                        "@type": "p",
+                        "name": "Mobil1 ESP 5W-30",
+                        "external_data": null,
+                        "resource": [
+                            {
+                                "@href": "{\"1\":\"1001432669\",\"2\":\"1001432735\", \"3\":\"1001432734\", \"4\":\"1001432668\"}",
+                                "@type": "custom1"
+                            }
+                        ]
+                    }
+                ],
+                "fueltype": {
+                    "@original": "P",
+                    "#text": "B"
+                },
+                "display_name": "Motor (B)",
+                "display_coption": "langer Ölwechselintervall",
+                "coption": {
+                    "conjunction": [
+                        {
+                            "bind": [
+                                {
+                                    "var": "qg",
+                                    "value": {
+                                        "@display_name": "Wartungsplan",
+                                        "@display_value": "langer Ölwechselintervall",
+                                        "@value": "QG1"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "@guid": "3413983604538464",
+                "@id": "7",
+                "name": "Transfergetriebe",
+                "app_type": "Getriebe",
+                "app_type_original": "Transmission",
+                "capacity": {
+                    "@type": "choice",
+                    "option": "0.9"
+                },
+                "display_capacity": "0,9",
+                "note_ref": [
+                    {
+                        "@id": "altrec_7_1",
+                        "@noteclass": "lube",
+                        "@noteindex": "a"
+                    }
+                ],
+                "display_name": "Transfergetriebe",
+                "display_lube_note_refs": "a",
+                "coption": {
+                    "conjunction": []
+                }
+            },
+            {
+                "@guid": "3413983604811386",
+                "@id": "4",
+                "name": "Automatisches Getriebe",
+                "app_type": "Getriebe",
+                "app_type_original": "Transmission",
+                "capacity": {
+                    "@type": "choice",
+                    "option": "9.0"
+                },
+                "display_capacity": "9,0",
+                "display_name": "Automatisches Getriebe",
+                "coption": {
+                    "conjunction": []
+                }
+            },
+            {
+                "@guid": "3413983604538460",
+                "@id": "3",
+                "name": "Semiautomatik",
+                "app_type": "Getriebe",
+                "app_type_original": "Transmission",
+                "capacity": {
+                    "@type": "choice",
+                    "option": "4.5"
+                },
+                "display_capacity": "4,5",
+                "display_name": "Semiautomatik",
+                "coption": {
+                    "conjunction": []
+                }
+            },
+            {
+                "@guid": "3413983604609850",
+                "@id": "5",
+                "name": "Vorderdifferential",
+                "app_type": "Differential",
+                "app_type_original": "Differential",
+                "product": [
+                    {
+                        "@nonbrandable": "true",
+                        "name": "Von Transm."
+                    }
+                ],
+                "display_name": "Vorderdifferential",
+                "coption": {
+                    "conjunction": []
+                }
+            },
+            {
+                "@guid": "3413983604540136",
+                "@id": "6",
+                "name": "Hinteres Differential",
+                "app_type": "Differential",
+                "app_type_original": "Differential",
+                "capacity": {
+                    "@type": "choice",
+                    "option": "0.9"
+                },
+                "display_capacity": "0,9",
+                "display_name": "Hinteres Differential",
+                "coption": {
+                    "conjunction": []
+                }
+            },
+            {
+                "@guid": "3413983604609852",
+                "@id": "10",
+                "name": "Kühlmittel",
+                "app_type": "Kühlmittel",
+                "app_type_original": "Coolant",
+                "display_name": "Kühlmittel",
+                "coption": {
+                    "conjunction": []
+                }
+            },
+            {
+                "@guid": "3413983604609851",
+                "@id": "8",
+                "name": "Bremsflüssigkeit",
+                "app_type": "Brake and Clutch",
+                "app_type_original": "Brake and Clutch",
+                "display_name": "Bremsflüssigkeit",
+                "coption": {
+                    "conjunction": []
+                }
+            },
+            {
+                "@guid": "3413983604849965",
+                "@id": "9",
+                "name": "Kupplungsflüssigkeit",
+                "app_type": "Brake and Clutch",
+                "app_type_original": "Brake and Clutch",
+                "capacity": {
+                    "@type": "choice",
+                    "option": "7.0"
+                },
+                "display_capacity": "7,0",
+                "display_name": "Kupplungsflüssigkeit",
+                "coption": {
+                    "conjunction": []
+                }
+            }
+        ],
+        "application_index": {
+            "app_ref": [
+                {
+                    "name": "Motor",
+                    "fueltype": "B",
+                    "display_name": "Motor (B)",
+                    "decision_tree": {
+                        "type": "choice",
+                        "choice": {
+                            "var": "qg",
+                            "display_name": "Wartungsplan",
+                            "option": [
+                                {
+                                    "value": "QG0/2",
+                                    "display_value": "kurzer Ölwechselintervall",
+                                    "type": "application",
+                                    "application_id": "1"
+                                },
+                                {
+                                    "value": "QG1",
+                                    "display_value": "langer Ölwechselintervall",
+                                    "type": "application",
+                                    "application_id": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "application_ids": [
+                        "1",
+                        "2"
+                    ]
+                },
+                {
+                    "name": "Transfergetriebe",
+                    "display_name": "Transfergetriebe",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "7"
+                    },
+                    "application_ids": [
+                        "7"
+                    ]
+                },
+                {
+                    "name": "Automatisches Getriebe",
+                    "display_name": "Automatisches Getriebe",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "4"
+                    },
+                    "application_ids": [
+                        "4"
+                    ]
+                },
+                {
+                    "name": "Semiautomatik",
+                    "display_name": "Semiautomatik",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "3"
+                    },
+                    "application_ids": [
+                        "3"
+                    ]
+                },
+                {
+                    "name": "Vorderdifferential",
+                    "display_name": "Vorderdifferential",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "5"
+                    },
+                    "application_ids": [
+                        "5"
+                    ]
+                },
+                {
+                    "name": "Hinteres Differential",
+                    "display_name": "Hinteres Differential",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "6"
+                    },
+                    "application_ids": [
+                        "6"
+                    ]
+                },
+                {
+                    "name": "Kühlmittel",
+                    "display_name": "Kühlmittel",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "10"
+                    },
+                    "application_ids": [
+                        "10"
+                    ]
+                },
+                {
+                    "name": "Bremsflüssigkeit",
+                    "display_name": "Bremsflüssigkeit",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "8"
+                    },
+                    "application_ids": [
+                        "8"
+                    ]
+                },
+                {
+                    "name": "Kupplungsflüssigkeit",
+                    "display_name": "Kupplungsflüssigkeit",
+                    "decision_tree": {
+                        "type": "application",
+                        "application_id": "9"
+                    },
+                    "application_ids": [
+                        "9"
+                    ]
+                }
+            ]
+        },
+        "app_note": [
+            {
+                "@id": "altrec_7_1",
+                "@noteclass": "lube",
+                "@noteindex": "a",
+                "#text": "Alternative Empfehlungen: GO PN VWG 52515"
+            }
+        ],
+        "change_intervals": [
+            {
+                "@application_id": "1",
+                "@application_name": "Motor (B)",
+                "interval": [
+                    {
+                        "@display_name": "km Max.",
+                        "@display_unit": "km",
+                        "@unit": "km",
+                        "#text": "15000"
+                    },
+                    {
+                        "@display_name": "Monate Max.",
+                        "@display_unit": "Monate",
+                        "@unit": "months",
+                        "#text": "12"
+                    }
+                ]
+            },
+            {
+                "@application_id": "2",
+                "@application_name": "Motor (B)",
+                "interval": [
+                    {
+                        "@display_name": "km Max.",
+                        "@display_unit": "km",
+                        "@unit": "km",
+                        "#text": "30000"
+                    },
+                    {
+                        "@display_name": "Monate Max.",
+                        "@display_unit": "Monate",
+                        "@unit": "months",
+                        "#text": "24"
+                    }
+                ]
+            }
+        ],
+        "display_name_short": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW",
+        "fueltype": {
+            "@original": "P",
+            "#text": "B"
+        },
+        "display_name_long": "A7 Sportback (4GA, 4GF) 2.8 FSI quattro 162kW (B) (2014-2018)",
+        "id_map": [
+            {
+                "@type": "TECDOC",
+                "map": [
+                    "000124808"
+                ]
+            }
+        ]
+    }
+}

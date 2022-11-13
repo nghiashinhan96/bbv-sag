@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP"
+    id="ITER_139_ADD_SALES_USER_ID_COLUMN_VIN_LOGGING">
+    <sql>
+      ALTER TABLE [dbo].[VIN_LOGGING] ADD [SALES_USER_ID] [BIGINT] DEFAULT NULL;
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP" id="ITER_139_ENABLE_VIN_SEARCH_FOR_C4S_GTMOTIVE">
+        <sql>
+          INSERT INTO [dbo].[ESHOP_GLOBAL_SETTING] (CODE, DESCRIPTION, ENABLED, SETTING_TYPE)
+          VALUES
+          ('vin_search_for_c4s', '', 1, 'GTMOTIVE');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

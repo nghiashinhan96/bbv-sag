@@ -1,0 +1,1074 @@
+{
+  "items": [
+    {
+      "cartKey": "367539_5101444_V122653M20488_1000862202",
+      "quantity": 1,
+      "category": null,
+      "vehicle": {
+        "vinSearch": false,
+        "vehTypeDesc": "1.4 TSI 92 kW CAXC",
+        "vehicleInfo": "SEAT TOLEDO III (5P2) 1.4 TSI 92 kW CAXC",
+        "id": "V122653M20488",
+        "vehid": "V122653M20488",
+        "vehicle_drive_type": "Frontantrieb",
+        "sort": 21,
+        "ktype": 122653,
+        "id_make": 104,
+        "id_model": 5378,
+        "id_motor": 20488,
+        "vehicle_name": "1.4 TSI",
+        "vehicle_brand": "SEAT",
+        "vehicle_model": "TOLEDO III (5P2)",
+        "vehicle_built_year_from": "200711",
+        "vehicle_built_year_till": "200905",
+        "vehicle_body_type": "Großraumlimousine",
+        "vehicle_fuel_type": "Benzin",
+        "vehicle_engine_code": "CAXC",
+        "vehicle_power_hp": "125",
+        "vehicle_power_kw": "92",
+        "vehicle_engine": "1.4",
+        "vehicle_capacity_cc_tech": 1390,
+        "vehicle_zylinder": 4,
+        "codes": [
+          {
+            "id_veh_code": "7593ADI",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_kba_code",
+            "veh_code_value": "7593ADI"
+          },
+          {
+            "id_veh_code": "7593ADI",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_kba_abe",
+            "veh_code_value": ""
+          },
+          {
+            "id_veh_code": "7593ADI",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_kba_abe_date",
+            "veh_code_value": "0"
+          },
+          {
+            "id_veh_code": "7593ADI",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_type_code",
+            "veh_code_value": ""
+          },
+          {
+            "id_veh_code": null,
+            "veh_code_type": "typs_ch",
+            "veh_code_attr": "typenschein",
+            "veh_code_value": "1SB924"
+          }
+        ],
+        "gt_links": [
+          {
+            "gt_start": "2004",
+            "gt_end": "2010",
+            "gt_drv": "null",
+            "gt_eng": "MUKK",
+            "gt_mod_alt": "",
+            "gt_mod": "CB05",
+            "gt_umc": "SE01401",
+            "gtmod_name": "TOLEDO (5P) 5T (04-10)"
+          }
+        ],
+        "is_electric": 0
+      },
+      "itemDesc": null,
+      "itemType": "ARTICLE",
+      "priceItem": {
+        "grossPrice": 104,
+        "netPrice": 23.4,
+        "vatInPercent": 10,
+        "originalBrandPrice": 0,
+        "discountPrice": 80.6,
+        "discountInPercent": 77.5,
+        "totalGrossPrice": 104,
+        "totalNetPrice": 23.4
+      },
+      "recycle": false,
+      "depot": false,
+      "pfand": false,
+      "voc": false,
+      "vrg": false,
+      "recycleArticleId": null,
+      "depotArticleId": null,
+      "vocArticleId": null,
+      "vrgArticleId": null,
+      "attachedCartItems": null,
+      "addedTime": 1595217352193,
+      "reference": "vw vehicle",
+      "vehicleId": "V122653M20488",
+      "articleItem": {
+        "freetextDisplayDesc": "Bremsbelagsatz, Scheibenbremse WAGNER WBP23130C",
+        "combinedGenArtIds": [
+          "402",
+          "402"
+        ],
+        "oeNumbers": {
+          "AUDI": [
+            "1K0698151D",
+            "1K0698151A"
+          ],
+          "SEAT": [
+            "1K0698151A"
+          ],
+          "SKODA": [
+            "1K0798151D",
+            "1K0698151A"
+          ],
+          "VW": [
+            "1K0698151A"
+          ]
+        },
+        "iamNumbers": {
+          "EUROLUB": [
+            "DBP391635"
+          ],
+          "TEROSON": [
+            "MDB2040"
+          ]
+        },
+        "pnrnEANs": [
+          "4044197525805"
+        ],
+        "hasReplacement": "WBP23130A",
+        "availRequested": false,
+        "totalAxStock": 0,
+        "glassOrBody": false,
+        "id": "1000862202",
+        "id_source": "tecdoc",
+        "artnr": "wbp23130c",
+        "is_100pr": true,
+        "gaID": "402",
+        "id_pim": "1000862202",
+        "id_dlnr": "4498",
+        "supplier": "WAGNER",
+        "supplierId": 0,
+        "artid": "1000862202",
+        "artnr_display": "WBP23130C",
+        "partDesc": "<strong>Bremssystem</strong>: Ate-system  -  <strong>Verschleißwarnkontakt</strong>: inkl. Verschleißwarnkontakt  -  <strong>für Bremsscheibendurchmesser [mm]</strong>: 280 -  <strong>Ergänzungsartikel/Ergänzende Info 2</strong>: mit Kolbenclip",
+        "amountNumber": 1,
+        "salesQuantity": 1,
+        "product_brand": "WAGNER",
+        "id_product_brand": "4498",
+        "name": "Bremsbelagsatz, Scheibenbremse",
+        "product_addon": "",
+        "sag_product_group": "1",
+        "sag_product_group_2": "1-1",
+        "sag_product_group_3": "1-11",
+        "sag_product_group_4": "1-110003",
+        "genArtTxts": [
+          {
+            "gaid": "402",
+            "gatxtdech": "Bremsbelagsatz, Scheibenbremse"
+          }
+        ],
+        "genArtTxtEng": {
+          "gaid": "402",
+          "gatxtdech": "Brake Pad Set, disc brake"
+        },
+        "criteria": [
+          {
+            "cvp": "Vorderachse",
+            "cid": "100",
+            "cn": "Einbauseite",
+            "csort": 3
+          },
+          {
+            "cvp": "19.70",
+            "cid": "124",
+            "cn": "Dicke/Stärke [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "E9 90R 01214/1204",
+            "cid": "190",
+            "cn": "Prüfzeichen",
+            "csort": 0
+          },
+          {
+            "cvp": "145",
+            "cid": "203",
+            "cn": "Länge [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "54.70",
+            "cid": "209",
+            "cn": "Höhe [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "1.90",
+            "cid": "212",
+            "cn": "Gewicht[kg]",
+            "csort": 0
+          },
+          {
+            "cvp": "1.0000",
+            "cid": "227",
+            "cn": "benötigte Stückzahl",
+            "csort": 0
+          },
+          {
+            "cvp": "1",
+            "cid": "227",
+            "cn": "benötigte Stückzahl",
+            "csort": 2
+          },
+          {
+            "cvp": "1",
+            "cid": "264",
+            "cn": "Anzahl Verschleißanzeiger [pro Achse]",
+            "csort": 0
+          },
+          {
+            "cvp": "inkl. Verschleißwarnkontakt",
+            "cid": "593",
+            "cn": "Verschleißwarnkontakt",
+            "csort": 0
+          },
+          {
+            "cvp": "Ate",
+            "cid": "649",
+            "cn": "Bremssystem",
+            "csort": 0
+          },
+          {
+            "cvp": "mit Kolbenclip",
+            "cid": "836",
+            "cn": "Ergänzungsartikel/Ergänzende Info 2",
+            "csort": 0
+          },
+          {
+            "cvp": "280",
+            "cid": "955",
+            "cn": "für Bremsscheibendurchmesser [mm]",
+            "csort": 1
+          }
+        ],
+        "images": [
+          {
+            "id_img": 1,
+            "ref": "https://s3.exellio.de/dvse/4498/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 2,
+            "ref": "https://s3.exellio.de/dvse/4498/300/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 3,
+            "ref": "https://s3.exellio.de/dvse/4498/110/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image_110"
+          }
+        ],
+        "info": [],
+        "article": {
+          "id": "1000862202",
+          "description": "Bremsbelagsatz, Scheibenbremse",
+          "number": "1000862202",
+          "keyword": "WBP23130C WBP23130C",
+          "salesQuantity": 1,
+          "depotArticleId": "0",
+          "recycleArticleId": "0",
+          "vocArticleId": "0",
+          "vrgArticleId": "0",
+          "articleLock": false,
+          "fitmentLock": false,
+          "displayArticle": false
+        },
+        "price": {
+          "articleId": "1000862202",
+          "umarId": null,
+          "price": {
+            "recommendedRetailPrice": null,
+            "originalBrandPrice": null,
+            "recommendedSellPrice": null,
+            "grossPrice": 104,
+            "netPrice": 23.4,
+            "discountPrice": 80.6,
+            "discountInPercent": 77.5,
+            "vatInPercent": null,
+            "totalGrossPrice": 104,
+            "totalNetPrice": 23.4,
+            "totalDiscountPrice": 80.6,
+            "retailPrice": null,
+            "quoteBasePriceWithVat": null,
+            "totalRecyclingFee": null,
+            "totalShippingFee": null,
+            "totalAssemblingFee": null,
+            "showDiscount": null,
+            "tyrePromotion": null,
+            "snpArticleGroup": null,
+            "originalEquipmentPrice": null,
+            "uvpePrice": 104,
+            "oepPrice": 104,
+            "kbPrice": 0,
+            "uvpPrice": 0,
+            "standardGrossPrice": 104
+          }
+        },
+        "availabilities": [
+          {
+            "articleId": "1000862202",
+            "quantity": 3,
+            "backOrder": true,
+            "immediateDelivery": false,
+            "arrivalTime": "2020-07-22T04:35:20Z",
+            "tourName": "",
+            "stockWarehouse": "",
+            "deliveryWarehouse": "",
+            "sendMethodCode": "TOUR",
+            "tourTimeTable": [],
+            "availState": 10,
+            "availStateColor": "IN_24_HOURS",
+            "sofort": false,
+            "externalSource": false,
+            "venExternalSource": false,
+            "formattedCETArrivalDate": "22.07.2020",
+            "formattedCETArrivalTime": "11:35"
+          }
+        ],
+        "tyre_article": false,
+        "qty_standard_ch": 1,
+        "qty_lowest_ch": 1,
+        "qty_multiple_ch": 1,
+        "qty_standard_at": 1,
+        "qty_lowest_at": 1,
+        "qty_multiple_at": 1,
+        "qty_standard_be": 1,
+        "qty_lowest_be": 1,
+        "qty_multiple_be": 1,
+        "qtyMultiple": 1,
+        "origin": "FROM_OTHER",
+        "oilArticle": false
+      },
+      "vehicleInfo": "SEAT TOLEDO III (5P2) 1.4 TSI 92 kW CAXC",
+      "netPrice": 23.4,
+      "grossPrice": 104,
+      "nonReference": false,
+      "vin": false,
+      "totalNetPrice": 23.4,
+      "curGaId": "",
+      "discountPrice": 80.6,
+      "netPriceWithVat": 25.740000000000002,
+      "attachedCartItem": false,
+      "totalGrossPrice": 104,
+      "totalNetPriceWithVat": 25.740000000000002,
+      "curGenArtDescription": "",
+      "grossPriceWithVat": 114.4,
+      "discountPriceWithVat": 88.66,
+      "totalGrossPriceWithVat": 114.4,
+      "discountInPercent": 77.5,
+      "rootDescription": ""
+    },
+    {
+      "cartKey": "367539_5101444_V125249M31806_1000862202",
+      "quantity": 1,
+      "category": null,
+      "vehicle": {
+        "vinSearch": false,
+        "vehTypeDesc": "1.2 TSI 16V 77 kW CYVD",
+        "vehicleInfo": "VW JETTA IV (162, 163, AV3, AV2) 1.2 TSI 16V 77 kW CYVD",
+        "id": "V125249M31806",
+        "vehid": "V125249M31806",
+        "vehicle_drive_type": "Frontantrieb",
+        "sort": 21,
+        "ktype": 125249,
+        "id_make": 121,
+        "id_model": 9118,
+        "id_motor": 31806,
+        "vehicle_name": "1.2 TSI 16V",
+        "vehicle_brand": "VW",
+        "vehicle_model": "JETTA IV (162, 163, AV3, AV2)",
+        "vehicle_built_year_from": "201408",
+        "vehicle_built_year_till": "0",
+        "vehicle_body_type": "Stufenheck",
+        "vehicle_fuel_type": "Benzin",
+        "vehicle_engine_code": "CYVD",
+        "vehicle_power_hp": "105",
+        "vehicle_power_kw": "77",
+        "vehicle_engine": "1.2",
+        "vehicle_capacity_cc_tech": 1197,
+        "vehicle_zylinder": 4,
+        "codes": [
+          {
+            "id_veh_code": "0603AYY",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_kba_code",
+            "veh_code_value": "0603AYY"
+          },
+          {
+            "id_veh_code": "0603AYY",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_kba_abe",
+            "veh_code_value": ""
+          },
+          {
+            "id_veh_code": "0603AYY",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_kba_abe_date",
+            "veh_code_value": "0"
+          },
+          {
+            "id_veh_code": "0603AYY",
+            "veh_code_type": "kbanr",
+            "veh_code_attr": "vehicle_type_code",
+            "veh_code_value": ""
+          },
+          {
+            "id_veh_code": null,
+            "veh_code_type": "typs_fr",
+            "veh_code_attr": "cnit",
+            "veh_code_value": "M10VWGVPH13W924"
+          },
+          {
+            "id_veh_code": null,
+            "veh_code_type": "typs_fr",
+            "veh_code_attr": "cnit",
+            "veh_code_value": "M10VWGVPH13X925"
+          },
+          {
+            "id_veh_code": null,
+            "veh_code_type": "typs_fr",
+            "veh_code_attr": "cnit",
+            "veh_code_value": "M10VWGVPH13Z927"
+          },
+          {
+            "id_veh_code": null,
+            "veh_code_type": "typs_fr",
+            "veh_code_attr": "cnit",
+            "veh_code_value": "M10VWGVPH13Y926"
+          }
+        ],
+        "gt_links": [
+          {
+            "gt_start": "2014",
+            "gt_end": "",
+            "gt_drv": "null",
+            "gt_eng": "MUNQ",
+            "gt_mod_alt": "",
+            "gt_mod": "CB04",
+            "gt_umc": "VW04203",
+            "gtmod_name": "JETTA (16) 4T (14-)"
+          },
+          {
+            "gt_start": "2014",
+            "gt_end": "",
+            "gt_drv": "null",
+            "gt_eng": "MUNC",
+            "gt_mod_alt": "",
+            "gt_mod": "CB04",
+            "gt_umc": "VW04203",
+            "gtmod_name": "JETTA (16) 4T (14-)"
+          }
+        ],
+        "is_electric": 0
+      },
+      "itemDesc": null,
+      "itemType": "ARTICLE",
+      "priceItem": {
+        "grossPrice": 104,
+        "netPrice": 23.4,
+        "vatInPercent": 10,
+        "originalBrandPrice": 0,
+        "discountPrice": 80.6,
+        "discountInPercent": 77.5,
+        "totalGrossPrice": 104,
+        "totalNetPrice": 23.4
+      },
+      "recycle": false,
+      "depot": false,
+      "pfand": false,
+      "voc": false,
+      "vrg": false,
+      "recycleArticleId": null,
+      "depotArticleId": null,
+      "vocArticleId": null,
+      "vrgArticleId": null,
+      "attachedCartItems": null,
+      "addedTime": 1595217352193,
+      "reference": "seat vehicle",
+      "vehicleId": "V125249M31806",
+      "articleItem": {
+        "freetextDisplayDesc": "Bremsbelagsatz, Scheibenbremse WAGNER WBP23130C",
+        "combinedGenArtIds": [
+          "402",
+          "402"
+        ],
+        "oeNumbers": {
+          "AUDI": [
+            "1K0698151D",
+            "1K0698151A"
+          ],
+          "SEAT": [
+            "1K0698151A"
+          ],
+          "SKODA": [
+            "1K0798151D",
+            "1K0698151A"
+          ],
+          "VW": [
+            "1K0698151A"
+          ]
+        },
+        "iamNumbers": {
+          "EUROLUB": [
+            "DBP391635"
+          ],
+          "TEROSON": [
+            "MDB2040"
+          ]
+        },
+        "pnrnEANs": [
+          "4044197525805"
+        ],
+        "hasReplacement": "WBP23130A",
+        "availRequested": false,
+        "totalAxStock": 0,
+        "glassOrBody": false,
+        "id": "1000862202",
+        "id_source": "tecdoc",
+        "artnr": "wbp23130c",
+        "is_100pr": true,
+        "gaID": "402",
+        "id_pim": "1000862202",
+        "id_dlnr": "4498",
+        "supplier": "WAGNER",
+        "supplierId": 0,
+        "artid": "1000862202",
+        "artnr_display": "WBP23130C",
+        "partDesc": "<strong>Bremssystem</strong>: Ate-system  -  <strong>Verschleißwarnkontakt</strong>: inkl. Verschleißwarnkontakt  -  <strong>für Bremsscheibendurchmesser [mm]</strong>: 280 -  <strong>Ergänzungsartikel/Ergänzende Info 2</strong>: mit Kolbenclip -  <strong>für PR-Nummer</strong>: 1ZM",
+        "amountNumber": 1,
+        "salesQuantity": 1,
+        "product_brand": "WAGNER",
+        "id_product_brand": "4498",
+        "name": "Bremsbelagsatz, Scheibenbremse",
+        "product_addon": "",
+        "sag_product_group": "1",
+        "sag_product_group_2": "1-1",
+        "sag_product_group_3": "1-11",
+        "sag_product_group_4": "1-110003",
+        "genArtTxts": [
+          {
+            "gaid": "402",
+            "gatxtdech": "Bremsbelagsatz, Scheibenbremse"
+          }
+        ],
+        "genArtTxtEng": {
+          "gaid": "402",
+          "gatxtdech": "Brake Pad Set, disc brake"
+        },
+        "criteria": [
+          {
+            "cvp": "Vorderachse",
+            "cid": "100",
+            "cn": "Einbauseite",
+            "csort": 4
+          },
+          {
+            "cvp": "19.70",
+            "cid": "124",
+            "cn": "Dicke/Stärke [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "E9 90R 01214/1204",
+            "cid": "190",
+            "cn": "Prüfzeichen",
+            "csort": 0
+          },
+          {
+            "cvp": "145",
+            "cid": "203",
+            "cn": "Länge [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "54.70",
+            "cid": "209",
+            "cn": "Höhe [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "1.90",
+            "cid": "212",
+            "cn": "Gewicht[kg]",
+            "csort": 0
+          },
+          {
+            "cvp": "1.0000",
+            "cid": "227",
+            "cn": "benötigte Stückzahl",
+            "csort": 0
+          },
+          {
+            "cvp": "1",
+            "cid": "227",
+            "cn": "benötigte Stückzahl",
+            "csort": 3
+          },
+          {
+            "cvp": "1",
+            "cid": "264",
+            "cn": "Anzahl Verschleißanzeiger [pro Achse]",
+            "csort": 0
+          },
+          {
+            "cvp": "inkl. Verschleißwarnkontakt",
+            "cid": "593",
+            "cn": "Verschleißwarnkontakt",
+            "csort": 0
+          },
+          {
+            "cvp": "Ate",
+            "cid": "649",
+            "cn": "Bremssystem",
+            "csort": 0
+          },
+          {
+            "cvp": "mit Kolbenclip",
+            "cid": "836",
+            "cn": "Ergänzungsartikel/Ergänzende Info 2",
+            "csort": 0
+          },
+          {
+            "cvp": "280",
+            "cid": "955",
+            "cn": "für Bremsscheibendurchmesser [mm]",
+            "csort": 2
+          },
+          {
+            "cvp": "1ZM",
+            "cid": "1197",
+            "cn": "für PR-Nummer",
+            "csort": 1
+          }
+        ],
+        "images": [
+          {
+            "id_img": 1,
+            "ref": "https://s3.exellio.de/dvse/4498/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 2,
+            "ref": "https://s3.exellio.de/dvse/4498/300/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 3,
+            "ref": "https://s3.exellio.de/dvse/4498/110/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image_110"
+          }
+        ],
+        "info": [],
+        "article": {
+          "id": "1000862202",
+          "description": "Bremsbelagsatz, Scheibenbremse",
+          "number": "1000862202",
+          "keyword": "WBP23130C WBP23130C",
+          "salesQuantity": 1,
+          "depotArticleId": "0",
+          "recycleArticleId": "0",
+          "vocArticleId": "0",
+          "vrgArticleId": "0",
+          "articleLock": false,
+          "fitmentLock": false,
+          "displayArticle": false
+        },
+        "price": {
+          "articleId": "1000862202",
+          "umarId": null,
+          "price": {
+            "recommendedRetailPrice": null,
+            "originalBrandPrice": null,
+            "recommendedSellPrice": null,
+            "grossPrice": 104,
+            "netPrice": 23.4,
+            "discountPrice": 80.6,
+            "discountInPercent": 77.5,
+            "vatInPercent": null,
+            "totalGrossPrice": 104,
+            "totalNetPrice": 23.4,
+            "totalDiscountPrice": 80.6,
+            "retailPrice": null,
+            "quoteBasePriceWithVat": null,
+            "totalRecyclingFee": null,
+            "totalShippingFee": null,
+            "totalAssemblingFee": null,
+            "showDiscount": null,
+            "tyrePromotion": null,
+            "snpArticleGroup": null,
+            "originalEquipmentPrice": null,
+            "uvpePrice": 104,
+            "oepPrice": 104,
+            "kbPrice": 0,
+            "uvpPrice": 0,
+            "standardGrossPrice": 104
+          }
+        },
+        "availabilities": [
+          {
+            "articleId": "1000862202",
+            "quantity": 3,
+            "backOrder": true,
+            "immediateDelivery": false,
+            "arrivalTime": "2020-07-22T04:35:20Z",
+            "tourName": "",
+            "stockWarehouse": "",
+            "deliveryWarehouse": "",
+            "sendMethodCode": "TOUR",
+            "tourTimeTable": [],
+            "availState": 10,
+            "availStateColor": "IN_24_HOURS",
+            "sofort": false,
+            "externalSource": false,
+            "venExternalSource": false,
+            "formattedCETArrivalDate": "22.07.2020",
+            "formattedCETArrivalTime": "11:35"
+          }
+        ],
+        "tyre_article": false,
+        "qty_standard_ch": 1,
+        "qty_lowest_ch": 1,
+        "qty_multiple_ch": 1,
+        "qty_standard_at": 1,
+        "qty_lowest_at": 1,
+        "qty_multiple_at": 1,
+        "qty_standard_be": 1,
+        "qty_lowest_be": 1,
+        "qty_multiple_be": 1,
+        "qtyMultiple": 1,
+        "origin": "FROM_OTHER",
+        "oilArticle": false
+      },
+      "vehicleInfo": "VW JETTA IV (162, 163, AV3, AV2) 1.2 TSI 16V 77 kW CYVD",
+      "netPrice": 23.4,
+      "grossPrice": 104,
+      "nonReference": false,
+      "vin": false,
+      "totalNetPrice": 23.4,
+      "curGaId": "",
+      "discountPrice": 80.6,
+      "netPriceWithVat": 25.740000000000002,
+      "attachedCartItem": false,
+      "totalGrossPrice": 104,
+      "totalNetPriceWithVat": 25.740000000000002,
+      "curGenArtDescription": "",
+      "grossPriceWithVat": 114.4,
+      "discountPriceWithVat": 88.66,
+      "totalGrossPriceWithVat": 114.4,
+      "discountInPercent": 77.5,
+      "rootDescription": ""
+    },
+    {
+      "cartKey": "367539_5101444_NONVEHICLE_1000862202",
+      "quantity": 1,
+      "category": null,
+      "vehicle": {
+        "vinSearch": false,
+        "vehTypeDesc": "  ",
+        "vehicleInfo": "    "
+      },
+      "itemDesc": null,
+      "itemType": "ARTICLE",
+      "priceItem": {
+        "grossPrice": 104,
+        "netPrice": 23.4,
+        "vatInPercent": 10,
+        "originalBrandPrice": 0,
+        "discountPrice": 80.6,
+        "discountInPercent": 77.5,
+        "totalGrossPrice": 104,
+        "totalNetPrice": 23.4
+      },
+      "recycle": false,
+      "depot": false,
+      "pfand": false,
+      "voc": false,
+      "vrg": false,
+      "recycleArticleId": null,
+      "depotArticleId": null,
+      "vocArticleId": null,
+      "vrgArticleId": null,
+      "attachedCartItems": null,
+      "addedTime": 1595217352193,
+      "reference": "none vehicle",
+      "vehicleId": "",
+      "articleItem": {
+        "freetextDisplayDesc": "Bremsbelagsatz, Scheibenbremse WAGNER WBP23130C",
+        "oeNumbers": {
+          "AUDI": [
+            "1K0698151D",
+            "1K0698151A"
+          ],
+          "SEAT": [
+            "1K0698151A"
+          ],
+          "SKODA": [
+            "1K0798151D",
+            "1K0698151A"
+          ],
+          "VW": [
+            "1K0698151A"
+          ]
+        },
+        "iamNumbers": {
+          "EUROLUB": [
+            "DBP391635"
+          ],
+          "TEROSON": [
+            "MDB2040"
+          ]
+        },
+        "pnrnEANs": [
+          "4044197525805"
+        ],
+        "hasReplacement": "WBP23130A",
+        "availRequested": false,
+        "totalAxStock": 0,
+        "glassOrBody": false,
+        "id_source": "tecdoc",
+        "artnr": "wbp23130c",
+        "is_100pr": true,
+        "gaID": "402",
+        "id_pim": "1000862202",
+        "id_dlnr": "4498",
+        "supplier": "WAGNER",
+        "supplierId": 0,
+        "artid": "1000862202",
+        "artnr_display": "WBP23130C",
+        "partDesc": "<strong>Bremssystem</strong>: Ate-system  -  <strong>Verschleißwarnkontakt</strong>: inkl. Verschleißwarnkontakt  -  <strong>Ergänzungsartikel/Ergänzende Info 2</strong>: mit Kolbenclip",
+        "amountNumber": 1,
+        "salesQuantity": 1,
+        "product_brand": "WAGNER",
+        "id_product_brand": "4498",
+        "name": "Bremsbelagsatz, Scheibenbremse",
+        "product_addon": "",
+        "sag_product_group": "1",
+        "sag_product_group_2": "1-1",
+        "sag_product_group_3": "1-11",
+        "sag_product_group_4": "1-110003",
+        "genArtTxts": [
+          {
+            "gaid": "402",
+            "gatxtdech": "Bremsbelagsatz, Scheibenbremse"
+          }
+        ],
+        "genArtTxtEng": {
+          "gaid": "402",
+          "gatxtdech": "Brake Pad Set, disc brake"
+        },
+        "criteria": [
+          {
+            "cvp": "19.70",
+            "cid": "124",
+            "cn": "Dicke/Stärke [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "E9 90R 01214/1204",
+            "cid": "190",
+            "cn": "Prüfzeichen",
+            "csort": 0
+          },
+          {
+            "cvp": "145",
+            "cid": "203",
+            "cn": "Länge [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "54.70",
+            "cid": "209",
+            "cn": "Höhe [mm]",
+            "csort": 0
+          },
+          {
+            "cvp": "1.90",
+            "cid": "212",
+            "cn": "Gewicht[kg]",
+            "csort": 0
+          },
+          {
+            "cvp": "1.0000",
+            "cid": "227",
+            "cn": "benötigte Stückzahl",
+            "csort": 0
+          },
+          {
+            "cvp": "1",
+            "cid": "264",
+            "cn": "Anzahl Verschleißanzeiger [pro Achse]",
+            "csort": 0
+          },
+          {
+            "cvp": "inkl. Verschleißwarnkontakt",
+            "cid": "593",
+            "cn": "Verschleißwarnkontakt",
+            "csort": 0
+          },
+          {
+            "cvp": "Ate",
+            "cid": "649",
+            "cn": "Bremssystem",
+            "csort": 0
+          },
+          {
+            "cvp": "mit Kolbenclip",
+            "cid": "836",
+            "cn": "Ergänzungsartikel/Ergänzende Info 2",
+            "csort": 0
+          }
+        ],
+        "images": [
+          {
+            "id_img": 1,
+            "ref": "https://s3.exellio.de/dvse/4498/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image"
+          },
+          {
+            "id_img": 2,
+            "ref": "https://s3.exellio.de/dvse/4498/300/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image_300"
+          },
+          {
+            "id_img": 3,
+            "ref": "https://s3.exellio.de/dvse/4498/110/83b307d487526372e5dd0831683dbd39.jpg",
+            "sort": 1,
+            "img_typ": "image_110"
+          }
+        ],
+        "info": [],
+        "article": {
+          "id": "1000862202",
+          "description": "Bremsbelagsatz, Scheibenbremse",
+          "number": "1000862202",
+          "keyword": "WBP23130C WBP23130C",
+          "salesQuantity": 1,
+          "depotArticleId": "0",
+          "recycleArticleId": "0",
+          "vocArticleId": "0",
+          "vrgArticleId": "0",
+          "articleLock": false,
+          "fitmentLock": false,
+          "displayArticle": false
+        },
+        "price": {
+          "articleId": "1000862202",
+          "umarId": null,
+          "price": {
+            "recommendedRetailPrice": null,
+            "originalBrandPrice": null,
+            "recommendedSellPrice": null,
+            "grossPrice": 104,
+            "netPrice": 23.4,
+            "discountPrice": 80.6,
+            "discountInPercent": 77.5,
+            "vatInPercent": null,
+            "totalGrossPrice": 104,
+            "totalNetPrice": 23.4,
+            "totalDiscountPrice": 80.6,
+            "retailPrice": null,
+            "quoteBasePriceWithVat": null,
+            "totalRecyclingFee": null,
+            "totalShippingFee": null,
+            "totalAssemblingFee": null,
+            "showDiscount": null,
+            "tyrePromotion": null,
+            "snpArticleGroup": null,
+            "originalEquipmentPrice": null,
+            "uvpePrice": 104,
+            "oepPrice": 0,
+            "kbPrice": 0,
+            "uvpPrice": 0,
+            "standardGrossPrice": 104
+          }
+        },
+        "availabilities": [
+          {
+            "articleId": "1000862202",
+            "quantity": 3,
+            "backOrder": true,
+            "immediateDelivery": false,
+            "arrivalTime": "2020-07-22T04:35:20Z",
+            "tourName": "",
+            "stockWarehouse": "",
+            "deliveryWarehouse": "",
+            "sendMethodCode": "TOUR",
+            "tourTimeTable": [],
+            "availState": 10,
+            "availStateColor": "IN_24_HOURS",
+            "sofort": false,
+            "externalSource": false,
+            "venExternalSource": false,
+            "formattedCETArrivalDate": "22.07.2020",
+            "formattedCETArrivalTime": "11:35"
+          }
+        ],
+        "tyre_article": false,
+        "qty_standard_ch": 1,
+        "qty_lowest_ch": 1,
+        "qty_multiple_ch": 1,
+        "qty_standard_at": 1,
+        "qty_lowest_at": 1,
+        "qty_multiple_at": 1,
+        "qty_standard_be": 1,
+        "qty_lowest_be": 1,
+        "qty_multiple_be": 1,
+        "qtyMultiple": 1,
+        "origin": "FROM_OTHER",
+        "oilArticle": false
+      },
+      "vehicleInfo": "",
+      "netPrice": 23.4,
+      "grossPrice": 104,
+      "nonReference": false,
+      "vin": false,
+      "totalNetPrice": 23.4,
+      "curGaId": "",
+      "discountPrice": 80.6,
+      "netPriceWithVat": 25.740000000000002,
+      "attachedCartItem": false,
+      "totalGrossPrice": 104,
+      "totalNetPriceWithVat": 25.740000000000002,
+      "curGenArtDescription": "",
+      "grossPriceWithVat": 114.4,
+      "discountPriceWithVat": 88.66,
+      "totalGrossPriceWithVat": 114.4,
+      "discountInPercent": 77.5,
+      "rootDescription": ""
+    }
+  ],
+  "numberOfItems": 3,
+  "vatValue": 0,
+  "totalWithDiscount": 0,
+  "newTotal": 0,
+  "discount": 0,
+  "couponCode": "",
+  "notFoundPartNumbers": null,
+  "subTotalWithVat": 343.20000000000005,
+  "subTotal": 312,
+  "vatTotal": 31.2,
+  "grossTotalExclVat": 312,
+  "netTotalExclVat": 70.19999999999999,
+  "subTotalWithNet": 70.19999999999999,
+  "vatTotalWithNet": 7.02,
+  "numberOfOrderPos": 3,
+  "subTotalWithNetAndVat": 77.22,
+  "newTotalWithNetAndVat": 77.22,
+  "newTotalWithVat": 343.20000000000005
+}

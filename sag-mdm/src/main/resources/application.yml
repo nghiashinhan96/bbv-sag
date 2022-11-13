@@ -1,0 +1,5 @@
+spring.profiles.include: mdm-pre, country-at, no-proxy
+
+logging:
+  level:
+    com.sagag.services.mdm: DEBUG

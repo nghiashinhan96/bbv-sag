@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.sagag.eshop</groupId>
+    <artifactId>eshop-parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../eshop-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>eshop-web</artifactId>
+  <packaging>war</packaging>
+  <version>${project.version}</version>
+  <name>EShop Connect Core Web GUI</name>
+
+  <dependencies>
+    <!-- Spring boot web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>        
+      </exclusions>
+    </dependency>
+    <!-- Add tomcat only if running directly -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!-- javax.ws.rs API -->
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>${javax-ws-rs.version}</version>
+    </dependency>
+    <!-- lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+    <!-- Spring test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- App monitoring -->
+    <dependency>
+      <groupId>net.bull.javamelody</groupId>
+      <artifactId>javamelody-spring-boot-starter</artifactId>
+      <version>${javamelody-spring-boot-starter.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>**/client/</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-application-yml</id>
+            <phase>test</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target name="copyApplicationYml">
+                <echo message="ConnectWebUI profile ${build.profile.id} configuration file..." />
+                <delete file="${config.app.out}" />
+                <echo message="Copy from file ${config.app.profile-src}..." />
+                <copy file="${config.app.profile-src}" tofile="${config.app.out}" failonerror="false" />
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,77 @@
+<div class="col">
+    <div class="row">
+        <div class="col price-info">
+            <div class="nav">
+                <strong id="span-sagCurrencyTitle">
+                    {{'ARTICLE.PRICE.PRICE_INFORMATION_UNIT' | translate}}
+                </strong>
+                <strong id="span-sagCurrencyValue">
+                    {{currency}}
+                </strong>
+            </div>
+            <p></p>
+            <ng-container *ngIf="article.grossPrice && priceSettings?.showGross">
+                <div class="nav">
+                    <span id="span-grossPriceTitle">
+                        {{'ARTICLE.PRICE.GROSS_PRICE' | translate}}
+                    </span>
+                    <span id="span-grossPriceValue">
+                        {{article.grossPrice | sagCurrency}}
+                    </span>
+                </div>
+                <p></p>
+            </ng-container>
+            <ng-container *ngIf="isShowNetPrice">
+                <div class="nav" *ngIf="article?.price?.price?.netPrice">
+                    <span id="span-netPriceTitle">
+                        {{'ARTICLE.PRICE.NET_PRICE' | translate}}
+                    </span>
+                    <span id="span-netPriceTitle">
+                        {{article?.price?.price?.netPrice | sagCurrency}}
+                        <span *ngIf="article?.price?.price?.discountPrice" id="span-regularPriceTitle" class="regular-price">
+                            ({{article?.price?.price?.discountPrice | sagCurrency}})
+                        </span>
+                    </span>
+                </div>
+                <p></p>
+                <div class="nav" *ngIf="article?.finalCustomerNetPrice && isSubBasket">
+                    <span id="span-fcNetPriceTitle">
+                        {{'ARTICLE.PRICE.FC_NET_PRICE' | translate}}
+                    </span>
+                    <span id="span-fcNetPriceValue">
+                        {{ article?.finalCustomerNetPrice | sagCurrency}}
+                    </span>
+                </div>
+            </ng-container>
+        </div>
+        <div class="col avail-info">
+            <ng-container *ngIf="article.availabilities?.length">
+                <strong class="nav">{{'ARTICLE.PRICE.AVAILIBILITY' | translate}}</strong>
+                <div class="nav">
+                    <strong class="flex-2">
+                        {{'ARTICLE.NUMBER' | translate}}:
+                    </strong>
+                    <div class="flex-4">
+                        <strong>{{'ARTICLE.AVAILABILITY.TITLE' | translate}}:</strong>
+                    </div>
+                    <strong class="flex-6">
+                        {{'ARTICLE.FINISH_TIME' | translate}}
+                    </strong>
+                </div>
+                <div class="nav" *ngFor="let availability of article?.availabilities | slice:1">
+                    <strong class="flex-2">
+                        {{availability.quantity}}
+                    </strong>
+                    <div class="flex-4">
+                        <div class="avail-state avail-state-{{availability?.availState}}">
+                            {{'ARTICLE.AVAILABILITY.' + availState[availability?.availState] | translate}}
+                        </div>
+                    </div>
+                    <div class="flex-6">
+                        {{ availability.rawArrivalTime }}
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

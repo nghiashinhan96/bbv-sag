@@ -1,0 +1,83 @@
+<div class="panel panel-primary"></div>
+
+<div class="panel panel-primary card mb-4">
+    <div class="card-header">
+        <connect-expanded [title]="'CUSTOMER.INFO.TITLE'" [(expand)]="isFormExpanded">
+        </connect-expanded>
+    </div>
+    <div class="card-body" [hidden]="!isFormExpanded">
+        <div *ngIf="customerInfo">
+            <div class="form-group row">
+                <label for="eap-instance" class="col-4 control-label">
+                    {{"CUSTOMER.INFO.ERP_INTANCE" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [readonly]="!isEdit" type="text" class="form-control" id="eap-instance"
+                        [value]="affiliate" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-number" class="col-4 control-label">
+                    {{"CUSTOMER.INFO.CUSTOMER_NUMBER" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [readonly]="!isEdit" type="text" class="form-control" id="customer-number"
+                        [value]="customerInfo?.nr" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="company-name" class="col-4 control-label">
+                    {{"CUSTOMER.INFO.COMPANY_NAME" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [readonly]="!isEdit" type="text" class="form-control" id="company-name"
+                        [value]="customerInfo?.companyName" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 control-label">
+                    {{"CUSTOMER.INFO.CURRENCY" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [readonly]="!isEdit" type="text" class="form-control" id="customer-info-currency"
+                        [value]="customerInfo?.currency" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-status" class="col-4">
+                    {{"CUSTOMER.SETTING.ACTIVE" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [disabled]="!isEdit" type="checkbox" id="customer-status" [checked]="customerInfo?.active" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="customer-info-bill-finding" class="col-4">
+                    {{"CUSTOMER.INFO.BILLING" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [disabled]="!isEdit" type="checkbox" id="customer-info-bill-finding"
+                        [checked]="customerInfo?.viewBilling" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 control-label">
+                    {{"CUSTOMER.INFO.NET_PRICING" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [readonly]="!isEdit" type="text" class="form-control" id="customer-info-net-pricing"
+                        [value]="customerInfo?.priceDisplayStrategy" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 control-label">
+                    {{"CUSTOMER.INFO.PRICE_DISPLAY_SELECTION" | translate}}
+                </label>
+                <div class="col-4">
+                    <input [readonly]="!isEdit" type="text" class="form-control" id="customer-info-price-display-selection"
+                        [value]="customerInfo?.priceDisplaySelection" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

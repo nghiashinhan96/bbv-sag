@@ -1,0 +1,19 @@
+<div class="modal-body row return-order-information-modal">
+    <div class="modal-spinner col-1">
+        <div class="modal-loader"></div>
+    </div>
+    <div class="return-order-modal-content col-11">
+        <br>
+        <div class="header">
+            <div class="message" [innerHTML]="'RETURN_ORDER.MESSAGE_HEADER' | translate"></div>
+        </div>
+        <br>
+        <div class="message-body" [innerHTML]="'RETURN_ORDER.MESSAGE_BODY' | translate"></div>
+        <br>
+        <div class="message-bottom" [innerHTML]="'RETURN_ORDER.MESSAGE_FOOTER' | translate"></div>
+        <br>
+        <button tabindex="-1" class="btn btn-primary" (click)="handleProcessInBackground()" [disabled]="isDisable">
+            {{'RETURN_ORDER.PROCESSING_IN_BACKGROUND' | translate}}
+        </button>
+    </div>
+</div>

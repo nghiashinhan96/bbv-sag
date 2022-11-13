@@ -1,0 +1,15 @@
+{
+	"articleId": "1000082238",
+	"umarId": null,
+	"price": {
+		"grossPrice": 9.79,
+		"netPrice": 3.26007,
+		"totalGrossPrice": 9.79,
+		"totalNetPrice": 3.26007,
+		"uvpePrice": 9.79,
+		"standardGrossPrice": 9.79,
+		"type": "UVPE",
+		"net1Price": 4.26007,
+		"net1PriceFound": true
+	}
+}

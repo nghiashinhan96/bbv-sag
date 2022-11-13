@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+  <changeSet author="CONNECT_APP"
+    id="ITER_165_ENABLE_SHOW_DISCOUNT_FOR_DDAT_CUSTOMERS">
+    <sql>
+      declare @ddatAffiliate varchar(50) = 'derendinger-at'
+      declare @parentId int = (select os.ID from dbo.ORGANISATION os WHERE os.SHORTNAME =@ddatAffiliate)
+      
+      UPDATE dbo.CUSTOMER_SETTINGS SET HAS_PARTNER_PROGRAM_VIEW=1 WHERE ID IN (select o.ORDER_SETTINGS_ID from dbo.ORGANISATION o 
+        WHERE o.PARENT_ID = @parentId)
+      
+      UPDATE dbo.USER_SETTINGS SET  SHOW_HAPPY_POINTS=1 WHERE ID IN (select ud.USER_SETTING_ID from dbo.V_USER_DETAIL ud
+        WHERE ud.ORG_PARENT_ID = @parentId);
+    </sql>
+  </changeSet>
+  
+  <changeSet author="CONNECT_APP"
+    id="ITER_165_ENABLE_SHOW_DISCOUNT_FOR_DDAT_CUSTOMERS_USER_ADMIN">
+    <sql>
+      declare @ddatAffiliate varchar(50) = 'derendinger-at'
+      declare @parentId int = (select os.ID from dbo.ORGANISATION os WHERE os.SHORTNAME =@ddatAffiliate)
+      
+      UPDATE dbo.CUSTOMER_SETTINGS SET HAS_PARTNER_PROGRAM_VIEW=1 WHERE ID IN (select o.ORDER_SETTINGS_ID from dbo.ORGANISATION o 
+        WHERE o.PARENT_ID = @parentId)
+      
+      UPDATE dbo.USER_SETTINGS SET  SHOW_HAPPY_POINTS=0 WHERE ID IN (select ud.USER_SETTING_ID from dbo.V_USER_DETAIL ud
+        WHERE ud.ORG_PARENT_ID = @parentId)
+       
+      UPDATE dbo.USER_SETTINGS SET  SHOW_HAPPY_POINTS=1 WHERE ID IN (select ud.USER_SETTING_ID from dbo.V_USER_DETAIL ud
+        WHERE ud.ORG_PARENT_ID = @parentId and ud.ROLE_NAME ='USER_ADMIN');
+    </sql>
+  </changeSet>
+</databaseChangeLog>

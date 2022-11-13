@@ -1,0 +1,17 @@
+spring:
+  profiles: ax-prod-training
+
+## Supported value for mode: true | false
+backOrder.tourTimeTable: false
+
+# The Ax configuration
+external:
+  webservice:
+    ax:
+      url: https://prebusiness.sag.services/tstapps/training-webshop-service-app
+      tokenPath: https://prebusiness.sag.services/tstapps/training-webshop-service-app
+      clientId: bcbff563-d9c8-419e-ab33-20c2bcf27665
+      # only for token refresh
+      clientSecret: e3UvWDJcsEC5LXPZFsK8nQfZ6p3wb4J9O5a1VOoCY1M=
+      userName: sys-ws-connect-test@sag-ag.ch
+      password: agenda01

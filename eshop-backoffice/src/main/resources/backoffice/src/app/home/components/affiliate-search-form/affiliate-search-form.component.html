@@ -1,0 +1,27 @@
+<div class="card panel panel-primary mb-4 shopping-basket-condition">
+    <div class="card-header">
+        <connect-expanded [title]="'HOME.LABEL.AFFILIATE_SEARCH.AFFILIATE_SEARCH'" [(expand)]="isFormExpanded">
+        </connect-expanded>
+    </div>
+    <div class="card-body" *ngIf="isFormExpanded">
+        <form class="form-horizontal" [formGroup]="form">
+            <div class="form-group row">
+                <label class="col-3 control-label">
+                    {{ "HOME.LABEL.CUSTOMER_SEARCH.AFFILIATE" | translate }}
+                </label>
+                <div class="col-4">
+                    <ng-select class="sag-select" [items]="affiliateData"
+                        notFoundText="{{'COMMON.NO_RESULT_FOUND' | translate}}" formControlName="affiliate"
+                        [clearable]="false"></ng-select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-3 col-4">
+                    <button type="button" class="btn btn-primary" (click)="onSubmit()">
+                        {{ "HOME.LABEL.CUSTOMER_SEARCH.SEARCH" | translate }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

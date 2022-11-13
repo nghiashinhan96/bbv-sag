@@ -1,0 +1,25 @@
+<div class="nav connect-good-receiver">
+    <div class="header d-flex">
+        <strong>{{ 'ORDER_DASHBOARD.GOODS_RECEIVER' | translate}}</strong>
+        <a class="btn-icon ml-2" (click)="selectGoodReceiver()">
+            <i class="fa fa-angle-down" [class.fa-rotate-270]="isShowGoodsReceiverModal" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="body">
+        {{customer?.name}}
+        <ng-container *ngIf="customer?.customerProperties?.street">
+            <br>
+            {{customer?.customerProperties?.street}}
+        </ng-container>
+        <ng-container *ngIf="customer?.customerProperties?.address1">
+            <br>
+            {{customer?.customerProperties?.address1}}
+        </ng-container>
+        <ng-container *ngIf="customer?.customerProperties?.address2">
+            <br>
+            {{customer?.customerProperties?.address2}}
+        </ng-container>
+        <br>
+        {{customer?.customerProperties?.postCode}} {{customer?.customerProperties?.place}}
+    </div>
+</div>

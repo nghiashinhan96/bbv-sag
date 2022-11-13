@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8 svn-revision#13980. --><xs:schema xmlns:tns="http://eshop.sag.ch/types/specificservices" xmlns:ns2="http://eshop.sag.ch/types/customer" xmlns:ns1="http://eshop.sag.ch/elements" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://eshop.sag.ch/types/specificservices">
+
+<xs:import namespace="http://eshop.sag.ch/elements" schemaLocation="xsd7.xsd"/>
+
+<xs:import namespace="http://eshop.sag.ch/types/customer" schemaLocation="xsd5.xsd"/>
+
+<xs:complexType name="articleid">
+<xs:sequence>
+<xs:element name="id" type="xs:integer" minOccurs="0"/>
+<xs:element name="umsartId" type="xs:integer" minOccurs="0"/>
+<xs:element name="number" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articleinfo">
+<xs:sequence>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element ref="ns1:articleId"/>
+<xs:element ref="ns1:articlePrice"/>
+<xs:element ref="ns1:availability"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="articleprice">
+<xs:sequence>
+<xs:element name="currencyIso" type="xs:string" minOccurs="0"/>
+<xs:element name="uomIso" type="xs:string" minOccurs="0"/>
+<xs:element name="srpPrice" type="xs:decimal" minOccurs="0"/>
+<xs:element name="longPrice" type="xs:decimal" minOccurs="0"/>
+<xs:element name="netPrice" type="xs:decimal" minOccurs="0"/>
+<xs:element name="discount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="vatPercentage" type="xs:decimal" minOccurs="0"/>
+<xs:element name="quantity" type="xs:decimal" minOccurs="0"/>
+<xs:element name="unitLongPrice" type="xs:decimal" minOccurs="0"/>
+<xs:element name="unitNetPrice" type="xs:decimal" minOccurs="0"/>
+<xs:element name="unitSrpPrice" type="xs:decimal" minOccurs="0"/>
+<xs:element name="unitDiscount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="unitDiscountRate" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="availability">
+<xs:sequence>
+<xs:element name="quantity" type="xs:decimal"/>
+<xs:element name="delivery" type="tns:delivery"/>
+<xs:element name="deliveryModality" type="tns:deliverymodality"/>
+<xs:element name="availabilityDetails" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ns1:availabilityDetail" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="availabilitydetail">
+<xs:sequence>
+<xs:element name="quantity" type="xs:decimal"/>
+<xs:element name="deliveryDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="deliveryLocation" type="xs:string" minOccurs="0"/>
+<xs:element name="tourName" type="xs:string" minOccurs="0"/>
+<xs:element name="stockLocation" type="xs:string" minOccurs="0"/>
+<xs:element name="prompt" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validatedrecognition">
+<xs:sequence>
+<xs:element ref="ns1:recognition"/>
+<xs:element ref="ns1:customer" minOccurs="0"/>
+<xs:element ref="ns1:user"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recognition">
+<xs:sequence>
+<xs:element name="token" type="xs:string"/>
+<xs:element name="state" type="tns:recognitionstate"/>
+<xs:element name="accessPoint" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customer">
+<xs:sequence>
+<xs:element name="number" type="xs:decimal"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="ns2:customertype" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="firstname" type="xs:string" minOccurs="0"/>
+<xs:element name="langIso" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="delivery">
+<xs:restriction base="xs:string">
+<xs:enumeration value="OTHER"/>
+<xs:enumeration value="PICKUP"/>
+<xs:enumeration value="TOUR"/>
+<xs:enumeration value="STOCK"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="deliverymodality">
+<xs:restriction base="xs:string">
+<xs:enumeration value="PARTIAL"/>
+<xs:enumeration value="COMPLETE"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="recognitionstate">
+<xs:restriction base="xs:string">
+<xs:enumeration value="VALID"/>
+<xs:enumeration value="OUTDATED"/>
+<xs:enumeration value="LOGEDIN"/>
+<xs:enumeration value="LOGEDOUT"/>
+<xs:enumeration value="INVALID"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

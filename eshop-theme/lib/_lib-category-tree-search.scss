@@ -1,0 +1,50 @@
+sag-article-list-category-tree-search {
+    .category-search-result.ng-select {
+        width: 240px;
+
+        .ng-select-container {
+            min-height: 31px;
+        }
+
+        .ng-dropdown-panel {
+            min-width: max-content;
+
+            .ng-dropdown-panel-items {
+                padding: 10px 0;
+
+                .ng-option {
+                    padding: 8px 10px;
+
+                    a {
+                        font-size: 13px;
+                    }
+
+                    &.ng-option-selected.ng-option-marked,
+                    &.ng-option-marked {
+                        background-color: #f5faff;
+                        font-weight: 400;
+                        color: var(--primary);
+            
+                        a {
+                            color: var(--primary);
+                        }
+                    }
+                }
+            }
+        }
+
+        .ng-arrow-wrapper {
+            &:hover {
+                background-color: $primary;
+            }
+            .ng-arrow {
+                &::after {
+                    font-family: FontAwesome;
+                    content: '\f002';
+                    background-color: transparent;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

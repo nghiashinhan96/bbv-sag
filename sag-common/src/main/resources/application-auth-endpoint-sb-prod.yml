@@ -1,0 +1,12 @@
+spring.profiles: auth-endpoint-sb-prod
+#Authorization server to manage and verify tokens
+sag:
+  security:
+    auth:
+      # host: http://localhost:9002
+      # host: http://192.168.57.11:8080/auth-server-wt
+      host: http://localhost:8080/auth-server-wt
+      tokenUrl: /oauth/token
+      checkTokenUrl: /oauth/check_token
+      clientId: eshop-web
+      clientSecret: eshop-web-yztAhGpFW

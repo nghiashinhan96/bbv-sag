@@ -1,0 +1,15 @@
+<ul class="list-group list-group-full list-group-link">
+    <ng-container *ngIf="articleHistorySearch$ | async as histories;">
+        <li class="list-group-item" *ngFor="let article of histories | slice:0:totalDisplay">
+            <i class="fa fa-angle-right"></i>
+            <div class="d-flex flex-column history-wrapper w-100">
+                <div class="color-primary">
+                    <span class="mr-3  pointer " [innerHTML]="article.searchTermDisplay"
+                        (click)="viewArticle(article)"></span>
+                    <span class="text-body font-weight-normal  pointer "
+                        (click)="viewArticle(article)">{{article.selectDate | date: dateTimeFormat}}</span>
+                </div>
+            </div>
+        </li>
+    </ng-container>
+</ul>

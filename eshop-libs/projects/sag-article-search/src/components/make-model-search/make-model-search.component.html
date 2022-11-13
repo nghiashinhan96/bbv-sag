@@ -1,0 +1,103 @@
+<form [formGroup]="searchForm">
+    <sag-common-message *ngIf="errorMsg" [message]="errorMsg" type="ERROR"></sag-common-message>
+    <ng-container *ngIf="isShowTypeCodeSearch">
+        <div class="row">
+            <div class="col-12 form-group">
+                <div class="input-group">
+                    <input libAlphanumericSpace formControlName="vehicleCode" class="form-control" maxlength="50"
+                        placeholder="{{ 'SEARCH.VEHICLES' | translate }}"
+                        title="{{ 'SEARCH.HOVER_TITLES.VEHICLES' | translate }}" type="text"
+                        [tabIndex]="1"
+                        (keyup.enter)="searchData()"
+                        (focusin)="resetUnfocusInput(true)"
+                        data-automation="vehicle-search-code">
+                    <i class="inner-tooltip fa fa-question-circle" [popover]="vehicleCodePopupTemplate" container="body"
+                        triggers="mouseenter:mouseleave"></i>
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <ng-template #vehicleCodePopupTemplate>
+            <div>{{ 'SEARCH.HOVER_TITLES.VEHICLES' | translate }}</div>
+        </ng-template>
+    </ng-container>
+    <div class="row mb-3">
+        <div class="col-12 d-flex">
+            <label class="checkbox mb-0 mr-5">
+                <input (focusin)="resetUnfocusInput()" formControlName="road" type="checkbox" name="road" data-automation="road">
+                <span>{{'VEHICLE_FILTER.ROAD' | translate}}</span>
+            </label>
+            <label class="checkbox mb-0 mr-5">
+                <input (focusin)="resetUnfocusInput()" formControlName="mx" type="checkbox" name="mx" data-automation="mx">
+                <span>{{'VEHICLE_FILTER.MX' | translate}}</span>
+            </label>
+            <label class="checkbox mb-0 mr-5">
+                <input (focusin)="resetUnfocusInput()" formControlName="scooter" type="checkbox" name="scooter" data-automation="scooter">
+                <span>{{'VEHICLE_FILTER.SCOOTER' | translate}}</span>
+            </label>
+            <label class="checkbox mb-0">
+                <input (focusin)="resetUnfocusInput()" formControlName="atv" type="checkbox" name="atv" data-automation="atv">
+                <span>{{'VEHICLE_FILTER.ATV' | translate}}</span>
+            </label>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="make$ | async" formControlName="makeCode"
+                (open)="loadMakeOptions()" data-automation="make-code"
+                [loading]="isLoadingMakeOptions" bindLable="label" bindValue="id"
+                (change) = "onBrandChange($event)"
+                placeholder="{{'VEHICLE_FILTER.BRAND' | translate}}" [virtualScroll]="false"
+                notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}" loadingText="{{'SEARCH.LOADING' | translate}}"
+                (focus)="resetUnfocusInput()" [tabIndex]="2">
+                <ng-template ng-option-tmp let-item="item">
+                    <span [class.gap]="item.id === 'gap'">{{item.label}}</span>
+                </ng-template>
+            </ng-select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="cubicCapacity$ | async" formControlName="cubicCapacity" data-automation="cubic-capacity"
+                [loading]="isLoadingCubicCapacityOptions" bindLable="label" bindValue="id"
+                (change) = "onCubicCapacityChange($event)" (open)="loadCcOptions()"
+                placeholder="{{'VEHICLE_FILTER.CUBIC_CAPACITY' | translate}}" [virtualScroll]="false"
+                notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}" loadingText="{{'SEARCH.LOADING' | translate}}"
+                [ngClass]="{'error-required': isCubicCapacitylInputInvalid}"
+                (focus)="resetUnfocusInput()" [tabIndex]="3">
+            </ng-select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="model$ | async" formControlName="modelCode"
+                [loading]="isLoadingModelOptions" data-automation="model-code"
+                bindLable="label" bindValue="id" placeholder="{{'VEHICLE_FILTER.MODEL' | translate}}"
+                (change) = "onModelCodeChange($event)" (open)="loadModelOptions()"
+                [virtualScroll]="false" notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}"
+                loadingText="{{'SEARCH.LOADING' | translate}}"
+                [ngClass]="{'error-required': isModelInputInvalid}"
+                (focus)="resetUnfocusInput()" [tabIndex]="4" ></ng-select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <ng-select [items]="yearFrom$ | async" formControlName="yearFrom" data-automation="year-from"
+                [loading]="isLoadingYearFromOptions" bindLable="label" bindValue="id"
+                (change) = "onYearFromChange($event)" (open)="loadYearOptions()"
+                placeholder="{{'SEARCH.YEAR' | translate}}" [virtualScroll]="false"
+                notFoundText="{{'SEARCH.NO_RESULTS_FOUND' | translate}}" loadingText="{{'SEARCH.LOADING' | translate}}"
+                [ngClass]="{'error-required': isFormYearInputInvalid}"
+                (focus)="resetUnfocusInput()" [tabIndex]="5">
+            </ng-select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12">
+            <button class="btn btn-primary btn-center" type="button" (click)="searchData()" data-automation="search-button">
+                <span *ngIf="!isSearchingVehicleTypeCode">{{ 'SEARCH.SEARCH_BUTTON' | translate }}</span>
+                <span *ngIf="isSearchingVehicleTypeCode" class="spinner-border spinner-border-sm" role="status"></span>
+            </button>
+        </div>
+    </div>
+</form>

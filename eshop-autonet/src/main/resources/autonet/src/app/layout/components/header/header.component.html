@@ -1,0 +1,39 @@
+<div class="bars" dropdown>
+    <a href="javascript:void(0)" dropdownToggle>
+        <i class="fa fa-bars"></i>
+    </a>
+    <ul *dropdownMenu class="dropdown-menu shadow" role="menu">
+        <ng-container *ngFor="let item of leftHeaders">
+            <li class="nav-item" [class.disabled]="item?.disabled">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="item.link">
+                    <img [src]="item.icon" *ngIf="item.icon">
+                    {{item.titleCode | translate}}
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</div>
+<section class="container-fluid">
+    <div class="d-flex justify-content-between pt-2">
+        <ul class="nav nav-tabs controls">
+            <ng-container *ngFor="let item of leftHeaders">
+                <li class="nav-item" [class.disabled]="item?.disabled">
+                    <a class="nav-link" [class.active]="isActive(item.link)" [routerLink]="[item.link]">
+                        <img [src]="item.icon" *ngIf="item.icon">
+                        {{item.titleCode | translate}}
+                    </a>
+                </li>
+            </ng-container>
+        </ul>
+        <ul class="nav nav-tabs ml-auto" *ngIf="user$ | async as user">
+            <li class="d-flex align-items-center">
+                <i class="fa fa-user user-icon"></i>
+                <strong class="mr-3">{{user?.customerName}}</strong>
+                <span title="{{user.userName}}">{{user?.userCode}}</span>
+                <a class="ml-3" href="javascript:void(0)" (click)="logout()">
+                    <img src="assets/icons/logout.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>

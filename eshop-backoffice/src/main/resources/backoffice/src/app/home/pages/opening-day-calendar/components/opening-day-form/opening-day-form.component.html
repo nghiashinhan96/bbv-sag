@@ -1,0 +1,142 @@
+<div class="panel panel-primary card mb-4">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{'OPENING_DAY.OPENING_DAY_FORM.TITLE' | translate}}
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <form [formGroup]="openingDayForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'OPENING_DAY.OPENING_DAY_FORM.DATE' | translate}} *
+                    </label>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <input class="form-control" angular-mydatepicker name="date-from" [locale]="locale"
+                                [options]="datePickerCommonSetting" #dpFrom="angular-mydatepicker"
+                                formControlName="fromDate" (click)="dpFrom.toggleCalendar()" autocomplete="off" />
+                            <div class="input-group-append pointer" (click)="dpFrom.toggleCalendar()">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'OPENING_DAY.OPENING_DAY_FORM.LAND' | translate}}*
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="sag-select" [items]="countries"
+                            notFoundText="{{'OPENING_DAY.EMPTY_LIST' | translate}}" formControlName="country"
+                            (close)="onSelectCountry()" bindLabel="label" bindValue="value" [clearable]="false">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-3 control-label">
+                        {{'OPENING_DAY.OPENING_DAY_FORM.DAY_TYPE' | translate}}*
+                    </label>
+                    <div class="col-9">
+                        <ng-select class="sag-select" [items]="workingCodes"
+                            notFoundText="{{'OPENING_DAY.EMPTY_LIST' | translate}}" formControlName="workingCode"
+                            bindLabel="label" bindValue="value" [clearable]="false" (close)="onSelectedWorkingCode()">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="form-group row mt-40">
+                    <label class="col-3 control-label">
+                        {{'OPENING_DAY.OPENING_DAY_FORM.EXCEPTIONS' | translate}}
+                    </label>
+                    <div class="col-3 exception-checkbox-container">
+                        <input type="checkbox" formControlName="exceptionCheckbox" (change)="toggleException($event)">
+                    </div>
+                </div>
+                <div formGroupName="exceptionGroup">
+                    <div class="form-group row">
+                        <label class="col-3 control-label">
+                            {{'OPENING_DAY.OPENING_DAY_FORM.DAY_TYPE' | translate}}*
+                        </label>
+                        <div class="col-9">
+                            <ng-select class="sag-select" [items]="workingCodes"
+                                notFoundText="{{'OPENING_DAY.EMPTY_LIST' | translate}}"
+                                formControlName="exceptionWorkingCode" bindLabel="label" bindValue="value"
+                                [clearable]="false" (close)="onSelectedExceptionWorkingCode($event)"></ng-select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 control-label">
+                            {{'OPENING_DAY.OPENING_DAY_FORM.BRANCH_NUMBER_LABEL' | translate}}**
+                        </label>
+                        <div class="col-9">
+                            <ng-select class="multiple-select-input" [items]="branches"
+                                notFoundText="{{'COMMON.MESSAGE.EMPTY_LIST' | translate}}"
+                                formControlName="branchNumber" [multiple]="true" [clearable]="true" bindLabel="label"
+                                bindValue="value" (add)="onSelectedBranch($event)" (remove)="onDeselectBranch($event)">
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 control-label">
+                            {{'OPENING_DAY.OPENING_DAY_FORM.BRANCH_CODE_LABEL' | translate}}
+                        </label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" formControlName="branchCode" [readOnly]="true">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 control-label">
+                            {{'OPENING_DAY.OPENING_DAY_FORM.SHIPPING_ADDRESS_ID' | translate}}**
+                        </label>
+                        <div class="col-9" [ngClass]="{ 'has-error': exceptionDelvryId.errors?.invalidValue }">
+                            <input type="text" class="form-control exception-delvry-id"
+                                [placeholder]="isExceptionEnabled ? onlyNumberHint : ''"
+                                formControlName="exceptDelvryId" [(ngModel)]="exceptDelvryAddressId"
+                                (keydown)="onValidate($event)" (keydown.enter)="addSelectedAddress()"
+                                (keydown.tab)="addSelectedAddress()" />
+                            <span>
+                                <small>
+                                    {{ 'OPENING_DAY.OPENING_DAY_FORM.HINT' | translate }}
+                                </small>
+                            </span>
+                            <div class="address-id-container mt-10" *ngIf="addressIds.length">
+                                <div class="address-id-item" *ngFor="let addressId of addressIds; trackBy: trackByFn"
+                                    (click)="removeSelectedAddress(addressId)">
+                                    <i class="fa fa-times"></i>{{ addressId.label }}
+                                </div>
+                            </div>
+                            <input type="text" class="form-control address-ids-holder"
+                                formControlName="addressDelvryIds">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 control-label">
+                            {{'OPENING_DAY.OPENING_DAY_FORM.AFFILIATE' | translate}}
+                        </label>
+                        <div class="col-9">
+                            <ng-select class="sag-select" [items]="affiliates"
+                                notFoundText="{{'OPENING_DAY.EMPTY_LIST' | translate}}" formControlName="affiliate"
+                                bindLabel="label" bindValue="value" [clearable]="false"
+                                (close)="onSelectedAffiliate($event)">
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-default pull-left" type="button" (click)="goBack()">
+                    <i class="fa fa-arrow-left left"></i>
+                    {{'COMMON.BUTTON.BACK' | translate}}
+                </button>
+                <button class="btn btn-primary pull-right" (click)="onSubmit()" [disabled]="openingDayForm.invalid">
+                    <i class="fa fa-save"></i>
+                    {{'COMMON.BUTTON.SAVE' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

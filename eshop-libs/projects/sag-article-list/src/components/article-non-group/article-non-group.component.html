@@ -1,0 +1,57 @@
+<sag-article-list-merkmale-filter-badge [filterDataOnBadge]="filterDataOnBadge"
+    (deselectValueEmitter)="deselectMerkmaleValue($event)">
+</sag-article-list-merkmale-filter-badge>
+<ng-container *ngIf="list && list.length === 0">
+    <ng-container *ngTemplateOutlet="notFoundTempRef || errorTempRef"></ng-container>
+    <ng-template #errorTempRef>
+        <section class="alert alert-danger">
+            {{ 'SEARCH.ERROR_MESSAGE.NOT_FOUND' | translate }}
+        </section>
+    </ng-template>
+</ng-container>
+
+<ng-container *ngFor="let g of groups">
+    <ng-container *ngIf="g.values?.length > 0">
+        <div class="cate-group">
+            <div *ngIf="g.key === RELEVANCE_GROUP_TYPE.ORIGINAL_PART; else defaultRelevanceGroupHeader" class="cate-group-header">{{originalPartsHeader}}</div>
+            <ng-template #defaultRelevanceGroupHeader>
+                <div *ngIf="g.key" class="cate-group-header">{{ 'ARTICLE.GROUPS.' + g.key | translate}}</div>
+            </ng-template>
+            <ng-container *ngFor="let article of g.values | sagShowHideNonAvail: {affiliate: config.affiliate, projectId: config.projectId , hideNonAvail: hideNonAvail && !g.ignoreNonAvailFilter, availabilities: availabilities}; index as i">
+                <sag-article-detail
+                    [index]="i"
+                    [article]="article"
+                    [availabilities]="availabilities"
+                    [price]="article.price"
+                    [articleMode]="articleMode"
+                    [userSetting]="userSetting"
+                    [isShownMoreInfo]="article?.info?.length"
+                    [specialInfoTemplateRef]="specialInfoTemplateRef"
+                    [memosTemplateRef]="memosTemplateRef"
+                    [customAvailTemplateRef]="customAvailTemplateRef"
+                    [customAvailPopoverContentTemplateRef]="customAvailPopoverContentTemplateRef"
+                    [priceTemplateRef]="priceTemplateRef"
+                    [totalPriceTemplateRef]="totalPriceTemplateRef"
+                    [isSubBasket]="isSubBasket"
+                    [isAccessoryItem]="isAccessoryItem"
+                    [isPartsItem]="isPartsItem"
+                    [hideArticleInfo]="hideArticleInfo"
+                    [vehicle]="vehicle"
+                    [category]="category"
+                    [amountFromFileImported]="amountFromFileImported"
+                    [rootModalName]="rootModalName"
+                    (onArticleNumberClickEmitter)="onArticleNumberClick($event)"
+                    (onShowAccessoriesEmitter)="onShowAccessories($event)"
+                    (onShowPartsListEmitter)="onShowPartsList($event)"
+                    (onShowCrossReferenceEmitter)="onShowCrossReference($event)"
+                    (syncArticleEvent)="onSyncArticleEvent($event)"
+                    (popoversChanged)="popoversChanged.emit($event)">
+                </sag-article-detail>
+            </ng-container>
+        </div>
+    </ng-container>
+</ng-container>
+
+<div *ngIf="hasMoreArticles" class="d-flex justify-content-center m-3 btn-show-more">
+    <sag-common-save-button (save)="showMoreArticles($event)" text="SEARCH_RESULT.LOAD_MORE"></sag-common-save-button>
+</div>
