@@ -7,6 +7,7 @@
 	<parameter name="currentDate" class="java.lang.String"/>
 	<parameter name="customerNumber" class="java.lang.String"/>
 	<parameter name="userNameRef" class="java.lang.String"/>
+	<parameter name="userEmailRef" class="java.lang.String"/>
 	<parameter name="currency" class="java.lang.String"/>
 	<parameter name="vat" class="java.lang.String"/>
 	<parameter name="deliveryType" class="java.lang.String"/>
@@ -69,6 +70,13 @@
 						<textFieldExpression><![CDATA[$R{report.basket.label.payment_type}]]></textFieldExpression>
 					</textField>
 					<textField>
+						<reportElement x="10" y="64" width="110" height="14" uuid="a2c110fe-ed94-4be0-994d-80a1c8293317"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$R{report.basket.label.ref_non_argument}]]></textFieldExpression>
+					</textField>
+					<textField>
 						<reportElement x="120" y="34" width="100" height="15" uuid="c89ee3bb-dfaa-49c8-88fe-b959a8e101ea"/>
 						<textElement>
 							<font fontName="DejaVu Sans" size="9" isBold="false"/>
@@ -81,6 +89,13 @@
 							<font fontName="DejaVu Sans" size="9" isBold="false"/>
 						</textElement>
 						<textFieldExpression><![CDATA[$P{paymentType}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="120" y="62" width="150" height="15" uuid="399227d6-21d7-477e-b552-2798347acb7d"/>
+						<textElement>
+							<font fontName="DejaVu Sans" size="9" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{userEmailRef}]]></textFieldExpression>
 					</textField>
 					<textField>
 						<reportElement x="450" y="5" width="18" height="15" uuid="81d67a04-c81d-46e6-884e-47cbf52e4c57"/>

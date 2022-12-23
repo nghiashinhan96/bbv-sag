@@ -61,10 +61,10 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 @Component
 @Slf4j
 public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>,
-    StreamedWordExporter<BasketExportCriteria> {
+        StreamedWordExporter<BasketExportCriteria> {
 
   private static final String[] BASKET_TEMPLATES =
-      new String[] { "basket.jrxml", "basket_items.jrxml", "price_items.jrxml" };
+          new String[] { "basket.jrxml", "basket_items.jrxml", "price_items.jrxml" };
 
   private static final int BASKET_TEMPLATE_INDEX = 0;
 
@@ -90,11 +90,11 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
   private NumberFormatterContext numberFormatter;
 
   public ExportStreamedResult export(final UserInfo user, final EshopContext eshopContext,
-      final Boolean curentStateNetPriceView, SupportedExportType exportType)
-      throws ExportException {
+                                     final Boolean curentStateNetPriceView, SupportedExportType exportType)
+          throws ExportException {
 
     ShoppingCart shoppingCart =
-        cartBusinessService.checkoutShopCart(user, ShopType.DEFAULT_SHOPPING_CART, false, true);
+            cartBusinessService.checkoutShopCart(user, ShopType.DEFAULT_SHOPPING_CART, false, true);
 
     Assert.notNull(shoppingCart, "The given shopping basket must not be null");
     Assert.notNull(user, "The given user must not be null");
@@ -102,10 +102,10 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
     switch (exportType) {
       case WORD:
         return exportWord(
-            BasketExportCriteria.of(user, shoppingCart, eshopContext, curentStateNetPriceView));
+                BasketExportCriteria.of(user, shoppingCart, eshopContext, curentStateNetPriceView));
       case RTF:
         return exportRtf(
-            BasketExportCriteria.of(user, shoppingCart, eshopContext, curentStateNetPriceView));
+                BasketExportCriteria.of(user, shoppingCart, eshopContext, curentStateNetPriceView));
       default:
         throw new UnsupportedOperationException("Not support this type");
     }
@@ -117,19 +117,19 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
     final JasperReport[] jasperReports = getJasperReports();
     final Locale locale = localeContextHelper.toLocale(user.getLanguage());
     NumberFormat numberFormat =
-        numberFormatter.getFormatterByAffiliateShortName(user.getCollectionShortname());
+            numberFormatter.getFormatterByAffiliateShortName(user.getCollectionShortname());
     final Map<String, Object> parameters =
-        bindJasperReportParameters(jasperReports, criteria, locale, numberFormat);
+            bindJasperReportParameters(jasperReports, criteria, locale, numberFormat);
 
 
     // Build basket items data source
     final JRDataSource dataSource =
-        getCartItemListDataSource(criteria.getShoppingCart(), locale, numberFormat);
+            getCartItemListDataSource(criteria.getShoppingCart(), locale, numberFormat);
 
     byte[] content;
     try {
       content = JasperReportGenerators.generateWord(jasperReports[BASKET_TEMPLATE_INDEX],
-          parameters, dataSource);
+              parameters, dataSource);
     } catch (JRException ex) {
       final String msg = "Export word shopping basket has error";
       log.error(msg, ex);
@@ -141,23 +141,23 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
 
   @Override
   public ExportStreamedResult exportRtf(final BasketExportCriteria criteria)
-      throws ExportException {
+          throws ExportException {
     final UserInfo user = criteria.getUser();
     final JasperReport[] jasperReports = getJasperReports();
     final Locale locale = localeContextHelper.toLocale(user.getLanguage());
     NumberFormat numberFormat =
-        numberFormatter.getFormatterByAffiliateShortName(user.getCollectionShortname());
+            numberFormatter.getFormatterByAffiliateShortName(user.getCollectionShortname());
     final Map<String, Object> parameters =
-        bindJasperReportParameters(jasperReports, criteria, locale, numberFormat);
+            bindJasperReportParameters(jasperReports, criteria, locale, numberFormat);
 
     // Build basket items data source
     final JRDataSource dataSource =
-        getCartItemListDataSource(criteria.getShoppingCart(), locale, numberFormat);
+            getCartItemListDataSource(criteria.getShoppingCart(), locale, numberFormat);
 
     byte[] content;
     try {
       content = JasperReportGenerators.generateRtf(jasperReports[BASKET_TEMPLATE_INDEX], parameters,
-          dataSource);
+              dataSource);
     } catch (JRException ex) {
       final String msg = "Export rtf shopping basket has error";
       log.error(msg, ex);
@@ -168,7 +168,7 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
   }
 
   private Map<String, Object> bindJasperReportParameters(final JasperReport[] jasperReports,
-      final BasketExportCriteria criteria, final Locale locale, NumberFormat numberFormat) {
+                                                         final BasketExportCriteria criteria, final Locale locale, NumberFormat numberFormat) {
 
     final Map<String, Object> parameters = new HashMap<>();
     boolean isCh = criteria.getUser().getSupportedAffiliate().isChAffiliate();
@@ -178,90 +178,96 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
 
     parameters.put(JRParameter.REPORT_LOCALE, locale);
     parameters.put(JRParameter.REPORT_RESOURCE_BUNDLE,
-        ResourceBundle.getBundle(ExportConstants.MESSAGES_BUNDLE, locale));
+            ResourceBundle.getBundle(ExportConstants.MESSAGES_BUNDLE, locale));
 
     final String currency = user.getCustomer().getCurrency();
     final String translateCurrency = messageSource.getMessage(currency, null, currency, locale);
 
     parameters.put("customerNumber", messageSource.getMessage("report.basket.label.customer_number",
-        Arrays.array(user.getCustNrStr()), locale));
+            Arrays.array(user.getCustNrStr()), locale));
 
     // Build sender info from customer info
     final Map<String, String> senderInfo = buildSenderInfo(user.getDefaultBranchId());
     senderInfo.forEach(parameters::put);
 
     parameters.put("userNameRef", messageSource.getMessage("report.basket.label.ref",
-        Arrays.array(user.getSalesUsername()), locale));
+            Arrays.array(user.getSalesUsername()), locale));
 
     parameters.put("currency", translateCurrency);
 
     parameters.put("currentDate",
-        messageSource.getMessage(
-            "report.basket.label.price_request_from", Arrays.array(DateUtils
-                .toStringDate(Calendar.getInstance().getTime(), DateUtils.SWISS_DATE_PATTERN_3)),
-            locale));
+            messageSource.getMessage(
+                    "report.basket.label.price_request_from", Arrays.array(DateUtils
+                            .toStringDate(Calendar.getInstance().getTime(), DateUtils.SWISS_DATE_PATTERN_3)),
+                    locale));
 
     String deliveryType = StringUtils.EMPTY;
     String paymentType = StringUtils.EMPTY;
     String receiverInfo = StringUtils.EMPTY;
+    String userEmail = StringUtils.EMPTY;
     final EshopBasketContext basketContext = criteria.getEshopContext().getEshopBasketContext();
     if (!Objects.isNull(basketContext)) {
       // Build delivery type
       if (basketContext.hasDeliveryTypeCode()) {
         deliveryType = messageSource.getMessage(
-            "delivery." + basketContext.getDeliveryTypeDescCode().toLowerCase(), null, locale);
+                "delivery." + basketContext.getDeliveryTypeDescCode().toLowerCase(), null, locale);
       }
       if (basketContext.hasPaymentMethodCode()) {
         // Build payment type
         paymentType = messageSource.getMessage(
-            "payment." + basketContext.getPaymentMethodDescCode().toLowerCase(), null, locale);
+                "payment." + basketContext.getPaymentMethodDescCode().toLowerCase(), null, locale);
       }
       if (basketContext.hasBillingAddressId()) {
         receiverInfo = buildReceiverInfo(user.getCustomer(), basketContext.getBillingAddress());
       }
     }
+    user.setEmail("nghia2nguyen@bbv.vn");
+    if(!Objects.isNull(user.getEmail())) {
+      userEmail = user.getEmail();
+    }
+    parameters.put("userEmailRef", userEmail) ;
     parameters.put("deliveryType", deliveryType);
     parameters.put("paymentType", paymentType);
     parameters.put("receiverInfo", receiverInfo);
 
     final String vatValue = String.format("% ,.1f", user.getSettings().getVatRate())
-        .replace(SagConstants.DOT, SagConstants.COMMA_NO_SPACE);
+            .replace(SagConstants.DOT, SagConstants.COMMA_NO_SPACE);
     parameters.put("vat",
-        messageSource.getMessage("report.basket.label.vat", Arrays.array(vatValue.trim()), locale));
+            messageSource.getMessage("report.basket.label.vat", Arrays.array(vatValue.trim()), locale));
 
     final StringBuilder netPricePerUnitLabel = new StringBuilder();
     final StringBuilder totalPriceLabel = new StringBuilder();
 
     if (StringUtils.isNotBlank(translateCurrency)) {
       netPricePerUnitLabel
-          .append(messageSource.getMessage("report.basket.label.netto", null, locale))
-          .append(ExportConstants.NEW_LINE_HTML).append(messageSource
+              .append(messageSource.getMessage("report.basket.label.netto", null, locale))
+              .append(ExportConstants.NEW_LINE_HTML).append(messageSource
               .getMessage("report.basket.label.per_unit", Arrays.array(translateCurrency), locale));
       totalPriceLabel
-          .append(messageSource.getMessage("report.basket.label.total_price", null, locale))
-          .append(ExportConstants.NEW_LINE_HTML).append(translateCurrency);
+              .append(messageSource.getMessage("report.basket.label.total_price", null, locale))
+              .append(ExportConstants.NEW_LINE_HTML).append(translateCurrency);
     }
 
     parameters.put("netPricePerUnitLabel", netPricePerUnitLabel.toString());
     parameters.put("totalPriceLabel", totalPriceLabel.toString());
 
     final boolean currentStateNetPriceView =
-        BooleanUtils.isTrue(criteria.getCurentStateNetPriceView());
+            BooleanUtils.isTrue(criteria.getCurentStateNetPriceView());
 
     if (!Objects.isNull(shoppingCart)) {
       parameters.put("isCurrentStateNetPriceView", currentStateNetPriceView);
       parameters.put("totalExclVAT",
-          numberFormat.format(
-              BigDecimal.valueOf(currentStateNetPriceView ? shoppingCart.getNetTotalExclVat()
-                  : shoppingCart.getGrossTotalExclVat())));
+              numberFormat.format(
+                      BigDecimal.valueOf(currentStateNetPriceView ? shoppingCart.getNetTotalExclVat()
+                              : shoppingCart.getGrossTotalExclVat())));
       parameters.put("totalVAT",
-          numberFormat.format(
-              BigDecimal.valueOf(currentStateNetPriceView ? shoppingCart.getVatTotalWithNet()
-                  : shoppingCart.getVatTotal())));
+              numberFormat.format(
+                      BigDecimal.valueOf(currentStateNetPriceView ? shoppingCart.getVatTotalWithNet()
+                              : shoppingCart.getVatTotal())));
       parameters.put("totalInclVAT",
-          numberFormat.format(
-              BigDecimal.valueOf(currentStateNetPriceView ? shoppingCart.getNewTotalWithNetAndVat()
-                  : shoppingCart.getNewTotalWithVat())));
+              numberFormat.format(
+                      BigDecimal.valueOf(currentStateNetPriceView ? shoppingCart.getNewTotalWithNetAndVat()
+                              : shoppingCart.getNewTotalWithVat())));
     }
 
     parameters.put("basketItemReport", jasperReports[BASKET_ITEM_TEMPLATE_INDEX]);
@@ -272,9 +278,9 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
     }
 
     parameters.put(ExportConstants.UVPE,
-        messageSource.getMessage("report.basket.label.uvpe", null, locale));
+            messageSource.getMessage("report.basket.label.uvpe", null, locale));
     parameters.put(ExportConstants.OEP,
-        messageSource.getMessage("report.basket.label.oep", null, locale));
+            messageSource.getMessage("report.basket.label.oep", null, locale));
     parameters.put("isCh", isCh);
     parameters.put("isCzAx", isCzAx);
 
@@ -298,10 +304,10 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
     final Branch branch = branchOpt.get();
 
     final String senderInfoTxt =
-        new StringBuilder().append(branch.getAddressDesc()).append(ExportConstants.NEW_LINE_HTML)
-            .append(branch.getAddressStreet()).append(ExportConstants.NEW_LINE_HTML)
-            .append(branch.getZip()).append(StringUtils.SPACE).append(branch.getAddressCity())
-            .append(ExportConstants.NEW_LINE_HTML).append(branch.getAddressCountry()).toString();
+            new StringBuilder().append(branch.getAddressDesc()).append(ExportConstants.NEW_LINE_HTML)
+                    .append(branch.getAddressStreet()).append(ExportConstants.NEW_LINE_HTML)
+                    .append(branch.getZip()).append(StringUtils.SPACE).append(branch.getAddressCity())
+                    .append(ExportConstants.NEW_LINE_HTML).append(branch.getAddressCountry()).toString();
     senderInfo.put("senderInfo", senderInfoTxt);
 
     return senderInfo;
@@ -314,7 +320,7 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
     append(receiverInfo, customer.getName());
     append(receiverInfo, billingAddress.getStreet());
     final String city = StringUtils.isEmpty(billingAddress.getPostCode()) ? billingAddress.getCity()
-        : StringUtils.SPACE + billingAddress.getCity();
+            : StringUtils.SPACE + billingAddress.getCity();
     append(receiverInfo, billingAddress.getPostCode() + city);
     append(receiverInfo, billingAddress.getCountry());
 
@@ -326,13 +332,13 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
       return;
     }
     receiverInfo.append(StringUtils.defaultIfBlank(string, StringUtils.EMPTY))
-        .append(ExportConstants.NEW_LINE_HTML);
+            .append(ExportConstants.NEW_LINE_HTML);
   }
 
   private JRDataSource getCartItemListDataSource(final ShoppingCart shoppingCart,
-      final Locale locale, final NumberFormat numberFormat) {
+                                                 final Locale locale, final NumberFormat numberFormat) {
     final List<ReportGroupedBasketItemDto> reportBasketItems =
-        getBasketItemsParameter(shoppingCart, locale, numberFormat);
+            getBasketItemsParameter(shoppingCart, locale, numberFormat);
     if (CollectionUtils.isEmpty(reportBasketItems)) {
       return new JREmptyDataSource();
     }
@@ -340,7 +346,7 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
   }
 
   private List<ReportGroupedBasketItemDto> getBasketItemsParameter(final ShoppingCart shoppingCart,
-      final Locale locale, final NumberFormat numberFormat) {
+                                                                   final Locale locale, final NumberFormat numberFormat) {
     final List<ReportGroupedBasketItemDto> reportBasketItemList = new ArrayList<>();
 
     final List<ShoppingCartItem> cartItems = shoppingCart.getItems();
@@ -350,30 +356,30 @@ public class BasketExporter implements StreamedRtfExporter<BasketExportCriteria>
 
     // For articles in context
     final List<String> vehicles = cartItems.stream().map(ShoppingCartItem::getVehicleInfo)
-        .distinct().filter(item -> !item.isEmpty()).sorted().collect(Collectors.toList());
+            .distinct().filter(item -> !item.isEmpty()).sorted().collect(Collectors.toList());
 
     vehicles.stream().forEach(vehicleInfo -> {
       final List<ShoppingCartItem> cartItemsWithVeh = cartItems.stream()
-          .filter(item -> vehicleInfo.equals(item.getVehicleInfo())).collect(Collectors.toList());
+              .filter(item -> vehicleInfo.equals(item.getVehicleInfo())).collect(Collectors.toList());
       reportBasketItemList.add(new ReportGroupedBasketItemDto(vehicleInfo,
-          getAllItemsInCart(cartItemsWithVeh, locale), numberFormat));
+              getAllItemsInCart(cartItemsWithVeh, locale), numberFormat));
     });
 
     // For articles with non-vehicle
     final List<ShoppingCartItem> cartItemsWithoutVeh =
-        cartItems.stream().filter(item -> StringUtils.EMPTY.equals(item.getVehicleInfo()))
-            .collect(Collectors.toList());
+            cartItems.stream().filter(item -> StringUtils.EMPTY.equals(item.getVehicleInfo()))
+                    .collect(Collectors.toList());
     if (!cartItemsWithoutVeh.isEmpty()) {
       reportBasketItemList.add(new ReportGroupedBasketItemDto(
-          messageSource.getMessage("report.basket.label.empty_vehicle_title", null, locale),
-          getAllItemsInCart(cartItemsWithoutVeh, locale), numberFormat));
+              messageSource.getMessage("report.basket.label.empty_vehicle_title", null, locale),
+              getAllItemsInCart(cartItemsWithoutVeh, locale), numberFormat));
     }
 
     return reportBasketItemList;
   }
 
   private List<ShoppingCartItem> getAllItemsInCart(final List<ShoppingCartItem> cartItems,
-      final Locale locale) {
+                                                   final Locale locale) {
     final List<ShoppingCartItem> items = new ArrayList<>();
 
     cartItems.stream().forEach(item -> {
